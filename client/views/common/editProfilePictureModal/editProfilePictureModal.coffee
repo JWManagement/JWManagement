@@ -22,12 +22,10 @@ Template.editProfilePictureModal.events
 
 			Meteor.call 'removeProfilePicture', (e) ->
 				if e
-					swal.close()
 					handleError e
 				else
 					Pictures.insert picture, (e, file) ->
 						if e
-							swal.close()
 							handleError e
 						else
 							fileId = file._id

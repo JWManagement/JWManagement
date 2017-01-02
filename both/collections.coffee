@@ -13,8 +13,7 @@
 if Meteor.isDevelopment
 	@Files = new FS.Collection 'files',
 		stores: [
-			new FS.Store.FileSystem 'files',
-				path: '~/files'
+			new FS.Store.FileSystem 'files', path: '~/files'
 		]
 
 	@Pictures = new FS.Collection 'pictures',
@@ -26,27 +25,14 @@ if Meteor.isDevelopment
 		stores: [
 			new FS.Store.FileSystem 'thumbs',
 				path: '~/thumbs'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
-				transformWrite: resizeImageStream
-					width: 128
-					height: 128
+				transformWrite: resizeImageStream width: 128, height: 128
 		,
 			new FS.Store.FileSystem 'pictures',
 				path: '~/pictures'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
-				transformWrite: resizeImageStream
-					width: 256
-					height: 256
+				transformWrite: resizeImageStream width: 256, height: 256
 		,
 			new FS.Store.FileSystem 'images',
 				path: '~/images'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
 		]
 else
 	@Files = new FS.Collection 'files',
@@ -71,12 +57,7 @@ else
 				folder: 'thumbs'
 				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
 				secretAccessKey: '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'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
-				transformWrite: resizeImageStream
-					width: 128
-					height: 128
+				transformWrite: resizeImageStream width: 128, height: 128
 		,
 			new FS.Store.S3 'pictures',
 				region: 'eu-central-1'
@@ -84,12 +65,7 @@ else
 				folder: 'pictures'
 				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
 				secretAccessKey: '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'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
-				transformWrite: resizeImageStream
-					width: 256
-					height: 256
+				transformWrite: resizeImageStream width: 256, height: 256
 		,
 			new FS.Store.S3 'images',
 				region: 'eu-central-1'
@@ -97,7 +73,4 @@ else
 				folder: 'images'
 				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
 				secretAccessKey: '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'
-				beforeWrite: (fileObject) ->
-					extensions: 'png'
-					type: 'image/png'
 		]
