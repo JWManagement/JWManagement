@@ -131,11 +131,12 @@ Template.wiki.events
 			doConfirm: (inputValue) ->
 				Meteor.call 'changeQuestion', projectId, tabId, faqId, inputValue
 
-	'change .uploadFile': (e) ->
-		doc = new FS.File e.target.files[0]
-		doc.projectId = FlowRouter.getParam('projectId')
+	'change #uploadFile': (e) ->
+		if e.target.files.length > 0
+			doc = new FS.File e.target.files[0]
+			doc.projectId = FlowRouter.getParam('projectId')
 
-		Files.insert doc, handleError
+			Files.insert doc, handleError
 
 	'click .removeFile': (e) ->
 		projectId = FlowRouter.getParam('projectId')

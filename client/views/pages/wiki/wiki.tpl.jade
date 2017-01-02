@@ -58,9 +58,10 @@
 							.ibox-content
 								h1.m-b-md.inline {{_ 'wiki.files'}}
 								if isProjectAdmin
-									label.btn.btn-default.btn-lg.btn-circle.pull-right
-										input.uploadFile(type="file")
+									label.btn.btn-default.btn-lg.btn-circle.pull-right(for="uploadFile")
 										i.fa.fa-upload
+									input#uploadFile.hidden(type="file")
+										
 								if files.count
 									each files
 										.file-box
