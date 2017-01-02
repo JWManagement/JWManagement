@@ -195,4 +195,5 @@ Template.editShiftModal.events
 				wrs -> FlowRouter.setQueryParams editShift: shiftId
 
 	'click #switch': ->
-		wrs -> FlowRouter.setQueryParams showShift: FlowRouter.getQueryParam 'editShift'
+		shiftId = FlowRouter.getQueryParam 'editShift'
+		wrs -> FlowRouter.setQueryParams showShift: shiftId
