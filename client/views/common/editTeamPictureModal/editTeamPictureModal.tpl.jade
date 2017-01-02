@@ -14,10 +14,12 @@
 						p {{_ 'modal.editTeamPicture.hints'}}
 					else
 						p {{_ 'modal.editTeamPicture.noPictureUploaded'}}
-					label.btn.btn-primary.btn-block
-						input#edit.hidden(type='file' accept='image/jpeg,image/png')
+						
+					label.btn.btn-primary.btn-block.m-b-sm(for="edit")
 						i.fa.fa-upload
 						| {{_ 'modal.editTeamPicture.upload'}}
+					input#edit.hidden(type='file' accept='image/jpeg,image/png')
+					
 					button#delete.btn.btn-danger.btn-block(class='{{pictureClass}}')
 						i.fa.fa-trash
 						| {{_ 'modal.editTeamPicture.delete'}}
