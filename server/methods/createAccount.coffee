@@ -18,7 +18,7 @@ Meteor.methods
 
 				project = Projects.findOne projectId, fields: 'tags._id': 1
 				for tag in project.tags
-					Meteor.call 'changeTagRole', tagId, userId, 'participant'
+					Meteor.call 'changeTagRole', tag._id, userId, 'participant'
 
 				Meteor.users.update userId, $set: state: 'created'
 
@@ -38,11 +38,11 @@ Meteor.methods
 		for existingUser in existingUsers
 			user = Meteor.users.find({'profile.email': existingUser.email}, {fields: _id: 1}).fetch()[0]
 
-			if not Roles.userIsInRole user._id, ['admin', 'shiftAdmin', 'depotAdmin', 'member'], projectId
+			if !Roles.userIsInRole user._id, Permissions.member, projectId
 				Meteor.call 'changeProjectRole', projectId, user._id, 'member'
 
 				project = Projects.findOne projectId, fields: 'tags._id': 1
 				for tag in project.tags
-					Meteor.call 'changeTagRole', tagId, user._id, 'participant'
+					Meteor.call 'changeTagRole', tag._id, user._id, 'participant'
 
 				Meteor.call 'sendJoinProject', projectId, user._id
