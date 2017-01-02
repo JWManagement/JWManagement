@@ -1,0 +1,27 @@
+#editMeetingPictureModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-camera.modal-icon
+				h2.m-b-none {{_ 'modal.editMeetingPicture.title'}}
+			.modal-body
+				if isProjectShiftAdmin
+					with picture
+						p {{_ 'modal.editMeetingPicture.currentPicture'}}
+						unless url
+							.sk-spinner.sk-spinner-pulse
+						img.m-b-sm(src='{{url store="images"}}')
+						p {{_ 'modal.editMeetingPicture.hints'}}
+					else
+						p {{_ 'modal.editMeetingPicture.noPictureUploaded'}}
+					label.btn.btn-primary.btn-block
+						input#edit.hidden(type='file' accept='image/jpeg,image/png')
+						i.fa.fa-upload
+						| {{_ 'modal.editMeetingPicture.upload'}}
+					button#delete.btn.btn-danger.btn-block(class='{{pictureClass}}')
+						i.fa.fa-trash
+						| {{_ 'modal.editMeetingPicture.delete'}}
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}

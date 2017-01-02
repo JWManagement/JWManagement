@@ -1,0 +1,26 @@
+.users-wrapper {
+	.ibox-content ul.dropdown-menu li a.checkbox {
+		padding: 7px 10px;
+
+		label input {
+			opacity: 1;
+			display: block;
+		}
+
+		label::before {
+			display: none;
+		}
+	}
+	#uploadUserFileModal {
+		.modal-body {
+			max-height: 500px;
+			overflow: auto;
+		}
+	}
+	#inviteUserModal {
+		.modal-body {
+			max-height: 500px;
+			overflow: auto;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+with user
+	if isProjectShiftAdmin
+		if thisTeamleader
+			if teamleader
+				b
+					u {{name}}
+			else if substituteTeamleader
+				i
+					u {{name}}
+			else
+				u {{name}}
+		else if teamleader
+			b {{name}}
+		else if substituteTeamleader
+			i {{name}}
+		else
+			| {{name}}
+	else if thisTeamleader
+		u {{name}}
+	else
+		| {{name}}

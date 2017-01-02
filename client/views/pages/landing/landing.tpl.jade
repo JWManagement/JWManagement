@@ -1,0 +1,130 @@
+.welcome-wrapper
+	nav.navbar.navbar-default.navbar-fixed-top.my-nav(role='navigation')
+		.container
+			.navbar-header
+				button.navbar-toggle(data-toggle='collapse' data-target='.navbar-collapse')
+					span.icon.icon-bar
+					span.icon.icon-bar
+					span.icon.icon-bar
+				a.navbar-brand(href="https://www.jwmanagement.org") JW Management
+			.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right.text-uppercase
+					li
+						a(href='#home') {{_ 'welcome.links.home'}}
+					li
+						a(href='#feature1') {{_ 'welcome.links.features'}}
+					li
+						a(href='#contact') {{_ 'welcome.links.contact'}}
+					li
+						+languageSwitch
+					li.toApp
+						if currentUser
+							a#toDashboard(href) {{_ 'welcome.links.dashboard'}}
+						else
+							a#toLogin(href) {{_ 'welcome.links.login'}}
+	section#home
+		.overlay.no-dim
+			.container
+				.row
+					.col-md-1
+					.col-md-10.wow.fadeIn
+						h1.text-upper {{_ 'welcome.header.title'}}
+						p.tm-white  {{_ 'welcome.header.description'}}
+						img.img-responsive(src='/landing/shifts.png' alt='home img')
+					.col-md-1
+	section#divider
+		.container
+			.row
+				.col-md-3.wow.fadeInUp
+					i.fa.fa-tag
+					h3.text-uppercase {{_ 'welcome.divider.first.title'}}
+					p {{_ 'welcome.divider.first.description'}}
+				.col-md-3.wow.fadeInUp
+					i.fa.fa-users
+					h3.text-uppercase {{_ 'welcome.divider.second.title'}}
+					p {{_ 'welcome.divider.second.description'}}
+				.col-md-3.wow.fadeInUp
+					i.fa.fa-cubes
+					h3.text-uppercase {{_ 'welcome.divider.third.title'}}
+					p {{_ 'welcome.divider.third.description'}}
+				.col-md-3.wow.fadeInUp
+					i.fa.fa-envelope
+					h3.text-uppercase {{_ 'welcome.divider.fourth.title'}}
+					p {{_ 'welcome.divider.fourth.description'}}
+	section#feature1.feature.feature-inverted
+		.container
+			.row
+				.col-sm-6.wow.fadeInRight
+					img.img-responsive(src='/landing/multifunctional.png' alt='multifunctional img' style="max-height:300px;")
+				.col-sm-6.wow.fadeInLeft
+					h2.text-uppercase {{_ 'welcome.feature1.title'}}
+					| {{{_ 'welcome.feature1.description'}}}
+	section#feature2.feature
+		.container
+			.row
+				.col-sm-6.col-sm-push-6.wow.fadeInLeft
+					img.img-responsive(src='/landing/light-bulb.png' alt='light bulb img' style="max-height:300px;")
+				.col-sm-6.col-sm-pull-6.wow.fadeInRight
+					h2.text-uppercase.m-b {{_ 'welcome.feature2.title'}}
+					.row
+						.col-xs-2
+							span 01.01.2017
+						.col-xs-10
+							ul
+								li Moved to GitHub
+								li Added English Translation
+								li Groups are now Tags
+								li Shifts now have Teams
+								li Added Meeting Points
+								li Changed frontend framework for better compatibility
+								li Information Center can now have multiple Tabs
+								li Userlist is now searchable and filterable
+								li Simplified User Creation & Added CSV-Upload
+								li Added Notes-Section for Admins
+								li Optimized Mail Templates
+	section#feature3.feature.feature-inverted
+		.container
+			.row
+				.col-sm-6.wow.fadeInLeft
+					img.img-responsive(src='/landing/product.png' alt='open-source img' style="max-height:300px;")
+				.col-sm-6.wow.fadeInRight
+					h2.text-uppercase {{_ 'welcome.feature3.title'}}
+					| {{{_ 'welcome.feature3.description'}}}
+					p
+						i.fa.fa-credit-card-alt
+						| {{_ 'welcome.feature3.free'}}
+					p
+						i.fa.fa-code
+						a(href="https://github.com/JWDeveloper/JWManagement")
+							| {{_ 'welcome.feature3.repo'}}
+	Changelog
+	section#contact
+		.overlay
+			.container
+				.row
+					.col-md-6.wow.fadeInUp
+						h2.text-uppercase {{_ 'welcome.contact.title'}}
+						| {{{_ 'welcome.contact.description'}}}
+						address
+							p
+								i.fa.fa-envelope-o
+								a.link-inverted(href='mailto:support@jwmanagement.org')
+									| support@jwmanagement.org
+					.col-md-6.wow.fadeInUp
+						.contact-form
+							form#contactForm
+								.col-md-6
+									input.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
+								.col-md-6
+									input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
+								.col-md-12
+									input.form-control(type='text' placeholder='{{_ "welcome.contact.subject"}}*' required)
+								.col-md-12
+									textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+								.col-md-8
+									input.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
+								.col-md-12
+									p * {{_ 'welcome.contact.required'}}
+
+	script(src="/lib/wow.min.js")
+	script(src="/lib/singlePageNav.min.js")

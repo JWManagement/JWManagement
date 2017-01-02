@@ -1,0 +1,208 @@
+modal:
+    close: Close
+    addParticipant:
+        title: Add participant
+        noUsers: No available users found
+        description: Please choose the publisher you want to add to this shift.
+        submit: Add
+        alreadyRequested: This user has already requested participation
+        alreadyParticipating: This user is already participating
+        available_users: Available Publisher
+        all_users: Other Publisher
+        select: Select Publisher
+    addUser:
+        title: Create a new user
+        action: Create user
+        upload: Upload File
+        helpText: The username should be short and memorable. Combinations of the user's first- and lastnames are known to suit well.<br>Example: "JohnD" or "JDoe"
+        invite: Invite %s (%s)
+        existingAccounts: Existing Accounts
+    addWeek:
+        title: Create new week
+        action: Create week
+        text:
+            top: Choose a week, that the template week will get applied to:
+            bottom: Choose the template week:
+    cancelTeam:
+        title: Cancel team
+        text: Describe, why this team has to be cancelled. All participants will get this message via the cancellation mail.
+        action: Cancel team
+    editPermissions:
+        title: Manage %s's permissions
+        projectPermissions: Project permissions
+        projectRole: Project role
+        tagPermissions: Tag roles
+        helpText:
+            admin: The project manager role is the highest authorization level. A project manager is allowed to control everything. For every project there has to be at least one project manager.
+            shiftAdmin: The shift manager has the permissions of a participant but can also create, change, delete and schedule shifts.
+            storeAdmin: The store manager has the permissions of a participant but can also view the shift reports and edit the store.
+            member: The member is the most basic role. He is allowed to view the Information Center.
+            teamleader: The teamleader once assigned by a project manager to a certain tag is then in charge of the shift team report for said tag.
+            substituteTeamleader: A substitute Teamleader has the same permissions as a normal teamleader. But if the system shall schedule automatically, it will always prefer the request of a normal teamleader, if existing.
+            participant: The participant can see and request shifts of assigned tags.
+            nothing: With "None" the user cannot see or request shifts of this tag. Neither can he be scheduled into a shift.
+    editProfilePicture:
+        title: Change profile picture
+        text: The picture should be at least 256x256 pixels. Accepted formats are JPEG and PNG.
+        upload: Upload picture
+        remove: Remove picture
+    editShift:
+        title: Edit shift information
+        mainData: Main Details
+        tag: Tag
+        team: Team
+        teams: Teams assigned to this shift
+        helpText:
+            tag: Set this shift tag. All users with permissions on this tag can view the shift.
+            scheduling: With 'accept immediately' applications will be accepted automaticly, when the minimum participant limit for the next team is reached.
+        teamMin: Minimum participants:
+        teamMax: Maximum participants:
+        teamStart: Start:
+        teamEnd: End:
+        noMeeting: No Meeting
+        action: Action:
+        delete: Delete
+        switch: Schedule shift
+    editTeamPicture:
+        title: Change team picture
+        currentPicture: Current Picture:
+        hints: This picture will probably be displayed larger for the publisher.
+        noPictureUploaded: You didn't upload any picture yet
+        upload: Upload
+        delete: Delete
+    editMeetingPicture:
+        title: Change meeting point picture
+        currentPicture: Current Picture:
+        hints: This picture will probably be displayed larger for the publisher.
+        noPictureUploaded: You didn't upload any picture yet
+        upload: Upload
+        delete: Delete
+    inviteUser:
+        title: Invite new Publishers
+        key: <span class="text-warning">Orange name</span> means that the user is already invited.
+        selectAll: Select All
+        noUsers: No new Publishers found
+        invite: Invite
+    position:
+        title: Mark position with left mouse click
+    shift:
+        collapseTeam: Collapse team information and meeting points
+        expandTeam: Expand team information and meeting points
+        noParticipants: No participants
+        requestTeam: Request participation
+        requestTeamAgain: Request participation again
+        requests: Requests
+        cancelTeam: Cancel team
+        cancelRequest: Cancel request
+        cancelParticipation: Cancel participation
+        addParticipant: Add participant
+        unknownAge: Unknown age
+        closedTeam: This team is closed. You can't request participation.
+        maximumReached: Maximum limit for team participants was already reached
+        noPermission: You don't have the permission to schedule users
+        noTeamleader: This user doesn't have the permission to be a teamleader
+        alreadyTeamleader: This user is already teamleader
+        openTeam: Open team
+        closeTeam: Close team
+        switch: Edit shift
+        existingTeamleaders: Teamleader existing
+        noExistingTeamleader: Teamleader missing
+        notTeamleader: No teamleader
+        selected: Selected:
+        of: of
+        acceptSelected: Accept selected
+        declineSelected: Decline selected
+        report: Report
+        allocations: Zuteilungen
+        thisWeek: this week
+        lastDays: last %s days
+        noMeeting: No Meeting Point
+    shiftReport:
+        title: Report
+        teamleader: Teamleader
+        substituteTeamleader: Substitute Teamleader
+        publications: Publications
+        occurrences: Occurrences
+        store: Store
+        experiences: Experiences
+        present: Present
+        sick: Sick
+        missing: Missing
+        name: Name
+        language: Language
+        count: Count
+        action: Action
+        noPublications: No Publications here
+        select_publication: Select a Publication
+        selectPublicationFirst: Please select a Publication first
+        texts: Bible Texts
+        speaks: Conversations
+        videos: Shown Videos
+        returnVisits: Return Visits
+        bibleStudies: Bible Studies
+        time: Hours of Service
+        trolleysFilled: Trolleys were filled
+        neatnessLast: Trolley condition after last Shift
+        bad: Bad
+        normal: Normal
+        good: Good
+        yes: Yes
+        no: No
+        expRoute: Route
+        expGood: Nice Experiences
+        expProblems: Problems / Difficulties
+        date: Date
+        toShift: To the shift
+    shift:
+        collapseTeam: Collapse Route and Meeting points
+        expandTeam: Expand Route and Meeting point
+        noParticipants: No participants
+        requestTeam: Request participation
+        requestTeamAgain: Request participation again
+        requests: Requests
+        cancelRequest: Cancel request
+        cancelParticipation: Cancel participation
+        addParticipant: Add participant
+        unknownAge: Unknown age
+        closedTeam: This team is closed. You can't request participation.
+        maximumReached: Maximum limit for team participants was already reached
+        noPermission: You don't have the permission to schedule users
+        noTeamleader: This user doesn't have the permission to be a teamleader
+        alreadyTeamleader: This user is already teamleader
+        openTeam: Open team
+        closeTeam: Close team
+        switch: Edit shift
+        existingTeamleaders: Teamleader existing
+        noExistingTeamleader: Teamleader missing
+    position:
+        title: Mark position with left mouse click
+    route:
+        title: Create/edit route
+        routeMarkers: Route marker
+        addRouteMarkers: Click on the map to add new route marker
+    addParticipant:
+        title: Add participant
+        noUsers: No available users found
+        description: Please choose the publisher you want to add to this shift.
+        submit: Add
+        alreadyRequested: This user has already requested participation
+        alreadyParticipating: This user is already participating
+        available_users: Available Publisher
+        all_users: Other Publisher
+        select: Select Publisher
+    inviteUser:
+        title: Invite new Publishers
+        key: <span class="text-warning">Orange name</span> means user is already invited.
+        selectAll: Select All
+        noUsers: No new Publishers found
+        invite: Invite
+    uploadUserFile:
+        title: User-File upload
+        helpText: Order of personal data (* fields are required): <br> Email*, Firstname*, Lastname*, Gender(m or w)*, Phone Number, Birthday(German-, English- or ISO 8601-Format), Privilege of Service('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry Privilege('publisher', 'servant' or 'elder'), Congregation
+        uploadFile: Upload CSV-File
+        stats: <b>%s</b> new and <b>%s</b> existing users found
+        new: New Publishers
+        existing: Publishers with JWManagement Account
+        name: Name
+        email: Email
+        add: Add Users

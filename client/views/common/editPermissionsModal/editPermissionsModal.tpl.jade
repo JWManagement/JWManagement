@@ -1,0 +1,77 @@
+#editPermissionsModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-md.animated.fadeInUp
+		.modal-content
+			if isProjectAdmin
+				with getData
+					.modal-header
+						i.fa.fa-lock.modal-icon
+						h2.m-b-none {{_ 'modal.editPermissions.title' userName}}
+					.modal-body
+						form.form-horizontal
+							.form-group-header
+								h4 {{_ 'modal.editPermissions.projectPermissions'}}
+							.hr-line-dashed
+							.form-group
+								label.col-sm-4.control-label {{_ 'modal.editPermissions.projectRole'}}:
+								.col-sm-6
+									.dropdown
+										button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+											span.m-r {{getPermission userId _id}}
+											span.caret.pull-right
+										ul.dropdown-menu
+											li.header.p-xs {{_ 'modal.editPermissions.helpText.admin'}}
+											li
+												a.changePermission(href permission='admin') {{_ 'role.admin'}}
+											li.divider
+											li.header.p-xs {{_ 'modal.editPermissions.helpText.shiftAdmin'}}
+											li
+												a.changePermission(href permission='shiftAdmin') {{_ 'role.shiftAdmin'}}
+											li.divider
+											li.header.p-xs {{_ 'modal.editPermissions.helpText.storeAdmin'}}
+											li
+												a.changePermission(href permission='storeAdmin') {{_ 'role.storeAdmin'}}
+											li.divider
+											li.header.p-xs {{_ 'modal.editPermissions.helpText.member'}}
+											li
+												a.changePermission(href permission='member') {{_ 'role.member'}}
+							.hr-line-dashed
+							.form-group-header
+								h4 {{_ 'modal.editPermissions.tagPermissions'}}
+							.hr-line-dashed
+							each tag in tags
+								.form-group
+									label.col-sm-4.control-label {{tag.name}}-{{_ 'role.role'}}:
+									.col-sm-6
+										.dropdown(tagId='{{tag._id}}')
+											button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+												span.m-r {{getPermission userId tag._id}}
+												span.caret.pull-right
+											ul.dropdown-menu
+												li.header.p-xs {{_ 'modal.editPermissions.helpText.teamleader'}}
+												li
+													a.changeTagPermission(href permission='teamleader') {{_ 'role.teamleader'}}
+												li.divider
+												li.header.p-xs {{_ 'modal.editPermissions.helpText.substituteTeamleader'}}
+												li
+													a.changeTagPermission(href permission='substituteTeamleader') {{_ 'role.substituteTeamleader'}}
+												li.divider
+												li.header.p-xs {{_ 'modal.editPermissions.helpText.participant'}}
+												li
+													a.changeTagPermission(href permission='participant') {{_ 'role.participant'}}
+												li.divider
+												li.header.p-xs {{_ 'modal.editPermissions.helpText.nothing'}}
+												li
+													a.changeTagPermission(href permission='none') {{_ 'role.nothing'}}
+					.modal-footer
+						button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}
+				else
+					.modal-header
+						i.fa.fa-lock.modal-icon
+						h2.m-b-none {{_ 'modal.editPermissions.title' '...'}}
+					.modal-body
+						.sk-spinner.sk-spinner-pulse
+					.modal-footer
+						button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}
+			else
+				.modal-header
+					h2 {{_ 'role.noPermission'}}

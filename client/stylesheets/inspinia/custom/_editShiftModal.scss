@@ -1,0 +1,39 @@
+#editShiftModal {
+	.modal-body {
+		.dropdown-menu {
+			left  : 0;
+			right : 0;
+			margin: 1px;
+		}
+
+		.form-group-header {
+			text-align: center;
+
+			h4 {
+				color      : $dark-gray;
+				font-size  : 13px;
+				font-weight: 300;
+			}
+		}
+
+		div.hr-line-dashed {
+			border-top-color: #ccc;
+			background-color: transparent;
+
+			&:last-of-type {
+				display: none;
+			}
+		}
+
+		.teams-wrapper .team {
+			border-left: 4px solid #ccc;
+			@media(max-width: 768px) {
+				padding-left: 15px;
+			}
+		}
+	}
+
+	.modal-footer {
+		text-align: left;
+	}
+}

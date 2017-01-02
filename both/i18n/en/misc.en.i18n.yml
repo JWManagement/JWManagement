@@ -1,0 +1,59 @@
+input:
+    username: Username
+    firstname: Firstname
+    lastname: Surname
+    email: Email address
+    telefon: Phone
+    congregation: Congregation
+    languages: Languages
+    gender: Gender
+    privilegeOfService: Privilege of Service
+    privilegeOfMinistry: Congregation Assignment
+    password: Password
+    passwordRepeat: Repeat password
+    newPassword: New password
+    newPasswordRepeat: Repeat new password
+role:
+    role: Role
+    admin: Project manager
+    shiftAdmin: Shift manager
+    storeAdmin: Store manager
+    member: Member
+    teamleader: Teamleader
+    substituteTeamleader: Substitute Teamleader
+    participant: Participant
+    nothing: None
+    noPermission: No permission
+permissions:
+    notAdmin: This user is no project manager
+    notShiftAdmin: This user is no shift manager
+    notStoreAdmin: This user is no store manager
+    notProjectParticipant: This user is not participating in the given project
+    notTeamleader: This user is no teamleader
+    notTagParticipant: This user is not participating in the given tag
+time:
+    start: Start
+    end: End
+    suffix: hours
+    years: Years
+    to: to
+scheduling:
+    name: Scheduling
+    direct: Accept immediately
+    manual: Accept manually
+password:
+    tooShort: Password has to be at least 8 characters long
+    notMatching: The passwords do not match!
+weekdays:
+    _mo: Monday
+    _tu: Tuesday
+    _we: Wednesday
+    _th: Thursday
+    _fr: Friday
+    _sa: Saturday
+    _su: Sunday
+intervals:
+    m: Manually
+    every: Every Week
+    even: Every 2. week (even)
+    odd: Every other week (odd)

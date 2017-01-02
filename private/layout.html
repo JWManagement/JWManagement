@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>
+			{{#if project}}
+				{{project}}
+			{{else}}
+				JWManagement
+			{{/if}}
+		</title>
+	</head>
+	<body>
+		<table class="body-wrap">
+			<tr>
+				<td></td>
+				<td class="container" width="600">
+					<div class="content">
+						{{{body}}}
+						<div class="footer">
+							<table width="100%">
+								<tr>
+									<td class="aligncenter content-block">
+										{{global.footer}}
+										<br />
+										<a href="{{rootUrl}}">{{global.link}}</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

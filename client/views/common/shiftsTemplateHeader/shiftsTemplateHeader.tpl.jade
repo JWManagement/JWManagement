@@ -1,0 +1,40 @@
+if isProjectShiftAdmin
+	with getTemplate
+		.col-xs-12.col-md-4.col-xs
+			h2 {{_ 'shifts.template'}} "{{name}}"
+		.col-xs-12.col-md-8.col-xs.template-settings-wrapper
+			//if notManual
+				.dropdown.m-t.m-r-xs
+					button.btn.btn-white.dropdown-toggle(data-toggle='dropdown')
+						| {{_ 'shifts.start'}}: {{format startWeek 'YYYY-WW' 'GGGG [KW] WW'}}
+						span.caret.pull-right
+					ul.dropdown-menu.dropdown-menu-right
+						.p-xs {{_ 'shifts.helpText.start'}}
+						hr.m-n
+						#datepickerStart.datepicker {{initDatepickerStart}}
+				.dropdown.m-t.m-r-xs
+					button.btn.btn-white.dropdown-toggle(data-toggle='dropdown')
+						| {{_ 'shifts.end'}}: {{format endWeek 'YYYY-WW' 'GGGG [KW] WW'}}
+						span.caret.pull-right
+					ul.dropdown-menu.dropdown-menu-right
+						.p-xs {{_ 'shifts.helpText.end'}}
+						hr.m-n
+						#datepickerEnd.datepicker {{initDatepickerEnd}}
+				.dropdown.m-t.m-r-xs
+					button.btn.btn-white.dropdown-toggle(data-toggle='dropdown')
+						| {{_ 'shifts.visibility'}} {{visiblePeriod}} {{_ 'shifts.weeks'}}
+						span.caret.pull-right
+					ul.dropdown-menu.dropdown-menu-right
+						li.header.p-xs {{_ 'shifts.helpText.visibility'}}
+						li.divider
+						each getPossibleWeeks
+							li
+								a.changeVisiblePeriod(href period='{{this}}') {{this}} {{_ 'shifts.weeks'}}
+			.dropdown.m-t.m-r-xs
+				button.btn.btn-white.dropdown-toggle(data-toggle='dropdown')
+					| {{_ 'shifts.automation'}}: Coming soon
+					//span.caret.pull-right
+					//ul.dropdown-menu.dropdown-menu-right
+						each getIntervals
+							li
+								a.changeInterval(href intervalId='{{_id}}') {{description}}

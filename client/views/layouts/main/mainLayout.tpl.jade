@@ -1,0 +1,10 @@
+#wrapper
+
+	#page-wrapper(class="{{currentRouteName}}-wrapper")
+
+		+navigation
+
+		.template-content
+			+Template.dynamic(template=content)
+
+		+footer

@@ -1,0 +1,25 @@
+if queryParam 'addNote'
+	+addNoteModal
+.row.page-heading.white-bg.border-bottom
+	.col-md-9
+		span {{_ 'notes.description'}}
+	.col-md-3.center-align
+		#createNote.btn.btn-white
+			i.fa.fa-plus
+			| {{_ 'notes.createNote'}}
+.wrapper-content.animated.fadeInUp
+	if isReady
+		with getProject
+			.row
+				.col-xs-12
+					ul.notes
+						each notes
+							li
+								div
+									small {{format date 'YYYYDDDD' 'DD.MM.YYYY'}}, {{format time 'Hmm' 'H:mm'}}
+									h4 {{title}}
+									p {{{win2html text}}}
+									a.deleteNote(href)
+										i.fa.fa-trash-o
+	else
+		.sk-spinner.sk-spinner-pulse

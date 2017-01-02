@@ -1,0 +1,130 @@
+#editShiftModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	with getShift
+		.modal-dialog.modal-md.animated.fadeInUp
+			.modal-content
+				.modal-header
+					i.fa.fa-calendar-check-o.modal-icon
+					h2.m-b-none {{_ 'modal.editShift.title'}}
+					if date
+						h2.m-b-none {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}, {{formatTimeComparison start end}}
+					else
+						h2.m-b-none {{formatTimeComparison start end}}
+				.modal-body
+					if isProjectShiftAdmin
+						form.form-horizontal
+							.form-group-header
+								h4 {{_ 'modal.editShift.mainData'}}
+							.hr-line-dashed
+							.form-group
+								label.col-sm-4.control-label {{_ 'time.start'}}:
+								.col-sm-6
+									.input-group
+										input#start.form-control(type='text' placeholder='00:00' value='{{formatTime start}}')
+										.input-group-addon {{_ 'time.suffix'}}
+							.form-group
+								label.col-sm-4.control-label {{_ 'time.end'}}:
+								.col-sm-6
+									.input-group
+										input#end.form-control(type='text' placeholder='00:00' value='{{formatTime end}}')
+										.input-group-addon {{_ 'time.suffix'}}
+							.form-group
+								label.col-sm-4.control-label {{_ 'modal.editShift.tag'}}:
+								.col-sm-6
+									.dropdown
+										button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+											span.m-r {{tag}}
+											span.caret.pull-right
+										ul.dropdown-menu
+											li.header.p-xs {{_ 'modal.editShift.helpText.tag'}}
+											li.divider
+											each getTags
+												li
+													a.changeTag(href) {{name}}
+							.form-group
+								label.col-sm-4.control-label {{_ 'scheduling.name'}}:
+								.col-sm-6
+									.dropdown
+										button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+											span.m-r {{getScheduling}}
+											span.caret.pull-right
+										ul.dropdown-menu
+											li.header.p-xs {{_ 'modal.editShift.helpText.scheduling'}}
+											li.divider
+											li
+												a.changeScheduling(href scheduling='direct') {{_ 'scheduling.direct'}}
+											li
+												a.changeScheduling(href scheduling='manual') {{_ 'scheduling.manual'}}
+							.hr-line-dashed
+							.teams-wrapper
+								.form-group-header
+									h4 {{_ 'modal.editShift.teams'}}
+								.hr-line-dashed
+								each teams
+									.team(teamId='{{_id}}')
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.team'}}:
+											.col-sm-6
+												.dropdown
+													button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+														span.m-r {{name}}
+														span.caret.pull-right
+													ul.dropdown-menu
+														each possibleTeams
+															li
+																a.changeTeam(href) {{name}}
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.teamMin'}}
+											.col-sm-2
+												.decreaseCount.btn.btn-white.btn-block.fa.fa-minus(type="min" size="{{min}}")
+											.col-sm-2.center-align {{min}}
+											.col-sm-2
+												.increaseCount.btn.btn-white.btn-block.fa.fa-plus(type="min" size="{{min}}")
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.teamMax'}}
+											.col-sm-2
+												.decreaseCount.btn.btn-white.btn-block.fa.fa-minus(type="max" size="{{max}}")
+											.col-sm-2.center-align {{max}}
+											.col-sm-2
+												.increaseCount.btn.btn-white.btn-block.fa.fa-plus(type="max" size="{{max}}")
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.teamStart'}}
+											.col-sm-6
+												.dropdown
+													button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+														span.m-r {{getMeetingStart}}
+														span.caret.pull-right
+													ul.dropdown-menu
+														each possibleMeetings
+															li
+																a.changeMeetingStart(href) {{name}}
+														li
+															a.removeMeetingStart(href) {{_ 'modal.editShift.noMeeting'}}
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.teamEnd'}}
+											.col-sm-6
+												.dropdown
+													button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+														span.m-r {{getMeetingEnd}}
+														span.caret.pull-right
+													ul.dropdown-menu
+														each possibleMeetings
+															li
+																a.changeMeetingEnd(href) {{name}}
+														li
+															a.removeMeetingEnd(href) {{_ 'modal.editShift.noMeeting'}}
+										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.action'}}
+											.col-sm-6
+												button#removeTeam.btn.btn-danger.btn-circle
+													i.fa.fa-trash.fa-fw
+									.hr-line-dashed
+								.center-align.m-t
+									button#addTeam.btn.btn-primary.btn-circle
+										i.fa.fa-plus.fa-fw
+					else
+						h2.center-align {{_ 'role.noPermission'}}
+				.modal-footer
+					if isProjectShiftAdmin
+						button#removeShift.btn.btn-danger {{_ 'modal.editShift.delete'}}
+						button#switch.btn.btn-white(data-dismiss='modal') {{_ 'modal.editShift.switch'}}
+					button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}

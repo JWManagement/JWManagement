@@ -1,0 +1,20 @@
+.middle-box.text-center.loginscreen.animated.fadeInDown
+	h1.logo-name JW
+	h3.m-t {{_ "login.welcome"}}
+	p {{_ "login.text"}}
+	form.m-t
+		if error
+			.alert.alert-danger {{error}}
+		.form-group
+			input.form-control#username(type='text' placeholder='{{_ "input.username"}}' tabindex='1' required)
+		.form-group
+			input.form-control#password(type='password' placeholder='{{_ "input.password"}}' tabindex='2' required)
+		button.ladda-button.btn.btn-primary.full-width.m-b#submit(data-style='slide-down' type='submit') {{_ "login.name"}}
+		a(href="{{pathFor 'forgotPassword' language=langTag}}")
+			small {{_ "login.forgot"}}
+		p.text-muted.text-center.m-t
+			small {{{_ "login.existing"}}}
+		.dropdown
+			+languageSwitch
+	p.m-t-lg.text-center
+		a(href="{{pathFor 'welcome' language=langTag}}") {{_ "resetPassword.back"}}

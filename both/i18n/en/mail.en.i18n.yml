@@ -1,0 +1,71 @@
+mail:
+    footer: This is an automated mail. We don't expect an answer to it.
+    link: Open JWManagement
+    accountCreated:
+        subject: JWManagement Account Created!
+        headline: Welcome!
+        hello: Hello
+        text1: We would like to tell you that we have created an account for you in JWManagement. You can set your personal username and password by clicking on the button below.
+        text2: In case of problems please feel free to contact us.<br>We wish you much joy using JWManagement.<br>Your brothers from JWManagement
+        button: Let's Go!
+    teamCancellation:
+        subject: Team canceled
+        headline: Team has been canceled.
+        hello: Hello
+        text: Unfortunately we had to tell you that your team assignment on <b>__date__</b> at <b>__time__</b> o'clock were <u>canceled</u>.
+        missingParticipant: A participant is missing. If there are enough participants the team can take place again.
+    confirmation:
+        subject: New Request Acception
+        headline: Your Request was accepted!
+        hello: Hello
+        text1: Your request for the following shift was accepted:
+        datetime: __date__ from __time__ o'clock
+    declined:
+        subject: Request not considered
+        headline: Request was not considered
+        hello: Hello
+        text1: Unfortunately your request for the following shift could not be considered:
+        text2: Thank you very much for your request!
+        datetime: __date__ from __time__ o'clock
+    reversal:
+        subject: Reversal
+        hello: Hello
+        text1: You were removed from the following team:
+        datetime: __date__ from __time__ o'clock
+    teamUpdate:
+        subject: Team changed
+        _changed: changed.
+        changed:
+            participant: A participant
+            time: The time
+            location: The location
+            leader: The teamleader
+        hello: Hello
+        text1: You are marked as team member or leader so we would like to inform you about changes in your team.
+        text2: Here is the current team configuration
+        datetime: __date__ from __time__ o'clock
+    joinProject:
+        subject: Joined Project
+        headline: You were added to a project
+        hello: Hello
+        text1: You were invited to the following Project
+        text2: You find this project now on your dashboard at "My Projects".<br>Have a good time!
+    understaffed:
+        subject: Team understaffed
+        headline: Team is understaffed
+        hello: Hello
+        text1: the following Team is understaffed and needs a
+        text2: Please have a look whether you can help this team.
+        datetime: __date__ from __time__ o'clock
+    toOrga:
+        hello: Hello Organisation Team
+        subject:
+            teamCancel: Team canceled
+        text:
+            teamCancel: The team <b>"__team__"</b> on <b>__date__</b> at <b>__time__</b> o'clock were <u>canceled</u>.
+    resetPassword:
+        subject: Reset Password
+        headline: Reset your Password
+        text1: Hello,<br>Please klick the following button to set a new password:
+        button: Reset Password
+        text2: <p>Useful hints for secure password generation can be found in g01 6/22 p. 31</p><p>If you didn't request a password reset, feel free to delete this email.</p>

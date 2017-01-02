@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- "0.10"
+- "0.12"
+- "iojs"
+- "4"
+before_install:
+- npm install -g npm@2
+notifications:
+  hipchat:
+    rooms:
+      secure: XH+TQ3Za8qqQxvV0RXmFzfLyfRxxicICMknzqXNhMydM9GXiXNclv9ckaeb1IxI5n57kAJ7cmB/uAfDD/Q3dCqv8TtVEt0+FtHXb2xaQQvLc9apPLMcWdRcYiew67n3o8YeZhEvfKOoQK/OTw9JvEvQWe9R5304lzymqdPbWCembiZX6NDo65S1ythUp6dQWKWESwutIoA7keGjtqUEVv1CQT69KM/erG1AsPtXGE3xch0UWhhfP+plDMvXhXvWpwRNyA2nB4o+CGroSQISg0CoS0zwHXEUqWwvcto65ebNVTILdb4eD2yzzjYvlSv0RLd7GX4CSB7GJqhQk66vGKtNp2MVfC5mPaXytvXkl+cyE5o9/XyLXK0ouazq1iECQ+4ENgOWLp3EDs0kwMo8zXtsTlELIX8ocT81mEPGYvL6Z/7WMVC9doKrZ9OGI4EBOEufzHzWiz7Gk1cCI3R/yFor0rwKG/B3ozP0MeBER5zWPyVTutox63DBoF5Q+adzhjhtAvit6izwSAHwSg1OutWbCaVgEp7TFx0757EpichGH+EPk4fQmwNZWBR2aJQDL3Niuy70NlrQUyNk5EFlzVQGL2rMptRMubRCmXDPH2pH3+giFFrDXfOSJXX1f5RF7/fzCZPwkLZ+YAG7GmfGQxhqu8mE/eOOKC9njlU7tTXc=
+    template:
+    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
+      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
+      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
+    format: html
+    notify: true

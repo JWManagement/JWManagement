@@ -1,0 +1,79 @@
+store:
+    title: Store Room Dashboard
+    short: Shortcut
+    language: Language
+    languages: Languages
+    total: Total
+    count: Count
+    showAll: Show all Publications
+    hideAll: Hide all non-added Publications
+    reset: Reset store room
+    noPublication: You haven't added a publication yet.<br>To add a publication, use the Button to show all available publications.<br>Then select all publications that you have got in your store room.<br>Click on the Publication configure the langauges in that this publication is in stock.
+    startAddLanguage: Add Language
+    cancelAddLanguage: Cancel
+    close: Close
+    addLanguage: Add
+    setup:
+        title: Please choose a Store-Mode
+        description: Please choose a mode to initialize your store room.<br>You can change this later, if you need to.
+        simple:
+            name: Simple
+            description: With the simple mode, the system will automatically configure some basic items categories like "Books & Bibles", "Magazines", etc for you. These will be available in the report.
+        advanced:
+            name: Advanced
+            description: With the advanced mode you can decide, which publications are available in which languages. You can define, how many of them are in the store room and the system will keep them up-to-date with the information from the reports. With this you can determine, which publications and languages work the best for your project.
+    type:
+        _books: Books
+        _brochures: Brochures
+        _magazines: Magazines
+        _tracts: Tracts
+        _misc: Miscellaneous
+    publication:
+        _bh: What Does the Bible Really Teach?
+        _bhs: What Can the Bible Teach Us?
+        _bi12: New World Translation of the Holy Scriptures (1984 Edition)
+        _nwt: New World Translation of the Holy Scriptures (2013 Revision)
+        _ct: Is There a Creator Who Cares About You?
+        _fy: The Secret of Family Happiness
+        _gt: The Greatest Man Who Ever Lived
+        _lr: Learn From the Great Teacher
+        _my: "Come Be My Follower"
+        _yp1: Questions Young People Ask — Answers That Work, Volume 1
+        _yp2: Questions Young People Ask — Answers That Work, Volume 2
+        _ypq: Answers to 10 Questions Young People Ask
+        _bm: The Bible — What Is Its Message?
+        _fg: Good News From God!
+        _gu: The Guidance of God — Our Way to Paradise
+        _hf: Your Family Can Be Happy
+        _lc: Was Life Created?
+        _ld: Listen to God
+        _lf: The Origin of Life — Five Questions Worth Asking
+        _lmn: "Look! I Am Making All Things New"
+        _ll: Listen to God and Live Forever
+        _mb: My Bible Lessons
+        _ol: The Road to Everlasting Life — Have You Found It?
+        _rj: Return to Jehovah
+        _rk: Real Faith — Your Key to a Happy Life
+        _yc: Teach Your Children
+        _wp/g: Watchtower / Awake
+        _kt: Would You Like to Know the Truth?
+        _rp: How to Find the Road to Paradise
+        _t-30: How Do You View the Bible?
+        _t-31: How Do You View the Future?
+        _t-32: What Is the Key to Happy Family Life?
+        _t-33: Who Really Controls the World?
+        _t-34: Will Suffering Ever End?
+        _t-35: Can the Dead Really Live Again?
+        _t-36: What Is the Kingdom of God?
+        _t-37: Where Can We Find Answers to Life's Big Questions?
+        _CO-inv17: 2017 Regional Convention Invitation
+        _CO-inv18: 2018 Regional Convention Invitation
+        _CO-inv19: 2019 Regional Convention Invitation
+        _CO-inv20: 2020 Regional Convention Invitation
+        _inv: Invitation to congregation meetings
+        _jwcd: Contact card for jw.org
+        _mi16: 2016 Memorial Invitation
+        _mi17: 2017 Memorial Invitation
+        _mi18: 2018 Memorial Invitation
+        _mi19: 2019 Memorial Invitation
+        _mi20: 2020 Memorial Invitation

@@ -1,0 +1,14 @@
+.navigation-wrapper {
+	.language-item > a:hover ~ .language-menu,
+	.language-item:hover > .language-menu,
+	.language-menu:hover {
+		top    : 60px;
+		right  : 150px;
+		width  : 200px;
+		display: block;
+
+		li > a > i {
+			line-height: inherit;
+		}
+	}
+}

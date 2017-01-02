@@ -1,0 +1,17 @@
+#cancelTeamModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-md.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-calendar-check-o.modal-icon
+				h2.m-b-none {{_ 'modal.cancelTeam.title'}}
+			.modal-body
+				if isThisTeamleader getShiftId getTeamId
+					form.form
+						label.control-label {{_ 'modal.cancelTeam.text'}}:
+						textarea#message.form-control
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				if isThisTeamleader getShiftId getTeamId
+					button#cancelTeam.btn.btn-danger.pull-left(data-dismiss='modal') {{_ 'modal.cancelTeam.action'}}
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

@@ -1,0 +1,78 @@
+with getShift
+	if isWrongTag
+		.wrongTag
+	else
+		button.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
+			if view 'editShifts'
+				if isProjectShiftAdmin
+					.shift-header
+						button#editShift.pull-right
+							i.fa.fa-wrench
+						h3 {{formatTimeComparison start end false}}
+					.shift-body
+						p {{_ 'shifts.shift.tag'}}:
+							.pull-right {{tag}}
+						p {{_ 'shifts.shift.schedule'}}:
+							.pull-right {{getScheduling}}
+					.section-header
+						p {{_ 'shifts.shift.teams'}}:
+					.shift-body
+						if teams
+							each teams
+								p
+									b {{name}}
+								p {{_ 'shifts.shift.participants'}}:
+									if isGreater max min
+										.pull-right {{min}} - {{max}}
+									else
+										.pull-right {{min}}
+								p {{_ 'shifts.shift.start'}}:
+									.pull-right {{meetingStart.name}}
+								p {{_ 'shifts.shift.end'}}:
+									.pull-right {{meetingEnd.name}}
+								hr
+						else
+							p.m-n {{_ 'shifts.shift.noTeams'}}:
+				else
+					.shift-header {{_ 'shifts.shift.noPermission'}}
+			else
+				h3.shift-period {{formatTimeComparison start end}}
+				if teams
+					if multipleTags
+						.shift-banner
+							i.fa.fa-tags
+							| {{tag}}
+					.shift-teams
+						each teams
+							div.shift-team(class='{{status}}')
+								.shift-team-header
+									i.fa.fa-map-signs
+									| {{name}}
+								if participants
+									.shift-team-participants
+										each sortUsers participants
+											+printUser user=this
+											br
+								if isProjectShiftAdmin
+									if pending
+										.shift-team-pendings
+											each pending
+												if teamleader
+													b {{name}}
+												else if substituteTeamleader
+													i {{name}}
+												else
+													| {{name}}
+												br
+else
+	button.btn.btn-block.shift.fake-shift
+		h3.shift-period
+			.fake-header
+		.shift-teams
+			div.shift-team
+				.shift-team-header
+					.fake-team-header
+				.shift-team-participants
+					.fake-text
+					.fake-text
+					.fake-text

@@ -1,0 +1,24 @@
+#addNoteModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-sticky-note-o.modal-icon
+				h2.m-b-none {{_ 'notes.createNote'}}
+			.modal-body
+				if isProjectShiftOrStoreAdmin getProjectId
+					form.form-horizontal
+						.form-group
+							.col-sm-12.m-b-xs
+								label.control-label {{_ 'notes.title'}}:
+							.col-sm-12
+								input#title.form-control(type='text' placeholder='Titel')
+						.form-group
+							.col-sm-12.m-b-xs
+								label.control-label {{_ 'notes.text'}}:
+							.col-sm-12
+								textarea#text.form-control(rows='4')
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				button#addNote.btn.btn-primary.pull-left {{_ 'notes.createNote'}}
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

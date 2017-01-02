@@ -1,0 +1,30 @@
+#addParticipantModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-user-plus.modal-icon
+				h2.m-b-none {{_ 'modal.addParticipant.title'}}
+			.modal-body
+				if isProjectShiftAdmin
+					p.text-muted {{_ 'modal.addParticipant.description'}}
+					h4.m-t-md {{_ 'modal.addParticipant.available_users'}}
+					if getAvailableUsers
+						.list-group.m-n
+							each getAvailableUsers
+								a#setUser.list-group-item(href class='{{selectedClass}}') {{name}}
+					else
+						| {{_ 'modal.addParticipant.noUsers'}}
+					h4.m-t-md {{_ 'modal.addParticipant.all_users'}}
+					select.form-control#other-users
+						option(selected disabled) {{_ 'modal.addParticipant.select'}}
+						each getUsers
+							option(value="{{_id}}") {{profile.firstname}} {{profile.lastname}}
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				if isProjectShiftAdmin
+					if queryParam 'participantId'
+						button#submit.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.submit'}}
+					else
+						.btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.submit'}}
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

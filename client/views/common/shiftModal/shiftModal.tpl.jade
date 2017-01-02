@@ -1,0 +1,226 @@
+#shiftModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	with getShift
+		.modal-dialog.animated.fadeInUp
+			.modal-content
+				.modal-header
+					i.fa.fa-calendar-check-o.modal-icon
+					h2.m-b-none {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}, {{formatTimeComparison start end}}
+				.modal-body
+					each teams
+						.panel.panel-success.team(class='{{status}}' data-id='{{_id}}' data-min='{{min}}' data-max='{{max}}')
+							.panel-heading
+								i.fa.fa-map-signs.fa-fw
+								| {{name}}
+								if showTeams
+									a#collapseTeam.pull-right(href title="{{_ 'modal.shift.collapseTeam'}}")
+										i.fa.fa-compress
+								else
+									a#expandTeam.pull-right(href title="{{_ 'modal.shift.expandTeam'}}")
+										i.fa.fa-expand
+							if showTeams
+								if link
+									.panel-picture
+										a(href='{{link}}' target='_blank')
+											with teamPicture
+												img(src='{{url store="images"}}')
+											else
+												| {{link}}
+								else
+									with teamPicture
+										.panel-picture
+											img(src='{{url store="images"}}')
+								if description
+									.panel-description {{{win2html description}}}
+								if meetingStartOrEnd
+									.panel-meeting-points
+										.meetings-wrapper
+											if meetingStart
+												.meeting-wrapper.text-center
+													with meetingPicture meetingStart._id
+														img(src='{{url store="images"}}')
+													else
+														i.fa.fa-file-picture-o.modal-icon
+											else
+												.meeting-wrapper.text-center
+													i.fa.fa-times.modal-icon
+											if meetingEnd
+												.meeting-wrapper.text-center
+													with meetingPicture meetingEnd._id
+														img(src='{{url store="images"}}')
+													else
+														i.fa.fa-file-picture-o.modal-icon
+											else
+												.meeting-wrapper.text-center
+													i.fa.fa-times.modal-icon
+										.meetings-description-wrapper
+											.meeting-description
+												if meetingStart
+													| {{formatTime meetingStart.time}} {{_ 'time.suffix'}}: {{meetingStart.name}}
+												else
+													| {{_ 'modal.shift.noMeeting'}}
+											.meeting-description
+												if meetingEnd
+													| {{formatTime meetingEnd.time}} {{_ 'time.suffix'}}: {{meetingEnd.name}}
+												else
+													| {{_ 'modal.shift.noMeeting'}}
+							.panel-participants.clearfix
+								if isProjectShiftAdmin
+									if getSelectedCount _id
+										.select-legend
+											if equals min max
+												p.text-muted {{_ 'modal.shift.selected'}} {{getSelectedCount _id}} {{_ 'modal.shift.of'}} {{min}} | {{getHasTl _id}}
+											else
+												p.text-muted {{_ 'modal.shift.selected'}} {{getSelectedCount _id}} {{_ 'modal.shift.of'}} ({{min}}-{{max}}) | {{getHasTl _id}}
+								if participants
+									each sortUsers participants
+										.participant
+											.float-right
+												if isProjectShiftAdmin
+													unless thisTeamleader
+														if teamleader
+															a#setLeader(href)
+																i.fa.fa-star.fa-fw
+														else if substituteTeamleader
+															a#setLeader(href)
+																i.fa.fa-star.fa-fw
+													a#declineParticipant(href)
+														i.fa.fa-thumbs-down.fa-fw
+													if informed
+														a.sentConfirmation.pull-right.m-l-sm(href)
+															i.fa.fa-send
+													else
+														a.sendConfirmation.pull-right.m-l-sm(href)
+															i.fa.fa-send-o
+												if email
+													a(href="mailto:{{email}}")
+														i.fa.fa-envelope.fa-fw
+												if phone
+													a(href="tel:{{phone}}")
+														i.fa.fa-phone.fa-fw
+											a(href)
+												+printUser user=this
+								if pending
+									if isProjectShiftAdmin
+										each user in sortUsers pending
+											.pending
+												.checkbox.m-n
+													.float-right
+														a.p-r-md.userPopover(href data-userId="{{user._id}}")
+															i.fa.fa-info
+														if user.email
+															a(href="mailto:{{user.email}}")
+																i.fa.fa-envelope.fa-fw
+														if user.phone
+															a(href="tel:{{user.phone}}")
+																i.fa.fa-phone.fa-fw
+													input(type='checkbox' id='selectUser_{{_id}}_{{user._id}}' checked='{{user.checked}}')
+													label(for='selectUser_{{_id}}_{{user._id}}')
+														if user.thisTeamleader
+															if user.teamleader
+																b
+																	u {{user.name}}
+															else if user.substituteTeamleader
+																i
+																	u {{user.name}}
+														else if user.teamleader
+															b {{user.name}}
+														else if user.substituteTeamleader
+															i {{user.name}}
+														else
+															| {{user.name}}
+									else if schedulingIsDirect
+										each user in sortUsers pending
+											.pending
+												.float-right
+													if user.email
+														a(href="mailto:{{user.email}}")
+															i.fa.fa-envelope.fa-fw
+													if user.phone
+														a(href="tel:{{user.phone}}")
+															i.fa.fa-phone.fa-fw
+												| {{user.name}}
+								if isProjectShiftAdmin
+									if declined
+										each sortUsers declined
+											.declined
+												.float-right
+													a#acceptRequest(href)
+														i.fa.fa-thumbs-up.fa-fw
+													if email
+														a(href="mailto:{{email}}")
+															i.fa.fa-envelope.fa-fw
+													if phone
+														a(href="tel:{{phone}}")
+															i.fa.fa-phone.fa-fw
+													if informed
+														a.sentDeclined.pull-right.m-l-sm(href)
+															i.fa.fa-send
+													else
+														a.sendDeclined.pull-right.m-l-sm(href)
+															i.fa.fa-send-o
+												a(href)
+													+printUser user=this
+								unless participants
+									if isProjectShiftAdmin
+										unless pending
+											unless declined
+												.noParticipants {{_ 'modal.shift.noParticipants'}}
+									else if schedulingIsDirect
+										unless pending
+											.noParticipants {{_ 'modal.shift.noParticipants'}}
+									else
+										.noParticipants {{_ 'modal.shift.noParticipants'}}
+								if isProjectShiftAdmin
+									if getSelectedCount _id
+										.select-action-bar
+											if getTlCount _id
+												button#acceptSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.acceptSelected'}}
+											else
+												button.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm.disabled {{_ 'modal.shift.notTeamleader'}}
+											button#declineSelected.btn.btn-danger.m-t-sm.m-b-sm {{_ 'modal.shift.declineSelected'}}
+											hr.m-n
+								if isThisTeamleader getShiftId _id
+									.btn-group.pull-right
+										button.btn.btn-white.dropdown-toggle.m-t-sm(data-toggle='dropdown' aria-expanded='false')
+											i.fa.fa-cog
+											span.caret
+										ul.dropdown-menu
+											if isProjectShiftAdmin
+												li
+													a#addParticipant(href)
+														i.fa.fa-fw.fa-user-plus
+														| {{_ 'modal.shift.addParticipant'}}
+											li
+												a#cancelTeam(href)
+													i.fa.fa-fw.fa-calendar-times-o
+													| {{_ 'modal.shift.cancelTeam'}}
+											if isProjectShiftAdmin
+												if equals status 'closed'
+													li
+														a#openTeam(href)
+															i.fa.fa-fw.fa-unlock
+															| {{_ 'modal.shift.openTeam'}}
+												else
+													li
+														a#closeTeam(href)
+															i.fa.fa-fw.fa-lock
+															| {{_ 'modal.shift.closeTeam'}}
+								if inArray participants '_id' currentUser._id
+									button#cancelParticipation.btn.btn-danger.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelParticipation'}}
+								else if inArray pending '_id' currentUser._id
+									button#cancelRequestTeam.btn.btn-warning.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelRequest'}}
+								else if inArray declined '_id' currentUser._id
+									if equals status 'open'
+										if notInOtherTeam
+											unless alreadyOver
+												button#requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeamAgain'}}
+								else if equals status 'open'
+									if notInOtherTeam
+										unless alreadyOver
+											button#requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeam'}}
+								if isThisTeamleader getShiftId _id
+									button.openReport.btn.btn-primary.m-t-sm {{_ 'modal.shift.report'}}
+				.modal-footer
+					if isProjectShiftAdmin
+						button#switch.btn.btn-white.pull-left(data-dismiss='modal') {{_ 'modal.shift.switch'}}
+					button.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

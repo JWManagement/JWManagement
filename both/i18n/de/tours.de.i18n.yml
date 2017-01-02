@@ -1,0 +1,32 @@
+tour:
+    dashboard:
+        welcome:
+            title: Willkommen bei JWManagement
+            content: Das hier ist deine persönliche Übersicht. Hier findest du auf einen Blick alles, was für dich wichtig ist.
+        projects:
+            title: Projekte
+            content: Das ist dein erstes Projekt, an dem du teilnehmen darfst. Hier findest du stets aktuelle Neuigkeiten, wenn es welche gibt.
+        wiki:
+            title: Wiki
+            content: Hier kannst du dir generelle Informationen ansehen, die der oder die Projektorganisatoren für dich bereit gestellt haben.
+        shifts:
+            title: Schichten
+            content: Hier kannst du dich bewerben.
+        settings:
+            title: Verwaltung
+            content: Du darfst dieses Projekt administrieren. Alles dazu nötige findest du hier.
+        myShifts:
+            title: Meine Schichten
+            content: Hier siehst du alle deine Schichten.
+            left:
+                title: Meine Schichten
+                content: In der linken Spalte findest du Schichten, an denen du (noch) nicht teilnimmst. Also Schichten, auf die du dich beworben hast, aber abgelehnt oder zumindest noch nicht angenommen wurdest.
+            right:
+                title: Meine Schichten
+                content: Die Schichten in der rechten Spalte haben direkt mit dir zu tun.<p></p> Du bist Teilnehmer dieser Schichten. Wenn du der Teamleiter bist, kannst du hier deinen Schichtbericht eintragen.
+        profile:
+            title: Profil
+            content: Hier findest du dein persönliches Profil. Deine Projektorganisatoren freuen sich, wenn du dein Profil stets aktuell hälst
+        finish:
+            title: Fertig!
+            content: Und nun viel Spaß mit JWManagement!

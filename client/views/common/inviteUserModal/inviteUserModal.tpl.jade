@@ -1,0 +1,30 @@
+#inviteUserModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-user-plus.modal-icon
+				h2 {{_ 'modal.inviteUser.title'}}
+				h5.m-b-none {{{_ 'modal.inviteUser.key'}}}
+			.modal-body
+				if isProjectAdmin
+					if getNewUser
+						.checkbox.checkbox-primary
+							input#selectAll(type="checkbox")
+							label(for="selectAll")
+								| {{_ 'modal.inviteUser.selectAll'}}
+						table.table.table-stripped
+						each getNewUser
+							tr
+								td
+									.checkbox.checkbox-primary
+										input(id="check{{_id}}" type="checkbox")
+										label(for="check{{_id}}" class="{{isInvited}}")
+											| {{profile.firstname}} {{profile.lastname}}
+					else
+						| {{_ 'modal.inviteUser.noUsers'}}
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				if isProjectAdmin
+					button#inviteUsers.btn.btn-primary {{_ 'modal.inviteUser.invite'}}
+				button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}

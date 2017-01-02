@@ -1,0 +1,294 @@
+navigation:
+    welcome: Welcome
+    home: Dashboard
+    profile: My Profile
+    shifts: Shifts
+    wiki: Information Center
+    admin: Administration
+    settings: Settings
+    users: Users
+    reports: Reports
+    store: Store Room
+    notes: Notes
+    login: Login
+    logout: Logout
+    loggingOut: Logging out...
+    firstLogin: First Login
+    forgotPassword: Forgot Password
+    resetPassword: Reset Password
+welcome:
+    links:
+        home: Home
+        features: Features
+        contact: Contact
+        login: Login
+        dashboard: Open Dashboard
+    header:
+        title: Advanced shift management
+        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects or similiar.
+    divider:
+        first:
+            title: Multiple Tags
+            description: Separate shifts with tags; assign publishers to tags where shifts can be requested. Also define which publishers receive permission to serve as teamleaders.
+        second:
+            title: Shift Teams
+            description: Define one or more teams in a shift. Each will have it's own teamleader. Provide further information for every team, such as a descriptions, a picture with a route, meetings points and more.
+        third:
+            title: Store Room
+            description: Manage your store room via JWManagement. The system automatically updates the publications' stock with the numbers of the team reports. Get notified if a publication is on low stock.
+        fourth:
+            title: Notifications
+            description: Through the powerful notification system, you get notified upon your request confirmations or refusals, as well as changes to your shift, with the ability to reply.
+    feature1:
+        title: Multifunctional Tool
+        description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
+    feature2:
+        title: Latest Changes
+    feature3:
+        title: Free & Open-Source
+        description: <p>Visit the Repository and see how we develop JWManagement. You can suggest features, report bugs or directly propose a 'Pull Request' with your code changes.</p><p>If you would like to translate the system into another language, send us the translation files as 'Pull Request' or via email.</p>
+        free: Completely free
+        repo: GitHub Repository
+    contact:
+        title: Contact Us
+        description: <p>Want to test the system for your congregation?</p><p>Just let us know so we can create a project for you.</p><p>Have another question or suggestion?</p><p>We would be happy to hear about that.</p>
+        name: Name
+        email: Email Address
+        subject: Subject
+        message: Message
+        send: Send
+        required: Required
+login:
+    name: Login
+    welcome: Welcome to JWManagement
+    text: Please enter your account details to login
+    forgot: Forgot password?
+    existing: JWManagement is a shift management system for cart witnessing projects.<br>You would like to test it?<br>Just write us an email to support@jwmanagement.org and we will create a project for you.
+    create: Create an account
+    back: Back to Home Page
+forgotPassword:
+    name: Forgotten password
+    text: Enter your email address and we will send you a link to reset your password.
+    button: Send password reset link
+    back: Back to Home Page
+    noUserForThisEmail: There is no account with this email address
+    multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify a user.
+    emailMissing: Bitte gib deine E-Mail Adresse ein
+    mailSent: You will receive an email shortly. Follow the link in the email to reset your password.
+resetPassword:
+    name: Reset password
+    text: Please enter a new password for %s %s.
+    noUserFound: <p>Invalid Token</p><p>Please check the URL</p>
+    button: Change password
+    back: Back to Home Page
+profile:
+    name: My Profile
+    personalData: My personal details
+    changePicture: Edit image...
+    options:
+        title: Settings
+        helpText: In JWManagement you can do everything with just one single account, so you just have to remember one username and password. If you have multiple accounts, please write us an email to support@jwmanagement.org with the usernames of both accounts.
+    availability:
+        title: Availability
+        helpText: Please mark the hours in which you are available.
+        shortTermCalls: I can be contacted in the short term
+        shortTermCallsAlways: Even if no availability is set
+    speaks: Speaks
+    telefon: Phone
+    congregation: Congregation
+    languages: Languages Spoken
+    gender: Gender
+    _gender:
+        brother: Brother
+        sister: Sister
+    birthday: Birthday
+    publisher: Publisher
+    privilegeOfService: Privilege Of Service
+    _privilegeOfService:
+        auxiliaryPioneer: Auxiliary pioneer
+        pioneer: Regular pioneer
+        specialPioneer: Special pioneer
+        circuitOverseer: Circuit overseer
+        bethelite: Bethelite
+        fulltimeConstructionServant: Construction servant
+    ministryPrivilege: Congregation Assignment
+    _ministryPrivilege:
+        ministerialServant: Ministerial servant
+        elder: Elder
+    placeholder:
+        telefon: (e.g. +447712345678)
+        congregation: Congregation
+        languages: Languages
+    changePassword: Change password
+    deleteAccount: Delete Account
+    vacation:
+        title: Holiday
+        helpText: Please add the periods in which you are not available.
+    until: until
+    addVacation: Add Holiday
+    usernameTaken: This username is already taken by someone else. Please choose another.
+dashboard:
+    loadingProjects: Loading Projects...
+    projects: My Projects
+    noProjects: You're not participating in any project
+    loadingShifts: Loading Shifts...
+    shifts: My Shifts
+    noShifts: You currently have no shifts
+    news: Current News
+    noNews: No News
+    newsFrom: Last Change
+    understaffed: Understaffed
+    understaffedMore: Show more understaffed shifts
+    missing: Missing Shift Report
+    missing_plural: Missing Shift Reports
+    accepted: Accepted Application
+    accepted_plural: Accepted Applications
+    pending: Open Application
+    pending_plural: Open Applications
+    declined: Declined Application
+    declined_plural: Declined Applications
+    marked: Understaffed Shift
+    marked_plural: Understaffed Shifts
+    participant: Shift Participant
+    participant_plural: Shift Participants
+wiki:
+    name: Information Center
+    nameShort: Info
+    files: Files
+    addQuestion: Add question/title
+    edit: Edit
+    delete: Delete
+    noFiles: No files available
+shifts:
+    name: Shifts
+    route: Route
+    addWeek: Add a new week
+    applications: Applications
+    openApplications: Open Applications
+    automation: Automatic
+    template: Template
+    noVisibleShifts: No shifts by that tag this week
+    start: Start
+    end: End
+    visibility: Visibility:
+    helpText:
+        start: This is the first week to be created by the system.
+        end: This is the last week to be created by the system.
+        visibility: This defines how many weeks in advance the publishers will be able to see and request. Under consideration of the start-week and end-week, the system will automatically create the needed shifts.
+    weeks: weeks
+    sendWeek: Send Confirmations
+    shift:
+        tag: Tag
+        schedule: Schedule
+        teamleader: Teamleader
+        teams: Teams
+        noTeams: No Teams
+        participants: Participants
+        start: Start
+        end: End
+        noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
+day:
+    removeAll: Remove all
+admin:
+    name: Administration
+    nameShort: Admin
+users:
+    title: Userlist
+    search: Search...
+    inviteUser: Invite added users
+    addNewUser: Add new user
+    deleted: Deleted!
+    sendToAll: Email to all
+reports:
+    placements: Placements
+    bibles: Bibles
+    books: Books
+    magazines: Magazines
+    brochures: Brochures
+    tracts: Tracts
+    videos: Videos Shown
+    talks: Talks
+    achievements: Achievements
+    addresses: Forwarded Addresses
+    hours: Engaged time
+    texts: Read Bible Texts
+    shifts: Accomplished Shifts
+    missing: Missing Team Reports
+    participants: Participants
+    pioneers: Participating Regular Pioneers
+    publishers: Participating Publishers
+    allParticipants: Participants overall
+    experiences: Experiences
+    route: Route
+    good: Good Experiences
+    problems: Problems / Difficulties
+    show: Show
+settings:
+    main:
+        title: Main Settings
+        id: ID
+        name:
+            text: Name
+            placeholder: Project name
+            helpText: In many cases the project name is the name of the congregation. For bigger projects including multiple congregations it can be the name of the city where the project will be carried out. If the project does not organize cart witnessing, the name can also reflect what will be organized with this project.
+        email:
+            text: Email
+            placeholder: Project email address
+            helpText: In Emails like shift-confirmations and teamleader-updates, this address will be set as the replyTo address. If the recipients answer to these Emails, the reply will be sent to the inbox of this address. Furthermore, this address will get notified e.g. on short-term participation cancellations.
+        language:
+            text: Language
+            helpText: If the system notifies the above listed address about changes, it will send the mails in the language, you defined here.
+        deleteProject: Delete project
+    tags:
+        title: Tags
+        helpText: <p>Every shift has to be assigned a tag. Furthermore every user can be permitted or denied permission to be able to see shifts depending on the tags.</p><p>Tags can reflect different activities (e.g. Cart witnessing, Information stand, Street Work, etc.). The dividing of shifts into different tags can be useful, for example if there are multiple shifts at the same time or if only certain publishers are trained in a specific type of public witnessing.</p><p>With every tag there can be a set of template weeks which have been defined previously. By using the automatic option when scheduling, the program can use these template weeks. This saves the project manager or shift manager time when scheduling, which otherwise would have to be created manually.</p>
+        id: ID
+        name: Name
+        img:
+            name: Image
+            helpText: This image will be shown on the dashboard when clicking on 'Shifts'. It should explain the kind of tasks done in shifts of this tag. If you want to add custom image, please send us a mail to support@jwmanagement.org describing your idea.
+        templates: Templates
+        showTemplate: Edit shifts
+        editTemplate: Edit name
+        removeTemplate: Delete
+        addTemplate: Define new template
+        action: Action
+        none: No tags have been added yet
+    teams:
+        title: Teams
+        helpText:
+            main: For every shift there has to be at least one team. Every team is assigned to a route or location. One participant of the shift is always member of one of these teams.
+            picture: The publisher will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on 'Google Maps' and upload a picture of that here.
+            link: This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the 'Google Maps' map here.
+            description: Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.
+        id: ID
+        name: Name
+        picture: Picture
+        noPicture: No picture uploaded
+        link: Link
+        description: Description
+        action: Action
+        none: No teams have been added yet
+    meetings:
+        title: Meeting Point
+        helpText:
+            main: For all the shift teams there can be a meeting point assigned to them. With that teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming. Meeting points are defined with coordinates.
+            picture: The publisher will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from 'Google Maps' here.
+        id: ID
+        name: Name
+        picture: Picture
+        noPicture: No picture uploaded
+        action: Action
+        none: No meeting points have been added yet
+notes:
+    description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
+    createNote: Create note
+    title: Title
+    text: Text
+firstLogin:
+    name: Welcome
+    text: <p>We are looking forward to welcome you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JWManagement.</p><p>Enjoy!</p>
+    button: Let's Go!
+    tokenError: Token-Error. Please contact the Administrator (support@jwmanagement.org) or your Projectleader.
+    usernameExists: This username is already in use. Please choose another one.
+    usernameMissing: Please provide a username.

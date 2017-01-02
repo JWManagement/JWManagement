@@ -1,0 +1,36 @@
+#addWeekModal {
+	#datepicker-week {
+		.datepicker {
+			.datepicker-days tbody tr:hover {
+				background-color: #eee;
+			}
+
+			tbody {
+				tr td.active,
+				tr:hover td {
+					border-radius: 0;
+				}
+
+				tr td.active:last-child,
+				tr:hover td:last-child {
+					border-radius: 0 3px 3px 0;
+				}
+
+				tr td.active:nth-child(2),
+				tr:hover td:first-child {
+					border-radius: 3px 0 0 3px;
+				}
+
+				.day.active,
+				.month.active,
+				.year.active {
+					background-color: $indigo;
+				}
+			}
+		}
+	}
+
+	.dropdown button .m-r {
+		white-space: normal;
+	}
+}
