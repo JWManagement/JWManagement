@@ -52,7 +52,7 @@ Meteor.methods
 			check shiftId, isExistingShift
 			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
 
-		find = { _id: shiftId }
+		find = _id: shiftId
 		find[array + '._id'] = arrayId
 
 		set = {}

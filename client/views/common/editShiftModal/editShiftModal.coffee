@@ -89,13 +89,18 @@ Template.editShiftModal.events
 
 		Meteor.call 'updateShift', shiftId, 'scheduling', scheduling, handleError
 
-	'click .changeMinParticipants': (e) ->
+	'click .changeTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('editShift')
-		teamId = @_id
-		min = parseInt($(e.target).attr('min'))
+		teamId = $(e.target).closest('.team').attr('teamId')
+		newTeamId = @_id
+		newTeamName = @name
 
-		if !isNaN(min)
-			Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', min, handleError
+		if teamId != newTeamId
+			Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, '_id', newTeamId, (e) ->
+				if e
+					handleError e
+				else
+					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'name', newTeamName, handleError
 
 	'click .decreaseCount': (e) ->
 		shiftId = FlowRouter.getQueryParam('editShift')
