@@ -98,7 +98,7 @@ if queryParam 'editProfilePicture'
 											option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
 											option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
 											option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}
-					.ibox.animated.fadeInUp.delay-02
+					.ibox.animated.fadeInUp
 						.ibox-title.float-e-margins
 							h2.animated.fadeInUp {{_ 'profile.options.title'}}
 							.text-muted.m-t {{_ 'profile.options.helpText'}}
@@ -106,13 +106,13 @@ if queryParam 'editProfilePicture'
 							#changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
 							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}	
 				.col-md-6
-					.ibox.animated.fadeInUp.delay-01
+					.ibox.animated.fadeInUp
 						.ibox-title.float-e-margins
 							h2.animated.fadeInUp {{_ 'profile.availability.title'}}
 							.text-muted.m-t {{_ 'profile.availability.helpText'}}
 						.ibox-content
 							.table-responsive
-								table.table.table-bordered.timetable.animated.fadeInUp.delay-05
+								table.table.table-bordered.timetable.animated.fadeInUp
 									thead
 										tr
 											td
@@ -130,7 +130,7 @@ if queryParam 'editProfilePicture'
 							.checkbox.checkbox-primary.checkbox-inline
 								input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
 								label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
-					.ibox.animated.fadeInUp.delay-04
+					.ibox.animated.fadeInUp
 						.ibox-title.float-e-margins
 							h2.animated.fadeInUp {{_ 'profile.vacation.title'}}
 							.text-muted.m-t {{_ 'profile.vacation.helpText'}}

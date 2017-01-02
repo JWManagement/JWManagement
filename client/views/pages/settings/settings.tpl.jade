@@ -46,7 +46,7 @@ if queryParam 'editTeamPicture'
 						#deleteProject.btn.btn-danger.m-t-xs.m-b-xs
 							i.fa.fa-trash.fa-fw
 							| {{_ 'settings.main.deleteProject'}}
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp.delay-02.z-index-10
+		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp.z-index-10
 			.ibox
 				.ibox-title.float-e-margins
 					h2 {{_ 'settings.tags.title'}}
@@ -142,7 +142,7 @@ if queryParam 'editTeamPicture'
 						.m-sm.center-align
 							#addTag.btn.btn-primary.btn-circle.fa.fa-plus
 	.row
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp.delay-04.z-index-10
+		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp.z-index-10
 			.ibox
 				.ibox-title.float-e-margins
 					h2 {{_ 'settings.teams.title'}}
@@ -196,7 +196,7 @@ if queryParam 'editTeamPicture'
 					if isProjectShiftAdmin
 						.m-sm.center-align
 							#addTeam.btn.btn-primary.btn-circle.fa.fa-plus
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp.delay-06
+		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp
 			.ibox
 				.ibox-title.float-e-margins
 					h2 {{_ 'settings.meetings.title'}}
