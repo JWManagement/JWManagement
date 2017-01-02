@@ -1,3 +1,5 @@
+initDone = false
+
 Template.users.helpers
 
 	allMails: ->
@@ -16,7 +18,7 @@ Template.users.onCreated ->
 	self = this
 	projectId = FlowRouter.getParam('projectId')
 
-	drawUserlist = ->
+	drawUserlist = -> if initDone
 		Tracker.afterFlush ->
 			users = Roles.getUsersInRole Permissions.member, projectId,
 				fields: profile: 1, username: 1
@@ -109,6 +111,8 @@ Template.users.onCreated ->
 				added: drawUserlist
 				changed: drawUserlist
 				removed: drawUserlist
+
+			initDone = true
 
 			drawUserlist()
 
