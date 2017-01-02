@@ -40,8 +40,8 @@ else
 			new FS.Store.S3 'files',
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'
-				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
-				secretAccessKey: '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'
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID
+				secretAccessKey: process.env.AWS_ACCESS_KEY
 		]
 
 	@Pictures = new FS.Collection 'pictures',
@@ -55,22 +55,22 @@ else
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'
 				folder: 'thumbs'
-				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
-				secretAccessKey: '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'
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID
+				secretAccessKey: process.env.AWS_ACCESS_KEY
 				transformWrite: resizeImageStream width: 128, height: 128
 		,
 			new FS.Store.S3 'pictures',
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'
 				folder: 'pictures'
-				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
-				secretAccessKey: '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'
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID
+				secretAccessKey: process.env.AWS_ACCESS_KEY
 				transformWrite: resizeImageStream width: 256, height: 256
 		,
 			new FS.Store.S3 'images',
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'
 				folder: 'images'
-				accessKeyId: 'AKIAIZNRLZNLNPBW5X5A'
-				secretAccessKey: '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'
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID
+				secretAccessKey: process.env.AWS_ACCESS_KEY
 		]
