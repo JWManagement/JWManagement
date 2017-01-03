@@ -82,6 +82,9 @@
 	margin       : 4px;
 	text-align   : left;
 	font-weight  : normal;
+	word-wrap: break-word;      /* IE*/
+	white-space: -moz-pre-wrap; /* Firefox */
+	white-space: pre-wrap;
 }
 
 .dropdown-menu > .active > a,

@@ -10,6 +10,8 @@
 		-ms-user-select    : auto;
 		-moz-user-select   : auto;
 		-webkit-user-select: auto;
+		word-wrap: break-word;
+
 	}
 
 	.container-fluid {
@@ -184,6 +186,10 @@
 		.news-content {
 			padding: 7px 0;
 			cursor : default;
+		}
+
+		p {
+			word-wrap: break-word;
 		}
 
 		.news-date {
