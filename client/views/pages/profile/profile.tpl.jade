@@ -8,7 +8,7 @@ if queryParam 'editProfilePicture'
 					.profile-image-wrapper.animated.fadeInLeft
 						with picture
 							.profile-image
-								img(src='{{url}}' width='96' height='96')
+								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
 								.profile-image-description {{_ 'profile.changePicture'}}
 						else
 							.profile-image.svg

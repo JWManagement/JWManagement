@@ -13,13 +13,6 @@ Template.editProfilePictureModal.events
 
 			$('#editProfilePictureModal').modal('hide')
 
-			swal
-				title: '<div class="sk-spinner sk-spinner-pulse"></div>'
-				html: true
-				showConfirmButton: false
-
-			$('.sweet-overlay').click (e) -> e.preventDefault()
-
 			Meteor.call 'removeProfilePicture', (e) ->
 				if e
 					handleError e
@@ -28,17 +21,14 @@ Template.editProfilePictureModal.events
 						if e
 							handleError e
 						else
-							fileId = file._id
-
 							Tracker.autorun (tracker) ->
-								fileObj = Pictures.findOne fileId
+								fileObj = Pictures.findOne file._id
 
 								if fileObj.hasStored('thumbs') &&
 									fileObj.hasStored('pictures') &&
 									fileObj.hasStored('images')
 
 										tracker.stop()
-										swal.close()
 
 	'click #delete': (e) ->
 		Meteor.call 'removeProfilePicture', (e) ->

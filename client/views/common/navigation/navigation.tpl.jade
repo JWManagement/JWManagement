@@ -13,7 +13,7 @@
 			li
 				a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')
 					with picture
-						img.profile-picture(src='{{url store="thumbs"}}' width='40' height='40')
+						img.profile-picture(src='{{url store="thumbs" uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='40' height='40')
 					else
 						.jdenticon {{{jdenticon size=40 radius=20 type='normal'}}}
 					.username {{currentUser.profile.firstname}}
