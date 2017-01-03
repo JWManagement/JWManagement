@@ -23,7 +23,7 @@ Files.allow
 	insert: (userId, doc) -> Roles.userIsInRole userId, 'admin', doc.projectId
 	update: (userId, doc) -> Roles.userIsInRole userId, 'admin', doc.projectId
 	remove: (userId, doc) -> Roles.userIsInRole userId, 'admin', doc.projectId
-	download: -> true
+	download: (userId, doc) -> Roles.userIsInRole userId, Permissions.member, doc.projectId
 
 Pictures.allow
 	insert: validUserOrTeamOrMeeting
