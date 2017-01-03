@@ -136,6 +136,9 @@
 			p {
 				clear : both;
 				margin: 0 0 3px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 
 			hr:last-of-type {
@@ -288,6 +291,7 @@
 
 	.day-wrapper {
 		padding-top: 20px;
+
 
 		.fake-shift {
 			.fake-header {
@@ -473,6 +477,9 @@
 						color           : #202960;
 						padding         : 1px 0 1px 5px;
 						background-color: rgba($indigo, 0.3);
+						word-wrap: break-word;      /* IE*/
+		  			white-space: -moz-pre-wrap; /* Firefox */
+		  			white-space: pre-wrap;
 					}
 
 					.shift-team-participants {
