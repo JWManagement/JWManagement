@@ -3,7 +3,7 @@ with user
 		.col-sm-2
 			.text-center
 				with picture
-					img.profile-picture(src='{{url store="thumbs"}}' width='40' height='40')
+					img.profile-picture(src='{{url}}' width='40' height='40')
 				else
 					.jdenticon {{{jdenticon size='65' hash=_id type='normal'}}}
 		.col-sm-6
@@ -39,4 +39,3 @@ with user
 				.col-sm-12
 					p {{_ 'modal.shift.lastDays' 90}}
 					h1.m-t-n {{allocationsLast}}
-			

@@ -23,16 +23,7 @@ if Meteor.isDevelopment
 				contentTypes: ['image/*']
 				extensions: ['png', 'jpg', 'jpeg']
 		stores: [
-			new FS.Store.FileSystem 'thumbs',
-				path: '~/thumbs'
-				transformWrite: resizeImageStream width: 128, height: 128
-		,
-			new FS.Store.FileSystem 'pictures',
-				path: '~/pictures'
-				transformWrite: resizeImageStream width: 256, height: 256
-		,
-			new FS.Store.FileSystem 'images',
-				path: '~/images'
+			new FS.Store.FileSystem 'images', path: '~/images'
 		]
 else
 	@Files = new FS.Collection 'files',
@@ -51,22 +42,6 @@ else
 				contentTypes: ['image/*']
 				extensions: ['png', 'jpg', 'jpeg']
 		stores: [
-			new FS.Store.S3 'thumbs',
-				region: 'eu-central-1'
-				bucket: 'jwmanagement-fs'
-				folder: 'thumbs'
-				accessKeyId: process.env.AWS_ACCESS_KEY_ID
-				secretAccessKey: process.env.AWS_ACCESS_KEY
-				transformWrite: resizeImageStream width: 128, height: 128
-		,
-			new FS.Store.S3 'pictures',
-				region: 'eu-central-1'
-				bucket: 'jwmanagement-fs'
-				folder: 'pictures'
-				accessKeyId: process.env.AWS_ACCESS_KEY_ID
-				secretAccessKey: process.env.AWS_ACCESS_KEY
-				transformWrite: resizeImageStream width: 256, height: 256
-		,
 			new FS.Store.S3 'images',
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'

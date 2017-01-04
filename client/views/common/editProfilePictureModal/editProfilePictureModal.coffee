@@ -24,11 +24,8 @@ Template.editProfilePictureModal.events
 							Tracker.autorun (tracker) ->
 								fileObj = Pictures.findOne file._id
 
-								if fileObj.hasStored('thumbs') &&
-									fileObj.hasStored('pictures') &&
-									fileObj.hasStored('images')
-
-										tracker.stop()
+								if fileObj.hasStored('images')
+									tracker.stop()
 
 	'click #delete': (e) ->
 		Meteor.call 'removeProfilePicture', (e) ->
