@@ -8,7 +8,9 @@ Template.wiki.helpers
 		project = Projects.findOne FlowRouter.getParam('projectId')
 		project?.wiki?.tabs
 
-	files: -> Files.find()
+	files: ->
+		projectId = FlowRouter.getParam('projectId')
+		Files.find projectId: projectId
 
 	projectId: -> FlowRouter.getParam('projectId')
 
