@@ -209,7 +209,7 @@ swal:
             cancel: Cancel
         tag:
             title: Really delete tag?
-            text: All shifts belonging to this tag will also be deleted. This includes all requests for these shifts.
+            text: All shifts belonging to this tag will also be deleted. This includes all requests for these shifts. <br><br> To confirm type in "delete".
             checkInput: delete
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
@@ -217,7 +217,7 @@ swal:
             cancel: Cancel
         team:
             title: Really delete this team?
-            text: The team will get removed from all existing shifts planned for the future. Accepted requests for this shift will get reallocated onto other teams.
+            text: The team will get removed from all existing shifts planned for the future. Accepted requests for this shift will get reallocated onto other teams. <br><br> To confirm type in "delete".
             checkInput: delete
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
