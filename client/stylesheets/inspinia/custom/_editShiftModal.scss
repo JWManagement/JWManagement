@@ -16,6 +16,13 @@
 			}
 		}
 
+		li > a {
+			word-wrap: break-word;      /* IE*/
+			white-space: -moz-pre-wrap; /* Firefox */
+			white-space: pre-wrap;
+
+		}
+
 		div.hr-line-dashed {
 			border-top-color: #ccc;
 			background-color: transparent;
