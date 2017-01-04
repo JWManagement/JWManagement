@@ -79,6 +79,7 @@
 		title: title
 		text: text
 		type: 'input'
+		html: true
 		inputValue: defaultValue
 		inputPlaceholder: placeholder
 		confirmButtonColor: '#3f51b5'

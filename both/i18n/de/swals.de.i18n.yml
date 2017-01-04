@@ -204,7 +204,7 @@ swal:
             cancel: Abbrechen
         tag:
             title: Tag wirklich löschen?
-            text: Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht.
+            text: Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben. 
             checkInput: Löschen
             placeholder: Zur Bestätigung "%s" eingeben
             inputError: Die Eingabe stimmte nicht mit "%s" überein
@@ -212,7 +212,7 @@ swal:
             cancel: Abbrechen
         team:
             title: Team wirklich löschen?
-            text: Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt.
+            text: Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben. 
             checkInput: Löschen
             placeholder: Zur Bestätigung "%s" eingeben
             inputError: Die Eingabe stimmte nicht mit "%s" überein
