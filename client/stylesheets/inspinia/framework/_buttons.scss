@@ -1,8 +1,8 @@
 .btn {
-	border-radius: $btn-border-radius;
-	overflow: hidden;
+	overflow     : hidden;
+	white-space  : nowrap;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+	border-radius: $btn-border-radius;
 }
 
 .float-e-margins .btn {
