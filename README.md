@@ -1,2 +1,212 @@
-JWManagement
-============
+# What is JWManagement?
+
+JWManagment is a highly configurable shift management system for Jehovah's Witnesses.
+Built to power projects like the metropolitan witnessing, construction projects or similiar.
+
+### Multiple Tags
+
+Separate shifts with tags; assign publishers to tags where shifts can be requested. Also define which publishers receive permission to serve as teamleaders.
+
+### Shift Teams
+
+Define one or more teams in a shift. Each will have it's own teamleader. Provide further information for every team, such as a descriptions, a picture with a route, meetings points and more.
+
+### Store Room
+
+Manage your store room via JWManagement. The system automatically updates the publications' stock with the numbers of the team reports. Get notified if a publication is on low stock.
+
+### Notifications
+
+Through the powerful notification system, you get notified upon your request confirmations or refusals, as well as changes to your shift, with the ability to reply.
+
+# For Translators
+
+## Simple setup
+
+### Setup
+
+1. _(Optional)_ We recommend downloading and using Atom.io (https://atom.io), because it supports syntax highlighting.
+
+2. Download the JWManagement repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
+
+3. Open the extracted folder and switch into the both/i18n folder.
+
+4. Copy the folder of the language from that you can do the translation (e.g. en, if you want to translate english to russian).
+
+5. Paste it and rename it to the language, you want to translate it to (e.g. ru).
+	Also rename all files in this folder and replace the old language with the new one.
+
+6. Open these files in Atom (or your preferred file editor).
+
+### Translation
+
+The translation files are build with a "key: value" pattern.
+You only need to translate the value.
+
+### Submit
+
+Zip the folder again and send an email with the attached zip file to support@jwmanagement.org.
+
+
+## Advanced setup (for developers)
+
+### Setup
+
+Please see "For Collaborators" > Setup
+
+### Translation
+
+Same as simple setup
+
+### Submit
+
+1. Open SourceTree.
+
+2. Select all the changes you made and commit them. As commit options use "Create Pull-Request".
+
+3. Push to origin.
+
+	Now we can see your changes and will pull them into the repo.
+	If everything is fine, the new translation will be available with the next release.
+
+
+# For Collaborators
+
+### Setup
+
+Thank you for your interest in helping us with the development of this software.
+Please follow the instructions to setup JWManagement in your local dev environment.
+
+1. Install Meteor (https://www.meteor.com/install)
+
+2. Install SourceTree (https://www.sourcetreeapp.com)
+
+3. Install a MongoDB GUI Tool. We recommend:	
+	
+	- Mac: MongoHub (https://www.openhub.net/p/mongohub)
+
+	- Windows: Mongo Chef (http://3t.io/mongochef)
+
+4. Clone https://github.com/JWDeveloper/JWManagement.git to a local folder. If you use the "Open in Desktop" Button on GitHub it should automatically open MongoHub.
+
+5. Open Terminal, cd to the created folder and run
+
+	```shell
+	meteor --settings settings.json
+	```
+
+	This will take some seconds since meteor now downloads all node modules and npm packages on which the app depends.
+	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
+
+	```yaml
+	address: 127.0.0.1
+	port: 3001
+	database: meteor
+	```
+		
+7. Insert a user into the users collection:
+
+	```json
+	{
+		"_id": "asiduvaosnfvpasdf",
+		"createdAt": new Date(1450919856316),
+		"username": "myuser",
+		"profile": {
+			"bdate": "",
+			"email": "john@doe.com",
+			"firstname": "John",
+			"gender": "m",
+			"language": "en",
+			"languages": "",
+			"lastname": "Doe",
+			"pioneer": "publisher",
+			"privilege": "publisher",
+			"telefon": "",
+			"congregation": "",
+			"available": {},
+			"vacations": [],
+			"shortTermCalls": false,
+			"shortTermCallsAlways": false
+		},
+		"state": "active",
+		"services": {
+			"password": {
+				"bcrypt": "$2a$10$I8659UhcKu6ROf2.YQ6JAeeWUDRTLwLksQGAyAr2A8dTeEYUTNMmK"
+			}
+		},
+		"roles": {
+			"abcde": [
+				"admin"
+			],
+			"abcdef": {
+				"teamleader"
+			}
+		}
+	}
+	```
+
+8. Create a collection "projects" and insert a project:
+
+	```json
+	{
+		"_id": "abcde",
+		"name": "My first project",
+		"email": "support@jwmanagement.org",
+		"language": "en",
+		"news": {},
+		"wiki": {
+			"tabs": [
+				{
+					"_id": "aisudhvboabfvop",
+					"title": "My first tab",
+					"faq": [
+						{
+							"_id": "osduvnalsiehfp",
+							"question": "My first question",
+							"answer": "My first answer"
+						}
+					]
+				}
+			]
+		},
+		"tags": [
+			{
+				"_id": "abc",
+				"name": "Cart witnessing",
+				"img": "trolley",
+				"templates": []
+			}
+		],
+		"teams": [
+			{
+				"_id": "abcdef",
+				"name": "Standard",
+				"link": "",
+				"description": ""
+			}
+		],
+		"meetings": [],
+		"store": {}
+	}
+	```
+
+9. Now login on the website with 'myuser' and password '12345678'
+
+### Development
+
+We recommend Atom.io (https://atom.io) and these Plugins:
+
+	language-jade
+	meteor-api
+	minimap
+	pigments
+	color-picker
+	file-icons
+	atom-beautify
+	Sublime-Style-Column-Selection
+	tool-bar-almighty
+	git-time-machine
+
+If you really want to help us improve the system, send us a mail to support@jwmanagement.org so we add you to our WhatsApp group.
