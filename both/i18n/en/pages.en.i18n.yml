@@ -25,20 +25,20 @@ welcome:
         dashboard: Open Dashboard
     header:
         title: Advanced shift management
-        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects or similiar.
+        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects and/or similar.
     divider:
         first:
             title: Multiple Tags
-            description: Separate shifts with tags; assign publishers to tags where shifts can be requested. Also define which publishers receive permission to serve as teamleaders.
+            description: Easily separate different shifts with tags; assign publishers to the tags where shifts can be requested. Also define which publishers receive permission to serve as team-leaders.
         second:
             title: Shift Teams
-            description: Define one or more teams in a shift. Each will have it's own teamleader. Provide further information for every team, such as a descriptions, a picture with a route, meetings points and more.
+            description: Define one or more teams in a shift. Each will have it's own team-leader. Provide further information for every team, such as a description, a picture with a route, meetings points and more.
         third:
             title: Store Room
-            description: Manage your store room via JWManagement. The system automatically updates the publications' stock with the numbers of the team reports. Get notified if a publication is on low stock.
+            description: Manage your store room via JWManagement. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
         fourth:
             title: Notifications
-            description: Through the powerful notification system, you get notified upon your request confirmations or refusals, as well as changes to your shift, with the ability to reply.
+            description: Through the powerful notification system, you can be notified on your request's, confirmations or refusals, as well as changes to your shift, with the ability to reply.
     feature1:
         title: Multifunctional Tool
         description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
