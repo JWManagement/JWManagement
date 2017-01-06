@@ -9,7 +9,7 @@ Meteor.methods
 
 		token = Random.id 43
 		user = {}
-		find = 'profile.email': obj.email
+		find = 'profile.email': obj.email.toLowerCase()
 
 		if obj.username?
 			find['username'] = obj.username
