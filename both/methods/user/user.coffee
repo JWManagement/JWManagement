@@ -4,24 +4,28 @@ Meteor.methods
 		check field, String
 		check value, Match.Any
 
-		steps = switch field
-			when 'username' then ['trim', 'toLower', 'removeSpecials']
-			when 'firstname', 'lastname' then ['trim', 'capitalize']
-			when 'email' then ['trim', 'toLower']
-			when 'telefon' then ['trim', 'removeLetters']
-			when 'congregation' then ['trim']
-			when 'languages' then ['trim']
-			else []
-
 		set = {}
 
 		if field == 'username'
+			field = Validations.trim field
+			field = Validations.toLower field
+			field = Validations.removeSpecials field
+
 			if (Meteor.users.findOne username: value)?
 				throw new Meteor.Error 406, 'Username unavailable'
-		else
-			field = 'profile.' + field
-
-		Meteor.call 'validateString', value, steps, (e, r) -> value = r unless e
+		else if field == 'firstname' || field == 'lastname'
+			field = Validations.trim field
+			field = Validations.capitalize field
+		else if field == 'email'
+			field = Validations.trim field
+			field = Validations.toLower field
+		else if field == 'telefon'
+			field = Validations.trim field
+			field = Validations.removeLetters field
+		else if field == 'congregation'
+			field = Validations.trim field
+		else if field == 'languages'
+			field = Validations.trim field
 
 		set[field] = value + ' '
 		Meteor.users.update Meteor.userId(), $set: set
@@ -94,38 +98,6 @@ Meteor.methods
 					if setTeam != {}
 						Shifts.update shiftId, 'teams._id': team._id,
 							$set: setTeam
-
-	validateString: (str, steps) ->
-		check str, String
-		check steps, Array
-
-		if typeof str != 'string' or str == ''
-			throw new Meteor.Error 500, 'str needs to be a non-empty String'
-		else if !Array.isArray steps
-			throw new Meteor.Error 500, 'steps needs to be an Array'
-		else
-			for step in steps
-				switch step
-					when 'trim'
-						str = str.trim()
-						str = str.replace /\s+/g, ' '
-					when 'toLower'
-						str = str.toLowerCase()
-					when 'removeSpecials'
-						str = str.replace /\W$/g, ''
-					when 'removeLetters'
-						str = str.replace /[a-z]/gi, ''
-					when 'toSpace'
-						str = str.replace /[^a-zßöäü/\s]/gi, ' '
-						str = str.replace /\//g, ' / '
-						str = str.replace /\s+/g, ' '
-						str = str.replace /( \/ )/g, '/'
-					when 'capitalize'
-						str = str.toLowerCase()
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split(' ')).join ' '
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('-')).join '-'
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('/')).join '/'
-			str
 
 	toggleAvailability: (day, hour) ->
 		check day, String
