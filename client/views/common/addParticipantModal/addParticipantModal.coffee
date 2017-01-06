@@ -15,7 +15,7 @@ Template.addParticipantModal.onRendered ->
 	@autorun ->
 		handle = UserSubs.subscribe 'usersByProject', projectId
 		handle.ready Tracker.afterFlush ->
-			users = Meteor.users.find( {}, sort: 'profile.lastname': 1 ).fetch()
+			users = Meteor.users.find({}, sort: 'profile.lastname': 1, 'profile.firstname': 1).fetch()
 			Meteor.call 'removeTeamUsers', users, shiftId, teamId, (err, filteredUsers) ->
 				Session.set 'users', filteredUsers
 
