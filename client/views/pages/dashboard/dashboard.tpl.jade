@@ -82,6 +82,10 @@ if queryParam 'showShiftReport'
 									a.btn.btn-primary.project-link
 										.fake-icon
 										p.fake-icon-title
+									if isProjectShiftOrStoreAdmin this
+										a.btn.btn-primary.project-link
+											.fake-icon
+											p.fake-icon-title
 		.row.m-t-lg.m-b-lg.animated.fadeInUp
 			if loading
 				h1#myShifts.center-align {{_ 'dashboard.loadingShifts'}}
