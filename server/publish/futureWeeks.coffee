@@ -1,6 +1,6 @@
 Meteor.publish 'futureWeeks', (projectId, week) ->
 
-	if Roles.userIsInRole @userId, Permissions.shiftAndStoreAdmin, projectId
+	if Roles.userIsInRole @userId, Permissions.member, projectId
 		if parseInt(moment(new Date()).format('YYYYDDDD')) < parseInt(moment(week).format('YYYYDDDD'))
 			week = moment(new Date()).format('GGGG[W]WW')
 
