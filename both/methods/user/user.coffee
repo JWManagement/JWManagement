@@ -9,7 +9,7 @@ Meteor.methods
 			when 'firstname', 'lastname' then ['trim', 'capitalize']
 			when 'email' then ['trim', 'toLower']
 			when 'telefon' then ['trim', 'removeLetters']
-			when 'congregation' then ['trim', 'toSpace', 'capitalize', 'spaceToMinus']
+			when 'congregation' then ['trim']
 			when 'languages' then ['trim']
 			else []
 
@@ -120,8 +120,6 @@ Meteor.methods
 						str = str.replace /\//g, ' / '
 						str = str.replace /\s+/g, ' '
 						str = str.replace /( \/ )/g, '/'
-					when 'spaceToMinus'
-						str = str.replace /\s/g, '-'
 					when 'capitalize'
 						str = str.toLowerCase()
 						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split(' ')).join ' '
