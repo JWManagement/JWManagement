@@ -20,7 +20,7 @@ Template.landing.onRendered ->
 				Session.set 'latestReleases',
 					a.data.map (data, index) -> if index < 3
 						body: data.body.replace(/- /g, '').split('\n')
-						date: moment(data.published_at).format('DD.MM.YYYY')
+						tag: data.tag_name
 
 			tracker.stop()
 
