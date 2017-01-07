@@ -1,3 +1,10 @@
+Template.landing.helpers
+
+	latestRelease: ->
+		release = Session.get 'latestRelease'
+		release.body = release.body.replace(/- /g, '').split('\n')
+		release
+
 Template.landing.onRendered ->
 
 	loadingDep = new Tracker.Dependency
@@ -11,6 +18,12 @@ Template.landing.onRendered ->
 		else
 			new WOW().init()
 			$('.navbar').singlePageNav offset: 70
+
+			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
+				Session.set 'latestReleases',
+					body: a.data
+					date: moment(a.data.published_at).format('DD.MM.YYYY')
+
 			tracker.stop()
 
 Template.landing.events

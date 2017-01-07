@@ -13,6 +13,7 @@ tracker@1.1.1                 # Meteor's client-side reactive programming librar
 es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 
+http
 check@1.2.4
 random@1.0.10
 underscore@1.0.10
