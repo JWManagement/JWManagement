@@ -14,7 +14,7 @@ if queryParam 'showShiftReport'
 				each getProjects
 					.project-wrapper.col-lg-6(id="{{_id}}" class="{{centerProject}}")
 						if multipleTags
-							.teams-popup.row
+							.tags-popup.row
 								each tag in tags
 									if isTagParticipant tag._id _id
 										.team-link.col-xs-6.col-sm-4.m-b-md.center-align

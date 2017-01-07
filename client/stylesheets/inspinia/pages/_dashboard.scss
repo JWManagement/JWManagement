@@ -57,16 +57,16 @@
 		}
 	}
 
-	.project-wrapper.show-teams-popup > .teams-popup {
+	.project-wrapper.show-tags-popup > .tags-popup {
 		display: block;
 	}
 
-	.project-wrapper.show-teams-popup > .ibox {
+	.project-wrapper.show-tags-popup > .ibox {
 		filter: blur(15px);
 		-webkit-filter: blur(15px);
 	}
 
-	.project-wrapper .teams-popup {
+	.project-wrapper .tags-popup {
 		top             : 0;
 		left            : 0;
 		right           : 0;

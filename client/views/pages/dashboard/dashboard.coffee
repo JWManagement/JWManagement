@@ -250,11 +250,11 @@ Template.dashboard.events
 	'click #toShifts': (e) ->
 		e.preventDefault()
 
-		if $(e.target).closest('.project-wrapper').find('.teams-popup').length
-			$(e.target).closest('.project-wrapper').addClass('show-teams-popup')
+		if $(e.target).closest('.project-wrapper').find('.tags-popup').length
+			$(e.target).closest('.project-wrapper').addClass('show-tags-popup')
 
-			$('.teams-popup').on 'click', (e) ->
-				$(e.target).closest('.project-wrapper').removeClass('show-teams-popup')
+			$('.tags-popup').on 'click', (e) ->
+				$(e.target).closest('.project-wrapper').removeClass('show-tags-popup')
 		else
 			FlowRouter.go 'shifts', projectId: @_id, language: TAPi18n.getLanguage()
 
