@@ -30,3 +30,6 @@ if queryParam 'uploadUserFile'
 							a.btn.btn-primary.inline.pull-right(href="mailto:{{allMails}}")
 								i.fa.fa-send
 								| {{_ 'users.sendToAll'}}
+							button.btn.btn-primary.inline.pull-right.m-r-sm#exportUsers
+								i.fa.fa-download
+								| {{_ 'users.export'}}
