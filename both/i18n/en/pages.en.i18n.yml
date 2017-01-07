@@ -199,6 +199,7 @@ users:
     addNewUser: Add new user
     deleted: Deleted!
     sendToAll: Email to all
+    export: Export as csv
 reports:
     placements: Placements
     bibles: Bibles
