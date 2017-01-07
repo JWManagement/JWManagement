@@ -13,16 +13,17 @@ if queryParam 'showShiftReport'
 			unless loading
 				each getProjects
 					.project-wrapper.col-lg-6(id="{{_id}}" class="{{centerProject}}")
-						.teams-popup.row
-							each tag in tags
-								if isTagParticipant tag._id _id
-									.team-link.col-xs-6.col-sm-4.m-b-md.center-align
-										a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
-											if tag.img
-												img(src='/img/{{tag.img}}.png')
-											else
-												i.fa.fa-users.fa-4x
-											p.project-link-caption {{tag.name}}
+						if multipleTags
+							.teams-popup.row
+								each tag in tags
+									if isTagParticipant tag._id _id
+										.team-link.col-xs-6.col-sm-4.m-b-md.center-align
+											a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
+												if tag.img
+													img(src='/img/{{tag.img}}.png')
+												else
+													i.fa.fa-users.fa-4x
+												p.project-link-caption {{tag.name}}
 						.ibox
 							.ibox-content
 								h1.m-b-md {{name}}
