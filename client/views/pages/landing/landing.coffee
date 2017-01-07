@@ -1,9 +1,6 @@
 Template.landing.helpers
 
-	latestRelease: ->
-		release = Session.get 'latestRelease'
-		release.body = release.body.replace(/- /g, '').split('\n')
-		release
+	latestReleases: -> Session.get 'latestReleases'
 
 Template.landing.onRendered ->
 
@@ -19,10 +16,11 @@ Template.landing.onRendered ->
 			new WOW().init()
 			$('.navbar').singlePageNav offset: 70
 
-			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
+			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
 				Session.set 'latestReleases',
-					body: a.data
-					date: moment(a.data.published_at).format('DD.MM.YYYY')
+					a.data.map (data, index) -> if index < 3
+						body: data.body.replace(/- /g, '').split('\n')
+						date: moment(data.published_at).format('DD.MM.YYYY')
 
 			tracker.stop()
 
