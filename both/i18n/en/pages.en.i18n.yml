@@ -44,6 +44,7 @@ welcome:
         description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
     feature2:
         title: Latest Changes
+        more: Show more
     feature3:
         title: Free & Open-Source
         description: <p>Visit the Repository and see how we develop JWManagement. You can suggest features, report bugs or directly propose a 'Pull Request' with your code changes.</p><p>If you would like to translate the system into another language, send us the translation files as 'Pull Request' or via email.</p>
