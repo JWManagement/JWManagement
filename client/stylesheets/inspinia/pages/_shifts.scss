@@ -73,9 +73,7 @@
 	.shift:active,
 	.shift:hover {
 		color       : #fff;
-		cursor      : default;
 		text-align  : left;
-		box-shadow  : none !important;
 		border-color: #999 !important;
 
 		.section-header {
@@ -144,20 +142,6 @@
 			hr:last-of-type {
 				display: none;
 			}
-		}
-	}
-
-	#editShift {
-		&:hover {
-			background-color: #a0a0a0;
-		}
-
-		&:active {
-			box-shadow: inset 0 3px 5px #777;
-		}
-
-		i {
-			padding: 7px;
 		}
 	}
 
