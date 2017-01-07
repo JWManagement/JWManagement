@@ -2,12 +2,10 @@ with getShift
 	if isWrongTag
 		.wrongTag
 	else
-		button.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
+		button#editShift.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
 			if view 'editShifts'
 				if isProjectShiftAdmin
 					.shift-header
-						button#editShift.pull-right
-							i.fa.fa-wrench
 						h3 {{formatTimeComparison start end false}}
 					.shift-body
 						p {{_ 'shifts.shift.tag'}}:
