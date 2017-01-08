@@ -27,7 +27,7 @@ if queryParam 'uploadUserFile'
 							button.btn.btn-primary.inline#inviteUser
 								i.fa.fa-send
 								| {{_ 'users.inviteUser'}}
-							a.btn.btn-primary.inline.pull-right(href="mailto:{{allMails}}")
+							a.btn.btn-primary.inline.pull-right(href="mailto:?bcc={{allMails}}")
 								i.fa.fa-send
 								| {{_ 'users.sendToAll'}}
 							button.btn.btn-primary.inline.pull-right.m-r-sm#exportUsers
