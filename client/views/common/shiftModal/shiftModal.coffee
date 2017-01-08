@@ -408,23 +408,13 @@ Template.shiftModal.events
 		shiftId = FlowRouter.getQueryParam('showShift')
 		teamId = @_id
 
-		Meteor.call 'updateShift', shiftId, 'status', 'open', handleError
-		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'status', 'open', handleError
+		Meteor.call 'openTeam', shiftId, teamId, handleError
 
 	'click #closeTeam': ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		teamId = @_id
 
-		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'status', 'closed', handleError
-
-		openTeams = 0
-		shift = Shifts.findOne shiftId, fields: teams: 1
-
-		for team in shift.teams when team.status == 'open'
-			openTeams++
-
-		if openTeams == 0
-			Meteor.call 'updateShift', shiftId, 'status', 'closed', handleError
+		Meteor.call 'closeTeam', shiftId, teamId, handleError
 
 	'click #switch': ->
 		shiftId = FlowRouter.getQueryParam 'showShift'
