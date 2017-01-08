@@ -44,6 +44,7 @@ welcome:
         description: <p>JWManagement ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
     feature2:
         title: Letzte Änderungen
+        more: Mehr zeigen
     feature3:
         title: Kostenlos & Open-Source
         description: <p>Besuche unser Repository und schaue dir an, wie JWManagement programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>

@@ -1,3 +1,7 @@
+Template.landing.helpers
+
+	latestReleases: -> Session.get 'latestReleases'
+
 Template.landing.onRendered ->
 
 	loadingDep = new Tracker.Dependency
@@ -11,6 +15,13 @@ Template.landing.onRendered ->
 		else
 			new WOW().init()
 			$('.navbar').singlePageNav offset: 70
+
+			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
+				Session.set 'latestReleases',
+					a.data.map (data, index) -> if index < 3
+						body: data.body.replace(/- /g, '').split('\n')
+						tag: data.tag_name
+
 			tracker.stop()
 
 Template.landing.events
