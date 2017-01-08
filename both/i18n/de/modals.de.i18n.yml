@@ -2,13 +2,10 @@ modal:
     close: Schließen
     addParticipant:
         title: Teilnehmer hinzufügen
-        noUsers: Keine verfügbaren Teilnehmer gefunden
         description: Bitte wähle den Verkündiger aus, der zu der Schicht hinzugefügt werden soll.
         submit: Hinzufügen
         alreadyRequested: Dieser Verkündiger hat sich bereits beworben
         alreadyParticipating: Dieser Verkündiger nimmt bereits teil
-        available_users: Verfügbare Verkündiger
-        all_users: Alle Verkündiger
         select: Verkündiger auswählen
     addUser:
         title: Neuen Benutzer anlegen

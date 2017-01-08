@@ -1,26 +1,5 @@
 Meteor.methods
 
-	removeTeamUsers: (users, shiftId, teamId) ->
-		teamUsers = []
-		shift = Shifts.findOne shiftId, fields:
-			'teams._id': 1
-			'teams.participants._id': 1
-			'teams.pending._id': 1
-			'teams.declined._id': 1
-
-		if Meteor.isServer
-			check users, Array
-			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-
-		if shift?
-			for team in shift.teams when team._id == teamId
-				allUsers = team.participants.concat(team.pending).concat(team.declined)
-				teamUsers = allUsers.map (user) -> user._id if user?
-
-			users.filter (user) -> user._id not in teamUsers
-		else
-			[]
-
 	openTeam: (shiftId, teamId) ->
 		shift = Shifts.findOne shiftId
 

@@ -7,18 +7,15 @@
 			.modal-body
 				if isProjectShiftAdmin
 					p.text-muted {{_ 'modal.addParticipant.description'}}
-					h4.m-t-md {{_ 'modal.addParticipant.available_users'}}
-					if getAvailableUsers
-						.list-group.m-n
-							each getAvailableUsers
-								a#setUser.list-group-item(href class='{{selectedClass}}') {{name}}
-					else
-						| {{_ 'modal.addParticipant.noUsers'}}
-					h4.m-t-md {{_ 'modal.addParticipant.all_users'}}
 					select.form-control#other-users
 						option(selected disabled) {{_ 'modal.addParticipant.select'}}
 						each getUsers
-							option(value="{{_id}}") {{profile.firstname}} {{profile.lastname}}
+							option(value="{{_id}}")
+								| {{firstname}} {{lastname}}
+								if available
+									| (available)
+								else if shortTerm
+									| (callable in short term)
 				else
 					h2.center-align {{_ 'role.noPermission'}}
 			.modal-footer
