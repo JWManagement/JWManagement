@@ -4,7 +4,8 @@ Meteor.methods
 		shift = Shifts.findOne shiftId
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
-		check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
+		check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
 
 		if shift?
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
