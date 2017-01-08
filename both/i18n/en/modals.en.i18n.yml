@@ -2,13 +2,10 @@ modal:
     close: Close
     addParticipant:
         title: Add participant
-        noUsers: No available users found
         description: Please choose the publisher you want to add to this shift.
         submit: Add
         alreadyRequested: This user has already requested participation
         alreadyParticipating: This user is already participating
-        available_users: Available Publisher
-        all_users: Other Publisher
         select: Select Publisher
     addUser:
         title: Create a new user

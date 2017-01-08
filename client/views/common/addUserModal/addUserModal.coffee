@@ -16,7 +16,7 @@ Template.addUserModal.onRendered ->
 Template.addUserModal.events
 
 	'change [name=email]': (e) ->
-		email = $('#email').val()
+		email = $('#email').val().toLowerCase()
 
 		Meteor.call 'getUsernamesForEmail', email, (err, res) ->
 			if err
@@ -48,7 +48,7 @@ Template.addUserModal.events
 	'submit form': (e, a) ->
 		e.preventDefault()
 
-		email = e.target.email.value
+		email = e.target.email.value.toLowerCase()
 		firstname = e.target.firstname.value
 		lastname = e.target.lastname.value
 		gender = e.target.gender.value

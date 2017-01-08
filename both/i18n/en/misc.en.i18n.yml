@@ -31,6 +31,7 @@ permissions:
     notProjectParticipant: This user is not participating in the given project
     notTeamleader: This user is no teamleader
     notTagParticipant: This user is not participating in the given tag
+    notTeamParticipant: This user is not participating in the given team
 time:
     start: Start
     end: End

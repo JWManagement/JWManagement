@@ -4,96 +4,103 @@ Meteor.methods
 		check field, String
 		check value, Match.Any
 
-		steps = switch field
-			when 'username' then ['trim', 'toLower', 'removeSpecials']
-			when 'firstname', 'lastname' then ['trim', 'capitalize']
-			when 'email' then ['trim', 'toLower']
-			when 'telefon' then ['trim', 'removeLetters']
-			when 'congregation' then ['trim', 'toSpace', 'capitalize', 'spaceToMinus']
-			when 'languages' then ['trim']
-			else []
-
 		set = {}
 
 		if field == 'username'
+			field = Validations.trim field
+			field = Validations.toLower field
+			field = Validations.removeSpecials field
+
 			if (Meteor.users.findOne username: value)?
 				throw new Meteor.Error 406, 'Username unavailable'
-		else
+		else if field == 'firstname' || field == 'lastname'
+			field = Validations.trim field
+			field = Validations.capitalize field
+		else if field == 'email'
+			field = Validations.trim field
+			field = Validations.toLower field
+		else if field == 'telefon'
+			field = Validations.trim field
+			field = Validations.removeLetters field
+		else if field == 'congregation'
+			field = Validations.trim field
+		else if field == 'languages'
+			field = Validations.trim field
+
+		if field != 'username'
 			field = 'profile.' + field
 
-		Meteor.call 'validateString', value, steps, (e, r) -> value = r unless e
-
 		set[field] = value + ' '
-		Meteor.users.update @userId, $set: set
+		Meteor.users.update Meteor.userId(), $set: set
 
 		if Meteor.isServer
 			set[field] = value
-			Meteor.users.update @userId, $set: set
+			Meteor.users.update Meteor.userId(), $set: set
 
 			if field == 'profile.firstname'
-				user = Meteor.users.findOne @userId, fields: 'profile.lastname': 1
+				user = Meteor.users.findOne Meteor.userId(), fields: 'profile.lastname': 1
 
 				if user?
 					field = 'name'
 					value = value + ' ' + user.profile.lastname
 			else if field == 'profile.lastname'
-				user = Meteor.users.findOne @userId, fields: 'profile.firstname': 1
+				user = Meteor.users.findOne Meteor.userId(), fields: 'profile.firstname': 1
 
 				if user?
 					field = 'name'
 					value = user.profile.firstname + ' ' + value
 			else if field == 'profile.telefon'
-				field = field.substr field.indexOf('.') + 1
+				field = 'telefon'
+			else if field == 'profile.email'
+				field = 'email'
+			else
+				return
 
-			setLeader = {}
-			setLeader['leader.' + field] = value
+			allMyShifts = Shifts.find 'teams.participants._id': Meteor.userId(),
+				fields: 'teams._id': 1, 'teams.participants': 1, 'teams.pending': 1, 'teams.declined': 1
 
-			setAccepted = {}
-			setAccepted['accepted.$.' + field] = value
+			for shift in allMyShifts.fetch()
+				for team in shift.teams
+					newParticipants = []
+					newPending = []
+					newDeclined = []
+					updateParticipants = false
+					updatePending = false
+					updateDeclined = false
+					setTeam = {}
 
-			Shifts.update 'leader._id': @userId,
-				$set: setLeader
-			,
-				multi: true
+					for user in team.participants when user._id == Meteor.userId()
+						updateParticipants = true
+						break
+					for user in team.pending when user._id == Meteor.userId()
+						updatePending = true
+						break
+					for user in team.declined when user._id == Meteor.userId()
+						updateDeclined = true
+						break
 
-			Shifts.update 'accepted._id': @userId,
-				$set: setAccepted
-			,
-				multi: true
+					if updateParticipants
+						newParticipants = team.participants
+						for user in newParticipants when user._id == Meteor.userId()
+							user[field] = value
 
-	validateString: (str, steps) ->
-		check str, String
-		check steps, Array
+						setTeam['teams.$.participants'] = newParticipants
+					if updatePending
+						newPending = team.pending
+						for user in newPending when user._id == Meteor.userId()
+							user[field] = value
 
-		if typeof str != 'string' or str == ''
-			throw new Meteor.Error 500, 'str needs to be a non-empty String'
-		else if !Array.isArray steps
-			throw new Meteor.Error 500, 'steps needs to be an Array'
-		else
-			for step in steps
-				switch step
-					when 'trim'
-						str = str.trim()
-						str = str.replace /\s+/g, ' '
-					when 'toLower'
-						str = str.toLowerCase()
-					when 'removeSpecials'
-						str = str.replace /\W$/g, ''
-					when 'removeLetters'
-						str = str.replace /[a-z]/gi, ''
-					when 'toSpace'
-						str = str.replace /[^a-zßöäü/\s]/gi, ' '
-						str = str.replace /\//g, ' / '
-						str = str.replace /\s+/g, ' '
-						str = str.replace /( \/ )/g, '/'
-					when 'spaceToMinus'
-						str = str.replace /\s/g, '-'
-					when 'capitalize'
-						str = str.toLowerCase()
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split(' ')).join ' '
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('-')).join '-'
-						str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('/')).join '/'
-			str
+						setTeam['teams.$.pending'] = newPending
+					if updateDeclined
+						newDeclined = team.declined
+						for user in newDeclined when user._id == Meteor.userId()
+							user[field] = value
+
+						setTeam['teams.$.declined'] = newDeclined
+
+					if setTeam != {}
+						Shifts.update shiftId, 'teams._id': team._id,
+							$set: setTeam
 
 	toggleAvailability: (day, hour) ->
 		check day, String

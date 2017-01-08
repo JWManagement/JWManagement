@@ -1,23 +1,23 @@
 # What is JWManagement?
 
 JWManagment is a highly configurable shift management system for Jehovah's Witnesses.
-Built to power projects like the metropolitan witnessing, construction projects or similiar.
+Built to power projects like the metropolitan witnessing, construction projects and/or similar.
 
 ### Multiple Tags
 
-Separate shifts with tags; assign publishers to tags where shifts can be requested. Also define which publishers receive permission to serve as teamleaders.
+Easily separate different shifts with tags; assign publishers to the tags where shifts can be requested. Also define which publishers receive permission to serve as team-leaders.
 
 ### Shift Teams
 
-Define one or more teams in a shift. Each will have it's own teamleader. Provide further information for every team, such as a descriptions, a picture with a route, meetings points and more.
+Define one or more teams in a shift. Each will have it's own team-leader. Provide further information for every team, such as a description, a picture with a route, meetings points and more.
 
 ### Store Room
 
-Manage your store room via JWManagement. The system automatically updates the publications' stock with the numbers of the team reports. Get notified if a publication is on low stock.
+Manage your store room via JWManagement. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
 
 ### Notifications
 
-Through the powerful notification system, you get notified upon your request confirmations or refusals, as well as changes to your shift, with the ability to reply.
+Through the powerful notification system, you can be notified on your request's, confirmations or refusals, as well as changes to your shift, with the ability to reply.
 
 # For Translators
 
@@ -31,7 +31,7 @@ Through the powerful notification system, you get notified upon your request con
 
 3. Open the extracted folder and switch into the both/i18n folder.
 
-4. Copy the folder of the language from that you can do the translation (e.g. en, if you want to translate english to russian).
+4. Copy the folder of the language, from that you can do the translation (e.g. en, if you want to translate english to russian).
 
 5. Paste it and rename it to the language, you want to translate it to (e.g. ru).
 	Also rename all files in this folder and replace the old language with the new one.
@@ -81,8 +81,8 @@ Please follow the instructions to setup JWManagement in your local dev environme
 
 2. Install SourceTree (https://www.sourcetreeapp.com)
 
-3. Install a MongoDB GUI Tool. We recommend:	
-	
+3. Install a MongoDB GUI Tool. We recommend:
+
 	- Mac: MongoHub (https://www.openhub.net/p/mongohub)
 
 	- Windows: Mongo Chef (http://3t.io/mongochef)
@@ -105,7 +105,7 @@ Please follow the instructions to setup JWManagement in your local dev environme
 	port: 3001
 	database: meteor
 	```
-		
+
 7. Insert a user into the users collection:
 
 	```json
@@ -209,4 +209,4 @@ We recommend Atom.io (https://atom.io) and these Plugins:
 	tool-bar-almighty
 	git-time-machine
 
-If you really want to help us improve the system, send us a mail to support@jwmanagement.org so we add you to our WhatsApp group.
+If you really want to help us improve the system, send us an email to support@jwmanagement.org so we can add you to our WhatsApp group.

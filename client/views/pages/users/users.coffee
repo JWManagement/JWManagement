@@ -134,3 +134,24 @@ Template.users.events
 
 	'click #inviteUser': ->
 		wrs -> FlowRouter.setQueryParams inviteUser: true
+
+	'click #exportUsers': ->
+		users = Meteor.users.find({}, fields: roles: 0, services: 0, 'profile.available': 0, 'profile.vacations': 0)
+
+		csvContent = 'data:text/csv;charset=utf-8,' + '\uFEFF'
+		head = []
+		head.push TAPi18n.__('input.email'), TAPi18n.__('input.firstname'), TAPi18n.__('input.lastname'), TAPi18n.__('input.gender'), TAPi18n.__('profile.telefon'), TAPi18n.__('profile.birthday'), TAPi18n.__('profile.privilegeOfService'), TAPi18n.__('profile.ministryPrivilege'), TAPi18n.__('profile.congregation'), TAPi18n.__('profile.languages'), TAPi18n.__('input.username')
+		csvContent += head.join(';') + '\r\n'
+
+		for user in users.fetch()
+			row = []
+			row.push( user.profile.email, user.profile.firstname, user.profile.lastname, user.profile.gender, user.profile.telefon, user.profile.bdate, user.profile.pioneer, user.profile.privilege, user.profile.congregation, user.profile.languages, user.username)
+			csvContent += row.join(';') + '\r\n'
+
+		encodedUri = encodeURI(csvContent)
+		link = document.createElement('a')
+		link.setAttribute('href', encodedUri)
+		link.setAttribute('download', 'users.csv')
+		document.body.appendChild(link)
+
+		link.click()

@@ -58,7 +58,7 @@ Template.uploadUserFileModal.events
 					existingUsers = []
 
 					for user in results.data
-						email = user[0]
+						email = user[0].toLowerCase()
 						firstname = user[1]
 						lastname = user[2]
 						gender = user[3]
