@@ -16,6 +16,8 @@ modal:
         existingAccounts: Bestehende Accounts
     addWeek:
         title: Neue Woche anlegen
+        noTemplate: Bitte leg zuerst eine Vorlage an
+        defineTemplate: Vorlage anlegen
         action: Woche anlegen
         text:
             top: Wähle die Woche aus, auf die die Vorlagewoche angewendet werden soll:

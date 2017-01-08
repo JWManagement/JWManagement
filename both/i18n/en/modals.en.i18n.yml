@@ -16,6 +16,8 @@ modal:
         existingAccounts: Existing Accounts
     addWeek:
         title: Create new week
+        noTemplate: Please define a template first
+        defineTemplate: Define template
         action: Create week
         text:
             top: Choose a week, that the template week will get applied to:
