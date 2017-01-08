@@ -37,6 +37,7 @@ Template.shift.helpers
 				start: 1
 				end: 1
 				status: 1
+				scheduling: 1
 				'teams._id': 1
 				'teams.name': 1
 				'teams.status': 1
@@ -63,12 +64,8 @@ Template.shift.helpers
 		tags = FlowRouter.getQueryParam('showTags')
 		tags && tags.indexOf('_') > -1
 
-	getScheduling: ->
-		if @scheduling?
-			schedulings =
-				direct: TAPi18n.__('scheduling.direct')
-				manual: TAPi18n.__('scheduling.manual')
-			schedulings[@scheduling]
+	getScheduling: -> if @scheduling?
+		TAPi18n.__('scheduling.' + @scheduling)
 
 	shiftClass: ->
 		try
@@ -85,6 +82,8 @@ Template.shift.helpers
 			'isAdmin'
 		else
 			'noAdmin'
+
+	directScheduling: -> @scheduling == 'direct'
 
 	sortUsers: (participants) ->
 		participants.sort (a, b) ->
@@ -110,6 +109,7 @@ Template.shift.events
 
 	'click .shift': ->
 		shiftId = @_id
+
 		if $('.wrapper-content').hasClass('editShifts')
 			wrs -> FlowRouter.setQueryParams editShift: shiftId
 		else

@@ -41,26 +41,26 @@ with getShift
 							i.fa.fa-tags
 							| {{tag}}
 					.shift-teams
-						each teams
-							div.shift-team(class='{{status}}')
+						each team in teams
+							div.shift-team(class='{{team.status}}')
 								.shift-team-header
 									i.fa.fa-map-signs
-									| {{name}}
-								if participants
+									| {{team.name}}
+								if team.participants
 									.shift-team-participants
-										each sortUsers participants
+										each sortUsers team.participants
 											+printUser user=this
 											br
-								if isProjectShiftAdmin
-									if pending
+								if team.pending
+									if isProjectShiftAdmin
 										.shift-team-pendings
-											each pending
-												if teamleader
-													b {{name}}
-												else if substituteTeamleader
-													i {{name}}
-												else
-													| {{name}}
+											each sortUsers team.pending
+												+printUser user=this
+												br
+									else if directScheduling
+										.shift-team-pendings
+											each sortUsers team.pending
+												+printUser user=this
 												br
 else
 	button.btn.btn-block.shift.fake-shift
