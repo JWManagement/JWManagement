@@ -27,6 +27,9 @@ Meteor.methods
 		else if field == 'languages'
 			field = Validations.trim field
 
+		if field != 'username'
+			field = 'profile.' + field
+
 		set[field] = value + ' '
 		Meteor.users.update Meteor.userId(), $set: set
 
