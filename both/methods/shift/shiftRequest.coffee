@@ -161,9 +161,10 @@ Meteor.methods
 
 				for participant in team.participants
 					if participant._id == userId
+						participantData = participant
+
 						if participant.thisTeamleader
 							wasTeamleader = true
-							participantData = participant
 					else if participant.teamleader || participant.substituteTeamleader
 						hasTeamleader = true
 						newTeamleaderData = participant
