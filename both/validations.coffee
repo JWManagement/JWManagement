@@ -2,8 +2,6 @@
 
 	trim: (str) -> str.trim().replace /\s+/g, ' '
 
-	toLower: (str) -> str.toLowerCase()
-
 	removeSpecials: (str) -> str.replace /\W$/g, ''
 
 	removeLetters: (str) -> str.replace /[a-z]/gi, ''

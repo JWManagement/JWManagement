@@ -7,8 +7,8 @@ Meteor.methods
 		set = {}
 
 		if field == 'username'
+			value = value.toLowerCase()
 			value = Validations.trim value
-			value = Validations.toLower value
 			value = Validations.removeSpecials value
 
 			if (Meteor.users.findOne username: value)?
@@ -17,8 +17,8 @@ Meteor.methods
 			value = Validations.trim value
 			value = Validations.capitalize value
 		else if field == 'email'
+			value = value.toLowerCase()
 			value = Validations.trim value
-			value = Validations.toLower value
 		else if field == 'telefon'
 			value = Validations.trim value
 			value = Validations.removeLetters value
