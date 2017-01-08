@@ -151,6 +151,8 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
+	multipleTags: -> @tags.length > 1
+
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
@@ -248,10 +250,13 @@ Template.dashboard.events
 	'click #toShifts': (e) ->
 		e.preventDefault()
 
-		$(e.target).closest('.project-wrapper').addClass('show-teams-popup')
+		if $(e.target).closest('.project-wrapper').find('.tags-popup').length
+			$(e.target).closest('.project-wrapper').addClass('show-tags-popup')
 
-		$('.teams-popup').on 'click', (e) ->
-			$(e.target).closest('.project-wrapper').removeClass('show-teams-popup')
+			$('.tags-popup').on 'click', (e) ->
+				$(e.target).closest('.project-wrapper').removeClass('show-tags-popup')
+		else
+			FlowRouter.go 'shifts', projectId: @_id, language: TAPi18n.getLanguage()
 
 	'click .shift-link': (e) ->
 		e.preventDefault()
