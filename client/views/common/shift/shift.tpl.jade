@@ -2,7 +2,7 @@ with getShift
 	if isWrongTag
 		.wrongTag
 	else
-		button#editShift.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
+		button.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
 			if view 'editShifts'
 				if isProjectShiftAdmin
 					.shift-header

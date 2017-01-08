@@ -109,10 +109,8 @@ Template.shift.onCreated ->
 Template.shift.events
 
 	'click .shift': ->
-		unless $('.wrapper-content').hasClass('editShifts')
-			shiftId = @_id
-			wrs -> FlowRouter.setQueryParams showShift: shiftId
-
-	'click #editShift': ->
 		shiftId = @_id
-		wrs -> FlowRouter.setQueryParams editShift: shiftId
+		if $('.wrapper-content').hasClass('editShifts')
+			wrs -> FlowRouter.setQueryParams editShift: shiftId
+		else
+			wrs -> FlowRouter.setQueryParams showShift: shiftId
