@@ -96,6 +96,8 @@ Template.shift.helpers
 
 				if aSplit[aSplit.length-1] < bSplit[bSplit.length-1] then -1
 				else if aSplit[aSplit.length-1] > bSplit[bSplit.length-1] then 1
+				else if aSplit[0] < bSplit[0] then -1
+				else if aSplit[0] > bSplit[0] then 1
 				else 0
 
 Template.shift.onCreated ->
