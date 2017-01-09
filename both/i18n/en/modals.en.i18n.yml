@@ -117,7 +117,7 @@ modal:
         acceptSelected: Accept selected
         declineSelected: Decline selected
         report: Report
-        allocations: Zuteilungen
+        allocations: Shifts
         thisWeek: this week
         lastDays: last %s days
         noMeeting: No Meeting Point
