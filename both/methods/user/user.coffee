@@ -2,7 +2,7 @@ Meteor.methods
 
 	updateProfile: (field, value) ->
 		check field, String
-		check value, String
+		check value, Match.Any
 
 		set = {}
 
