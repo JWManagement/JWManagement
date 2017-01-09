@@ -43,7 +43,7 @@ Meteor.methods
 								name: user.profile.firstname + ' ' + user.profile.lastname
 								teamleader: Roles.userIsInRole user._id, 'teamleader', shift.tagId
 								substituteTeamleader: Roles.userIsInRole user._id, 'substituteTeamleader', shift.tagId
-								thisShiftLeader: false
+								thisTeamLeader: false
 								phone: user.profile.telefon
 								email: user.profile.email
 				users

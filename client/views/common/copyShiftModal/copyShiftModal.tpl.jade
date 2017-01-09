@@ -1,0 +1,27 @@
+#copyShiftModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-sticky-clone.modal-icon
+				h2.m-b-none {{_ 'modal.copyShift.title'}}
+			.modal-body
+				if isProjectShiftOrStoreAdmin getProjectId
+					p {{_ 'modal.copyShift.text'}}
+					.table-responsive
+						table#daySelects.table.table-bordered
+							thead
+								tr
+									each day in weekdays
+										td {{_ 'weekdays.' context=day}}
+							tbody
+								tr
+									each day in weekdays
+										td.day.center-align(data-day='{{day}}')
+											.checkbox.checkbox-primary.checkbox-inline
+												input#shortTermCalls(type="checkbox")
+												label.no-padding
+				else
+					h2.center-align {{_ 'role.noPermission'}}
+			.modal-footer
+				button#copyShift.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.copyShift.action'}}
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

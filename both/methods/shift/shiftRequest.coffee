@@ -14,7 +14,7 @@ Meteor.methods
 			name: user.profile.firstname + ' ' + user.profile.lastname
 			teamleader: Roles.userIsInRole userId, 'teamleader', shift.tagId
 			substituteTeamleader: Roles.userIsInRole userId, 'substituteTeamleader', shift.tagId
-			thisShiftLeader: false
+			thisTeamleader: false
 			phone: user.profile.telefon
 			email: user.profile.email
 
@@ -161,9 +161,10 @@ Meteor.methods
 
 				for participant in team.participants
 					if participant._id == userId
+						participantData = participant
+
 						if participant.thisTeamleader
 							wasTeamleader = true
-							participantData = participant
 					else if participant.teamleader || participant.substituteTeamleader
 						hasTeamleader = true
 						newTeamleaderData = participant

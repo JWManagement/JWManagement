@@ -1,6 +1,12 @@
 Template.addWeekModal.helpers
 
-	getProject: -> Projects.findOne FlowRouter.getParam('projectId'), fields: tags: 1
+	getProject: ->
+		project = Projects.findOne FlowRouter.getParam('projectId'), fields: tags: 1
+
+		for tag in project.tags when tag.templates.length > 0
+			return project
+
+		_id: project._id, noTemplate: true
 
 Template.addWeekModal.onCreated ->
 

@@ -39,6 +39,8 @@ Template.editShiftModal.helpers
 
 	possibleTeamSizes: -> [1..15]
 
+	isTemplate: -> FlowRouter.getQueryParam('weekId')?
+
 Template.editShiftModal.onCreated ->
 
 	projectId = FlowRouter.getParam('projectId')
@@ -202,3 +204,8 @@ Template.editShiftModal.events
 	'click #switch': ->
 		shiftId = FlowRouter.getQueryParam 'editShift'
 		wrs -> FlowRouter.setQueryParams showShift: shiftId
+
+	'click #copyShift': ->
+		shiftId = FlowRouter.getQueryParam 'editShift'
+
+		wrs -> FlowRouter.setQueryParams copyShift: shiftId

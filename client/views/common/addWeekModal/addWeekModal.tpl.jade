@@ -7,25 +7,32 @@
 			.modal-body
 				if isProjectShiftAdmin
 					with getProject
-						p {{_ 'modal.addWeek.text.top'}}
-						#datepicker-week
-						p.m-t {{_ 'modal.addWeek.text.bottom'}}
-						.dropdown(tagId='{{tags.[0]._id}}' templateId='{{tags.[0].templates.[0]._id}}')
-							button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
-								span.m-r
-									| {{tags.[0].name}}
-									i.fa.fa-long-arrow-right.fa-fw
-									| {{tags.[0].templates.[0].name}}
-								span.caret.pull-right
-							ul.dropdown-menu
-								each tags
-									each template in templates
-										li
-											a.changeTemplate(href tagId='{{_id}}' templateId='{{template._id}}')
-												| {{name}}
-												i.fa.fa-long-arrow-right.fa-fw
-												| {{template.name}}
-						button#addTemplateWeek.btn.btn-primary.btn-block.m-t {{_ 'modal.addWeek.action'}}
+						if noTemplate
+							h3.center-align {{_ 'modal.addWeek.noTemplate'}}
+							h3.center-align
+								a(href='{{pathFor "settings" projectId=_id language=langTag}}')
+									| {{_ 'modal.addWeek.defineTemplate'}}
+									i.fa.fa-angle-double-right
+						else
+							p {{_ 'modal.addWeek.text.top'}}
+							#datepicker-week
+							p.m-t {{_ 'modal.addWeek.text.bottom'}}
+							.dropdown(tagId='{{tags.[0]._id}}' templateId='{{tags.[0].templates.[0]._id}}')
+								button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+									span.m-r
+										| {{tags.[0].name}}
+										i.fa.fa-long-arrow-right.fa-fw
+										| {{tags.[0].templates.[0].name}}
+									span.caret.pull-right
+								ul.dropdown-menu
+									each tags
+										each template in templates
+											li
+												a.changeTemplate(href tagId='{{_id}}' templateId='{{template._id}}')
+													| {{name}}
+													i.fa.fa-long-arrow-right.fa-fw
+													| {{template.name}}
+							button#addTemplateWeek.btn.btn-primary.btn-block.m-t {{_ 'modal.addWeek.action'}}
 					else
 						.sk-spinner.sk-spinner-pulse
 				else
