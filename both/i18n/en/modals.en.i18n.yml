@@ -26,6 +26,10 @@ modal:
         title: Cancel team
         text: Describe, why this team has to be cancelled. All participants will get this message via the cancellation mail.
         action: Cancel team
+    copyShift:
+        title: Copy shift
+        text: Just select the days to which you want to copy this shift.
+        action: Copy shift
     editPermissions:
         title: Manage %s's permissions
         projectPermissions: Project permissions
@@ -62,6 +66,7 @@ modal:
         action: Action:
         delete: Delete
         switch: Schedule shift
+        copyShift: Copy shift
     editTeamPicture:
         title: Change team picture
         currentPicture: Current Picture:

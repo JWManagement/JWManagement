@@ -74,25 +74,25 @@ Meteor.methods
 			check shiftId, isExistingShift
 			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
 
-		Shifts.update shiftId, $set: set
+			Shifts.update shiftId, $set: set
 
-		if field == 'start'
-			week = Weeks.findOne shift.weekId, fields: days: 1
-			find = _id: week._id
+			if field == 'start'
+				week = Weeks.findOne shift.weekId, fields: days: 1
+				find = _id: week._id
 
-			for day in week.days when shift._id in day.shifts
-				newDay = day
-				newDay.shifts.sort (s1, s2) ->
-					s1 = Shifts.findOne s1, fields: start: 1
-					s2 = Shifts.findOne s2, fields: start: 1
-					s1.start - s2.start
+				for day in week.days when shift._id in day.shifts
+					newDay = day
+					newDay.shifts.sort (s1, s2) ->
+						s1 = Shifts.findOne s1, fields: start: 1
+						s2 = Shifts.findOne s2, fields: start: 1
+						s1.start - s2.start
 
-			if newDay.date?
-				find['days.date'] = newDay.date
-			else
-				find['days.day'] = newDay.day
+				if newDay.date?
+					find['days.date'] = newDay.date
+				else
+					find['days.day'] = newDay.day
 
-			Weeks.update find, $set: 'days.$': newDay
+				Weeks.update find, $set: 'days.$': newDay
 
 	removeShift: (shiftId) ->
 		if Meteor.isServer

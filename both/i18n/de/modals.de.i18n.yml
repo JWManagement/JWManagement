@@ -26,6 +26,10 @@ modal:
         title: Team absagen
         text: Beschreibe, warum dieses Team abgesagt werden muss. Die einzelnen Verkündiger bekommen diesen Text in der Absage-Mail angezeigt.
         action: Team absagen
+    copyShift:
+        title: Schicht kopieren
+        text: Selektiere die Tage, zu denen du Schicht kopieren möchtest.
+        action: Schicht kopieren
     editPermissions:
         title: Berechtigungen von %s verwalten
         projectPermissions: Projekt Berechtigungen
