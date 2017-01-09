@@ -5,13 +5,13 @@ Meteor.methods
 
 		Meteor.users.update Meteor.userId(), $pull: 'profile.vacations': _id: vacationId
 
-	addVacation: ->
+	addVacation: (day) ->
 		vacationId = Random.id 10
 
 		Meteor.users.update Meteor.userId(), $addToSet: 'profile.vacations':
 			_id: vacationId
-			start: moment(new Date).format('YYYYDDDD')
-			end: moment(new Date).format('YYYYDDDD')
+			start: day
+			end: day
 
 		vacationId
 
