@@ -2,35 +2,35 @@ Meteor.methods
 
 	updateProfile: (field, value) ->
 		check field, String
-		check value, Match.Any
+		check value, String
 
 		set = {}
 
 		if field == 'username'
-			field = Validations.trim field
-			field = Validations.toLower field
-			field = Validations.removeSpecials field
+			value = value.toLowerCase()
+			value = Validations.trim value
+			value = Validations.removeSpecials value
 
 			if (Meteor.users.findOne username: value)?
 				throw new Meteor.Error 406, 'Username unavailable'
 		else if field == 'firstname' || field == 'lastname'
-			field = Validations.trim field
-			field = Validations.capitalize field
+			value = Validations.trim value
+			value = Validations.capitalize value
 		else if field == 'email'
-			field = Validations.trim field
-			field = Validations.toLower field
+			value = value.toLowerCase()
+			value = Validations.trim value
 		else if field == 'telefon'
-			field = Validations.trim field
-			field = Validations.removeLetters field
+			value = Validations.trim value
+			value = Validations.removeLetters value
 		else if field == 'congregation'
-			field = Validations.trim field
+			value = Validations.trim value
 		else if field == 'languages'
-			field = Validations.trim field
+			value = Validations.trim value
 
 		if field != 'username'
 			field = 'profile.' + field
 
-		set[field] = value + ' '
+		set[field] = value
 		Meteor.users.update Meteor.userId(), $set: set
 
 		if Meteor.isServer

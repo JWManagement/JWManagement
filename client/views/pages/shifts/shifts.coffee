@@ -74,7 +74,7 @@ Template.shifts.onCreated ->
 
 			WeekSubs.subscribe 'week', projectId, week
 
-		$('.animated').removeClass('animated').addClass('skipped')
+		Delay -> $('.animated').removeClass('animated').addClass('skipped')
 
 Template.shifts.onDestroyed ->
 

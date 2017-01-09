@@ -16,6 +16,8 @@ modal:
         existingAccounts: Bestehende Accounts
     addWeek:
         title: Neue Woche anlegen
+        noTemplate: Bitte leg zuerst eine Vorlage an
+        defineTemplate: Vorlage anlegen
         action: Woche anlegen
         text:
             top: Wähle die Woche aus, auf die die Vorlagewoche angewendet werden soll:
@@ -24,6 +26,10 @@ modal:
         title: Team absagen
         text: Beschreibe, warum dieses Team abgesagt werden muss. Die einzelnen Verkündiger bekommen diesen Text in der Absage-Mail angezeigt.
         action: Team absagen
+    copyShift:
+        title: Schicht kopieren
+        text: Selektiere die Tage, zu denen du Schicht kopieren möchtest.
+        action: Schicht kopieren
     editPermissions:
         title: Berechtigungen von %s verwalten
         projectPermissions: Projekt Berechtigungen

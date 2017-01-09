@@ -22,6 +22,7 @@ Meteor.methods
 				Meteor.call 'updateReport', shiftId, teamId, 'hours', moment(shift.end - shift.start, 'Hmm').format('HH:mm')
 				Meteor.call 'updateReport', shiftId, teamId, 'filled', true
 				Meteor.call 'updateReport', shiftId, teamId, 'neatness', 'good'
+				Meteor.call 'updateReport', shiftId, teamId, 'items', []
 				Meteor.call 'updateReport', shiftId, teamId, 'experiences.route', ''
 				Meteor.call 'updateReport', shiftId, teamId, 'experiences.good', ''
 				Meteor.call 'updateReport', shiftId, teamId, 'experiences.problems', ''
@@ -54,7 +55,7 @@ Meteor.methods
 			check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftAdminOrThisTeamleader
 
 		for team in shift.teams when team._id == teamId
-			newItems = team.report.items
+			newItems = if team.report.items then team.report.items else []
 
 			for item in newItems when item.short == short && item.language.short == language
 				item.count = parseInt(item.count) + parseInt(count)

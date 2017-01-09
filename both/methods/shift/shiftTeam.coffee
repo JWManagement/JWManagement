@@ -21,7 +21,7 @@ Meteor.methods
 		Shifts.update _id: shiftId, 'teams._id': teamId,
 			$set: 'teams.$.status': 'closed'
 
-		for team in shift.teams when team.status == 'open'
+		for team in shift.teams when team.status == 'open' && team._id != teamId
 			allClosed = false
 
 		if allClosed

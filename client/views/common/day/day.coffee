@@ -26,18 +26,13 @@ Template.day.events
 		project = Projects.findOne projectId, fields: tags: 1
 
 		if project?
-			for tag in project.tags
-				if tag._id == tagId
-					tagName = tag.name
+			for tag in project.tags when tag._id == tagId
+				tagName = tag.name
 
 			if date?
-				Meteor.call 'addShift', projectId, tagId, tagName, parseInt(date), parseInt(start), (e, shiftId) ->
-					if !e && shiftId
-						wrs -> FlowRouter.setQueryParams editShift: shiftId
+				Meteor.call 'addShift', projectId, tagId, tagName, parseInt(date), parseInt(start), handleError
 			else if weekId?
-				Meteor.call 'addTemplateShift', projectId, weekId, tagId, tagName, day, (e, shiftId) ->
-					if !e && shiftId
-						wrs -> FlowRouter.setQueryParams editShift: shiftId
+				Meteor.call 'addTemplateShift', projectId, weekId, tagId, tagName, day, handleError
 			else
 				throw new Meteor.Error 500, 'Not enough data provided'
 
