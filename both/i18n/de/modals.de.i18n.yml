@@ -66,6 +66,7 @@ modal:
         action: Aktion:
         delete: Löschen
         switch: Schicht einteilen
+        copyShift: Schicht kopieren
     editTeamPicture:
         title: Team Bild ändern
         currentPicture: Aktuelles Bild:
