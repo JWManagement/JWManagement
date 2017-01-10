@@ -99,7 +99,7 @@ Meteor.methods
 						setTeam['teams.$.declined'] = newDeclined
 
 					if setTeam != {}
-						Shifts.update shiftId, 'teams._id': team._id,
+						Shifts.update shift._id, 'teams._id': team._id,
 							$set: setTeam
 
 	toggleAvailability: (day, hour) ->
