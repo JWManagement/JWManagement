@@ -23,8 +23,6 @@ Meteor.publish 'dashboard', ->
 			,
 				date: $lt: parseInt(moment().format('YYYYDDDD'))
 				'teams.participants._id': @userId
-				'teams.participants.thisTeamleader': true
-				'teams.report.submitted': $ne: true
 			]
 		,
 			fields: _id: 1

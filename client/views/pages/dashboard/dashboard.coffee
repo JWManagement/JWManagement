@@ -72,9 +72,10 @@ Template.dashboard.helpers
 					date: $eq: thisDate
 					end: $lte: thisTime
 				]
-				'teams.participants._id': Meteor.userId()
-				'teams.participants.thisTeamleader': true
-				'teams.report.submitted': $ne: true
+				'teams.participants':
+					$elemMatch:
+						_id: Meteor.userId()
+						thisTeamleader: true
 			,
 				$and: [
 					$or: [
@@ -130,9 +131,7 @@ Template.dashboard.helpers
 
 						if projects.length == 6
 							return projects
-
 						break
-
 		projects
 
 	centerFakeProject: ->
@@ -158,6 +157,18 @@ Template.dashboard.helpers
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
 	newsThere: -> @news?.text and @news.text != ''
+
+	showShift: ->
+		missingReport = false
+
+		if @date < parseInt(moment().format('YYYYDDDD'))
+			for team in @teams
+				for user in team.participants when user._id == Meteor.userId() && team.report && !team.report.init
+					missingReport = missingReport || user.thisTeamleader
+
+		missingReport || Session.get 'showOlder'
+
+	showOlder: -> Session.get 'showOlder'
 
 Template.dashboard.onCreated ->
 
@@ -241,6 +252,8 @@ Template.dashboard.onRendered ->
 
 	$('.animated').removeClass('animated').addClass('skipped')
 
+	Session.set 'showOlder', false
+
 Template.dashboard.onDestroyed ->
 
 	$('#shiftReport').modal('hide')
@@ -298,3 +311,5 @@ Template.dashboard.events
 
 		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
 		false
+
+	'click #showOlder': -> Session.set 'showOlder', true

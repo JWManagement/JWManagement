@@ -99,49 +99,55 @@ if queryParam 'showShiftReport'
 				if getShifts.count
 					#vertical-timeline.vertical-container.light-timeline.center-orientation
 						each getShifts
-							.vertical-timeline-block.shift(class="{{shiftRelation}}")
-								.vertical-timeline-icon
-									if isRelation 'missing'
-										i.fa.fa-envelope
-									else if isRelation 'accepted'
-										i.fa.fa-thumbs-o-up
-									else if isRelation 'pending'
-										i.fa.fa-question
-									else if isRelation 'declined'
-										i.fa.fa-thumbs-o-down
-								a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
-									if isRelation 'missing'
-										h2  {{_ "dashboard.missing"}}
-									else if isRelation 'accepted'
-										h2  {{_ "dashboard.accepted"}}
-									else if isRelation 'pending'
-										h2  {{_ "dashboard.pending"}}
-									else if isRelation 'declined'
-										h2  {{_ "dashboard.declined"}}
-									.tag
-										if multipleProjects
-											| {{getProjectName}},
-										| {{tag}}
-									span.vertical-date
-										| {{formatToNow date start}}
-										br
-										small {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}
-										br
-										small {{formatTimeComparison start end}}
-									if teams
-										.shift-teams.clearfix
-											each teams
-												div.shift-team(class="{{teamRelation}}")
-													.shift-team-header
-														i.fa.fa-map-signs
-														| {{name}}
-													if participants
-														.shift-team-participants
-															each participants
-																if thisTeamleader
-																	u {{name}}
-																	br
-															each participants
-																unless thisTeamleader
-																	| {{name}}
-																	br
+							if showShift
+								.vertical-timeline-block.shift(class="{{shiftRelation}}")
+									.vertical-timeline-icon
+										if isRelation 'missing'
+											i.fa.fa-envelope
+										else if isRelation 'accepted'
+											i.fa.fa-thumbs-o-up
+										else if isRelation 'pending'
+											i.fa.fa-question
+										else if isRelation 'declined'
+											i.fa.fa-thumbs-o-down
+									a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
+										if isRelation 'missing'
+											h2  {{_ "dashboard.missing"}}
+										else if isRelation 'accepted'
+											h2  {{_ "dashboard.accepted"}}
+										else if isRelation 'pending'
+											h2  {{_ "dashboard.pending"}}
+										else if isRelation 'declined'
+											h2  {{_ "dashboard.declined"}}
+										.tag
+											if multipleProjects
+												| {{getProjectName}},
+											| {{tag}}
+										span.vertical-date
+											| {{formatToNow date start}}
+											br
+											small {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}
+											br
+											small {{formatTimeComparison start end}}
+										if teams
+											.shift-teams.clearfix
+												each teams
+													div.shift-team(class="{{teamRelation}}")
+														.shift-team-header
+															i.fa.fa-map-signs
+															| {{name}}
+														if participants
+															.shift-team-participants
+																each participants
+																	if thisTeamleader
+																		u {{name}}
+																		br
+																each participants
+																	unless thisTeamleader
+																		| {{name}}
+																		br
+					unless showOlder
+						.center-align
+							#showOlder.btn.btn-primary
+								.fa.fa-chevron-down.fa-fw
+								| {{_ "dashboard.showOlder"}}
