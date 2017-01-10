@@ -28,7 +28,7 @@ Template.copyShiftModal.events
 			tagId = FlowRouter.getQueryParam('tagId')
 
 			shift = Shifts.findOne shiftId
-			tagName = shift.tagName
+			tagName = shift.tag
 
 			for day in days
 				Meteor.call 'addTemplateShift', projectId, weekId, tagId, tagName, day, (e, shiftId) ->

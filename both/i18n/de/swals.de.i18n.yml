@@ -7,6 +7,7 @@ swal:
     acceptionInformed: Dieser Teilnehmer wurde bereits über seine Zuteilung informiert.
     declinementInformed: Dieser Teilnehmer wurde bereits über seine Bewerbungs-Absage informiert.
     vacationEndInPast: Das Enddatum kann nicht in der Vergangenheit liegen.
+    missingTag: Kein Tag definiert. Bitte lege zuerst eines unter Verwaltung > Einstellungen an.
     logout:
         title: Tipp
         text: Es ist nicht nötig sich abzumelden. Deine Verbindung ist verschlüsselt und wir speichern Sitzungsinformationen lediglich im lokalen Browserstorage. Dadurch kann niemand in deine Sitzung einbrechen.
@@ -81,7 +82,7 @@ swal:
             title: Neuen Tab anlegen
             text: ''
             placeholder: Titel
-            inputError: Ungültiger Name für einen Tab! 
+            inputError: Ungültiger Name für einen Tab!
             confirm: Anlegen
             cancel: Abbrechen
         tag:
@@ -210,7 +211,7 @@ swal:
             cancel: Abbrechen
         tag:
             title: Tag wirklich löschen?
-            text: Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben. 
+            text: Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben.
             checkInput: Löschen
             placeholder: Zur Bestätigung "%s" eingeben
             inputError: Die Eingabe stimmte nicht mit "%s" überein
@@ -218,7 +219,7 @@ swal:
             cancel: Abbrechen
         team:
             title: Team wirklich löschen?
-            text: Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben. 
+            text: Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben.
             checkInput: Löschen
             placeholder: Zur Bestätigung "%s" eingeben
             inputError: Die Eingabe stimmte nicht mit "%s" überein

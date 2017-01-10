@@ -16,7 +16,14 @@ Template.dashboard.helpers
 		thisTime = parseInt moment(new Date).format 'Hmm'
 
 		if a == 'missing'
-			@date < thisDate || @date == thisDate && @end <= thisTime
+			reportSubmitted = false
+
+			for team in @teams
+				for user in team.participants when user._id == Meteor.userId()
+					if team.report && team.report.submitted
+						reportSubmitted = team.report.submitted
+
+			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
 		else if a == 'accepted'
 			for team in @teams
 				for participant in team.participants
@@ -34,8 +41,14 @@ Template.dashboard.helpers
 	shiftRelation: ->
 		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
 		thisTime = parseInt moment(new Date).format 'Hmm'
+		reportSubmitted = false
 
-		if @date < thisDate || @date == thisDate && @end <= thisTime
+		for team in @teams
+			for user in team.participants when user._id == Meteor.userId()
+				if team.report && team.report.submitted
+					reportSubmitted = team.report.submitted
+
+		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
 			'missing'
 		else
 			for team in @teams
@@ -72,10 +85,7 @@ Template.dashboard.helpers
 					date: $eq: thisDate
 					end: $lte: thisTime
 				]
-				'teams.participants':
-					$elemMatch:
-						_id: Meteor.userId()
-						thisTeamleader: true
+				'teams.participants._id': Meteor.userId()
 			,
 				$and: [
 					$or: [
@@ -159,14 +169,22 @@ Template.dashboard.helpers
 	newsThere: -> @news?.text and @news.text != ''
 
 	showShift: ->
+		today = parseInt(moment().format('YYYYDDDD'))
+		now = parseInt(moment().format('Hmm'))
 		missingReport = false
+		myShift = false
 
-		if @date < parseInt(moment().format('YYYYDDDD'))
-			for team in @teams
-				for user in team.participants when user._id == Meteor.userId() && team.report && !team.report.init
-					missingReport = missingReport || user.thisTeamleader
+		for team in @teams
+			for user in team.participants when user._id == Meteor.userId()
+				myShift = true
 
-		missingReport || Session.get 'showOlder'
+				if user.thisTeamleader
+					missingReport = true
+
+					if team.report && team.report.submitted
+						missingReport = false
+
+		myShift && (@date >= today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
 
@@ -269,7 +287,14 @@ Template.dashboard.events
 			$('.tags-popup').on 'click', (e) ->
 				$(e.target).closest('.project-wrapper').removeClass('show-tags-popup')
 		else
-			FlowRouter.go 'shifts', projectId: @_id, language: TAPi18n.getLanguage()
+			if @tags.length > 0
+				FlowRouter.go 'shifts',
+					projectId: @_id
+					language: TAPi18n.getLanguage()
+				,
+					showTags: @tags[0]._id
+			else
+				swal TAPi18n.__('swal.missingTag'), '', 'error'
 
 	'click .shift-link': (e) ->
 		e.preventDefault()
