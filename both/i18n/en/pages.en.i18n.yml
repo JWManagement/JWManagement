@@ -152,6 +152,7 @@ dashboard:
     marked_plural: Understaffed Shifts
     participant: Shift Participant
     participant_plural: Shift Participants
+    showOlder: Show older
 wiki:
     name: Information Center
     nameShort: Info
