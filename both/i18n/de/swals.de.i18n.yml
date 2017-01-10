@@ -6,6 +6,7 @@ swal:
     ownPermission: Du kannst dir selbst keine Berechtigungen entziehen. Das muss ein anderer Projekt-Administrator machen.
     acceptionInformed: Dieser Teilnehmer wurde bereits über seine Zuteilung informiert.
     declinementInformed: Dieser Teilnehmer wurde bereits über seine Bewerbungs-Absage informiert.
+    vacationEndInPast: Das Enddatum kann nicht in der Vergangenheit liegen.
     logout:
         title: Tipp
         text: Es ist nicht nötig sich abzumelden. Deine Verbindung ist verschlüsselt und wir speichern Sitzungsinformationen lediglich im lokalen Browserstorage. Dadurch kann niemand in deine Sitzung einbrechen.
