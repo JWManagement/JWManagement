@@ -287,7 +287,14 @@ Template.dashboard.events
 			$('.tags-popup').on 'click', (e) ->
 				$(e.target).closest('.project-wrapper').removeClass('show-tags-popup')
 		else
-			FlowRouter.go 'shifts', projectId: @_id, language: TAPi18n.getLanguage()
+			if @tags.length > 0
+				FlowRouter.go 'shifts',
+					projectId: @_id
+					language: TAPi18n.getLanguage()
+				,
+					showTags: @tags[0]._id
+			else
+				swal TAPi18n.__('swal.missingTag'), '', 'error'
 
 	'click .shift-link': (e) ->
 		e.preventDefault()

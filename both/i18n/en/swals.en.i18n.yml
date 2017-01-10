@@ -7,6 +7,7 @@ swal:
     acceptionInformed: This participant has been informed about their request acception.
     declinementInformed: This participant has been informed that their request was declined.
     vacationEndInPast: The end date can not be in the past.
+    missingTag: No tag defined. Please define a tag under Admin > Settings first
     logout:
         title: Hint
         text: It is not necessary to log out. Your connection is encrypted and we save session information only in your local browser. Nobody can see or hijack your session.
@@ -81,7 +82,7 @@ swal:
             title: Add a new tab
             text: ''
             placeholder: Title
-            inputError: Invalid tab name! 
+            inputError: Invalid tab name!
             confirm: Add
             cancel: Cancel
         tag:
