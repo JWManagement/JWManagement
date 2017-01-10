@@ -6,6 +6,7 @@ swal:
     ownPermission: You are not allowed to revoke your own permissions. Another administrator has to do that.
     acceptionInformed: This participant has been informed about their request acception.
     declinementInformed: This participant has been informed that their request was declined.
+    vacationEndInPast: The end date can not be in the past.
     logout:
         title: Hint
         text: It is not necessary to log out. Your connection is encrypted and we save session information only in your local browser. Nobody can see or hijack your session.

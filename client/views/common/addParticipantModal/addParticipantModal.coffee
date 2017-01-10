@@ -34,20 +34,21 @@ Template.addParticipantModal.helpers
 
 						shiftDay = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'so'][moment(shift.date).isoWeekday() - 2]
 
-						for day in Object.keys user.profile.available when day == shiftDay
-							available = true
+						if user.profile.available
+							for day in Object.keys user.profile.available when day == shiftDay
+								available = true
 
-							for time in numbers when time not in user.profile.available[day]
-								available = false
-
-						if available
-							for vacation in user.profile.vacations
-								now = parseInt shift.date
-								start = parseInt vacation.start
-								end = parseInt vacation.end
-
-								if now >= start && now <= end
+								for time in numbers when time not in user.profile.available[day]
 									available = false
+
+							if available
+								for vacation in user.profile.vacations
+									now = parseInt shift.date
+									start = parseInt vacation.start
+									end = parseInt vacation.end
+
+									if now >= start && now <= end
+										available = false
 
 					_id: user._id
 					available: available

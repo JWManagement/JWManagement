@@ -15,6 +15,7 @@ store:
     addLanguage: Hinzufügen
     setup:
         title: Bitte wähle einen Depot-Modus
+        support: Leider wird dies noch nicht unterstützt
         description: Um dein Depot zu initialisieren, benötigen wir noch einige Angaben.<br>Bitte wähle einen der beiden Modi aus, um mit dem Anlegen des Depots zu beginnen.<br>Du kannst den Modus nachher wieder ändern.
         simple:
             name: Einfach

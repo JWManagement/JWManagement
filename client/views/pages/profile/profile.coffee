@@ -145,11 +145,16 @@ Template.profile.events
 	'click .delVacation': (e) -> Meteor.call 'removeVacation', @_id
 
 	'click #addVacation': ->
-		Meteor.call 'addVacation', (err, vacationId) -> Tracker.afterFlush ->
+		today = moment(new Date).format('YYYYDDDD')
+		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'
 				language: FlowRouter.getParam('language')
 
-	'change .startDate': (e) -> Meteor.call 'setVacationStart', @_id, parseInt e.target.value
+	'change .startDate': (e) -> Meteor.call 'setVacationStart', @_id, e.target.value
 
-	'change .endDate': (e) -> Meteor.call 'setVacationEnd', @_id, parseInt e.target.value
+	'change .endDate': (e) ->
+		if moment(e.target.value, 'DD.MM.YYYY') < moment(0, 'HH')
+			swal TAPi18n.__('swal.vacationEndInPast'), '', 'error'
+		else
+			Meteor.call 'setVacationEnd', @_id, e.target.value

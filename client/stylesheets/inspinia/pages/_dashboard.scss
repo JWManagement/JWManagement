@@ -10,8 +10,7 @@
 		-ms-user-select    : auto;
 		-moz-user-select   : auto;
 		-webkit-user-select: auto;
-		word-wrap: break-word;
-
+		word-wrap          : break-word;
 	}
 
 	.container-fluid {
@@ -242,12 +241,12 @@
 			.shift-teams {
 				.shift-team {
 					color           : #602420;
-					border          : 1px solid rgba($red, 0.3);
-					background-color: rgba($red, 0.05);
+					border          : 1px solid rgba($red, 0.3) !important;
+					background-color: rgba($red, 0.05) !important;
 
 					.shift-team-header {
-						color           : #602420;
-						background-color: rgba($red, 0.3);
+						color           : #602420 !important;
+						background-color: rgba($red, 0.3) !important;
 					}
 				}
 			}

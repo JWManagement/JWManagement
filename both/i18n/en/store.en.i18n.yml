@@ -15,6 +15,7 @@ store:
     addLanguage: Add
     setup:
         title: Please choose a Store-Mode
+        support: Sorry this is not yet supported
         description: Please choose a mode to initialize your store room.<br>You can change this later, if you need to.
         simple:
             name: Simple
