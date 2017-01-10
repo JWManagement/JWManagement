@@ -85,10 +85,7 @@ Template.dashboard.helpers
 					date: $eq: thisDate
 					end: $lte: thisTime
 				]
-				'teams.participants':
-					$elemMatch:
-						_id: Meteor.userId()
-						thisTeamleader: true
+				'teams.participants._id': Meteor.userId()
 			,
 				$and: [
 					$or: [
@@ -172,14 +169,22 @@ Template.dashboard.helpers
 	newsThere: -> @news?.text and @news.text != ''
 
 	showShift: ->
+		today = parseInt(moment().format('YYYYDDDD'))
+		now = parseInt(moment().format('Hmm'))
 		missingReport = false
+		myShift = false
 
-		if @date < parseInt(moment().format('YYYYDDDD'))
-			for team in @teams
-				for user in team.participants when user._id == Meteor.userId() && team.report && !team.report.submitted
-					missingReport = missingReport || user.thisTeamleader
+		for team in @teams
+			for user in team.participants when user._id == Meteor.userId()
+				myShift = true
 
-		missingReport || Session.get 'showOlder'
+				if user.thisTeamleader
+					missingReport = true
+
+					if team.report && team.report.submitted
+						missingReport = false
+
+		myShift && (@date >= today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
 
