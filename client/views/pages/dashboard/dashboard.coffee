@@ -16,7 +16,14 @@ Template.dashboard.helpers
 		thisTime = parseInt moment(new Date).format 'Hmm'
 
 		if a == 'missing'
-			@date < thisDate || @date == thisDate && @end <= thisTime
+			reportSubmitted = false
+
+			for team in @teams
+				for user in team.participants when user._id == Meteor.userId()
+					if team.report && team.report.submitted
+						reportSubmitted = team.report.submitted
+
+			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
 		else if a == 'accepted'
 			for team in @teams
 				for participant in team.participants
@@ -34,8 +41,14 @@ Template.dashboard.helpers
 	shiftRelation: ->
 		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
 		thisTime = parseInt moment(new Date).format 'Hmm'
+		reportSubmitted = false
 
-		if @date < thisDate || @date == thisDate && @end <= thisTime
+		for team in @teams
+			for user in team.participants when user._id == Meteor.userId()
+				if team.report && team.report.submitted
+					reportSubmitted = team.report.submitted
+
+		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
 			'missing'
 		else
 			for team in @teams
@@ -163,7 +176,7 @@ Template.dashboard.helpers
 
 		if @date < parseInt(moment().format('YYYYDDDD'))
 			for team in @teams
-				for user in team.participants when user._id == Meteor.userId() && team.report && !team.report.init
+				for user in team.participants when user._id == Meteor.userId() && team.report && !team.report.submitted
 					missingReport = missingReport || user.thisTeamleader
 
 		missingReport || Session.get 'showOlder'
