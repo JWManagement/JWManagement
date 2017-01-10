@@ -16,9 +16,11 @@ Meteor.methods
 		vacationId
 
 	setVacationStart: (vacationId, start) ->
-		Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
-			$set: 'profile.vacations.$.start': moment(start, 'MM-DD-YYYY').format('YYYYDDDD')
+		if start != ''
+			Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
+				$set: 'profile.vacations.$.start': moment(start, 'DD.MM.YYYY').format('YYYYDDDD')
 
 	setVacationEnd: (vacationId, end) ->
-		Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
-			$set: 'profile.vacations.$.end': moment(end, 'MM-DD-YYYY').format('YYYYDDDD')
+		if end != ''
+			Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
+				$set: 'profile.vacations.$.end': moment(end, 'DD.MM.YYYY').format('YYYYDDDD')
