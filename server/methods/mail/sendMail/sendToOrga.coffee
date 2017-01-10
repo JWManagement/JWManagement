@@ -2,6 +2,9 @@ Meteor.methods
 
 	sendToOrga: (projectId, type, shiftId, teamId) ->
 		project = Projects.findOne projectId, fields: name: 1, email: 1, language: 1
+
+		check projectId, isExistingProject
+
 		if shiftId? and teamId?
 			shift = Shifts.findOne shiftId
 
@@ -13,14 +16,12 @@ Meteor.methods
 			for team in shift.teams when team._id == teamId
 				teamName = team.name
 
-		check projectId, isExistingProject
-
 		Meteor.call 'sendMail',
 			recipient: project.email
 			sender: project.name + ' <' + project.email + '>'
 			subject: TAPi18n.__('mail.toOrga.subject.' + type, '', project.language)
 			template: 'toOrga'
-			language: user.profile.language
+			language: project.language
 			data:
 				project: project.name
 				text: TAPi18n.__('mail.toOrga.text.' + type, {date: date, time: time, team: team.name} , project.language)
