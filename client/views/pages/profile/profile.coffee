@@ -145,7 +145,8 @@ Template.profile.events
 	'click .delVacation': (e) -> Meteor.call 'removeVacation', @_id
 
 	'click #addVacation': ->
-		Meteor.call 'addVacation', (err, vacationId) -> Tracker.afterFlush ->
+		today = moment(new Date).format('YYYYDDDD')
+		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'
 				language: FlowRouter.getParam('language')
