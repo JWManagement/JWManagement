@@ -143,7 +143,7 @@
 		return true
 
 	for team in shift.teams when team._id == obj.teamId
-		for user in team.participants when user._id == obj.userId && user.thisTeamleader
+		for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
 			return true
 
 	throw new Meteor.Error 550, TAPi18n.__('permissions.notShiftAdmin')
