@@ -27,6 +27,7 @@ Template.profile.onRendered ->
 		$('.input-daterange').datepicker
 			format: 'dd.mm.yyyy'
 			language: FlowRouter.getParam('language')
+			ignoreReadonly: true
 
 		$('#bdate-wrapper').datepicker
 			format: 'dd.mm.yyyy'
