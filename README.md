@@ -79,15 +79,14 @@ Please follow the instructions to setup JWManagement in your local dev environme
 
 1. Install Meteor (https://www.meteor.com/install)
 
-   - or on Debian GNU/Linux: ```shell
-     sudo apt-get install npm && sudo npm install meteor
-     ```
+	- or on Debian GNU/Linux:
+	```shell
+	sudo apt-get install npm && sudo npm install meteor
+	```
 
-   - only x86 and x86-64bit are supported, not yet ARM or Raspberry Pi
+	- only x86 and x86-64bit are supported, not yet ARM or Raspberry Pi
 
-2. Install SourceTree (https://www.sourcetreeapp.com)
-
-   - this is optional if you are familiar with the git command line
+2. _(Optional)_ We recommend installing SourceTree (https://www.sourcetreeapp.com) _(unless you want to use the git command line)_
 
 3. Install a MongoDB GUI Tool. We recommend:
 
@@ -100,28 +99,17 @@ Please follow the instructions to setup JWManagement in your local dev environme
 5. Open Terminal, cd to the created folder and run
 
 	```shell
-	meteor --settings settings.json
+	meteor npm install && meteor --settings settings.json
 	```
 
 	This will take some seconds since meteor now downloads all node modules and npm packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-    - If you get the error message "Unable to resolve some modules:
-      babel-runtime/helpers/typeof", type as directed
-      "meteor npm install --save babel-runtime"
-      (TODO: why doesn't our package.json entry fix this?)
-
-    - If you get "Looks like MongoDB doesn't understand your
-      locale settings" on Linux, try typing ```shell
-      export LC_ALL=en_GB.utf8
-      ```
-      before the above commands (if en_GB won't work try en_US).
-
-    - If you get the message "cannot find module underscore",
-      and yet it works without error to say ```shell
-      nodejs -e 'require("underscore")'
-      ```
-      at the command line, give up :-(
+	- If you get "Looks like MongoDB doesn't understand your locale settings" on Linux, try typing
+		```shell
+		export LC_ALL=en_GB.utf8
+		```
+		before the above commands (if en_GB won't work try en_US).
 
 6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
 
