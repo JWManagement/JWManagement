@@ -16,9 +16,9 @@ navigation:
     firstLogin: First Login
     forgotPassword: Forgot Password
     resetPassword: Reset Password
-    about:
-    terms:
-    privacy:
+    about: About this website
+    terms: Terms of usage
+    privacy: Privacy policy
 welcome:
     links:
         home: Home
@@ -62,6 +62,9 @@ welcome:
         message: Message
         send: Send
         required: Required
+        about: About this website
+        terms: Terms of usage
+        privacy: Privacy policy
 login:
     name: Login
     welcome: Welcome to JWManagement
