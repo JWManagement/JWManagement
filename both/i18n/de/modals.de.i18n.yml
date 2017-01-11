@@ -7,6 +7,8 @@ modal:
         alreadyRequested: Dieser Verkündiger hat sich bereits beworben
         alreadyParticipating: Dieser Verkündiger nimmt bereits teil
         select: Verkündiger auswählen
+        available: verfügbar
+        callable: kurzfristig anfragbar
     addUser:
         title: Neuen Benutzer anlegen
         action: Benutzer anlegen

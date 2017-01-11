@@ -7,6 +7,8 @@ modal:
         alreadyRequested: This user has already requested participation
         alreadyParticipating: This user is already participating
         select: Select Publisher
+        available: available
+        callable: callable in short term
     addUser:
         title: Create a new user
         action: Create user
