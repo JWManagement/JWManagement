@@ -16,6 +16,9 @@ navigation:
     firstLogin: First Login
     forgotPassword: Forgot Password
     resetPassword: Reset Password
+    about:
+    terms:
+    privacy:
 welcome:
     links:
         home: Home
