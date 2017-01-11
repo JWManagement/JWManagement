@@ -9,13 +9,13 @@ mail:
         text2: In case of problems please feel free to contact us.<br>We wish you much joy using JWManagement.<br>Your brothers from JWManagement
         button: Let's Go!
     teamCancellation:
-        subject: Team canceled
-        headline: Team has been canceled.
+        subject: Team cancelled
+        headline: Team has been cancelled.
         hello: Hello
-        text: Unfortunately we had to tell you that your team assignment on <b>__date__</b> at <b>__time__</b> o'clock were <u>canceled</u>.
+        text: Unfortunately we had to tell you that your team assignment on <b>__date__</b> at <b>__time__</b> o'clock was <u>cancelled</u>.
         missingParticipant: A participant is missing. If there are enough participants the team can take place again.
     confirmation:
-        subject: New Request Acception
+        subject: New Request Accepted
         headline: Your Request was accepted!
         hello: Hello
         text1: Your request for the following shift was accepted:
@@ -39,7 +39,7 @@ mail:
             participant: A participant
             time: The time
             location: The location
-            leader: The teamleader
+            leader: The team leader
         hello: Hello
         text1: You are marked as team member or leader so we would like to inform you about changes in your team.
         text2: Here is the current team configuration
@@ -60,12 +60,12 @@ mail:
     toOrga:
         hello: Hello Organisation Team
         subject:
-            teamCancel: Team canceled
+            teamCancel: Team cancelled
         text:
-            teamCancel: The team <b>"__team__"</b> on <b>__date__</b> at <b>__time__</b> o'clock were <u>canceled</u>.
+            teamCancel: The team <b>"__team__"</b> on <b>__date__</b> at <b>__time__</b> o'clock were <u>cancelled</u>.
     resetPassword:
         subject: Reset Password
         headline: Reset your Password
-        text1: Hello,<br>Please klick the following button to set a new password:
+        text1: Hello,<br>Please click the following button to set a new password:
         button: Reset Password
-        text2: <p>Useful hints for secure password generation can be found in g01 6/22 p. 31</p><p>If you didn't request a password reset, feel free to delete this email.</p>
+        text2: <p>Useful hints for secure password generation can be found in <a href="http://wol.jw.org/en/wol/d/r1/lp-e/102001451">g01 6/22 p. 31</a></p><p>If you didn't request a password reset, feel free to delete this email.</p>

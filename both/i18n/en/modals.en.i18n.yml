@@ -11,7 +11,7 @@ modal:
         title: Create a new user
         action: Create user
         upload: Upload File
-        helpText: The username should be short and memorable. Combinations of the user's first- and lastnames are known to suit well.<br>Example: "JohnD" or "JDoe"
+        helpText: The username should be short and memorable. Combinations of the user's first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"
         invite: Invite %s (%s)
         existingAccounts: Existing Accounts
     addWeek:
@@ -24,7 +24,7 @@ modal:
             bottom: Choose the template week:
     cancelTeam:
         title: Cancel team
-        text: Describe, why this team has to be cancelled. All participants will get this message via the cancellation mail.
+        text: Describe why this team has to be cancelled. All participants will get this message via the cancellation mail.
         action: Cancel team
     copyShift:
         title: Copy shift
@@ -40,8 +40,8 @@ modal:
             shiftAdmin: The shift manager has the permissions of a participant but can also create, change, delete and schedule shifts.
             storeAdmin: The store manager has the permissions of a participant but can also view the shift reports and edit the store.
             member: The member is the most basic role. He is allowed to view the Information Center.
-            teamleader: The teamleader once assigned by a project manager to a certain tag is then in charge of the shift team report for said tag.
-            substituteTeamleader: A substitute Teamleader has the same permissions as a normal teamleader. But if the system shall schedule automatically, it will always prefer the request of a normal teamleader, if existing.
+            teamleader: The team leader once assigned by a project manager to a certain tag is then in charge of the shift team report for said tag.
+            substituteTeamleader: A substitute team leader has the same permissions as a normal team leader. But if the system shall schedule automatically, it will always prefer the request of a normal team leader if there is one.
             participant: The participant can see and request shifts of assigned tags.
             nothing: With "None" the user cannot see or request shifts of this tag. Neither can he be scheduled into a shift.
     editProfilePicture:
@@ -71,21 +71,21 @@ modal:
         title: Change team picture
         currentPicture: Current Picture:
         hints: This picture will probably be displayed larger for the publisher.
-        noPictureUploaded: You didn't upload any picture yet
+        noPictureUploaded: You have not yet uploaded any picture
         upload: Upload
         delete: Delete
     editMeetingPicture:
         title: Change meeting point picture
         currentPicture: Current Picture:
         hints: This picture will probably be displayed larger for the publisher.
-        noPictureUploaded: You didn't upload any picture yet
+        noPictureUploaded: You have not yet uploaded any picture
         upload: Upload
         delete: Delete
     inviteUser:
         title: Invite new Publishers
         key: <span class="text-warning">Orange name</span> means that the user is already invited.
         selectAll: Select All
-        noUsers: No new Publishers found
+        noUsers: No new publishers found
         invite: Invite
     position:
         title: Mark position with left mouse click
@@ -102,16 +102,16 @@ modal:
         addParticipant: Add participant
         unknownAge: Unknown age
         closedTeam: This team is closed. You can't request participation.
-        maximumReached: Maximum limit for team participants was already reached
+        maximumReached: Maximum limit for team participants has already been reached
         noPermission: You don't have the permission to schedule users
-        noTeamleader: This user doesn't have the permission to be a teamleader
-        alreadyTeamleader: This user is already teamleader
+        noTeamleader: This user doesn't have permission to be a team leader
+        alreadyTeamleader: This user is already a team leader
         openTeam: Open team
         closeTeam: Close team
         switch: Edit shift
-        existingTeamleaders: Teamleader existing
-        noExistingTeamleader: Teamleader missing
-        notTeamleader: No teamleader
+        existingTeamleaders: Team leader exists
+        noExistingTeamleader: Team leader missing
+        notTeamleader: No team leader
         selected: Selected:
         of: of
         acceptSelected: Accept selected
@@ -123,8 +123,8 @@ modal:
         noMeeting: No Meeting Point
     shiftReport:
         title: Report
-        teamleader: Teamleader
-        substituteTeamleader: Substitute Teamleader
+        teamleader: Team leader
+        substituteTeamleader: Substitute team leader
         publications: Publications
         occurrences: Occurrences
         store: Store
@@ -136,9 +136,9 @@ modal:
         language: Language
         count: Count
         action: Action
-        noPublications: No Publications here
-        select_publication: Select a Publication
-        selectPublicationFirst: Please select a Publication first
+        noPublications: No publications here
+        select_publication: Select a publication
+        selectPublicationFirst: Please select a publication first
         texts: Bible Texts
         speaks: Conversations
         videos: Shown Videos
@@ -170,20 +170,20 @@ modal:
         unknownAge: Unknown age
         closedTeam: This team is closed. You can't request participation.
         maximumReached: Maximum limit for team participants was already reached
-        noPermission: You don't have the permission to schedule users
-        noTeamleader: This user doesn't have the permission to be a teamleader
-        alreadyTeamleader: This user is already teamleader
+        noPermission: You don't have permission to schedule users
+        noTeamleader: This user doesn't have permission to be a team leader
+        alreadyTeamleader: This user is already team leader
         openTeam: Open team
         closeTeam: Close team
         switch: Edit shift
-        existingTeamleaders: Teamleader existing
-        noExistingTeamleader: Teamleader missing
+        existingTeamleaders: Team leader exists
+        noExistingTeamleader: Team leader missing
     position:
         title: Mark position with left mouse click
     route:
         title: Create/edit route
         routeMarkers: Route marker
-        addRouteMarkers: Click on the map to add new route marker
+        addRouteMarkers: Click on the map to add a new route marker
     addParticipant:
         title: Add participant
         noUsers: No available users found
@@ -202,7 +202,7 @@ modal:
         invite: Invite
     uploadUserFile:
         title: User-File upload
-        helpText: Order of personal data (* fields are required): <br> Email*, Firstname*, Lastname*, Gender(m or w)*, Phone Number, Birthday(German-, English- or ISO 8601-Format), Privilege of Service('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry Privilege('publisher', 'servant' or 'elder'), Congregation
+        helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant' or 'elder'), Congregation
         uploadFile: Upload CSV-File
         stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers

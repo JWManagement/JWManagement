@@ -2,21 +2,21 @@ swal:
     error: Error
     publisherInOtherTeam: One of the selected publishers is already part of another team. Please remove them from there first.
     onlyTeam: You can't delete this team. It is the only team in this shift. Every shift needs to have at least one team.
-    noTeamleader: Every team requires a teamleader. Unfortunately this publisher does not have permission to serve as a teamleader.
+    noTeamleader: Every team requires a team leader. Unfortunately this publisher does not have permission to serve as a team leader.
     ownPermission: You are not allowed to revoke your own permissions. Another administrator has to do that.
-    acceptionInformed: This participant has been informed about their request acception.
+    acceptionInformed: This participant has been informed that their request has been accepted.
     declinementInformed: This participant has been informed that their request was declined.
-    vacationEndInPast: The end date can not be in the past.
-    missingTag: No tag defined. Please define a tag under Admin > Settings first
+    vacationEndInPast: The end date cannot be in the past.
+    missingTag: No tag defined. Please first define a tag under Admin > Settings
     logout:
         title: Hint
-        text: It is not necessary to log out. Your connection is encrypted and we save session information only in your local browser. Nobody can see or hijack your session.
+        text: It is not necessary to log out unless you are on a shared computer. Your connection is encrypted and we save session information only in your local browser. Nobody else can see or hijack your session.
         confirm: Logout
         cancel: Cancel
     invite:
         user:
             title: Invite Publisher?
-            text: This Publisher <b>already has an account</b>, so no further account has to be created. Instead the publisher will <b>simply be given permission to access this project</b>.<br>Of course <b>we will inform him</b> about this change. <br><p>In case of more than one publisher registered with the same email address, please choose the right one:</p>
+            text: This publisher <b>already has an account</b>, so no further account has to be created. Instead the publisher will <b>simply be given permission to access this project</b>.<br>Of course <b>we will inform him</b> about this change. <br><p>In case of more than one publisher registered with the same email address, please choose the right one:</p>
         users:
             title: Are you sure?
             text: We will send an email to all selected publishers.
@@ -30,7 +30,7 @@ swal:
             cancel: Cancel
         confirmation:
             title: Inform Publisher?
-            text: The publisher will be informed via email about the acception of this shift.
+            text: The publisher will be informed via email about the acceptance of this shift.
             confirm: Yes
             cancel: Cancel
         declined:
@@ -111,7 +111,7 @@ swal:
             text: The User was created.
         users:
             title: Are you sure?
-            text: All shown publishers will added to the project.
+            text: All shown publishers will be added to the project.
             confirm: Add
             cancel: Cancel
     update:
@@ -178,7 +178,7 @@ swal:
             cancel: Cancel
         project:
             title: Really delete this project?
-            text: This will irreversibly delete all settings associated with this project, e.g. shifts, reports, applications, literature, etc. Only the user accounts will remain.
+            text: This will irreversibly delete all settings associated with this project, e.g. shifts, reports, applications, literature. Only the user accounts will remain.
             checkInput: delete this project
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
@@ -219,7 +219,7 @@ swal:
             cancel: Cancel
         team:
             title: Really delete this team?
-            text: The team will get removed from all existing shifts planned for the future. Accepted requests for this shift will get reallocated onto other teams. <br><br> To confirm type in "delete".
+            text: The team will get removed from all existing shifts planned for the future. Accepted requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".
             checkInput: delete
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
@@ -238,7 +238,7 @@ swal:
     request:
         accept:
             title: Really accept publisher?
-            text: This publisher has been declined previously. Therefore please make sure that the publisher is still able and willing to participate.
+            text: This publisher has previously been declined. Therefore please make sure that the publisher is still able and willing to participate.
             confirm: Yes
             cancel: No
         cancel:
@@ -263,11 +263,11 @@ swal:
             cancel: Cancel
         minReached:
             title: Really decline participant?
-            text: This teams minimum limit has been reached. If you decline this user, the system will remove this team.
+            text: This team's minimum limit has been reached. If you decline this user, the system will remove this team.
             confirm: Remove team
             cancel: No
         noNewTeamleader:
             title: Really decline participant?
-            text: Unfortunately there is no other possible teamleader in this team. If you decline this user, the system will remove this team.
+            text: Unfortunately there is no other possible team leader in this team. If you decline this user, the system will remove this team.
             confirm: Remove team
             cancel: No
