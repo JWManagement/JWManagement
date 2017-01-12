@@ -30,6 +30,12 @@ doIfLoggedIn = (whatToDo, elseToDo) ->
 
 FlowRouter.notFound = action: -> BlazeLayout.render 'blankLayout', content: 'notFound'
 
+FlowRouter.route '/support',
+	name: 'support'
+	action: -> doIfLoggedIn ->
+		Session.set 'parent', 'home'
+		BlazeLayout.render 'mainLayout', content: 'support'
+
 ################################################################################
 ###                              Main Routes
 ################################################################################

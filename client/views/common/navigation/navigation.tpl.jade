@@ -37,6 +37,12 @@
 										unless equals lang langTag
 											| ({{_ 'language.' context=lang lang=lang }})
 										i.fa.fa-angle-double-right.fa-fw.pull-right
+					if isSupport
+						li.divider
+						li
+							a(href="{{pathFor 'support'}}")
+								i.fa.fa-heart.fa-fw
+								| Support
 					li.divider
 					li
 						a#logout(href)
