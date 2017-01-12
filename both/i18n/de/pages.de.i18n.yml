@@ -16,6 +16,9 @@ navigation:
     firstLogin: Erstanmeldung
     forgotPassword: Passwort vergessen
     resetPassword: Passwort zurücksetzen
+    about: Impressum
+    terms: Nutzungsbedingungen
+    privacy: Datenschutzerklärung
 welcome:
     links:
         home: Start
@@ -59,6 +62,9 @@ welcome:
         message: Nachricht
         send: Senden
         required: Pflichtfelder
+        about: Impressum
+        terms: Nutzungsbedingungen
+        privacy: Datenschutzerklärung
 login:
     name: Login
     welcome: Willkommen zu JWManagement

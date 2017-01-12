@@ -5,24 +5,24 @@ store:
     languages: Languages
     total: Total
     count: Count
-    showAll: Show all Publications
-    hideAll: Hide all non-added Publications
+    showAll: Show all publications
+    hideAll: Hide all non-added publications
     reset: Reset store room
-    noPublication: You haven't added a publication yet.<br>To add a publication, use the Button to show all available publications.<br>Then select all publications that you have got in your store room.<br>Click on the Publication configure the langauges in that this publication is in stock.
+    noPublication: You haven't added a publication yet.<br>To add a publication, use the button to show all available publications.<br>Then select all publications that you keep in your store room.<br>Click on the publication to configure the langauges in which it is stocked.
     startAddLanguage: Add Language
     cancelAddLanguage: Cancel
     close: Close
     addLanguage: Add
     setup:
-        title: Please choose a Store-Mode
+        title: Please choose a store mode
         support: Sorry this is not yet supported
         description: Please choose a mode to initialize your store room.<br>You can change this later, if you need to.
         simple:
             name: Simple
-            description: With the simple mode, the system will automatically configure some basic items categories like "Books & Bibles", "Magazines", etc for you. These will be available in the report.
+            description: With the simple mode, the system will automatically configure some basic item categories like "Books & Bibles", "Magazines", etc for you. These will be available in the report.
         advanced:
             name: Advanced
-            description: With the advanced mode you can decide, which publications are available in which languages. You can define, how many of them are in the store room and the system will keep them up-to-date with the information from the reports. With this you can determine, which publications and languages work the best for your project.
+            description: With the advanced mode you can decide which publications are available in which languages. You can define how many of them are in the store room and the system will keep them up to date with the information from the reports. With this you can determine which publications and languages work the best for your project.
     type:
         _books: Books
         _brochures: Brochures

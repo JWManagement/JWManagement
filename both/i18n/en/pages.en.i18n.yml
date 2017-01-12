@@ -16,6 +16,9 @@ navigation:
     firstLogin: First Login
     forgotPassword: Forgot Password
     resetPassword: Reset Password
+    about: About this website
+    terms: Terms of usage
+    privacy: Privacy policy
 welcome:
     links:
         home: Home
@@ -25,23 +28,23 @@ welcome:
         dashboard: Open Dashboard
     header:
         title: Advanced shift management
-        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects and/or similar.
+        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
     divider:
         first:
             title: Multiple Tags
-            description: Easily separate different shifts with tags; assign publishers to the tags where shifts can be requested. Also define which publishers receive permission to serve as team-leaders.
+            description: Easily separate different shifts with tags; assign publishers to the tags where shifts can be requested. Also define which publishers receive permission to serve as team leaders.
         second:
             title: Shift Teams
-            description: Define one or more teams in a shift. Each will have it's own team-leader. Provide further information for every team, such as a description, a picture with a route, meetings points and more.
+            description: Define one or more teams in a shift. Each will have its own team-leader. Provide further information for every team, such as a description, a picture with a route, meeting points and more.
         third:
             title: Store Room
-            description: Manage your store room via JWManagement. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
+            description: Manage your store room via JWManagement. After each shift a team leader can report what has been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is low on stock.
         fourth:
             title: Notifications
-            description: Through the powerful notification system, you can be notified on your request's, confirmations or refusals, as well as changes to your shift, with the ability to reply.
+            description: Through the powerful notification system, you can be notified of your requests, confirmations or refusals, as well as changes to your shifts, with the ability to reply.
     feature1:
         title: Multifunctional Tool
-        description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
+        description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a Bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
     feature2:
         title: Latest Changes
         more: Show more
@@ -59,10 +62,13 @@ welcome:
         message: Message
         send: Send
         required: Required
+        about: About this website
+        terms: Terms of usage
+        privacy: Privacy policy
 login:
     name: Login
     welcome: Welcome to JWManagement
-    text: Please enter your account details to login
+    text: Please enter your account details to log in
     forgot: Forgot password?
     existing: JWManagement is a shift management system for cart witnessing projects.<br>You would like to test it?<br>Just write us an email to support@jwmanagement.org and we will create a project for you.
     create: Create an account
@@ -74,7 +80,7 @@ forgotPassword:
     back: Back to Home Page
     noUserForThisEmail: There is no account with this email address
     multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify a user.
-    emailMissing: Bitte gib deine E-Mail Adresse ein
+    emailMissing: Email address is missing
     mailSent: You will receive an email shortly. Follow the link in the email to reset your password.
 resetPassword:
     name: Reset password
@@ -102,9 +108,9 @@ profile:
     _gender:
         brother: Brother
         sister: Sister
-    birthday: Birthday
+    birthday: Date of birth
     publisher: Publisher
-    privilegeOfService: Privilege Of Service
+    privilegeOfService: Privilege of service
     _privilegeOfService:
         auxiliaryPioneer: Auxiliary pioneer
         pioneer: Regular pioneer
@@ -112,7 +118,7 @@ profile:
         circuitOverseer: Circuit overseer
         bethelite: Bethelite
         fulltimeConstructionServant: Construction servant
-    ministryPrivilege: Congregation Assignment
+    ministryPrivilege: Congregation assignment
     _ministryPrivilege:
         ministerialServant: Ministerial servant
         elder: Elder
@@ -182,7 +188,7 @@ shifts:
     shift:
         tag: Tag
         schedule: Schedule
-        teamleader: Teamleader
+        teamleader: Team leader
         teams: Teams
         noTeams: No Teams
         participants: Participants
@@ -237,19 +243,19 @@ settings:
         email:
             text: Email
             placeholder: Project email address
-            helpText: In Emails like shift-confirmations and teamleader-updates, this address will be set as the replyTo address. If the recipients answer to these Emails, the reply will be sent to the inbox of this address. Furthermore, this address will get notified e.g. on short-term participation cancellations.
+            helpText: In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient's email program is behaving correctly. Furthermore, this address will be notified e.g. on short-term participation cancellations.
         language:
             text: Language
-            helpText: If the system notifies the above listed address about changes, it will send the mails in the language, you defined here.
+            helpText: If the system notifies the above listed address about changes, it will send the mails in the language you specify here.
         deleteProject: Delete project
     tags:
         title: Tags
-        helpText: <p>Every shift has to be assigned a tag. Furthermore every user can be permitted or denied permission to be able to see shifts depending on the tags.</p><p>Tags can reflect different activities (e.g. Cart witnessing, Information stand, Street Work, etc.). The dividing of shifts into different tags can be useful, for example if there are multiple shifts at the same time or if only certain publishers are trained in a specific type of public witnessing.</p><p>With every tag there can be a set of template weeks which have been defined previously. By using the automatic option when scheduling, the program can use these template weeks. This saves the project manager or shift manager time when scheduling, which otherwise would have to be created manually.</p>
+        helpText: <p>Every shift has to be assigned a tag. Furthermore every user can be permitted or denied permission to be able to see shifts depending on the tags.</p><p>Tags can reflect different activities (e.g. Cart witnessing, Information stand, Street work, etc.). The dividing of shifts into different tags can be useful, for example if there are multiple shifts at the same time or if only certain publishers are trained in a specific type of public witnessing.</p><p>With every tag there can be a set of template weeks which have been defined previously. By using the automatic option when scheduling, the program can use these template weeks. This saves the project manager or shift manager time when scheduling.</p>
         id: ID
         name: Name
         img:
             name: Image
-            helpText: This image will be shown on the dashboard when clicking on 'Shifts'. It should explain the kind of tasks done in shifts of this tag. If you want to add custom image, please send us a mail to support@jwmanagement.org describing your idea.
+            helpText: This image will be shown on the dashboard when clicking on 'Shifts'. It should explain the kind of tasks done in shifts of this tag. If you want to add a custom image, please send us an email to support@jwmanagement.org describing your idea.
         templates: Templates
         showTemplate: Edit shifts
         editTemplate: Edit name
@@ -261,8 +267,8 @@ settings:
         title: Teams
         helpText:
             main: For every shift there has to be at least one team. Every team is assigned to a route or location. One participant of the shift is always member of one of these teams.
-            picture: The publisher will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on 'Google Maps' and upload a picture of that here.
-            link: This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the 'Google Maps' map here.
+            picture: Publishers will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on Google Maps or OpenStreetMap (depending on which has better coverage of your area) and upload a picture of that here.
+            link: This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the Google Maps or OpenStreetMap map here.
             description: Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.
         id: ID
         name: Name
@@ -275,8 +281,8 @@ settings:
     meetings:
         title: Meeting Point
         helpText:
-            main: For all the shift teams there can be a meeting point assigned to them. With that teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming. Meeting points are defined with coordinates.
-            picture: The publisher will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from 'Google Maps' here.
+            main: For all the shift teams there can be a meeting point assigned to them. With that, teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming. Meeting points are defined with coordinates.
+            picture: Publishers will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from Google Maps or OpenStreetMap (whichever one has better coverage of your area) here.
         id: ID
         name: Name
         picture: Picture
@@ -290,8 +296,8 @@ notes:
     text: Text
 firstLogin:
     name: Welcome
-    text: <p>We are looking forward to welcome you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JWManagement.</p><p>Enjoy!</p>
+    text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JWManagement.</p><p>Enjoy!</p>
     button: Let's Go!
-    tokenError: Token-Error. Please contact the Administrator (support@jwmanagement.org) or your Projectleader.
+    tokenError: Token-Error. Please contact the Administrator (support@jwmanagement.org) or your project leader.
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Please provide a username.
