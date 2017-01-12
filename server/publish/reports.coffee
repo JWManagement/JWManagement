@@ -1,6 +1,7 @@
 Meteor.publish 'reports', (projectId, month) ->
+
 	if typeof projectId == 'string' && projectId != '' && typeof month == 'string' && month != ''
-		if Roles.userIsInRole @userId, Permissions.admin, projectId
+		if Roles.userIsInRole @userId, Permissions.shiftAndStoreAdmin, projectId
 			firstDay = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
 			lastDay = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
 
@@ -14,6 +15,7 @@ Meteor.publish 'reports', (projectId, month) ->
 				]
 			,
 				fields:
+					projectId: 1
 					date: 1
 					start: 1
 					end: 1

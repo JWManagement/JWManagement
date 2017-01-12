@@ -97,8 +97,8 @@
 									small.stats-label {{_ 'reports.problems'}}
 									h4 0
 									button#showExperiences.btn.btn-primary.btn-xs(type="problems") {{_ 'reports.show'}}
-					
-					button.ladda-button.btn.btn-primary.pull-right#exportReports
+
+					button.btn.btn-primary.pull-right#exportReports(class='{{readyOrDisabled}}' download)
 						i.fa.fa-download
 						| {{_ 'users.export'}}
 				else
