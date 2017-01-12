@@ -112,7 +112,11 @@
 								.col-md-6
 									input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
 								.col-md-12
-									input.form-control(type='text' placeholder='{{_ "welcome.contact.subject"}}*' required)
+									select.form-control#type
+										option Project Enquiry
+										option Problem
+										option Suggestion
+										option General Question
 								.col-md-12
 									textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
 								.col-md-8
