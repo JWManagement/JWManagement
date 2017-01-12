@@ -4,9 +4,9 @@ Meteor.methods
 		user = Meteor.users.findOne 'services.password.reset.token': token,
 			fields: _id: 1
 
-		username = Validations.trim()
-		username = Validations.removeSpecials()
-		username = username.toLowerCase()
+		username = Validations.trim username
+		username = Validations.removeSpecials username
+		username = username.toLowerCase username
 
 		if user?
 			Accounts.setPassword user._id, password
