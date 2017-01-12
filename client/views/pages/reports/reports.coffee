@@ -16,17 +16,18 @@ Template.reports.onCreated ->
 
 	if !month?
 		wrs -> FlowRouter.setQueryParams month: moment(new Date).format('YYYY[M]MM')
+		ShiftSubs.subscribe 'reports', projectId, moment(new Date).format('YYYY[M]MM')
 	else
 		ShiftSubs.subscribe 'reports', projectId, month
 
 Template.reports.events
 
 	'click #prevMonth': ->
-		prevMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY-MM').subtract(1, 'M').format('YYYY[M]MM')
+		prevMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').subtract(1, 'M').format('YYYY[M]MM')
 		wrs -> FlowRouter.setQueryParams month: prevMonth
 
 	'click #nextMonth': ->
-		nextMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY-MM').add(1, 'M').format('YYYY[M]MM')
+		nextMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').add(1, 'M').format('YYYY[M]MM')
 		wrs -> FlowRouter.setQueryParams month: nextMonth
 
 	'click #showMissing': ->
