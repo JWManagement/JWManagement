@@ -13,6 +13,7 @@ store:
     cancelAddLanguage: Cancel
     close: Close
     addLanguage: Add
+    removeLanguage: Remove this language
     setup:
         title: Please choose a store mode
         support: Sorry this is not yet supported

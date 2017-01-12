@@ -133,6 +133,7 @@ profile:
         helpText: Please add the periods in which you are not available.
     until: until
     addVacation: Add Holiday
+    deleteVacation: Delete this vacation
     usernameTaken: This username is already taken by someone else. Please choose another.
 dashboard:
     loadingProjects: Loading Projects...
@@ -144,6 +145,9 @@ dashboard:
     news: Current News
     noNews: No News
     newsFrom: Last Change
+    editNews: Edit the news
+    changeNews: Change the news
+    cancelNews: Cancel editing
     understaffed: Understaffed
     understaffedMore: Show more understaffed shifts
     missing: Missing Shift Report
@@ -167,9 +171,16 @@ wiki:
     edit: Edit
     delete: Delete
     noFiles: No files available
+    addTab: Add a new tab
+    editQuestion: Edit this question
+    removeFaq: Remove this question
+    editFaq: Edit this answer
+    changeFaq: Save this answer
+    cancelFaq: Cancel editing
 shifts:
     name: Shifts
     route: Route
+    addShift: Add a new shift
     addWeek: Add a new week
     applications: Applications
     openApplications: Open Applications
@@ -185,6 +196,14 @@ shifts:
         visibility: This defines how many weeks in advance the publishers will be able to see and request. Under consideration of the start-week and end-week, the system will automatically create the needed shifts.
     weeks: weeks
     sendWeek: Send Confirmations
+    hideNames: Hide all names in the shifts
+    showNames: Show all names in the shifts
+    editShifts: Edit the shifts
+    prevWeek: Go to the previous week
+    nextWeek: Go to the next week
+    sendWeek: Send confirmations for all shifts in this week per mail
+    shownTag: Shifts of this tag are currently shown
+    hiddenTag: Shifts of this tag are currently hidden
     shift:
         tag: Tag
         schedule: Schedule
@@ -232,6 +251,8 @@ reports:
     good: Good Experiences
     problems: Problems / Difficulties
     show: Show
+    prevMonth: Go to the previous month
+    nextMonth: Go to the next month
 settings:
     main:
         title: Main Settings
@@ -263,6 +284,8 @@ settings:
         addTemplate: Define new template
         action: Action
         none: No tags have been added yet
+        add: Add a new tag
+        remove: Remove this tag
     teams:
         title: Teams
         helpText:
@@ -273,11 +296,14 @@ settings:
         id: ID
         name: Name
         picture: Picture
+        editPicture: Upload a picture for this team
         noPicture: No picture uploaded
         link: Link
         description: Description
         action: Action
         none: No teams have been added yet
+        add: Add a new team
+        remove: Remove this teams
     meetings:
         title: Meeting Point
         helpText:
@@ -286,14 +312,18 @@ settings:
         id: ID
         name: Name
         picture: Picture
+        editPicture: Upload a picture for this meeting point
         noPicture: No picture uploaded
         action: Action
         none: No meeting points have been added yet
+        add: Add a new meeting point
+        remove: Remove this meeting point
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note
     title: Title
     text: Text
+    deleteNote: Delete this note
 firstLogin:
     name: Welcome
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JWManagement.</p><p>Enjoy!</p>
