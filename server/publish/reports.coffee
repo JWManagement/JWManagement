@@ -5,9 +5,13 @@ Meteor.publish 'reports', (projectId, month) ->
 			lastDay = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
 
 			Shifts.find
-				projectId: projectId
-				date: $gte: firstDay
-				date: $lte: lastDay
+				$and: [
+					projectId: projectId
+				,
+					date: $gte: firstDay
+				,
+					date: $lte: lastDay
+				]
 			,
 				fields:
 					date: 1
