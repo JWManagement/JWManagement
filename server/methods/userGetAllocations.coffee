@@ -22,7 +22,7 @@ Meteor.methods
 		check days, Number
 
 		end = moment().format('YYYYDDDD')
-		start = end - days
+		start = moment().subtract(days, 'days').format('YYYYDDDD')
 
 		shifts = Shifts.find date: $gte: parseInt(start), $lte: parseInt(end)
 
