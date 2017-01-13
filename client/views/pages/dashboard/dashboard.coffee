@@ -184,6 +184,9 @@ Template.dashboard.helpers
 					if team.report && team.report.submitted
 						missingReport = false
 
+			for user in team.pending when user._id == Meteor.userId()
+				myShift = true
+
 		myShift && (@date >= today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
