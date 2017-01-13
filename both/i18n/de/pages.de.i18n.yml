@@ -161,7 +161,7 @@ dashboard:
     marked_plural: Unterbesetzte Schichten
     participant: Schicht-Teilnehmer
     participant_plural: Schicht-Teilnehmer
-    showOlder: Ältere zeigen
+    showOlder: Auch ältere Schichten zeigen
 wiki:
     name: Informationen
     nameShort: Infos
