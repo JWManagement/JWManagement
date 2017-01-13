@@ -58,7 +58,10 @@ welcome:
         description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
         name: Name
         email: E-Mail Adresse
-        subject: Betreff
+        enquiry: Projekt beantragen
+        problem: Problem melden
+        suggestion: Verbesserung vorschlagen
+        question: Generelle Frage
         message: Nachricht
         send: Senden
         required: Pflichtfelder

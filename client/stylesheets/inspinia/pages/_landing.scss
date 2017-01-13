@@ -294,6 +294,12 @@
 			background: lighten($indigo, 3);
 		}
 
+		select {
+			height          : 40px;
+			background-color: #fff;
+			color           : #222;
+		}
+
 		textarea {
 			resize: vertical;
 		}
@@ -313,11 +319,6 @@
 		font-weight: 400;
 	}
 	/* end footer */
-	@media screen and ( max-width: 991px ) {
-		#download img {
-			margin-top: 30px;
-		}
-	}
 	@media screen and ( max-width: 767px ) {
 		.navbar-default .nav li a {
 			height     : auto;
@@ -328,21 +329,8 @@
 			float: none;
 		}
 
-		#download,
-		#pricing {
-			padding-top   : 20px;
-			padding-bottom: 40px;
-		}
-
 		#contact .overlay {
 			padding-top: 40px;
 		}
 	}
-	/* start media 360 */
-	@media screen and ( max-width: 360px ) {
-		.pricing {
-			padding-bottom: 40px;
-		}
-	}
-	/* end media 360 */
 }
