@@ -19,11 +19,12 @@ Template.dashboard.helpers
 			reportSubmitted = false
 
 			for team in @teams
-				for user in team.participants when user._id == Meteor.userId()
+				for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+					isTeamleader = true
 					if team.report && team.report.submitted
 						reportSubmitted = team.report.submitted
 
-			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
+			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
 		else if a == 'accepted'
 			for team in @teams
 				for participant in team.participants
@@ -41,14 +42,14 @@ Template.dashboard.helpers
 	shiftRelation: ->
 		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
 		thisTime = parseInt moment(new Date).format 'Hmm'
-		reportSubmitted = false
 
 		for team in @teams
-			for user in team.participants when user._id == Meteor.userId()
+			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+				isTeamleader = true
 				if team.report && team.report.submitted
 					reportSubmitted = team.report.submitted
 
-		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
+		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
 			'missing'
 		else
 			for team in @teams
