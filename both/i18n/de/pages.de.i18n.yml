@@ -133,6 +133,7 @@ profile:
         helpText: Gib bitte die Zeiträume an, in denen du nicht verfügbar bist.
     until: bis
     addVacation: Urlaub hinzufügen
+    deleteVacation: Urlaub wieder stornieren
     usernameTaken: Dieser Benutzername wird schon verwendet. Bitte wähle einen anderen
 dashboard:
     loadingProjects: Lade Projekte...
@@ -144,6 +145,9 @@ dashboard:
     news: Neuigkeiten
     noNews: Keine Neuigkeiten
     newsFrom: Letzte Änderung
+    editNews: Neuigkeiten bearbeiten
+    changeNews: Änderungen speichern
+    cancelNews: Änderungen abbrechen
     understaffed: Unterbesetzt
     understaffedMore: Mehr unterbesetzte Schichten zeigen
     missing: Fehlender Schichtbericht
@@ -167,9 +171,16 @@ wiki:
     edit: Bearbeiten
     delete: Löschen
     noFiles: Keine Dateien verfügbar
+    addTab: Neuen Reiter hinzufügen
+    editQuestion: Titel bearbeiten
+    removeFaq: Titel löschen
+    editFaq: Antwort bearbeiten
+    changeFaq: Änderungen speichern
+    cancelFaq: Änderungen abbrechen
 shifts:
     name: Schichten
     route: Route
+    addShift: Neue Schicht erstellen
     addWeek: Neue Woche anlegen
     applications: Bewerbungen
     openApplications: Offene Bewerbungen
@@ -185,6 +196,14 @@ shifts:
         visibility: Hiermit bestimmst du, wie viele Wochen im voraus die Brüder sich bewerben können. Das System erstellt unter Beachtung der Start- und End-Wochen die nötigen Schichten dafür.
     weeks: Wochen
     sendWeek: Zuteilungen senden
+    hideNames: Schicht-Teilnehmer verbergen
+    showNames: Schicht-Teilnehmer zeigen
+    editShifts: Schichten bearbeiten
+    prevWeek: Zur vorherigen Woche gehen
+    nextWeek: Zur nächsten Woche gehen
+    sendWeek: Zuteilung für diese Woche per Mail verschicken
+    shownTag: Schichten dieses Tags werden momentan angezeigt
+    hiddenTag: Schichten dieses Tags werden momentan verborgen
     shift:
         tag: Tag
         schedule: Einteilung
@@ -232,6 +251,8 @@ reports:
     good: Schöne Erfahrungen
     problems: Probleme / Schwierigkeiten
     show: Zeigen
+    prevMonth: Zum nächsten Monat gehen
+    nextMonth: Zum vorherigen Monat gehen
 settings:
     main:
         title: Allgemeine Einstellungen
@@ -263,6 +284,8 @@ settings:
         addTemplate: Neue Vorlage definieren
         action: Aktion
         none: Es wurden noch keine Tags angelegt
+        add: Neues Tag erstellen
+        remove: Tag löschen
     teams:
         title: Teams
         helpText:
@@ -273,11 +296,14 @@ settings:
         id: ID
         name: Name
         picture: Bild
+        editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen
         link: Link
         description: Beschreibung
         action: Aktion
         none: Es wurden noch keine Teams angelegt
+        add: Neues Team erstellen
+        remove: Team löschen
     meetings:
         title: Treffpunkte
         helpText:
@@ -286,14 +312,18 @@ settings:
         id: ID
         name: Name
         picture: Bild
+        editPicture: Ein Bild für diesen Treffpunkt hochladen
         noPicture: Kein Bild hochgeladen
         action: Aktion
         none: Es wurden noch keine Treffpunkte angelegt
+        add: Neues Treffpunkt erstellen
+        remove: Treffpunkt löschen
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
     title: Titel
     text: Text
+    deleteNote: Notiz löschen
 firstLogin:
     name: Herzlich Willkommen
     text: <p>Wir freuen uns dich bei JWManagement begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
