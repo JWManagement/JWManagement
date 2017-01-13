@@ -187,7 +187,7 @@ Template.dashboard.helpers
 			for user in team.pending when user._id == Meteor.userId()
 				myShift = true
 
-		myShift && (@date >= today || @date == today && @end >= now || Session.get('showOlder') || missingReport)
+		myShift && (@date > today || @date == today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
 
