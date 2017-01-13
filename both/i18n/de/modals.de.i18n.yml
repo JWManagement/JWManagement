@@ -60,10 +60,12 @@ modal:
         helpText:
             tag: Wähle das Tag aus, dem die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für dieses Tag können die Schicht sehen.
             scheduling: Bei 'Sofort zusagen' werden die Bewerbungen der Verkündiger sofort zugesagt, wenn die Mindest-Teilnehmer Grenze des nächsten Teams erreicht ist.
+        addTeam: Neues Team erstellen
         teamMin: Min. Teilnehmer:
         teamMax: Max. Teilnehmer:
         teamStart: Start:
         teamEnd: Ende:
+        removeTeam: Dieses Team löschen
         noMeeting: Kein Treffpunkt
         action: Aktion:
         delete: Löschen
@@ -141,6 +143,8 @@ modal:
         noPublications: Keine Publikationen eingetragen
         select_publication: Publikation auswählen
         selectPublicationFirst: Bitte zuerst Publikation wählen
+        addItem: Diese Publikation hinzufügen
+        removeItem: Diese Publikation wieder löschen
         texts: Bibeltexte
         speaks: Gespräche
         videos: Gezeigte Videos
@@ -159,6 +163,15 @@ modal:
         expProblems: Probleme / Schwierigkeiten
         date: Datum
         toShift: Zur Schicht
+        pages:
+            publisher: Verkündiger
+            items: Abgegebene Publikationen
+            occurrences: Was erreicht werden konnte
+            store: Über das Depot
+            experiences: Erfahrungen
+            prevPage: Zur vorherigen Seite gehen
+            nextPage: Zur nächsten Seite gehen
+            finish: Bericht abgeben
     shift:
         collapseTeam: Route und Treffpunkte verbergen
         expandTeam: Route und Treffpunkte anzeigen

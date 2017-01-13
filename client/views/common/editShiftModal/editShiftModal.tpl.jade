@@ -115,11 +115,11 @@
 										.form-group
 											label.col-sm-4.control-label {{_ 'modal.editShift.action'}}
 											.col-sm-6
-												button#removeTeam.btn.btn-danger.btn-circle
+												button#removeTeam.btn.btn-danger.btn-circle(title="{{_ 'modal.editShift.removeTeam'}}")
 													i.fa.fa-trash.fa-fw
 									.hr-line-dashed
 								.center-align.m-t
-									button#addTeam.btn.btn-primary.btn-circle
+									button#addTeam.btn.btn-primary.btn-circle(title="{{_ 'modal.editShift.addTeam'}}")
 										i.fa.fa-plus.fa-fw
 					else
 						h2.center-align {{_ 'role.noPermission'}}

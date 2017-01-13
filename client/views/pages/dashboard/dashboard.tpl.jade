@@ -30,8 +30,7 @@ if queryParam 'showShiftReport'
 								.news-wrapper.clearfix
 									.news-content
 										if isInRole 'admin' _id
-											button#editNews.btn.btn-primary.btn-sm.btn-circle.pull-right
-												i.fa.fa-pencil
+											button#editNews.btn.btn-primary.btn-sm.btn-circle.fa.fa-pencil.pull-right(title="{{_ 'dashboard.editNews'}}")
 										if newsThere
 											p.news {{{news.text}}}
 											p.news-date.inline {{_ 'dashboard.newsFrom'}} {{format news.date '' 'DD.MM.YYYY HH:mm'}}
@@ -40,8 +39,8 @@ if queryParam 'showShiftReport'
 									if isInRole 'admin' _id
 										.news-editor.hidden
 											textarea#news-textarea(rows="4" maxlength="140") {{{html2win news.text}}}
-											button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right
-											button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right
+											button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
+											button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
 											.chars-left 140/140
 								.project-link-wrapper
 									a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
