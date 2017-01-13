@@ -8,9 +8,15 @@ Template.shiftModal.helpers
 		participants.sort (a, b) ->
 			if a.thisTeamleader then -1
 			else if b.thisTeamleader then 1
-			else if a.name < b.name then -1
-			else if a.name > b.name then 1
-			else 0
+			else
+				aSplit = a.name.split(' ')
+				bSplit = b.name.split(' ')
+
+				if aSplit[aSplit.length-1] < bSplit[bSplit.length-1] then -1
+				else if aSplit[aSplit.length-1] > bSplit[bSplit.length-1] then 1
+				else if aSplit[0] < bSplit[0] then -1
+				else if aSplit[0] > bSplit[0] then 1
+				else 0
 
 	schedulingIsDirect: ->
 		shiftId = FlowRouter.getQueryParam('showShift')
