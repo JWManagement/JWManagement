@@ -19,7 +19,7 @@ if queryParam 'addNote'
 									small {{format date 'YYYYDDDD' 'DD.MM.YYYY'}}, {{format time 'Hmm' 'H:mm'}}
 									h4 {{title}}
 									p {{{win2html text}}}
-									a.deleteNote(href)
+									a.deleteNote(href title="{{_ 'notes.deleteNote'}}")
 										i.fa.fa-trash-o
 	else
 		.sk-spinner.sk-spinner-pulse

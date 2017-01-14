@@ -102,8 +102,7 @@
 						address
 							p
 								i.fa.fa-envelope-o
-								a.link-inverted(href='mailto:support@jwmanagement.org')
-									| support@jwmanagement.org
+								a.link-inverted(href='mailto:support@jwmanagement.org') support@jwmanagement.org
 					.col-md-6.wow.fadeInUp
 						.contact-form
 							form#contactForm
@@ -112,7 +111,11 @@
 								.col-md-6
 									input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
 								.col-md-12
-									input.form-control(type='text' placeholder='{{_ "welcome.contact.subject"}}*' required)
+									select.form-control#type
+										option {{_ "welcome.contact.enquiry"}}
+										option {{_ "welcome.contact.problem"}}
+										option {{_ "welcome.contact.suggestion"}}
+										option {{_ "welcome.contact.question"}}
 								.col-md-12
 									textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
 								.col-md-8

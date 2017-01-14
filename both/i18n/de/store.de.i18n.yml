@@ -13,6 +13,7 @@ store:
     cancelAddLanguage: Abbrechen
     close: Schließen
     addLanguage: Hinzufügen
+    removeLanguage: Sprache löschen
     setup:
         title: Bitte wähle einen Depot-Modus
         support: Leider wird dies noch nicht unterstützt

@@ -11,16 +11,18 @@
 			display: none;
 		}
 	}
+
 	#uploadUserFileModal {
 		.modal-body {
 			max-height: 500px;
-			overflow: auto;
+			overflow  : auto;
 		}
 	}
+
 	#inviteUserModal {
 		.modal-body {
 			max-height: 500px;
-			overflow: auto;
+			overflow  : auto;
 		}
 	}
 }
