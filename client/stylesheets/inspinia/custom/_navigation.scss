@@ -11,4 +11,17 @@
 			line-height: inherit;
 		}
 	}
+
+	.version {
+		margin          : 10px -10px -10px;
+		padding         : 3px 10px;
+		background-color: #eee;
+
+		a {
+			color           : $indigo;
+			margin          : 0 !important;
+			padding         : 0 !important;
+			background-color: inherit !important;
+		}
+	}
 }
