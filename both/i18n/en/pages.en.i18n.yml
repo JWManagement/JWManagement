@@ -64,6 +64,8 @@ welcome:
         question: General Question
         message: Message
         send: Send
+        issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
+        toGithub: Visit GitHub
         required: Required
         about: About this website
         terms: Terms of usage

@@ -64,6 +64,8 @@ welcome:
         question: Generelle Frage
         message: Nachricht
         send: Senden
+        issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
+        toGithub: GitHub besuchen
         required: Pflichtfelder
         about: Impressum
         terms: Nutzungsbedingungen
