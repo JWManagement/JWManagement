@@ -16,10 +16,9 @@ Template.support.onCreated ->
 			rows = []
 			columns = [
 				{ name: 'id', title: '#', breakpoints: '', filterable: false }
-				{ name: '_id', title: 'ID', breakpoints: '', filterable: false }
+				{ name: '_id', title: 'ID', breakpoints: '' }
 				{ name: 'name', title: 'Name' , breakpoints: '' }
 			]
-
 
 			for project, index in projects.fetch()
 				rows.push
@@ -33,10 +32,13 @@ Template.support.onCreated ->
 				paging: enabled: false
 				sorting:
 					enabled: true
+				paging:
+					enabled: true
+					size: 15
 				filtering:
 					enabled: true
 					delay: 400
-					placeholder: TAPi18n.__('users.search')
+					placeholder: 'Search...'
 				state:
 					enabled: true
 					key: 'projectTable'
