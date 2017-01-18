@@ -161,7 +161,7 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	multipleTags: -> @tags.length > 1
+	multipleTags: -> if @tags then @tags.length > 1
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
 
