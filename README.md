@@ -81,7 +81,7 @@ Please follow the instructions to setup JWManagement in your local dev environme
 
 	- or on Debian GNU/Linux:
 	```shell
-	sudo apt-get install npm && sudo npm install meteor
+	sudo apt-get install npm && curl https://install.meteor.com/ | sh
 	```
 
 	- only x86 and x86-64bit are supported, not yet ARM or Raspberry Pi
