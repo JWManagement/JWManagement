@@ -7,6 +7,8 @@ modal:
         alreadyRequested: This user has already requested participation
         alreadyParticipating: This user is already participating
         select: Select Publisher
+        available: available
+        callable: callable in short term
     addUser:
         title: Create a new user
         action: Create user
@@ -58,10 +60,12 @@ modal:
         helpText:
             tag: Set this shift tag. All users with permissions on this tag can view the shift.
             scheduling: With 'accept immediately' applications will be accepted automaticly, when the minimum participant limit for the next team is reached.
+        addTeam: Add a new team
         teamMin: Minimum participants:
         teamMax: Maximum participants:
         teamStart: Start:
         teamEnd: End:
+        removeTeam: Remove this team
         noMeeting: No Meeting
         action: Action:
         delete: Delete
@@ -139,6 +143,8 @@ modal:
         noPublications: No publications here
         select_publication: Select a publication
         selectPublicationFirst: Please select a publication first
+        addItem: Add this publication
+        removeItem: Remove this publication
         texts: Bible Texts
         speaks: Conversations
         videos: Shown Videos
@@ -157,6 +163,15 @@ modal:
         expProblems: Problems / Difficulties
         date: Date
         toShift: To the shift
+        pages:
+            publisher: Publisher page
+            items: Placed publications page
+            occurrences: Happened occurrences
+            store: About the store room
+            experiences: Your experiences
+            prevPage: Go to the previous page
+            nextPage: Go to the next page
+            finish: Finish this report
     shift:
         collapseTeam: Collapse Route and Meeting points
         expandTeam: Expand Route and Meeting point

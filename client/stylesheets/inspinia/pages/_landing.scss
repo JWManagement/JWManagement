@@ -283,15 +283,24 @@
 			margin-bottom: 20px;
 		}
 
-		input[type="submit"] {
-			color      : #fff;
-			background : $indigo;
-			transition : all 0.3s ease;
-			font-weight: bold;
+		.submit {
+			color        : #fff;
+			padding      : 14px 12px;
+			background   : $indigo;
+			transition   : all 0.3s ease;
+			font-weight  : bold;
+			margin-bottom: 20px;
+			border-radius: 0;
 		}
 
-		input[type="submit"]:hover {
+		.submit:hover {
 			background: lighten($indigo, 3);
+		}
+
+		select {
+			height          : 40px;
+			background-color: #fff;
+			color           : #222;
 		}
 
 		textarea {
@@ -313,11 +322,6 @@
 		font-weight: 400;
 	}
 	/* end footer */
-	@media screen and ( max-width: 991px ) {
-		#download img {
-			margin-top: 30px;
-		}
-	}
 	@media screen and ( max-width: 767px ) {
 		.navbar-default .nav li a {
 			height     : auto;
@@ -328,21 +332,8 @@
 			float: none;
 		}
 
-		#download,
-		#pricing {
-			padding-top   : 20px;
-			padding-bottom: 40px;
-		}
-
 		#contact .overlay {
 			padding-top: 40px;
 		}
 	}
-	/* start media 360 */
-	@media screen and ( max-width: 360px ) {
-		.pricing {
-			padding-bottom: 40px;
-		}
-	}
-	/* end media 360 */
 }

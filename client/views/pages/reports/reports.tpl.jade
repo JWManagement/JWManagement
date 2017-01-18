@@ -5,11 +5,11 @@
 				if isProjectShiftOrStoreAdmin getProjectId
 					.row.m-b-lg
 						.col-md-offset-3.col-md-1.col-xs-3
-							button#prevMonth.btn.btn-primary.btn-block.fa.fa-chevron-left
+							button#prevMonth.btn.btn-primary.btn-block.fa.fa-chevron-left(title="{{_ 'reports.prevMonth'}}")
 						.col-md-4.col-xs-6.no-padding
 							h2.center-align.m-t-xs.m-b-none {{format getMonth 'YYYY-MM' 'MMMM YYYY'}}
 						.col-md-1.col-xs-3
-							button#nextMonth.btn.btn-primary.btn-block.fa.fa-chevron-right
+							button#nextMonth.btn.btn-primary.btn-block.fa.fa-chevron-right(title="{{_ 'reports.nextMonth'}}")
 					.row.m-b-lg
 						.col-xs-12.center-align
 							h2 Coming soon
@@ -97,6 +97,10 @@
 									small.stats-label {{_ 'reports.problems'}}
 									h4 0
 									button#showExperiences.btn.btn-primary.btn-xs(type="problems") {{_ 'reports.show'}}
+
+					button.btn.btn-primary.pull-right#exportReports(class='{{readyOrDisabled}}' download)
+						i.fa.fa-download
+						| {{_ 'users.export'}}
 				else
 					.ibox
 						.ibox-title

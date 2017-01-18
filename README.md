@@ -105,6 +105,12 @@ Please follow the instructions to setup JWManagement in your local dev environme
 	This will take some seconds since meteor now downloads all node modules and npm packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
+	- If you get "Looks like MongoDB doesn't understand your locale settings" on Linux, try typing
+		```shell
+		export LC_ALL=en_GB.utf8
+		```
+		before the above commands (if en_GB won't work try en_US).
+
 6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
 
 	```yaml

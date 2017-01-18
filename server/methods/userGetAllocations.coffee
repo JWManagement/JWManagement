@@ -2,7 +2,7 @@ Meteor.methods
 
 	getAllocationsWeek: (userId, week) ->
 		check userId, String
-		check week String
+		check week, String
 
 		start = moment(week).format('YYYYDDDD')
 		end = moment(week).endOf('isoWeek').format('YYYYDDDD')
@@ -19,10 +19,10 @@ Meteor.methods
 
 	getAllocationsLastN: (userId, days) ->
 		check userId, String
-		check days Number
+		check days, Number
 
 		end = moment().format('YYYYDDDD')
-		start = end - days
+		start = moment().subtract(days, 'days').format('YYYYDDDD')
 
 		shifts = Shifts.find date: $gte: parseInt(start), $lte: parseInt(end)
 

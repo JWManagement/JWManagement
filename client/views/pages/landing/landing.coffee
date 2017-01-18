@@ -2,9 +2,13 @@ Template.landing.helpers
 
 	latestReleases: -> Session.get 'latestReleases'
 
+	selectedType: -> Session.get 'selectedType'
+
 Template.landing.onRendered ->
 
 	loadingDep = new Tracker.Dependency
+
+	Session.set 'selectedType', ''
 
 	Tracker.autorun (tracker) ->
 		loadingDep.depend()
@@ -35,14 +39,16 @@ Template.landing.events
 	'click #toDashboard': ->
 		FlowRouter.go 'home', language: FlowRouter.getParam('language')
 
+	'change #type': (e) -> Session.set 'selectedType', $(e.target).find('option:selected').attr('type')
+
 	'submit form': (e) ->
 		name = e.target['0'].value
 		email = e.target['1'].value
-		subject = e.target['2'].value
+		type = e.target['2'].value
 		message = e.target['3'].value
 
-		if name? && name != '' && email? && email != '' && subject? && subject != '' && message? && message != ''
-			Meteor.call 'sendMessage', name, email, subject, message, (e, r) ->
+		if name? && name != '' && email? && email != '' && type? && type != '' && message? && message != ''
+			Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 				if e
 					handleError e
 				else

@@ -88,7 +88,7 @@
 										each lang in getLanguages
 											with haveThisLanguage lang
 												li.list-group-item
-													a#removeLanguage.btn.btn-danger.btn-xs.fa.fa-trash.pull-right(href)
+													a#removeLanguage.btn.btn-danger.btn-xs.fa.fa-trash.pull-right(href title="{{_ 'store.removeLanguage'}}")
 													span.badge.badge-primary {{stock}}
 													| {{_ 'language.' context=short}}
 									if addLanguage
