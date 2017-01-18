@@ -75,7 +75,6 @@ login:
     welcome: Willkommen zu JWManagement
     text: Bitte gib deine Daten ein um dich anzumelden
     forgot: Passwort vergessen?
-    existing: JWManagement ist ein Schichtverwaltungssystem für Trolley-Projekte.<br>Du möchtest es gerne testen?<br>Schreib uns einfach eine E-Mail an support@jwmanagement.org und wir legen dir ein Projekt an.
     create: Account erstellen
     back: Zurück zur Startseite
 forgotPassword:

@@ -75,7 +75,6 @@ login:
     welcome: Welcome to JWManagement
     text: Please enter your account details to log in
     forgot: Forgot password?
-    existing: JWManagement is a shift management system for cart witnessing projects.<br>You would like to test it?<br>Just write us an email to support@jwmanagement.org and we will create a project for you.
     create: Create an account
     back: Back to Home Page
 forgotPassword:
