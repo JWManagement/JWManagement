@@ -61,6 +61,7 @@ Template.support.onCreated ->
 				{ name: 'firstname', title: 'First name', breakpoints: '' }
 				{ name: 'lastname', title: 'Surname' , breakpoints: '' }
 				{ name: 'username', title: 'Username' , breakpoints: '' }
+				{ name: 'action', title: 'Action' , breakpoints: '' }
 			]
 
 			for user, index in users.fetch()
@@ -69,6 +70,7 @@ Template.support.onCreated ->
 					username: user.username
 					firstname: user.profile.firstname
 					lastname: user.profile.lastname
+					action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a>'
 
 			$('#userTable').html('').footable
 				columns: columns
@@ -112,3 +114,9 @@ Template.support.onRendered ->
 Template.support.onDestroyed ->
 
 Template.support.events
+
+	'click .impersonate': (e) ->
+		userId = $(e.target).attr('data-id')
+
+		Meteor.call 'getImpersonateToken', userId, (e, token) ->
+			Accounts.callLoginMethod methodArguments: [ impToken: token ]
