@@ -1,13 +1,23 @@
-.container
-	.row.m-t-lg.m-b-xl
-		.col-xs-12
-			if isSupport
-				h2.center-align Support
-			else
-				h2.center-align No permission
-	if isSupport
-		.ibox
-			.ibox-content
-				.table-responsive
-					table#projectTable.table.table-stripped
-						.sk-spinner.sk-spinner-pulse
+if isSupport
+	.container-fluid
+		.row
+			.col-md-6
+				.row.m-t-lg.m-b-xl
+					.col-xs-12
+						h2.center-align Projects
+				.ibox
+					.ibox-content
+						.table-responsive
+							table#projectTable.table.table-stripped
+								.sk-spinner.sk-spinner-pulse
+			.col-md-6
+				.row.m-t-lg.m-b-xl
+					.col-xs-12
+						h2.center-align Users
+				.ibox
+					.ibox-content
+						.table-responsive
+							table#userTable.table.table-stripped
+								.sk-spinner.sk-spinner-pulse
+else
+	h2.center-align No permission

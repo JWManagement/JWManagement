@@ -43,6 +43,50 @@ Template.support.onCreated ->
 					enabled: true
 					key: 'projectTable'
 
+	drawUserlist = -> if initDone
+		Tracker.afterFlush ->
+			users = Meteor.users.find {},
+				fields:
+					username: 1
+					'profile.firstname': 1
+					'profile.lastname': 1
+			,
+				sort:
+					'profile.lastname': 1
+					'profile.firstname': 1
+
+			rows = []
+			columns = [
+				{ name: 'id', title: '#', breakpoints: '', filterable: false }
+				{ name: 'firstname', title: 'First name', breakpoints: '' }
+				{ name: 'lastname', title: 'Surname' , breakpoints: '' }
+				{ name: 'username', title: 'Username' , breakpoints: '' }
+			]
+
+			for user, index in users.fetch()
+				rows.push
+					id: index + 1
+					username: user.username
+					firstname: user.profile.firstname
+					lastname: user.profile.lastname
+
+			$('#userTable').html('').footable
+				columns: columns
+				rows: rows
+				paging: enabled: false
+				sorting:
+					enabled: true
+				paging:
+					enabled: true
+					size: 15
+				filtering:
+					enabled: true
+					delay: 400
+					placeholder: 'Search...'
+				state:
+					enabled: true
+					key: 'userTable'
+
 	@autorun ->
 		handle = ProjectSubs.subscribe 'support'
 		if handle.ready()
@@ -51,9 +95,15 @@ Template.support.onCreated ->
 				changed: drawProjectlist
 				removed: drawProjectlist
 
+			Meteor.users.find().observe
+				added: drawUserlist
+				changed: drawUserlist
+				removed: drawUserlist
+
 			initDone = true
 
 			drawProjectlist()
+			drawUserlist()
 
 Template.support.onRendered ->
 
