@@ -13,15 +13,25 @@
 	}
 
 	.version {
-		margin          : 10px -10px -10px;
-		padding         : 3px 10px;
-		background-color: #eee;
+		margin                    : 10px -10px -10px;
+		padding                   : 3px 10px;
+		text-align                : right;
+		background-color          : #eee;
+		border-bottom-left-radius : 3px;
+		border-bottom-right-radius: 3px;
 
 		a {
 			color           : $indigo;
 			margin          : 0 !important;
 			padding         : 0 !important;
+			font-size       : 10px;
 			background-color: inherit !important;
+		}
+
+		.label {
+			padding       : 4px 5px 3px;
+			margin-left   : -7px;
+			text-transform: uppercase;
 		}
 	}
 }

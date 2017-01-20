@@ -19,6 +19,8 @@ navigation:
     about: About this website
     terms: Terms of usage
     privacy: Privacy policy
+    version: Version
+    new: New
 welcome:
     links:
         home: Home

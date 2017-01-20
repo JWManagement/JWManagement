@@ -44,4 +44,6 @@
 							| {{_ 'navigation.logout'}}
 					with latestRelease
 						.version
-							a(href='//github.com/JWDeveloper/JWManagement/releases' target='blank') {{tag}} ({{at}})
+							if new
+								.label.label-primary.pull-left {{_ 'navigation.new'}}
+							a(href='//github.com/JWDeveloper/JWManagement/releases' target='blank') Version {{tag}}

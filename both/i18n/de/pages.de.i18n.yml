@@ -19,6 +19,8 @@ navigation:
     about: Impressum
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung
+    version: Version
+    new: Neu
 welcome:
     links:
         home: Start
