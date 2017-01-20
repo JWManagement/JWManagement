@@ -12,7 +12,9 @@ if queryParam 'showShiftReport'
 		#projects.row.animated.fadeInUp
 			unless loading
 				each getProjects
-					.project-wrapper.col-lg-6(id="{{_id}}" class="{{centerProject}}")
+					.row.m-n
+						each projects
+							.project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
 						if multipleTags
 							.tags-popup.row
 								each tag in tags

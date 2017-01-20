@@ -128,7 +128,16 @@ Template.dashboard.helpers
 
 	getProjectName: -> Projects.findOne(@projectId).name
 
-	getProjects: -> Projects.find {}, sort: name: 1
+	getProjects: ->
+		projects = Projects.find {}, sort: name: 1
+		result = []
+
+		for project, index in projects.fetch()
+			if index % 2 == 0
+				result.push projects: [ project ]
+			else
+				result[result.length - 1].projects.push project
+		result
 
 	getFakeProjects: ->
 		me = Meteor.user()
