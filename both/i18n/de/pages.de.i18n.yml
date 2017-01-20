@@ -167,6 +167,7 @@ dashboard:
     participant: Schicht-Teilnehmer
     participant_plural: Schicht-Teilnehmer
     showOlder: Auch ältere Schichten zeigen
+    showAll: Alles zeigen
 wiki:
     name: Informationen
     nameShort: Infos

@@ -174,6 +174,11 @@ Template.dashboard.helpers
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
 
+	getAllTagsPath: (tags) ->
+		tags = tags.map (tag) -> tag._id
+
+		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
+
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
 	newsThere: -> @news?.text and @news.text != ''
