@@ -19,11 +19,12 @@ Template.dashboard.helpers
 			reportSubmitted = false
 
 			for team in @teams
-				for user in team.participants when user._id == Meteor.userId()
+				for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+					isTeamleader = true
 					if team.report && team.report.submitted
 						reportSubmitted = team.report.submitted
 
-			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
+			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
 		else if a == 'accepted'
 			for team in @teams
 				for participant in team.participants
@@ -41,14 +42,14 @@ Template.dashboard.helpers
 	shiftRelation: ->
 		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
 		thisTime = parseInt moment(new Date).format 'Hmm'
-		reportSubmitted = false
 
 		for team in @teams
-			for user in team.participants when user._id == Meteor.userId()
+			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+				isTeamleader = true
 				if team.report && team.report.submitted
 					reportSubmitted = team.report.submitted
 
-		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted
+		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
 			'missing'
 		else
 			for team in @teams
@@ -127,7 +128,16 @@ Template.dashboard.helpers
 
 	getProjectName: -> Projects.findOne(@projectId).name
 
-	getProjects: -> Projects.find {}, sort: name: 1
+	getProjects: ->
+		projects = Projects.find {}, sort: name: 1
+		result = []
+
+		for project, index in projects.fetch()
+			if index % 2 == 0
+				result.push projects: [ project ]
+			else
+				result[result.length - 1].projects.push project
+		result
 
 	getFakeProjects: ->
 		me = Meteor.user()
@@ -160,9 +170,14 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	multipleTags: -> @tags.length > 1
+	multipleTags: -> if @tags then @tags.length > 1
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
+
+	getAllTagsPath: (tags) ->
+		tags = tags.map (tag) -> tag._id
+
+		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
@@ -184,7 +199,10 @@ Template.dashboard.helpers
 					if team.report && team.report.submitted
 						missingReport = false
 
-		myShift && (@date >= today && @end >= now || Session.get('showOlder') || missingReport)
+			for user in team.pending when user._id == Meteor.userId()
+				myShift = true
+
+		myShift && (@date > today || @date == today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
 

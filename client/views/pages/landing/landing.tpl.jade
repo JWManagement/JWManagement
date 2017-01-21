@@ -102,23 +102,35 @@
 						address
 							p
 								i.fa.fa-envelope-o
-								a.link-inverted(href='mailto:support@jwmanagement.org')
-									| support@jwmanagement.org
+								a.link-inverted(href='mailto:support@jwmanagement.org') support@jwmanagement.org
 					.col-md-6.wow.fadeInUp
 						.contact-form
 							form#contactForm
-								.col-md-6
-									input.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
-								.col-md-6
-									input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
+								unless equals selectedType 'issue'
+									.col-md-6
+										input.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
+									.col-md-6
+										input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
 								.col-md-12
-									input.form-control(type='text' placeholder='{{_ "welcome.contact.subject"}}*' required)
-								.col-md-12
-									textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
-								.col-md-8
-									input.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
-								.col-md-12
-									p * {{_ 'welcome.contact.required'}}
+									select.form-control#type
+										option(type='enquiry') {{_ "welcome.contact.enquiry"}}
+										option(type='issue') {{_ "welcome.contact.problem"}}
+										option(type='issue') {{_ "welcome.contact.suggestion"}}
+										option(type='question') {{_ "welcome.contact.question"}}
+								if equals selectedType 'issue'
+									.col-md-12
+										p.m-b-lg {{_ 'welcome.contact.issueTip'}}
+									.col-md-8
+										a.submit.btn.btn-block.text-uppercase(href='//github.com/JWDeveloper/JWManagement/issues' target='blank')
+											| {{_ 'welcome.contact.toGithub'}}
+											i.fa.fa-angle-double-right.fa-fw
+								unless equals selectedType 'issue'
+									.col-md-12
+										textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+									.col-md-8
+										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
+									.col-md-12
+										p * {{_ 'welcome.contact.required'}}
 				.row.center-align.m-t-xl
 					.col-xs-12.wow.fadeInUp
 						a.link-inverted(href='{{pathFor "about" language="de"}}') {{_ "welcome.contact.about"}}

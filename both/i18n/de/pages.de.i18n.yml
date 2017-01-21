@@ -20,6 +20,8 @@ navigation:
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung
     support: Support
+    version: Version
+    new: Neu
 welcome:
     links:
         home: Start
@@ -59,9 +61,14 @@ welcome:
         description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
         name: Name
         email: E-Mail Adresse
-        subject: Betreff
+        enquiry: Projekt beantragen
+        problem: Problem melden
+        suggestion: Verbesserung vorschlagen
+        question: Generelle Frage
         message: Nachricht
         send: Senden
+        issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
+        toGithub: GitHub besuchen
         required: Pflichtfelder
         about: Impressum
         terms: Nutzungsbedingungen
@@ -71,7 +78,6 @@ login:
     welcome: Willkommen zu JWManagement
     text: Bitte gib deine Daten ein um dich anzumelden
     forgot: Passwort vergessen?
-    existing: JWManagement ist ein Schichtverwaltungssystem für Trolley-Projekte.<br>Du möchtest es gerne testen?<br>Schreib uns einfach eine E-Mail an support@jwmanagement.org und wir legen dir ein Projekt an.
     create: Account erstellen
     back: Zurück zur Startseite
 forgotPassword:
@@ -134,6 +140,7 @@ profile:
         helpText: Gib bitte die Zeiträume an, in denen du nicht verfügbar bist.
     until: bis
     addVacation: Urlaub hinzufügen
+    deleteVacation: Urlaub wieder stornieren
     usernameTaken: Dieser Benutzername wird schon verwendet. Bitte wähle einen anderen
 dashboard:
     loadingProjects: Lade Projekte...
@@ -145,6 +152,9 @@ dashboard:
     news: Neuigkeiten
     noNews: Keine Neuigkeiten
     newsFrom: Letzte Änderung
+    editNews: Neuigkeiten bearbeiten
+    changeNews: Änderungen speichern
+    cancelNews: Änderungen abbrechen
     understaffed: Unterbesetzt
     understaffedMore: Mehr unterbesetzte Schichten zeigen
     missing: Fehlender Schichtbericht
@@ -159,7 +169,8 @@ dashboard:
     marked_plural: Unterbesetzte Schichten
     participant: Schicht-Teilnehmer
     participant_plural: Schicht-Teilnehmer
-    showOlder: Ältere zeigen
+    showOlder: Auch ältere Schichten zeigen
+    showAll: Alles zeigen
 wiki:
     name: Informationen
     nameShort: Infos
@@ -168,9 +179,16 @@ wiki:
     edit: Bearbeiten
     delete: Löschen
     noFiles: Keine Dateien verfügbar
+    addTab: Neuen Reiter hinzufügen
+    editQuestion: Titel bearbeiten
+    removeFaq: Titel löschen
+    editFaq: Antwort bearbeiten
+    changeFaq: Änderungen speichern
+    cancelFaq: Änderungen abbrechen
 shifts:
     name: Schichten
     route: Route
+    addShift: Neue Schicht erstellen
     addWeek: Neue Woche anlegen
     applications: Bewerbungen
     openApplications: Offene Bewerbungen
@@ -186,6 +204,14 @@ shifts:
         visibility: Hiermit bestimmst du, wie viele Wochen im voraus die Brüder sich bewerben können. Das System erstellt unter Beachtung der Start- und End-Wochen die nötigen Schichten dafür.
     weeks: Wochen
     sendWeek: Zuteilungen senden
+    hideNames: Schicht-Teilnehmer verbergen
+    showNames: Schicht-Teilnehmer zeigen
+    editShifts: Schichten bearbeiten
+    prevWeek: Zur vorherigen Woche gehen
+    nextWeek: Zur nächsten Woche gehen
+    sendWeek: Zuteilung für diese Woche per Mail verschicken
+    shownTag: Schichten dieses Tags werden momentan angezeigt
+    hiddenTag: Schichten dieses Tags werden momentan verborgen
     shift:
         tag: Tag
         schedule: Einteilung
@@ -233,6 +259,8 @@ reports:
     good: Schöne Erfahrungen
     problems: Probleme / Schwierigkeiten
     show: Zeigen
+    prevMonth: Zum nächsten Monat gehen
+    nextMonth: Zum vorherigen Monat gehen
 settings:
     main:
         title: Allgemeine Einstellungen
@@ -264,6 +292,8 @@ settings:
         addTemplate: Neue Vorlage definieren
         action: Aktion
         none: Es wurden noch keine Tags angelegt
+        add: Neues Tag erstellen
+        remove: Tag löschen
     teams:
         title: Teams
         helpText:
@@ -274,11 +304,14 @@ settings:
         id: ID
         name: Name
         picture: Bild
+        editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen
         link: Link
         description: Beschreibung
         action: Aktion
         none: Es wurden noch keine Teams angelegt
+        add: Neues Team erstellen
+        remove: Team löschen
     meetings:
         title: Treffpunkte
         helpText:
@@ -287,18 +320,23 @@ settings:
         id: ID
         name: Name
         picture: Bild
+        editPicture: Ein Bild für diesen Treffpunkt hochladen
         noPicture: Kein Bild hochgeladen
         action: Aktion
         none: Es wurden noch keine Treffpunkte angelegt
+        add: Neues Treffpunkt erstellen
+        remove: Treffpunkt löschen
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
     title: Titel
     text: Text
+    deleteNote: Notiz löschen
 firstLogin:
     name: Herzlich Willkommen
     text: <p>Wir freuen uns dich bei JWManagement begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     button: Los geht's!
     tokenError: Token-Fehler. Bitte wende dich an den Administrator (support@jwmanagement.org) oder deinen Projektleiter.
+    tokenMissing: Token fehlt. Bitte verwende den Link aus der E-Mail.
     usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
     usernameMissing: Bitte gib einen Benutzernamen an.

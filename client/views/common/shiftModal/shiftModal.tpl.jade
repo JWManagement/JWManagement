@@ -173,7 +173,7 @@
 								if isProjectShiftAdmin
 									if getSelectedCount _id
 										.select-action-bar
-											if getTlCount _id
+											if hasTl _id
 												button#acceptSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.acceptSelected'}}
 											else
 												button.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm.disabled {{_ 'modal.shift.notTeamleader'}}

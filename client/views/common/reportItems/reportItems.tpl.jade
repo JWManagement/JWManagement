@@ -14,7 +14,7 @@ table.table
 					td {{language}}
 					td {{count}}
 					td
-						button.btn.btn-danger.btn-sm.btn-circle.deleteItem
+						button.btn.btn-danger.btn-sm.btn-circle.deleteItem(title="{{_ 'modal.shiftReport.deleteItem'}}")
 							i.fa.fa-trash-o
 		else
 			tr
@@ -36,5 +36,5 @@ table.table
 		label(for="count") {{_ 'modal.shiftReport.count'}}
 		input.form-control#count(type="number" min="0")
 	.col-md-1
-		button.btn.btn-primary.btn-circle#reportAddItem
+		button.btn.btn-primary.btn-circle#reportAddItem(title="{{_ 'modal.shiftReport.addItem'}}")
 			i.fa.fa-plus

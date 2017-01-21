@@ -41,7 +41,7 @@ Template.addParticipantModal.helpers
 								for time in numbers when time not in user.profile.available[day]
 									available = false
 
-							if available
+							if available && user.profile.vacations?
 								for vacation in user.profile.vacations
 									now = parseInt shift.date
 									start = parseInt vacation.start

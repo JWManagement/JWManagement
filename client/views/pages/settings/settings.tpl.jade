@@ -6,7 +6,7 @@ if queryParam 'editTeamPicture'
 	.row.m-t-lg
 		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp
 			.ibox
-				.ibox-title.float-e-margins
+				.ibox-title
 					h2 {{_ 'settings.main.title'}}
 				.ibox-content
 					if isProjectAdmin
@@ -48,7 +48,7 @@ if queryParam 'editTeamPicture'
 							| {{_ 'settings.main.deleteProject'}}
 		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp.z-index-10
 			.ibox
-				.ibox-title.float-e-margins
+				.ibox-title
 					h2 {{_ 'settings.tags.title'}}
 					.text-muted.m-t {{{_ 'settings.tags.helpText'}}}
 				.ibox-content
@@ -129,7 +129,7 @@ if queryParam 'editTeamPicture'
 											.form-group
 												label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.action'}}
 												.col-sm-10.col-lg-8
-													#removeTag.btn.btn-danger.btn-circle.fa.fa-trash
+													#removeTag.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.tags.remove'}}")
 										.hr-line-dashed
 								else
 									.center-align {{_ 'settings.tags.none'}}
@@ -140,11 +140,11 @@ if queryParam 'editTeamPicture'
 				.ibox-footer
 					if isProjectShiftAdmin
 						.m-sm.center-align
-							#addTag.btn.btn-primary.btn-circle.fa.fa-plus
+							#addTag.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.tags.add'}}")
 	.row
 		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp.z-index-10
 			.ibox
-				.ibox-title.float-e-margins
+				.ibox-title
 					h2 {{_ 'settings.teams.title'}}
 					.text-muted.m-t.m-b-xs {{{_ 'settings.teams.helpText.main'}}}
 				.ibox-content
@@ -168,7 +168,7 @@ if queryParam 'editTeamPicture'
 												else
 													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label.red {{_ 'settings.teams.noPicture'}}
 												.col-xs-2
-													#editTeamPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right
+													#editTeamPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right(title="{{_ 'settings.teams.editPicture'}}")
 												.col-xs-12.col-sm-offset-2.col-sm-10.col-lg-offset-4.col-lg-8
 													span.help-block {{_ 'settings.teams.helpText.picture'}}
 											.form-group
@@ -184,7 +184,7 @@ if queryParam 'editTeamPicture'
 											.form-group
 												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.action'}}
 												.col-sm-10.col-lg-8
-													#removeTeam.btn.btn-danger.btn-circle.fa.fa-trash
+													#removeTeam.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.teams.remove'}}")
 										.hr-line-dashed
 								else
 									.center-align {{_ 'settings.teams.none'}}
@@ -195,10 +195,10 @@ if queryParam 'editTeamPicture'
 				.ibox-footer
 					if isProjectShiftAdmin
 						.m-sm.center-align
-							#addTeam.btn.btn-primary.btn-circle.fa.fa-plus
+							#addTeam.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.teams.add'}}")
 		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp
 			.ibox
-				.ibox-title.float-e-margins
+				.ibox-title
 					h2 {{_ 'settings.meetings.title'}}
 					.text-muted.m-t.m-b-xs {{_ 'settings.meetings.helpText.main'}}
 				.ibox-content
@@ -222,13 +222,13 @@ if queryParam 'editTeamPicture'
 												else
 													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label.red {{_ 'settings.meetings.noPicture'}}
 												.col-xs-2
-													#editMeetingPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right
+													#editMeetingPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right(title="{{_ 'settings.meetings.editPicture'}}")
 												.col-xs-12.col-sm-offset-2.col-sm-10.col-lg-offset-4.col-lg-8
 													span.help-block {{_ 'settings.meetings.helpText.picture'}}
 											.form-group
 												label.col-sm-2.col-lg-4.control-label {{_ 'settings.meetings.action'}}
 												.col-sm-10.col-lg-8
-													#removeMeeting.btn.btn-danger.btn-circle.fa.fa-trash
+													#removeMeeting.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.meetings.remove'}}")
 										.hr-line-dashed
 								else
 									.center-align {{_ 'settings.meetings.none'}}
@@ -239,4 +239,4 @@ if queryParam 'editTeamPicture'
 				.ibox-footer
 					if isProjectShiftAdmin
 						.m-sm.center-align
-							#addMeeting.btn.btn-primary.btn-circle.fa.fa-plus
+							#addMeeting.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.meetings.add'}}")

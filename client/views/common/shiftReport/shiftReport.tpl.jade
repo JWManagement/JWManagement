@@ -8,19 +8,19 @@
 				.modal-body
 					if isThisTeamleader _id getTeamId
 						.headlines
-							button.btn.btn-lg#publisherPage(class="{{isActive 0}}") 
+							button.btn.btn-lg#publisherPage(class="{{isActive 0}}" title="{{_ 'shifts.shiftReport.pages.publisher'}}")
 								i.fa.fa-group
 							i.fa.fa-angle-right
-							button.btn.btn-lg#itemsPage(class="{{isActive 1}}") 
+							button.btn.btn-lg#itemsPage(class="{{isActive 1}}" title="{{_ 'shifts.shiftReport.pages.items'}}")
 								i.fa.fa-book
 							i.fa.fa-angle-right
-							button.btn.btn-lg#occurrencesPage(class="{{isActive 2}}") 
+							button.btn.btn-lg#occurrencesPage(class="{{isActive 2}}" title="{{_ 'shifts.shiftReport.pages.occurrences'}}")
 								i.fa.fa-exclamation-circle
 							i.fa.fa-angle-right
-							button.btn.btn-lg#storePage(class="{{isActive 3}}") 
+							button.btn.btn-lg#storePage(class="{{isActive 3}}" title="{{_ 'shifts.shiftReport.pages.store'}}")
 								i.fa.fa-home
 							i.fa.fa-angle-right
-							button.btn.btn-lg#experiencesPage(class="{{isActive 4}}") 
+							button.btn.btn-lg#experiencesPage(class="{{isActive 4}}" title="{{_ 'shifts.shiftReport.pages.experiences'}}")
 								i.fa.fa-comment
 						if equals reportPage 0
 							h1 {{_ 'profile.publisher'}}
@@ -92,24 +92,24 @@
 							.row
 								.col-lg-12
 									label(for="route") {{_ 'modal.shiftReport.expRoute'}}
-									textarea.form-control#route= team.report.experiences.route
+									textarea.form-control#route {{team.report.experiences.route}}
 							.row
 								.col-lg-12
 									label(for="goodExp") {{_ 'modal.shiftReport.expGood'}}
-									textarea.form-control#goodExp= team.report.experiences.good
+									textarea.form-control#goodExp {{team.report.experiences.good}}
 							.row
 								.col-lg-12
 									label(for="problems") {{_ 'modal.shiftReport.expProblems'}}
-									textarea.form-control#problems= team.report.experiences.problems
+									textarea.form-control#problems {{team.report.experiences.problems}}
 					else
 						h2.center-align {{_ 'role.noPermission'}}
 				.modal-footer
 					if isThisTeamleader _id getTeamId
 						if equals reportPage 4
-							button.btn.btn-success.btn-lg.btn-circle.pull-right#finish
+							button.btn.btn-success.btn-lg.btn-circle.pull-right#finish(title="{{_ 'modal.shiftReport.pages.finish'}}")
 								i.fa.fa-check
 						else
-							button.btn.btn-primary.btn-lg.btn-circle.pull-right#nextReportPage
+							button.btn.btn-primary.btn-lg.btn-circle.pull-right#nextReportPage(title="{{_ 'modal.shiftReport.pages.nextPage'}}")
 								i.fa.fa-angle-right
-						button.btn.btn-primary.btn-lg.btn-circle.pull-right#prevReportPage
+						button.btn.btn-primary.btn-lg.btn-circle.pull-right#prevReportPage(title="{{_ 'modal.shiftReport.pages.prevPage'}}")
 							i.fa.fa-angle-left

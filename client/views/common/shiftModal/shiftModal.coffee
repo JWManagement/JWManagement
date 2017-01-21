@@ -8,9 +8,15 @@ Template.shiftModal.helpers
 		participants.sort (a, b) ->
 			if a.thisTeamleader then -1
 			else if b.thisTeamleader then 1
-			else if a.name < b.name then -1
-			else if a.name > b.name then 1
-			else 0
+			else
+				aSplit = a.name.split(' ')
+				bSplit = b.name.split(' ')
+
+				if aSplit[aSplit.length-1] < bSplit[bSplit.length-1] then -1
+				else if aSplit[aSplit.length-1] > bSplit[bSplit.length-1] then 1
+				else if aSplit[0] < bSplit[0] then -1
+				else if aSplit[0] > bSplit[0] then 1
+				else 0
 
 	schedulingIsDirect: ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -59,20 +65,22 @@ Template.shiftModal.helpers
 		else
 			TAPi18n.__('modal.shift.noExistingTeamleader')
 
-	getTlCount: (teamId) ->
-		tlCount = 0
+	hasTl: (teamId) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants.thisTeamleader': 1
 			'teams.pending.checked': 1
 			'teams.pending.teamleader': 1
 			'teams.pending.substituteTeamleader': 1
 
 		for team in shift.teams when team._id == teamId
+			for user in team.participants when user.thisTeamleader
+				return true
+
 			for user in team.pending when user.checked
 				if user.substituteTeamleader || user.teamleader
-					tlCount++
-		tlCount > 0
+					return true
 
 	notInOtherTeam: (e) ->
 		userId = Meteor.userId()

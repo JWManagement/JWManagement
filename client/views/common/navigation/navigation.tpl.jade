@@ -48,3 +48,8 @@
 						a#logout(href)
 							i.fa.fa-power-off.fa-fw
 							| {{_ 'navigation.logout'}}
+					with latestRelease
+						.version
+							if new
+								.label.label-primary.pull-left {{_ 'navigation.new'}}
+							a(href='//github.com/JWDeveloper/JWManagement/releases' target='blank') Version {{tag}}

@@ -5,8 +5,14 @@ Meteor.methods
 
 		check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
 
+		if shift?
+			shiftData = {}
+			shiftData.teams = []
+
 		tlNeeded = true
 		for team in shift.teams when team._id = teamId
+			shiftData.teams[0] = team
+
 			for participant in team.participants when participant.teamleader
 				tlNeeded = false
 
@@ -36,6 +42,7 @@ Meteor.methods
 					name: name
 					type: TAPi18n.__('role.' + type, '', user.profile.language)
 					datetime: TAPi18n.__('mail.understaffed.datetime', {date: date, time: time}, user.profile.language)
+					shift: shiftData
 					content: getMailTexts 'understaffed', user.profile.language
 			, (err, res) -> if err
 				console.log 'sendMail failed: ' + err
