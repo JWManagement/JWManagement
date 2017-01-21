@@ -18,6 +18,7 @@ Template.support.onCreated ->
 				{ name: 'id', title: '#', breakpoints: '', filterable: false }
 				{ name: '_id', title: 'ID', breakpoints: '' }
 				{ name: 'name', title: 'Name' , breakpoints: '' }
+				{ name: 'showAdmins', title: 'Action' , breakpoints: '' }
 			]
 
 			for project, index in projects.fetch()
@@ -25,6 +26,7 @@ Template.support.onCreated ->
 					id: index + 1
 					_id: project._id
 					name: project.name
+					showAdmins: '<a class="showAdmins" data-id="' + project._id + '" href>Show admins...</a>'
 
 			$('#projectTable').html('').footable
 				columns: columns
@@ -47,6 +49,7 @@ Template.support.onCreated ->
 		Tracker.afterFlush ->
 			users = Meteor.users.find {},
 				fields:
+					roles: 1
 					username: 1
 					'profile.firstname': 1
 					'profile.lastname': 1
@@ -62,15 +65,22 @@ Template.support.onCreated ->
 				{ name: 'lastname', title: 'Surname' , breakpoints: '' }
 				{ name: 'username', title: 'Username' , breakpoints: '' }
 				{ name: 'action', title: 'Action' , breakpoints: '' }
+				{ name: 'projects', title: 'Projects' , visible: false }
 			]
 
 			for user, index in users.fetch()
+				projects = []
+
+				for group in Object.keys user.roles
+					projects.push group + '=' + user.roles[group]
+
 				rows.push
 					id: index + 1
 					username: user.username
 					firstname: user.profile.firstname
 					lastname: user.profile.lastname
 					action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a>'
+					projects: projects.join ';'
 
 			$('#userTable').html('').footable
 				columns: columns
@@ -120,3 +130,10 @@ Template.support.events
 
 		Meteor.call 'getImpersonateToken', userId, (e, token) ->
 			Accounts.callLoginMethod methodArguments: [ impToken: token ]
+
+	'click .showAdmins': (e) ->
+		projectId = $(e.target).attr('data-id')
+
+		$('#userTable .footable-filtering button').click()
+		$('#userTable .footable-filtering input[type="text"]').val projectId + '=admin'
+		$('#userTable .footable-filtering button').click()

@@ -8,6 +8,7 @@ Meteor.publish 'support', ->
 		,
 			Meteor.users.find {},
 				fields:
+					roles: 1
 					username: 1
 					'profile.firstname': 1
 					'profile.lastname': 1
