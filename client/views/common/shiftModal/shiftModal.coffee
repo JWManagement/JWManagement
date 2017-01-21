@@ -424,6 +424,15 @@ Template.shiftModal.events
 
 		Meteor.call 'closeTeam', shiftId, teamId, handleError
 
+	'click #sendUnderstaffed': ->
+		shiftId = FlowRouter.getQueryParam('showShift')
+		teamId = @_id
+
+		swalYesNo
+			swal: 'sendMail.understaffed'
+			doConfirm: ->
+				Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
+
 	'click #switch': ->
 		shiftId = FlowRouter.getQueryParam 'showShift'
 		wrs -> FlowRouter.setQueryParams editShift: shiftId
