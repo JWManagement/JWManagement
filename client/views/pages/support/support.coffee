@@ -32,8 +32,7 @@ Template.support.onCreated ->
 				columns: columns
 				rows: rows
 				paging: enabled: false
-				sorting:
-					enabled: true
+				sorting: enabled: true
 				paging:
 					enabled: true
 					size: 15
@@ -41,9 +40,6 @@ Template.support.onCreated ->
 					enabled: true
 					delay: 400
 					placeholder: 'Search...'
-				state:
-					enabled: true
-					key: 'projectTable'
 
 	drawUserlist = -> if initDone
 		Tracker.afterFlush ->
@@ -53,6 +49,7 @@ Template.support.onCreated ->
 					username: 1
 					'profile.firstname': 1
 					'profile.lastname': 1
+					'profile.language': 1
 			,
 				sort:
 					'profile.lastname': 1
@@ -79,15 +76,14 @@ Template.support.onCreated ->
 					username: user.username
 					firstname: user.profile.firstname
 					lastname: user.profile.lastname
-					action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a>'
+					action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a>'
 					projects: projects.join ';'
 
 			$('#userTable').html('').footable
 				columns: columns
 				rows: rows
 				paging: enabled: false
-				sorting:
-					enabled: true
+				sorting: enabled: true
 				paging:
 					enabled: true
 					size: 15
@@ -95,9 +91,6 @@ Template.support.onCreated ->
 					enabled: true
 					delay: 400
 					placeholder: 'Search...'
-				state:
-					enabled: true
-					key: 'userTable'
 
 	@autorun ->
 		handle = ProjectSubs.subscribe 'support'
@@ -127,9 +120,12 @@ Template.support.events
 
 	'click .impersonate': (e) ->
 		userId = $(e.target).attr('data-id')
+		userLang = $(e.target).attr('data-lang')
 
 		Meteor.call 'getImpersonateToken', userId, (e, token) ->
 			Accounts.callLoginMethod methodArguments: [ impToken: token ]
+
+			FlowRouter.go 'home', language: userLang
 
 	'click .showAdmins': (e) ->
 		projectId = $(e.target).attr('data-id')

@@ -12,6 +12,7 @@ Meteor.publish 'support', ->
 					username: 1
 					'profile.firstname': 1
 					'profile.lastname': 1
+					'profile.language': 1
 				sort:
 					'profile.lastname': 1
 					'profile.firstname': 1
