@@ -104,3 +104,34 @@ Meteor.saveToDB = ->
 	for team in R.teams
 		Shifts.update _id: team.shiftId, 'teams._id': team._id,
 			$set: 'teams.$': team
+
+Meteor.searchChangeables = (user) ->
+
+	foundUsers = []
+	runCondition = true
+	i = 0
+
+	foundUsers.push _id: user._id, way: []
+
+	while runCondition
+		if foundUsers.length <= i
+			runCondition = false
+		else
+			foundUser = foundUsers[i]
+
+			for team in foundUser.confirmations
+				team = R.teams.filter(t._id == team.teamId && t.shiftId == team.shiftId)[0]
+
+				for rUser in team.pending
+					unless rUser._id in foundUsers
+						foundUsers.push
+							_id: rUser._id
+							way: foundUser.way.concat [
+								shiftId: shift._id
+								teamId: team._id
+								fromId: rUser._id
+								toId: foundUser._id
+							]
+				i++
+
+	foundUsers
