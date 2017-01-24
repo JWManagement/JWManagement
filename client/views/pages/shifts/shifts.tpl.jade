@@ -14,6 +14,8 @@ if queryParam 'showShiftReport'
 	+shiftReport
 .wrapper-content.animated.fadeInUp(class="{{view}}")
 	.container-fluid
+		.row.m-b
+			#resetRequests.btn.btn-primary Reset Requests
 		.row.header
 			if queryParam 'showWeek'
 				+shiftsHeader

@@ -97,3 +97,9 @@ Template.shifts.events
 		intervalId = $(e.target).attr('intervalId')
 
 		Meteor.call 'updateTemplate', projectId, tagId, templateId, 'interval', intervalId
+
+	'click #resetRequests': (e) ->
+		projectId = FlowRouter.getParam('projectId')
+		date = FlowRouter.getQueryParam('showWeek')
+
+		Meteor.call 'resetRequests', projectId, date
