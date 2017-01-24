@@ -82,22 +82,29 @@ Meteor.setTeamleaders = ->
 
 	for team in R.teams
 		thisTeamleader = {}
+		allTeamleaders = []
+		allSubTeamleaders = []
 
 		for user in team.pending
 			if user.teamleader && R.users[user._id].acceptions < R.users[user._id].max
-				thisTeamleader = user
-				break
+				allTeamleaders.push user
 
 		if !thisTeamleader
 			for user in team.pending
 				if user.substituteTeamleader && R.users[user._id].acceptions < R.users[user._id].max
-					thisTeamleader = user
-					break
+					allSubTeamleaders.push user
+
+		if allTeamleaders.length > 0
+			allTeamleaders.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+			thisTeamleader = allTeamleaders[0]
+		else if allSubTeamleaders.length > 0
+			allSubTeamleaders.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+			thisTeamleader = allSubTeamleaders[0]
 
 		if thisTeamleader && Object.keys(thisTeamleader).length > 0
 			Meteor.moveUser team.shiftId, team._id, 'pending', 'participants', thisTeamleader
 
-		R.setTeamleaders[thisTeamleader._id] = thisTeamleader
+			R.setTeamleaders[thisTeamleader._id] = thisTeamleader
 
 Meteor.saveToDB = ->
 
