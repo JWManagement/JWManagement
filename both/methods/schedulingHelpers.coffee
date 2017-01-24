@@ -140,7 +140,6 @@ Meteor.searchChangeables = (user) ->
 								toId: foundUser._id
 							]
 				i++
-
 	foundUsers
 
 Meteor.searchTeamleaderChangeables = (user) ->
@@ -171,5 +170,24 @@ Meteor.searchTeamleaderChangeables = (user) ->
 								toId: foundUser._id
 							]
 				i++
-
 	foundUsers
+
+Meteor.countAbandonedTeamsTl = ->
+
+	count = 0
+
+	for team in R.teams
+		hasTeamleader = false
+
+		for user in team.participants
+			if user.teamleader || user.substituteTeamleader
+				hasTeamleader = true
+
+		if !hasTeamleader
+			count++
+
+	count
+
+Meteor.countAbandonedTeamsUsers = ->
+
+	(R.teams.filter (team) -> team.pending.length < team.min).length
