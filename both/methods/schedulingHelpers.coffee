@@ -135,3 +135,34 @@ Meteor.searchChangeables = (user) ->
 				i++
 
 	foundUsers
+
+Meteor.searchTeamleaderChangeables = (user) ->
+
+	foundUsers = []
+	runCondition = true
+	i = 0
+
+	foundUsers.push _id: user._id, way: []
+
+	while runCondition
+		if foundUsers.length <= i
+			runCondition = false
+		else
+			foundUser = foundUsers[i]
+
+			for team in foundUser.tlConfirmations
+				team = R.teams.filter(t._id == team.teamId && t.shiftId == team.shiftId)[0]
+
+				for rUser in team.pending when rUser.teamleader || rUser.substituteTeamleader
+					unless rUser._id in foundUsers
+						foundUsers.push
+							_id: rUser._id
+							way: foundUser.way.concat [
+								shiftId: shift._id
+								teamId: team._id
+								fromId: rUser._id
+								toId: foundUser._id
+							]
+				i++
+
+	foundUsers
