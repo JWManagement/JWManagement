@@ -151,13 +151,18 @@ Meteor.methods
 		for shift in shifts.fetch()
 			for team in shift.teams
 				for user in team.participants
+					user.targetAmount = Random.choice [1, 2, 3]
+					user.maxAmount = user.targetAmount + 1
 					user.thisTeamleader = false
 					user.checked = false
 
 					Shifts.update _id: shift._id, 'teams._id': team._id,
 						$pull:
 							'teams.$.participants': _id: user._id
+							'teams.$.pending': _id: user._id
 							'teams.$.declined': _id: user._id
+
+					Shifts.update _id: shift._id, 'teams._id': team._id,
 						$addToSet: 'teams.$.pending': user
 
 	schedule: (projectId, date) ->
