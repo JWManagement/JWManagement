@@ -103,3 +103,9 @@ Template.shifts.events
 		date = FlowRouter.getQueryParam('showWeek')
 
 		Meteor.call 'resetRequests', projectId, date
+
+	'click #schedule': (e) ->
+		projectId = FlowRouter.getParam('projectId')
+		date = FlowRouter.getQueryParam('showWeek')
+
+		Meteor.call 'schedule', projectId, date

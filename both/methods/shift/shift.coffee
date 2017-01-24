@@ -159,3 +159,16 @@ Meteor.methods
 							'teams.$.participants': _id: user._id
 							'teams.$.declined': _id: user._id
 						$addToSet: 'teams.$.pending': user
+
+	schedule: (projectId, date) ->
+		shiftIds = []
+
+		week = Weeks.findOne
+			projectId: projectId
+			date: date
+
+		for day in week.days
+			for shift in day.shifts
+				shiftIds.push shift
+
+		shifts = Shifts.find _id: $in: shiftIds
