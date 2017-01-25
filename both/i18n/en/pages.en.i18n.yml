@@ -61,14 +61,19 @@ welcome:
         description: <p>Want to test the system for your congregation?</p><p>Just let us know so we can create a project for you.</p><p>Have another question or suggestion?</p><p>We would be happy to hear about that.</p>
         name: Name
         email: Email Address
-        enquiry: Project Enquirey
-        problem: Problem
+        congregation: Congregation
+        enquiry: Project Enquiry
+        login: Login Problem
+        problem: General Problem
         suggestion: Feature Request
         question: General Question
         message: Message
         send: Send
+        sendEnquiry: Send Enquiry
         issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
+        loginTip: Tip: If you forgot your password, you can just reset it using the button beneath. If you have done this and it still doesn't work, consider talking to your elders.
         toGithub: Visit GitHub
+        toForgotPassword: Reset Password
         required: Required
         about: About this website
         terms: Terms of usage
