@@ -299,6 +299,7 @@ settings:
         id: ID
         name: Name
         picture: Bild
+        pickIcon: Icon auswählen
         editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen
         link: Link

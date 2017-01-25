@@ -12,7 +12,14 @@ Template.settings.helpers
 
 Template.settings.onCreated ->
 
-	ProjectSubs.subscribe 'settings', FlowRouter.getParam('projectId')
+	@autorun ->
+		handle = ProjectSubs.subscribe 'settings', FlowRouter.getParam('projectId')
+		handle.ready Tracker.afterFlush ->
+			$('#iconpicker').fontIconPicker({
+				source:    ['fa-address-book', 'fa-bandcamp', 'fa-id-card'],
+				emptyIcon: false,
+				hasSearch: false
+			})
 
 Template.settings.onRendered ->
 

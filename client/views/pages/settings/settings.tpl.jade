@@ -160,7 +160,10 @@ if queryParam 'editTeamPicture'
 											.form-group
 												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.name'}}
 												.col-sm-10.col-lg-8
-													input#teamName.form-control(type='text' placeholder='{{_ "settings.teams.name"}}' value='{{name}}')
+													input#teamName.form-control(type='text' placeholder='{{_ "settings.teams.name"}}' value='{{name}}').form-group
+												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.pickIcon'}}
+												.col-sm-10.col-lg-8
+													input#iconpicker(type='text')
 											.form-group
 												label.col-xs-12.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.picture'}}
 												with teamPicture
