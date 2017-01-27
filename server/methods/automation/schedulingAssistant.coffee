@@ -1,4 +1,4 @@
-import { Scheduler } from './schedulingHelpers.coffee'
+import { Scheduler } from './scheduler.coffee'
 
 @R = {}
 
@@ -9,12 +9,13 @@ Meteor.methods
 		R.shifts = []
 		R.allShifts = []
 		R.users = {}
-		R.setTeamleaders = {}
+		R.setTeamleaders = []
 		R.possibleChangeables = {}
 
 		Scheduler.fillShiftsArray projectId, date, tagId
 		Scheduler.fillUsersArray()
 		Scheduler.fillTeamsArray()
 		Scheduler.setTeamleaders()
+		Scheduler.optimizeTeamleaders()
 
 		Scheduler.saveToDB()
