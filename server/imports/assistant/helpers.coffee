@@ -1,3 +1,5 @@
+import { R } from './variables.coffee'
+
 export Helpers =
 
 	pendingToParticipants: (shiftId, teamId, userId, teamleader) ->

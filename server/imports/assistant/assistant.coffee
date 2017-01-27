@@ -1,6 +1,7 @@
-import { Helpers } from './schedulingHelpers.coffee'
+import { Helpers } from './helpers.coffee'
+import { R } from './variables.coffee'
 
-export Scheduler =
+export Assistant =
 
 	fillShiftsArray: (projectId, date, tagId) ->
 
