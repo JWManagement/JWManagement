@@ -41,8 +41,9 @@ Meteor.methods
 							Shifts.update _id: shiftId, 'teams._id': teamId,
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
-
-							#TODO: if team.max reached -> close team
+								
+							if team.participants.length == team.max
+								Meteor.call 'closeTeam', shiftId, teamId
 
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
