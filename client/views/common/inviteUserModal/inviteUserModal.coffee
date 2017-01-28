@@ -1,6 +1,9 @@
 Template.inviteUserModal.helpers
 
-	getNewUser: -> Meteor.users.find(state: $in: ['invited', 'created']).fetch()
+	getNewUser: ->
+		projectId = FlowRouter.getParam('projectId')
+		users = Roles.getUsersInRole Permissions.member, projectId, state: $in: ['invited', 'created']
+		users.fetch()
 
 	isInvited: -> 'text-warning' if @state == 'invited'
 
