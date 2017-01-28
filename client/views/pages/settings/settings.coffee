@@ -15,11 +15,21 @@ Template.settings.onCreated ->
 	@autorun ->
 		handle = ProjectSubs.subscribe 'settings', FlowRouter.getParam('projectId')
 		handle.ready Tracker.afterFlush ->
-			$('#iconpicker').fontIconPicker({
-				source:    ['fa-address-book', 'fa-bandcamp', 'fa-id-card'],
-				emptyIcon: false,
-				hasSearch: false
-			})
+			$('.iconpicker').iconpicker
+				arrowClass: 'btn-primary'
+				arrowPrevIconClass: 'fa fa-chevron-left'
+				arrowNextIconClass: 'fa fa-chevron-right'
+				rows: 5
+				cols: 10
+				footer: true
+				header: true
+				icon: 'fa-wifi'
+				iconset: 'fontawesome'
+				labelHeader: '{0} of {1} pages'
+				labelFooter: '{0} - {1} of {2} icons'
+				placement: 'bottom'
+				search: true
+				searchText: 'Search'
 
 Template.settings.onRendered ->
 
