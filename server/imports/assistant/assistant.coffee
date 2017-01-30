@@ -122,6 +122,9 @@ export Assistant =
 			# Sortiere alle Teamleiter nach deren Abstand zur durchschnittlichen Ratio absteigend
 			teamleadersByDeviationRatio = R.setTeamleaders.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
 
+			# Wenn keine Teamleiter gefunden wurden, brich direkt ab
+			if teamleadersByDeviationRatio.length == 0 then endReached = true
+
 			# Durchlaufe alle Teamleiter und versuche zu optimieren
 			for teamleader, index in teamleadersByDeviationRatio
 				# Suche alle möglichen Tausch-Kandidaten
@@ -170,7 +173,9 @@ export Assistant =
 
 				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
 				if maxReachedDay
-					teamleaderChangeables = teamleaderChangeables.filter (changeable) -> R.teams[changeable.way[0].teamId].date == team.date
+					teamleaderChangeables = teamleaderChangeables.filter (changeable) ->
+						fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
+						fTeam.date == team.date
 
 				# TODO: einziger nicht abgedeckter fall: wenn teamleader maxReachedDay erreicht hat,
 				# aber nicht maxReachedPeriod, dann könnte ein changeable mit maxReached wieder mit

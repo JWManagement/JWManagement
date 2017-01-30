@@ -142,7 +142,7 @@ export Helpers =
 
 					for rUser in team.pending when (rUser.teamleader || rUser.substituteTeamleader) && !this.getMaxReachedDay rUser, team
 						# User in foundUsers aufnehmen, wenn noch nicht geschehen
-						if rUser._id not in foundUsers
+						if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
 							foundUsers.push
 								_id: rUser._id
 								way: foundUser.way.concat [
@@ -229,18 +229,22 @@ export Helpers =
 
 		maxReachedDay = false
 		confirmationsThisDay = []
+		cTeams = R.users[user._id].confirmations.concat(R.users[user._id].tlConfirmations).map (cTeam) ->
+			shiftId: cTeam.shiftId
+			teamId: cTeam.teamId
+			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
 
 		# Alle angenommenen Bewerbungen dieses Tages zusammenfassen
-		for cTeam in R.users[user._id].confirmations when team.date == (R.shifts.filter (shift) -> shift._id == cTeam.shiftId)[0].date
-
-			# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
-			if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
-				confirmationsThisDay.push cTeam
+		for cTeam in cTeams
+			if team.date == cTeam.date
+				# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
+				if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
+					confirmationsThisDay.push cTeam
 
 		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
 		if confirmationsThisDay.length == 1
-			if user.maxDay == 1
-				if !R.doubleShiftAllowed
+			if R.users[user._id].maxDay == 1
+				if !R.users[user._id].doubleShiftAllowed
 					maxReachedDay = true
 				else if R.shifts[confirmationsThisDay[0].shiftId].start != team.end && R.shifts[confirmationsThisDay[0].shiftId].end != team.start
 					maxReachedDay = true
