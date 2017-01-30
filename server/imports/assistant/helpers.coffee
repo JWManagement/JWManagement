@@ -8,11 +8,21 @@ export Helpers =
 		# User verschieben
 		for team in R.teams when team.shiftId == shiftId && team._id == teamId
 
+			# Participants prüfen
+			for u in team.participants when u._id == userId
+				console.log u.name + ' bereits in participants'
+				return
+
 			# Userdaten holen
 			for u in team.pending when u._id == userId
 				user = u
+				user.thisTeamleader = teamleader
+				break
 
-			user.thisTeamleader = teamleader
+			# Gefundenen user überprüfen
+			if user == {}
+				console.log u.name + ' nicht in pending gefunden'
+				return
 
 			team['participants'].push user
 
@@ -38,15 +48,27 @@ export Helpers =
 		# User verschieben
 		for team in R.teams when team.shiftId == shiftId && team._id == teamId
 
+			# Pending prüfen
+			for u in team.pending when u._id == userId
+				console.log u.name + ' bereits in pending'
+				return
+
 			# Userdaten holen
 			for u in team.participants when u._id == userId
 				user = u
+				user.thisTeamleader = false
+				break
+
+			# Gefundenen user überprüfen
+			if user == {}
+				console.log u.name + ' nicht in participants gefunden'
+				return
 
 			team['pending'].push user
 
 			for userItem, index in team['participants'] when userItem._id == userId
 				team['participants'].splice index, 1
-			break
+				break
 
 		# Acceptions senken
 		R.users[userId].acceptions -= 1
@@ -55,11 +77,13 @@ export Helpers =
 		for tlConfirmation, index in R.users[userId].tlConfirmations
 			if tlConfirmation.shiftId = shiftId && tlConfirmation.teamId = teamId
 				R.users[userId].tlConfirmations.splice index, 1
+				break
 
 		# Schicht aus confirmations Array entfernen
 		for confirmation, index in R.users[userId].confirmations
 			if confirmation.shiftId = shiftId && confirmation.teamId = teamId
 				R.users[userId].confirmations.splice index, 1
+				break
 
 		# Ratio errechnen
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].target
