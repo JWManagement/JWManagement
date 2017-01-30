@@ -80,8 +80,9 @@ export Assistant =
 
 		for team in R.teams
 			teamleaderInThisTeam = team.pending.filter (user) -> user.teamleader || user.substituteTeamleader
+			setTeamleaders = team.participants.filter (user) -> user.thisTeamleader
 
-			if teamleaderInThisTeam.length > 0
+			if setTeamleaders.length == 0 && teamleaderInThisTeam.length > 0
 				thisTeamleader = false
 				allTeamleaders = []
 				allSubTeamleaders = []

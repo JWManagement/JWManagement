@@ -9,5 +9,6 @@ Meteor.methods
 		Assistant.fillTeamsArray()
 		Assistant.setTeamleaders()
 		Assistant.optimizeTeamleaders()
+		Assistant.setTeamleaders()
 
 		Assistant.saveToDB()
