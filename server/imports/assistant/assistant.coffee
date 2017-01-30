@@ -89,10 +89,9 @@ export Assistant =
 				allTeamleaders = []
 				allSubTeamleaders = []
 
-				# Teamleiter heraussuchen, die noch nicht am Maximum sind und noch keine
-				# angenommene Bewerbung an diesem Tag haben
+				# Teamleiter heraussuchen, die noch nicht am Maximum für diese Zeitperiode oder diesen Tag sind
 				for user in teamleaderInThisTeam
-					maxReached = R.users[user._id].acceptions >= R.users[user._id].maxPeriod
+					maxReached = Helpers.getMaxReachedPeriod user
 					maxReachedDay = Helpers.getMaxReachedDay user, team
 
 					if !maxReached && !maxReachedDay
@@ -136,7 +135,7 @@ export Assistant =
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in teamleaderChangeables
-					maxReached = R.users[changeable._id].acceptions >= R.users[changeable._id].maxPeriod
+					maxReached = Helpers.getMaxReachedPeriod changeable
 
 					if !maxReached
 						# Prüfe, ob Tauschen Sinn macht
@@ -177,13 +176,9 @@ export Assistant =
 						fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
 						fTeam.date == team.date
 
-				# TODO: einziger nicht abgedeckter fall: wenn teamleader maxReachedDay erreicht hat,
-				# aber nicht maxReachedPeriod, dann könnte ein changeable mit maxReached wieder mit
-				# dem teamleader an einem anderen tag tauschen
-
 				# Mögliche Tausch-Kandidaten für diesen Teamleiter heraussuchen
 				for changeable in teamleaderChangeables
-					maxReached = R.users[changeable._id].acceptions >= R.users[changeable._id].maxPeriod
+					maxReached = Helpers.getMaxReachedPeriod changeable
 
 					if !maxReached
 						# Tausch in den anderen Schichten vornehmen

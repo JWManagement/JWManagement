@@ -24,6 +24,13 @@ export Helpers =
 			if user == {}
 				console.log u.name + ' nicht in pending gefunden'
 				return
+			else
+				maxReachedDay = Helpers.getMaxReachedDay user, team
+				maxReachedPeriod = Helpers.getMaxReachedPeriod user
+
+				if maxReachedDay || maxReachedPeriod
+					console.log u.name + ' bereits am Maximum'
+					return
 
 			team['participants'].push user
 
@@ -252,3 +259,5 @@ export Helpers =
 			maxReachedDay = true
 
 		maxReachedDay
+
+	getMaxReachedPeriod: (user) -> R.users[user._id].acceptions >= R.users[user._id].maxPeriod
