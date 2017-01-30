@@ -12,10 +12,12 @@ export Assistant =
 		# IDs der Schichten an diesem Tag raussuchen
 		for day in week.days
 			for shift in day.shifts
-				allShiftIds.push shift
+				shift = Shifts.findOne shift, fields: _id: 1, tagId: 1
+
+				allShiftIds.push shift._id
 
 				if shift.tagId == tagId
-					shiftIds.push shift
+					shiftIds.push shift._id
 
 		R.allShifts = Shifts.find _id: $in: allShiftIds
 		R.allShifts = R.allShifts.fetch()
