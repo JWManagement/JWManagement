@@ -89,8 +89,8 @@ export Helpers =
 							way: foundUser.way.concat [
 								shiftId: shift._id
 								teamId: team._id
-								fromId: rUser._id
-								toId: foundUser._id
+								fromId: foundUser._id
+								toId: rUser._id
 							]
 					i++
 		foundUsers
@@ -122,8 +122,8 @@ export Helpers =
 								way: foundUser.way.concat [
 									shiftId: team.shiftId
 									teamId: team._id
-									fromId: rUser._id
-									toId: foundUser._id
+									fromId: foundUser._id
+									toId: rUser._id
 								]
 			i++
 

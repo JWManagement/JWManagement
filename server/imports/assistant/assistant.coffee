@@ -158,5 +158,35 @@ export Assistant =
 	saveToDB: ->
 
 		for team in R.teams
-			Shifts.update _id: team.shiftId, 'teams._id': team._id,
+			for user in team.participants
+				delete user.targetPeriod
+				delete user.maxPeriod
+				delete user.maxDay
+				delete user.acceptions
+				delete user.doubleShiftAllowed
+				delete user.targetAcceptionRatio
+				delete user.requests
+				delete user.confirmations
+				delete user.tlConfirmations
+
+			for user in team.pending
+				delete user.targetPeriod
+				delete user.maxPeriod
+				delete user.maxDay
+				delete user.acceptions
+				delete user.doubleShiftAllowed
+				delete user.targetAcceptionRatio
+				delete user.requests
+				delete user.confirmations
+				delete user.tlConfirmations
+
+			shiftId = team.shiftId
+
+			delete team.shiftId
+			delete team.date
+			delete team.start
+			delete team.end
+			delete team.requestAmount
+
+			Shifts.update _id: shiftId, 'teams._id': team._id,
 				$set: 'teams.$': team
