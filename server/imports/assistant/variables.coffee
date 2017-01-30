@@ -1,8 +1,9 @@
 export R =
 
-	allShifts: []
-	shifts: []
-	teams: []
-	users: {}
-	setTeamleaders: []
-	possibleChangeables: {}
+	init: ->
+		R.allShifts = []
+		R.shifts = []
+		R.teams = []
+		R.users = {}
+		R.setTeamleaders = []
+		R.possibleChangeables = {}

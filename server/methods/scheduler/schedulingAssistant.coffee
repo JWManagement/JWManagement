@@ -4,6 +4,7 @@ import { R } from '../../imports/assistant/variables.coffee'
 Meteor.methods
 
 	schedule: (projectId, date, tagId) ->
+		R.init()
 		Assistant.fillShiftsArray projectId, date, tagId
 		Assistant.fillUsersArray()
 		Assistant.fillTeamsArray()
