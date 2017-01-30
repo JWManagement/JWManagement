@@ -129,7 +129,7 @@ export Assistant =
 
 				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
 				teamleaderChangeables = teamleaderChangeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
-				teamleaderChangeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < teamleader.targetAcceptionRatio
+				teamleaderChangeables = teamleaderChangeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < teamleader.targetAcceptionRatio
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in teamleaderChangeables
@@ -153,10 +153,45 @@ export Assistant =
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
 							index = teamleadersByDeviationRatio.length
 						else
-							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde
+							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
 
 				# Wenn letzer Teamleiter erreicht, beende Optimierung
 				if index == teamleadersByDeviationRatio.length - 1 then endReached = true
+
+	optimizeMaxReachedTeamleaders: ->
+
+		# Alle Teams ohne Teilnehmer durchlaufen
+		for team in R.teams.filter((team) -> team.participants.length == 0)
+
+			# Mögliche beworbene Teamleiter durchlaufen
+			for teamleader, index in team.pending when teamleader.teamleader || teamleader.substituteTeamleader
+				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
+				maxReachedDay = Helpers.getMaxReachedDay teamleader, team
+
+				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
+				if maxReachedDay
+					teamleaderChangeables = teamleaderChangeables.filter (changeable) -> R.teams[changeable.way[0].teamId].date == team.date
+
+				# TODO: einziger nicht abgedeckter fall: wenn teamleader maxReachedDay erreicht hat,
+				# aber nicht maxReachedPeriod, dann könnte ein changeable mit maxReached wieder mit
+				# dem teamleader an einem anderen tag tauschen
+
+				# Mögliche Tausch-Kandidaten für diesen Teamleiter heraussuchen
+				for changeable in teamleaderChangeables
+					maxReached = R.users[changeable._id].acceptions >= R.users[changeable._id].maxPeriod
+
+					if !maxReached
+						# Tausch in den anderen Schichten vornehmen
+						for waypoint in changeable.way
+							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, true
+
+						# Teamleiter dank des gewonnenen Platzes in dieser Schicht einteilen
+						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, true
+
+						# Nächstes Team
+						index = team.pending.length
+						break
 
 	saveToDB: ->
 

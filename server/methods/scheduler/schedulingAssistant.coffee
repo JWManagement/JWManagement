@@ -11,5 +11,6 @@ Meteor.methods
 		Assistant.setTeamleaders()
 		Assistant.optimizeTeamleaders()
 		Assistant.setTeamleaders()
+		Assistant.optimizeMaxReachedTeamleaders()
 
 		Assistant.saveToDB()

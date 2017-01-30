@@ -3,6 +3,7 @@ import { R } from './variables.coffee'
 export Helpers =
 
 	pendingToParticipants: (shiftId, teamId, userId, teamleader) ->
+
 		user = {}
 
 		# User verschieben
@@ -43,6 +44,7 @@ export Helpers =
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
 
 	participantsToPending: (shiftId, teamId, userId) ->
+
 		user = {}
 
 		# User verschieben
@@ -204,6 +206,7 @@ export Helpers =
 		sumDeviation / Object.keys(R.users).length
 
 	getAverageRatioTl: ->
+
 		sumRatio = 0
 		teamleaders = []
 
@@ -214,6 +217,7 @@ export Helpers =
 		sumRatio / Object.keys(teamleaders).length
 
 	getAverageRatioAll: ->
+
 		sumRatio = 0
 
 		for userId in Object.keys R.users
@@ -233,7 +237,7 @@ export Helpers =
 			if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
 				confirmationsThisDay.push cTeam
 
-		# Anzahl der angenommenen Bewerbungen und ggf. auf Doppelschicht prüfen
+		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
 		if confirmationsThisDay.length == 1
 			if user.maxDay == 1
 				if !R.doubleShiftAllowed
