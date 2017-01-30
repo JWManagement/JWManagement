@@ -116,32 +116,31 @@ export Assistant =
 		endReached = false
 
 		while !endReached
-
-			# Sortiere alle Teamleiter, deren Ratio höher als der Durschnitt ist, nach deren Ratio absteigend
-			averageRatio = Helpers.getAverageRatioTl()
-			averageDeviationRatio = Helpers.getAverageDeviationRatioTl()
-			teamleaderOverAverageRatio = R.setTeamleaders.filter (teamleader) -> teamleader.targetAcceptionRatio > averageDeviationRatio
-			teamleaderOverAverageRatio = R.setTeamleaders.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
+			# Sortiere alle Teamleiter nach deren Abstand zur durchschnittlichen Ratio absteigend
+			teamleadersByDeviationRatio = R.setTeamleaders.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
 
 			# Durchlaufe alle Teamleiter und versuche zu optimieren
-			for teamleader, index in teamleaderOverAverageRatio
+			for teamleader, index in teamleadersByDeviationRatio
 				# Suche alle möglichen Tausch-Kandidaten
 				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
+
+				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
 				teamleaderChangeables = teamleaderChangeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+				teamleaderChangeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < teamleader.targetAcceptionRatio
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in teamleaderChangeables
 					maxReached = R.users[changeable._id].acceptions >= R.users[changeable._id].maxPeriod
 
 					if !maxReached
-
 						# Prüfe, ob Tauschen Sinn macht
-						beforeOptimumDeviation = Math.abs (R.users[teamleader._id].targetAcceptionRatio + R.users[changeable._id].targetAcceptionRatio) / 2 - averageRatio
+						beforeRatioDifference = Math.abs R.users[teamleader._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
 						newTargetAcceptionRatioTl = (R.users[teamleader._id].acceptions - 1) / R.users[teamleader._id].targetPeriod
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
-						afterOptimumDeviation = Math.abs (newTargetAcceptionRatioTl + newTargetAcceptionRatioCh) / 2 - averageRatio
+						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
 
-						if afterOptimumDeviation < beforeOptimumDeviation
+						# Tausche, wenn die Differenz der Tausch-Kandidaten zum
+						if afterRatioDifference < beforeRatioDifference
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
 								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, true
@@ -149,12 +148,12 @@ export Assistant =
 							cIndex = teamleaderChangeables.length
 
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
-							index = teamleaderOverAverageRatio.length
+							index = teamleadersByDeviationRatio.length
 						else
 							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde
 
 				# Wenn letzer Teamleiter erreicht, beende Optimierung
-				if index == teamleaderOverAverageRatio.length - 1 then endReached = true
+				if index == teamleadersByDeviationRatio.length - 1 then endReached = true
 
 	saveToDB: ->
 
