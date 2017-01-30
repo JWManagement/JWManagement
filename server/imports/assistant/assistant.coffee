@@ -144,7 +144,7 @@ export Assistant =
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
 						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
 
-						# Tausche, wenn die Differenz der Tausch-Kandidaten zum
+						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
 						if afterRatioDifference < beforeRatioDifference
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
@@ -154,8 +154,6 @@ export Assistant =
 
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
 							index = teamleadersByDeviationRatio.length
-						else
-							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
 
 				# Wenn letzer Teamleiter erreicht, beende Optimierung
 				if index == teamleadersByDeviationRatio.length - 1 then endReached = true
@@ -192,6 +190,124 @@ export Assistant =
 						# Nächstes Team
 						index = team.pending.length
 						break
+
+	setMinParticipants: ->
+
+		teamsWithTeamleader = R.teams.filter (team) ->
+			for u in team.participants when u.thisTeamleader then return true
+			false
+
+		for team in teamsWithTeamleader when team.participants.length < team.min && team.pending.length > 0
+			allRequests = []
+
+			# Bewerber heraussuchen, die noch nicht am Maximum für diese Zeitperiode oder diesen Tag sind
+			for user in team.pending
+				maxReached = Helpers.getMaxReachedPeriod user
+				maxReachedDay = Helpers.getMaxReachedDay user, team
+
+				if !maxReached && !maxReachedDay
+					allRequests.push user
+
+			# User mit der niedrigsten Ratio auswählen
+			if allRequests.length >= team.min - 1
+				allRequests = allRequests.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+
+				# Bewerber einteilen, bis Team Minimum erreicht ist
+				for request, i in allRequests when team.participants.length < team.min
+					Helpers.pendingToParticipants team.shiftId, team._id, allRequests[i]._id, false
+
+					R.setParticipants.push request
+
+	optimizeParticipants: ->
+
+		endReached = false
+
+		while !endReached
+			# Sortiere alle Bewerber nach deren Abstand zur durchschnittlichen Ratio absteigend
+			participantsByDeviationRatio = R.setParticipants.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
+
+			# Wenn kein eingeteilten Bewerber gefunden wurden, brich direkt ab
+			if participantsByDeviationRatio.length == 0 then endReached = true
+
+			# Durchlaufe alle eingeteilten Bewerber und versuche zu optimieren
+			for participant, index in participantsByDeviationRatio
+				# Suche alle möglichen Tausch-Kandidaten
+				changeables = Helpers.searchChangeables participant._id
+
+				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
+				changeables = changeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+				changeables = changeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < participant.targetAcceptionRatio
+
+				# Durchlaufe die Tausch-Kandidaten
+				for changeable, cIndex in changeables
+					maxReached = Helpers.getMaxReachedPeriod changeable
+
+					if !maxReached
+						# Prüfe, ob Tauschen Sinn macht
+						beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
+						newTargetAcceptionRatioTl = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
+						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
+						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
+
+						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
+						if afterRatioDifference < beforeRatioDifference
+							for waypoint in changeable.way
+								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
+
+							cIndex = changeables.length
+
+							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
+							index = participantsByDeviationRatio.length
+						else
+							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
+
+				# Wenn letzer Teilnehmer erreicht, beende Optimierung
+				if index == participantsByDeviationRatio.length - 1 then endReached = true
+
+	optimizeMaxReachedParticipants: ->
+
+		# Alle Teams durchlaufen, die nur einen Teamleiter haben
+		for team in R.teams.filter((team) -> team.participants.length == 1)
+			i = 0
+			doneWaypoints = []
+
+			# Mögliche beworbene Teilnehmer durchlaufen
+			for participant, index in team.pending
+				changeable = Helpers.searchChangeables participant._id
+				maxReachedDay = Helpers.getMaxReachedDay participant, team
+
+				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
+				if maxReachedDay
+					changeables = changeables.filter (changeable) ->
+						fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
+						fTeam.date == team.date
+
+				# Mögliche Tausch-Kandidaten für diesen Teilnehmer heraussuchen
+				for changeable in changeables
+					maxReached = Helpers.getMaxReachedPeriod changeable
+
+					if !maxReached
+						# Tausch in den anderen Schichten vornehmen
+						for waypoint in changeable.way
+							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
+
+							doneWaypoints.push waypoint
+
+						# Teilnehmer dank des gewonnenen Platzes in dieser Schicht einteilen
+						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, false
+
+						# Nächstes Team
+						index = team.pending.length
+						break
+
+						# TODO: For bis team.min erreicht, falls nicht rückgängig
+
+			# Zurücksetzen, wenn nicht genug Teilnehmer eingeteilt werden konnten
+			for waypoint in doneWaypoints.slice(0).reverse()
+				Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.toId
+				Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.fromId, false
 
 	saveToDB: ->
 

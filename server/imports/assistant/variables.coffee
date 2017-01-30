@@ -6,4 +6,4 @@ export R =
 		R.teams = []
 		R.users = {}
 		R.setTeamleaders = []
-		R.possibleChangeables = {}
+		R.setParticipants = []

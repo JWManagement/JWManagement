@@ -25,8 +25,8 @@ export Helpers =
 				console.log u.name + ' nicht in pending gefunden'
 				return
 			else
-				maxReachedDay = Helpers.getMaxReachedDay user, team
-				maxReachedPeriod = Helpers.getMaxReachedPeriod user
+				maxReachedDay = this.getMaxReachedDay user, team
+				maxReachedPeriod = this.getMaxReachedPeriod user
 
 				if maxReachedDay || maxReachedPeriod
 					console.log u.name + ' bereits am Maximum'
@@ -112,20 +112,27 @@ export Helpers =
 			else
 				foundUser = foundUsers[i]
 
+				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
 				for team in R.users[foundUser._id].confirmations
-					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
+					alreadyInAsTeamleader = R.users[foundUser._id].tlConfirmations.filter((tlTeam) -> team.teamId == tlTeam.teamId && team.shiftId == tlTeam.shiftId).length > 0
+					if !alreadyInAsTeamleader
+						team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 
-					# User in foundUsers aufnehmen, wenn noch nicht geschehen
-					for rUser in team.pending when rUser._id not in foundUsers
-						foundUsers.push
-							_id: rUser._id
-							way: foundUser.way.concat [
-								shiftId: shift._id
-								teamId: team._id
-								fromId: foundUser._id
-								toId: rUser._id
-							]
-					i++
+						# User in foundUsers aufnehmen, wenn noch nicht geschehen
+						for rUser in team.pending when !this.getMaxReachedDay rUser, team
+							if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
+								foundUsers.push
+									_id: rUser._id
+									way: foundUser.way.concat [
+										shiftId: team.shiftId
+										teamId: team._id
+										fromId: foundUser._id
+										toId: rUser._id
+									]
+			i++
+
+		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
+		foundUsers.splice 0, 1
 		foundUsers
 
 	searchTeamleaderChangeables: (userId) ->
@@ -147,8 +154,8 @@ export Helpers =
 				for team in R.users[foundUser._id].tlConfirmations
 					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 
+					# User in foundUsers aufnehmen, wenn noch nicht geschehen
 					for rUser in team.pending when (rUser.teamleader || rUser.substituteTeamleader) && !this.getMaxReachedDay rUser, team
-						# User in foundUsers aufnehmen, wenn noch nicht geschehen
 						if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
 							foundUsers.push
 								_id: rUser._id
@@ -160,6 +167,7 @@ export Helpers =
 								]
 			i++
 
+		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
 		foundUsers.splice 0, 1
 		foundUsers
 
@@ -186,29 +194,23 @@ export Helpers =
 	getAverageDeviationRatioTl: ->
 
 		teamleaders = []
-		sumDeviation = 0
+		sumDeviation = 0.0
 		averageRatio = this.getAverageRatioTl()
 
 		for userId in Object.keys(R.users) when R.users[userId].teamleader || R.users[userId].substituteTeamleader
-			teamleaders.push R.users[userId]
+			sumDeviation += Math.abs R.users[userId].targetAcceptionRatio - averageRatio
 
-			if R.users[userId].targetAcceptionRatio > averageRatio
-				sumDeviation += R.users[userId].targetAcceptionRatio - averageRatio
-			else if R.users[userId].targetAcceptionRatio < averageRatio
-				sumDeviation += averageRatio - R.users[userId].targetAcceptionRatio
+			teamleaders.push R.users[userId]
 
 		sumDeviation / Object.keys(teamleaders).length
 
 	getAverageDeviationRatioAll: ->
 
-		sumDeviation = 0
+		sumDeviation = 0.0
 		averageRatio = this.getAverageRatioAll()
 
 		for userId in Object.keys R.users
-			if R.users[userId].targetAcceptionRatio > averageRatio
-				sumDeviation += R.users[userId].targetAcceptionRatio - averageRatio
-			else if R.users[userId].targetAcceptionRatio < averageRatio
-				sumDeviation += averageRatio - R.users[userId].targetAcceptionRatio
+			sumDeviation += Math.abs R.users[userId].targetAcceptionRatio - averageRatio
 
 		sumDeviation / Object.keys(R.users).length
 
@@ -242,19 +244,21 @@ export Helpers =
 			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
 
 		# Alle angenommenen Bewerbungen dieses Tages zusammenfassen
-		for cTeam in cTeams
-			if team.date == cTeam.date
-				# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
-				if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
-					confirmationsThisDay.push cTeam
+		for cTeam in cTeams when team.date == cTeam.date
+			# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
+			if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
+				confirmationsThisDay.push cTeam
 
 		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
 		if confirmationsThisDay.length == 1
 			if R.users[user._id].maxDay == 1
 				if !R.users[user._id].doubleShiftAllowed
 					maxReachedDay = true
-				else if R.shifts[confirmationsThisDay[0].shiftId].start != team.end && R.shifts[confirmationsThisDay[0].shiftId].end != team.start
-					maxReachedDay = true
+				else
+					thisShift = R.shifts.filter((shift) -> shift._id == confirmationsThisDay[0].shiftId)[0]
+
+					if thisShift.start != team.end && thisShift.end != team.start
+						maxReachedDay = true
 		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= user.maxDay
 			maxReachedDay = true
 
