@@ -32,7 +32,7 @@ Template.addParticipantModal.helpers
 							index -= 100
 							numbers.push index
 
-						shiftDay = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'so'][moment(shift.date).isoWeekday() - 2]
+						shiftDay = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'so'][moment(shift.date, 'YYYYDDDD').isoWeekday() - 1]
 
 						if user.profile.available
 							for day in Object.keys user.profile.available when day == shiftDay
