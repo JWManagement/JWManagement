@@ -30,7 +30,7 @@ welcome:
         dashboard: Open Dashboard
     header:
         title: Advanced shift management
-        description: JWManagment is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
+        description: JWManagement is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
     divider:
         first:
             title: Multiple Tags

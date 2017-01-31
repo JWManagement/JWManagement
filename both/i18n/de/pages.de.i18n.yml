@@ -30,7 +30,7 @@ welcome:
         dashboard: Übersicht öffnen
     header:
         title: Schichtverwaltung für theokratische Projekte
-        description: JWManagment ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
+        description: JWManagement ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
     divider:
         first:
             title: Verschiedene Tags
