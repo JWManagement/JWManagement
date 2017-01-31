@@ -2,9 +2,13 @@ Template.landing.helpers
 
 	latestReleases: -> Session.get 'latestReleases'
 
+	selectedType: -> Session.get 'selectedType'
+
 Template.landing.onRendered ->
 
 	loadingDep = new Tracker.Dependency
+
+	Session.set 'selectedType', ''
 
 	Tracker.autorun (tracker) ->
 		loadingDep.depend()
@@ -34,6 +38,8 @@ Template.landing.events
 
 	'click #toDashboard': ->
 		FlowRouter.go 'home', language: FlowRouter.getParam('language')
+
+	'change #type': (e) -> Session.set 'selectedType', $(e.target).find('option:selected').attr('type')
 
 	'submit form': (e) ->
 		name = e.target['0'].value

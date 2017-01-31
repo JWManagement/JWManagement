@@ -283,14 +283,17 @@
 			margin-bottom: 20px;
 		}
 
-		input[type="submit"] {
-			color      : #fff;
-			background : $indigo;
-			transition : all 0.3s ease;
-			font-weight: bold;
+		.submit {
+			color        : #fff;
+			padding      : 14px 12px;
+			background   : $indigo;
+			transition   : all 0.3s ease;
+			font-weight  : bold;
+			margin-bottom: 20px;
+			border-radius: 0;
 		}
 
-		input[type="submit"]:hover {
+		.submit:hover {
 			background: lighten($indigo, 3);
 		}
 

@@ -128,7 +128,16 @@ Template.dashboard.helpers
 
 	getProjectName: -> Projects.findOne(@projectId).name
 
-	getProjects: -> Projects.find {}, sort: name: 1
+	getProjects: ->
+		projects = Projects.find {}, sort: name: 1
+		result = []
+
+		for project, index in projects.fetch()
+			if index % 2 == 0
+				result.push projects: [ project ]
+			else
+				result[result.length - 1].projects.push project
+		result
 
 	getFakeProjects: ->
 		me = Meteor.user()
@@ -161,9 +170,14 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	multipleTags: -> @tags.length > 1
+	multipleTags: -> if @tags then @tags.length > 1
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
+
+	getAllTagsPath: (tags) ->
+		tags = tags.map (tag) -> tag._id
+
+		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 

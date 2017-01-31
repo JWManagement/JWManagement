@@ -3,10 +3,11 @@ Template.addWeekModal.helpers
 	getProject: ->
 		project = Projects.findOne FlowRouter.getParam('projectId'), fields: tags: 1
 
-		for tag in project.tags when tag.templates.length > 0
-			return project
+		if project && project.tags
+			for tag in project.tags when tag.templates && tag.templates.length > 0
+				return project
 
-		_id: project._id, noTemplate: true
+			_id: project._id, noTemplate: true
 
 Template.addWeekModal.onCreated ->
 
@@ -18,6 +19,16 @@ Template.addWeekModal.onCreated ->
 			$('#addWeekModal').modal('show')
 			$('#addWeekModal').on 'hidden.bs.modal', ->
 				wrs -> FlowRouter.setQueryParams addWeek: undefined
+
+			weeks = Weeks.find
+				projectId: FlowRouter.getParam('projectId')
+				start: $gte: parseInt moment(new Date).isoWeekday(1).format 'YYYYDDDD'
+			,
+				fields: date: 1
+				sort: start: 1
+
+			weeks = weeks.fetch().map (w) -> w.date
+			nextWeek = new Date moment(weeks[weeks.length - 1]).add(1, 'week').format()
 
 			$weekPicker = $('#datepicker-week')
 
@@ -36,7 +47,7 @@ Template.addWeekModal.onCreated ->
 					$(this).datepicker('clearDate').datepicker('setDates', weekDates)
 
 					$weekPicker.data('updating', false)
-			.datepicker('setDate', new Date)
+			.datepicker('setDate', nextWeek)
 
 Template.addWeekModal.events
 

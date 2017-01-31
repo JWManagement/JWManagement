@@ -47,12 +47,10 @@ summernote:standalone
 shell-server@0.2.1
 cfs:standard-packages
 cfs:filesystem
-numtel:cfs-image-resize
 meteorhacks:subs-manager
 meteorhacks:kadira
 percolate:synced-cron
 flowkey:bootstrap-tour
-sergeyt:typeahead
 mizzao:user-status
 kevbuk:moment-range
 harrison:papa-parse

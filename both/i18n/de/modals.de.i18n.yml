@@ -112,6 +112,7 @@ modal:
         alreadyTeamleader: Dieser Verkündiger ist bereits Teamleiter
         openTeam: Team öffnen
         closeTeam: Team schließen
+        sendUnderstaffed: Unterbesetzt-Mail schicken
         switch: Schicht bearbeiten
         existingTeamleaders: Teamleiter vorhanden
         noExistingTeamleader: Teamleiter fehlt
