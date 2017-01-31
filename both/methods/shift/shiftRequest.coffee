@@ -42,12 +42,12 @@ Meteor.methods
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
 
-							#TODO: if team.max reached -> close team
+							if team.participants.length == team.max - 1
+								Meteor.call 'closeTeam', shiftId, teamId
 
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
-					else if team.pending.length == team.min - 1
-						#TODO: set condition to team.pending.length >= team.min - 1
+					else if team.pending.length >= team.min - 1
 						acceptedUsers = [ userId ]
 						hasTeamleader = false
 						chosenId = null
