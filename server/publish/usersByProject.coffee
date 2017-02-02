@@ -1,7 +1,7 @@
 Meteor.publish 'usersByProject', (projectId) ->
 
 	if typeof projectId == 'string' && projectId != ''
-		if Roles.userIsInRole @userId, Permissions.admin, projectId
+		if Roles.userIsInRole @userId, Permissions.shiftAdmin, projectId
 			Roles.getUsersInRole Permissions.member, projectId, fields:
 				username: 1
 				profile: 1

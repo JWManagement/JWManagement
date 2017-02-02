@@ -42,7 +42,7 @@ Meteor.methods
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
 
-							if team.participants.length == team.max
+							if team.participants.length == team.max - 1
 								Meteor.call 'closeTeam', shiftId, teamId
 
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'

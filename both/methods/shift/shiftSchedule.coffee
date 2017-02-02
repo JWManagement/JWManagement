@@ -226,10 +226,10 @@ Meteor.methods
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant
 
 			for team in shift.teams when team._id == teamId
-				for notAcceptedUser in team.declined.concat(team.pending) when notAcceptedUser._id == userId
+				for notAcceptedUser in team.declined.concat(team.pending) when notAcceptedUser? && notAcceptedUser._id == userId
 					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyRequested')
 
-				for acceptedUser in team.participants when acceptedUser._id == userId
+				for acceptedUser in team.participants when acceptedUser? && acceptedUser._id == userId
 					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyParticipating')
 				break
 
