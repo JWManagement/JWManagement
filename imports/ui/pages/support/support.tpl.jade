@@ -1,0 +1,7 @@
+if isSupport
+	.container-fluid
+		.row
+			+allProjects projects=projectList
+			+allUsers users=userList
+else
+	h2.center-align No permission
