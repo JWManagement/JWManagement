@@ -56,7 +56,13 @@ Template.landing.events
 					email: email
 					congregation: congregation
 					message: message
-				, handleError
+				, (e, r) ->
+					if e
+						handleError e
+					else
+						swal TAPi18n.__('welcome.contact.enquirySuccessful'), '', 'success'
+
+						$('#contactForm')[0].reset()
 			else
 				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 					if e
