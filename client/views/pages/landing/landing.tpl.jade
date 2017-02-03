@@ -73,7 +73,8 @@
 							.col-xs-10
 								ul
 									each body
-										li {{{this}}}
+										if this
+											li {{{this}}}
 					.center-align.m-t
 						a(href='https://github.com/JWDeveloper/JWManagement/releases' target='_blank') {{_ 'welcome.feature2.more'}}
 	section#feature3.feature.feature-inverted
@@ -108,27 +109,44 @@
 							form#contactForm
 								unless equals selectedType 'issue'
 									.col-md-6
-										input.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
+										input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
 									.col-md-6
-										input.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
+										input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
 								.col-md-12
-									select.form-control#type
+									select#type.form-control
 										option(type='enquiry') {{_ "welcome.contact.enquiry"}}
+										option(type='login') {{_ "welcome.contact.login"}}
 										option(type='issue') {{_ "welcome.contact.problem"}}
 										option(type='issue') {{_ "welcome.contact.suggestion"}}
 										option(type='question') {{_ "welcome.contact.question"}}
-								if equals selectedType 'issue'
+								if equals selectedType 'login'
+									.col-md-12
+										p.m-b-lg {{_ 'welcome.contact.loginTip'}}
+									.col-md-8
+										a.submit.btn.btn-block.text-uppercase(href='{{pathFor "forgot" language="{{langTag}}"}}')
+											| {{_ 'welcome.contact.toForgotPassword'}}
+											i.fa.fa-angle-double-right.fa-fw
+								else if equals selectedType 'issue'
 									.col-md-12
 										p.m-b-lg {{_ 'welcome.contact.issueTip'}}
 									.col-md-8
 										a.submit.btn.btn-block.text-uppercase(href='//github.com/JWDeveloper/JWManagement/issues' target='blank')
 											| {{_ 'welcome.contact.toGithub'}}
 											i.fa.fa-angle-double-right.fa-fw
-								unless equals selectedType 'issue'
+								else if equals selectedType 'question'
 									.col-md-12
-										textarea.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
 									.col-md-8
 										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
+									.col-md-12
+										p * {{_ 'welcome.contact.required'}}
+								else
+									.col-md-12
+										input#congregation.form-control(type='congregation' placeholder='{{_ "welcome.contact.congregation"}}*' required)
+									.col-md-12
+										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+									.col-md-8
+										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.sendEnquiry"}}')
 									.col-md-12
 										p * {{_ 'welcome.contact.required'}}
 				.row.center-align.m-t-xl

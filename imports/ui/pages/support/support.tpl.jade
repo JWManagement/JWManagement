@@ -1,0 +1,12 @@
+if isSupport
+	.container-fluid
+		.row
+			.col-md-8.col-md-offset-2
+				+enquiryList enquiries=enquiries
+		.row
+			.col-md-6
+				+allProjects projects=projects
+			.col-md-6
+				+allUsers users=users
+else
+	h2.center-align No permission

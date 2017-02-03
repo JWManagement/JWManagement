@@ -19,6 +19,7 @@ navigation:
     about: Impressum
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung
+    support: Support
     version: Version
     new: Neu
 welcome:
@@ -60,14 +61,20 @@ welcome:
         description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
         name: Name
         email: E-Mail Adresse
+        congregation: Versammlung
         enquiry: Projekt beantragen
+        login: Problem beim Login
         problem: Problem melden
         suggestion: Verbesserung vorschlagen
         question: Generelle Frage
         message: Nachricht
         send: Senden
+        sendEnquiry: Anfrage senden
+        enquirySuccessful: Anfrage wurde übermittelt!
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
+        loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
         toGithub: GitHub besuchen
+        toForgotPassword: Password zurücksetzen
         required: Pflichtfelder
         about: Impressum
         terms: Nutzungsbedingungen

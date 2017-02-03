@@ -1,5 +1,7 @@
 @handleError = (e) -> if e?
-	if e.error < 300
+	if e.error == 'validation-error'
+		swal e.reason, '', 'error'
+	else if e.error < 300
 		swal 'Information', e.reason, 'info'
 	else
 		swal 'Error ' + e.error, e.reason, 'error'

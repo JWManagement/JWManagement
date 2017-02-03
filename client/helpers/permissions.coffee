@@ -1,3 +1,6 @@
+Template.registerHelper 'isSupport', ->
+	Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+
 Template.registerHelper 'isProjectAdmin', ->
 	Roles.userIsInRole Meteor.userId(), 'admin', FlowRouter.getParam('projectId')
 
