@@ -30,32 +30,29 @@ Template.landing.onRendered ->
 
 Template.landing.events
 
-	'click .navbar-collapse a': ->
-		$('.navbar-collapse').collapse('hide')
+	'click .navbar-collapse a': -> $('.navbar-collapse').collapse('hide')
 
-	'click #toLogin': ->
-		FlowRouter.go 'login', language: FlowRouter.getParam('language')
+	'click #toLogin': -> FlowRouter.go 'login', language: FlowRouter.getParam('language')
 
-	'click #toDashboard': ->
-		FlowRouter.go 'home', language: FlowRouter.getParam('language')
+	'click #toDashboard': -> FlowRouter.go 'home', language: FlowRouter.getParam('language')
 
 	'change #type': (e) -> Session.set 'selectedType', $(e.target).find('option:selected').attr('type')
 
 	'submit form': (e) ->
-		name = e.target['0'].value
-		email = e.target['1'].value
-		type = e.target['2'].value
-		message = e.target['3'].value
 
-		if name? && name != '' && email? && email != '' && type? && type != '' && message? && message != ''
-			Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
-				if e
-					handleError e
-				else
-					swal 'Nachricht wurde verschickt!', '', 'success'
+		name = $('#name').val()
+		email = $('#email').val()
+		type = $('#type :selected').attr('type')
+		congregation = $('#congregation').val()
+		message = $('#message').val()
 
-					$('#contactForm')[0].reset()
-			false
+		if name != '' && email != '' && type != '' && message != '' && (congregation != '' || type != 'enquiry')
+				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
+					if e
+						handleError e
+					else
+						swal 'Nachricht wurde verschickt!', '', 'success'
+
+						$('#contactForm')[0].reset()
 		else
 			swal 'Bitte fülle alle Pflichtfelder aus!', '', 'error'
-			false
