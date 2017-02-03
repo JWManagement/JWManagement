@@ -17,9 +17,18 @@ Messages.schema = new SimpleSchema
 	_id:
 		type: String
 		regEx: SimpleSchema.RegEx.Id
+		autoValue: -> Random.id()
 	createdAt:
 		type: Date
 		denyUpdate: true
+		autoValue: -> new Date
+	type:
+		type: String
+		allowedValues: ['enquiry']
+		autoValue: -> 'enquiry'
+	language:
+		type: String
+		autoValue: -> 'de'
 	'author.name':
 		type: String
 	'author.email':
@@ -27,8 +36,10 @@ Messages.schema = new SimpleSchema
 		regEx: SimpleSchema.RegEx.Email
 	'recipient.name':
 		type: String
+		autoValue: -> 'Support'
 	'recipient.email':
 		type: String
+		autoValue: -> 'support@jwmanagement.org'
 	congregation:
 		type: String
 	text:

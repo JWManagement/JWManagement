@@ -10,20 +10,20 @@ export Methods =
 				email: type: SimpleSchema.RegEx.Email
 				congregation: type: String
 				message: type: String
+				language:
+					type: String
+					allowedValues: ['de', 'en']
 			.validator()
 		run: (args) ->
 			newDoc =
-				_id: Random.id()
-				createdAt: new Date
 				author:
 					name: args.name
 					email: args.email
-				recipient:
-					name: 'Support'
-					email: 'support@jwmanagement.org'
 				congregation: args.congregation
 				text: args.message
+				language: args.language
 
+			Messages.schema.clean newDoc
 			Messages.schema.validate newDoc
 
 			Messages.insert newDoc

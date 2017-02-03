@@ -56,6 +56,7 @@ Template.landing.events
 					email: email
 					congregation: congregation
 					message: message
+					language: TAPi18n.getLanguage()
 				, (e, r) ->
 					if e
 						handleError e
