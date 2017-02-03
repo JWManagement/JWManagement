@@ -1,3 +1,5 @@
+import { Messages } from '/imports/api/messages/messages.coffee'
+
 Template.landing.helpers
 
 	latestReleases: -> Session.get 'latestReleases'
@@ -39,6 +41,7 @@ Template.landing.events
 	'change #type': (e) -> Session.set 'selectedType', $(e.target).find('option:selected').attr('type')
 
 	'submit form': (e) ->
+		e.preventDefault()
 
 		name = $('#name').val()
 		email = $('#email').val()
@@ -47,6 +50,18 @@ Template.landing.events
 		message = $('#message').val()
 
 		if name != '' && email != '' && type != '' && message != '' && (congregation != '' || type != 'enquiry')
+			if type == 'enquiry'
+				console.log Messages
+
+				Messages.methods.addProjectEnquiry.call
+					name: name
+					email: email
+					congregation: congregation
+					message: message
+				, (e) ->
+					console.log e
+					handleError e
+			else
 				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 					if e
 						handleError e

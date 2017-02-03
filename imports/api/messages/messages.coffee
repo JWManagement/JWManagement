@@ -1,33 +1,42 @@
 import { Mongo } from 'meteor/mongo'
 import { Hooks } from './hooks.coffee'
+import { Methods } from './methods.coffee'
 
-class MessagesCollection extends Mongo.Collection
+`
+class MessagesCollection extends Mongo.Collection {
 
-	insert: (doc, callback) ->
-		doc.createdAt = doc.createdAt || new Date()
+	insert(doc, callback) {
+		doc.createdAt = doc.createdAt || new Date();
 
-		result = super.insert doc, callback
+		var result = super.insert(doc, callback);
 
-		Hooks.afterInsertMessage doc
+		Hooks.afterInsertMessage(doc);
 
-		result
+		return result;
+	}
 
-	update: (selector, modifier) ->
-		result = super.update selector, modifier
+	update(selector, modifier) {
+		result = super.update(selector, modifier);
 
-		Hooks.afterUpdateMessage selector, modifier
+		Hooks.afterUpdateMessage(selector, modifier);
 
-		result
+		return result;
+	}
 
-	remove: (selector) ->
-		todos = this.find(selector).fetch()
-		result = super.remove selector
+	remove(selector) {
+		todos = this.find(selector).fetch();
+		result = super.remove(selector);
 
-		Hooks.afterRemoveMessages todos
+		Hooks.afterRemoveMessages(todos);
 
-		result
+		return result;
+	}
+}
+`
 
 export Messages = new MessagesCollection 'messages'
+
+Messages.methods = Methods
 
 Messages.deny
 	insert: -> true
@@ -43,10 +52,6 @@ Messages.attachSchema = new SimpleSchema
 		type: Date
 		denyUpdate: true
 
-Messages.publicFields =
-	_id: 1
-	createdAt: 1
-
-Messages.helpers
+Messages.helpers =
 
 	message: -> Messages.findOne @listId
