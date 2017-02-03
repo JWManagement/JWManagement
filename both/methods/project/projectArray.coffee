@@ -12,7 +12,11 @@ Meteor.methods
 			itemId = Random.id 8
 
 		addToSet = {}
-		addToSet[array] = _id: itemId, name: name
+
+		if array == 'tags'
+			addToSet[array] = _id: itemId, name: name, templates: []
+		else
+			addToSet[array] = _id: itemId, name: name
 
 		Projects.update projectId, $addToSet: addToSet
 

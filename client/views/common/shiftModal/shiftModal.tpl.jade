@@ -205,6 +205,10 @@
 														a#closeTeam(href)
 															i.fa.fa-fw.fa-lock
 															| {{_ 'modal.shift.closeTeam'}}
+												li
+													a#sendUnderstaffed(href)
+														i.fa.fa-fw.fa-share
+														| {{_ 'modal.shift.sendUnderstaffed'}}
 								if inArray participants '_id' currentUser._id
 									button#cancelParticipation.btn.btn-danger.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelParticipation'}}
 								else if inArray pending '_id' currentUser._id

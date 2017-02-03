@@ -112,6 +112,7 @@ modal:
         alreadyTeamleader: This user is already a team leader
         openTeam: Open team
         closeTeam: Close team
+        sendUnderstaffed: Send understaffed mail
         switch: Edit shift
         existingTeamleaders: Team leader exists
         noExistingTeamleader: Team leader missing

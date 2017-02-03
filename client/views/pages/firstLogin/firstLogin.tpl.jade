@@ -15,6 +15,10 @@
 								input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required)
 							.form-group
 								input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required)
+							.form-group
+								.checkbox.checkbox-inline
+									input#agreeTerms(type='checkbox')
+									label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
 							button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}
 	.dropdown.m-t.text-center
 		+languageSwitch

@@ -1,6 +1,6 @@
 # What is JWManagement?
 
-JWManagment is a highly configurable shift management system for Jehovah's Witnesses.
+JWManagement is a highly configurable shift management system for Jehovah's Witnesses.
 Built to power projects like the metropolitan witnessing, construction projects and/or similar.
 
 ### Multiple Tags
