@@ -1,19 +1,20 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
-import { Check } from '/imports/utils/checks.coffee'
 
 export Methods =
 
 	addProjectEnquiry: new ValidatedMethod
 		name: 'Messages.methods.addProjectEnquiry'
-		validate: (args) -> check args,
-			name: String
-			email: Check.Email
-			congregation: String
-			message: String
+		validate:
+			new SimpleSchema
+				name: type: String
+				email: type: SimpleSchema.RegEx.Email
+				congregation: type: String
+				message: type: String
+			.validator()
 		run: (args) ->
-			Messages.insert
+			newDoc =
 				_id: Random.id()
-				createdAt: moment().format()
+				createdAt: new Date
 				author:
 					name: args.name
 					email: args.email
@@ -22,3 +23,7 @@ export Methods =
 					email: 'support@jwmanagement.org'
 				congregation: args.congregation
 				text: args.message
+
+			Messages.schema.validate newDoc
+
+			Messages.insert newDoc
