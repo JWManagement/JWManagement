@@ -1,7 +1,14 @@
+import { Messages } from '/imports/api/messages/messages.coffee'
+
 Meteor.publish 'support', ->
 
 	if Roles.userIsInRole @userId, 'support', Roles.GLOBAL_GROUP
 		[
+			Messages.find
+				'recipient.name': 'Support'
+			, {},
+				sort: createdAt: -1
+		,
 			Projects.find {},
 				fields: name: 1
 				sort: name: 1
