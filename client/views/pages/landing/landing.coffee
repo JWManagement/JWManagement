@@ -51,16 +51,12 @@ Template.landing.events
 
 		if name != '' && email != '' && type != '' && message != '' && (congregation != '' || type != 'enquiry')
 			if type == 'enquiry'
-				console.log Messages
-
 				Messages.methods.addProjectEnquiry.call
 					name: name
 					email: email
 					congregation: congregation
 					message: message
-				, (e) ->
-					console.log e
-					handleError e
+				, handleError
 			else
 				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 					if e
