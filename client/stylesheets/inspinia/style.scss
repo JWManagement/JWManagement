@@ -6,34 +6,9 @@
 */
 // Google Fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-@import "custom/variables";
-@import "framework/typography";
-@import "framework/navigation";
-@import "framework/top-navigation";
-@import "framework/buttons";
-@import "framework/badgets-labels";
-@import "framework/elements";
-@import "framework/base";
-@import "framework/pages";
-@import "framework/spinners";
-@import "framework/md-skin";
-@import "framework/media";
-@import "custom/datepicker";
-@import "custom/invertedLayout";
-@import "custom/seven-cols";
-@import "custom/corrections";
-@import "custom/custom";
-@import "custom/navigation";
-@import "custom/shiftModal";
-@import "custom/shiftReport";
-@import "custom/shiftsHeader";
-@import "custom/editShiftModal";
-@import "custom/editPermissionsModal";
-@import "custom/addWeekModal";
-@import "custom/addUserModal";
-@import "custom/tourTemplate";
-@import "custom/editPictureModal";
-@import "custom/checkbox";
+@import "../../../imports/ui/styles/variables";
+@import "../../../imports/ui/styles/custom/import";
+@import "../../../imports/ui/styles/framework/import";
 @import "pages/landing";
 @import "pages/navigation";
 @import "pages/profile";
