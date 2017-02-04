@@ -1,3 +1,5 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
 Meteor.publish 'dashboard', ->
 	projectIds = GetGroupsForUser @userId, Permissions.member
 

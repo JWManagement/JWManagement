@@ -1,5 +1,5 @@
 #import { Projects } from '/imports/api/projects/projects.coffee'
-#import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
 
 import '/imports/ui/components/project/project.coffee'
 import '/imports/ui/components/projectFake/projectFake.coffee'
