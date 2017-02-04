@@ -1,14 +1,10 @@
-import { Helpers } from './routeHelpers.coffee'
-
-FlowRouter.notFound = action: -> BlazeLayout.render 'blankLayout', content: 'notFound'
+import { Helpers } from './helpers.coffee'
 
 FlowRouter.route '/support',
 	name: 'support'
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'home'
 		BlazeLayout.render 'mainLayout', content: 'support'
-
-## ---------------- ##
 
 FlowRouter.route '/:language?',
 	name: 'home'

@@ -1,4 +1,4 @@
-import { Helpers } from './routeHelpers.coffee'
+import { Helpers } from './helpers.coffee'
 
 FlowRouter.route '/:language/:projectId/kb',
 	name: 'wiki'
