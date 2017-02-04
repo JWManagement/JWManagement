@@ -34,7 +34,7 @@ with getProject
 							button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
 							button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
 							.chars-left 140/140
-				.project-link-wrapper
+				.link-wrapper
 					a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
 						i.fa.fa-book
 						p.project-link-caption {{_ 'wiki.nameShort'}}

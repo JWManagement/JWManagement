@@ -1,0 +1,163 @@
+@import "../../styles/variables";
+@import "../../styles/framework/import";
+
+.btn-green,
+.green-bg {
+	color           : #fff;
+	background-color: $green;
+}
+
+.text-green {
+	color: $green;
+}
+
+.shift {
+	&.missing {
+		@extend .right;
+
+		.vertical-timeline-icon {
+			color           : #fff;
+			background-color: $red;
+		}
+
+		.vertical-timeline-content div,
+		.vertical-timeline-content h2,
+		.vertical-timeline-content span {
+			color: $red;
+		}
+
+		.shift-teams {
+			.shift-team {
+				color           : #602420;
+				border          : 1px solid rgba($red, 0.3) !important;
+				background-color: rgba($red, 0.05) !important;
+
+				.shift-team-header {
+					color           : #602420 !important;
+					background-color: rgba($red, 0.3) !important;
+				}
+			}
+		}
+
+		.shift-participants {
+			color           : #602420;
+			border          : 1px solid rgba($red, 0.3);
+			background-color: rgba($red, 0.05);
+		}
+	}
+
+	&.accepted {
+		@extend .right;
+
+		.vertical-timeline-icon {
+			color           : #fff;
+			background-color: $green;
+		}
+
+		.vertical-timeline-content div,
+		.vertical-timeline-content h2,
+		.vertical-timeline-content span {
+			color: $green;
+		}
+	}
+
+	&.pending {
+		.vertical-timeline-icon {
+			color           : #fff;
+			background-color: $yellow;
+		}
+
+		.vertical-timeline-content div,
+		.vertical-timeline-content h2,
+		.vertical-timeline-content span {
+			color: $yellow;
+		}
+	}
+
+	&.declined {
+		.vertical-timeline-icon {
+			color           : #fff;
+			background-color: $light-gray;
+		}
+
+		.vertical-timeline-content div,
+		.vertical-timeline-content h2,
+		.vertical-timeline-content span {
+			color: $grey;
+		}
+	}
+
+	.shift-teams {
+		.shift-team.pending {
+			color           : #604620;
+			border          : 1px solid rgba($yellow, 0.3);
+			background-color: rgba($yellow, 0.05);
+
+			.shift-team-header {
+				color           : #604620;
+				background-color: rgba($yellow, 0.3);
+			}
+		}
+
+		.shift-team.accepted {
+			color           : #206022;
+			border          : 1px solid rgba($green, 0.3);
+			background-color: rgba($green, 0.05);
+
+			.shift-team-header {
+				color           : #206022;
+				background-color: rgba($green, 0.3);
+			}
+		}
+	}
+
+	.vertical-timeline-content {
+		display: block;
+
+		&:hover {
+			box-shadow: 0 3px 7px 0 #a8a8a8;
+		}
+
+		&:active {
+			box-shadow: inset 0 3px 5px rgba(#000000, 0.13);
+		}
+
+		.vertical-date {
+			width : 100%;
+			margin: 5px;
+
+			small {
+				color: $grey;
+			}
+		}
+
+		h2 {
+			margin: 0 0 5px;
+		}
+
+		.tag {
+			color : $yellow;
+			margin: 0 0 15px;
+		}
+	}
+
+	.shift-teams .shift-team {
+		width           : 100%;
+		color           : #666;
+		border          : 1px solid rgba(#ccc, 0.3);
+		margin-top      : 5px;
+		border-radius   : 3px;
+		background-color: rgba(#ccc, 0.05);
+
+		.shift-team-participants {
+			padding    : 5px;
+			white-space: normal;
+		}
+
+		.shift-team-header {
+			color           : #666;
+			padding         : 5px;
+			background-color: rgba(#ccc, 0.3);
+		}
+	}
+}

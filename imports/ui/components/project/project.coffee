@@ -1,4 +1,5 @@
 import './project.tpl.jade'
+import './project.scss'
 
 import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.coffee'
 

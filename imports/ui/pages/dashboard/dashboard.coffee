@@ -1,10 +1,12 @@
 #import { Projects } from '/imports/api/projects/projects.coffee'
+#import { Shifts } from '/imports/api/shifts/shifts.coffee'
 
 import '/imports/ui/components/project/project.coffee'
 import '/imports/ui/components/projectFake/projectFake.coffee'
 import '/imports/ui/components/request/request.coffee'
 
 import './dashboard.tpl.jade'
+import './dashboard.scss'
 
 Template.dashboard.helpers
 
@@ -88,11 +90,11 @@ Template.dashboard.helpers
 		if me? && me.roles?
 			for group in Object.keys me.roles
 				for role in Permissions.member when role in me.roles[group]
-						projects.push group
+					projects.push group
 
-						if projects.length == 6
-							return projects
-						break
+					if projects.length == 6
+						return projects
+					break
 		projects
 
 	centerFakeProject: ->
@@ -134,17 +136,17 @@ Template.dashboard.onRendered ->
 			title: TAPi18n.__('tour.dashboard.projects.title')
 			content: TAPi18n.__('tour.dashboard.projects.content')
 		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(0)'
+			element: '.project-wrapper:first .link-wrapper > a:eq(0)'
 			placement: 'bottom'
 			title: TAPi18n.__('tour.dashboard.wiki.title')
 			content: TAPi18n.__('tour.dashboard.wiki.content')
 		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(1)'
+			element: '.project-wrapper:first .link-wrapper > a:eq(1)'
 			placement: 'bottom'
 			title: TAPi18n.__('tour.dashboard.shifts.title')
 			content: TAPi18n.__('tour.dashboard.shifts.content')
 		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(2)'
+			element: '.project-wrapper:first .link-wrapper > a:eq(2)'
 			placement: 'bottom'
 			title: TAPi18n.__('tour.dashboard.settings.title')
 			content: TAPi18n.__('tour.dashboard.settings.content')

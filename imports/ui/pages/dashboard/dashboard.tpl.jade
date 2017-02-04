@@ -1,13 +1,13 @@
-.wrapper-content.animated.fadeInUp
+.wrapper-content
 	.container
-		.row.m-b-lg.animated.fadeInUp
+		.row.m-b-lg
 			if loading
 				h1.center-align {{_ 'dashboard.loadingProjects'}}
 			else if hasProjects
 				h1.center-align {{_ 'dashboard.projects'}}
 			else
 				h1.center-align {{_ 'dashboard.noProjects'}}
-		#projects.row.animated.fadeInUp
+		#projects.row
 			unless loading
 				each getProjects
 					.row.m-n
@@ -16,14 +16,14 @@
 			else
 				each getFakeProjects
 					+projectFake
-		.row.m-t-lg.m-b-lg.animated.fadeInUp
+		.row.m-t-lg.m-b-lg
 			if loading
 				h1#myShifts.center-align {{_ 'dashboard.loadingShifts'}}
 			else if getShifts.count
 				h1#myShifts.center-align {{_ 'dashboard.shifts'}}
 			else
 				h1#myShifts.center-align {{_ 'dashboard.noShifts'}}
-		.row.animated.fadeInUp
+		.row
 			#personalShiftsContainer.col-xs-12
 				if getShifts.count
 					#vertical-timeline.vertical-container.light-timeline.center-orientation

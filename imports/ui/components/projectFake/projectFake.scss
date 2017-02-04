@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+@import "../../styles/framework/import";
+@import "../project/project";
+
+.fake-project-wrapper {
+	.fake-header {
+		width           : 250px;
+		height          : 27px;
+		margin-top      : 8px;
+		margin-bottom   : 23px;
+		background-color: rgba(#333, 0.3);
+	}
+
+	.fake-news {
+		width           : 110px;
+		height          : 14px;
+		margin-top      : 9px;
+		margin-bottom   : 9px;
+		background-color: rgba(#333, 0.3);
+	}
+
+	.project-link {
+		.fake-icon {
+			width           : 50px;
+			height          : 40px;
+			margin-top      : 10px;
+			margin-left     : auto;
+			margin-right    : auto;
+			background-color: rgba(#fff, 0.7);
+		}
+
+		.fake-icon-title {
+			width           : 80px;
+			height          : 14px;
+			margin-top      : 15px;
+			margin-left     : auto;
+			margin-right    : auto;
+			background-color: rgba(#fff, 0.7);
+		}
+	}
+}
