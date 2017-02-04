@@ -1,4 +1,4 @@
-import { Messages } from '/imports/api/messages/messages.coffee'
+import { Messages } from './messages.coffee'
 
 export Methods =
 

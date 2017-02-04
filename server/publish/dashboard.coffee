@@ -24,6 +24,5 @@ Meteor.publish 'dashboard', ->
 				date: $lt: parseInt(moment().format('YYYYDDDD'))
 				'teams.participants._id': @userId
 			]
-		,
-			fields: _id: 1
+		# TODO: limit fields
 	]

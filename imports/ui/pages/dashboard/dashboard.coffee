@@ -8,9 +8,11 @@ import '/imports/ui/components/request/request.coffee'
 import './dashboard.tpl.jade'
 import './dashboard.scss'
 
+R = {}
+
 Template.dashboard.helpers
 
-	loading: -> !DashboardSubs.ready()
+	loading: -> !R.handle.ready()
 
 	getUnderstaffedShifts: ->
 		Shifts.find
@@ -115,11 +117,7 @@ Template.dashboard.helpers
 
 Template.dashboard.onCreated ->
 
-	DashboardSubs.subscribe 'dashboard'
-
-	@autorun -> if DashboardSubs.ready()
-		for shift in Shifts.find().fetch()
-			ShiftSubs.subscribe 'shift', shift._id
+	R.handle = Meteor.subscribe 'dashboard'
 
 Template.dashboard.onRendered ->
 

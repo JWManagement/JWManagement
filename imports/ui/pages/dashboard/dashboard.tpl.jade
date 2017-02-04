@@ -8,14 +8,14 @@
 			else
 				h1.center-align {{_ 'dashboard.noProjects'}}
 		#projects.row
-			unless loading
+			if loading
+				each getFakeProjects
+					+projectFake
+			else
 				each getProjects
 					.row.m-n
 						each projects
 							+project project=this understaffedShifts=getUnderstaffedShifts
-			else
-				each getFakeProjects
-					+projectFake
 		.row.m-t-lg.m-b-lg
 			if loading
 				h1#myShifts.center-align {{_ 'dashboard.loadingShifts'}}
