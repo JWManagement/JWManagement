@@ -1,3 +1,9 @@
+#import { Messages } from '/imports/api/messages/messages.coffee'
+
+import '/imports/ui/components/project/project.coffee'
+
+import './dashboard.tpl.jade'
+
 Template.dashboard.helpers
 
 	loading: -> !DashboardSubs.ready()

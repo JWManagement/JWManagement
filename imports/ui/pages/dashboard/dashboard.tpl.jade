@@ -1,5 +1,3 @@
-if queryParam 'showShiftReport'
-	+shiftReport
 .wrapper-content.animated.fadeInUp
 	.container
 		.row.m-b-lg.animated.fadeInUp
@@ -74,6 +72,7 @@ if queryParam 'showShiftReport'
 															| {{_ 'time.to'}}
 															| {{format end 'Hmm' 'HH:mm'}}
 															| {{_ 'time.suffix'}}
+
 			else
 				each getFakeProjects
 					.project-wrapper.fake-project-wrapper.col-lg-6(class="{{centerFakeProject}}")
