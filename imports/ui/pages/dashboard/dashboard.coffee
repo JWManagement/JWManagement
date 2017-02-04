@@ -1,7 +1,8 @@
-#import { Messages } from '/imports/api/messages/messages.coffee'
+#import { Projects } from '/imports/api/projects/projects.coffee'
 
 import '/imports/ui/components/project/project.coffee'
 import '/imports/ui/components/projectFake/projectFake.coffee'
+import '/imports/ui/components/request/request.coffee'
 
 import './dashboard.tpl.jade'
 
@@ -19,71 +20,6 @@ Template.dashboard.helpers
 					status: 'open'
 					min: $gt: 1
 		.fetch()
-
-	pathForShift: ->
-		FlowRouter.path 'shifts',
-			projectId: @projectId
-			language: TAPi18n.getLanguage()
-		,
-			showWeek: moment(@date, 'YYYYDDDD').format('GGGG[W]WW')
-			showTags: @tagId
-			showShift: @_id
-
-	isRelation: (a) ->
-		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
-		thisTime = parseInt moment(new Date).format 'Hmm'
-
-		if a == 'missing'
-			reportSubmitted = false
-
-			for team in @teams
-				for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
-					isTeamleader = true
-					if team.report && team.report.submitted
-						reportSubmitted = team.report.submitted
-
-			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
-		else if a == 'accepted'
-			for team in @teams
-				for participant in team.participants
-					value = value || Meteor.userId() == participant._id
-			value
-		else if a == 'pending'
-			value = false
-			for team in @teams
-				for pendingUser in team.pending
-					value = value || Meteor.userId() == pendingUser._id
-			value
-		else if a == 'declined'
-			false
-
-	shiftRelation: ->
-		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
-		thisTime = parseInt moment(new Date).format 'Hmm'
-
-		for team in @teams
-			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
-				isTeamleader = true
-				if team.report && team.report.submitted
-					reportSubmitted = team.report.submitted
-
-		if (@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
-			'missing'
-		else
-			for team in @teams
-				for participant in team.participants
-					value = value || Meteor.userId() == participant._id
-			if value
-				'accepted'
-			else
-				value = false
-				for team in @teams
-					for pendingUser in team.pending
-						value = value || Meteor.userId() == pendingUser._id
-				if value
-					'pending'
-				else
-					'declined'
 
 	teamRelation: ->
 		for user in @participants when Meteor.userId() == user._id
@@ -134,8 +70,6 @@ Template.dashboard.helpers
 					date: 1
 					start: 1
 
-	getProjectName: -> Projects.findOne(@projectId).name
-
 	getProjects: ->
 		projects = Projects.find {}, sort: name: 1
 		result = []
@@ -153,8 +87,7 @@ Template.dashboard.helpers
 
 		if me? && me.roles?
 			for group in Object.keys me.roles
-				for role in Permissions.member
-					if role in me.roles[group]
+				for role in Permissions.member when role in me.roles[group]
 						projects.push group
 
 						if projects.length == 6
@@ -175,29 +108,6 @@ Template.dashboard.helpers
 		'col-lg-offset-3'
 
 	hasProjects: -> Projects.find({}, fields: _id: 1).count() > 0
-
-	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
-
-	showShift: ->
-		today = parseInt(moment().format('YYYYDDDD'))
-		now = parseInt(moment().format('Hmm'))
-		missingReport = false
-		myShift = false
-
-		for team in @teams
-			for user in team.participants when user._id == Meteor.userId()
-				myShift = true
-
-				if user.thisTeamleader
-					missingReport = true
-
-					if team.report && team.report.submitted
-						missingReport = false
-
-			for user in team.pending when user._id == Meteor.userId()
-				myShift = true
-
-		myShift && (@date > today || @date == today && @end >= now || Session.get('showOlder') || missingReport)
 
 	showOlder: -> Session.get 'showOlder'
 
@@ -280,8 +190,6 @@ Template.dashboard.onRendered ->
 
 	tour.init()
 	tour.start()
-
-	$('.animated').removeClass('animated').addClass('skipped')
 
 	Session.set 'showOlder', false
 
