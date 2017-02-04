@@ -1,0 +1,1 @@
+import './projectFake.tpl.jade'

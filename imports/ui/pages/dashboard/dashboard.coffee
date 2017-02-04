@@ -1,6 +1,7 @@
 #import { Messages } from '/imports/api/messages/messages.coffee'
 
 import '/imports/ui/components/project/project.coffee'
+import '/imports/ui/components/projectFake/projectFake.coffee'
 
 import './dashboard.tpl.jade'
 
@@ -122,16 +123,6 @@ Template.dashboard.helpers
 					date: 1
 					start: 1
 
-	getUnderstaffedShifts: ->
-		Shifts.find
-			projectId: @_id
-			teams:
-				$elemMatch:
-					participants: $eq: []
-					pending: $gt: []
-					status: 'open'
-					min: $gt: 1
-
 	getProjectName: -> Projects.findOne(@projectId).name
 
 	getProjects: ->
@@ -175,19 +166,6 @@ Template.dashboard.helpers
 	hasProjects: -> Projects.find({}, fields: _id: 1).count() > 0
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
-
-	multipleTags: -> if @tags then @tags.length > 1
-
-	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
-
-	getAllTagsPath: (tags) ->
-		tags = tags.map (tag) -> tag._id
-
-		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
-
-	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
-
-	newsThere: -> @news?.text and @news.text != ''
 
 	showShift: ->
 		today = parseInt(moment().format('YYYYDDDD'))
