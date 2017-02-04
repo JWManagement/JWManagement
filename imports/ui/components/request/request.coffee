@@ -95,3 +95,15 @@ Template.request.helpers
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
 	getProjectName: -> Projects.findOne(@projectId).name
+
+Template.request.events
+
+	'click .vertical-timeline-content[data-type="missing"]': (e) ->
+		shiftId = @_id
+
+		for team in @teams
+			for participant in team.participants when participant._id == Meteor.userId()
+				teamId = team._id
+
+		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
+		false
