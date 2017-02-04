@@ -9,6 +9,17 @@ Template.dashboard.helpers
 
 	loading: -> !DashboardSubs.ready()
 
+	getUnderstaffedShifts: ->
+		Shifts.find
+			projectId: @_id
+			teams:
+				$elemMatch:
+					participants: $eq: []
+					pending: $gt: []
+					status: 'open'
+					min: $gt: 1
+		.fetch()
+
 	pathForShift: ->
 		FlowRouter.path 'shifts',
 			projectId: @projectId

@@ -12,7 +12,7 @@
 				each getProjects
 					.row.m-n
 						each projects
-							+project
+							+project project=this understaffedShifts=getUnderstaffedShifts
 			else
 				each getFakeProjects
 					+projectFake

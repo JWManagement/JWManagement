@@ -1,6 +1,10 @@
 import './project.tpl.jade'
 
+import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.coffee'
+
 Template.project.helpers
+
+	getProject: -> Template.currentData().project
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
@@ -13,14 +17,6 @@ Template.project.helpers
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tagId
 
-	newsThere: -> @news?.text and @news.text != ''
+	newsThere: -> @news?.text && @news.text != ''
 
-	getUnderstaffedShifts: ->
-		Shifts.find
-			projectId: @_id
-			teams:
-				$elemMatch:
-					participants: $eq: []
-					pending: $gt: []
-					status: 'open'
-					min: $gt: 1
+	understaffedShifts: -> Template.currentData().understaffedShifts
