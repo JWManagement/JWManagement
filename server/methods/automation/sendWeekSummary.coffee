@@ -3,7 +3,7 @@ Meteor.methods
 	sendWeekSummary: ->
 		if !@connection?
 			# TODO: loop through users
-			# TODO: 	get users applications for next week
+			# TODO: 	get users requests for next week
 			# TODO: 	loop through his/her projects
 			# TODO: 		get marked shifts
 			# TODO: 	get news if changed in this week

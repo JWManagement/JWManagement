@@ -20,7 +20,7 @@ tour:
             content: Here you'll find all your shifts.
             left:
                 title: My Shifts
-                content: In the left column you'll find the shifts you're not (yet) participating in. E.g. shifts you've applied for but have yet to be accepted or declined.
+                content: In the left column you'll find the shifts you're not (yet) participating in. E.g. shifts you've requested for but have yet to be approved or declined.
             right:
                 title: My Shifts
                 content: In the right column you'll find the shifts you're participating in.<br>If you are the team leader, you can enter the shift report by clicking on the shift.

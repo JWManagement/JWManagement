@@ -25,7 +25,7 @@ Template.dashboard.helpers
 						reportSubmitted = team.report.submitted
 
 			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
-		else if a == 'accepted'
+		else if a == 'approved'
 			for team in @teams
 				for participant in team.participants
 					value = value || Meteor.userId() == participant._id
@@ -56,7 +56,7 @@ Template.dashboard.helpers
 				for participant in team.participants
 					value = value || Meteor.userId() == participant._id
 			if value
-				'accepted'
+				'approved'
 			else
 				value = false
 				for team in @teams
@@ -69,7 +69,7 @@ Template.dashboard.helpers
 
 	teamRelation: ->
 		for user in @participants when Meteor.userId() == user._id
-			return 'accepted'
+			return 'approved'
 
 		for user in @pending when Meteor.userId() == user._id
 			return 'pending'
@@ -252,12 +252,12 @@ Template.dashboard.onRendered ->
 				$('#myShifts').html('<h1 class="center-align" id="myShifts">Meine Schichten</h1>')
 				$('#personalShiftsContainer').html(
 					'<div class="vertical-container light-timeline center-orientation" id="vertical-timeline">
-						<div class="vertical-timeline-block shift accepted"><div class="vertical-timeline-icon"><i class="fa fa-thumbs-o-up"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Angenommene Bewerbung</h2><span class="vertical-date">in 2 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
+						<div class="vertical-timeline-block shift approved"><div class="vertical-timeline-icon"><i class="fa fa-thumbs-o-up"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Angenommene Bewerbung</h2><span class="vertical-date">in 2 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
 						<div class="vertical-timeline-block shift pending"><div class="vertical-timeline-icon"><i class="fa fa-question"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Offene Bewerbung</h2><span class="vertical-date">in 20 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
 					</div>'
 				)
 		,
-			element: '.accepted > .vertical-timeline-content'
+			element: '.approved > .vertical-timeline-content'
 			placement: 'top'
 			title: TAPi18n.__('tour.dashboard.myShifts.right.title')
 			content: TAPi18n.__('tour.dashboard.myShifts.right.content')

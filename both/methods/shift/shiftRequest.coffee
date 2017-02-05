@@ -48,7 +48,7 @@ Meteor.methods
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
 					else if team.pending.length >= team.min - 1
-						acceptedUsers = [ ]
+						approvedUsers = [ ]
 						declinedUsers = [ ]
 						hasTeamleader = false
 						chosenId = null
@@ -78,15 +78,15 @@ Meteor.methods
 								chosenIsTeamleader = false
 
 						if hasTeamleader
-							acceptedUsers.push userId
+							approvedUsers.push userId
 
 							Shifts.update _id: shiftId, 'teams._id': teamId,
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
 
 							for pendingUser in team.pending
-								if acceptedUsers.length < team.max
-									acceptedUsers.push pendingUser._id
+								if approvedUsers.length < team.max
+									approvedUsers.push pendingUser._id
 
 									Shifts.update _id: shiftId, 'teams._id': teamId,
 										$pull:
@@ -105,7 +105,7 @@ Meteor.methods
 									pendingUser.checked = false
 
 							for otherTeam in shift.teams when otherTeam._id != teamId
-								for pendingUser in otherTeam.pending when pendingUser._id in acceptedUsers
+								for pendingUser in otherTeam.pending when pendingUser._id in approvedUsers
 									if pendingUser.checked
 										pendingUser.checked = false
 
@@ -113,17 +113,17 @@ Meteor.methods
 										$pull: 'teams.$.pending': _id: pendingUser._id
 										$addToSet: 'teams.$.declined': pendingUser
 
-								for participant in otherTeam.participants when participant._id in acceptedUsers
+								for participant in otherTeam.participants when participant._id in approvedUsers
 									Meteor.call 'declineParticipant', shiftId, otherTeam._id, participant._id
 
 							Meteor.call 'setLeader', shiftId, team._id, chosenId
 
-							for acceptedUser in acceptedUsers
-								Meteor.call 'sendConfirmation', shiftId, teamId, acceptedUser
+							for approvedUser in approvedUsers
+								Meteor.call 'sendConfirmation', shiftId, teamId, approvedUser
 							for declinedUser in declinedUsers
 								Meteor.call 'sendDeclined', shiftId, teamId, declinedUser
 
-							if acceptedUsers.length == team.max
+							if approvedUsers.length == team.max
 								Meteor.call 'closeTeam', shiftId, teamId
 						else
 							Shifts.update _id: shiftId, 'teams._id': teamId,
