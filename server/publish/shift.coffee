@@ -1,3 +1,5 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
 Meteor.publish 'shift', (shiftId) ->
 	if typeof shiftId == 'string' && shiftId != ''
 		shift = Shifts.findOne shiftId, fields:

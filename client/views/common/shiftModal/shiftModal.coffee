@@ -1,3 +1,5 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
 Template.shiftModal.helpers
 
 	getShiftId: -> FlowRouter.getQueryParam('showShift')

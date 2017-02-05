@@ -1,3 +1,5 @@
+import { Shifts } from './shifts.coffee'
+
 export Scheduler =
 
 	getUser: (userId) ->

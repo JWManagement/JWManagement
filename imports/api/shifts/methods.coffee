@@ -1,5 +1,7 @@
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
+import { Mailer } from 'meteor/lookback:emails', 'server'
+import '/imports/api/mailer/server.coffee', 'server'
 
 export Methods =
 
