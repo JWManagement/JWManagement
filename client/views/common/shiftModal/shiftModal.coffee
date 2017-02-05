@@ -146,7 +146,10 @@ Template.shiftModal.events
 	'click #requestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 
-		Meteor.call 'request', shiftId, @_id, handleError
+		Shifts.methods.request.call
+			shiftId: shiftId
+			teamId: @_id
+		, handleError
 
 	'click #requestShift': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
