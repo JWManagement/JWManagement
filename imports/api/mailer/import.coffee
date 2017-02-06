@@ -7,4 +7,4 @@ export SendMail =
 		sendConfirmWeek: ->
 		sendTeamUpdate: ->
 	else if Meteor.isServer
-		require('./server.coffee').SendMail
+		require('./sendMail.coffee').SendMail

@@ -1,4 +1,7 @@
-export sendConfirmation = (shiftId, teamId, userId) =>
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { send } from './send.coffee'
+
+export sendConfirmation = (shiftId, teamId, userId) ->
 	shift = Shifts.findOne shiftId
 	project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 	user = Meteor.users.findOne userId, fields: profile: 1
@@ -15,7 +18,7 @@ export sendConfirmation = (shiftId, teamId, userId) =>
 		for team in shift.teams when team.participants.length > 0
 			shiftData.teams.push team
 
-	@send
+	send
 		recipient: user.profile.email
 		sender: project.name
 		from: project.email

@@ -1,4 +1,6 @@
-export sendConfirmWeek = (projectId, tagId, weekId) =>
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
+export sendConfirmWeek = (projectId, tagId, weekId) ->
 	project = Projects.findOne projectId, fields: name: 1, email: 1
 	shifts = Shifts.find
 		projectId: projectId

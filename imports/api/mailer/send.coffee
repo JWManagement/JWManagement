@@ -7,7 +7,7 @@ export send = (data) ->
 	# subject
 	# template
 	# data
-	# lanuage
+	# language
 
 	sent = false
 

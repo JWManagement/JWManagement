@@ -1,4 +1,7 @@
-export sendDeclined = (shiftId, teamId, userId) =>
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { send } from './send.coffee'
+
+export sendDeclined = (shiftId, teamId, userId) ->
 	shift = Shifts.findOne shiftId
 
 	if shift?
@@ -12,7 +15,7 @@ export sendDeclined = (shiftId, teamId, userId) =>
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
 			name = user.profile.firstname + ' ' + user.profile.lastname
 
-		@send
+		send
 			recipient: user.profile.email
 			sender: project.name
 			from: project.email

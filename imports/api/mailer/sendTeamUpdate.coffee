@@ -1,4 +1,7 @@
-export sendTeamUpdate = (shiftId, teamId, type) =>
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { send } from './send.coffee'
+
+export sendTeamUpdate = (shiftId, teamId, type) ->
 	shift = Shifts.findOne shiftId
 	project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
@@ -20,7 +23,7 @@ export sendTeamUpdate = (shiftId, teamId, type) =>
 
 				name = user.profile.firstname + ' ' + user.profile.lastname
 
-				@send
+				send
 					recipient: user.profile.email
 					sender: project.name
 					from: project.email
