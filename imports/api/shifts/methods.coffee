@@ -1,20 +1,17 @@
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
-import { Mailer } from 'meteor/lookback:emails', 'server'
-import '/imports/api/mailer/server.coffee', 'server'
+import { Validators } from '/imports/util/validators.coffee'
 
 export Methods =
 
 	request: new ValidatedMethod
 		name: 'Shifts.methods.request'
-		validate:
+		validate: (args) ->
+			Validators.isTagParticipant args.shiftId
 			new SimpleSchema
 				shiftId: type: String
 				teamId: type: String
-			.validator()
-			#if Meteor.isServer
-			#	check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			#	check { tagId: shift.tagId, userId: userId }, isTagParticipant
+			.validator() args
 		run: (args) ->
 			shiftId = args.shiftId
 			teamId = args.teamId
@@ -30,15 +27,11 @@ export Methods =
 						throw new Meteor.Error 500, TAPi18n.__('modal.shift.closedTeam')
 			else if shift.scheduling == 'direct'
 				# Wenn noch nicht auf gewähltes Team beworben
-				console.log 'driect'
 				for team in shift.teams when team._id == teamId && team.pending.filter((u) -> u._id == userId).length == 0
 					# Wenn schon jemand eingeteilt wurde
-					console.log 'geh rein'
 					if team.participants.length > 0
-						console.log 'keiner eingetielt'
 						# Und Team noch nicht voll
 						if team.participants.length < team.max
-							console.log 'nicht ovll'
 							# Einteilen
 							Scheduler.addParticipant shiftId, teamId, userId, false
 
