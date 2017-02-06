@@ -57,7 +57,7 @@ export Methods =
 								Scheduler.addParticipant shiftId, teamId, user._id, false
 
 							# Teamleiter setzen
-							Scheduler.setTeamleader teamleaderId
+							Scheduler.setTeamleader shiftId, teamId, teamleaderId
 
 							# Akzeptierte User heraussuchen
 							acceptedUserIds = team.pending.map (user) -> user._id
@@ -68,9 +68,8 @@ export Methods =
 									Scheduler.addDeclined shiftId, otherTeam._id, user._id
 
 							# Alle angenommenen User informieren
-							if Meteor.isServer
-								for acceptedUserId in acceptedUserIds
-									SendMail.sendConfirmation shiftId, teamId, acceptedUserId
+							for acceptedUserId in acceptedUserIds
+								SendMail.sendConfirmation shiftId, teamId, acceptedUserId
 
 							# Team schließen, wenn das die letzte Bewerbung war
 							if team.pending.length == team.max

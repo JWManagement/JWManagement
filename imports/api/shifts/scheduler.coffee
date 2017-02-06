@@ -5,12 +5,16 @@ export Scheduler =
 	getUser: (userId, tagId) ->
 		user = Meteor.users.findOne userId
 
-		_id: userId
-		name: user.profile.firstname + ' ' + user.profile.lastname
-		teamleader: Roles.userIsInRole userId, 'teamleader', tagId
-		substituteTeamleader: Roles.userIsInRole userId, 'substituteTeamleader', tagId
-		phone: user.profile.telefon
-		email: user.profile.email
+		if Meteor.isClient
+			_id: userId
+			name: 'Loading...'
+		else
+			_id: userId
+			name: user.profile.firstname + ' ' + user.profile.lastname
+			teamleader: Roles.userIsInRole userId, 'teamleader', tagId
+			substituteTeamleader: Roles.userIsInRole userId, 'substituteTeamleader', tagId
+			phone: user.profile.telefon
+			email: user.profile.email
 
 	getParticipant: (userId, tagId, isThisTeamleader) ->
 		user = @getUser userId, tagId
@@ -51,15 +55,13 @@ export Scheduler =
 			$addToSet: 'teams.$.declined': @getUser userId, shift.tagId
 
 	openTeam: (shiftId, teamId) ->
-		shift = Shifts.findOne shiftId
-
 		Shifts.update _id: shiftId, 'teams._id': teamId,
 			$set:
 				status: 'open'
 				'teams.$.status': 'open'
 
 	closeTeam: (shiftId, teamId) ->
-		shift = Shifts.findOne shiftId
+		shift = Shifts.findOne shiftId, teams: 1
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
 			$set: 'teams.$.status': 'closed'
@@ -68,12 +70,12 @@ export Scheduler =
 			Shifts.update shiftId, $set: status: 'closed'
 
 	getBestTeamleader: (shiftId, teamId, userId) ->
-		shift = Shifts.findOne shiftId
+		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1
 		chosenId = false
 
 		for team in shift.teams when team._id == teamId
 			allUsers = team.pending.concat(team.participants).filter (user) -> user.teamleader || user.substituteTeamleader
-			allUsers.push @getParticipant userId, false
+			allUsers.push @getParticipant userId, shift.tagId, false
 
 			for user in allUsers
 				hasTeamleader = true
@@ -89,9 +91,11 @@ export Scheduler =
 
 		if chosenId then chosenId else false
 
-	setTeamleader: (userId) ->
+	setTeamleader: (shiftId, teamId, userId) ->
+		shift = Shifts.findOne shiftId, fields: tagId: 1
+
 		Shifts.update _id: shiftId, 'teams._id': teamId,
 			$pull: 'teams.$.participants': _id: userId
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$addToSet: 'teams.$.participants': @getParticipant userId, true
+			$addToSet: 'teams.$.participants': @getParticipant userId, shift.tagId, true
