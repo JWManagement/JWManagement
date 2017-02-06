@@ -119,7 +119,7 @@ modal:
         notTeamleader: Kein Teamleiter
         selected: Ausgewählt:
         of: von
-        acceptSelected: Ausgewählte annehmen
+        approveSelected: Ausgewählte annehmen
         declineSelected: Ausgewählte ablehnen
         report: Bericht
         allocations: Zuteilungen

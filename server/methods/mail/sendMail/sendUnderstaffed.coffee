@@ -3,7 +3,7 @@ Meteor.methods
 		shift = Shifts.findOne shiftId
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
-		check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
 
 		if shift?
 			shiftData = {}

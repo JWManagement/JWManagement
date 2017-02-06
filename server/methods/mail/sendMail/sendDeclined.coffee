@@ -7,7 +7,7 @@ Meteor.methods
 			project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 			user = Meteor.users.findOne userId, fields: profile: 1
 
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
 
 			if user?
 				thisMoment = moment(shift.date, 'YYYYDDDD')
