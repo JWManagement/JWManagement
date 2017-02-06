@@ -1,6 +1,7 @@
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
 import { Validators } from '/imports/util/validators.coffee'
+import { SendMail } from '/imports/api/mailer/import.coffee'
 
 export Methods =
 
@@ -41,7 +42,7 @@ export Methods =
 
 							# Andere Teilnehmer benachrichtigen
 							if Meteor.isServer
-								Mailer.sendTeamUpdate shiftId, teamId, 'participant'
+								SendMail.sendTeamUpdate shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
 					# Niemand wurde eingeteilt, aber die Mindestanzahl wird mit mir erreicht oder überschritten
 					else if team.pending.length >= team.min - 1 && team.pending.length < team.max
@@ -69,7 +70,7 @@ export Methods =
 							# Alle angenommenen User informieren
 							if Meteor.isServer
 								for acceptedUserId in acceptedUserIds
-									Mailer.sendConfirmation shiftId, teamId, acceptedUserId
+									SendMail.sendConfirmation shiftId, teamId, acceptedUserId
 
 							# Team schließen, wenn das die letzte Bewerbung war
 							if team.pending.length == team.max

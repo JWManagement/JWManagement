@@ -1,7 +1,0 @@
-import './config.coffee'
-import './init.coffee'
-import './sendMail.coffee'
-import './sendConfirmation.coffee'
-import './sendDeclined.coffee'
-import './sendConfirmWeek.coffee'
-import './sendTeamUpdate.coffee'

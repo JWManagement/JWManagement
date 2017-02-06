@@ -1,4 +1,4 @@
-Mailer.sendDeclined = (shiftId, teamId, userId) ->
+export sendDeclined = (shiftId, teamId, userId) =>
 	shift = Shifts.findOne shiftId
 
 	if shift?
@@ -12,7 +12,7 @@ Mailer.sendDeclined = (shiftId, teamId, userId) ->
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
 			name = user.profile.firstname + ' ' + user.profile.lastname
 
-		Mailer.sendMail
+		@send
 			recipient: user.profile.email
 			sender: project.name
 			from: project.email

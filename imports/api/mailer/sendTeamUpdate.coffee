@@ -1,4 +1,4 @@
-Mailer.sendTeamUpdate = (shiftId, teamId, type) ->
+export sendTeamUpdate = (shiftId, teamId, type) =>
 	shift = Shifts.findOne shiftId
 	project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
@@ -20,7 +20,7 @@ Mailer.sendTeamUpdate = (shiftId, teamId, type) ->
 
 				name = user.profile.firstname + ' ' + user.profile.lastname
 
-				Mailer.sendMail
+				@send
 					recipient: user.profile.email
 					sender: project.name
 					from: project.email

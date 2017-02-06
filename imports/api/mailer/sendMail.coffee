@@ -1,33 +1,13 @@
-Mailer.sendMail = (data) ->
-	# recipient
-	# sender
-	# from
-	# subject
-	# template
-	# data
-	# lanuage
+import { send } from './send.coffee'
+import { sendConfirmation } from './sendConfirmation.coffee'
+import { sendDeclined } from './sendDeclined.coffee'
+import { sendConfirmWeek } from './sendConfirmWeek.coffee'
+import { sendTeamUpdate } from './sendTeamUpdate.coffee'
 
-	sent = false
+export SendMail =
 
-	if (data? &&
-			data.recipient? && data.recipient != '' &&
-			data.sender? &&
-			data.from? &&
-			data.subject? &&
-			data.template? &&
-			data.language? &&
-			data.data?)
-
-		data.data.global =
-			footer: TAPi18n.__('mail.footer', '', data.language)
-			link: TAPi18n.__('mail.link', '', data.language)
-
-		sent = Mailer.send
-			to: data.recipient
-			from: data.sender + ' <no-reply@jwmanagement.org>'
-			replyTo: data.sender + '<' + data.from + '>'
-			subject: data.subject
-			template: data.template
-			data: data.data
-
-	sent
+	send: send
+	sendConfirmation: sendConfirmation
+	sendDeclined: sendDeclined
+	sendConfirmWeek: sendConfirmWeek
+	sendTeamUpdate: sendTeamUpdate
