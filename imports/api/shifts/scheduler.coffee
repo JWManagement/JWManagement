@@ -16,6 +16,14 @@ export Scheduler =
 			phone: user.profile.telefon
 			email: user.profile.email
 
+	removeUser: (shiftId, teamId) ->
+		userId = Meteor.userId()
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull:
+				'teams.$.participants': _id: userId
+				'teams.$.pending': _id: userId
+				'teams.$.declined': _id: userId
+
 	getParticipant: (userId, tagId, isThisTeamleader) ->
 		user = @getUser userId, tagId
 		user.thisTeamleader = isThisTeamleader

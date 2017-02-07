@@ -160,7 +160,10 @@ Template.shiftModal.events
 	'click #cancelRequestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 
-		Meteor.call 'cancelRequest', shiftId, @_id
+		Shifts.methods.cancelRequest.call
+			shiftId: shiftId
+			teamId: @_id
+		, handleError
 
 	'click #cancelParticipation': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')

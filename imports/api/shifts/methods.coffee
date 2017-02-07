@@ -85,3 +85,14 @@ export Methods =
 						Scheduler.addRequest shiftId, teamId, userId
 					else
 						throw new Meteor.Error 'no request allowed', ''
+
+	cancelRequest: new ValidatedMethod
+		name: 'Shifts.methods.cancelRequest'
+		validate: (args) ->
+			Validators.isTagParticipant args.shiftId
+			new SimpleSchema
+				shiftId: type: String
+				teamId: type: String
+			.validator() args
+		run: (args) ->
+			Scheduler.removeUser args.shiftId, args.teamId, Meteor.userId()
