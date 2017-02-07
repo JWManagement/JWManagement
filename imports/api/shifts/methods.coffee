@@ -108,6 +108,8 @@ export Methods =
 		run: (args) ->
 			user = Meteor.user()
 			userId = user._id
+			shiftId = args.shiftId
+			teamId = args.teamId
 			shift = Shifts.findOne shiftId, fields: projectId: 1, tagId: 1, date: 1, teams: 1, scheduling: 1
 
 			for team in shift.teams when team._id == teamId
@@ -123,23 +125,25 @@ export Methods =
 						else
 							# Informiere nur Orga-Team, wenn nicht
 							SendMail.sendToOrga shift.projectId, 'teamCancel', shiftId, teamId
-
 					# Team absagen
+					# TODO: test after implementation
 					Shifts.helpers.cancelTeam shiftId, teamId, 'missingParticipant'
 				# Ansonsten, wenn User Teamleiter war
 				else if Scheduler.isTeamleader shiftId, teamId, userId
-					teamleaderId = Scheduler.getBestTeamleader shiftId, teamId
+					# User ablehnen
+					Shifts.methods.addDeclined shiftId, teamId, userId
 
 					# Gibt es einen anderen möglichen Teamleiter?
+					teamleaderId = Scheduler.getBestTeamleader shiftId, teamId
+
+					# Wenn ja, neuen Teamleiter bestimmen
 					if teamleaderId
-						# Wenn ja, User ablehnen und neuen Teamleiter bestimmen
-						Shifts.methods.addDeclined shiftId, teamId, userId
 						Shifts.methods.addParticipant shiftId, teamId, teamleaderId
 
 						# Und Team darüber informieren
 						SendMail.sendTeamUpdate shiftId, teamId, 'leader'
+					# Wenn nicht, Team absagen
 					else
-						# Wenn nicht, Team absagen
 						Shifts.methods.cancelTeam shiftId, teamId
 				# Ansonsten, wenn User kein Teamleiter war
 				else
