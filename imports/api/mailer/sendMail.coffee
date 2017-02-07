@@ -1,8 +1,8 @@
 import { send } from './send.coffee'
-import { sendConfirmation } from './sendConfirmation.coffee'
-import { sendDeclined } from './sendDeclined.coffee'
-import { sendConfirmWeek } from './sendConfirmWeek.coffee'
-import { sendTeamUpdate } from './sendTeamUpdate.coffee'
+import { sendConfirmation } from './mails/sendConfirmation.coffee'
+import { sendDeclined } from './mails/sendDeclined.coffee'
+import { sendConfirmWeek } from './mails/sendConfirmWeek.coffee'
+import { sendTeamUpdate } from './mails/sendTeamUpdate.coffee'
 
 export SendMail =
 

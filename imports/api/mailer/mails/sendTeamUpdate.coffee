@@ -1,5 +1,5 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
-import { send } from './send.coffee'
+import { send } from '../send.coffee'
 
 export sendTeamUpdate = (shiftId, teamId, type) ->
 	shift = Shifts.findOne shiftId
