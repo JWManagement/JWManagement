@@ -77,6 +77,16 @@ export Helpers =
 		if shift.teams.filter((team) -> team.status == 'open' && team._id != teamId).length == 0
 			Shifts.update shiftId, $set: status: 'closed'
 
+	isTeamleader: (shiftId, teamId, userId) ->
+		shift = Shifts.findOne shiftId, fields: teams: 1
+
+		for team in shift.teams when team._id == teamId
+			for user in team.participants when user._id == userId
+				if user.thisTeamleader
+					return true
+				else
+					return false
+
 	setTeamleader: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: tagId: 1
 

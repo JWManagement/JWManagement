@@ -96,3 +96,55 @@ export Methods =
 			.validator() args
 		run: (args) ->
 			Shifts.helpers.removeUser args.shiftId, args.teamId, Meteor.userId()
+
+	cancelParticipation: new ValidatedMethod
+		name: 'Shifts.methods.cancelParticipation'
+		validate: (args) ->
+			Validators.isTagParticipant args.shiftId
+			new SimpleSchema
+				shiftId: type: String
+				teamId: type: String
+			.validator() args
+		run: (args) ->
+			user = Meteor.user()
+			userId = user._id
+			shift = Shifts.findOne shiftId, fields: projectId: 1, tagId: 1, date: 1, teams: 1, scheduling: 1
+
+			for team in shift.teams when team._id == teamId
+				# Wenn Teilnehmer Anzahl der Mindestanzahl entspricht
+				if team.participants.length == team.min
+					# User aus Schicht entfernen
+					Shifts.helpers.removeUser shiftId, teamId
+
+					if shift.scheduling == 'manual'
+						if Scheduler.isThisWeek shift.date
+							# Informiere alle, wenn es um diese Woche geht
+							SendMail.sendUnderstaffed shiftId, teamId
+						else
+							# Informiere nur Orga-Team, wenn nicht
+							SendMail.sendToOrga shift.projectId, 'teamCancel', shiftId, teamId
+
+					# Team absagen
+					Shifts.helpers.cancelTeam shiftId, teamId, 'missingParticipant'
+				# Ansonsten, wenn User Teamleiter war
+				else if Scheduler.isTeamleader shiftId, teamId, userId
+					teamleaderId = Scheduler.getBestTeamleader shiftId, teamId
+
+					# Gibt es einen anderen möglichen Teamleiter?
+					if teamleaderId
+						# Wenn ja, User ablehnen und neuen Teamleiter bestimmen
+						Shifts.methods.addDeclined shiftId, teamId, userId
+						Shifts.methods.addParticipant shiftId, teamId, teamleaderId
+
+						# Und Team darüber informieren
+						SendMail.sendTeamUpdate shiftId, teamId, 'leader'
+					else
+						# Wenn nicht, Team absagen
+						Shifts.methods.cancelTeam shiftId, teamId
+				# Ansonsten, wenn User kein Teamleiter war
+				else
+					# User ablehnen
+					Shifts.methods.addDeclined shiftId, teamId, userId
+
+					# Und Team darüber informieren
+					SendMail.sendTeamUpdate shiftId, teamId, 'participant'

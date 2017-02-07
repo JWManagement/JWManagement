@@ -171,7 +171,11 @@ Template.shiftModal.events
 
 		swalYesNo
 			swal: 'request.cancel'
-			doConfirm: -> Meteor.call 'cancelParticipation', shiftId, teamId, handleError
+			doConfirm: ->
+				Shifts.methods.cancelParticipation.call
+					shiftId: shiftId
+					teamId: teamId
+				, handleError
 
 	'click #setLeader': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')

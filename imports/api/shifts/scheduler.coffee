@@ -8,7 +8,9 @@ export Scheduler =
 
 		for team in shift.teams when team._id == teamId
 			allUsers = team.pending.concat(team.participants).filter (user) -> user.teamleader || user.substituteTeamleader
-			allUsers.push @getParticipant userId, shift.tagId, false
+
+			if userId?
+				allUsers.push @getParticipant userId, shift.tagId, false
 
 			for user in allUsers
 				hasTeamleader = true
@@ -24,4 +26,8 @@ export Scheduler =
 
 		if chosenId then chosenId else false
 
+	isThisWeek: (date) ->
+		firstDay = moment().startOf('isoWeek')
+		lastDay = moment().endOf('isoWeek')
 
+		moment(date, 'YYYYDDDD').isBetween(firstDay, lastDay, null, '[]')
