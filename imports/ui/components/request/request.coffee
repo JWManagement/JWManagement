@@ -30,12 +30,13 @@ Template.request.helpers
 	isRelation: (a) ->
 		thisDate = parseInt moment().format 'YYYYDDDD'
 		thisTime = parseInt moment().format 'Hmm'
+		userId = Meteor.userId()
 
 		if a == 'missing'
 			reportSubmitted = false
 
 			for team in @teams
-				for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+				for user in team.participants when user._id == userId && user.thisTeamleader
 					isTeamleader = true
 					if team.report && team.report.submitted
 						reportSubmitted = team.report.submitted
@@ -44,13 +45,13 @@ Template.request.helpers
 		else if a == 'accepted'
 			for team in @teams
 				for participant in team.participants
-					value = value || Meteor.userId() == participant._id
+					value = value || participant._id == userId
 			value
 		else if a == 'pending'
 			value = false
 			for team in @teams
 				for pendingUser in team.pending
-					value = value || Meteor.userId() == pendingUser._id
+					value = value || pendingUser._id == userId
 			value
 		else if a == 'declined'
 			false
@@ -67,9 +68,10 @@ Template.request.helpers
 	shiftRelation: ->
 		thisDate = parseInt moment().format 'YYYYDDDD'
 		thisTime = parseInt moment().format 'Hmm'
+		userId = Meteor.userId()
 
 		for team in @teams
-			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+			for user in team.participants when user._id == userId && user.thisTeamleader
 				isTeamleader = true
 				if team.report && team.report.submitted
 					reportSubmitted = team.report.submitted
@@ -79,18 +81,14 @@ Template.request.helpers
 		else
 			for team in @teams
 				for participant in team.participants
-					value = value || Meteor.userId() == participant._id
+					value = value || participant._id == userId
 			if value
 				'accepted'
 			else
-				value = false
 				for team in @teams
-					for pendingUser in team.pending
-						value = value || Meteor.userId() == pendingUser._id
-				if value
-					'pending'
-				else
-					'declined'
+					for pendingUser in team.pending when pendingUser._id == userId
+						return 'pending'
+				'declined'
 
 	teamRelation: ->
 		userId = Meteor.userId()
@@ -103,15 +101,16 @@ Template.request.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	getProjectName: -> Projects.findOne(@projectId).name
+	getProjectName: -> Projects.findOne(@projectId, fields: name: 1).name
 
 Template.request.events
 
-	'click .vertical-timeline-content[data-type="missing"]': (e) ->
+	'click .missing.shift>.vertical-timeline-content': (e) ->
 		shiftId = @_id
+		userId = Meteor.userId()
 
 		for team in @teams
-			for participant in team.participants when participant._id == Meteor.userId()
+			for participant in team.participants when participant._id == userId
 				teamId = team._id
 
 		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
