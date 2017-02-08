@@ -46,3 +46,8 @@ with getShift
 											unless thisTeamleader
 												| {{name}}
 												br
+								else if pending
+									.shift-team-participants
+										each pending
+											u {{name}}
+											br
