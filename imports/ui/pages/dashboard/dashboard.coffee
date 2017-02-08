@@ -25,13 +25,6 @@ Template.dashboard.helpers
 					min: $gt: 1
 		.fetch()
 
-	teamRelation: ->
-		for user in @participants when Meteor.userId() == user._id
-			return 'accepted'
-
-		for user in @pending when Meteor.userId() == user._id
-			return 'pending'
-
 	getShifts: ->
 		thisDate = parseInt moment().format 'YYYYDDDD'
 		thisTime = parseInt moment().format 'Hmm'

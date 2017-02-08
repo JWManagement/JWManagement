@@ -92,6 +92,15 @@ Template.request.helpers
 				else
 					'declined'
 
+	teamRelation: ->
+		userId = Meteor.userId()
+
+		for user in @participants when user._id == userId
+			return 'accepted'
+
+		for user in @pending when user._id == userId
+			return 'pending'
+
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
 	getProjectName: -> Projects.findOne(@projectId).name
