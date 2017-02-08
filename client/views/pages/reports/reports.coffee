@@ -17,8 +17,8 @@ Template.reports.onCreated ->
 	month = FlowRouter.getQueryParam('month')
 
 	if !month?
-		wrs -> FlowRouter.setQueryParams month: moment(new Date).format('YYYY[M]MM')
-		month = moment(new Date).format('YYYY[M]MM')
+		wrs -> FlowRouter.setQueryParams month: moment().format('YYYY[M]MM')
+		month = moment().format('YYYY[M]MM')
 
 	Session.set 'subscribe', month
 	@autorun ->

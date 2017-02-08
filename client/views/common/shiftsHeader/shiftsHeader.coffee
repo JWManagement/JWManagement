@@ -15,7 +15,7 @@ Template.shiftsHeader.helpers
 		if weeks.length == 0 then 'disabled'
 
 	weeks: ->
-		thisMonday = parseInt moment(new Date()).isoWeekday(1).format('YYYYDDDD')
+		thisMonday = parseInt moment().isoWeekday(1).format('YYYYDDDD')
 		chosenMonday = parseInt moment(FlowRouter.getQueryParam('showWeek')).isoWeekday(1).format('YYYYDDDD')
 
 		startDate = if chosenMonday < thisMonday then chosenMonday else thisMonday

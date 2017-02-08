@@ -30,7 +30,7 @@ Template.navigation.onCreated ->
 	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
 		Session.set 'latestRelease',
 			tag: a.data.tag_name
-			new: moment(new Date).diff(a.data.published_at, 'days') < 3
+			new: moment().diff(a.data.published_at, 'days') < 3
 
 Template.navigation.onDestroyed ->
 

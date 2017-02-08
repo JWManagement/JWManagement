@@ -87,7 +87,7 @@ Meteor.methods
 				Shifts.update
 					projectId: project._id
 					tagId: tagId
-					date: $gt: parseInt moment(new Date).format('YYYYDDDD')
+					date: $gt: parseInt moment().format('YYYYDDDD')
 					'teams.participants._id': userId
 				,
 					$pull: 'teams.$.participants': _id: userId
@@ -97,7 +97,7 @@ Meteor.methods
 				Shifts.update
 					projectId: project._id
 					tagId: tagId
-					date: $gt: parseInt moment(new Date).format('YYYYDDDD')
+					date: $gt: parseInt moment().format('YYYYDDDD')
 					'teams.pending._id': userId
 				,
 					$pull: 'teams.$.pending': _id: userId
@@ -107,7 +107,7 @@ Meteor.methods
 				Shifts.update
 					projectId: project._id
 					tagId: tagId
-					date: $gt: parseInt moment(new Date).format('YYYYDDDD')
+					date: $gt: parseInt moment().format('YYYYDDDD')
 					'teams.declined._id': userId
 				,
 					$pull: 'teams.$.declined': _id: userId

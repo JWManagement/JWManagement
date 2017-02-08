@@ -99,10 +99,10 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields: date: 1, end: 1
 
-		if shift.date < parseInt moment(new Date).format('YYYYDDDD')
+		if shift.date < parseInt moment().format('YYYYDDDD')
 			true
-		else if shift.date == parseInt moment(new Date).format('YYYYDDDD')
-			if shift.end < parseInt moment(new Date).format('Hmm')
+		else if shift.date == parseInt moment().format('YYYYDDDD')
+			if shift.end < parseInt moment().format('Hmm')
 				true
 			else
 				false

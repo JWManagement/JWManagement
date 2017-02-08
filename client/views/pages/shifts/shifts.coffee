@@ -21,7 +21,7 @@ Template.shifts.helpers
 		else if FlowRouter.getQueryParam('weekId')?
 			Weeks.findOne FlowRouter.getQueryParam('weekId')
 
-	weekDays: -> [1..7].map (i) -> moment(new Date).isoWeekday(i).format('ddd')
+	weekDays: -> [1..7].map (i) -> moment().isoWeekday(i).format('ddd')
 
 	checkNoVisibleShifts: ->
 		weekId = FlowRouter.getQueryParam('weekId')

@@ -28,8 +28,8 @@ Template.request.helpers
 		myShift && (@date > today || @date == today && @end >= now || Session.get('showOlder') || missingReport)
 
 	isRelation: (a) ->
-		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
-		thisTime = parseInt moment(new Date).format 'Hmm'
+		thisDate = parseInt moment().format 'YYYYDDDD'
+		thisTime = parseInt moment().format 'Hmm'
 
 		if a == 'missing'
 			reportSubmitted = false
@@ -65,8 +65,8 @@ Template.request.helpers
 			showShift: @_id
 
 	shiftRelation: ->
-		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
-		thisTime = parseInt moment(new Date).format 'Hmm'
+		thisDate = parseInt moment().format 'YYYYDDDD'
+		thisTime = parseInt moment().format 'Hmm'
 
 		for team in @teams
 			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader

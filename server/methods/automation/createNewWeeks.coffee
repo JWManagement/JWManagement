@@ -8,13 +8,13 @@ Meteor.methods
 				for tag in project.tags
 					for template in tag.templates when template.interval != 'm'
 						templateWeek = Weeks.findOne template.weekId
-						currentWeek = parseInt(moment(new Date).format('GGGGWW'))
+						currentWeek = parseInt(moment().format('GGGGWW'))
 						startWeek = parseInt(moment(template.startWeek).format('GGGGWW'))
 						endWeek = parseInt(moment(template.endWeek).format('GGGGWW'))
 
 						if startWeek <= currentWeek && endWeek >= currentWeek && template.visiblePeriod <= 15
 							for number in [0..template.visiblePeriod]
-								iteratedDate = parseInt(moment(new Date).add(number, 'weeks').format('YYYYDDDD'))
+								iteratedDate = parseInt(moment().add(number, 'weeks').format('YYYYDDDD'))
 								iteratedWeek = Weeks.findOne iteratedDate
 								doThisWeek = false
 

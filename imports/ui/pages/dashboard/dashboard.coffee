@@ -33,8 +33,8 @@ Template.dashboard.helpers
 			return 'pending'
 
 	getShifts: ->
-		thisDate = parseInt moment(new Date).format 'YYYYDDDD'
-		thisTime = parseInt moment(new Date).format 'Hmm'
+		thisDate = parseInt moment().format 'YYYYDDDD'
+		thisTime = parseInt moment().format 'Hmm'
 
 		Shifts.find
 			$or: [
