@@ -1,4 +1,4 @@
-Meteor.startup ->
+Meteor.startup -> if Meteor.isProduction
 
 	#SyncedCron.add
 	#	name: 'Generate shift organization'
@@ -10,9 +10,9 @@ Meteor.startup ->
 	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
 	#	job: -> Meteor.call('sendWeekSummary')
 
-	SyncedCron.add
-		name: 'Create new weeks'
-		schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
-		job: -> Meteor.call('createNewWeeks')
+	#SyncedCron.add
+	#	name: 'Create new weeks'
+	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
+	#	job: -> Meteor.call('createNewWeeks')
 
-	#SyncedCron.start()
+	SyncedCron.start()
