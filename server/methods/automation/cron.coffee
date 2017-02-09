@@ -1,3 +1,5 @@
+import { backup } from './backup.coffee'
+
 Meteor.startup -> if Meteor.isProduction
 
 	#SyncedCron.add
@@ -14,5 +16,10 @@ Meteor.startup -> if Meteor.isProduction
 	#	name: 'Create new weeks'
 	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
 	#	job: -> Meteor.call('createNewWeeks')
+
+	SyncedCron.add
+		name: 'Backup'
+		schedule: (parser) -> parser.cron('every day at 02:00 am')
+		job: -> backup()
 
 	SyncedCron.start()
