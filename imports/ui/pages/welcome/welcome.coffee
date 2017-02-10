@@ -1,4 +1,5 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
+import { handleError } from '/imports/util/errorHandling.coffee'
 
 import '/imports/api/resources/singlePageNav.js'
 import '/imports/api/resources/wow.js'

@@ -1,4 +1,5 @@
-@handleError = (e) -> if e?
+export handleError = (e) -> if e?
+
 	if e.error == 'validation-error'
 		swal e.reason, '', 'error'
 	else if e.error < 300
@@ -6,7 +7,8 @@
 	else
 		swal 'Error ' + e.error, e.reason, 'error'
 
-@handleSuccess = (e) -> if !e
+export handleSuccess = (e) -> if !e
+
 	toastr.success '', 'Successfully saved',
 		closeButton: false
 		debug: false
