@@ -22,7 +22,7 @@ Mailer.init
 	templates:
 
 		confirmation:
-			path: "confirmation/confirmation.html"
+			path: "confirmation.html"
 			route:
 				path: "/confirmation"
 				data: ->
@@ -59,7 +59,7 @@ Mailer.init
 						text1: "du wurdest folgender Schicht zugeteilt:"
 
 		declined:
-			path: "declined/declined.html"
+			path: "declined.html"
 			route:
 				path: "/declined"
 				data: ->
@@ -73,7 +73,7 @@ Mailer.init
 						text2: "Vielen Dank für deine Bewerbung!"
 
 		reversal:
-			path: "reversal/reversal.html"
+			path: "reversal.html"
 			route:
 				path: "/reversal"
 				data: ->
@@ -86,7 +86,7 @@ Mailer.init
 						text1: "hiermit bestätigen wir, dass du aus folgendem Team ausgetragen wurdest:"
 
 		teamUpdate:
-			path: "teamUpdate/teamUpdate.html"
+			path: "teamUpdate.html"
 			route:
 				path: "/teamUpdate"
 				data: ->
@@ -114,7 +114,7 @@ Mailer.init
 						changed: "hat sich geändert."
 
 		understaffed:
-			path: "understaffed/understaffed.html"
+			path: "understaffed.html"
 			route:
 				path: "/understaffed"
 				data: ->
@@ -129,7 +129,7 @@ Mailer.init
 						text2: "Schau doch bitte nach, ob es dir möglich wäre, einzuspringen."
 
 		teamCancellation:
-			path: "teamCancellation/teamCancellation.html"
+			path: "teamCancellation.html"
 			route:
 				path: "/teamCancellation"
 				data: ->
@@ -143,7 +143,7 @@ Mailer.init
 						hello: "Hallo"
 
 		toOrga:
-			path: "toOrga/toOrga.html"
+			path: "toOrga.html"
 			route:
 				path: "/toOrga"
 				data: ->
@@ -153,7 +153,7 @@ Mailer.init
 						hello: "Hallo Organisations-Team"
 
 		resetPassword:
-			path: "resetPassword/resetPassword.html"
+			path: "resetPassword.html"
 			route:
 				path: "/resetPassword"
 				data: ->
@@ -166,7 +166,7 @@ Mailer.init
 						text2: "<p>Tipps für sichere Passwörter findest du im g01 22. 6. S.31</p><p>Wenn du das Zurücksetzen deines Passwortes nicht angefordert hast, lösche diese E-Mail bitte.</p>"
 
 		joinProject:
-			path: "joinProject/joinProject.html"
+			path: "joinProject.html"
 			route:
 				path: "/joinProject"
 				data: ->
@@ -179,7 +179,7 @@ Mailer.init
 						text2: 'Du findest das Projekt jetzt auf der Übersichtsseite unter "Meine Projekte".<br><br> Viel Freude!'
 
 		accountCreated:
-			path: "accountCreated/accountCreated.html"
+			path: "accountCreated.html"
 			route:
 				path: "/accountCreated"
 				data: ->
