@@ -5,3 +5,6 @@ import '/imports/api/router/router.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/dashboard/dashboard.coffee'
 import '/imports/ui/pages/support/support.coffee'
+
+# Bootstrap
+import '/imports/api/resources/bootstrap.min.js'
