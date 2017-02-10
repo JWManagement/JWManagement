@@ -1,3 +1,5 @@
+import './mainLayout.tpl.jade'
+
 Template.mainLayout.onRendered ->
 
 	$('body').addClass('gray-bg')

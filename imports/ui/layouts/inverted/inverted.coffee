@@ -1,3 +1,5 @@
+import './invertedLayout.tpl.jade'
+
 Template.invertedLayout.onRendered ->
 
 	$('body').addClass('inverted-bg')

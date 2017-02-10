@@ -1,6 +1,11 @@
 # Router
 import '/imports/api/router/router.coffee'
 
+# Layouts
+import '/imports/ui/layouts/blank/blank.coffee'
+import '/imports/ui/layouts/main/main.coffee'
+import '/imports/ui/layouts/inverted/inverted.coffee'
+
 # Pages
 import '/imports/ui/pages/notFound/notFound.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
