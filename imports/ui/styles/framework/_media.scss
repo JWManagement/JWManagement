@@ -1,8 +1,7 @@
 @media (min-width: 768px) {
 	#page-wrapper {
-		position  : inherit;
-		margin    : 0 0 0 $sidebar-width;
-		min-height: 1200px;
+		position: inherit;
+		margin  : 0 0 0 $sidebar-width;
 	}
 
 	.navbar-static-side {
@@ -19,9 +18,8 @@
 }
 @media (max-width: 768px) {
 	#page-wrapper {
-		position  : inherit;
-		margin    : 0;
-		min-height: 1000px;
+		position: inherit;
+		margin  : 0;
 	}
 
 	.body-small .navbar-static-side {

@@ -136,10 +136,6 @@ body.md-skin {
 		display: block;
 	}
 
-	.pace-done .nav-header {
-		transition: all 0.4s;
-	}
-
 	.nav > li.active {
 		background: lighten($gray, 2%);
 	}
@@ -189,17 +185,6 @@ body.md-skin {
 
 	.canvas-menu.mini-navbar .nav-second-level {
 		background: inherit;
-	}
-
-	.pace-done #page-wrapper,
-	.pace-done .footer,
-	.pace-done .nav-header,
-	.pace-done .navbar-static-side,
-	.pace-done li.active {
-		-webkit-transition: all 0.4s;
-		-moz-transition   : all 0.4s;
-		-o-transition     : all 0.4s;
-		transition        : all 0.4s;
 	}
 
 	.navbar-fixed-top {

@@ -1,10 +1,10 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
-import './welcome.tpl.jade'
-import './welcome.scss'
-
 import '/imports/api/resources/singlePageNav.js'
 import '/imports/api/resources/wow.js'
+
+import './welcome.tpl.jade'
+import './welcome.scss'
 
 R =
 	selectedType: new ReactiveVar ''

@@ -198,9 +198,8 @@ video {
 }
 @media (min-width: 768px) {
 	#page-wrapper {
-		position  : inherit;
-		margin    : 0 0 0 240px;
-		min-height: 2002px;
+		position: inherit;
+		margin  : 0 0 0 240px;
 	}
 }
 
@@ -231,57 +230,6 @@ ul.unstyled {
 .big-icon {
 	font-size: 160px !important;
 	color    : #e5e6e7;
-}
-/* FOOTER */
-.footer {
-	background: none repeat scroll 0 0 white;
-	border-top: 1px solid $border-color;
-	bottom    : 0;
-	left      : 0;
-	padding   : 10px 20px;
-	position  : absolute;
-	right     : 0;
-}
-
-.footer.fixed_full {
-	position  : fixed;
-	bottom    : 0;
-	left      : 0;
-	right     : 0;
-	z-index   : 1000;
-	padding   : 10px 20px;
-	background: white;
-	border-top: 1px solid $border-color;
-}
-
-.footer.fixed {
-	position   : fixed;
-	bottom     : 0;
-	left       : 0;
-	right      : 0;
-	z-index    : 1000;
-	padding    : 10px 20px;
-	background : white;
-	border-top : 1px solid $border-color;
-	margin-left: $sidebar-width;
-}
-
-body.body-small.mini-navbar .footer.fixed,
-body.mini-navbar .footer.fixed {
-	margin: 0 0 0 70px;
-}
-
-body.canvas-menu .footer.fixed,
-body.mini-navbar.canvas-menu .footer.fixed {
-	margin: 0 !important;
-}
-
-body.fixed-sidebar.body-small.mini-navbar .footer.fixed {
-	margin: 0 0 0 $sidebar-width;
-}
-
-body.body-small .footer.fixed {
-	margin-left: 0;
 }
 /* PANELS */
 .page-heading {

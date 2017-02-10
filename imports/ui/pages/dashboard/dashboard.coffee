@@ -1,6 +1,7 @@
 #import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 
+import '/imports/ui/components/footer/footer.coffee'
 import '/imports/ui/components/project/project.coffee'
 import '/imports/ui/components/projectFake/projectFake.coffee'
 import '/imports/ui/components/request/request.coffee'
