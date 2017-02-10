@@ -191,7 +191,7 @@ Template.shiftModal.events
 			else
 				Meteor.call 'setLeader', shiftId, teamId, userId, handleError
 
-	'click #acceptRequest': (e) ->
+	'click #approveRequest': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields: teams: 1
 		teamId = $(e.target).closest('.team').data('id')
@@ -237,7 +237,7 @@ Template.shiftModal.events
 					textAttr2: participantCount
 					doConfirm: ->
 						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', participantCount, handleError
-						Meteor.call 'acceptRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
+						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
 							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
 			else if participantCount > teamMax
 				swalYesNo
@@ -246,18 +246,18 @@ Template.shiftModal.events
 					textAttr2: participantCount
 					doConfirm: ->
 						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', participantCount, handleError
-						Meteor.call 'acceptRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
+						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
 							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
 			else
 				swalYesNo
-					swal: 'request.accept'
+					swal: 'request.approve'
 					doConfirm: ->
-						Meteor.call 'acceptRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
+						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
 							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
 		else
 			swal TAPi18n.__('swal.noTeamleader'), '', 'error'
 
-	'click #acceptSelected': (e) ->
+	'click #approveSelected': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		$team = $(e.target).closest('.team')
 		teamId = $team.attr('data-id')
@@ -294,7 +294,7 @@ Template.shiftModal.events
 
 			!wouldCancelOtherTeam
 
-		doAccept = ->
+		doApprove = ->
 			chosenId = ''
 			chosenIsTeamleader = false
 			chosenIsSubstituteTeamleader = false
@@ -302,7 +302,7 @@ Template.shiftModal.events
 
 			for team in shift.teams when team._id == teamId
 				for user in team.pending when user.checked
-					Meteor.call 'acceptRequest', shiftId, teamId, user._id, handleError
+					Meteor.call 'approveRequest', shiftId, teamId, user._id, handleError
 
 					if chosenId
 						if chosenIsSubstituteTeamleader && user.teamleader
@@ -329,7 +329,7 @@ Template.shiftModal.events
 				textAttr2: selectedCount
 				doConfirm: -> if checkWouldCancelOtherTeam()
 					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', selectedCount, handleError
-					doAccept()
+					doApprove()
 		else if selectedCount > teamMax
 			swalYesNo
 				swal: 'request.maxReached'
@@ -337,9 +337,9 @@ Template.shiftModal.events
 				textAttr2: selectedCount
 				doConfirm: -> if checkWouldCancelOtherTeam()
 					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', selectedCount, handleError
-					doAccept()
+					doApprove()
 		else if checkWouldCancelOtherTeam()
-			doAccept()
+			doApprove()
 
 	'click #declineParticipant': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -458,7 +458,7 @@ Template.shiftModal.events
 		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
 
 	'click .sentConfirmation': (e) ->
-		swal TAPi18n.__('swal.acceptionInformed'), '', 'info'
+		swal TAPi18n.__('swal.approvalInformed'), '', 'info'
 
 	'click .sendConfirmation': (e) ->
 		shiftId = FlowRouter.getQueryParam 'showShift'

@@ -4,7 +4,7 @@ swal:
     onlyTeam: You can't delete this team. It is the only team in this shift. Every shift needs to have at least one team.
     noTeamleader: Every team requires a team leader. Unfortunately this publisher does not have permission to serve as a team leader.
     ownPermission: You are not allowed to revoke your own permissions. Another administrator has to do that.
-    acceptionInformed: This participant has been informed that their request has been accepted.
+    approvalInformed: This participant has been informed that their request has been approved.
     declinementInformed: This participant has been informed that their request was declined.
     vacationEndInPast: The end date cannot be in the past.
     missingTag: No tag defined. Please first define a tag under Admin > Settings
@@ -25,12 +25,12 @@ swal:
     sendMail:
         confirmWeek:
             title: Are you sure?
-            text: All accepted publishers will receive a confirmation email and all declined publishers will receive a rejection email.
+            text: All approved publishers will receive a confirmation email and all declined publishers will receive a rejection email.
             confirm: Yes
             cancel: Cancel
         confirmation:
             title: Inform Publisher?
-            text: The publisher will be informed via email about the acceptance of this shift.
+            text: The publisher will be informed via email about the approval of this shift.
             confirm: Yes
             cancel: Cancel
         declined:
@@ -178,7 +178,7 @@ swal:
             cancel: Cancel
         project:
             title: Really delete this project?
-            text: This will irreversibly delete all settings associated with this project, e.g. shifts, reports, applications, literature. Only the user accounts will remain.
+            text: This will irreversibly delete all settings associated with this project, e.g. shifts, reports, requests, literature. Only the user accounts will remain.
             checkInput: delete this project
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
@@ -219,7 +219,7 @@ swal:
             cancel: Cancel
         team:
             title: Really delete this team?
-            text: The team will get removed from all existing shifts planned for the future. Accepted requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".
+            text: The team will get removed from all existing shifts planned for the future. approved requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".
             checkInput: delete
             placeholder: Please type "%s" for approval
             inputError: The input did not match with "%s"
@@ -236,8 +236,8 @@ swal:
             confirm: Delete
             cancel: Cancel
     request:
-        accept:
-            title: Really accept publisher?
+        approve:
+            title: Really approve publisher?
             text: This publisher has previously been declined. Therefore please make sure that the publisher is still able and willing to participate.
             confirm: Yes
             cancel: No
@@ -253,13 +253,13 @@ swal:
             cancel: No
         maxReached:
             title: Too many users selected
-            text: Set team maximum limit from __attr1__ to __attr2__ and accept select?
-            confirm: Accept selected
+            text: Set team maximum limit from __attr1__ to __attr2__ and approve selected?
+            confirm: Approve selected
             cancel: Cancel
         minNotReached:
             title: Not enough users selected
-            text: Set team minimum limit from __attr1__ to __attr2__ and accept selected?
-            confirm: Accept selected
+            text: Set team minimum limit from __attr1__ to __attr2__ and approve selected?
+            confirm: Approve selected
             cancel: Cancel
         minReached:
             title: Really decline participant?

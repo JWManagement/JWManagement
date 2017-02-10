@@ -165,12 +165,12 @@ dashboard:
     understaffedMore: Show more understaffed shifts
     missing: Missing Shift Report
     missing_plural: Missing Shift Reports
-    accepted: Accepted Application
-    accepted_plural: Accepted Applications
-    pending: Open Application
-    pending_plural: Open Applications
-    declined: Declined Application
-    declined_plural: Declined Applications
+    approved: Approved Request
+    approved_plural: Approved Request
+    pending: Pending Request
+    pending_plural: Pending Requests
+    declined: Declined Request
+    declined_plural: Declined Requests
     marked: Understaffed Shift
     marked_plural: Understaffed Shifts
     participant: Shift Participant
@@ -196,8 +196,8 @@ shifts:
     route: Route
     addShift: Add a new shift
     addWeek: Add a new week
-    applications: Applications
-    openApplications: Open Applications
+    requests: Requests
+    openRequests: Open Requests
     automation: Automatic
     template: Template
     noVisibleShifts: No shifts by that tag this week

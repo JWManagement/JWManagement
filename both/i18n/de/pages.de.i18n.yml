@@ -165,8 +165,8 @@ dashboard:
     understaffedMore: Mehr unterbesetzte Schichten zeigen
     missing: Fehlender Schichtbericht
     missing_plural: Fehlende Schichtberichte
-    accepted: Angenommene Bewerbung
-    accepted_plural: Angenommene Bewerbungen
+    approved: Angenommene Bewerbung
+    approved_plural: Angenommene Bewerbungen
     pending: Offene Bewerbung
     pending_plural: Offene Bewerbungen
     declined: Abgelehnte Bewerbung
@@ -196,8 +196,8 @@ shifts:
     route: Route
     addShift: Neue Schicht erstellen
     addWeek: Neue Woche anlegen
-    applications: Bewerbungen
-    openApplications: Offene Bewerbungen
+    requests: Bewerbungen
+    openRequests: Offene Bewerbungen
     automation: Automatismus
     template: Vorlage
     noVisibleShifts: Keine Schichten dieses Tags in dieser Woche

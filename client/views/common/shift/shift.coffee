@@ -74,7 +74,7 @@ Template.shift.helpers
 			if @teams
 				for team in @teams
 					for participant in team.participants when participant._id == Meteor.userId()
-						return 'accepted'
+						return 'approved'
 					for pending in team.pending when pending._id == Meteor.userId()
 						return 'pending'
 			@status

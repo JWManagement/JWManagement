@@ -40,8 +40,8 @@ time:
     to: to
 scheduling:
     name: Scheduling
-    direct: Accept immediately
-    manual: Accept manually
+    direct: Approve immediately
+    manual: Approve manually
 password:
     tooShort: Password must be at least 8 characters long
     notMatching: The passwords do not match!
