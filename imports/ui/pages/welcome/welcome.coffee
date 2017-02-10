@@ -1,6 +1,7 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
-import { handleError } from '/imports/util/errorHandling.coffee'
+import { Dialogs } from '/imports/util/dialogs.coffee'
 
+import '/imports/api/resources/bootstrap.min.js'
 import '/imports/api/resources/singlePageNav.js'
 import '/imports/api/resources/wow.js'
 
@@ -59,7 +60,7 @@ Template.welcome.events
 					language: TAPi18n.getLanguage()
 				, (e, r) ->
 					if e
-						handleError e
+						Dialogs.handleError e
 					else
 						swal TAPi18n.__('welcome.contact.enquirySuccessful'), '', 'success'
 
@@ -67,7 +68,7 @@ Template.welcome.events
 			else
 				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 					if e
-						handleError e
+						Dialogs.handleError e
 					else
 						swal 'Nachricht wurde verschickt!', '', 'success'
 

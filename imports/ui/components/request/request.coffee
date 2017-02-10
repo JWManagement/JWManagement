@@ -1,3 +1,5 @@
+import { wrs } from '/imports/util/delay.coffee'
+
 import './request.tpl.jade'
 import './request.scss'
 

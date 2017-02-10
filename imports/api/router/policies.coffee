@@ -1,3 +1,5 @@
+import { wrs } from '/imports/util/delay.coffee'
+
 FlowRouter.route '/:language/about',
 	name: 'about'
 	triggersEnter: -> wrs ->

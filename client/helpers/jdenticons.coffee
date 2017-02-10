@@ -1,3 +1,5 @@
+import { Delay } from '/imports/util/delay.coffee'
+
 jdenticonDep = new Tracker.Dependency
 
 Template.registerHelper 'jdenticon', (param = {hash:{}}) ->

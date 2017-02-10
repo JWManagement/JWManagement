@@ -1,3 +1,5 @@
+import { Permissions } from '/imports/util/permissions.coffee'
+
 @isExistingProject = Match.Where (projectId) ->
 	check projectId, String
 

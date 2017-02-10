@@ -1,4 +1,5 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
 
 Template.registerHelper 'isSupport', ->
 	Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP

@@ -1,4 +1,4 @@
-@Validations =
+export StringUtils =
 
 	trim: (str) -> str.trim().replace /\s+/g, ' '
 

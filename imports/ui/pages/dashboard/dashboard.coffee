@@ -1,5 +1,6 @@
 #import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
 
 import '/imports/ui/components/footer/footer.coffee'
 import '/imports/ui/components/project/project.coffee'

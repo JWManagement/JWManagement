@@ -1,3 +1,6 @@
+import { wrs } from '/imports/util/delay.coffee'
+import { Delay } from '/imports/util/delay.coffee'
+
 export Helpers =
 
 	checkLanguage: (c) ->

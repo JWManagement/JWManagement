@@ -1,5 +1,7 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
+import '/imports/api/resources/footable.js'
+
 import '/imports/ui/components/enquiryList/enquiryList.coffee'
 import '/imports/ui/components/allProjects/allProjects.coffee'
 import '/imports/ui/components/allUsers/allUsers.coffee'

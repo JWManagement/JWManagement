@@ -1,4 +1,5 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
 import { send } from '../send.coffee'
 
 export sendUnderstaffed = (shiftId, teamId) ->

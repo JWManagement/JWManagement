@@ -1,3 +1,5 @@
+import { wrs } from '/imports/util/delay.coffee'
+
 Template.navigation.helpers
 
 	name: -> TAPi18n.__('navigation.' + FlowRouter.getRouteName())
