@@ -1,7 +1,7 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
-import './landing.tpl.jade'
-import './landing.scss'
+import './welcome.tpl.jade'
+import './welcome.scss'
 
 import '/imports/api/resources/singlePageNav.js'
 import '/imports/api/resources/wow.js'
@@ -10,13 +10,13 @@ R =
 	selectedType: new ReactiveVar ''
 	latestReleases: new ReactiveVar ''
 
-Template.landing.helpers
+Template.welcome.helpers
 
 	latestReleases: -> R.latestReleases.get()
 
 	selectedType: -> R.selectedType.get()
 
-Template.landing.onRendered ->
+Template.welcome.onRendered ->
 
 	R.selectedType.set 'question'
 	R.latestReleases.set [ body: ['Loading...'], tag: '0.0.0' ]
@@ -29,7 +29,7 @@ Template.landing.onRendered ->
 			body: data.body.replace(/- /g, '').split('\n')
 			tag: data.tag_name
 
-Template.landing.events
+Template.welcome.events
 
 	'click .navbar-collapse a': -> $('.navbar-collapse').collapse('hide')
 

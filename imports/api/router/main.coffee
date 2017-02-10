@@ -20,7 +20,7 @@ FlowRouter.route '/:language/welcome',
 	name: 'welcome'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
-		BlazeLayout.render 'blankLayout', content: 'landing'
+		BlazeLayout.render 'blankLayout', content: 'welcome'
 
 FlowRouter.route '/:language/login',
 	name: 'login'
