@@ -1,4 +1,10 @@
+import { Dialogs } from '/imports/util/dialogs.coffee'
 import { wrs } from '/imports/util/delay.coffee'
+
+import './navigation.tpl.jade'
+import './navigation.scss'
+
+R = latestRelease: new ReactiveVar
 
 Template.navigation.helpers
 
@@ -23,14 +29,14 @@ Template.navigation.helpers
 
 	toLower: (str) -> str?.toLowerCase()
 
-	latestRelease: -> Session.get 'latestRelease'
+	latestRelease: -> R.latestRelease.get()
 
 Template.navigation.onCreated ->
 
 	PictureSubs.subscribe 'profilePicture', Meteor.userId()
 
 	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
-		Session.set 'latestRelease',
+		R.latestRelease.set
 			tag: a.data.tag_name
 			new: moment().diff(a.data.published_at, 'days') < 3
 
@@ -48,10 +54,10 @@ Template.navigation.events
 	'click #logout': (e) ->
 		e.preventDefault()
 
-		swalYesNo
+		Dialogs.swalYesNo
 			swal: 'logout'
 			type: 'info'
 			close: false
 			doConfirm: ->
 				swal title: TAPi18n.__('navigation.loggingOut'), showConfirmButton: false
-				Meteor.logout -> swalClose()
+				Meteor.logout -> Dialogs.swalClose()

@@ -1,0 +1,81 @@
+@import "../../styles/variables";
+
+.navigation-wrapper {
+	a.dropdown-toggle {
+		display         : table;
+		padding         : 5px 10px 0 !important;
+		background-color: $indigo !important;
+
+		.jdenticon {
+			display      : table-cell;
+			padding-right: 10px;
+		}
+
+		.profile-picture {
+			border-radius: 20px;
+			margin-right : 10px;
+		}
+
+		.username {
+			display       : table-cell;
+			vertical-align: middle;
+			padding-bottom: 5px;
+		}
+	}
+
+	ul.dropdown-menu {
+		padding: 10px;
+		border : none;
+
+		&.dropdown-menu-right {
+			left: auto;
+		}
+
+		li a {
+			padding: 5px !important;
+			color  : #555;
+
+			&:hover {
+				padding         : 5px;
+				color           : #333 !important;
+				background-color: #eee !important;
+			}
+		}
+
+		.version {
+			margin                    : 10px -10px -10px;
+			padding                   : 3px 10px;
+			text-align                : right;
+			background-color          : #eee;
+			border-bottom-left-radius : 3px;
+			border-bottom-right-radius: 3px;
+
+			a {
+				color           : $indigo;
+				margin          : 0 !important;
+				padding         : 0 !important;
+				font-size       : 10px;
+				background-color: inherit !important;
+			}
+
+			.label {
+				padding       : 4px 5px 3px;
+				margin-left   : -7px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.language-item > a:hover ~ .language-menu,
+.language-item:hover > .language-menu,
+.language-menu:hover {
+	top    : 60px;
+	right  : 150px;
+	width  : 200px;
+	display: block;
+
+	li > a > i {
+		line-height: inherit;
+	}
+}

@@ -2,6 +2,7 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { Permissions } from '/imports/util/permissions.coffee'
 
+import '/imports/ui/components/navigation/navigation.coffee'
 import '/imports/ui/components/footer/footer.coffee'
 import '/imports/ui/components/project/project.coffee'
 import '/imports/ui/components/projectFake/projectFake.coffee'
@@ -169,7 +170,6 @@ Template.dashboard.onRendered ->
 			onNext: (tour) ->
 				$('#myShifts').html('')
 				$('#personalShiftsContainer').html('')
-
 		,
 			element: '#profile'
 			placement: 'bottom'
