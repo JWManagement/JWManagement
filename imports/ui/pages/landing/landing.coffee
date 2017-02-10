@@ -1,34 +1,33 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
+import './landing.tpl.jade'
+import './landing.scss'
+
+import '/imports/api/resources/singlePageNav.js'
+import '/imports/api/resources/wow.js'
+
+R =
+	selectedType: new ReactiveVar ''
+	latestReleases: new ReactiveVar ''
+
 Template.landing.helpers
 
-	latestReleases: -> Session.get 'latestReleases'
+	latestReleases: -> R.latestReleases.get()
 
-	selectedType: -> Session.get 'selectedType'
+	selectedType: -> R.selectedType.get()
 
 Template.landing.onRendered ->
 
-	loadingDep = new Tracker.Dependency
+	R.selectedType.set 'question'
+	R.latestReleases.set [ body: ['Loading...'], tag: '0.0.0' ]
 
-	Session.set 'selectedType', ''
+	new WOW().init()
+	$('.navbar').singlePageNav offset: 70
 
-	Tracker.autorun (tracker) ->
-		loadingDep.depend()
-
-		unless WOW? && $('body').singlePageNav?
-			Delay -> loadingDep.changed()
-			null
-		else
-			new WOW().init()
-			$('.navbar').singlePageNav offset: 70
-
-			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
-				Session.set 'latestReleases',
-					a.data.map (data, index) -> if index < 3
-						body: data.body.replace(/- /g, '').split('\n')
-						tag: data.tag_name
-
-			tracker.stop()
+	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
+		R.latestReleases.set a.data.map (data, index) -> if index < 3
+			body: data.body.replace(/- /g, '').split('\n')
+			tag: data.tag_name
 
 Template.landing.events
 
@@ -38,7 +37,7 @@ Template.landing.events
 
 	'click #toDashboard': -> FlowRouter.go 'home', language: FlowRouter.getParam('language')
 
-	'change #type': (e) -> Session.set 'selectedType', $(e.target).find('option:selected').attr('type')
+	'change #type': (e) -> R.selectedType.set $(e.target).find('option:selected').attr('type')
 
 	'submit form': (e) ->
 		e.preventDefault()
