@@ -1,25 +1,20 @@
+import { Helpers } from './helpers.coffee'
 import { wrs } from '/imports/util/delay.coffee'
 
 FlowRouter.route '/:language/about',
 	name: 'about'
-	triggersEnter: -> wrs ->
-		TAPi18n.setLanguage 'de'
-		FlowRouter.setParams language: 'de'
+	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
 		BlazeLayout.render 'blankLayout', content: 'about'
 
 FlowRouter.route '/:language/privacy',
 	name: 'privacy'
-	triggersEnter: -> wrs ->
-		TAPi18n.setLanguage 'de'
-		FlowRouter.setParams language: 'de'
+	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
 		BlazeLayout.render 'blankLayout', content: 'privacy'
 
 FlowRouter.route '/:language/terms',
 	name: 'terms'
-	triggersEnter: -> wrs ->
-		TAPi18n.setLanguage 'de'
-		FlowRouter.setParams language: 'de'
+	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
 		BlazeLayout.render 'blankLayout', content: 'terms'

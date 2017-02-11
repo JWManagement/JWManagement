@@ -8,6 +8,9 @@ import '/imports/ui/layouts/inverted/inverted.coffee'
 
 # Pages
 import '/imports/ui/pages/notFound/notFound.coffee'
+import '/imports/ui/pages/about/about.coffee'
+import '/imports/ui/pages/privacy/privacy.coffee'
+import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/dashboard/dashboard.coffee'
 import '/imports/ui/pages/support/support.coffee'

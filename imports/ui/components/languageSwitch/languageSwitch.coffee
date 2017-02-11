@@ -1,5 +1,7 @@
 import { wrs } from '/imports/util/delay.coffee'
 
+import './languageSwitch.tpl.jade'
+
 Template.languageSwitch.events
 
 	'click .setLang': (e) ->

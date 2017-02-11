@@ -5,6 +5,8 @@ import '/imports/api/resources/bootstrap.min.js'
 import '/imports/api/resources/singlePageNav.js'
 import '/imports/api/resources/wow.js'
 
+import '/imports/ui/components/languageSwitch/languageSwitch.coffee'
+
 import './welcome.tpl.jade'
 import './welcome.scss'
 
