@@ -13,9 +13,13 @@ import '/imports/ui/pages/privacy/privacy.coffee'
 import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/dashboard/dashboard.coffee'
+import '/imports/ui/pages/profile/profile.coffee'
 import '/imports/ui/pages/support/support.coffee'
 
-# Bootstrap
+# Helpers
+import '/imports/api/helpers/jdenticon.coffee'
+
+# Resources
 import '/imports/api/resources/bootstrap.min.js'
 
 # TimeSync

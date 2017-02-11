@@ -1,3 +1,12 @@
+import { Dialogs } from '/imports/util/dialogs.coffee'
+import { Delay } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/util/delay.coffee'
+
+import '/imports/api/resources/bootstrap-datepicker.js'
+
+import './profile.tpl.jade'
+import './profile.scss'
+
 Template.profile.helpers
 
 	isField: (field, val) -> 'selected' if @profile? and @profile[field] == val
@@ -23,36 +32,29 @@ Template.profile.helpers
 
 Template.profile.onRendered ->
 
-	@autorun ->
-		$('.input-daterange').datepicker
-			format: 'dd.mm.yyyy'
-			language: FlowRouter.getParam('language')
-			ignoreReadonly: true
+	$('.input-daterange').datepicker
+		format: 'dd.mm.yyyy'
+		language: FlowRouter.getParam('language')
+		ignoreReadonly: true
 
-		$('#bdate-wrapper').datepicker
-			format: 'dd.mm.yyyy'
-			autoclose: true
-			forceParse: false
-			startDate: '1900/01/01'
-			language: FlowRouter.getParam('language')
-
-Template.profile.onRendered ->
-
-	$('.animated').removeClass('animated').addClass('skipped')
+	$('#bdate-wrapper').datepicker
+		format: 'dd.mm.yyyy'
+		autoclose: true
+		forceParse: false
+		startDate: '1900/01/01'
+		language: FlowRouter.getParam('language')
 
 Template.profile.onDestroyed ->
 
-	$('#editProfilePictureModal').modal('hide')
-	Session.set('target', undefined)
+	Session.set 'target', undefined
 
 Template.profile.events
 
-	'click .profile-image': (e) ->
-		wrs -> FlowRouter.setQueryParams editProfilePicture: true
+	'click .profile-image': (e) -> wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
-	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, handleSuccess
+	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, Dialogs.handleSuccess
 
-	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
+	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, Dialogs.handleSuccess
 
 	'change #username': (e) -> Meteor.call 'updateProfile', 'username', e.target.value, (error) ->
 		if error
@@ -60,19 +62,19 @@ Template.profile.events
 				swal TAPi18n.__('profile.usernameTaken'), '', 'error'
 				Delay -> $(e.target).val Meteor.user().username
 			else
-				handleError error
+				Dialogs.handleError error
 		else
-			handleSuccess error
+			Dialogs.handleSuccess error
 
-	'change #email': (e) -> Meteor.call 'updateProfile', 'email', e.target.value, handleSuccess
+	'change #email': (e) -> Meteor.call 'updateProfile', 'email', e.target.value, Dialogs.handleSuccess
 
-	'change #telefon': (e) -> Meteor.call 'updateProfile', 'telefon', e.target.value, handleSuccess
+	'change #telefon': (e) -> Meteor.call 'updateProfile', 'telefon', e.target.value, Dialogs.handleSuccess
 
-	'change #congregation': (e) -> Meteor.call 'updateProfile', 'congregation', e.target.value, handleSuccess
+	'change #congregation': (e) -> Meteor.call 'updateProfile', 'congregation', e.target.value, Dialogs.handleSuccess
 
-	'change #gender': (e) -> Meteor.call 'updateProfile', 'gender', e.target.value, handleSuccess
+	'change #gender': (e) -> Meteor.call 'updateProfile', 'gender', e.target.value, Dialogs.handleSuccess
 
-	'change #languages': (e) -> Meteor.call 'updateProfile', 'languages', e.target.value, handleSuccess
+	'change #languages': (e) -> Meteor.call 'updateProfile', 'languages', e.target.value, Dialogs.handleSuccess
 
 	'change #bdate': (e) ->
 		bdate = e.target.value
@@ -80,18 +82,18 @@ Template.profile.events
 		if bdate.indexOf('Invalid') > -1
 			Meteor.call 'updateProfile', 'bdate', ''
 		else
-			Meteor.call 'updateProfile', 'bdate', bdate, handleSuccess
+			Meteor.call 'updateProfile', 'bdate', bdate, Dialogs.handleSuccess
 
-	'change #pioneer': (e) -> Meteor.call 'updateProfile', 'pioneer', e.target.value, handleSuccess
+	'change #pioneer': (e) -> Meteor.call 'updateProfile', 'pioneer', e.target.value, Dialogs.handleSuccess
 
-	'change #privilege': (e) -> Meteor.call 'updateProfile', 'privilege', e.target.value, handleSuccess
+	'change #privilege': (e) -> Meteor.call 'updateProfile', 'privilege', e.target.value, Dialogs.handleSuccess
 
 	'change #shortTermCalls': (e) ->
-		Meteor.call 'updateProfile', 'shortTermCalls', e.target.checked, handleSuccess
+		Meteor.call 'updateProfile', 'shortTermCalls', e.target.checked, Dialogs.handleSuccess
 		if e.target.checked == false
 			Meteor.call 'updateProfile', 'shortTermCallsAlways', false
 
-	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, handleSuccess
+	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, Dialogs.handleSuccess
 
 	'click #changePassword': ->
 		swal.withForm
@@ -129,7 +131,7 @@ Template.profile.events
 				swal TAPi18n.__('password.notMatching'), '', 'error'
 
 	'click #deleteAccount': ->
-		swalYesNo
+		Dialogs.swalYesNo
 			swal: 'delete.account'
 			type: 'error'
 			doConfirm: ->
