@@ -1,0 +1,13 @@
+{
+  "apn": {
+    "passphrase": "jwm1914",
+    "key": "key.pem",
+    "cert": "cert.pem",
+    "gateway": "gateway.sandbox.push.apple.com"
+  },
+  "production": false,
+  "badge": true,
+  "sound": true,
+  "alert": true,
+  "vibrate": true
+}
