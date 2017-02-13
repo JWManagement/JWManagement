@@ -4,7 +4,7 @@ swal:
     onlyTeam: Dieses Team kannst du nicht löschen. Es ist das einzige Team in dieser Schicht. Jede Schicht braucht mindestens ein Team.
     noTeamleader: In jedem Team muss immer zwingend ein Teamleiter sein. Leider darf dieser Verkündiger nicht als Teamleiter eingeteilt werden.
     ownPermission: Du kannst dir selbst keine Berechtigungen entziehen. Das muss ein anderer Projekt-Administrator machen.
-    acceptionInformed: Dieser Teilnehmer wurde bereits über seine Zuteilung informiert.
+    approvalInformed: Dieser Teilnehmer wurde bereits über seine Zuteilung informiert.
     declinementInformed: Dieser Teilnehmer wurde bereits über seine Bewerbungs-Absage informiert.
     vacationEndInPast: Das Enddatum kann nicht in der Vergangenheit liegen.
     missingTag: Kein Tag definiert. Bitte lege zuerst eines unter Verwaltung > Einstellungen an.
@@ -236,7 +236,7 @@ swal:
             confirm: Löschen
             cancel: Abbrechen
     request:
-        accept:
+        approve:
             title: Verkündiger wirklich einteilen?
             text: Dieser Verkündiger wurde bereits abgelehnt. Stelle deshalb bitte sicher, dass er immernoch teilnehmen möchte und auch dazu in der Lage ist.
             confirm: Ja

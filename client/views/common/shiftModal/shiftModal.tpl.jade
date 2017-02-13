@@ -144,7 +144,7 @@
 										each sortUsers declined
 											.declined
 												.float-right
-													a#acceptRequest(href)
+													a#approveRequest(href)
 														i.fa.fa-thumbs-up.fa-fw
 													if email
 														a(href="mailto:{{email}}")
@@ -174,7 +174,7 @@
 									if getSelectedCount _id
 										.select-action-bar
 											if hasTl _id
-												button#acceptSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.acceptSelected'}}
+												button#approveSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.approveSelected'}}
 											else
 												button.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm.disabled {{_ 'modal.shift.notTeamleader'}}
 											button#declineSelected.btn.btn-danger.m-t-sm.m-b-sm {{_ 'modal.shift.declineSelected'}}

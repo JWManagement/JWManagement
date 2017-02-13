@@ -42,7 +42,7 @@ Meteor.methods
 
 						Meteor.call 'closeTeam', shiftId, teamId
 
-	acceptRequest: (shiftId, teamId, userId) ->
+	approveRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
 		user = Meteor.users.findOne userId, fields: _id: 1
 
@@ -63,15 +63,15 @@ Meteor.methods
 						if participant._id == userId
 							isTeamleader = (participant.teamleader || participant.substituteTeamleader)
 
-					for acceptedUser in team.pending.concat(team.declined) when acceptedUser._id == userId
-						acceptedUser.thisTeamleader = (!hasTeamleader && isTeamleader)
-						acceptedUser.checked = false
+					for approvedUser in team.pending.concat(team.declined) when approvedUser._id == userId
+						approvedUser.thisTeamleader = (!hasTeamleader && isTeamleader)
+						approvedUser.checked = false
 
 						Shifts.update _id: shiftId, 'teams._id': teamId,
 							$pull:
 								'teams.$.pending': _id: userId
 								'teams.$.declined': _id: userId
-							$addToSet: 'teams.$.participants': acceptedUser
+							$addToSet: 'teams.$.participants': approvedUser
 						break
 
 					Meteor.call 'closeTeam', shiftId, teamId
@@ -226,10 +226,10 @@ Meteor.methods
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant
 
 			for team in shift.teams when team._id == teamId
-				for notAcceptedUser in team.declined.concat(team.pending) when notAcceptedUser? && notAcceptedUser._id == userId
+				for notapprovedUser in team.declined.concat(team.pending) when notapprovedUser? && notapprovedUser._id == userId
 					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyRequested')
 
-				for acceptedUser in team.participants when acceptedUser? && acceptedUser._id == userId
+				for approvedUser in team.participants when approvedUser? && approvedUser._id == userId
 					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyParticipating')
 				break
 

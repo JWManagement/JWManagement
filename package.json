@@ -7,6 +7,7 @@
     "url": "https://github.com/JWDeveloper/JWManagement.git"
   },
   "dependencies": {
+    "aws-sdk": "^2.10.0",
     "babel-runtime": "^6.20.0",
     "bcrypt": "^0.8.7",
     "cordova-plugin-device": "^1.1.4",

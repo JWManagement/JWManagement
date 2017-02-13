@@ -59,7 +59,7 @@ modal:
         teams: Teams assigned to this shift
         helpText:
             tag: Set this shift tag. All users with permissions on this tag can view the shift.
-            scheduling: With 'accept immediately' applications will be accepted automaticly, when the minimum participant limit for the next team is reached.
+            scheduling: With 'approve immediately' requests will be approved automatically, when the minimum participant limit for the next team is reached.
         addTeam: Add a new team
         teamMin: Minimum participants:
         teamMax: Maximum participants:
@@ -119,7 +119,7 @@ modal:
         notTeamleader: No team leader
         selected: Selected:
         of: of
-        acceptSelected: Accept selected
+        approveSelected: Approve selected
         declineSelected: Decline selected
         report: Report
         allocations: Shifts
