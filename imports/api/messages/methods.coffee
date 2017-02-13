@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema'
 import { Messages } from './messages.coffee'
 
 export Methods =

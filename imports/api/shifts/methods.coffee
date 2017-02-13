@@ -1,3 +1,4 @@
+import SimpleSchema from 'simpl-schema'
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
 import { Validators } from '/imports/util/validators.coffee'

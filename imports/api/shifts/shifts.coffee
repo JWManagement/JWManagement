@@ -1,6 +1,7 @@
+import SimpleSchema from 'simpl-schema'
+import { Mongo } from 'meteor/mongo'
 import { Methods } from './methods.coffee'
 import { Helpers } from './helpers.coffee'
-import { Mongo } from 'meteor/mongo'
 
 export Shifts = new Mongo.Collection 'shifts'
 
@@ -14,13 +15,8 @@ Shifts.deny
 
 Shifts.schema = new SimpleSchema
 
-	_id:
-		type: String
-		regEx: SimpleSchema.RegEx.Id
-		autoValue: -> Random.id()
 	createdAt:
 		type: Date
-		denyUpdate: true
 		autoValue: -> new Date
 	projectId:
 		type: String
@@ -43,7 +39,7 @@ Shifts.schema = new SimpleSchema
 		type: String
 		autoValue: -> 'direct'
 	teams:
-		type: [Object]
+		type: Array
 		minCount: 1
 	'teams.$._id':
 		type: String
@@ -58,7 +54,7 @@ Shifts.schema = new SimpleSchema
 	'teams.$.meetingEnd':
 		type: String
 	'teams.$.participants':
-		type: [Object]
+		type: Array
 		minCount: 0
 	'teams.$.participants.$.teamleader':
 		type: String
