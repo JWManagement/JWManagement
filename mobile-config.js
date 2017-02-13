@@ -1,6 +1,6 @@
 App.info({
   id: 'org.jwmanagement',
-  name: 'JW Management',
+  name: 'JWManagement',
   description: 'A highly configurable shift management system for Jehovah\'s Witnesses. Built to power projects like the metropolitan witnessing, construction projects and/or similar',
   author: 'JW Developer',
   email: 'support@jwmanagement.org',
@@ -23,3 +23,5 @@ App.setPreference('Orientation', 'default');
 App.setPreference('Orientation', 'all', 'ios');
 
 App.accessRule("blob:*");
+
+App.configurePlugin('phonegap-plugin-push', { SENDER_ID: 12341234 });
