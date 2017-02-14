@@ -325,47 +325,61 @@ export Assistant =
 			nextTeam = false
 			repeatParticipants = true
 			team = R.teams.filter((t) -> t._id == team._id && t.shiftId == team.shiftId)[0]
+			doneParticipants = []
 
 			while repeatParticipants
 				repeatParticipants = false
 
-			# Mögliche beworbene Teilnehmer durchlaufen
+				# Mögliche beworbene Teilnehmer durchlaufen
 				for participant, index in team.pending when !nextTeam && !repeatParticipants
-				changeable = Helpers.searchChangeables participant._id
-					changeables = []
-				maxReachedDay = Helpers.getMaxReachedDay participant, team
+					maxReachedDay = Helpers.getMaxReachedDay participant, team
+					maxReachedPeriod = Helpers.getMaxReachedPeriod participant
 
-				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
-				if maxReachedDay
-					changeables = changeables.filter (changeable) ->
-						fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
-						fTeam.date == team.date
+					if !maxReachedDay && !maxReachedPeriod
+						Helpers.pendingToParticipants team.shiftId, team._id, participant._id, false
 
-				# Mögliche Tausch-Kandidaten für diesen Teilnehmer heraussuchen
-				for changeable in changeables
-					maxReached = Helpers.getMaxReachedPeriod changeable
+						doneParticipants.push participant
 
-					if !maxReached
-						# Tausch in den anderen Schichten vornehmen
-						for waypoint in changeable.way
-							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
-							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
+						if team.participants.length < team.min
+							# Nächster Bewerber
+							repeatParticipants = true
+						else
+							# Nächstes Team
+							nextTeam = true
+					else
+						changeable = Helpers.searchChangeables participant._id
+						changeables = []
 
-							doneWaypoints.push waypoint
+						# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
+						if maxReachedDay
+							changeables = changeables.filter (changeable) ->
+								fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
+								fTeam.date == team.date
 
-						# Teilnehmer dank des gewonnenen Platzes in dieser Schicht einteilen
-						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, false
+						# Mögliche Tausch-Kandidaten für diesen Teilnehmer heraussuchen
+						for changeable in changeables
+							maxReached = Helpers.getMaxReachedPeriod changeable
+							if !maxReached
+								# Tausch in den anderen Schichten vornehmen
+								for waypoint in changeable.way
+									Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+									Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
 
-							if team.participants.length < team.min
-								# Nächster Bewerber
-								repeatParticipants = true
-								#console.log '<'
-								break
-							else
-						# Nächstes Team
-								nextTeam = true
-								#console.log '=='
-						break
+									doneWaypoints.push waypoint
+
+								# Teilnehmer dank des gewonnenen Platzes in dieser Schicht einteilen
+								Helpers.pendingToParticipants team.shiftId, team._id, participant._id, false
+
+								if team.participants.length < team.min
+									# Nächster Bewerber
+									repeatParticipants = true
+									#console.log '<'
+									break
+								else
+									# Nächstes Team
+									nextTeam = true
+									#console.log '=='
+									break
 
 			# Zurücksetzen, wenn nicht genug Teilnehmer eingeteilt werden konnten
 			if team.participants.length < team.min
@@ -373,8 +387,11 @@ export Assistant =
 				doneWaypoints.slice(0).reverse()
 
 				for waypoint in doneWaypoints
-				Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.toId
-				Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.fromId, false
+					Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.toId
+					Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.fromId, false
+
+				for participant in doneParticipants
+					Helpers.participantsToPending team.shiftId, team._id, participant._id
 
 	saveToDB: ->
 
