@@ -11,55 +11,55 @@ Meteor.methods
 		Assistant.fillUsersArray()
 		Assistant.fillTeamsArray()
 
-		Assistant.setTeamleaders()
 		console.log '> setTeamleaders'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		Assistant.optimizeTeamleaders()
-		console.log '> optimizeTeamleaders'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		console.log Helpers.countAbandonedTeamsTl()
 		Assistant.setTeamleaders()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log '> optimizeTeamleaders'
+		Assistant.optimizeTeamleaders()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log Helpers.countAbandonedTeamsTl()
 		console.log '>> setTeamleaders'
+		Assistant.setTeamleaders()
 		console.log Helpers.countAbandonedTeamsTl()
-		Assistant.optimizeMaxReachedTeamleaders()
 		console.log '>> optimizeMaxReachedTeamleaders'
+		Assistant.optimizeMaxReachedTeamleaders()
 		console.log Helpers.countAbandonedTeamsTl()
 		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		Assistant.optimizeTeamleaders()
 		console.log '>> optimizeTeamleaders'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-
-		Assistant.setMinParticipants()
-		console.log '>>> setMinParticipants'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		console.log Helpers.countAbandonedTeamsUsers()
-		Assistant.optimizeParticipants()
-		console.log '>>> optimizeParticipants'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		Assistant.setMinParticipants()
-		console.log '>>>> setMinParticipants'
-		console.log Helpers.countAbandonedTeamsUsers()
-		Assistant.optimizeMaxReachedParticipants()
-		console.log '>>>> optimizeMaxReachedTeamleaders'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		console.log Helpers.countAbandonedTeamsUsers()
-
-		console.log '>>>> optimizeParticipants'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		Assistant.setMinParticipants()
-		console.log '>>>> setMinParticipants'
-		console.log Helpers.countAbandonedTeamsUsers()
-		Assistant.optimizeMaxReachedParticipants()
-		console.log '>>>> optimizeMaxReachedTeamleaders'
-		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
-		console.log Helpers.countAbandonedTeamsUsers()
-
 		Assistant.optimizeTeamleaders()
-		console.log '>>>>> optimizeTeamleaders'
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+
+		console.log '>>> setMinParticipants'
+		Assistant.setMinParticipants()
 		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
 		console.log Helpers.countAbandonedTeamsUsers()
+		console.log '>>> optimizeParticipants'
 		Assistant.optimizeParticipants()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log '>>>> setMinParticipants'
+		Assistant.setMinParticipants()
+		console.log Helpers.countAbandonedTeamsUsers()
+		console.log '>>>> optimizeMaxReachedParticipants'
+		Assistant.optimizeMaxReachedParticipants()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log '>>>> optimizeParticipants'
+		console.log Helpers.countAbandonedTeamsUsers()
+
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log '>>>> setMinParticipants'
+		Assistant.setMinParticipants()
+		console.log Helpers.countAbandonedTeamsUsers()
+		console.log '>>>> optimizeMaxReachedParticipants'
+		Assistant.optimizeMaxReachedParticipants()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log Helpers.countAbandonedTeamsUsers()
+
+		console.log '>>>>> optimizeTeamleaders'
+		Assistant.optimizeTeamleaders()
+		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
+		console.log Helpers.countAbandonedTeamsUsers()
 		console.log '>>>>> optimizeParticipants'
+		Assistant.optimizeParticipants()
 		console.log Math.round 100 * Helpers.getAverageDeviationRatioAll()
 		console.log Helpers.countAbandonedTeamsUsers()
 
