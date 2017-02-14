@@ -43,9 +43,9 @@ export Assistant =
 									acceptions++
 
 						# User anlegen
-						user.targetPeriod = 1 # Random.choice [1, 2, 3] # TODO: CHANGE get for this tag
-						user.maxPeriod = 2 # user.targetPeriod + 1 # TODO: CHANGE get for this tag
-						user.maxDay = 2 # TODO: CHANGE get for this tag
+						user.targetPeriod = 3 # Random.choice [1, 2, 3] # TODO: CHANGE get for this tag
+						user.maxPeriod = 3 # user.targetPeriod + 1 # TODO: CHANGE get for this tag
+						user.maxDay = 1 # TODO: CHANGE get for this tag
 						user.acceptions = acceptions
 						user.doubleShiftAllowed = true
 						user.targetAcceptionRatio = user.acceptions / user.targetPeriod
@@ -71,6 +71,8 @@ export Assistant =
 					team.start = shift.start
 					team.end = shift.end
 					team.requestAmount = team.pending.length
+					team.min = 5
+					team.max = 6
 
 					if team.requestAmount >= team.min # TODO: als wahrscheinlichkeit berücksichten
 						R.teams.push team
@@ -117,21 +119,26 @@ export Assistant =
 
 		endReached = false
 
+		averageRatio = Helpers.getAverageRatioAll()
+
 		while !endReached
+			doRestart = false
+
 			# Sortiere alle Teamleiter nach deren Abstand zur durchschnittlichen Ratio absteigend
-			teamleadersByDeviationRatio = R.setTeamleaders.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
+			teamleadersByDeviationRatio = R.setTeamleaders.sort (a, b) ->
+				Math.abs(averageRatio - R.users[b._id].targetAcceptionRatio) - Math.abs(averageRatio - R.users[a._id].targetAcceptionRatio)
 
 			# Wenn keine Teamleiter gefunden wurden, brich direkt ab
 			if teamleadersByDeviationRatio.length == 0 then endReached = true
 
 			# Durchlaufe alle Teamleiter und versuche zu optimieren
-			for teamleader, index in teamleadersByDeviationRatio
+			for teamleader, index in teamleadersByDeviationRatio when !doRestart
 				# Suche alle möglichen Tausch-Kandidaten
 				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
 
 				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
-				teamleaderChangeables = teamleaderChangeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
-				teamleaderChangeables = teamleaderChangeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < teamleader.targetAcceptionRatio
+				teamleaderChangeables = teamleaderChangeables.sort (a, b) ->
+					Math.abs(R.users[teamleader._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio) - Math.abs(R.users[teamleader._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio)
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in teamleaderChangeables
@@ -139,21 +146,35 @@ export Assistant =
 
 					if !maxReached
 						# Prüfe, ob Tauschen Sinn macht
+						#beforeRatio = Helpers.getAverageDeviationRatioAll()
+
 						beforeRatioDifference = Math.abs R.users[teamleader._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
 						newTargetAcceptionRatioTl = (R.users[teamleader._id].acceptions - 1) / R.users[teamleader._id].targetPeriod
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
 						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
 
+						#R.users[teamleader._id].acceptions--
+						#R.users[teamleader._id].targetAcceptionRatio = newTargetAcceptionRatioTl
+						#R.users[changeable._id].acceptions++
+						#R.users[changeable._id].targetAcceptionRatio = newTargetAcceptionRatioCh
+
+						#afterRatio = Helpers.getAverageDeviationRatioAll()
+
+						#R.users[teamleader._id].acceptions++
+						#R.users[teamleader._id].targetAcceptionRatio = R.users[teamleader._id].acceptions / R.users[teamleader._id].targetPeriod
+						#R.users[changeable._id].acceptions--
+						#R.users[changeable._id].targetAcceptionRatio = R.users[changeable._id].acceptions / R.users[changeable._id].targetPeriod
+
 						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
 						if afterRatioDifference < beforeRatioDifference
+						#if afterRatio < beforeRatio
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
 								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, true
 
-							cIndex = teamleaderChangeables.length
-
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
-							index = teamleadersByDeviationRatio.length
+							doRestart = true
+							break
 
 				# Wenn letzer Teamleiter erreicht, beende Optimierung
 				if index == teamleadersByDeviationRatio.length - 1 then endReached = true
@@ -163,8 +184,10 @@ export Assistant =
 		# Alle Teams ohne Teilnehmer durchlaufen
 		for team in R.teams.filter((team) -> team.participants.length == 0)
 
+			nextTeam = false
+
 			# Mögliche beworbene Teamleiter durchlaufen
-			for teamleader, index in team.pending when teamleader.teamleader || teamleader.substituteTeamleader
+			for teamleader, index in team.pending when !nextTeam && (teamleader.teamleader || teamleader.substituteTeamleader)
 				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
 				maxReachedDay = Helpers.getMaxReachedDay teamleader, team
 
@@ -188,14 +211,12 @@ export Assistant =
 						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, true
 
 						# Nächstes Team
-						index = team.pending.length
+						nextTeam = true
 						break
 
 	setMinParticipants: ->
 
-		teamsWithTeamleader = R.teams.filter (team) ->
-			for u in team.participants when u.thisTeamleader then return true
-			false
+		teamsWithTeamleader = R.teams.filter (team) -> team.participants.length > 0
 
 		for team in teamsWithTeamleader when team.participants.length < team.min && team.pending.length > 0
 			allRequests = []
@@ -213,8 +234,8 @@ export Assistant =
 				allRequests = allRequests.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
 
 				# Bewerber einteilen, bis Team Minimum erreicht ist
-				for request, i in allRequests when team.participants.length < team.min
-					Helpers.pendingToParticipants team.shiftId, team._id, allRequests[i]._id, false
+				for request in allRequests when team.participants.length < team.min
+					Helpers.pendingToParticipants team.shiftId, team._id, request._id, false
 
 					R.setParticipants.push request
 
@@ -223,20 +244,31 @@ export Assistant =
 		endReached = false
 
 		while !endReached
+			averageRatio = Helpers.getAverageRatioAll()
+
 			# Sortiere alle Bewerber nach deren Abstand zur durchschnittlichen Ratio absteigend
-			participantsByDeviationRatio = R.setParticipants.sort (a, b) -> R.users[b._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio
+			participantsByDeviationRatio = R.setParticipants.sort (a, b) ->
+				a = R.users[a._id]
+				b = R.users[b._id]
+				Math.abs(averageRatio - b.targetAcceptionRatio) - Math.abs(averageRatio - a.targetAcceptionRatio)
 
 			# Wenn kein eingeteilten Bewerber gefunden wurden, brich direkt ab
 			if participantsByDeviationRatio.length == 0 then endReached = true
 
+			restartOptimizing = false
+
 			# Durchlaufe alle eingeteilten Bewerber und versuche zu optimieren
-			for participant, index in participantsByDeviationRatio
+			for participant, index in participantsByDeviationRatio when !restartOptimizing
+
 				# Suche alle möglichen Tausch-Kandidaten
 				changeables = Helpers.searchChangeables participant._id
 
 				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
-				changeables = changeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
-				changeables = changeables.filter (changeable) -> R.users[changeable._id].targetAcceptionRatio < participant.targetAcceptionRatio
+				changeables = changeables.sort (a, b) ->
+					a = R.users[a._id]
+					b = R.users[b._id]
+					p = R.users[participant._id]
+					Math.abs(p.targetAcceptionRatio - a.targetAcceptionRatio) - Math.abs(p.targetAcceptionRatio - b.targetAcceptionRatio)
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in changeables
@@ -244,21 +276,40 @@ export Assistant =
 
 					if !maxReached
 						# Prüfe, ob Tauschen Sinn macht
+						#beforeRatio = Helpers.getAverageDeviationRatioAll()
+
 						beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
 						newTargetAcceptionRatioTl = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
 						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
 
+						#R.users[participant._id].acceptions--
+						#R.users[participant._id].targetAcceptionRatio = newTargetAcceptionRatioTl
+						#R.users[changeable._id].acceptions++
+						#R.users[changeable._id].targetAcceptionRatio = newTargetAcceptionRatioCh
+
+						#afterRatio = Helpers.getAverageDeviationRatioAll()
+
+						#R.users[participant._id].acceptions++
+						#R.users[participant._id].targetAcceptionRatio = R.users[participant._id].acceptions / R.users[participant._id].targetPeriod
+						#R.users[changeable._id].acceptions--
+						#R.users[changeable._id].targetAcceptionRatio = R.users[changeable._id].acceptions / R.users[changeable._id].targetPeriod
+
 						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
 						if afterRatioDifference < beforeRatioDifference
+						#if afterRatio < beforeRatio
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+
+							for waypoint in changeable.way
+								#console.log 'pe2pa: ' + R.users[waypoint.toId].name
 								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
 
-							cIndex = changeables.length
+							#console.log 'AAA'
 
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
-							index = participantsByDeviationRatio.length
+							restartOptimizing = true
+							break
 						else
 							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
 
@@ -271,10 +322,17 @@ export Assistant =
 		for team in R.teams.filter((team) -> team.participants.length == 1)
 			i = 0
 			doneWaypoints = []
+			nextTeam = false
+			repeatParticipants = true
+			team = R.teams.filter((t) -> t._id == team._id && t.shiftId == team.shiftId)[0]
+
+			while repeatParticipants
+				repeatParticipants = false
 
 			# Mögliche beworbene Teilnehmer durchlaufen
-			for participant, index in team.pending
+				for participant, index in team.pending when !nextTeam && !repeatParticipants
 				changeable = Helpers.searchChangeables participant._id
+					changeables = []
 				maxReachedDay = Helpers.getMaxReachedDay participant, team
 
 				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
@@ -298,14 +356,23 @@ export Assistant =
 						# Teilnehmer dank des gewonnenen Platzes in dieser Schicht einteilen
 						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, false
 
+							if team.participants.length < team.min
+								# Nächster Bewerber
+								repeatParticipants = true
+								#console.log '<'
+								break
+							else
 						# Nächstes Team
-						index = team.pending.length
+								nextTeam = true
+								#console.log '=='
 						break
 
-						# TODO: For bis team.min erreicht, falls nicht rückgängig
-
 			# Zurücksetzen, wenn nicht genug Teilnehmer eingeteilt werden konnten
-			for waypoint in doneWaypoints.slice(0).reverse()
+			if team.participants.length < team.min
+				#console.log 'reverse'
+				doneWaypoints.slice(0).reverse()
+
+				for waypoint in doneWaypoints
 				Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.toId
 				Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.fromId, false
 

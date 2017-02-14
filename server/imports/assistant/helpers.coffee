@@ -28,15 +28,15 @@ export Helpers =
 				maxReachedDay = this.getMaxReachedDay user, team
 				maxReachedPeriod = this.getMaxReachedPeriod user
 
-				if maxReachedDay || maxReachedPeriod
+				if maxReachedDay
+					console.log u.name + ' bereits am Tages Maximum'
+				else if maxReachedPeriod
 					console.log u.name + ' bereits am Maximum'
 					return
 
 			team['participants'].push user
 
-			for userItem, index in team['pending'] when userItem._id == userId
-				team['pending'].splice index, 1
-				break
+			team.pending = team.pending.filter (u) -> u._id != userId
 
 		# Acceptions erhöhen
 		R.users[userId].acceptions += 1
@@ -75,27 +75,19 @@ export Helpers =
 
 			team['pending'].push user
 
-			for userItem, index in team['participants'] when userItem._id == userId
-				team['participants'].splice index, 1
-				break
+			team.participants = team.participants.filter (u) -> u._id != userId
 
 		# Acceptions senken
 		R.users[userId].acceptions -= 1
 
 		# Schicht aus teamleader confirmations Array entfernen
-		for tlConfirmation, index in R.users[userId].tlConfirmations
-			if tlConfirmation.shiftId = shiftId && tlConfirmation.teamId = teamId
-				R.users[userId].tlConfirmations.splice index, 1
-				break
+		R.users[userId].tlConfirmations = R.users[userId].tlConfirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId == teamId)
 
 		# Schicht aus confirmations Array entfernen
-		for confirmation, index in R.users[userId].confirmations
-			if confirmation.shiftId = shiftId && confirmation.teamId = teamId
-				R.users[userId].confirmations.splice index, 1
-				break
+		R.users[userId].confirmations = R.users[userId].confirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId = teamId)
 
 		# Ratio errechnen
-		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].target
+		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
 
 	searchChangeables: (userId) ->
 
