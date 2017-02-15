@@ -219,6 +219,7 @@ modal:
     uploadUserFile:
         title: User-File upload
         helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant' or 'elder'), Congregation
+        helpEncoding: The file has to be UTF-8 encoded to support all characters
         uploadFile: Upload CSV-File
         stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers
