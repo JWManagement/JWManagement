@@ -215,10 +215,15 @@
 			}
 		}
 
-		.dropdown-menu li a {
-			overflow-x   : hidden;
-			text-overflow: ellipsis;
-			padding-right: 5px;
+		.dropdown-menu {
+			max-height: 260px;
+			overflow-x: hidden;
+
+			li a {
+				overflow-x   : hidden;
+				text-overflow: ellipsis;
+				padding-right: 5px;
+			}
 		}
 	}
 
