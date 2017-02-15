@@ -1,3 +1,4 @@
+import { ReactiveVar } from 'meteor/reactive-var'
 import { Dialogs } from '/imports/util/dialogs.coffee'
 import { wrs } from '/imports/util/delay.coffee'
 

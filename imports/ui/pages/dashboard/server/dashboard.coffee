@@ -8,11 +8,8 @@ Meteor.publish 'dashboard', ->
 		Projects.find _id: $in: projectIds,
 			fields:
 				name: 1
-				description: 1
 				news: 1
 				tags: 1
-				teams: 1
-				meetings: 1
 	,
 		Shifts.find
 			projectId: $in: projectIds

@@ -1,3 +1,4 @@
+import { ReactiveVar } from 'meteor/reactive-var'
 import { Messages } from '/imports/api/messages/messages.coffee'
 import { Dialogs } from '/imports/util/dialogs.coffee'
 
