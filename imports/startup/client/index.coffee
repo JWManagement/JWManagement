@@ -1,3 +1,6 @@
+# Meteor.users
+import '/imports/api/users/users.coffee'
+
 # Router
 import '/imports/api/router/router.coffee'
 
