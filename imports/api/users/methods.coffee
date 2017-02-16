@@ -14,6 +14,11 @@ export Methods =
 
 	vacation: VacationMethods
 
+	picture: remove: new ValidatedMethod
+		name: 'Meteor.users.methods.picture.remove'
+		validate: ->
+		run: -> Pictures.remove userId: Meteor.userId()
+
 	remove: new ValidatedMethod
 		name: 'Meteor.users.methods.remove'
 		validate: ->

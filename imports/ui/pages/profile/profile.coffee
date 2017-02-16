@@ -3,6 +3,8 @@ import { Delay } from '/imports/util/delay.coffee'
 import { wrs } from '/imports/util/delay.coffee'
 
 import '/imports/api/resources/bootstrap-datepicker.js'
+
+import '/imports/ui/components/editProfilePictureModal/editProfilePictureModal.coffee'
 import '/imports/ui/components/profileDetails/profileDetails.coffee'
 import '/imports/ui/components/profileSettings/profileSettings.coffee'
 import '/imports/ui/components/profileAvailability/profileAvailability.coffee'
