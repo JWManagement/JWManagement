@@ -5,6 +5,7 @@ import { wrs } from '/imports/util/delay.coffee'
 import '/imports/api/resources/bootstrap-datepicker.js'
 import '/imports/ui/components/profileDetails/profileDetails.coffee'
 import '/imports/ui/components/profileSettings/profileSettings.coffee'
+import '/imports/ui/components/profileAvailability/profileAvailability.coffee'
 
 import './profile.tpl.jade'
 import './profile.scss'
@@ -13,22 +14,11 @@ Template.profile.helpers
 
 	picture: -> Pictures.findOne userId: Meteor.userId()
 
-	isAvailable: (day, hour) ->
-		if @profile.available? && Object.keys(@profile.available).length > 0
-			if parseInt(hour) * 100 in @profile.available[day]
-				'available'
-
 	getVacations: ->
 		if @profile.vacations?
 			@profile.vacations
 				.filter (v) -> v.end >= parseInt(moment().format('YYYYDDDD'))
 				.sort (a, b) -> a.start - b.start
-
-	weekdays: -> [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
-
-	hours: -> [0..23]
-
-	negate: (value) -> !value
 
 Template.profile.onRendered ->
 
@@ -45,22 +35,7 @@ Template.profile.events
 
 	'click .profile-image': (e) -> wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
-		Meteor.users.methods.profile.update.call
 		, Dialogs.handleSuccess
-
-			Meteor.users.methods.profile.update.call
-
-		Meteor.users.methods.profile.update.call
-		, Dialogs.handleSuccess
-
-	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, Dialogs.handleSuccess
-
-	'click .timetable td:not(.day)': (e) ->
-		day = $(e.target).parent().attr('data-day')
-		hour = $(e.target).attr('data-hour') * 100
-
-		if day? && hour?
-			Meteor.call 'toggleAvailability', day, hour
 
 	'click .delVacation': (e) -> Meteor.call 'removeVacation', @_id
 

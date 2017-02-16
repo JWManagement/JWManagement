@@ -10,7 +10,22 @@ export ProfileMethods =
 		name: 'Meteor.users.methods.profile.update'
 		validate:
 			new SimpleSchema
-				field: type: String
+				field:
+					type: String
+					allowedValues: [
+						'username'
+						'firstname'
+						'lastname'
+						'email'
+						'telefon'
+						'congregation'
+						'language'
+						'languages'
+						'gender'
+						'bdate'
+						'pioneer'
+						'privilege'
+					]
 				value: type: String
 			.validator()
 		run: (args) -> if Meteor.isServer
