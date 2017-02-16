@@ -2,10 +2,10 @@ import SimpleSchema from 'simpl-schema'
 
 import { Validators } from '/imports/util/validators.coffee'
 
-import { ProfileMethods } from './profile.coffee'
-import { VacationMethods } from './vacation.coffee'
-import { PermissionMethods } from './permissions.coffee'
-import { AvailabilityMethods } from './availability.coffee'
+import { ProfileMethods } from './methods/profile.coffee'
+import { VacationMethods } from './methods/vacation.coffee'
+import { PermissionMethods } from './methods/permissions.coffee'
+import { AvailabilityMethods } from './methods/availability.coffee'
 
 export Methods =
 
