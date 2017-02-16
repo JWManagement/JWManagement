@@ -8,3 +8,7 @@ export Validators =
 
 		if !Roles.userIsInRole Meteor.userId(), Permissions.participant, shift.tagId
 			throw new Meteor.Error 'notTagParticipant', ''
+
+	isAdmin: (projectId) ->
+		if !Roles.userIsInRole Meteor.userId(), Permissions.admin, projectId
+			throw new Meteor.Error 'notAdmin', ''

@@ -22,6 +22,20 @@ export Methods =
 		validate: ->
 		run: -> Pictures.remove userId: Meteor.userId()
 
+	state: set: new ValidatedMethod
+		name: 'Meteor.users.methods.state.set'
+		validate: (args) ->
+			Validators.isAdmin args.projectId
+			new SimpleSchema
+				projectId: type: String
+				userId: type: String
+				state:
+					type: String
+					allowedValues: ['created', 'invited', 'active']
+			.validator()
+		run: (args) ->
+			Meteor.users.update args.userId, $set: state: args.state
+
 	remove: new ValidatedMethod
 		name: 'Meteor.users.methods.remove'
 		validate: ->

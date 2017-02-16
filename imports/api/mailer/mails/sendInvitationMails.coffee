@@ -30,4 +30,7 @@ export sendInvitationMails = (userIds, projectId) ->
 			if err
 				console.log 'sendMail failed: ' + err
 			else
-				Meteor.call 'setState', projectId, userId, 'invited'
+				Meteor.users.methods.state.set.call
+					projectId: projectId
+					userId: userId
+					state: 'invited'
