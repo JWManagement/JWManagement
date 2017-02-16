@@ -1,5 +1,4 @@
 import { Dialogs } from '/imports/util/dialogs.coffee'
-import { Delay } from '/imports/util/delay.coffee'
 
 import './profileAvailability.tpl.jade'
 

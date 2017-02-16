@@ -4,8 +4,8 @@ if queryParam 'editProfilePicture'
 	.container-fluid
 		with currentUser
 			.row.m-b-lg.m-t-lg
-				.col-md-6.animated.fadeInRight
-					.profile-image-wrapper.animated.fadeInLeft
+				.col-md-6
+					.profile-image-wrapper
 						with picture
 							.profile-image
 								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')

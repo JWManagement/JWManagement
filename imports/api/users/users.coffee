@@ -25,7 +25,9 @@ Meteor.users.schema = new SimpleSchema
 		type: Object
 		blackbox: true
 		optional: true
-	state: type: String
+	state:
+		type: String
+		allowedValues: ['created', 'invited', 'active']
 	services:
 		type: Object
 		optional: true
