@@ -9,7 +9,10 @@ export Helpers =
 			moment.locale(c.params.language)
 
 			if Meteor.user()
-				Delay -> Meteor.call 'updateProfile', 'language', c.params.language
+				Delay -> Meteor.users.methods.profile.update.call
+					field: 'language'
+					value: c.params.language
+
 			c.params.language
 		else if navigator.language.indexOf('de') > -1
 			wrs -> FlowRouter.setParams language: 'de'

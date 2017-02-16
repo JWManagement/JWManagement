@@ -52,41 +52,86 @@ Template.profile.events
 
 	'click .profile-image': (e) -> wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
-	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, Dialogs.handleSuccess
+	'change #firstname': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'firstname'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, Dialogs.handleSuccess
+	'change #lastname': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'lastname'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #username': (e) -> Meteor.call 'updateProfile', 'username', e.target.value, (error) ->
-		if error
-			if error.error == 406
-				swal TAPi18n.__('profile.usernameTaken'), '', 'error'
-				Delay -> $(e.target).val Meteor.user().username
+	'change #username': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'username'
+			value: e.target.value
+		, (error) ->
+			if error
+				if error.error == 406
+					swal TAPi18n.__('profile.usernameTaken'), '', 'error'
+					Delay -> $(e.target).val Meteor.user().username
+				else
+					Dialogs.handleError error
 			else
-				Dialogs.handleError error
-		else
-			Dialogs.handleSuccess error
+				Dialogs.handleSuccess error
 
-	'change #email': (e) -> Meteor.call 'updateProfile', 'email', e.target.value, Dialogs.handleSuccess
+	'change #email': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'email'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #telefon': (e) -> Meteor.call 'updateProfile', 'telefon', e.target.value, Dialogs.handleSuccess
+	'change #telefon': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'telefon'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #congregation': (e) -> Meteor.call 'updateProfile', 'congregation', e.target.value, Dialogs.handleSuccess
+	'change #congregation': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'congregation'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #gender': (e) -> Meteor.call 'updateProfile', 'gender', e.target.value, Dialogs.handleSuccess
+	'change #gender': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'gender'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #languages': (e) -> Meteor.call 'updateProfile', 'languages', e.target.value, Dialogs.handleSuccess
+	'change #languages': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'languages'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
 	'change #bdate': (e) ->
 		bdate = e.target.value
 
 		if bdate.indexOf('Invalid') > -1
-			Meteor.call 'updateProfile', 'bdate', ''
+			Meteor.users.methods.profile.update.call
+				field: 'bdate'
+				value: ''
 		else
-			Meteor.call 'updateProfile', 'bdate', bdate, Dialogs.handleSuccess
+			Meteor.users.methods.profile.update.call
+				field: 'bdate'
+				value: bdate
+			, Dialogs.handleSuccess
 
-	'change #pioneer': (e) -> Meteor.call 'updateProfile', 'pioneer', e.target.value, Dialogs.handleSuccess
+	'change #pioneer': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'pioneer'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
-	'change #privilege': (e) -> Meteor.call 'updateProfile', 'privilege', e.target.value, Dialogs.handleSuccess
+	'change #privilege': (e) ->
+		Meteor.users.methods.profile.update.call
+			field: 'privilege'
+			value: e.target.value
+		, Dialogs.handleSuccess
 
 	'change #shortTermCalls': (e) ->
 		Meteor.call 'updateProfile', 'shortTermCalls', e.target.checked, Dialogs.handleSuccess
