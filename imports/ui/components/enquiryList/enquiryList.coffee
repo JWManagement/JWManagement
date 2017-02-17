@@ -1,5 +1,9 @@
 import './enquiryList.tpl.jade'
 
+Template.enquiryList.helpers
+
+	countEnquiries: -> @enquiries.length
+
 Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 
 	enquiries = Template.currentData().enquiries
@@ -24,7 +28,7 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 			content: enquiry.text
 			action: '<a class="createProject" data-id="" href>Create Project</a>'
 
-	$('#enquiryTable').html('').footable
+	Delay -> $('#enquiryTable').html('').footable
 		columns: columns
 		rows: rows
 		paging: enabled: false
