@@ -1,14 +1,8 @@
 import { wrs } from '/imports/util/delay.coffee'
 
-import './editProfilePictureModal.tpl.jade'
+import './editProfilePicture.tpl.jade'
 
-Template.editProfilePictureModal.onRendered ->
-
-	$('#editProfilePictureModal').modal('show')
-	$('#editProfilePictureModal').on 'hidden.bs.modal', ->
-		wrs -> FlowRouter.setQueryParams editProfilePicture: undefined
-
-Template.editProfilePictureModal.events
+Template.editProfilePicture.events
 
 	'change #edit': (e) -> if e.target.files.length > 0
 		picture = new FS.File e.target.files[0]
