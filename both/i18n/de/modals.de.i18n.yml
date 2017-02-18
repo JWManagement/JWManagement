@@ -94,6 +94,9 @@ modal:
     position:
         title: Position mit linker Maustaste markieren
     shift:
+        clickToEnlarge: Zum Vergrößern auf Bild klicken
+        openLink: Verknüpfte Informationen ansehen
+        meetingAt: Treffpunkt um
         collapseTeam: Team Informationen und Treffpunkte verbergen
         expandTeam: Team Informationen und Treffpunkte anzeigen
         noParticipants: Keine Teilnehmer
@@ -125,7 +128,6 @@ modal:
         allocations: Zuteilungen
         thisWeek: diese Woche
         lastDays: letze %s Tage
-        noMeeting: Kein Treffpunkt gesetzt
     shiftReport:
         title: Bericht
         teamleader: Teamleiter

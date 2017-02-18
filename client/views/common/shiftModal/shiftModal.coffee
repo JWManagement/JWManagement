@@ -23,10 +23,6 @@ Template.shiftModal.helpers
 		shift = Shifts.findOne shiftId, fields: scheduling: 1
 		shift.scheduling == 'direct'
 
-	showTeams: ->
-		showTeams = FlowRouter.getQueryParam('showTeams') + ''
-		@_id in showTeams.split('_')
-
 	meetingStartOrEnd: -> @meetingStart? || @meetingEnd?
 
 	teamPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), teamId: @_id
@@ -112,34 +108,12 @@ Template.shiftModal.onCreated ->
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
-				wrs -> FlowRouter.setQueryParams showShift: null, showTeams: null
+				wrs -> FlowRouter.setQueryParams showShift: null
 				$('.skipping').addClass('animated').removeClass('skipping')
 
 			$('.userPopover').popover html: true
 
 Template.shiftModal.events
-
-	'click #expandTeam': ->
-		showTeams = FlowRouter.getQueryParam('showTeams')
-		if showTeams?
-			showTeams = showTeams.split('_')
-			showTeams.push(@_id)
-		else
-			showTeams = [@_id]
-
-		wrs -> FlowRouter.setQueryParams showTeams: showTeams.join('_')
-
-	'click #collapseTeam': ->
-		showTeams = FlowRouter.getQueryParam('showTeams').split('_')
-		teamPos = showTeams.indexOf(@_id)
-		showTeams[teamPos..teamPos] = []
-
-		if showTeams.length > 0
-			showTeams = showTeams.join('_')
-		else
-			showTeams = null
-
-		wrs -> FlowRouter.setQueryParams showTeams: showTeams
 
 	'click #requestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
