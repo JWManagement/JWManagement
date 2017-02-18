@@ -22,3 +22,5 @@ export backup = ->
 			Key: folder + it + '.json'
 			Body: JSON.stringify data[it]
 		, (e, d) -> if e then console.error e
+
+	'Backup successfully completed!'
