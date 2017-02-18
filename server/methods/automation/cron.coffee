@@ -19,7 +19,7 @@ Meteor.startup -> if Meteor.isProduction
 
 	SyncedCron.add
 		name: 'Backup'
-		schedule: (parser) -> parser.cron('every day at 02:00 am')
+		schedule: (parser) -> parser.cron '0 2 * * *'
 		job: -> backup()
 
 	SyncedCron.start()
