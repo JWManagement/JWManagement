@@ -37,6 +37,7 @@ modal:
         projectPermissions: Projekt Berechtigungen
         projectRole: Projekt-Rolle
         tagPermissions: Tag-Rollen
+        explanations: Erklärungen
         helpText:
             admin: Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.
             shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten erstellen, ändern, löschen und einteilen.
