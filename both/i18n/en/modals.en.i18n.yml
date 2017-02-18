@@ -37,6 +37,7 @@ modal:
         projectPermissions: Project permissions
         projectRole: Project role
         tagPermissions: Tag roles
+        explanations: Explanations
         helpText:
             admin: The project manager role is the highest authorization level. A project manager is allowed to control everything. For every project there has to be at least one project manager.
             shiftAdmin: The shift manager has the permissions of a participant but can also create, change, delete and schedule shifts.
@@ -94,6 +95,9 @@ modal:
     position:
         title: Mark position with left mouse click
     shift:
+        clickToEnlarge: Click the image to enlarge it
+        openLink: View linked information
+        meetingAt: Meeting point at
         collapseTeam: Collapse team information and meeting points
         expandTeam: Expand team information and meeting points
         noParticipants: No participants
@@ -125,7 +129,6 @@ modal:
         allocations: Shifts
         thisWeek: this week
         lastDays: last %s days
-        noMeeting: No Meeting Point
     shiftReport:
         title: Report
         teamleader: Team leader
@@ -219,6 +222,7 @@ modal:
     uploadUserFile:
         title: User-File upload
         helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant' or 'elder'), Congregation
+        helpEncoding: The file has to be UTF-8 encoded to support all characters
         uploadFile: Upload CSV-File
         stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers

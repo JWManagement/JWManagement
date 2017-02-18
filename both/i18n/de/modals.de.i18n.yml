@@ -37,6 +37,7 @@ modal:
         projectPermissions: Projekt Berechtigungen
         projectRole: Projekt-Rolle
         tagPermissions: Tag-Rollen
+        explanations: Erklärungen
         helpText:
             admin: Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.
             shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten erstellen, ändern, löschen und einteilen.
@@ -94,6 +95,9 @@ modal:
     position:
         title: Position mit linker Maustaste markieren
     shift:
+        clickToEnlarge: Zum Vergrößern auf Bild klicken
+        openLink: Verknüpfte Informationen ansehen
+        meetingAt: Treffpunkt um
         collapseTeam: Team Informationen und Treffpunkte verbergen
         expandTeam: Team Informationen und Treffpunkte anzeigen
         noParticipants: Keine Teilnehmer
@@ -125,7 +129,6 @@ modal:
         allocations: Zuteilungen
         thisWeek: diese Woche
         lastDays: letze %s Tage
-        noMeeting: Kein Treffpunkt gesetzt
     shiftReport:
         title: Bericht
         teamleader: Teamleiter
@@ -219,6 +222,7 @@ modal:
     uploadUserFile:
         title: User-Datei hochladen
         helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant' oder 'elder'), Versammlung
+        helpEncoding: Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!
         uploadFile: CSV-Datei hochladen
         stats: <b>%s</b> neue und <b>%s</b> vorhandene User gefunden
         new: Neue Verkündiger

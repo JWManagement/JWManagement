@@ -1,5 +1,9 @@
 import './allUsers.tpl.jade'
 
+Template.allUsers.helpers
+
+	userCount: -> Meteor.users.find({}, fields: _id: 1).count()
+
 Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 
 	users = Template.currentData().users

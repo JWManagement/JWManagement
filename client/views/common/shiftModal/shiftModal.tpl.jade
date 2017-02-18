@@ -11,58 +11,60 @@
 							.panel-heading
 								i.fa.fa-map-signs.fa-fw
 								| {{name}}
-								if showTeams
-									a#collapseTeam.pull-right(href title="{{_ 'modal.shift.collapseTeam'}}")
-										i.fa.fa-compress
-								else
-									a#expandTeam.pull-right(href title="{{_ 'modal.shift.expandTeam'}}")
-										i.fa.fa-expand
-							if showTeams
-								if link
-									.panel-picture
-										a(href='{{link}}' target='_blank')
-											with teamPicture
-												img(src='{{url store="images"}}')
-											else
-												| {{link}}
-								else
-									with teamPicture
-										.panel-picture
-											img(src='{{url store="images"}}')
+							.panel-description
+								with teamPicture
+									.picture
+										a(href='{{url}}' target='_blank')
+											img(src='{{url}}')
 								if description
-									.panel-description {{{win2html description}}}
-								if meetingStartOrEnd
-									.panel-meeting-points
-										.meetings-wrapper
-											if meetingStart
-												.meeting-wrapper.text-center
-													with meetingPicture meetingStart._id
-														img(src='{{url store="images"}}')
-													else
-														i.fa.fa-file-picture-o.modal-icon
-											else
-												.meeting-wrapper.text-center
-													i.fa.fa-times.modal-icon
-											if meetingEnd
-												.meeting-wrapper.text-center
-													with meetingPicture meetingEnd._id
-														img(src='{{url store="images"}}')
-													else
-														i.fa.fa-file-picture-o.modal-icon
-											else
-												.meeting-wrapper.text-center
-													i.fa.fa-times.modal-icon
-										.meetings-description-wrapper
-											.meeting-description
-												if meetingStart
-													| {{formatTime meetingStart.time}} {{_ 'time.suffix'}}: {{meetingStart.name}}
-												else
-													| {{_ 'modal.shift.noMeeting'}}
-											.meeting-description
-												if meetingEnd
-													| {{formatTime meetingEnd.time}} {{_ 'time.suffix'}}: {{meetingEnd.name}}
-												else
-													| {{_ 'modal.shift.noMeeting'}}
+									.content
+										| {{{win2html description}}}
+										if link
+											br
+											a(href='{{link}}' target='_blank')
+												| {{_ 'modal.shift.openLink'}}
+												i.fa.fa-angle-double-right
+								else if teamPicture
+									.content
+										| {{_ 'modal.shift.clickToEnlarge'}}
+										if link
+											br
+											a(href='{{link}}' target='_blank')
+												| {{_ 'modal.shift.openLink'}}
+												i.fa.fa-angle-double-right
+								else if link
+									.content
+										a(href='{{link}}' target='_blank')
+											| {{_ 'modal.shift.openLink'}}
+											i.fa.fa-angle-double-right
+							if meetingStart
+								.panel-description
+									with meetingPicture meetingStart._id
+										.picture
+											a(href='{{url}}' target='_blank')
+												img(src='{{url}}')
+									if description
+										.content
+											b {{_ 'modal.shift.meetingAt'}} {{formatTimeWithSuffix meetingStart.time}}:
+											br
+											| {{meetingStart.name}}
+									else if meetingPicture meetingStart._id
+										.content
+											| {{_ 'modal.shift.clickToEnlarge'}}
+							if meetingEnd
+								.panel-description
+									with meetingPicture meetingEnd._id
+										.picture
+											a(href='{{url}}' target='_blank')
+												img(src='{{url}}')
+									if description
+										.content
+											b {{_ 'modal.shift.meetingAt'}} {{formatTimeWithSuffix meetingEnd.time}}:
+											br
+											| {{meetingEnd.name}}
+									else if meetingPicture meetingEnd._id
+										.content
+											| {{_ 'modal.shift.clickToEnlarge'}}
 							.panel-participants.clearfix
 								if isProjectShiftAdmin
 									if getSelectedCount _id

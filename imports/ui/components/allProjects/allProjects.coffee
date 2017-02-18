@@ -1,5 +1,9 @@
 import './allProjects.tpl.jade'
 
+Template.allProjects.helpers
+
+	projectCount: -> Projects.find({}, fields: _id: 1).count()
+
 Template.allProjects.onRendered -> Tracker.afterFlush => @autorun =>
 
 	projects = Template.currentData().projects

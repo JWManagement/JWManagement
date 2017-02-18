@@ -10,34 +10,25 @@
 			&.closed {
 				border-color: #ccc;
 
-				.panel-description,
-				.panel-heading,
-				.panel-heading a {
-					color           : #555;
-					border-color    : #ccc;
-					background-color: #eee;
-				}
-
 				.panel-heading {
-					border-bottom-color: #eee;
+					color              : #555;
+					border-color       : inherit;
+					background-color   : #eee;
+					border-bottom-width: 1px;
 				}
 
-				.panel-picture {
-					border-color: #ccc;
-				}
+				.panel-description {
+					border-color    : inherit;
+					background-color: #eee;
 
-				.meeting-description,
-				.meeting-wrapper {
-					color           : #555 !important;
-					border-color    : #ccc !important;
-					background-color: #eee !important;
-				}
-			}
+					.picture {
+						border-color: inherit;
+					}
 
-			.panel-heading a,
-			.panel-heading a:focus,
-			.panel-heading a:hover {
-				color: #fff;
+					.content {
+						color: inherit;
+					}
+				}
 			}
 
 			.panel-picture {
@@ -52,52 +43,27 @@
 			}
 
 			.panel-description {
-				color           : $indigo;
-				padding         : 5px;
+				width           : 100%;
+				display         : table;
 				border-bottom   : 1px solid $indigo;
 				background-color: rgba($indigo, 0.1);
-			}
 
-			.panel-meeting-points {
-				width  : 100%;
-				display: table;
+				.picture {
+					display     : table-cell;
+					width       : 0;
+					border-right: 1px solid $indigo;
 
-				.meetings-description-wrapper,
-				.meetings-wrapper {
-					width  : 100%;
-					display: table-row;
-
-					&.meetings-wrapper {
-						height: 150px;
-
-						.meeting-wrapper {
-							width         : 50%;
-							vertical-align: middle;
-
-							img {
-								max-width: 100%;
-								height   : 150px;
-							}
-						}
+					a img {
+						max-height: 50px;
 					}
+				}
 
-					.meeting-description,
-					.meeting-wrapper {
-						display: table-cell;
-
-						&:not(:last-child) {
-							border-right: 1px solid $indigo;
-						}
-
-						&.meeting-description {
-							color           : $indigo;
-							height          : auto;
-							padding         : 5px;
-							border-top      : 1px solid $indigo;
-							border-bottom   : 1px solid $indigo;
-							background-color: rgba($indigo, 0.1);
-						}
-					}
+				.content {
+					width         : 100%;
+					color         : $indigo;
+					padding       : 2px 5px;
+					display       : table-cell;
+					vertical-align: top;
 				}
 			}
 

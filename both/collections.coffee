@@ -32,7 +32,7 @@ else
 				region: 'eu-central-1'
 				bucket: 'jwmanagement-fs'
 				accessKeyId: process.env.AWS_ACCESS_KEY_ID
-				secretAccessKey: process.env.AWS_ACCESS_KEY
+				secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 		]
 
 	@Pictures = new FS.Collection 'pictures',
@@ -47,5 +47,5 @@ else
 				bucket: 'jwmanagement-fs'
 				folder: 'images'
 				accessKeyId: process.env.AWS_ACCESS_KEY_ID
-				secretAccessKey: process.env.AWS_ACCESS_KEY
+				secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 		]
