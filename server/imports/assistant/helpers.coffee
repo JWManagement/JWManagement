@@ -2,6 +2,19 @@ import { R } from './variables.coffee'
 
 export Helpers =
 
+	logExplanation: ->
+		console.log 'averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
+
+	log: ->
+		averageDeviationRatio = '' + (Math.round 1000 * @getAverageDeviationRatioAll()) / 10
+		abandonedTeamsTl = ' [' + Helpers.countAbandonedTeamsTl() + ']'
+		abandonedTeamsUsers = ' (' + Helpers.countAbandonedTeamsUsers() + ')'
+
+		if averageDeviationRatio.length < 3
+			averageDeviationRatio += '.0'
+
+		console.log averageDeviationRatio + abandonedTeamsTl + abandonedTeamsUsers
+
 	pendingToParticipants: (shiftId, teamId, userId, teamleader) ->
 
 		user = {}
@@ -29,9 +42,9 @@ export Helpers =
 				maxReachedPeriod = this.getMaxReachedPeriod user
 
 				if maxReachedDay
-					console.log u.name + ' bereits am Tages Maximum'
+					console.log u.name + ' bereits am Tages Maximum at ' + team.shiftId
 				else if maxReachedPeriod
-					console.log u.name + ' bereits am Maximum'
+					console.log u.name + ' bereits am Maximum at ' + team.shiftId
 					return
 
 			team['participants'].push user
