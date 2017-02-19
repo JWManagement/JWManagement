@@ -38,8 +38,8 @@ export Helpers =
 				console.log u.name + ' nicht in pending gefunden'
 				return
 			else
-				maxReachedDay = this.getMaxReachedDay user, team
-				maxReachedPeriod = this.getMaxReachedPeriod user
+				maxReachedDay = @getMaxReachedDay user, team
+				maxReachedPeriod = @getMaxReachedPeriod user
 
 				if maxReachedDay
 					console.log u.name + ' bereits am Tages Maximum at ' + team.shiftId
@@ -124,7 +124,7 @@ export Helpers =
 						team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 
 						# User in foundUsers aufnehmen, wenn noch nicht geschehen
-						for rUser in team.pending when !this.getMaxReachedDay rUser, team
+						for rUser in team.pending when !@getMaxReachedDay rUser, team
 							if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
 								foundUsers.push
 									_id: rUser._id
@@ -160,7 +160,7 @@ export Helpers =
 					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 
 					# User in foundUsers aufnehmen, wenn noch nicht geschehen
-					for rUser in team.pending when (rUser.teamleader || rUser.substituteTeamleader) && !this.getMaxReachedDay rUser, team
+					for rUser in team.pending when (rUser.teamleader || rUser.substituteTeamleader) && !@getMaxReachedDay rUser, team
 						if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
 							foundUsers.push
 								_id: rUser._id
@@ -200,7 +200,7 @@ export Helpers =
 
 		teamleaders = []
 		sumDeviation = 0.0
-		averageRatio = this.getAverageRatioTl()
+		averageRatio = @getAverageRatioTl()
 
 		for userId in Object.keys(R.users) when R.users[userId].teamleader || R.users[userId].substituteTeamleader
 			sumDeviation += Math.abs R.users[userId].targetAcceptionRatio - averageRatio
@@ -212,7 +212,7 @@ export Helpers =
 	getAverageDeviationRatioAll: ->
 
 		sumDeviation = 0.0
-		averageRatio = this.getAverageRatioAll()
+		averageRatio = @getAverageRatioAll()
 
 		for userId in Object.keys R.users
 			sumDeviation += Math.abs R.users[userId].targetAcceptionRatio - averageRatio
