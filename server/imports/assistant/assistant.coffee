@@ -218,6 +218,9 @@ export Assistant =
 
 		teamsWithTeamleader = R.teams.filter (team) -> team.participants.length > 0
 
+		# TODO: hinterher prüfen, ob sortierung zu besseren ergebnissen führen würde
+		#teamsWithTeamleader = teamsWithTeamleader.sort (a, b) -> a.pending.length - b.pending.length
+
 		for team in teamsWithTeamleader when team.participants.length < team.min && team.pending.length > 0
 			allRequests = []
 

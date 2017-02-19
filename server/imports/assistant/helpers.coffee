@@ -254,6 +254,19 @@ export Helpers =
 			if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
 				confirmationsThisDay.push cTeam
 
+		if confirmationsThisDay.length > 0
+			parallelConfirmations = confirmationsThisDay.filter (t) ->
+				t = R.teams.filter((fTeam) -> fTeam.shiftId == t.shiftId && fTeam._id == t.teamId)[0]
+
+				(team.start > t.start && team.start < t.end) ||
+				(team.end > t.start && team.end < t.end) ||
+				(t.start > team.start && t.start < team.end) ||
+				(t.end > team.start && t.end < team.end) ||
+				(t.start == team.start && t.end == team.end)
+
+			if parallelConfirmations.length > 0
+				maxReachedDay = true
+
 		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
 		if confirmationsThisDay.length == 1
 			if R.users[user._id].maxDay == 1
