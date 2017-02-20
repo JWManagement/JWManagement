@@ -138,7 +138,9 @@ export Helpers =
 
 		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
 		foundUsers.splice 0, 1
-		foundUsers
+
+		# Alle User entfernen, deren Maximum erreicht ist
+		foundUsers.filter (foundUser) => !@getMaxReachedPeriod R.users[foundUser._id]
 
 	searchTeamleaderChangeables: (userId) ->
 
@@ -174,7 +176,9 @@ export Helpers =
 
 		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
 		foundUsers.splice 0, 1
-		foundUsers
+
+		# Alle User entfernen, deren Maximum erreicht ist
+		foundUsers.filter (foundUser) => !@getMaxReachedPeriod R.users[foundUser._id]
 
 	countAbandonedTeamsTl: ->
 
