@@ -1,6 +1,6 @@
-Template.resetPassword.helpers
+import './resetPassword.tpl.jade'
 
-	error: -> Session.get 'errorMessage'
+Template.resetPassword.helpers
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
@@ -10,7 +10,6 @@ Template.resetPassword.helpers
 
 Template.resetPassword.onCreated ->
 
-	Session.set 'errorMessage', ''
 	token = FlowRouter.getQueryParam('token')
 
 	if token? && token != ''
@@ -24,26 +23,28 @@ Template.resetPassword.events
 		submit = $('[type="submit"]').ladda()
 		submit.ladda 'start'
 
-		Session.set 'errorMessage', ''
 		pass1 = e.target['0'].value
 		pass2 = e.target['1'].value
 		token = FlowRouter.getQueryParam('token')
 
-		if token? && token != ''
-			if Meteor.areValidPasswords pass1, pass2
-				Meteor.call 'resetAccountPassword', token, pass1, (err, username) ->
+		try
+			if !token? || token == ''
+				throw new Meteor.Error 'errors.invalidToken', 'error'
+
+			if Meteor.users.helpers.areValidPasswords pass1, pass2
+				Meteor.users.methods.profile.password.reset.call
+					token: token
+					password: pass1
+				, (err, username) ->
 					if err
-						swal err.reason, '', 'error'
 						submit.ladda 'stop'
+						swal TAPi18n.__(err.error) , '', err.reason
 					else
 						language = FlowRouter.getParam('language')
 
 						Meteor.loginWithPassword username, pass1, (e) -> unless e
 							FlowRouter.go 'home', language: language
-			else
-				submit.ladda 'stop'
-		else
-			Session.set 'errorMessage', 'Invalid token'
+		catch e
 			submit.ladda 'stop'
 
-		false
+			swal TAPi18n.__(e.error), '', e.reason

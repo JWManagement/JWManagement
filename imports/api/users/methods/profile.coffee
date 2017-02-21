@@ -115,3 +115,23 @@ export ProfileMethods =
 					throw new Meteor.Error 'forgotPassword.mailSent', 'success'
 				else
 					throw new Meteor.Error 'didnt.work', 'error'
+
+		reset: new ValidatedMethod
+			name: 'Meteor.users.methods.profile.password.reset'
+			validate:
+				new SimpleSchema
+					token: type: String
+					password: type: String
+				.validator()
+			run: (args) -> if Meteor.isServer
+				user = Meteor.users.findOne 'services.password.reset.token': args.token,
+					fields: username: 1
+
+				if user?
+					Meteor.users.update user._id, $unset: 'services.password.reset': 1
+
+					Accounts.setPassword user._id, args.password
+
+					user.username
+				else
+					throw new Meteor.Error 'errors.invalidToken', 'error'

@@ -12,6 +12,8 @@ import '/imports/ui/layouts/inverted/inverted.coffee'
 # Pages
 import '/imports/ui/pages/notFound/notFound.coffee'
 import '/imports/ui/pages/firstLogin/firstLogin.coffee'
+import '/imports/ui/pages/forgotPassword/forgotPassword.coffee'
+import '/imports/ui/pages/resetPassword/resetPassword.coffee'
 import '/imports/ui/pages/about/about.coffee'
 import '/imports/ui/pages/privacy/privacy.coffee'
 import '/imports/ui/pages/terms/terms.coffee'
