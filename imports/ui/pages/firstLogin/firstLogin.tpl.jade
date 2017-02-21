@@ -10,13 +10,13 @@
 					.col-lg-12
 						form.m-t
 							.form-group
-								input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required)
+								input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required tabindex='1')
 							.form-group
-								input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required)
+								input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required tabindex='2')
 							.form-group
-								input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required)
+								input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required tabindex='3')
 							.form-group
-								.checkbox.checkbox-inline
+								.checkbox.checkbox-inline(tabindex='4')
 									input#agreeTerms(type='checkbox')
 									label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
 							button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}

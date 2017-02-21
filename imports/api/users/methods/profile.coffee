@@ -1,6 +1,7 @@
 import SimpleSchema from 'simpl-schema'
 
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { SendMail } from '/imports/api/mailer/import.coffee'
 import { Validators } from '/imports/util/validators.coffee'
 import { StringUtils } from '/imports/util/stringUtils.coffee'
 
@@ -97,3 +98,20 @@ export ProfileMethods =
 						if setTeam != {}
 							Shifts.update _id: shift._id, 'teams._id': team._id,
 								$set: setTeam
+
+	password:
+
+		getResetToken: new ValidatedMethod
+			name: 'Meteor.users.methods.profile.password.getResetToken'
+			validate:
+				new SimpleSchema
+					email: type: String
+					username:
+						type: String
+						optional: true
+				.validator()
+			run: (args) -> if Meteor.isServer
+				if SendMail.sendResetPassword args
+					throw new Meteor.Error 'forgotPassword.mailSent', 'success'
+				else
+					throw new Meteor.Error 'didnt.work', 'error'

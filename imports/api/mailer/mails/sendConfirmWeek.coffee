@@ -17,4 +17,4 @@ export sendConfirmWeek = (projectId, tagId, weekId) ->
 					@sendDeclined projectId, shift._id, team._id, declinedUser._id
 
 	else
-		throw new Meteor.Error 404, 'Shifts with weekId: ' + weekId + ' not found'
+		throw new Meteor.Error 'shiftsNotFound', 'error'
