@@ -79,4 +79,4 @@ Meteor.methods
 
 		Assistant.saveToDB()
 
-		console.log '----- fertig -----'
+		console.log '----------- fertig -----------'

@@ -355,7 +355,8 @@ export Assistant =
 					maxReachedPeriod = Helpers.getMaxReachedPeriod user
 					doubleShift = Helpers.getDoubleShiftOnDay user, team.date
 
-					if doubleShift then return
+					# TODO: Doppelschichten mit berücksichtigen. Dafür beide Schichten tauschen, und hinterher auch wieder beide Schichten eintragen.
+					if doubleShift	continue
 
 					# Tausch-Kandidaten heraussuchen
 					changeables = Helpers.searchChangeables user._id
