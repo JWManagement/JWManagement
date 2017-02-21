@@ -115,72 +115,6 @@ export Assistant =
 					# Teamleiter einteilen, wenn vorhanden
 					Helpers.pendingToParticipants team.shiftId, team._id, thisTeamleader._id, true
 
-					R.setTeamleaders.push thisTeamleader
-
-	optimizeTeamleaders: ->
-
-		endReached = false
-
-		averageRatio = Helpers.getAverageRatioAll()
-
-		while !endReached
-			doRestart = false
-
-			# Sortiere alle Teamleiter nach deren Abstand zur durchschnittlichen Ratio absteigend
-			teamleadersByDeviationRatio = R.setTeamleaders.sort (a, b) ->
-				Math.abs(averageRatio - R.users[b._id].targetAcceptionRatio) - Math.abs(averageRatio - R.users[a._id].targetAcceptionRatio)
-
-			# Wenn keine Teamleiter gefunden wurden, brich direkt ab
-			if teamleadersByDeviationRatio.length == 0 then endReached = true
-
-			# Durchlaufe alle Teamleiter und versuche zu optimieren
-			for teamleader, index in teamleadersByDeviationRatio when !doRestart
-				# Suche alle möglichen Tausch-Kandidaten
-				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
-
-				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
-				teamleaderChangeables = teamleaderChangeables.sort (a, b) ->
-					Math.abs(R.users[teamleader._id].targetAcceptionRatio - R.users[a._id].targetAcceptionRatio) - Math.abs(R.users[teamleader._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio)
-
-				# Durchlaufe die Tausch-Kandidaten
-				for changeable, cIndex in teamleaderChangeables
-					maxReached = Helpers.getMaxReachedPeriod changeable
-
-					if !maxReached
-						# Prüfe, ob Tauschen Sinn macht
-						#beforeRatio = Helpers.getAverageDeviationRatioAll()
-
-						beforeRatioDifference = Math.abs R.users[teamleader._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
-						newTargetAcceptionRatioTl = (R.users[teamleader._id].acceptions - 1) / R.users[teamleader._id].targetPeriod
-						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
-						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
-
-						#R.users[teamleader._id].acceptions--
-						#R.users[teamleader._id].targetAcceptionRatio = newTargetAcceptionRatioTl
-						#R.users[changeable._id].acceptions++
-						#R.users[changeable._id].targetAcceptionRatio = newTargetAcceptionRatioCh
-
-						#afterRatio = Helpers.getAverageDeviationRatioAll()
-
-						#R.users[teamleader._id].acceptions++
-						#R.users[teamleader._id].targetAcceptionRatio = R.users[teamleader._id].acceptions / R.users[teamleader._id].targetPeriod
-						#R.users[changeable._id].acceptions--
-						#R.users[changeable._id].targetAcceptionRatio = R.users[changeable._id].acceptions / R.users[changeable._id].targetPeriod
-
-						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
-						if afterRatioDifference < beforeRatioDifference
-						#if afterRatio < beforeRatio
-							for waypoint in changeable.way
-								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
-								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
-
-							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
-							doRestart = true
-							break
-
-				# Wenn letzer Teamleiter erreicht, beende Optimierung
-				if index == teamleadersByDeviationRatio.length - 1 then endReached = true
-
 	optimizeMaxReachedTeamleaders: ->
 
 		# Alle Teams ohne Teilnehmer durchlaufen
@@ -242,25 +176,21 @@ export Assistant =
 				for request in allRequests when team.participants.length < team.min
 					Helpers.pendingToParticipants team.shiftId, team._id, request._id, false
 
-					R.setParticipants.push request
-
-	optimizeParticipants: ->
+	optimizeAll: ->
 
 		endReached = false
 
 		while !endReached
 			averageRatio = Helpers.getAverageRatioAll()
+			restartOptimizing = false
 
-			# Sortiere alle Bewerber nach deren Abstand zur durchschnittlichen Ratio absteigend
-			participantsByDeviationRatio = R.setParticipants.sort (a, b) ->
-				a = R.users[a._id]
-				b = R.users[b._id]
+			# Sortiere alle Teilnehmer (mit angenommener Schicht) nach deren Abstand zur durchschnittlichen Ratio absteigend
+			setParticipants = Object.keys(R.users).map((userId) -> R.users[userId]).filter (user) -> user.allConfirmations.length > 0
+			participantsByDeviationRatio = setParticipants.sort (a, b) ->
 				Math.abs(averageRatio - b.targetAcceptionRatio) - Math.abs(averageRatio - a.targetAcceptionRatio)
 
 			# Wenn kein eingeteilten Bewerber gefunden wurden, brich direkt ab
 			if participantsByDeviationRatio.length == 0 then endReached = true
-
-			restartOptimizing = false
 
 			# Durchlaufe alle eingeteilten Bewerber und versuche zu optimieren
 			for participant, index in participantsByDeviationRatio when !restartOptimizing
@@ -269,11 +199,12 @@ export Assistant =
 				changeables = Helpers.searchChangeables participant._id
 
 				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
+				# (der changeable, der die größte Differenz in targetAcceptionRatio zu dem participant hat)
 				changeables = changeables.sort (a, b) ->
 					a = R.users[a._id]
 					b = R.users[b._id]
 					p = R.users[participant._id]
-					Math.abs(p.targetAcceptionRatio - a.targetAcceptionRatio) - Math.abs(p.targetAcceptionRatio - b.targetAcceptionRatio)
+					Math.abs(p.targetAcceptionRatio - b.targetAcceptionRatio) - Math.abs(p.targetAcceptionRatio - a.targetAcceptionRatio)
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable, cIndex in changeables
@@ -284,7 +215,7 @@ export Assistant =
 						#beforeRatio = Helpers.getAverageDeviationRatioAll()
 
 						beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
-						newTargetAcceptionRatioTl = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
+						newTargetAcceptionRatioPart = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
 						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
 

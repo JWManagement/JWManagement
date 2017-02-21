@@ -17,8 +17,8 @@ Meteor.methods
 		Assistant.setTeamleaders()
 		Helpers.log()
 
-		console.log '> optimizeTeamleaders'
-		Assistant.optimizeTeamleaders()
+		console.log '> optimizeAll'
+		Assistant.optimizeAll()
 		Helpers.log()
 
 		##
@@ -31,8 +31,8 @@ Meteor.methods
 		Assistant.optimizeMaxReachedTeamleaders()
 		Helpers.log()
 
-		console.log '>> optimizeTeamleaders'
-		Assistant.optimizeTeamleaders()
+		console.log '>> optimizeAll'
+		Assistant.optimizeAll()
 		Helpers.log()
 
 		##
@@ -41,8 +41,8 @@ Meteor.methods
 		Assistant.setMinParticipants()
 		Helpers.log()
 
-		console.log '>>> optimizeParticipants'
-		Assistant.optimizeParticipants()
+		console.log '>>> optimizeAll'
+		Assistant.optimizeAll()
 		Helpers.log()
 
 		console.log '>>>> setMinParticipants'
@@ -53,8 +53,8 @@ Meteor.methods
 		Assistant.optimizeMaxReachedParticipants()
 		Helpers.log()
 
-		console.log '>>>> optimizeParticipants'
-		Assistant.optimizeParticipants()
+		console.log '>>>> optimizeAll'
+		Assistant.optimizeAll()
 		Helpers.log()
 
 		##
@@ -69,13 +69,10 @@ Meteor.methods
 
 		##
 
-		console.log '>>>>> optimizeTeamleaders'
-		Assistant.optimizeTeamleaders()
+		console.log '>>>>> optimizeAll'
+		Assistant.optimizeAll()
 		Helpers.log()
 
-		console.log '>>>>> optimizeParticipants'
-		Assistant.optimizeParticipants()
-		Helpers.log()
 
 		Assistant.saveToDB()
 
