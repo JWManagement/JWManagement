@@ -43,6 +43,7 @@ export Helpers =
 
 				if maxReachedDay
 					console.log u.name + ' bereits am Tages Maximum at ' + team.shiftId
+					return
 				else if maxReachedPeriod
 					console.log u.name + ' bereits am Maximum at ' + team.shiftId
 					return
@@ -255,7 +256,7 @@ export Helpers =
 		# Alle angenommenen Bewerbungen dieses Tages zusammenfassen
 		for cTeam in cTeams when team.date == cTeam.date
 			# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
-			if (confirmationsThisDay.filter (confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
+			if confirmationsThisDay.filter((confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
 				confirmationsThisDay.push cTeam
 
 		if confirmationsThisDay.length > 0
@@ -281,7 +282,7 @@ export Helpers =
 
 					if thisShift.start != team.end && thisShift.end != team.start
 						maxReachedDay = true
-		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= user.maxDay
+		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= R.users[user._id].maxDay
 			maxReachedDay = true
 
 		maxReachedDay
