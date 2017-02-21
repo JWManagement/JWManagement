@@ -287,4 +287,24 @@ export Helpers =
 
 		maxReachedDay
 
+	getDoubleShiftOnDay: (user, date) ->
+		doubleShift = false
+		confirmationsThisDay = []
+		cTeams = R.users[user._id].confirmations.concat(R.users[user._id].tlConfirmations).map (cTeam) ->
+			shiftId: cTeam.shiftId
+			teamId: cTeam.teamId
+			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
+
+		# Alle angenommenen Bewerbungen dieses Tages zusammenfassen
+		for cTeam in cTeams when date == cTeam.date
+			# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
+			if confirmationsThisDay.filter((confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
+				confirmationsThisDay.push cTeam
+
+		# Anzahl der angenommenen Bewerbungen und auf Doppelschicht prüfen
+		if confirmationsThisDay.length == 2 && R.users[user._id].maxDay == 1 && R.users[user._id].doubleShiftAllowed
+			doubleShift = true
+
+		doubleShift
+
 	getMaxReachedPeriod: (user) -> R.users[user._id].acceptions >= R.users[user._id].maxPeriod
