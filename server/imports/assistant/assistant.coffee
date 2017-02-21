@@ -427,6 +427,54 @@ export Assistant =
 					if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 					if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 
+	optimizeByTeamReset: ->
+		if 0 == Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers() then return
+
+		doRestart = true
+
+		while doRestart
+			doRestart = false
+
+			backup =
+				teams: R.teams
+				users: R.users
+				averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
+				abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
+				abandonedTeamsUsers: Helpers.countAbandonedTeamsUsers()
+				countAbandonedTeamsAll: Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
+
+			for team in R.teams when team.participants.length > 0
+				team['savedParticipants'] = []
+				team['savedPending'] = []
+
+				for user in team.pending
+					team['savedPending'].push user
+
+				for user in team.participants
+					team['savedParticipants'].push user
+
+				team['participants'] = []
+				team['pending'] = []
+
+				# TODO: nicht bei beiden optimize all, sondern nur das nötige
+				@setAndOptimizeAll()
+
+				# Schicht wieder einsetzen und wieder mit ihr optimieren
+				team['pending'] = team['savedParticipants'].concat(team['savedPending'])
+
+				@setAndOptimizeAll()
+
+				averageDeviationRatio = Helpers.getAverageDeviationRatioAll()
+				countAbandonedTeamsAll = Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
+
+				if countAbandonedTeamsAll < backup.countAbandonedTeamsAll || countAbandonedTeamsAll == backup.countAbandonedTeamsAll && averageDeviationRatio < backup.averageDeviationRatio
+					doRestart = true
+					console.log 'Änderung vorgenommen'
+					Helpers.log()
+					break
+				else
+					R.teams = backup.teams
+					R.users = backup.users
 
 	saveToDB: ->
 
@@ -462,6 +510,8 @@ export Assistant =
 			delete team.start
 			delete team.end
 			delete team.requestAmount
+			delete team.savedParticipants
+			delete team.savedPending
 
 			Shifts.update _id: shiftId, 'teams._id': team._id,
 				$set: 'teams.$': team

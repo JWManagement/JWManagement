@@ -16,6 +16,7 @@ Meteor.methods
 		Assistant.setAndOptimizeAll()
 		Helpers.log()
 
+		Assistant.optimizeByTeamReset()
 
 		console.log R.count
 
