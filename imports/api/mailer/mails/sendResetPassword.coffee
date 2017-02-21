@@ -2,7 +2,8 @@ import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { send } from '../send.coffee'
 
 export sendResetPassword = (obj) ->
-	if obj.email == '' then throw new Meteor.Error 500, 'Email not set'
+
+	if obj.email == '' then throw new Meteor.Error 'emailNotSet', 'error'
 
 	token = Random.id 43
 	user = {}
@@ -13,9 +14,9 @@ export sendResetPassword = (obj) ->
 	users = Meteor.users.find(find).fetch()
 
 	if users.length == 0
-		throw new Meteor.Error 404, ''
+		throw new Meteor.Error 'noUserForThisEmail', 'error'
 	else if users.length > 1
-		throw new Meteor.Error 420, ''
+		throw new Meteor.Error 'multipleAccountsForThisEmail', 'warning'
 	else
 		user = users[0]
 
@@ -32,8 +33,3 @@ export sendResetPassword = (obj) ->
 			token: token
 			language: user.profile.language
 			content: getMailTexts 'resetPassword', user.profile.language
-	, (err, res) ->
-		if err
-			console.log 'sendMail failed: ' + err
-		else
-			true
