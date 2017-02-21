@@ -325,37 +325,40 @@ export Assistant =
 		for team in R.teams.filter((team) -> team.participants.length == 1)
 			i = 0
 			doneWaypoints = []
-			repeatParticipants = true
+			repeatUsers = true
 			team = R.teams.filter((t) -> t._id == team._id && t.shiftId == team.shiftId)[0]
 			doneParticipants = []
 			userChangeables = []
 
 			# Mögliche beworbene Teilnehmer durchlaufen
-			for participant, index in team.pending when !repeatParticipants
-				maxReachedDay = Helpers.getMaxReachedDay participant, team
-				maxReachedPeriod = Helpers.getMaxReachedPeriod participant
+			for user, index in team.pending
+				maxReachedDay = Helpers.getMaxReachedDay user, team
+				maxReachedPeriod = Helpers.getMaxReachedPeriod user
 
 				if !maxReachedDay && !maxReachedPeriod
-					Helpers.pendingToParticipants team.shiftId, team._id, participant._id, false
-					doneParticipants.push participant
+					Helpers.pendingToParticipants team.shiftId, team._id, user._id, false
+					doneParticipants.push user
 
 			return if team.participants.length >= team.min
 
-			while repeatParticipants
-				repeatParticipants = false
+			while repeatUsers
+				repeatUsers = false
 				foundUserCounts = {}
 
 				# In wie vielen Wegen ist er Teilnehmer bzw. Tausch-Kandidat
-				participantWayCount = []
+				userWayCount = []
 				changeableWayCount = []
 
 				# Mögliche beworbene Teilnehmer durchlaufen
-				for participant, index in team.pending when !repeatParticipants
-					maxReachedDay = Helpers.getMaxReachedDay participant, team
-					maxReachedPeriod = Helpers.getMaxReachedPeriod participant
+				for user, index in team.pending
+					maxReachedDay = Helpers.getMaxReachedDay user, team
+					maxReachedPeriod = Helpers.getMaxReachedPeriod user
+					doubleShift = Helpers.getDoubleShiftOnDay user, team.date
+
+					if doubleShift then return
 
 					# Tausch-Kandidaten heraussuchen
-					changeables = Helpers.searchChangeables participant._id
+					changeables = Helpers.searchChangeables user._id
 
 					# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
 					if maxReachedDay
@@ -363,8 +366,8 @@ export Assistant =
 							fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
 							fTeam.date == team.date
 
-					# Anzahl der Tausch-Kandidaten ermitteln für den Participant
-					if changeables.length != 0 then participantWayCount.push userId: participant._id, count: changeables.length
+					# Anzahl der Tausch-Kandidaten ermitteln für den User
+					if changeables.length != 0 then userWayCount.push userId: user._id, count: changeables.length
 
 					for changeable in changeables
 						# Anzahl der möglichen Tausch-Möglichkeiten mit diesem Tausch-Kandidaten erhöhen
@@ -376,20 +379,19 @@ export Assistant =
 						changeableWayCount.push userId: changeable._id, count: count
 
 						userChangeables.push
-							userId: participant._id
+							userId: user._id
 							toId: changeable._id
 							way: changeable.way
 
 				# Wenn zu wenig Bewerber übrig sind, nächstes Team versuchen
-				break if participantWayCount.length + team.participants.length < team.min
+				break if userWayCount.length + team.participants.length < team.min
 
 				# Bewerber mit den wenigsten Tauschmöglichkeiten raussuchen
-				participant = R.users[participantWayCount.sort((a, b) -> a.count - b.count)[0].userId]
+				participant = R.users[userWayCount.sort((a, b) -> a.count - b.count)[0].userId]
 				userChangeables = userChangeables.filter (changeable) -> changeable.userId == participant._id
 
 				# Den Changeable mit der niedrigsten changeableWayCount auswählen
 				changeableWayCount = changeableWayCount.sort (a, b) -> a.count - b.count
-
 				for changeable in changeableWayCount when userChangeables.filter((uChangeable) -> uChangeable.toId == changeable.userId).length == 1
 					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
 						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
@@ -404,9 +406,9 @@ export Assistant =
 				Helpers.pendingToParticipants team.shiftId, team._id, participant._id, false
 				doneParticipants.push participant
 
-				if team.participants.length > team.min
+				if team.participants.length < team.min
 					# Nächster Bewerber
-					repeatParticipants = true
+					repeatUsers = true
 
 			# Zurücksetzen, wenn nicht genug Teilnehmer eingeteilt werden konnten
 			if team.participants.length < team.min
