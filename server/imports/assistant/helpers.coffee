@@ -7,8 +7,8 @@ export Helpers =
 
 	log: ->
 		averageDeviationRatio = '' + (Math.round 1000 * @getAverageDeviationRatioAll()) / 10
-		abandonedTeamsTl = ' [' + Helpers.countAbandonedTeamsTl() + ']'
-		abandonedTeamsUsers = ' (' + Helpers.countAbandonedTeamsUsers() + ')'
+		abandonedTeamsTl = ' [' + @countAbandonedTeamsTl() + ']'
+		abandonedTeamsUsers = ' (' + @countAbandonedTeamsUsers() + ')'
 
 		if averageDeviationRatio.length < 3
 			averageDeviationRatio += '.0'
