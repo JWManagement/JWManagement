@@ -1,0 +1,11 @@
+error:
+    emailNotSet: Email not set
+    shiftsNotFound: Shifts not found
+    noTeamleader: he/she is not team leader
+    noRequestAllowed: no more requests allowed
+    notTagParticipant: you're not participating in this tag
+    notAdmin: you're not project manager
+    multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify a user.
+    noUserForThisEmail: There is no account with this email address
+    thisTeamIsClosed: This team is closed. You can't request participation.
+    maximumAlreadyReached: Maximum limit for team participants has already been reached

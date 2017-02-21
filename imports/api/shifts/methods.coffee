@@ -26,7 +26,7 @@ export Methods =
 					if team.status == 'open'
 						Shifts.helpers.addRequest shiftId, teamId, userId, false
 					else
-						throw new Meteor.Error 500, TAPi18n.__('modal.shift.closedTeam')
+						throw new Meteor.Error 'thisTeamIsClosed', 'error'
 			else if shift.scheduling == 'direct'
 				# Wenn noch nicht auf gewähltes Team beworben
 				for team in shift.teams when team._id == teamId && team.pending.filter((u) -> u._id == userId).length == 0
@@ -44,7 +44,7 @@ export Methods =
 							# Andere Teilnehmer benachrichtigen
 							if Meteor.isServer
 								SendMail.sendTeamUpdate shiftId, teamId, 'participant'
-						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
+						else throw new Meteor.Error 'maximumAlreadyReached', 'error'
 					# Niemand wurde eingeteilt, aber die Mindestanzahl wird mit mir erreicht oder überschritten
 					else if team.pending.length >= team.min - 1 && team.pending.length < team.max
 						teamleaderId = Scheduler.getBestTeamleader shiftId, teamId, userId

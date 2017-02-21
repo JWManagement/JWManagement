@@ -91,9 +91,6 @@ forgotPassword:
     text: Enter your email address and we will send you a link to reset your password.
     button: Send password reset link
     back: Back to Home Page
-    noUserForThisEmail: There is no account with this email address
-    multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify a user.
-    emailMissing: Email address is missing
     mailSent: You will receive an email shortly. Follow the link in the email to reset your password.
 resetPassword:
     name: Reset password
