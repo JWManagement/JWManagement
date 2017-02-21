@@ -360,7 +360,7 @@ export Assistant =
 					doubleShift = Helpers.getDoubleShiftOnDay user, team.date
 
 					# TODO: Doppelschichten mit berücksichtigen. Dafür beide Schichten tauschen, und hinterher auch wieder beide Schichten eintragen.
-					if doubleShift	continue
+					if doubleShift then	continue
 
 					# Tausch-Kandidaten heraussuchen
 					changeables = Helpers.searchChangeables user._id
