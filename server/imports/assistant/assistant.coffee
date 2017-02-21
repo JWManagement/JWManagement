@@ -337,7 +337,11 @@ export Assistant =
 
 				if !maxReachedDay && !maxReachedPeriod
 					Helpers.pendingToParticipants team.shiftId, team._id, user._id, false
-					doneParticipants.push user
+					doneWaypoints.push type: 'pendingToParticipants', waypoint:
+						shiftId: team.shiftId
+						teamId: team._id
+						fromId: ''
+						toId: user._id
 
 			return if team.participants.length >= team.min
 
@@ -396,16 +400,20 @@ export Assistant =
 				for changeable in changeableWayCount when userChangeables.filter((uChangeable) -> uChangeable.toId == changeable.userId).length == 1
 					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
 						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+						doneWaypoints.push type: 'participantsToPending', waypoint: waypoint
 
 					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
 						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
-						doneWaypoints.push waypoint
-
+						doneWaypoints.push type: 'pendingToParticipants', waypoint: waypoint
 					break
 
 				# Teilnehmer dank des gewonnenen Platzes in dieser Schicht einteilen
 				Helpers.pendingToParticipants team.shiftId, team._id, participant._id, false
-				doneParticipants.push participant
+				doneWaypoints.push type: 'pendingToParticipants', waypoint:
+					shiftId: team.shiftId
+					teamId: team._id
+					fromId: ''
+					toId: participant._id
 
 				if team.participants.length < team.min
 					# Nächster Bewerber
@@ -415,14 +423,10 @@ export Assistant =
 			if team.participants.length < team.min
 				doneWaypoints.reverse()
 
-				for participant in doneParticipants
-					Helpers.participantsToPending team.shiftId, team._id, participant._id
+				for w in doneWaypoints
+					if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, false
+					if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 
-				for waypoint in doneWaypoints
-					Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.toId
-
-				for waypoint in doneWaypoints
-					Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.fromId, false
 
 	saveToDB: ->
 
