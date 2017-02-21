@@ -227,6 +227,7 @@ export Helpers =
 			if confirmationsThisDay.filter((confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
 				confirmationsThisDay.push cTeam
 
+		# TODO: parallelConfirmations auch in den Methoden der assisant prüfen, am besten seperat
 		if confirmationsThisDay.length > 0
 			parallelConfirmations = confirmationsThisDay.filter (t) ->
 				t = R.teams.filter((fTeam) -> fTeam.shiftId == t.shiftId && fTeam._id == t.teamId)[0]

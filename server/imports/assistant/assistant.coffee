@@ -212,36 +212,19 @@ export Assistant =
 
 					if !maxReached
 						# Prüfe, ob Tauschen Sinn macht
-						#beforeRatio = Helpers.getAverageDeviationRatioAll()
-
 						beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
 						newTargetAcceptionRatioPart = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
 						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
-						afterRatioDifference = Math.abs newTargetAcceptionRatioTl - newTargetAcceptionRatioCh
-
-						#R.users[participant._id].acceptions--
-						#R.users[participant._id].targetAcceptionRatio = newTargetAcceptionRatioTl
-						#R.users[changeable._id].acceptions++
-						#R.users[changeable._id].targetAcceptionRatio = newTargetAcceptionRatioCh
-
-						#afterRatio = Helpers.getAverageDeviationRatioAll()
-
-						#R.users[participant._id].acceptions++
-						#R.users[participant._id].targetAcceptionRatio = R.users[participant._id].acceptions / R.users[participant._id].targetPeriod
-						#R.users[changeable._id].acceptions--
-						#R.users[changeable._id].targetAcceptionRatio = R.users[changeable._id].acceptions / R.users[changeable._id].targetPeriod
+						afterRatioDifference = Math.abs newTargetAcceptionRatioPart - newTargetAcceptionRatioCh
 
 						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
 						if afterRatioDifference < beforeRatioDifference
-						#if afterRatio < beforeRatio
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
 
 							for waypoint in changeable.way
 								#console.log 'pe2pa: ' + R.users[waypoint.toId].name
 								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
-
-							#console.log 'AAA'
 
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
 							restartOptimizing = true
