@@ -55,11 +55,13 @@ export Helpers =
 		# Acceptions erhöhen
 		R.users[userId].acceptions += 1
 
-		# Schicht in confirmations Array aufnehmen
+		# Schicht in confirmation Arrays aufnehmen
+		R.users[userId].allConfirmations.push shiftId: shiftId, teamId: teamId
+
 		if user.thisTeamleader
 			R.users[userId].tlConfirmations.push shiftId: shiftId, teamId: teamId
 		else
-			R.users[userId].confirmations.push shiftId: shiftId, teamId: teamId
+			R.users[userId].partConfirmations.push shiftId: shiftId, teamId: teamId
 
 		# Ratio errechnen
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
@@ -94,11 +96,10 @@ export Helpers =
 		# Acceptions senken
 		R.users[userId].acceptions -= 1
 
-		# Schicht aus teamleader confirmations Array entfernen
+		# Schicht aus confirmation Arrays entfernen
+		R.users[userId].allConfirmations = R.users[userId].allConfirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId == teamId)
 		R.users[userId].tlConfirmations = R.users[userId].tlConfirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId == teamId)
-
-		# Schicht aus confirmations Array entfernen
-		R.users[userId].confirmations = R.users[userId].confirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId = teamId)
+		R.users[userId].partConfirmations = R.users[userId].partConfirmations.filter (c) -> !(c.shiftId == shiftId && c.teamId = teamId)
 
 		# Ratio errechnen
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
@@ -119,10 +120,10 @@ export Helpers =
 				foundUser = foundUsers[i]
 
 				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
-				for team in R.users[foundUser._id].confirmations
 					alreadyInAsTeamleader = R.users[foundUser._id].tlConfirmations.filter((tlTeam) -> team.teamId == tlTeam.teamId && team.shiftId == tlTeam.shiftId).length > 0
 					if !alreadyInAsTeamleader
 						team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
+				for team in R.users[foundUser._id].allConfirmations
 
 						# User in foundUsers aufnehmen, wenn noch nicht geschehen
 						for rUser in team.pending when !@getMaxReachedDay rUser, team
@@ -248,7 +249,7 @@ export Helpers =
 
 		maxReachedDay = false
 		confirmationsThisDay = []
-		cTeams = R.users[user._id].confirmations.concat(R.users[user._id].tlConfirmations).map (cTeam) ->
+		cTeams = R.users[user._id].allConfirmations.map (cTeam) ->
 			shiftId: cTeam.shiftId
 			teamId: cTeam.teamId
 			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
@@ -290,7 +291,7 @@ export Helpers =
 	getDoubleShiftOnDay: (user, date) ->
 		doubleShift = false
 		confirmationsThisDay = []
-		cTeams = R.users[user._id].confirmations.concat(R.users[user._id].tlConfirmations).map (cTeam) ->
+		cTeams = R.users[user._id].allConfirmations.map (cTeam) ->
 			shiftId: cTeam.shiftId
 			teamId: cTeam.teamId
 			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date

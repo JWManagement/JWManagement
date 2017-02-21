@@ -50,8 +50,10 @@ export Assistant =
 						user.doubleShiftAllowed = true
 						user.targetAcceptionRatio = user.acceptions / user.targetPeriod
 						user.requests = [{shiftId: shift._id, teamId: team._id}]
-						user.confirmations = []
+						# TODO: Prüfen ob tlConfirmations oder partConfirmations benutzt wird
+						user.allConfirmations = []
 						user.tlConfirmations = []
+						user.partConfirmations = []
 						R.users[user._id] = user
 
 	fillTeamsArray: ->
@@ -439,8 +441,9 @@ export Assistant =
 				delete user.doubleShiftAllowed
 				delete user.targetAcceptionRatio
 				delete user.requests
-				delete user.confirmations
+				delete user.allConfirmations
 				delete user.tlConfirmations
+				delete user.partConfirmations
 
 			for user in team.pending
 				delete user.targetPeriod
@@ -450,8 +453,9 @@ export Assistant =
 				delete user.doubleShiftAllowed
 				delete user.targetAcceptionRatio
 				delete user.requests
-				delete user.confirmations
+				delete user.allConfirmations
 				delete user.tlConfirmations
+				delete user.partConfirmations
 
 			shiftId = team.shiftId
 
