@@ -13,66 +13,11 @@ Meteor.methods
 
 		Helpers.logExplanation()
 
-		console.log '> setTeamleaders'
-		Assistant.setTeamleaders()
+		Assistant.setAndOptimizeAll()
 		Helpers.log()
 
-		console.log '> optimizeAll'
-		Assistant.optimizeAll()
-		Helpers.log()
 
-		##
-
-		console.log '>> setTeamleaders'
-		Assistant.setTeamleaders()
-		Helpers.log()
-
-		console.log '>> optimizeMaxReachedTeamleaders'
-		Assistant.optimizeMaxReachedTeamleaders()
-		Helpers.log()
-
-		console.log '>> optimizeAll'
-		Assistant.optimizeAll()
-		Helpers.log()
-
-		##
-
-		console.log '>>> setMinParticipants'
-		Assistant.setMinParticipants()
-		Helpers.log()
-
-		console.log '>>> optimizeAll'
-		Assistant.optimizeAll()
-		Helpers.log()
-
-		console.log '>>>> setMinParticipants'
-		Assistant.setMinParticipants()
-		Helpers.log()
-
-		console.log '>>>> optimizeMaxReachedParticipants'
-		Assistant.optimizeMaxReachedParticipants()
-		Helpers.log()
-
-		console.log '>>>> optimizeAll'
-		Assistant.optimizeAll()
-		Helpers.log()
-
-		##
-
-		console.log '>>>> setMinParticipants'
-		Assistant.setMinParticipants()
-		Helpers.log()
-
-		console.log '>>>> optimizeMaxReachedParticipants'
-		Assistant.optimizeMaxReachedParticipants()
-		Helpers.log()
-
-		##
-
-		console.log '>>>>> optimizeAll'
-		Assistant.optimizeAll()
-		Helpers.log()
-
+		console.log R.count
 
 		Assistant.saveToDB()
 

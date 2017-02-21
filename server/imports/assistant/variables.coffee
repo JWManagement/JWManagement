@@ -5,3 +5,4 @@ export R =
 		R.shifts = []
 		R.teams = []
 		R.users = {}
+		R.count = 0
