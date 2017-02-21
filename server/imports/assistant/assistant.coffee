@@ -172,7 +172,7 @@ export Assistant =
 						#if afterRatio < beforeRatio
 							for waypoint in changeable.way
 								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
-								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, true
+								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
 							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
 							doRestart = true
@@ -190,7 +190,7 @@ export Assistant =
 
 			# Mögliche beworbene Teamleiter durchlaufen
 			for teamleader, index in team.pending when !nextTeam && (teamleader.teamleader || teamleader.substituteTeamleader)
-				teamleaderChangeables = Helpers.searchTeamleaderChangeables teamleader._id
+				teamleaderChangeables = Helpers.searchChangeables teamleader._id
 				maxReachedDay = Helpers.getMaxReachedDay teamleader, team
 
 				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
@@ -207,7 +207,7 @@ export Assistant =
 						# Tausch in den anderen Schichten vornehmen
 						for waypoint in changeable.way
 							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
-							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, true
+							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
 						# Teamleiter dank des gewonnenen Platzes in dieser Schicht einteilen
 						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, true
@@ -308,7 +308,7 @@ export Assistant =
 
 							for waypoint in changeable.way
 								#console.log 'pe2pa: ' + R.users[waypoint.toId].name
-								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
+								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
 							#console.log 'AAA'
 
@@ -405,7 +405,7 @@ export Assistant =
 						doneWaypoints.push type: 'participantsToPending', waypoint: waypoint
 
 					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
-						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, false
+						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 						doneWaypoints.push type: 'pendingToParticipants', waypoint: waypoint
 					break
 
@@ -426,7 +426,7 @@ export Assistant =
 				doneWaypoints.reverse()
 
 				for w in doneWaypoints
-					if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, false
+					if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 					if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 
 

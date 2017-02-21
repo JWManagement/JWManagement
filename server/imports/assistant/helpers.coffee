@@ -120,14 +120,18 @@ export Helpers =
 				foundUser = foundUsers[i]
 
 				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
-					alreadyInAsTeamleader = R.users[foundUser._id].tlConfirmations.filter((tlTeam) -> team.teamId == tlTeam.teamId && team.shiftId == tlTeam.shiftId).length > 0
-					if !alreadyInAsTeamleader
-						team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 				for team in R.users[foundUser._id].allConfirmations
+					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 
-						# User in foundUsers aufnehmen, wenn noch nicht geschehen
-						for rUser in team.pending when !@getMaxReachedDay rUser, team
+					teamleader = team.participants.filter((user) -> user._id == foundUser._id && user.thisTeamleader).length > 0
+
+					# Prüfung ob getMaxReachedDay erreicht
+					for rUser in team.pending when !@getMaxReachedDay rUser, team
+						# Prüfung nach Teamleiterwechsel
+						if !(teamleader && !(rUser.teamleader || rUser.substituteTeamleader))
+							# Prüfung ob noch nicht in foundUsers aufgenommen
 							if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
+								# User in foundUsers aufnehmen
 								foundUsers.push
 									_id: rUser._id
 									way: foundUser.way.concat [
@@ -135,45 +139,8 @@ export Helpers =
 										teamId: team._id
 										fromId: foundUser._id
 										toId: rUser._id
+										tlChange: teamleader
 									]
-			i++
-
-		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
-		foundUsers.splice 0, 1
-
-		# Alle User entfernen, deren Maximum erreicht ist
-		foundUsers.filter (foundUser) => !@getMaxReachedPeriod R.users[foundUser._id]
-
-	searchTeamleaderChangeables: (userId) ->
-
-		foundUsers = []
-		runCondition = true
-		i = 0
-
-		# Aktuellen User in foundUsers aufnehmen
-		foundUsers.push _id: userId, way: []
-
-		while runCondition
-			if foundUsers.length <= i
-				runCondition = false
-			else
-				foundUser = foundUsers[i]
-
-				# Alle Teams durchgehen, wo er schon als Teamleiter angenommen ist
-				for team in R.users[foundUser._id].tlConfirmations
-					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
-
-					# User in foundUsers aufnehmen, wenn noch nicht geschehen
-					for rUser in team.pending when (rUser.teamleader || rUser.substituteTeamleader) && !@getMaxReachedDay rUser, team
-						if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
-							foundUsers.push
-								_id: rUser._id
-								way: foundUser.way.concat [
-									shiftId: team.shiftId
-									teamId: team._id
-									fromId: foundUser._id
-									toId: rUser._id
-								]
 			i++
 
 		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
