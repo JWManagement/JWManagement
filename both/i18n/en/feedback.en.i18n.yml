@@ -4,6 +4,7 @@ feedback:
         emailMissing: Email address is missing
         invalidToken: Invalid token. Please check the URL
         maximumAlreadyReached: Maximum limit for team participants has already been reached
+        missingField: One or more fields are missing
         noRequestAllowed: no more requests allowed
         notAdmin: you're not project manager
         noTeamleader: he/she is not team leader

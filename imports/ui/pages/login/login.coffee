@@ -1,3 +1,5 @@
+import './login.tpl.jade'
+
 Template.login.helpers
 
 	error: -> Session.get 'error'
@@ -24,7 +26,7 @@ Template.login.events
 					Meteor.setTimeout ->
 						submit.ladda('stop')
 						Session.set 'error', error.reason
-					, 500
+					, 100
 				else
 					language = Meteor.user().profile.language
 
@@ -32,4 +34,4 @@ Template.login.events
 						wrs -> FlowRouter.setParams language: language
 		else
 			submit.ladda('stop')
-			Session.set 'error', 'Mssing field'
+			Session.set 'error', TAPi18n.__('feedback.error.missingField')
