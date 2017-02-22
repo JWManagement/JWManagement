@@ -1,8 +1,10 @@
 export Dialogs =
 
 	callback: (args) -> (e, r) ->
-		Dialogs.feedback e
-		args.onSuccess r
+		if e
+			Dialogs.feedback e
+		else if r
+			args.onSuccess r
 
 	feedback: (error, type) ->
 		if error

@@ -65,11 +65,11 @@ export Methods =
 					Accounts.setPassword user._id, password
 					Accounts.setUsername user._id, username
 					Meteor.users.update user._id, $set: state: 'active'
-					done: true
+					true
 				else
-					done: false
+					throw new Meteor.Error 'noUserWithThisToken', 'error'
 			else
-				done: false
+				throw new Meteor.Error 'tokenError', 'error'
 
 	remove: new ValidatedMethod
 		name: 'Meteor.users.methods.remove'

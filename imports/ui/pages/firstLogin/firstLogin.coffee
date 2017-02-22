@@ -35,20 +35,14 @@ Template.firstLogin.events
 						if Meteor.users.helpers.areValidPasswords password1, password2
 							Meteor.users.methods.getters.usernameAvailable.call
 								username: username
-							, (err, res) ->
-								if res
-									Meteor.users.methods.init.call
-										token: token
-										username: username
-										password: password1
-									, (err, res) ->
-										if typeof res == 'object' && res.done
-											Meteor.loginWithPassword username, password1, ->
-												FlowRouter.go 'home'
-										else
-											Dialogs.feedback new Meteor.Error 'tokenError', 'error'
-								else
-									Dialogs.feedback new Meteor.Error 'usernameExists', 'error'
+							, Dialogs.callback onSuccess: ->
+								Meteor.users.methods.init.call
+									token: token
+									username: username
+									password: password1
+								, Dialogs.callback onSuccess: ->
+									Meteor.loginWithPassword username, password1, ->
+										FlowRouter.go 'home'
 					else
 						throw new Meteor.Error 'usernameMissing', 'error'
 				else

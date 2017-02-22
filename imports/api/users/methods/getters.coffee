@@ -9,7 +9,10 @@ export Getters =
 				username: type: String
 			.validator()
 		run: (args) -> if Meteor.isServer
-			!Meteor.users.findOne(username: args.username)?
+			if Meteor.users.findOne(username: args.username)?
+				throw new Meteor.Error 'usernameExists', 'error'
+			else
+				true
 
 	getUsernamesForEmail: new ValidatedMethod
 		name: 'Meteor.users.methods.getters.getUsernamesForEmail'

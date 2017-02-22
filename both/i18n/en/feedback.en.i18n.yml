@@ -19,6 +19,7 @@ feedback:
         usernameExists: This username is already in use. Please choose another one
         usernameMissing: Please provide a username
         usernameUnavailable: This username is unavailable. Please choose anotherone.
+        noUserWithThisToken: Couldn't find a user with this token
     success:
         mailSuccessfullySent: Email was sent successfully
     warning:
