@@ -1,5 +1,31 @@
 export Dialogs =
 
+	feedback: (error, type) ->
+		if error
+			type = type || 'swal'
+
+			if type == 'swal'
+				if error.error == 'validation-error'
+					swal error.reason, '', 'error'
+				else
+					swal TAPi18n.__('feedback.' + error.reason + '.' + error.error), '', error.reason
+			else if type == 'toast'
+				toastr[error.reason] '', TAPi18n.__('feedback.' + error.reason + '.' + error.error),
+					closeButton: true
+					debug: false
+					progressBar: true
+					preventDuplicates: true
+					positionClass: 'toast-bottom-right'
+					onclick: null
+					showDuration: '400'
+					hideDuration: '400'
+					timeOut: '4000'
+					extendedTimeOut: '1000'
+					showEasing: 'swing'
+					hideEasing: 'linear'
+					showMethod: 'fadeIn'
+					hideMethod: 'fadeOut'
+
 	handleError: (e) -> if e?
 
 		if e.error == 'validation-error'

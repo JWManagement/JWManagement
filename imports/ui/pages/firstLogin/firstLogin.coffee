@@ -1,3 +1,5 @@
+import { Dialogs } from '/imports/util/dialogs.coffee'
+
 import './firstLogin.tpl.jade'
 
 Template.firstLogin.onCreated ->
@@ -44,9 +46,9 @@ Template.firstLogin.events
 											Meteor.loginWithPassword username, password1, ->
 												FlowRouter.go 'home'
 										else
-											swal TAPi18n.__('tokenError', 'error')
+											Dialogs.feedback new Meteor.Error 'tokenError', 'error'
 								else
-									swal TAPi18n.__('usernameExists', 'error')
+									Dialogs.feedback new Meteor.Error 'usernameExists', 'error'
 					else
 						throw new Meteor.Error 'usernameMissing', 'error'
 				else
@@ -54,4 +56,4 @@ Template.firstLogin.events
 			else
 				throw new Meteor.Error 'tokenMissing', 'error'
 		catch e
-			swal TAPi18n.__(e.error, 'error')
+			Dialogs.feedback e
