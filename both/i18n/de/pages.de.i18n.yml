@@ -58,10 +58,11 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Kontaktiere uns
-        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
+        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p><p>Fülle einfach das Kontaktformular auf der rechten Seite aus.</p>
         name: Name
         email: E-Mail Adresse
         congregation: Versammlung
+        chooseType: Was für ein Anliegen hast du?
         enquiry: Projekt beantragen
         login: Problem beim Login
         problem: Problem melden

@@ -23,7 +23,7 @@ Template.welcome.helpers
 
 Template.welcome.onRendered ->
 
-	R.selectedType.set 'question'
+	R.selectedType.set ''
 	R.latestReleases.set [ body: ['Loading...'], tag: '0.0.0' ]
 
 	new WOW().init()

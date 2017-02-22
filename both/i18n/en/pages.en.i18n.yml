@@ -58,10 +58,11 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Contact Us
-        description: <p>Want to test the system for your congregation?</p><p>Just let us know so we can create a project for you.</p><p>Have another question or suggestion?</p><p>We would be happy to hear about that.</p>
+        description: <p>Want to test the system for your congregation?</p><p>Have a question or suggestion?</p><p>We would be happy to hear about that.</p><p>Just fill out the form on the right to let us know.</p>
         name: Name
         email: Email Address
         congregation: Congregation
+        chooseType: What type of issue do you have?
         enquiry: Project Enquiry
         login: Login Problem
         problem: General Problem

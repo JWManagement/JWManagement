@@ -100,20 +100,19 @@
 					.col-md-6.wow.fadeInUp
 						h2.text-uppercase {{_ 'welcome.contact.title'}}
 						| {{{_ 'welcome.contact.description'}}}
-						address
-							p
-								i.fa.fa-envelope-o
-								a.link-inverted(href='mailto:support@jwmanagement.org') support@jwmanagement.org
 					.col-md-6.wow.fadeInUp
 						.contact-form
 							form#contactForm
-								unless equals selectedType 'issue'
-									.col-md-6
-										input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
-									.col-md-6
-										input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
+								unless equals selectedType ''
+									unless equals selectedType 'issue'
+										unless equals selectedType 'login'
+											.col-md-6
+												input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}' required)
+											.col-md-6
+												input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}' required)
 								.col-md-12
 									select#type.form-control
+										option(type='') {{_ "welcome.contact.chooseType"}}
 										option(type='question') {{_ "welcome.contact.question"}}
 										option(type='login') {{_ "welcome.contact.login"}}
 										option(type='issue') {{_ "welcome.contact.problem"}}
@@ -135,20 +134,16 @@
 											i.fa.fa-angle-double-right.fa-fw
 								else if equals selectedType 'enquiry'
 									.col-md-12
-										input#congregation.form-control(type='congregation' placeholder='{{_ "welcome.contact.congregation"}}*' required)
+										input#congregation.form-control(type='congregation' placeholder='{{_ "welcome.contact.congregation"}}' required)
 									.col-md-12
-										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}' rows='4' required)
 									.col-md-8
 										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.sendEnquiry"}}')
+								else if equals selectedType 'question'
 									.col-md-12
-										p * {{_ 'welcome.contact.required'}}
-								else
-									.col-md-12
-										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
+										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}' rows='4' required)
 									.col-md-8
 										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
-									.col-md-12
-										p * {{_ 'welcome.contact.required'}}
 				.row.center-align.m-t-xl
 					.col-xs-12.wow.fadeInUp
 						a.link-inverted(href='{{pathFor "about" language=langTag}}') {{_ "welcome.contact.about"}}
