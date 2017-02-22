@@ -48,6 +48,13 @@ export Helpers =
 					console.log u.name + ' bereits am Maximum at ' + team.shiftId
 					return
 
+			R.doneWaypoints.push type: 'pendingToParticipants', waypoint:
+				shiftId: shiftId
+				teamId: teamId
+				fromId: ''
+				toId: userId
+				tlChange: teamleader
+
 			team['participants'].push user
 
 			team.pending = team.pending.filter (u) -> u._id != userId
@@ -81,8 +88,10 @@ export Helpers =
 			# Userdaten holen
 			for u in team.participants when u._id == userId
 				user = u
-				user.thisTeamleader = false
 				break
+
+			teamleader = user.thisTeamleader
+			user.thisTeamleader = false
 
 			# Gefundenen user überprüfen
 			if user == {}
@@ -90,6 +99,13 @@ export Helpers =
 				return
 
 			team['pending'].push user
+
+			R.doneWaypoints.push type: 'participantsToPending', waypoint:
+				shiftId: shiftId
+				teamId: teamId
+				fromId: userId
+				toId:  ''
+				tlChange: teamleader
 
 			team.participants = team.participants.filter (u) -> u._id != userId
 

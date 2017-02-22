@@ -418,6 +418,7 @@ export Assistant =
 				if team.participants.length < team.min
 					# Nächster Bewerber
 					repeatUsers = true
+				else
 
 			# Zurücksetzen, wenn nicht genug Teilnehmer eingeteilt werden konnten
 			if team.participants.length < team.min
@@ -429,21 +430,18 @@ export Assistant =
 
 	optimizeByTeamReset: ->
 		if 0 == Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers() then return
-
 		doRestart = true
 
 		while doRestart
 			doRestart = false
-
 			backup =
-				teams: R.teams
-				users: R.users
 				averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
 				abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
 				abandonedTeamsUsers: Helpers.countAbandonedTeamsUsers()
 				countAbandonedTeamsAll: Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
 
 			for team in R.teams when team.participants.length > 0
+				R.doneWaypoints = []
 				team['savedParticipants'] = []
 				team['savedPending'] = []
 
@@ -452,6 +450,7 @@ export Assistant =
 
 				for user in team.participants
 					team['savedParticipants'].push user
+					Helpers.participantsToPending team.shiftId, team._id, user._id
 
 				team['participants'] = []
 				team['pending'] = []
@@ -469,12 +468,14 @@ export Assistant =
 
 				if countAbandonedTeamsAll < backup.countAbandonedTeamsAll || countAbandonedTeamsAll == backup.countAbandonedTeamsAll && averageDeviationRatio < backup.averageDeviationRatio
 					doRestart = true
-					console.log 'Änderung vorgenommen'
 					Helpers.log()
 					break
 				else
-					R.teams = backup.teams
-					R.users = backup.users
+					R.doneWaypoints.reverse()
+					for w in R.doneWaypoints
+						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
+						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
+
 
 	saveToDB: ->
 
