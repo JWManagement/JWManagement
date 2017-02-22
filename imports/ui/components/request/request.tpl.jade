@@ -4,7 +4,7 @@ with getShift
 			.vertical-timeline-icon
 				if isRelation 'missing'
 					i.fa.fa-envelope
-				else if isRelation 'accepted'
+				else if isRelation 'approved'
 					i.fa.fa-thumbs-o-up
 				else if isRelation 'pending'
 					i.fa.fa-question
@@ -13,8 +13,8 @@ with getShift
 			a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
 				if isRelation 'missing'
 					h2  {{_ "dashboard.missing"}}
-				else if isRelation 'accepted'
-					h2  {{_ "dashboard.accepted"}}
+				else if isRelation 'approved'
+					h2  {{_ "dashboard.approved"}}
 				else if isRelation 'pending'
 					h2  {{_ "dashboard.pending"}}
 				else if isRelation 'declined'

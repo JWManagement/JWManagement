@@ -61,23 +61,23 @@ export Methods =
 							Shifts.helpers.setTeamleader shiftId, teamId, teamleaderId
 
 							# Akzeptierte User heraussuchen
-							acceptedUserIds = team.pending.map (user) -> user._id
+							approvedUserIds = team.pending.map (user) -> user._id
 
 							# Alle angenommenen User in anderen Teams ablehnen
 							for otherTeam in shift.teams when otherTeam._id != teamId
-								for user in otherTeam.pending when user._id in acceptedUserIds
+								for user in otherTeam.pending when user._id in approvedUserIds
 									Shifts.helpers.addDeclined shiftId, otherTeam._id, user._id
 
 							# Alle angenommenen User informieren
-							for acceptedUserId in acceptedUserIds
-								SendMail.sendConfirmation shiftId, teamId, acceptedUserId
+							for approvedUserId in approvedUserIds
+								SendMail.sendConfirmation shiftId, teamId, approvedUserId
 
 							# Team schließen, wenn das die letzte Bewerbung war
 							if team.pending.length == team.max
 								Shifts.helpers.closeTeam shiftId, teamId
 						# Fehler, wenn das die letzte Bewerbung, aber kein Teamleiter, war
 						else if team.pending.length == team.max - 1
-							throw new Meteor.Error 'no teamleader', ''
+							throw new Meteor.Error 'noTeamleader', ''
 						# Ansonsten Bewerbung einfach entgegennehmen
 						else
 							Shifts.helpers.addRequest shiftId, teamId, userId
@@ -85,7 +85,7 @@ export Methods =
 					else if team.pending.length < team.max
 						Shifts.helpers.addRequest shiftId, teamId, userId
 					else
-						throw new Meteor.Error 'no request allowed', ''
+						throw new Meteor.Error 'noRequestAllowed', ''
 
 	cancelRequest: new ValidatedMethod
 		name: 'Shifts.methods.cancelRequest'

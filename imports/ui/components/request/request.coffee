@@ -44,7 +44,7 @@ Template.request.helpers
 						reportSubmitted = team.report.submitted
 
 			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
-		else if a == 'accepted'
+		else if a == 'approved'
 			for team in @teams
 				for participant in team.participants
 					value = value || participant._id == userId
@@ -85,7 +85,7 @@ Template.request.helpers
 				for participant in team.participants
 					value = value || participant._id == userId
 			if value
-				'accepted'
+				'approved'
 			else
 				for team in @teams
 					for pendingUser in team.pending when pendingUser._id == userId
@@ -96,7 +96,7 @@ Template.request.helpers
 		userId = Meteor.userId()
 
 		for user in @participants when user._id == userId
-			return 'accepted'
+			return 'approved'
 
 		for user in @pending when user._id == userId
 			return 'pending'
