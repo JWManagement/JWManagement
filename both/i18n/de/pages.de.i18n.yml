@@ -339,7 +339,7 @@ notes:
     text: Text
     deleteNote: Notiz löschen
 firstLogin:
-    name: Herzlich Willkommen
+    name: Herzlich Willkommen,
     text: <p>Wir freuen uns dich bei JWManagement begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     agreeTerms: Ich akzeptiere die <a href="/de/terms" target="blank">Nutzungsbedingungen</a> und die <a href="/de/privacy" target="blank">Datenschutzerklärung</a>
     button: Los geht's!

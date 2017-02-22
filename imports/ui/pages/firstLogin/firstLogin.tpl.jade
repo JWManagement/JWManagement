@@ -3,7 +3,7 @@
 		.col-xs-12
 			.ibox-content
 				with user
-					h2.font-bold.text-center.m-b-lg {{_ "firstLogin.name"}}
+					h2.text-center.m-b-lg {{_ "firstLogin.name"}} {{profile.firstname}}
 					p.center-align {{{_ "firstLogin.text"}}}
 					if getErrorMessage
 						.alert.alert-danger {{getErrorMessage}}
