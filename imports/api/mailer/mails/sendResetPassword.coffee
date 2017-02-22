@@ -3,7 +3,7 @@ import { send } from '../send.coffee'
 
 export sendResetPassword = (obj) ->
 
-	if obj.email == '' then throw new Meteor.Error 'emailNotSet', 'error'
+	if obj.email == '' then throw new Meteor.Error 'emailMissing', 'error'
 
 	token = Random.id 43
 	user = {}

@@ -1,9 +1,5 @@
 import './firstLogin.tpl.jade'
 
-Template.firstLogin.helpers
-
-	getErrorMessage: -> Session.get('errorMessage')
-
 Template.firstLogin.events
 
 	'submit form': (event) ->
@@ -30,16 +26,17 @@ Template.firstLogin.events
 										password: password1
 									, (err, res) ->
 										if typeof res == 'object' && res.done
-											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'home'
+											Meteor.loginWithPassword username, password1, ->
+												FlowRouter.go 'home'
 										else
-											swal TAPi18n.__('firstLogin.tokenError', 'error')
+											swal TAPi18n.__('tokenError', 'error')
 								else
-									swal TAPi18n.__('firstLogin.usernameExists', 'error')
+									swal TAPi18n.__('usernameExists', 'error')
 					else
-						throw new Meteor.Error 'firstLogin.usernameMissing', ''
+						throw new Meteor.Error 'usernameMissing', 'error'
 				else
-					throw new Meteor.Error 'firstLogin.agreeTermsMissing', ''
+					throw new Meteor.Error 'agreeTermsMissing', 'error'
 			else
-				throw new Meteor.Error 'firstLogin.tokenMissing', ''
+				throw new Meteor.Error 'tokenMissing', 'error'
 		catch e
 			swal TAPi18n.__(e.error, 'error')

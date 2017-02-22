@@ -29,7 +29,7 @@ Template.resetPassword.events
 
 		try
 			if !token? || token == ''
-				throw new Meteor.Error 'errors.invalidToken', 'error'
+				throw new Meteor.Error 'invalidToken', 'error'
 
 			if Meteor.users.helpers.areValidPasswords pass1, pass2
 				Meteor.users.methods.profile.password.reset.call

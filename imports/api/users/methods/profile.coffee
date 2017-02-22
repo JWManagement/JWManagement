@@ -40,7 +40,7 @@ export ProfileMethods =
 				value = StringUtils.removeSpecials value
 
 				if (Meteor.users.findOne username: value)?
-					throw new Meteor.Error 406, 'Username unavailable'
+					throw new Meteor.Error 'usernameUnavailable', 'error'
 			else if field == 'firstname' || field == 'lastname'
 				value = StringUtils.trim value
 				value = StringUtils.capitalize value
@@ -112,9 +112,9 @@ export ProfileMethods =
 				.validator()
 			run: (args) -> if Meteor.isServer
 				if SendMail.sendResetPassword args
-					throw new Meteor.Error 'forgotPassword.mailSent', 'success'
+					throw new Meteor.Error 'mailSuccessfullySent', 'success'
 				else
-					throw new Meteor.Error 'didnt.work', 'error'
+					throw new Meteor.Error 'sendMailFailed', 'error'
 
 		reset: new ValidatedMethod
 			name: 'Meteor.users.methods.profile.password.reset'
@@ -134,4 +134,4 @@ export ProfileMethods =
 
 					user.username
 				else
-					throw new Meteor.Error 'errors.invalidToken', 'error'
+					throw new Meteor.Error 'invalidToken', 'error'

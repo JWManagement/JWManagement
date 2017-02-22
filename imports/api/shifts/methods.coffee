@@ -77,7 +77,7 @@ export Methods =
 								Shifts.helpers.closeTeam shiftId, teamId
 						# Fehler, wenn das die letzte Bewerbung, aber kein Teamleiter, war
 						else if team.pending.length == team.max - 1
-							throw new Meteor.Error 'noTeamleader', ''
+							throw new Meteor.Error 'noTeamleader', 'error'
 						# Ansonsten Bewerbung einfach entgegennehmen
 						else
 							Shifts.helpers.addRequest shiftId, teamId, userId
@@ -85,7 +85,7 @@ export Methods =
 					else if team.pending.length < team.max
 						Shifts.helpers.addRequest shiftId, teamId, userId
 					else
-						throw new Meteor.Error 'noRequestAllowed', ''
+						throw new Meteor.Error 'noRequestAllowed', 'error'
 
 	cancelRequest: new ValidatedMethod
 		name: 'Shifts.methods.cancelRequest'
