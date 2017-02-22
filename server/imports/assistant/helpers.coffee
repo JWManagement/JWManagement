@@ -212,7 +212,7 @@ export Helpers =
 		for userId in Object.keys R.users
 			sumDeviation += Math.abs R.users[userId].targetAcceptionRatio - averageRatio
 
-		sumDeviation / Object.keys(R.users).length
+		(Math.round 100000 * sumDeviation / Object.keys(R.users).length) / 100000
 
 	getAverageRatioTl: ->
 

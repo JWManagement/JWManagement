@@ -74,7 +74,7 @@ export Assistant =
 					team.end = shift.end
 					team.requestAmount = team.pending.length
 					team.min = 5
-					team.max = 6
+					team.max = 8
 
 					if team.requestAmount >= team.min # TODO: als wahrscheinlichkeit berücksichten
 						R.teams.push team
@@ -83,8 +83,6 @@ export Assistant =
 		teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
 
 	setAndOptimizeAll: ->
-
-		R.count++
 
 		Assistant.setTeamleaders()
 		Assistant.optimizeAll()
@@ -343,7 +341,9 @@ export Assistant =
 						fromId: ''
 						toId: user._id
 
-			return if team.participants.length >= team.min
+			if team.participants.length >= team.min
+				continue
+
 
 			while repeatUsers
 				repeatUsers = false
@@ -398,11 +398,12 @@ export Assistant =
 				# Den Changeable mit der niedrigsten changeableWayCount auswählen
 				changeableWayCount = changeableWayCount.sort (a, b) -> a.count - b.count
 				for changeable in changeableWayCount when userChangeables.filter((uChangeable) -> uChangeable.toId == changeable.userId).length == 1
-					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
+					way = userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
+					for waypoint in way
 						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
 						doneWaypoints.push type: 'participantsToPending', waypoint: waypoint
 
-					for waypoint in userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
+					for waypoint in way
 						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 						doneWaypoints.push type: 'pendingToParticipants', waypoint: waypoint
 					break
