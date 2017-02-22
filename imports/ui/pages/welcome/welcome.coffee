@@ -61,20 +61,13 @@ Template.welcome.events
 					congregation: congregation
 					message: message
 					language: TAPi18n.getLanguage()
-				, (e, r) ->
-					if e
-						Dialogs.handleError e
-					else
-						swal TAPi18n.__('welcome.contact.enquirySuccessful'), '', 'success'
-
-						$('#contactForm')[0].reset()
+				, Dialogs.callback onSuccess: ->
+					swal TAPi18n.__('feedback.success.enquirySent'), '', 'success'
+					$('#contactForm')[0].reset()
 			else
-				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
-					if e
-						Dialogs.handleError e
-					else
-						swal 'Nachricht wurde verschickt!', '', 'success'
-
-						$('#contactForm')[0].reset()
+				# TODO: migrate to messages
+				Meteor.call 'sendMessage', name, email, type, message, Dialogs.callback onSuccess: ->
+					swal TAPi18n.__('feedback.success.messageSent'), '', 'success'
+					$('#contactForm')[0].reset()
 		else
-			swal 'Bitte fülle alle Pflichtfelder aus!', '', 'error'
+			swal TAPi18n.__('feedback.error.missingField'), '', 'error'

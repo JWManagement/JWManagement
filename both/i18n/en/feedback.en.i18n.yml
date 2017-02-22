@@ -22,6 +22,8 @@ feedback:
         usernameUnavailable: This username is unavailable. Please choose anotherone.
         noUserWithThisToken: Couldn't find a user with this token
     success:
-        mailSuccessfullySent: Email was sent successfully
+        enquirySent: Enquiry has been sent. You will be noticed within a few hours
+        mailSent: Email has been sent
+        messageSent: Message has been sent
     warning:
         multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify an account

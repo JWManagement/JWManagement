@@ -25,11 +25,15 @@ Messages.schema = new SimpleSchema
 	language:
 		type: String
 		autoValue: -> 'de'
+	author:
+		type: Object
 	'author.name':
 		type: String
 	'author.email':
 		type: String
 		regEx: SimpleSchema.RegEx.Email
+	recipient:
+		type: Object
 	'recipient.name':
 		type: String
 		autoValue: -> 'Support'

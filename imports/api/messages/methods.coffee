@@ -16,7 +16,7 @@ export Methods =
 					allowedValues: ['de', 'en']
 			.validator()
 		run: (args) ->
-			newDoc =
+			newDoc = Messages.schema.clean
 				author:
 					name: args.name
 					email: args.email
@@ -24,7 +24,6 @@ export Methods =
 				text: args.message
 				language: args.language
 
-			Messages.schema.clean newDoc
 			Messages.schema.validate newDoc
 
 			Messages.insert newDoc

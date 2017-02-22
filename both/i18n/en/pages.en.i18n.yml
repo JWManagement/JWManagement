@@ -71,7 +71,6 @@ welcome:
         message: Message
         send: Send
         sendEnquiry: Send Enquiry
-        enquirySuccessful: Enquiry successfully sent!
         issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
         loginTip: Tip: If you forgot your password, you can just reset it using the button beneath. If you have done this and it still doesn't work, consider talking to your elders.
         toGithub: Visit GitHub
