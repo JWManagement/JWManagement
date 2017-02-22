@@ -236,9 +236,6 @@ export Assistant =
 
 		teamsWithTeamleader = R.teams.filter (team) -> team.participants.length > 0
 
-		# TODO: hinterher prüfen, ob sortierung zu besseren ergebnissen führen würde
-		#teamsWithTeamleader = teamsWithTeamleader.sort (a, b) -> a.pending.length - b.pending.length
-
 		for team in teamsWithTeamleader when team.participants.length < team.min && team.pending.length > 0
 			allRequests = []
 
@@ -259,6 +256,9 @@ export Assistant =
 					Helpers.pendingToParticipants team.shiftId, team._id, request._id, false
 
 	optimizeAll: ->
+
+		# TODO: nicht nur tauschen sondern auch setzen (bei team.pending < team.max && user.acceptions < user.targetPeriod)
+		# TODO: nicht nur tauschen sondern auch rausnehmen (bei team.participants > team.min && user.acceptions > user.targetPeriod)
 
 		endReached = false
 
