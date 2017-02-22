@@ -113,8 +113,6 @@ export ProfileMethods =
 			run: (args) -> if Meteor.isServer
 				if SendMail.sendResetPassword args
 					throw new Meteor.Error 'mailSuccessfullySent', 'success'
-				else
-					throw new Meteor.Error 'sendMailFailed', 'error'
 
 		reset: new ValidatedMethod
 			name: 'Meteor.users.methods.profile.password.reset'

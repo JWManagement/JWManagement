@@ -1,5 +1,9 @@
 export Dialogs =
 
+	callback: (args) -> (e, r) ->
+		Dialogs.feedback e
+		args.onSuccess r
+
 	feedback: (error, type) ->
 		if error
 			type = type || 'swal'

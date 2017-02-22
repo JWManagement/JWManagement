@@ -1,3 +1,5 @@
+import { Dialogs } from '/imports/util/dialogs.coffee'
+
 import './forgotPassword.tpl.jade'
 
 multipleUsernames = new Tracker.Dependency
@@ -32,14 +34,11 @@ Template.forgotPassword.events
 		, (e, r) ->
 			submit.ladda 'stop'
 
-			swal TAPi18n.__(e.error), '', e.reason
+			Dialogs.feedback e
 
-			if e.error == 'forgotPassword.multipleAccountsForThisEmail'
+			if e.error == 'multipleAccountsForThisEmail'
 				Meteor.users.methods.getters.getUsernamesForEmail.call
 					email: email
-				, (err, res) ->
-					if err
-						handleError err
-					else
-						usernameList = res
-						multipleUsernames.changed()
+				, Dialogs.callback onSuccess: (res) ->
+					usernameList = res
+					multipleUsernames.changed()

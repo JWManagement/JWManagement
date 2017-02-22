@@ -18,7 +18,7 @@ export Getters =
 				email: type: String
 			.validator()
 		run: (args) -> if Meteor.isServer
-			users = Meteor.users.find 'profile.email': email,
+			users = Meteor.users.find 'profile.email': args.email,
 				fields:
 					'username': 1
 					'profile.firstname': 1
