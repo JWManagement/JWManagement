@@ -1,5 +1,20 @@
 import './firstLogin.tpl.jade'
 
+Template.firstLogin.onCreated ->
+
+	token = FlowRouter.getQueryParam('token')
+
+	if token? && token != ''
+		@subscribe 'userByToken', token
+
+Template.firstLogin.helpers
+
+	user: ->
+		token = FlowRouter.getQueryParam('token')
+		Meteor.users.findOne 'services.password.reset.token': token
+
+	loggingIn: -> Meteor.loggingIn() || Meteor.userId()
+
 Template.firstLogin.events
 
 	'submit form': (event) ->
@@ -16,7 +31,7 @@ Template.firstLogin.events
 				if agreeTerms
 					if username
 						if Meteor.users.helpers.areValidPasswords password1, password2
-							Meteor.users.methods.checks.usernameAvailable.call
+							Meteor.users.methods.getters.usernameAvailable.call
 								username: username
 							, (err, res) ->
 								if res
