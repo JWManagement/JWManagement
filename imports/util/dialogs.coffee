@@ -3,6 +3,7 @@ export Dialogs =
 	callback: (args) -> (e, r) ->
 		if e
 			Dialogs.feedback e
+			args.onError e
 		else if r
 			args.onSuccess r
 

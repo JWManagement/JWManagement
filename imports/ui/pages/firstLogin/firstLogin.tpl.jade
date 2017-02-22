@@ -20,7 +20,7 @@
 									.checkbox.checkbox-inline(tabindex='4')
 										input#agreeTerms(type='checkbox')
 										label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
-								button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}
+								button#submit.btn.btn-primary.block.full-width.ladda-button(data-style='slide-down'  type='submit') {{_ "firstLogin.button"}}
 				else
 					if loggingIn
 						.sk-spinner.sk-spinner-pulse

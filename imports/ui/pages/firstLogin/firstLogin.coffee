@@ -22,6 +22,9 @@ Template.firstLogin.events
 	'submit form': (event) ->
 		event.preventDefault()
 
+		submit = $('#submit').ladda()
+		submit.ladda('start')
+
 		username = $('#username').val()
 		password1 = $('#password1').val()
 		password2 = $('#password2').val()
@@ -35,14 +38,18 @@ Template.firstLogin.events
 						if Meteor.users.helpers.areValidPasswords password1, password2
 							Meteor.users.methods.getters.usernameAvailable.call
 								username: username
-							, Dialogs.callback onSuccess: ->
-								Meteor.users.methods.init.call
-									token: token
-									username: username
-									password: password1
-								, Dialogs.callback onSuccess: ->
-									Meteor.loginWithPassword username, password1, ->
-										FlowRouter.go 'home'
+							, Dialogs.callback
+								onError: -> submit.ladda('stop')
+								onSuccess: ->
+									Meteor.users.methods.init.call
+										token: token
+										username: username
+										password: password1
+									, Dialogs.callback
+										onError: -> submit.ladda('stop')
+										onSuccess: ->
+											Meteor.loginWithPassword username, password1, ->
+												FlowRouter.go 'home'
 					else
 						throw new Meteor.Error 'usernameMissing', 'error'
 				else
@@ -50,4 +57,5 @@ Template.firstLogin.events
 			else
 				throw new Meteor.Error 'tokenMissing', 'error'
 		catch e
+			submit.ladda('stop')
 			Dialogs.feedback e
