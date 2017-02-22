@@ -122,11 +122,17 @@ export Helpers =
 				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
 				for team in R.users[foundUser._id].allConfirmations
 					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
+					if team.participants.filter((user) -> user._id == foundUser._id).length == 0 then console.log "FEHLER"
 
 					teamleader = team.participants.filter((user) -> user._id == foundUser._id && user.thisTeamleader).length > 0
 
+					# TODO: Wenn maxreachedday erreicht ist, ihn zum tauschen bei der nächsten Überprüfung nut mir Bewerbern diesen tages vergleichen
+					#	Wenn einmal maxreachedday nicht erreicht ist, ihn auch wieder in foundUser aufnehmen, andersherum aber nicht
+					# 	maxreachedday bei foundUsers für den einen Weg (!) mit übergeben
+
 					# Prüfung ob getMaxReachedDay erreicht
 					for rUser in team.pending when !@getMaxReachedDay rUser, team
+						R.count++
 						# Prüfung nach Teamleiterwechsel
 						if !(teamleader && !(rUser.teamleader || rUser.substituteTeamleader))
 							# Prüfung ob noch nicht in foundUsers aufgenommen
