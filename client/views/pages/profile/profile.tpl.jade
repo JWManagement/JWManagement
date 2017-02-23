@@ -104,7 +104,7 @@ if queryParam 'editProfilePicture'
 							.text-muted.m-t {{_ 'profile.options.helpText'}}
 						.ibox-content
 							#changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
-							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}	
+							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}
 				.col-md-6
 					.ibox.animated.fadeInUp
 						.ibox-title
@@ -130,6 +130,10 @@ if queryParam 'editProfilePicture'
 							.checkbox.checkbox-primary.checkbox-inline
 								input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
 								label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
+							.hr-line-dashed
+							.checkbox.checkbox-primary.checkbox-inline
+								input#notifyViaPush(type="checkbox" checked="{{profile.notifyViaEmail}}")
+								label(for="notifyViaEmail") {{_ 'profile.availability.notifyViaEmail'}}
 					.ibox.animated.fadeInUp
 						.ibox-title
 							h2.animated.fadeInUp {{_ 'profile.vacation.title'}}
