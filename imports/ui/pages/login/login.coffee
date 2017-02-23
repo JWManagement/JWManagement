@@ -1,4 +1,5 @@
 import './login.tpl.jade'
+import './login.scss'
 
 Template.login.helpers
 

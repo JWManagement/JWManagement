@@ -1,6 +1,7 @@
 import { Dialogs } from '/imports/util/dialogs.coffee'
 
 import './firstLogin.tpl.jade'
+import './firstLogin.scss'
 
 Template.firstLogin.onCreated ->
 
