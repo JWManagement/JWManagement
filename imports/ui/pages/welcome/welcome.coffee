@@ -30,9 +30,10 @@ Template.welcome.onRendered ->
 	$('.navbar').singlePageNav offset: 70
 
 	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
-		R.latestReleases.set a.data.map (data, index) -> if index < 3
+		R.latestReleases.set a.data.map((data, index) ->
 			body: data.body.replace(/- /g, '').split('\n')
 			tag: data.tag_name
+		).splice 0, 3
 
 Template.welcome.events
 

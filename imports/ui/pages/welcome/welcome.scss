@@ -46,7 +46,7 @@
 	h2,
 	h3,
 	h4 {
-		font-weight: bold;
+		font-weight: 300;
 	}
 	/* end h1 group */
 	/* img */
@@ -96,7 +96,7 @@
 			color      : $indigo;
 			height     : 70px;
 			font-size  : 32px;
-			font-weight: bold;
+			font-weight: 300;
 			line-height: 40px;
 			font-family: 'Helvetica Neue', Arial;
 		}
@@ -137,7 +137,7 @@
 				height     : 70px;
 				font-size  : 13px;
 				line-height: 40px;
-				font-weight: bold;
+				font-weight: 400;
 
 				&:focus,
 				&:hover {
@@ -186,8 +186,7 @@
 		background-position: center;
 
 		p {
-			font-style : italic;
-			font-weight: 400;
+			font-weight: 300;
 			line-height: 2em;
 		}
 
@@ -291,7 +290,7 @@
 			padding      : 14px 12px;
 			background   : $indigo;
 			transition   : all 0.3s ease;
-			font-weight  : bold;
+			font-weight  : 300;
 			margin-bottom: 20px;
 			border-radius: 0;
 		}
@@ -322,7 +321,7 @@
 		padding    : 20px;
 		text-align : center;
 		background : #fff;
-		font-weight: 400;
+		font-weight: 300;
 	}
 	/* end footer */
 	@media screen and ( max-width: 767px ) {
