@@ -28,6 +28,11 @@ Meteor.methods
 					name: name
 					datetime: TAPi18n.__('mail.declined.datetime', {date: date, time: time}, user.profile.language)
 					content: getMailTexts 'declined', user.profile.language
+			Push.send
+			 from: project.name
+			 title: TAPi18n.__('push.declined.headline', user.profile.language)
+			 text: TAPi18n.__('push.declined.text1', {date: date, time: time}, user.profile.language)
+			 query: userId: user._id
 			, (err, res) ->
 				if err
 					console.log 'sendMail failed: ' + err

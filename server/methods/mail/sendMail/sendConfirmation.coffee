@@ -32,6 +32,14 @@ Meteor.methods
 				datetime: TAPi18n.__('mail.confirmation.datetime', {date: date, time: time}, user.profile.language)
 				shift: shiftData
 				content: getMailTexts 'confirmation', user.profile.language
+		Push.send
+		 from: project.name
+		 title: TAPi18n.__('push.confirmation.subject', user.profile.language)
+		 text: TAPi18n.__('push.confirmation.text', {date: date, time: time}, user.profile.language)
+		 badge: 1
+		 sound: 'chime'
+		 badge: null + 1
+		 query: userId: userId
 		, (err, res) ->
 			if err
 				console.log 'sendMail failed: ' + err

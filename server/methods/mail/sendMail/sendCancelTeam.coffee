@@ -34,5 +34,10 @@ Meteor.methods
 						reason: message
 						text: TAPi18n.__('mail.teamCancellation.text', {date: date, time: time} , user.profile.language)
 						content: getMailTexts 'teamCancellation', user.profile.language
+				Push.send
+				 from: project.name
+				 title: TAPi18n.__('push.teamCancellation.headline', user.profile.language)
+				 text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
+				 query: userId: userId
 				, (err, res) -> if err
 					console.log 'sendMail failed: ' + err
