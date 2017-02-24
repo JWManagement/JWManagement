@@ -1,4 +1,5 @@
 navigation:
+    undefined: Route not found
     welcome: Welcome
     home: Dashboard
     profile: My Profile

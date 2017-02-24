@@ -35,3 +35,10 @@ export Helpers =
 				elseToDo()
 			else
 				BlazeLayout.render 'blankLayout', content: 'login'
+
+	# TODO: DELETE SOON
+	migrateToken: (c) ->
+		if !c.params.token? && c.queryParams.token?
+			wrs ->
+				FlowRouter.setParams token: c.queryParams.token
+				FlowRouter.setQueryParams token: undefined

@@ -3,14 +3,14 @@ import './resetPassword.tpl.jade'
 Template.resetPassword.helpers
 
 	user: ->
-		token = FlowRouter.getQueryParam('token')
+		token = FlowRouter.getParam('token')
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	loggingIn: -> Meteor.loggingIn() || Meteor.userId()
 
 Template.resetPassword.onCreated ->
 
-	token = FlowRouter.getQueryParam('token')
+	token = FlowRouter.getParam('token')
 
 	if token? && token != ''
 		@subscribe 'userByToken', token
@@ -25,7 +25,7 @@ Template.resetPassword.events
 
 		pass1 = e.target['0'].value
 		pass2 = e.target['1'].value
-		token = FlowRouter.getQueryParam('token')
+		token = FlowRouter.getParam('token')
 
 		try
 			if !token? || token == ''

@@ -40,16 +40,16 @@ FlowRouter.route '/:language/forgot',
 		Session.set 'parent', 'home'
 		BlazeLayout.render 'blankLayout', content: 'forgotPassword'
 
-FlowRouter.route '/:language/reset',
+FlowRouter.route '/:language/reset/:token?',
 	name: 'resetPassword'
-	triggersEnter: [ Helpers.checkLanguage, Helpers.logout ]
+	triggersEnter: [ Helpers.checkLanguage, Helpers.logout, Helpers.migrateToken ]
 	action: ->
 		Session.set 'parent', 'home'
 		BlazeLayout.render 'blankLayout', content: 'resetPassword'
 
-FlowRouter.route '/:language/firstLogin',
+FlowRouter.route '/:language/firstLogin/:token?',
 	name: 'firstLogin'
-	triggersEnter: [ Helpers.checkLanguage, Helpers.logout ]
+	triggersEnter: [ Helpers.checkLanguage, Helpers.logout, Helpers.migrateToken ]
 	action: ->
 		Session.set 'parent', 'home'
 		BlazeLayout.render 'blankLayout', content: 'firstLogin'

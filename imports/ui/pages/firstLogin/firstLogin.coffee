@@ -5,7 +5,7 @@ import './firstLogin.scss'
 
 Template.firstLogin.onCreated ->
 
-	token = FlowRouter.getQueryParam('token')
+	token = FlowRouter.getParam('token')
 
 	if token? && token != ''
 		@subscribe 'userByToken', token
@@ -13,7 +13,7 @@ Template.firstLogin.onCreated ->
 Template.firstLogin.helpers
 
 	user: ->
-		token = FlowRouter.getQueryParam('token')
+		token = FlowRouter.getParam('token')
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	loggingIn: -> Meteor.loggingIn() || Meteor.userId()
@@ -30,7 +30,7 @@ Template.firstLogin.events
 		password1 = $('#password1').val()
 		password2 = $('#password2').val()
 		agreeTerms = $('#agreeTerms').prop('checked')
-		token = FlowRouter.getQueryParam('token')
+		token = FlowRouter.getParam('token')
 
 		try
 			if token
