@@ -1,10 +1,19 @@
-#wrapper
+unless Meteor.isCordova
+	.ionic-body(class='{{platformClasses}}')
+		.menu-content
+			+navigation
 
-	#page-wrapper(class="{{currentRouteName}}-wrapper")
-
-		+navigation
-
-		.template-content
 			+Template.dynamic(template=content)
 
-		+footer
+			+footer
+else
+	#wrapper
+
+		#page-wrapper(class="{{currentRouteName}}-wrapper")
+
+			+navigation
+
+			.template-content
+				+Template.dynamic(template=content)
+
+			+footer
