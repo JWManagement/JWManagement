@@ -10,6 +10,11 @@ import '/imports/ui/layouts/main/main.coffee'
 import '/imports/ui/layouts/inverted/inverted.coffee'
 
 # Pages
+if !Meteor.isCordova
+	require '/imports/ui/pages/mobile/dashboard/dashboard.coffee'
+else
+	require '/imports/ui/pages/dashboard/dashboard.coffee'
+
 import '/imports/ui/pages/notFound/notFound.coffee'
 import '/imports/ui/pages/firstLogin/firstLogin.coffee'
 import '/imports/ui/pages/forgotPassword/forgotPassword.coffee'
@@ -19,7 +24,6 @@ import '/imports/ui/pages/about/about.coffee'
 import '/imports/ui/pages/privacy/privacy.coffee'
 import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
-import '/imports/ui/pages/dashboard/dashboard.coffee'
 import '/imports/ui/pages/profile/profile.coffee'
 import '/imports/ui/pages/support/support.coffee'
 
