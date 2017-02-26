@@ -38,8 +38,8 @@ export Helpers =
 				console.log u.name + ' nicht in pending gefunden'
 				return
 			else
-				maxReachedDay = @getMaxReachedDay user, team
-				maxReachedPeriod = @getMaxReachedPeriod user
+				maxReachedDay = @getMaxReachedDay user._id, team
+				maxReachedPeriod = @getMaxReachedPeriod user._id
 
 				if maxReachedDay
 					console.log u.name + ' bereits am Tages Maximum at ' + team.shiftId

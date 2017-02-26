@@ -177,8 +177,8 @@ export Assistant =
 
 				# Teamleiter heraussuchen, die noch nicht am Maximum für diese Zeitperiode oder diesen Tag sind
 				for user in teamleaderInThisTeam
-					maxReached = Helpers.getMaxReachedPeriod user
-					maxReachedDay = Helpers.getMaxReachedDay user, team
+					maxReached = Helpers.getMaxReachedPeriod user._id
+					maxReachedDay = Helpers.getMaxReachedDay user._id, team
 
 					if !maxReached && !maxReachedDay
 						if user.teamleader
@@ -207,7 +207,8 @@ export Assistant =
 			# Mögliche beworbene Teamleiter durchlaufen
 			for teamleader, index in team.pending when !nextTeam && (teamleader.teamleader || teamleader.substituteTeamleader)
 				teamleaderChangeables = Helpers.searchChangeables teamleader._id
-				maxReachedDay = Helpers.getMaxReachedDay teamleader, team
+				maxReachedDay = Helpers.getMaxReachedDay teamleader._id, team
+				doubleShift = Helpers.getDoubleShiftOnDay teamleader._id, team.date
 
 				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
 				if maxReachedDay
@@ -241,8 +242,8 @@ export Assistant =
 
 			# Bewerber heraussuchen, die noch nicht am Maximum für diese Zeitperiode oder diesen Tag sind
 			for user in team.pending
-				maxReached = Helpers.getMaxReachedPeriod user
-				maxReachedDay = Helpers.getMaxReachedDay user, team
+				maxReached = Helpers.getMaxReachedPeriod user._id
+				maxReachedDay = Helpers.getMaxReachedDay user._id, team
 
 				if !maxReached && !maxReachedDay
 					allRequests.push user
@@ -329,9 +330,9 @@ export Assistant =
 			userChangeables = []
 
 			# Mögliche beworbene Teilnehmer durchlaufen
-			for user, index in team.pending
-				maxReachedDay = Helpers.getMaxReachedDay user, team
-				maxReachedPeriod = Helpers.getMaxReachedPeriod user
+			for user in team.pending
+				maxReachedDay = Helpers.getMaxReachedDay user._id, team
+				maxReachedPeriod = Helpers.getMaxReachedPeriod user._id
 
 				if !maxReachedDay && !maxReachedPeriod
 					Helpers.pendingToParticipants team.shiftId, team._id, user._id, false
@@ -354,10 +355,10 @@ export Assistant =
 				changeableWayCount = []
 
 				# Mögliche beworbene Teilnehmer durchlaufen
-				for user, index in team.pending
-					maxReachedDay = Helpers.getMaxReachedDay user, team
-					maxReachedPeriod = Helpers.getMaxReachedPeriod user
-					doubleShift = Helpers.getDoubleShiftOnDay user, team.date
+				for user in team.pending
+					maxReachedDay = Helpers.getMaxReachedDay user._id, team
+					maxReachedPeriod = Helpers.getMaxReachedPeriod user._id
+					doubleShift = Helpers.getDoubleShiftOnDay user._id, team.date
 
 					# TODO: Doppelschichten mit berücksichtigen. Dafür beide Schichten tauschen, und hinterher auch wieder beide Schichten eintragen.
 					if doubleShift then	continue
