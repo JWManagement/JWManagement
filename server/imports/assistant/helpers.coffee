@@ -238,7 +238,7 @@ export Helpers =
 
 		maxReachedDay = false
 		confirmationsThisDay = []
-		cTeams = R.users[user._id].allConfirmations.map (cTeam) ->
+		cTeams = R.users[userId].allConfirmations.map (cTeam) ->
 			shiftId: cTeam.shiftId
 			teamId: cTeam.teamId
 			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date

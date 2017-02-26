@@ -233,10 +233,13 @@ export Assistant =
 			nextTeam = false
 
 			# Mögliche beworbene Teamleiter durchlaufen
-			for teamleader, index in team.pending when !nextTeam && (teamleader.teamleader || teamleader.substituteTeamleader)
+			for teamleader in team.pending when !nextTeam && (teamleader.teamleader || teamleader.substituteTeamleader)
 				teamleaderChangeables = Helpers.searchChangeables teamleader._id
 				maxReachedDay = Helpers.getMaxReachedDay teamleader._id, team
 				doubleShift = Helpers.getDoubleShiftOnDay teamleader._id, team.date
+
+				# TODO: Doppelschichten mit berücksichtigen. Dafür beide Schichten tauschen, und hinterher auch wieder beide Schichten eintragen.
+				continue if doubleShift
 
 				# Wenn User bereits das Maximum dieses Tages erreicht hat, nur Schichten an diesem Tag prüfen
 				if maxReachedDay
@@ -370,9 +373,7 @@ export Assistant =
 						fromId: ''
 						toId: user._id
 
-			if team.participants.length >= team.min
-				continue
-
+			continue if team.participants.length >= team.min
 
 			while repeatUsers
 				repeatUsers = false
@@ -389,7 +390,7 @@ export Assistant =
 					doubleShift = Helpers.getDoubleShiftOnDay user._id, team.date
 
 					# TODO: Doppelschichten mit berücksichtigen. Dafür beide Schichten tauschen, und hinterher auch wieder beide Schichten eintragen.
-					if doubleShift then	continue
+					continue if doubleShift
 
 					# Tausch-Kandidaten heraussuchen
 					changeables = Helpers.searchChangeables user._id
@@ -426,7 +427,7 @@ export Assistant =
 
 				# Den Changeable mit der niedrigsten changeableWayCount auswählen
 				changeableWayCount = changeableWayCount.sort (a, b) -> a.count - b.count
-				for changeable in changeableWayCount when userChangeables.filter((uChangeable) -> uChangeable.toId == changeable.userId).length == 1
+				for changeable in changeableWayCount when userChangeables.filter((uChangeable) -> uChangeable.toId == changeable.userId).length > 0
 					way = userChangeables.filter((fChangeable) -> changeable.userId == fChangeable.toId)[0].way
 					for waypoint in way
 						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
