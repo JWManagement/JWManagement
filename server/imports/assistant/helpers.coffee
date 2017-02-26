@@ -265,23 +265,24 @@ export Helpers =
 
 		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
 		if confirmationsThisDay.length == 1
-			if R.users[user._id].maxDay == 1
-				if !R.users[user._id].doubleShiftAllowed
+			if R.users[userId].maxDay == 1
+				if !R.users[userId].doubleShiftAllowed
 					maxReachedDay = true
 				else
 					thisShift = R.shifts.filter((shift) -> shift._id == confirmationsThisDay[0].shiftId)[0]
 
 					if thisShift.start != team.end && thisShift.end != team.start
 						maxReachedDay = true
-		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= R.users[user._id].maxDay
+		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= R.users[userId].maxDay
 			maxReachedDay = true
 
 		maxReachedDay
 
-	getDoubleShiftOnDay: (user, date) ->
+	getDoubleShiftOnDay: (userId, date) ->
+		# TODO: Mit als weiterer Rückgabewert in getMaxReachedDay?
 		doubleShift = false
 		confirmationsThisDay = []
-		cTeams = R.users[user._id].allConfirmations.map (cTeam) ->
+		cTeams = R.users[userId].allConfirmations.map (cTeam) ->
 			shiftId: cTeam.shiftId
 			teamId: cTeam.teamId
 			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
@@ -293,9 +294,9 @@ export Helpers =
 				confirmationsThisDay.push cTeam
 
 		# Anzahl der angenommenen Bewerbungen und auf Doppelschicht prüfen
-		if confirmationsThisDay.length == 2 && R.users[user._id].maxDay == 1 && R.users[user._id].doubleShiftAllowed
+		if confirmationsThisDay.length == 2 && R.users[userId].maxDay == 1 && R.users[userId].doubleShiftAllowed
 			doubleShift = true
 
 		doubleShift
 
-	getMaxReachedPeriod: (user) -> R.users[user._id].acceptions >= R.users[user._id].maxPeriod
+	getMaxReachedPeriod: (userId) -> R.users[userId].acceptions >= R.users[userId].maxPeriod
