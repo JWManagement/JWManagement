@@ -251,7 +251,55 @@ export Helpers =
 
 		sumRatio / Object.keys(R.users).length
 
-	getMaxReachedDay: (user, team) ->
+	wouldBeMaxReachedDay: (userId, team) ->
+		# TODO: Wird die Funktion gebraucht?
+
+		maxReachedDay = false
+		confirmationsThisDay = []
+		cTeams = R.users[userId].allConfirmations.map (cTeam) ->
+			shiftId: cTeam.shiftId
+			teamId: cTeam.teamId
+			date: R.teams.filter((fTeam) -> fTeam.shiftId == cTeam.shiftId && fTeam._id == cTeam.teamId)[0].date
+
+		cTeams.push
+			shiftId: team.shiftId
+			teamId: team.teamId
+			date: R.teams.filter((fTeam) -> fTeam.shiftId == team.shiftId && fTeam._id == team.teamId)[0].date
+
+		# Alle angenommenen Bewerbungen dieses Tages zusammenfassen
+		for cTeam in cTeams when team.date == cTeam.date
+			# Schicht in confirmationsThisDay aufnehmen, wenn noch nicht gemacht
+			if confirmationsThisDay.filter((confirmation) -> confirmation.shiftId == cTeam.shiftId).length == 0
+				confirmationsThisDay.push cTeam
+
+		# TODO: parallelConfirmations auch in den Methoden der assisant prüfen, am besten seperat
+		if confirmationsThisDay.length > 0
+			parallelConfirmations = confirmationsThisDay.filter (t) ->
+				t = R.teams.filter((fTeam) -> fTeam.shiftId == t.shiftId && fTeam._id == t.teamId)[0]
+
+				(team.start > t.start && team.start < t.end) ||
+				(team.end > t.start && team.end < t.end) ||
+				(t.start > team.start && t.start < team.end) ||
+				(t.end > team.start && t.end < team.end) ||
+				(t.start == team.start && t.end == team.end)
+
+			if parallelConfirmations.length > 0
+				maxReachedDay = true
+
+		# Anzahl der angenommenen Bewerbungen (und ggf. auf Doppelschicht) prüfen
+		if confirmationsThisDay.length == 1
+			if R.users[userId].maxDay == 1
+				if !R.users[userId].doubleShiftAllowed
+					maxReachedDay = true
+				else
+					thisShift = R.shifts.filter((shift) -> shift._id == confirmationsThisDay[0].shiftId)[0]
+
+					if thisShift.start != team.end && thisShift.end != team.start
+						maxReachedDay = true
+		else if confirmationsThisDay.length > 1 && confirmationsThisDay.length >= R.users[userId].maxDay
+			maxReachedDay = true
+
+	getMaxReachedDay: (userId, team) ->
 
 		maxReachedDay = false
 		confirmationsThisDay = []
