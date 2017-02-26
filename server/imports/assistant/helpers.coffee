@@ -43,6 +43,7 @@ export Helpers =
 
 				if maxReachedDay
 					console.log u.name + ' bereits am Tages Maximum at ' + team.shiftId
+					throw new Meteor.Error 'Tagesmaxium'
 					return
 				else if maxReachedPeriod
 					console.log u.name + ' bereits am Maximum at ' + team.shiftId
