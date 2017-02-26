@@ -247,22 +247,21 @@ export Assistant =
 						fTeam = (R.teams.filter (t) -> t._id == changeable.way[0].teamId && t.shiftId == changeable.way[0].shiftId)[0]
 						fTeam.date == team.date
 
+				teamleaderChangeables = teamleaderChangeables.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+
 				# Mögliche Tausch-Kandidaten für diesen Teamleiter heraussuchen
 				for changeable in teamleaderChangeables
-					maxReached = Helpers.getMaxReachedPeriod changeable
+					# Tausch in den anderen Schichten vornehmen
+					for waypoint in changeable.way
+						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
-					if !maxReached
-						# Tausch in den anderen Schichten vornehmen
-						for waypoint in changeable.way
-							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
-							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
+					# Teamleiter dank des gewonnenen Platzes in dieser Schicht einteilen
+					Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, true
 
-						# Teamleiter dank des gewonnenen Platzes in dieser Schicht einteilen
-						Helpers.pendingToParticipants team.shiftId, team._id, teamleader._id, true
-
-						# Nächstes Team
-						nextTeam = true
-						break
+					# Nächstes Team
+					nextTeam = true
+					break
 
 	setMinParticipants: ->
 
@@ -321,30 +320,27 @@ export Assistant =
 					Math.abs(p.targetAcceptionRatio - b.targetAcceptionRatio) - Math.abs(p.targetAcceptionRatio - a.targetAcceptionRatio)
 
 				# Durchlaufe die Tausch-Kandidaten
-				for changeable, cIndex in changeables
-					maxReached = Helpers.getMaxReachedPeriod changeable
+				for changeable in changeables
 
-					if !maxReached
-						# Prüfe, ob Tauschen Sinn macht
-						beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
-						newTargetAcceptionRatioPart = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
-						newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
-						afterRatioDifference = Math.abs newTargetAcceptionRatioPart - newTargetAcceptionRatioCh
+					# Prüfe, ob Tauschen Sinn macht
+					beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
+					newTargetAcceptionRatioPart = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
+					newTargetAcceptionRatioCh = (R.users[changeable._id].acceptions + 1) / R.users[changeable._id].targetPeriod
+					afterRatioDifference = Math.abs newTargetAcceptionRatioPart - newTargetAcceptionRatioCh
 
-						# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
-						if afterRatioDifference < beforeRatioDifference
-							for waypoint in changeable.way
-								Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+					# Tausche, wenn die Differenz der Tausch-Kandidaten geringer wird
+					if afterRatioDifference < beforeRatioDifference
+						for waypoint in changeable.way
+							Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
 
-							for waypoint in changeable.way
-								#console.log 'pe2pa: ' + R.users[waypoint.toId].name
-								Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
+						for waypoint in changeable.way
+							Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
-							# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
-							restartOptimizing = true
-							break
-						else
-							# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
+						# Wenn Änderung vollzogen, sortiere neu und beginne Optimierung von vorne
+						restartOptimizing = true
+						break
+					else
+						# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
 
 				# Wenn letzer Teilnehmer erreicht, beende Optimierung
 				if index == participantsByDeviationRatio.length - 1 then endReached = true

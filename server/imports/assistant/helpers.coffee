@@ -136,41 +136,57 @@ export Helpers =
 			else
 				foundUser = foundUsers[i]
 
+				if foundUser._id in foundUsers.map((f, index) -> f._id if index < i && !f.maxReachedDay)
+					i++
+					continue
+
 				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
 				for team in R.users[foundUser._id].allConfirmations
 					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
 					if team.participants.filter((user) -> user._id == foundUser._id).length == 0 then console.log "FEHLER"
 
+					# Erst ausführen, wenn foundUsers bereits wirklich gefundene Tausch-Kandidaten enthält
+					if i > 0
+						# foundUserTeam ist das Team, in dem der foundUser als Teilnehmer eingetragen werden soll
+						foundUserTeam = (R.teams.filter (t) -> t._id == foundUser.way[foundUser.way.length - 1].teamId && t.shiftId == foundUser.way[foundUser.way.length - 1].shiftId)[0]
+
+						# Wenn der foundUser dort, wo er als Teilnehmer eingetragen werden soll, maxReachedDay erreicht hat, muss er auch an diesem Tag eine Schicht abgeben
+						continue if foundUser.maxReachedDay && team.date != foundUserTeam.date
+
 					teamleader = team.participants.filter((user) -> user._id == foundUser._id && user.thisTeamleader).length > 0
 
-					# TODO: Wenn maxreachedday erreicht ist, ihn zum tauschen bei der nächsten Überprüfung nut mir Bewerbern diesen tages vergleichen
-					#	Wenn einmal maxreachedday nicht erreicht ist, ihn auch wieder in foundUser aufnehmen, andersherum aber nicht
-					# 	maxreachedday bei foundUsers für den einen Weg (!) mit übergeben
-
-					# Prüfung ob getMaxReachedDay erreicht
-					for rUser in team.pending when !@getMaxReachedDay rUser, team
+					for rUser in team.pending
 						R.count++
+						# übermittelten User nicht mit siche selbst tauschen lassen
+						continue if rUser._id == userId
+						# User mit einer Doppelschicht an dem Tag nicht berücksichtigen
+						continue if @getDoubleShiftOnDay rUser._id, team.date
 						# Prüfung nach Teamleiterwechsel
-						if !(teamleader && !(rUser.teamleader || rUser.substituteTeamleader))
-							# Prüfung ob noch nicht in foundUsers aufgenommen
-							if foundUsers.filter((foundUser) -> foundUser._id == rUser._id).length == 0
-								# User in foundUsers aufnehmen
-								foundUsers.push
-									_id: rUser._id
-									way: foundUser.way.concat [
-										shiftId: team.shiftId
-										teamId: team._id
-										fromId: foundUser._id
-										toId: rUser._id
-										tlChange: teamleader
-									]
+						continue if teamleader && !(rUser.teamleader || rUser.substituteTeamleader)
+						# Prüfung ob noch nicht in foundUsers aufgenommen
+						alreadyFoundUser = foundUsers.filter (foundUser) -> foundUser._id == rUser._id
+						thisTeam = teamId: team._id, shiftId: team.shiftId
+						foundTeams = alreadyFoundUser.map((f) -> shiftId: f.way[f.way.length - 1].shiftId, teamId: f.way[f.way.length - 1].teamId)
+						continue if thisTeam in foundTeams
+
+						# User in foundUsers aufnehmen
+						foundUsers.push
+							_id: rUser._id
+							maxReachedDay: @getMaxReachedDay rUser._id, team
+							way: foundUser.way.concat [
+								shiftId: team.shiftId
+								teamId: team._id
+								fromId: foundUser._id
+								toId: rUser._id
+								tlChange: teamleader
+							]
 			i++
 
 		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
 		foundUsers.splice 0, 1
 
 		# Alle User entfernen, deren Maximum erreicht ist
-		foundUsers.filter (foundUser) => !@getMaxReachedPeriod R.users[foundUser._id]
+		foundUsers.filter (foundUser) => !(foundUser.maxReachedDay) && !(@getMaxReachedPeriod foundUser._id)
 
 	countAbandonedTeamsTl: ->
 
