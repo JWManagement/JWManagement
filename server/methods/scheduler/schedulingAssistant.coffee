@@ -9,6 +9,8 @@ Meteor.methods
 		Assistant.fillShiftsArray projectId, date, tagId
 		Assistant.fillUsersArray()
 		Assistant.fillTeamsArray()
+			i = 0
+			while i < 1
 
 		#Helpers.logExplanation()
 
@@ -21,3 +23,4 @@ Meteor.methods
 		Assistant.saveToDB()
 
 		console.log '---fertig ---  searchChangeables: ' + R.count
+				i++
