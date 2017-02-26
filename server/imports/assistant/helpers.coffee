@@ -3,17 +3,21 @@ import { R } from './variables.coffee'
 export Helpers =
 
 	logExplanation: ->
-		console.log 'averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
+		console.log 'AverageRatio +/- averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
 
 	log: ->
-		averageDeviationRatio = '' + (Math.round 1000 * @getAverageDeviationRatioAll()) / 10
-		abandonedTeamsTl = ' [' + @countAbandonedTeamsTl() + ']'
-		abandonedTeamsUsers = ' (' + @countAbandonedTeamsUsers() + ')'
+		averageRatio = '' + Math.round (1000 * @getAverageRatioAll()) / 10
+		averageDeviationRatio = '' + Math.round (1000 * @getAverageDeviationRatioAll()) / 10
+		if averageRatio.length < 3 then averageRatio += '.0'
+		if averageDeviationRatio.length < 3 then averageDeviationRatio += '.0'
+		textAverageRatio = '' + averageRatio + "%"
+		textAverageDeviationRatio = ' +/- ' + averageDeviationRatio + "%"
+		textAbandonedTeamsTl = ' [' + @countAbandonedTeamsTl() + ']'
+		textAbandonedTeamsUsers = ' (' + @countAbandonedTeamsUsers() + ')'
 
-		if averageDeviationRatio.length < 3
-			averageDeviationRatio += '.0'
 
-		console.log averageDeviationRatio + abandonedTeamsTl + abandonedTeamsUsers
+
+		console.log textAverageRatio + textAverageDeviationRatio + textAbandonedTeamsTl + textAbandonedTeamsUsers
 
 	pendingToParticipants: (shiftId, teamId, userId, teamleader) ->
 
