@@ -34,10 +34,15 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants._id': 1
 			'teams.pending.checked': 1
 
 		for team in shift.teams when team._id == teamId
 			for user in team.pending when user.checked
+				selectedCount++
+
+		if selectedCount > 0
+			for user in team.participants
 				selectedCount++
 
 		selectedCount
@@ -47,14 +52,18 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants.checked': 1
+			'teams.participants.teamleader': 1
+			'teams.participants.substituteTeamleader': 1
 			'teams.pending.checked': 1
 			'teams.pending.teamleader': 1
 			'teams.pending.substituteTeamleader': 1
 
 		for team in shift.teams when team._id == teamId
-			for user in team.pending when user.checked
-				if user.substituteTeamleader || user.teamleader
-					tlCount++
+			for user in team.participants when user.substituteTeamleader || user.teamleader
+				tlCount++
+			for user in team.pending when user.checked && (user.substituteTeamleader || user.teamleader)
+				tlCount++
 
 		if tlCount > 0
 			TAPi18n.__('modal.shift.existingTeamleaders', tlCount)
