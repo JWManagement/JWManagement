@@ -66,6 +66,7 @@ modal:
         teamMax: Max. Teilnehmer:
         teamStart: Start:
         teamEnd: Ende:
+        teamPlace: Ort:
         removeTeam: Dieses Team löschen
         noMeeting: Kein Treffpunkt
         action: Aktion:
