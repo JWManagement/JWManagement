@@ -8,19 +8,28 @@ export backup = ->
 	s3 = new AWS.S3()
 	bucket = 'jwmanagement-fs'
 	folder = 'backups/' + moment().format() + '/'
+	size = 10000
 
 	data =
-		projects: -> Projects.find().fetch()
-		shifts: -> Shifts.find().fetch()
-		weeks: -> Weeks.find().fetch()
-		users: -> Meteor.users.find().fetch()
-		messages: -> Messages.find().fetch()
+		projects: (obj) -> Projects.find(obj).fetch()
+		shifts: (obj) -> Shifts.find(obj).fetch()
+		weeks: (obj) -> Weeks.find(obj).fetch()
+		users: (obj) -> Meteor.users.find(obj).fetch()
+		messages: (obj) -> Messages.find(obj).fetch()
 
 	for it in Object.keys(data)
-		s3.putObject
-			Bucket: bucket
-			Key: folder + it + '.json'
-			Body: JSON.stringify data[it]()
-		, (e, d) -> if e then console.error e
+		i = 0
+		count = data[it]({}, fields: _id: 1).length
+
+		while i * size < count
+			skip = i * size
+
+			s3.putObject
+				Bucket: bucket
+				Key: folder + it + '.' + i + '.json'
+				Body: JSON.stringify data[it]({}, skip: skip, limit: size)
+			, (e, d) -> if e then console.error e
+
+			i++
 
 	'Backup successfully completed!'
