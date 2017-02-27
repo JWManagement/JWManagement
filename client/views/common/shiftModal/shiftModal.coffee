@@ -114,8 +114,6 @@ Template.shiftModal.onCreated ->
 				wrs -> FlowRouter.setQueryParams showShift: null
 				$('.skipping').addClass('animated').removeClass('skipping')
 
-			$('.userPopover').popover html: true
-
 			shift = Shifts.findOne shiftId
 
 			if shift?
@@ -462,10 +460,3 @@ Template.shiftModal.events
 		swalYesNo
 			swal: 'sendMail.declined'
 			doConfirm: -> Meteor.call 'sendDeclined', shiftId, teamId, userId
-
-	'click .userPopover': (e) ->
-		RobaPopover.show
-			contentTemplate: 'userInfoPopover'
-			sourceElement: e.target
-			contentData: userId: $(e.target).closest('a').attr('data-userId')
-			placement: 'right'
