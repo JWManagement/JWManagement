@@ -49,8 +49,7 @@
 											br
 											| {{meetingStart.name}}
 									else if meetingPicture meetingStart._id
-										.content
-											| {{_ 'modal.shift.clickToEnlarge'}}
+										.content {{_ 'modal.shift.clickToEnlarge'}}
 							if meetingEnd
 								.panel-description
 									with meetingPicture meetingEnd._id
@@ -63,8 +62,17 @@
 											br
 											| {{meetingEnd.name}}
 									else if meetingPicture meetingEnd._id
-										.content
-											| {{_ 'modal.shift.clickToEnlarge'}}
+										.content {{_ 'modal.shift.clickToEnlarge'}}
+							if place
+								.panel-description
+									with meetingPicture place._id
+										.picture
+											a(href='{{url}}' target='_blank')
+												img(src='{{url}}')
+									if description
+										.content {{meetingEnd.name}}
+									else if meetingPicture place._id
+										.content {{_ 'modal.shift.clickToEnlarge'}}
 							.panel-participants.clearfix
 								if isProjectShiftAdmin
 									if getSelectedCount _id
