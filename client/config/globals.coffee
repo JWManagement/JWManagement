@@ -1,3 +1,5 @@
+@UserStatistics = new Mongo.Collection 'userStatistics'
+
 @handleError = (e) -> if e?
 	if e.error == 'validation-error'
 		swal e.reason, '', 'error'

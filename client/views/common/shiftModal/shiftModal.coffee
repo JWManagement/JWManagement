@@ -103,8 +103,11 @@ Template.shiftModal.helpers
 
 Template.shiftModal.onCreated ->
 
+	self = this
+	shiftId = FlowRouter.getQueryParam('showShift')
+
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', FlowRouter.getQueryParam('showShift')
+		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
@@ -112,6 +115,14 @@ Template.shiftModal.onCreated ->
 				$('.skipping').addClass('animated').removeClass('skipping')
 
 			$('.userPopover').popover html: true
+
+			shift = Shifts.findOne shiftId
+
+			if shift?
+				for team in shift.teams
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.participants
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.declined
 
 Template.shiftModal.events
 

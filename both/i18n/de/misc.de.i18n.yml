@@ -58,3 +58,17 @@ intervals:
     every: Jede Woche
     even: Jede gerade Woche
     odd: Jede ungerade Woche
+privileges:
+    auxiliary: HPV
+    regular: APV
+    special: SPV
+    circuit: KA
+    bethelite: BTL
+    ldc: LDC
+    elder: Ä
+    servant: DAG
+    publisher: VK
+period:
+    d: T
+    w: W
+    4w: 4W
