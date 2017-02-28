@@ -34,10 +34,15 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants._id': 1
 			'teams.pending.checked': 1
 
 		for team in shift.teams when team._id == teamId
 			for user in team.pending when user.checked
+				selectedCount++
+
+		if selectedCount > 0
+			for user in team.participants
 				selectedCount++
 
 		selectedCount
@@ -47,14 +52,18 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants.checked': 1
+			'teams.participants.teamleader': 1
+			'teams.participants.substituteTeamleader': 1
 			'teams.pending.checked': 1
 			'teams.pending.teamleader': 1
 			'teams.pending.substituteTeamleader': 1
 
 		for team in shift.teams when team._id == teamId
-			for user in team.pending when user.checked
-				if user.substituteTeamleader || user.teamleader
-					tlCount++
+			for user in team.participants when user.substituteTeamleader || user.teamleader
+				tlCount++
+			for user in team.pending when user.checked && (user.substituteTeamleader || user.teamleader)
+				tlCount++
 
 		if tlCount > 0
 			TAPi18n.__('modal.shift.existingTeamleaders', tlCount)
@@ -103,15 +112,24 @@ Template.shiftModal.helpers
 
 Template.shiftModal.onCreated ->
 
+	self = this
+	shiftId = FlowRouter.getQueryParam('showShift')
+
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', FlowRouter.getQueryParam('showShift')
+		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
 				wrs -> FlowRouter.setQueryParams showShift: null
 				$('.skipping').addClass('animated').removeClass('skipping')
 
-			$('.userPopover').popover html: true
+			shift = Shifts.findOne shiftId
+
+			if shift?
+				for team in shift.teams
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.participants
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.declined
 
 Template.shiftModal.events
 
@@ -451,10 +469,3 @@ Template.shiftModal.events
 		swalYesNo
 			swal: 'sendMail.declined'
 			doConfirm: -> Meteor.call 'sendDeclined', shiftId, teamId, userId
-
-	'click .userPopover': (e) ->
-		RobaPopover.show
-			contentTemplate: 'userInfoPopover'
-			sourceElement: e.target
-			contentData: userId: $(e.target).closest('a').attr('data-userId')
-			placement: 'right'

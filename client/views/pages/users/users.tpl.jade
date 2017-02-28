@@ -21,15 +21,23 @@ if queryParam 'uploadUserFile'
 						.ibox-content
 							table#userTable.table.table-stripped
 								.sk-spinner.sk-spinner-pulse
-							button.btn.btn-primary.inline#addNewUser
-								i.fa.fa-user-plus
-								| {{_ 'users.addNewUser'}}
-							button.btn.btn-primary.inline#inviteUser
-								i.fa.fa-send
-								| {{_ 'users.inviteUser'}}
-							a.btn.btn-primary.inline.pull-right(href="mailto:?bcc={{allMails}}")
-								i.fa.fa-send
-								| {{_ 'users.sendToAll'}}
-							button.btn.btn-primary.inline.pull-right.m-r-sm#exportUsers
-								i.fa.fa-download
-								| {{_ 'users.export'}}
+							.row.m-b-sm
+								.col-xs-12
+									button.btn.btn-primary.inline#addNewUser
+										i.fa.fa-user-plus
+										| {{_ 'users.addNewUser'}}
+									button.btn.btn-primary.inline#inviteUser
+										i.fa.fa-send
+										| {{_ 'users.inviteUser'}}
+									button.btn.btn-primary.inline.pull-right.m-r-sm#exportUsers
+										i.fa.fa-download
+										| {{_ 'users.export'}}
+							.row
+								.col-xs-12
+									a.btn.btn-primary.inline(href="mailto:?bcc={{allMails}}")
+										i.fa.fa-send
+										| {{_ 'users.sendToAll'}}
+									each getTags
+										a.btn.btn-primary.inline.m-r-xs(href="mailto:?bcc={{allMailsThisTag}}")
+											i.fa.fa-send
+											| {{_ 'users.sendToAllInTag' name}}

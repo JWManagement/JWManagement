@@ -2,6 +2,11 @@ initDone = false
 
 Template.users.helpers
 
+	getTags: ->
+		projectId = FlowRouter.getParam 'projectId'
+		project = Projects.findOne projectId
+		project?.tags
+
 	allMails: ->
 		mails = []
 		projectId = FlowRouter.getParam('projectId')
@@ -9,6 +14,18 @@ Template.users.helpers
 			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
 
 		for user in users.fetch()
+			mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
+
+		mails.join ','
+
+	allMailsThisTag: ->
+		mails = []
+		tagId = @_id
+		projectId = FlowRouter.getParam('projectId')
+		users = Roles.getUsersInRole Permissions.member, projectId,
+			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
+
+		for user in users.fetch() when Roles.userIsInRole user._id, Permissions.participant, tagId
 			mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
 
 		mails.join ','
@@ -105,6 +122,7 @@ Template.users.onCreated ->
 										swal TAPi18n.__('users.deleted'), '', 'success'
 
 	@autorun ->
+		Meteor.subscribe 'tags', projectId
 		handle = UserSubs.subscribe 'usersByProject', projectId
 		if handle.ready()
 			Meteor.users.find().observe

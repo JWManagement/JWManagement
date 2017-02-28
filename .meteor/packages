@@ -27,7 +27,6 @@ underscore@1.0.10
 alanning:roles
 aldeed:collection2
 arillo:flow-router-helpers
-austinsand:roba-popover # remove in future
 benmgreene:jquery-sparklines # remove in future
 canotto90:swal-forms # remove in future
 cfs:filesystem

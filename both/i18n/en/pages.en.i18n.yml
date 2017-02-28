@@ -240,6 +240,7 @@ users:
     addNewUser: Add new user
     deleted: Deleted!
     sendToAll: Email to all
+    sendToAllInTag: Email to all in tag %s
     export: Export as csv
 reports:
     placements: Placements

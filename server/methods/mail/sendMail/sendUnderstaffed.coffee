@@ -18,12 +18,14 @@ Meteor.methods
 
 		if tlNeeded
 			users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
+			users = users.fetch()
 			type = 'teamleader'
 		else
 			users = Roles.getUsersInRole Permissions.member, shift.projectId, fields: profile: 1
+			users = users.fetch().filter (u) -> Roles.userIsInRole u._id, Permissions.participant, shift.tagId
 			type = 'participant'
 
-		for user in users.fetch()
+		for user in users
 			thisMoment = moment(shift.date, 'YYYYDDDD')
 			thisMoment.locale(user.profile.language)
 			date = thisMoment.format('dddd, DD.MM.YYYY')
