@@ -58,3 +58,17 @@ intervals:
     every: Every week
     even: Every other week (even)
     odd: Every other week (odd)
+privileges:
+    auxiliary: AP
+    regular: RP
+    special: SP
+    circuit: CO
+    bethelite: BT
+    ldc: LDC
+    elder: E
+    servant: S
+    publisher: P
+period:
+    d: D
+    w: W
+    4w: 4W

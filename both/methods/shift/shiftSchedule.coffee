@@ -5,7 +5,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isMember
 			if message?
 				check message, String
 

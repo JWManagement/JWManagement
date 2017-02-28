@@ -23,4 +23,4 @@ export backup = ->
 			Body: JSON.stringify data[it]()
 		, (e, d) -> if e then console.error e
 
-	'Backup successfully completed!'
+	console.log 'Backup successfully completed!'

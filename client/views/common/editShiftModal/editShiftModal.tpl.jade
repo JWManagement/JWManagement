@@ -113,6 +113,19 @@
 														li
 															a.removeMeetingEnd(href) {{_ 'modal.editShift.noMeeting'}}
 										.form-group
+											label.col-sm-4.control-label {{_ 'modal.editShift.teamPlace'}}
+											.col-sm-6
+												.dropdown
+													button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+														span.m-r {{getPlace}}
+														span.caret.pull-right
+													ul.dropdown-menu
+														each possibleMeetings
+															li
+																a.changePlace(href) {{name}}
+														li
+															a.removePlace(href) {{_ 'modal.editShift.noMeeting'}}
+										.form-group
 											label.col-sm-4.control-label {{_ 'modal.editShift.action'}}
 											.col-sm-6
 												button#removeTeam.btn.btn-danger.btn-circle(title="{{_ 'modal.editShift.removeTeam'}}")

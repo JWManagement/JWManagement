@@ -352,7 +352,13 @@ Template.dashboard.events
 			for participant in team.participants when participant._id == Meteor.userId()
 				teamId = team._id
 
-		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
+		FlowRouter.go 'shifts',
+			projectId: @projectId
+			language: TAPi18n.getLanguage()
+		,
+			showTags: @tagId
+			showShiftReport: shiftId
+			reportTeamId: teamId
 		false
 
 	'click #showOlder': -> Session.set 'showOlder', true
