@@ -37,6 +37,7 @@ modal:
         projectPermissions: Projekt Berechtigungen
         projectRole: Projekt-Rolle
         tagPermissions: Tag-Rollen
+        explanations: Erklärungen
         helpText:
             admin: Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.
             shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten erstellen, ändern, löschen und einteilen.
@@ -65,6 +66,7 @@ modal:
         teamMax: Max. Teilnehmer:
         teamStart: Start:
         teamEnd: Ende:
+        teamPlace: Ort:
         removeTeam: Dieses Team löschen
         noMeeting: Kein Treffpunkt
         action: Aktion:
@@ -94,6 +96,9 @@ modal:
     position:
         title: Position mit linker Maustaste markieren
     shift:
+        clickToEnlarge: Zum Vergrößern auf Bild klicken
+        openLink: Verknüpfte Informationen ansehen
+        meetingAt: Treffpunkt um
         collapseTeam: Team Informationen und Treffpunkte verbergen
         expandTeam: Team Informationen und Treffpunkte anzeigen
         noParticipants: Keine Teilnehmer
@@ -125,7 +130,6 @@ modal:
         allocations: Zuteilungen
         thisWeek: diese Woche
         lastDays: letze %s Tage
-        noMeeting: Kein Treffpunkt gesetzt
     shiftReport:
         title: Bericht
         teamleader: Teamleiter

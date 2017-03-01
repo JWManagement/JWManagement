@@ -49,6 +49,8 @@ Meteor.methods
 				'teams.meetingStart._id': meetingId
 			,
 				'teams.meetingEnd._id': meetingId
+			,
+				'place': meetingId
 			]
 
 		for shift in shifts.fetch()
@@ -58,3 +60,6 @@ Meteor.methods
 
 				if team.meetingEnd._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'meetingEnd.' + field, value
+
+				if team.place._id == meetingId
+					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'place.' + field, value

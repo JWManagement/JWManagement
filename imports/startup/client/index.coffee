@@ -11,7 +11,7 @@ import '/imports/ui/layouts/inverted/inverted.coffee'
 
 # Pages
 if !Meteor.isCordova
-	require '/imports/ui/pages/mobile/dashboard/dashboard.coffee'
+	require '/imports/ui/pages/dashboard/mobile/dashboard.coffee'
 else
 	require '/imports/ui/pages/dashboard/dashboard.coffee'
 

@@ -241,6 +241,7 @@ users:
     addNewUser: Neuen Verkündiger anlegen
     deleted: Gelöscht!
     sendToAll: E-Mail an alle
+    sendToAllInTag: E-Mail an alle im Tag %s
     export: Export als csv
 reports:
     placements: Abgaben

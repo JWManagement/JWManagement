@@ -57,7 +57,25 @@ Template.registerHelper 'formatWeek', (a) ->
 Template.registerHelper 'formatTime', (time) ->
 	TAPi18n.getLanguage()
 	if time < 60 then time = '00' + time
-	moment(time, 'Hmm').format('HH:mm')
+	if time % 100 == 0
+		moment(time, 'Hmm').format('H')
+	else
+		moment(time, 'Hmm').format('H:mm')
+
+Template.registerHelper 'formatTimeWithSuffix', (time) ->
+	language = TAPi18n.getLanguage()
+
+	if time < 60 then time = '00' + time
+
+	if language == 'en'
+		suffix = moment(time, 'Hmm').format(' A')
+	else
+		suffix = ' ' + TAPi18n.__('time.suffix')
+
+	if time % 100 == 0
+		moment(time, 'Hmm').format('H') + suffix
+	else
+		moment(time, 'Hmm').format('H:mm') + suffix
 
 Template.registerHelper 'formatFromNow', (date, time) ->
 	TAPi18n.getLanguage()

@@ -37,6 +37,7 @@ modal:
         projectPermissions: Project permissions
         projectRole: Project role
         tagPermissions: Tag roles
+        explanations: Explanations
         helpText:
             admin: The project manager role is the highest authorization level. A project manager is allowed to control everything. For every project there has to be at least one project manager.
             shiftAdmin: The shift manager has the permissions of a participant but can also create, change, delete and schedule shifts.
@@ -65,6 +66,7 @@ modal:
         teamMax: Maximum participants:
         teamStart: Start:
         teamEnd: End:
+        teamPlace: Place:
         removeTeam: Remove this team
         noMeeting: No Meeting
         action: Action:
@@ -94,6 +96,9 @@ modal:
     position:
         title: Mark position with left mouse click
     shift:
+        clickToEnlarge: Click the image to enlarge it
+        openLink: View linked information
+        meetingAt: Meeting point at
         collapseTeam: Collapse team information and meeting points
         expandTeam: Expand team information and meeting points
         noParticipants: No participants
@@ -123,7 +128,6 @@ modal:
         allocations: Shifts
         thisWeek: this week
         lastDays: last %s days
-        noMeeting: No Meeting Point
     shiftReport:
         title: Report
         teamleader: Team leader

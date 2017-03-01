@@ -1,8 +1,9 @@
 .row.m-t-lg.m-b-xl
 	.col-xs-12
-		h2.center-align Enquiry List
-.ibox
-	.ibox-content
-		.table-responsive
-			table#enquiryTable.table.table-stripped
-				.sk-spinner.sk-spinner-pulse
+		h2.center-align {{countEnquiries}} Enquiries
+if countEnquiries
+	.ibox
+		.ibox-content
+			.table-responsive
+				table#enquiryTable.table.table-stripped
+					.sk-spinner.sk-spinner-pulse

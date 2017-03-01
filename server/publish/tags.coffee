@@ -1,3 +1,5 @@
+import { Permissions } from '/imports/util/permissions.coffee'
+
 Meteor.publish 'tags', (projectId) ->
 
 	if typeof projectId == 'string' && projectId != ''

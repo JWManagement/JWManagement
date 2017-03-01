@@ -115,5 +115,12 @@ Template.request.events
 			for participant in team.participants when participant._id == userId
 				teamId = team._id
 
-		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
+		FlowRouter.setQueryParams 'shifts',
+			projectId: @projectId
+			language: TAPi18n.getLanguage()
+		,
+			showTags: @tagId
+			showShiftReport: shiftId
+			reportTeamId: teamId
+
 		false
