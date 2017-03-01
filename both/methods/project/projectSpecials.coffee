@@ -55,11 +55,11 @@ Meteor.methods
 
 		for shift in shifts.fetch()
 			for team in shift.teams
-				if team.meetingStart._id == meetingId
+				if team.meetingStart? && team.meetingStart._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'meetingStart.' + field, value
 
-				if team.meetingEnd._id == meetingId
+				if team.meetingEnd? && team.meetingEnd._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'meetingEnd.' + field, value
 
-				if team.place._id == meetingId
+				if team.place? && team.place._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'place.' + field, value

@@ -13,6 +13,7 @@ Template.project.helpers
 
 	getAllTagsPath: (tags) ->
 		tags = tags.map (tag) -> tag._id
+		tags = tags.filter (t) -> Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
 
 		FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tags.join('_')
 
