@@ -1,24 +1,27 @@
 Template.printUser.helpers
 
 	getUserStatistics: -> if @showStats
-		s = UserStatistics.findOne @user._id
+		projectId = FlowRouter.getParam 'projectId'
 
-		return '(Loading statistics...)' if !s?
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, projectId
+			s = UserStatistics.findOne @user._id
 
-		getField = (field) ->
-			if field == 'privileges'
-				if s[field].split('/').length > 1
-					TAPi18n.__('privileges.' + s[field].split('/')[0]) + '/' + TAPi18n.__('privileges.' + s[field].split('/')[1])
+			return '<i class="fa fa-spinner fa-pulse"></i>' if !s?
+
+			getField = (field) ->
+				if field == 'privileges'
+					if s[field].split('/').length > 1
+						TAPi18n.__('privileges.' + s[field].split('/')[0]) + '/' + TAPi18n.__('privileges.' + s[field].split('/')[1])
+					else
+						TAPi18n.__('privileges.' + s[field])
 				else
-					TAPi18n.__('privileges.' + s[field])
-			else
-				s[field]
+					s[field]
 
-		day = TAPi18n.__('period.d')
-		week = TAPi18n.__('period.w')
-		fourWeeks = TAPi18n.__('period.4w')
+			day = TAPi18n.__('period.d')
+			week = TAPi18n.__('period.w')
+			fourWeeks = TAPi18n.__('period.4w')
 
-		result = ' (' + getField('privileges') + ')'
-		result += ' ' + day + ':' + getField('countDayApproved') + '/' + getField('countDayOverall')
-		result += ' ' + week + ':' + getField('countWeekApproved') + '/' + getField('countWeekOverall')
-		result += ' ' + fourWeeks + ':' + getField('countWeeksApproved') + '/' + getField('countWeeksOverall')
+			result = ' (' + getField('privileges') + ')'
+			result += ' ' + day + ':' + getField('countDayApproved') + '/' + getField('countDayOverall')
+			result += ' ' + week + ':' + getField('countWeekApproved') + '/' + getField('countWeekOverall')
+			result += ' ' + fourWeeks + ':' + getField('countWeeksApproved') + '/' + getField('countWeeksOverall')
