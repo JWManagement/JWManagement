@@ -268,6 +268,9 @@ reports:
     show: Zeigen
     prevMonth: Zum nächsten Monat gehen
     nextMonth: Zum vorherigen Monat gehen
+    meetingStart: Treffpunkt zu Beginn
+    meetingEnd: Treffpunkt am Ende
+    place: Ort
 settings:
     main:
         title: Allgemeine Einstellungen
