@@ -96,21 +96,16 @@ Template.reports.events
 					row.push moment(shift.start, 'Hmm').format('HH:mm')
 					row.push moment(shift.end, 'Hmm').format('HH:mm')
 					row.push team.name
-
-					participants = ''
-					for participant in team.participants
-						if participant.thisTeamleader
-							row.push participant.name.trim()
-						else
-							participants += participant.name.trim()
-							if participant.state in ['sick', 'missing']
-								participants += '(' + TAPi18n.__('modal.shiftReport.' + participant.state) + '),'
 					row.push team.meetingStart?.name
 					row.push team.meetingEnd?.name
 					row.push team.place?.name
-							else
-								participants += ','
-					row.push participants.replace(/,\s*$/, '') # remove last comma
+					row.push team.participants.filter((p) -> p.thisTeamleader)[0]?.name.trim()
+					row.push team.participants.filter((p) -> !p.thisTeamleader).map((p) ->
+						if p.state in ['sick', 'missing']
+							p.name.trim() + ' (' + TAPi18n.__('modal.shiftReport.' + p.state) + ')'
+						else
+							p.name.trim()
+					).join(', ')
 
 					if team.report? && team.report.items?
 						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
@@ -124,7 +119,7 @@ Template.reports.events
 						row.push problems.replace(/(?:\\[rn]|[\r\n]+)+/g, ' ')
 
 						for item in team.report.items
-							row.push item.count + ' ' + item.short + '-' + item.language.short
+							row.push item.count + ' ' + item.short + '-' + item.language
 
 					csvContent += row.join(';') + '\r\n'
 
