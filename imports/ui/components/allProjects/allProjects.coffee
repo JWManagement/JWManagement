@@ -1,3 +1,5 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+
 import './allProjects.tpl.jade'
 
 Template.allProjects.helpers

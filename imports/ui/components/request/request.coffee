@@ -1,3 +1,4 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
 import { wrs } from '/imports/util/delay.coffee'
 
 import './request.tpl.jade'

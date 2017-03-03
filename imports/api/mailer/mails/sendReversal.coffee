@@ -1,3 +1,4 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { send } from '../send.coffee'
 

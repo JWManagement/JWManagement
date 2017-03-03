@@ -1,3 +1,4 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
 import { Messages } from '/imports/api/messages/messages.coffee'
 
 Meteor.publish 'support', ->

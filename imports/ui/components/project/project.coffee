@@ -1,7 +1,9 @@
-import './project.tpl.jade'
-import './project.scss'
+import { Projects } from '/imports/api/projects/projects.coffee'
 
 import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.coffee'
+
+import './project.tpl.jade'
+import './project.scss'
 
 Template.project.helpers
 
