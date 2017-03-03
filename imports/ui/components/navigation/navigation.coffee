@@ -34,7 +34,7 @@ Template.navigation.helpers
 
 Template.navigation.onCreated ->
 
-	PictureSubs.subscribe 'profilePicture', Meteor.userId()
+	Meteor.subscribe 'profilePicture', Meteor.userId()
 
 	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
 		R.latestRelease.set

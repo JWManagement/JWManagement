@@ -1,10 +1,3 @@
-@ProjectSubs = new SubsManager cacheLimit: 100
-@WeekSubs = new SubsManager cacheLimit: 100
-@ShiftSubs = new SubsManager cacheLimit: 1000
-@UserSubs = new SubsManager cacheLimit: 100
-@FileSubs = new SubsManager cacheLimit: 100
-@PictureSubs = new SubsManager cacheLimit: 100
-
 if Meteor.isDevelopment
 	@Files = new FS.Collection 'files',
 		stores: [
