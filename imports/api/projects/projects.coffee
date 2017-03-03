@@ -89,3 +89,17 @@ Projects.schema = new SimpleSchema
 		allowedValues: ['simple', 'advanced']
 	'store.items':
 		type: Array
+	notes:
+		type: Array
+	'notes.$._id':
+		type: String
+	'notes.$.date':
+		type: Number
+	'notes.$.time':
+		type: Number
+	'notes.$.author':
+		type: String
+	'notes.$.title':
+		type: String
+	'notes.$.text':
+		type: String
