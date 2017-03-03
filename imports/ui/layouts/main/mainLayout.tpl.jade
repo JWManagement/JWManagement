@@ -1,5 +1,5 @@
 unless Meteor.isCordova
-	.ionic-body(class='{{platformClasses}}')
+	.ionic-body(class='{{platformClasses}} {{currentRouteName}}-wrapper')
 		.menu-content
 			+navigation
 
