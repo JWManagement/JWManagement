@@ -1,3 +1,4 @@
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
 import { Dialogs } from '/imports/util/dialogs.coffee'
 import { Delay } from '/imports/util/delay.coffee'
 import { wrs } from '/imports/util/delay.coffee'

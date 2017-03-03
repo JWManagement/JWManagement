@@ -1,5 +1,6 @@
 import SimpleSchema from 'simpl-schema'
 
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
 import { Validators } from '/imports/util/validators.coffee'
 import { StringUtils } from '/imports/util/stringUtils.coffee'
 
