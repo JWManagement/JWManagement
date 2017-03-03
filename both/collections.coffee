@@ -1,5 +1,3 @@
-@Weeks = new Meteor.Collection 'weeks'
-
 @ProjectSubs = new SubsManager cacheLimit: 100
 @WeekSubs = new SubsManager cacheLimit: 100
 @ShiftSubs = new SubsManager cacheLimit: 1000
