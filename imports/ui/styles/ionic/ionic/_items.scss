@@ -10,7 +10,6 @@
 	margin      : $item-border-width * -1;
 	padding     : $item-padding;
 	border-width: $item-border-width;
-	padding-left: $item-padding-left;
 	border-style: solid;
 	font-size   : $item-font-size;
 
@@ -370,10 +369,10 @@ a.item-content {
 }
 
 .item-icon-left {
-	padding-left: ceil( ($item-padding * 3) + ($item-padding / 3) );
+	padding-left: ceil($item-padding * 2.75);
 
 	.icon {
-		left: ceil( ($item-padding / 3) * 2);
+		left: 0; // ceil( ($item-padding / 3) * 2);
 	}
 }
 
@@ -424,11 +423,9 @@ a.item-content {
 	right: floor($item-padding / 5);
 }
 
-.item-icon-right.small {
-	.icon:last-child {
-		color    : #999;
-		font-size: 20px;
-	}
+.item-icon-right .ion-ios-arrow-right {
+	color    : #999;
+	font-size: 20px;
 }
 /**
  * Item Button

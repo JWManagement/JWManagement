@@ -10,6 +10,25 @@
 	margin-bottom : 20px;
 }
 
+.list-ios {
+	padding-left    : 15px;
+	border-top      : 1px solid $item-light-border;
+	border-bottom   : 1px solid $item-light-border;
+	background-color: #fff;
+
+	.item {
+		border-left: none;
+	}
+
+	.item:first-child {
+		border-top: none;
+	}
+
+	.item:last-child {
+		border-bottom: none;
+	}
+}
+
 .list:last-child {
 	margin-bottom: 0;
 
