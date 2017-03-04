@@ -26,9 +26,12 @@
 	padding         : $list-header-padding;
 	background-color: $list-header-bg;
 	color           : $list-header-color;
-	font-weight     : bold;
+	font-size       : 11px;
+	font-weight     : 400;
+	text-transform  : uppercase;
 }
 // when its a card make sure it doesn't duplicate top and bottom borders
+
 .card.list .list-item {
 	padding-right: 1px;
 	padding-left : 1px;
