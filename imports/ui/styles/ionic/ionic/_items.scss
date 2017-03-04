@@ -508,8 +508,8 @@ button.item.item-button-right {
 	padding-left: $item-avatar-width + ($item-padding * 2);
 	min-height  : $item-avatar-width + ($item-padding * 2);
 
-	 > img:first-child,
-	.item-image {
+	.item-image,
+	> img:first-child {
 		position     : absolute;
 		top          : $item-padding;
 		left         : $item-padding;
@@ -526,8 +526,8 @@ button.item.item-button-right {
 	padding-right: $item-avatar-width + ($item-padding * 2);
 	min-height   : $item-avatar-width + ($item-padding * 2);
 
-	 > img:first-child,
-	.item-image {
+	.item-image,
+	> img:first-child {
 		position     : absolute;
 		top          : $item-padding;
 		right        : $item-padding;
@@ -547,8 +547,8 @@ button.item.item-button-right {
 	padding-left: $item-thumbnail-width + $item-thumbnail-margin + $item-padding;
 	min-height  : $item-thumbnail-height + ($item-thumbnail-margin * 2);
 
-	 > img:first-child,
-	.item-image {
+	.item-image,
+	> img:first-child {
 		position  : absolute;
 		top       : $item-thumbnail-margin;
 		left      : $item-thumbnail-margin;
@@ -572,8 +572,8 @@ button.item.item-button-right {
 	padding-right: $item-thumbnail-width + $item-thumbnail-margin + $item-padding;
 	min-height   : $item-thumbnail-height + ($item-thumbnail-margin * 2);
 
-	 > img:first-child,
-	.item-image {
+	.item-image,
+	> img:first-child {
 		position  : absolute;
 		top       : $item-thumbnail-margin;
 		right     : $item-thumbnail-margin;
