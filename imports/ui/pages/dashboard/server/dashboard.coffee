@@ -2,7 +2,7 @@ import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { Permissions } from '/imports/util/permissions.coffee'
 
-Meteor.publish 'dashboard.dashboard', ->
+Meteor.publish 'dashboard', ->
 	projectIds = GetGroupsForUser @userId, Permissions.member
 
 	[

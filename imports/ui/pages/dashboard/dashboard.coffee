@@ -111,7 +111,7 @@ Template.dashboard.helpers
 
 Template.dashboard.onCreated ->
 
-	R.handle = Meteor.subscribe 'dashboard.dashboard'
+	R.handle = Meteor.subscribe 'dashboard'
 
 Template.dashboard.onRendered ->
 

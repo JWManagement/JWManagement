@@ -1,7 +1,7 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Permissions } from '/imports/util/permissions.coffee'
 
-Meteor.publishComposite 'dashboard.projects',
+Meteor.publishComposite 'projects',
 
 	find: ->
 		Meteor.users.find _id: @userId,

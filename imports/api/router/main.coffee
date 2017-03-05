@@ -12,10 +12,20 @@ FlowRouter.route '/:language?',
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
 		Helpers.doIfLoggedIn ->
-			Session.set 'parent', ''
-			BlazeLayout.render 'mainLayout', content: 'dashboard'
+			if Meteor.isCordova
+				Session.set 'parent', ''
+				BlazeLayout.render 'mainLayout', content: 'dashboard'
+			else
+				wrs -> FlowRouter.go 'projects', language: FlowRouter.getParam('language')
 		, ->
 			FlowRouter.go 'welcome', language: FlowRouter.getParam('language')
+
+FlowRouter.route '/:language?/projects',
+	name: 'projects'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		Session.set 'parent', ''
+		BlazeLayout.render 'mainLayout', content: 'projects'
 
 FlowRouter.route '/:language/welcome',
 	name: 'welcome'

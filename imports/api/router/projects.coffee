@@ -1,5 +1,12 @@
 import { Helpers } from './helpers.coffee'
 
+FlowRouter.route '/:language/:projectId/dashboard',
+	name: 'dashboard'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		Session.set 'parent', 'home'
+		BlazeLayout.render 'mainLayout', content: 'dashboard'
+
 FlowRouter.route '/:language/:projectId/kb',
 	name: 'wiki'
 	triggersEnter: [ Helpers.checkLanguage ]
