@@ -5,8 +5,8 @@ import '/imports/util/platform.coffee'
 import '/imports/ui/styles/ionic/import.scss'
 
 if !Meteor.isCordova
-	require '/imports/ui/components/mobile/footer/footer.coffee'
-	require '/imports/ui/components/mobile/navigation/navigation.coffee'
+	require '/imports/ui/components/footer/mobile/footer.coffee'
+	require '/imports/ui/components/navigation/mobile/navigation.coffee'
 else
 	require '/imports/ui/components/footer/footer.coffee'
 	require '/imports/ui/components/navigation/navigation.coffee'
