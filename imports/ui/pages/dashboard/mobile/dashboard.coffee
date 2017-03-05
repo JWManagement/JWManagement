@@ -7,19 +7,11 @@ import './dashboard.scss'
 
 Template.dashboard.helpers
 
-	getProjects: ->
-		projects = Projects.find {}, sort: name: 1
-		result = []
 
-		for project, index in projects.fetch()
-			if index % 2 == 0
-				result.push projects: [ project ]
-			else
-				result[result.length - 1].projects.push project
-		result
+	getProjects: -> Projects.find({}, fields: { name: 1 }, sort: { name: 1 }).fetch()
 
 	hasProjects: -> Projects.find({}, fields: _id: 1).count() > 0
 
 Template.dashboard.onCreated ->
 
-	Meteor.subscribe 'dashboard'
+	Meteor.subscribe 'dashboard.projects'

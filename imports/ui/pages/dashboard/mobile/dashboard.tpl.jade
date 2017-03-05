@@ -2,13 +2,14 @@
 	.view.nav-view-entering.nav-view-active
 		.scroll-content.ionic-scroll
 			.content.overflow-scroll.has-header
+					if hasProjects
 				.list-header My Projects
 				.list.list-ios
+							each getProjects
 					a.item.item-icon-left.item-icon-right(href)
 						i.icon.ion-ios-home
-						|  Düsseldorf-Ost
+									| {{name}}
 						i.icon.ion-ios-arrow-right
-					a.item.item-icon-left.item-icon-right(href)
-						i.icon.ion-ios-home
-						| Bibelausstellung 2017
-						i.icon.ion-ios-arrow-right
+					else
+						.text-center.padding
+							p You don't have any projects
