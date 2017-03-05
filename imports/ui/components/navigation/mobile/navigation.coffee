@@ -23,3 +23,7 @@ Template.navigation.helpers
 Template.navigation.onDestroyed ->
 
 	Session.set 'target', undefined
+
+Template.navigation.events
+
+	'click .back-button': -> FlowRouter.go 'projects', language: FlowRouter.getParam('language')

@@ -8,10 +8,21 @@ Template.footer.helpers
 	tabs: -> [
 		name: 'My Projects'
 		icon: 'home'
+		routes: ['dashboard', 'projects']
 	,
 		name: 'My Shifts'
-		icon: 'calendar-outline'
+		icon: 'calendar'
+		routes: []
 	,
 		name: 'My Profile'
-		icon: 'person-outline'
+		icon: 'person'
+		routes: []
 	]
+
+	iconClass: ->
+		if FlowRouter.getRouteName() in @routes
+			@icon
+		else
+			@icon + '-outline'
+
+	activeTab: -> 'active' if FlowRouter.getRouteName() in @routes

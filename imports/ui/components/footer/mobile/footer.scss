@@ -1,1 +1,5 @@
-_ {}
+@import "../../../styles/variables";
+
+.tabs .tab-item.active {
+	color: $indigo;
+}
