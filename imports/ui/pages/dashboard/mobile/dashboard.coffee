@@ -2,11 +2,16 @@ import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { Permissions } from '/imports/util/permissions.coffee'
 
+import '/imports/ui/components/spinner/spinner.js'
+
 import './dashboard.tpl.jade'
 import './dashboard.scss'
 
+R = {}
+
 Template.dashboard.helpers
 
+	loaded: -> R.handle.ready()
 
 	getProjects: -> Projects.find({}, fields: { name: 1 }, sort: { name: 1 }).fetch()
 
@@ -14,4 +19,4 @@ Template.dashboard.helpers
 
 Template.dashboard.onCreated ->
 
-	Meteor.subscribe 'dashboard.projects'
+	R.handle = Meteor.subscribe 'dashboard.projects'

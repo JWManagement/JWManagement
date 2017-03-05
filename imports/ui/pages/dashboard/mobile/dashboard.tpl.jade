@@ -2,14 +2,18 @@
 	.view.nav-view-entering.nav-view-active
 		.scroll-content.ionic-scroll
 			.content.overflow-scroll.has-header
+				if loaded
 					if hasProjects
-				.list-header My Projects
-				.list.list-ios
+						.list-header My Projects
+						.list.list-ios
 							each getProjects
-					a.item.item-icon-left.item-icon-right(href)
-						i.icon.ion-ios-home
+								a.item.item-icon-left.item-icon-right(href)
+									i.icon.ion-ios-home
 									| {{name}}
-						i.icon.ion-ios-arrow-right
+									i.icon.ion-ios-arrow-right
 					else
 						.text-center.padding
 							p You don't have any projects
+				else
+					.text-center.padding.m-t-lg
+						+spinner
