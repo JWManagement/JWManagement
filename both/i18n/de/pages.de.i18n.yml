@@ -1,6 +1,8 @@
 navigation:
     undefined: Unbekannte URL
     welcome: Willkommen
+    projects: Projekt wählen
+    dashboard: Startseite
     home: Übersicht
     profile: Mein Profil
     shifts: Schichten

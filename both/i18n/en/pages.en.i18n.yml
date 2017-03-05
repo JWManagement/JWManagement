@@ -1,6 +1,8 @@
 navigation:
     undefined: Route not found
     welcome: Welcome
+    projects: Choose a project
+    dashboard: Dashboard
     home: Dashboard
     profile: My Profile
     shifts: Shifts
