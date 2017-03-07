@@ -1,4 +1,5 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
 
 import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.coffee'
 

@@ -54,7 +54,6 @@ Template.dashboard.helpers
 						'teams.pending._id': Meteor.userId()
 					]
 				]
-
 			],
 				fields:
 					date: 1

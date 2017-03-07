@@ -1,5 +1,7 @@
-import { Helpers } from './helpers.coffee'
 import { wrs } from '/imports/util/delay.coffee'
+import { Platform } from '/imports/util/platform.coffee'
+
+import { Helpers } from './helpers.coffee'
 
 FlowRouter.route '/support',
 	name: 'support'
@@ -12,11 +14,11 @@ FlowRouter.route '/:language?',
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: ->
 		Helpers.doIfLoggedIn ->
-			if Meteor.isCordova
+			if Platform.isCordova
+				wrs -> FlowRouter.go 'projects', language: FlowRouter.getParam('language')
+			else
 				Session.set 'parent', ''
 				BlazeLayout.render 'mainLayout', content: 'dashboard'
-			else
-				wrs -> FlowRouter.go 'projects', language: FlowRouter.getParam('language')
 		, ->
 			FlowRouter.go 'welcome', language: FlowRouter.getParam('language')
 

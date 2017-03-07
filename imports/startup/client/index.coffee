@@ -10,7 +10,9 @@ import '/imports/ui/layouts/main/main.coffee'
 import '/imports/ui/layouts/inverted/inverted.coffee'
 
 # Pages
-if !Meteor.isCordova
+import { Platform } from '/imports/util/platform.coffee'
+
+if Platform.isCordova
 	require '/imports/ui/pages/dashboard/mobile/dashboard.coffee'
 	require '/imports/ui/pages/projects/mobile/projects.coffee'
 else

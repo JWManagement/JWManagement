@@ -1,4 +1,4 @@
-unless Meteor.isCordova
+if Platform.isCordova
 	.ionic-body(class='{{platformClasses}} {{currentRouteName}}-wrapper')
 		.menu-content
 			+navigation
