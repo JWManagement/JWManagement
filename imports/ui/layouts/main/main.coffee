@@ -2,11 +2,10 @@ import './mainLayout.tpl.jade'
 
 import '/imports/util/platform.coffee'
 
-import '/imports/ui/styles/ionic/import.scss'
-
 import { Platform } from '/imports/util/platform.coffee'
 
 if Platform.isCordova
+	require '/imports/ui/styles/ionic/import.scss'
 	require '/imports/ui/components/footer/mobile/footer.coffee'
 	require '/imports/ui/components/navigation/mobile/navigation.coffee'
 else
