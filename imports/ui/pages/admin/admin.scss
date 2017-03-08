@@ -1,6 +1,12 @@
+@import "../../styles/variables";
+
 .admin-wrapper {
 	a {
 		color: white;
+	}
+
+	.navbar.navbar-fixed-top {
+		box-shadow: none;
 	}
 
 	.btn-wrapper {

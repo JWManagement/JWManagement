@@ -1,3 +1,6 @@
+import './admin.tpl.jade'
+import './admin.scss'
+
 Template.admin.helpers
 
 	getProjectId: -> FlowRouter.getParam('projectId')
