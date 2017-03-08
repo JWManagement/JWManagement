@@ -29,6 +29,7 @@ import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/profile/profile.coffee'
 import '/imports/ui/pages/admin/admin.coffee'
+import '/imports/ui/pages/wiki/wiki.coffee'
 import '/imports/ui/pages/support/support.coffee'
 
 # Helpers

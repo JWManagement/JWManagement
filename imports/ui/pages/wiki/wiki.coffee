@@ -1,3 +1,13 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Files } from '/imports/api/files/files.coffee'
+
+import '../../components/wikiTabs/wikiTabs.coffee'
+
+import './wiki.tpl.jade'
+import './wiki.scss'
+
+R = {}
+
 Template.wiki.helpers
 
 	route: ->
@@ -14,14 +24,14 @@ Template.wiki.helpers
 
 	projectId: -> FlowRouter.getParam('projectId')
 
-	isReady: -> ProjectSubs.ready()
+	isReady: -> true #ProjectSubs.ready()
 
 Template.wiki.onRendered ->
 
 	projectId = FlowRouter.getParam('projectId')
 
 	@autorun ->
-		handle = ProjectSubs.subscribe 'wiki', projectId
+		handle = Meteor.subscribe 'wiki', projectId
 		handle.ready Tracker.afterFlush ->
 			$('.nav-tabs > li').removeClass('active')
 			$('.nav-tabs > li:first').addClass('active')
@@ -30,7 +40,7 @@ Template.wiki.onRendered ->
 			$('.summernote').summernote()
 			$('.note-editor').addClass('hidden')
 
-		FileSubs.subscribe 'files', projectId
+		Meteor.subscribe 'files', projectId
 
 Template.wiki.events
 
