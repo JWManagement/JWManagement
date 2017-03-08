@@ -1,3 +1,6 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
+
 Meteor.publish 'wiki', (projectId) ->
 
 	if typeof projectId == 'string' && projectId != ''
