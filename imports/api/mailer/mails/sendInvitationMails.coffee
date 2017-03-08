@@ -1,6 +1,7 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { send } from '../send.coffee'
+import { getMailTexts } from '../helpers.coffee'
 
 export sendInvitationMails = (userIds, projectId) ->
 	project = Projects.findOne projectId, fields: name: 1, email:1

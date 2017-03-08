@@ -1,5 +1,6 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { send } from '../send.coffee'
+import { getMailTexts } from '../helpers.coffee'
 
 export sendResetPassword = (obj) ->
 

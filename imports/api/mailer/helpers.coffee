@@ -1,13 +1,4 @@
-@GetGroupsForUser = (userId, roles) ->
-	array = []
-
-	for role in roles
-		newGroups = Roles.getGroupsForUser userId, role
-		array = array.concat newGroups
-
-	array
-
-@getMailTexts = (mail, language) ->
+export getMailTexts = (mail, language) ->
 	values = {}
 	values.headline = TAPi18n.__('mail.' + mail + '.headline', '', language)
 	values.hello = TAPi18n.__('mail.' + mail + '.hello', '', language)

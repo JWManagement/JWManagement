@@ -1,6 +1,7 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { send } from '../send.coffee'
+import { getMailTexts } from '../helpers.coffee'
 
 export sendCancelTeam = (shiftId, teamId, message) ->
 	shift = Shifts.findOne shiftId
