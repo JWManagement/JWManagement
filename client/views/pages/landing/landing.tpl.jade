@@ -108,10 +108,11 @@
 						.contact-form
 							form#contactForm
 								unless equals selectedType 'issue'
-									.col-md-6
-										input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
-									.col-md-6
-										input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
+									unless equals selectedType 'login'
+										.col-md-6
+											input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
+										.col-md-6
+											input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
 								.col-md-12
 									select#type.form-control
 										option(type='question') {{_ "welcome.contact.question"}}
