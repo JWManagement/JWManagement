@@ -31,7 +31,7 @@ welcome:
         dashboard: Open Dashboard
     header:
         title: Advanced shift management
-        description: JWManagement is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
+        description: JW Management is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
     divider:
         first:
             title: Multiple Tags
@@ -41,19 +41,19 @@ welcome:
             description: Define one or more teams in a shift. Each will have its own team-leader. Provide further information for every team, such as a description, a picture with a route, meeting points and more.
         third:
             title: Store Room
-            description: Manage your store room via JWManagement. After each shift a team leader can report what has been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is low on stock.
+            description: Manage your store room via JW Management. After each shift a team leader can report what has been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is low on stock.
         fourth:
             title: Notifications
             description: Through the powerful notification system, you can be notified of your requests, confirmations or refusals, as well as changes to your shifts, with the ability to reply.
     feature1:
         title: Multifunctional Tool
-        description: <p>Although JWManagement is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a Bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
+        description: <p>Although JW Management is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a Bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
     feature2:
         title: Latest Changes
         more: Show more
     feature3:
         title: Free & Open-Source
-        description: <p>Visit the Repository and see how we develop JWManagement. You can suggest features, report bugs or directly propose a 'Pull Request' with your code changes.</p><p>If you would like to translate the system into another language, send us the translation files as 'Pull Request' or via email.</p>
+        description: <p>Visit the Repository and see how we develop JW Management. You can suggest features, report bugs or directly propose a 'Pull Request' with your code changes.</p><p>If you would like to translate the system into another language, send us the translation files as 'Pull Request' or via email.</p>
         free: Completely free
         repo: GitHub Repository
     contact:
@@ -81,7 +81,7 @@ welcome:
         privacy: Privacy policy
 login:
     name: Login
-    welcome: Welcome to JWManagement
+    welcome: Welcome to JW Management
     text: Please enter your account details to log in
     forgot: Forgot password?
     create: Create an account
@@ -107,7 +107,7 @@ profile:
     changePicture: Edit image...
     options:
         title: Settings
-        helpText: In JWManagement you can do everything with just one single account, so you just have to remember one username and password. If you have multiple accounts, please write us an email to support@jwmanagement.org with the usernames of both accounts.
+        helpText: In JW Management you can do everything with just one single account, so you just have to remember one username and password. If you have multiple accounts, please write us an email to support@jwmanagement.org with the usernames of both accounts.
     availability:
         title: Availability
         helpText: Please mark the hours in which you are available.
@@ -344,7 +344,7 @@ notes:
     deleteNote: Delete this note
 firstLogin:
     name: Welcome
-    text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JWManagement.</p><p>Enjoy!</p>
+    text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
     agreeTerms: I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>
     button: Let's Go!
     tokenError: Token-Error. Please contact the Administrator (support@jwmanagement.org) or your project leader.

@@ -1,6 +1,6 @@
 Mailer.config
 
-	from: 'JWManagement <no-reply@jwmanagement.org>'
+	from: 'JW Management <no-reply@jwmanagement.org>'
 	addRoutes: false
 	language: 'html'
 	plainTextOpts:

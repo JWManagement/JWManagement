@@ -227,7 +227,7 @@ modal:
         uploadFile: CSV-Datei hochladen
         stats: <b>%s</b> neue und <b>%s</b> vorhandene User gefunden
         new: Neue Verkündiger
-        existing: Verkündiger mit JWManagement Account
+        existing: Verkündiger mit JW Management Account
         name: Name
         email: E-Mail
         add: User hinzufügen

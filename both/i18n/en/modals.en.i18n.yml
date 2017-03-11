@@ -227,7 +227,7 @@ modal:
         uploadFile: Upload CSV-File
         stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers
-        existing: Publishers with JWManagement Account
+        existing: Publishers with JW Management Account
         name: Name
         email: Email
         add: Add Users
