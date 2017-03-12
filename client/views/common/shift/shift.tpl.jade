@@ -42,7 +42,7 @@ with getShift
 							| {{tag}}
 					.shift-teams
 						each team in teams
-							div.shift-team(class='{{team.status}}')
+							div.shift-team(class='{{getTeamStatus team}}')
 								.shift-team-header
 									i.fa.fa-map-signs
 									| {{team.name}}
