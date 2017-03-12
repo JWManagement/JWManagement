@@ -84,6 +84,14 @@
 		throw new Meteor.Error 550, TAPi18n.__('permissions.notAdmin')
 	true
 
+@isShiftScheduler = Match.Where (obj) ->
+	check obj.userId, String
+	check obj.projectId, String
+
+	if !Roles.userIsInRole obj.userId, Permissions.shiftScheduler, obj.projectId
+		throw new Meteor.Error 550, TAPi18n.__('permissions.notShiftScheduler')
+	true
+
 @isShiftAdmin = Match.Where (obj) ->
 	check obj.userId, String
 	check obj.projectId, String
@@ -131,6 +139,22 @@
 	if !Roles.userIsInRole obj.userId, Permissions.participant, obj.tagId
 		throw new Meteor.Error 550, TAPi18n.__('permissions.notTagParticipant')
 	true
+
+@isShiftSchedulerOrThisTeamleader = Match.Where (obj) ->
+	check obj.shiftId, String
+	check obj.teamId, String
+	check obj.userId, String
+
+	shift = Shifts.findOne obj.shiftId, fields: projectId: 1, teams: 1
+
+	if Roles.userIsInRole obj.userId, Permissions.shiftScheduler, shift.projectId
+		return true
+
+	for team in shift.teams when team._id == obj.teamId
+		for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+			return true
+
+	throw new Meteor.Error 550, TAPi18n.__('permissions.notShiftAdmin')
 
 @isShiftAdminOrThisTeamleader = Match.Where (obj) ->
 	check obj.shiftId, String

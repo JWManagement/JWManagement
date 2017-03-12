@@ -16,6 +16,7 @@ input:
 role:
     role: Role
     admin: Project manager
+    shiftScheduler: Shift scheduler
     shiftAdmin: Shift manager
     storeAdmin: Store manager
     member: Member
@@ -26,6 +27,7 @@ role:
     noPermission: No permission
 permissions:
     notAdmin: This user is not a project manager
+    notShiftScheduler: This user is not a shift scheduler
     notShiftAdmin: This user is not a shift manager
     notStoreAdmin: This user is not a store manager
     notProjectParticipant: This user is not participating in the given project

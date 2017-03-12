@@ -7,6 +7,9 @@ Template.registerHelper 'isProjectAdmin', ->
 Template.registerHelper 'isProjectShiftAdmin', ->
 	Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
 
+Template.registerHelper 'isProjectShiftScheduler', ->
+	Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
+
 Template.registerHelper 'isProjectStoreAdmin', ->
 	Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
 

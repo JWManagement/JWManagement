@@ -8,7 +8,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		if array == 'teams'
 			if project.teams.length > 0
@@ -50,7 +50,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		find = _id: shiftId
 		find[array + '._id'] = arrayId
@@ -72,7 +72,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftAdminOrThisTeamleader
+			check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftSchedulerOrThisTeamleader
 
 		for team in shift.teams
 			if team._id == teamId
@@ -94,7 +94,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		for team in shift.teams when team._id == teamId
 			newPending = team.pending
@@ -112,6 +112,6 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		Shifts.update shiftId, $pull: pull

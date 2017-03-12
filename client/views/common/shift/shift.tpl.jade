@@ -52,7 +52,7 @@ with getShift
 											+printUser user=this
 											br
 								if team.pending
-									if isProjectShiftAdmin
+									if isProjectShiftScheduler
 										.shift-team-pendings
 											each sortUsers team.pending
 												+printUser user=this

@@ -5,7 +5,7 @@
 				i.fa.fa-user-plus.modal-icon
 				h2.m-b-none {{_ 'modal.addParticipant.title'}}
 			.modal-body
-				if isProjectShiftAdmin
+				if isProjectShiftScheduler
 					p.text-muted {{_ 'modal.addParticipant.description'}}
 					select.form-control#other-users
 						option(selected disabled) {{_ 'modal.addParticipant.select'}}

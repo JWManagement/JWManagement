@@ -78,7 +78,7 @@ Template.shift.helpers
 			@status
 
 	adminClass: ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
 			'isAdmin'
 		else
 			'noAdmin'

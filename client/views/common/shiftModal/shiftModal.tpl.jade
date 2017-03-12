@@ -65,7 +65,7 @@
 												img(src='{{url}}')
 									.content {{place.name}}
 							.panel-participants.clearfix
-								if isProjectShiftAdmin
+								if isProjectShiftScheduler
 									if getSelectedCount _id
 										.select-legend
 											if equals min max
@@ -76,7 +76,7 @@
 									each sortUsers participants
 										.participant
 											.float-right
-												if isProjectShiftAdmin
+												if isProjectShiftScheduler
 													unless thisTeamleader
 														if teamleader
 															a#setLeader(href)
@@ -101,7 +101,7 @@
 											a(href)
 												+printUser user=this showStats=true
 								if pending
-									if isProjectShiftAdmin
+									if isProjectShiftScheduler
 										each user in sortUsers pending
 											.pending
 												.float-right
@@ -126,7 +126,7 @@
 														a(href="tel:{{user.phone}}")
 															i.fa.fa-phone.fa-fw
 												| {{user.name}}
-								if isProjectShiftAdmin
+								if isProjectShiftScheduler
 									if declined
 										each sortUsers declined
 											.declined
@@ -148,7 +148,7 @@
 												a(href)
 													+printUser user=this showStats=true
 								unless participants
-									if isProjectShiftAdmin
+									if isProjectShiftScheduler
 										unless pending
 											unless declined
 												.noParticipants {{_ 'modal.shift.noParticipants'}}
@@ -157,7 +157,7 @@
 											.noParticipants {{_ 'modal.shift.noParticipants'}}
 									else
 										.noParticipants {{_ 'modal.shift.noParticipants'}}
-								if isProjectShiftAdmin
+								if isProjectShiftScheduler
 									if getSelectedCount _id
 										.select-action-bar
 											if hasTl _id
@@ -172,7 +172,7 @@
 											i.fa.fa-cog
 											span.caret
 										ul.dropdown-menu
-											if isProjectShiftAdmin
+											if isProjectShiftScheduler
 												li
 													a#addParticipant(href)
 														i.fa.fa-fw.fa-user-plus
@@ -181,7 +181,7 @@
 												a#cancelTeam(href)
 													i.fa.fa-fw.fa-calendar-times-o
 													| {{_ 'modal.shift.cancelTeam'}}
-											if isProjectShiftAdmin
+											if isProjectShiftScheduler
 												if equals status 'closed'
 													li
 														a#openTeam(href)
