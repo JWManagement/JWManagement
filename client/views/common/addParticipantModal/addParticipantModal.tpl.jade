@@ -19,7 +19,7 @@
 				else
 					h2.center-align {{_ 'role.noPermission'}}
 			.modal-footer
-				if isProjectShiftAdmin
+				if isProjectShiftScheduler
 					if queryParam 'participantId'
 						button#submit.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.submit'}}
 					else
