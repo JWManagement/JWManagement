@@ -1,7 +1,7 @@
 tour:
     dashboard:
         welcome:
-            title: Welcome to JWManagement
+            title: Welcome to JW Management
             content: This is your personal dashboard. Here you'll find everything that is of importance at a glance.
         projects:
             title: Projects
@@ -29,4 +29,4 @@ tour:
             content: Here you'll find your personal profile. Your project manager will appreciate it if you keep your profile up to date.
         finish:
             title: Finished!
-            content: We hope you enjoyed using JWManagement
+            content: We hope you enjoyed using JW Management

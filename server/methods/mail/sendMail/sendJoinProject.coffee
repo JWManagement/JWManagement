@@ -4,7 +4,7 @@ Meteor.methods
 		project = Projects.findOne projectId, fields: name: 1, email: 1
 		user = Meteor.users.findOne userId, fields: profile: 1
 
-		check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: projectId }, isAdmin
 
 		name = user.profile.firstname + ' ' + user.profile.lastname
 

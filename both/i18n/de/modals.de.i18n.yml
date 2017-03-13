@@ -40,7 +40,8 @@ modal:
         explanations: Erklärungen
         helpText:
             admin: Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.
-            shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten erstellen, ändern, löschen und einteilen.
+            shiftScheduler: Ein Schichteinteiler hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten einteilen.
+            shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Schichteinteilers und kann darüber hinaus Schichten erstellen, ändern und löschen.
             storeAdmin: Ein Literaturdiener hat die Berechtigungen eines Teilnehmers und kann darüber hinaus die Schichtberichte und das Depot einsehen und bearbeiten.
             member: Ein Teilnehmer darf die Informationsseite sehen.
             teamleader: Ein Teamleiter kann in Schichten des Tags als Teamleiter eingesetzt werden. Damit ist dann für die Abgabe des Schicht-Team-Berichts zuständig.
@@ -227,7 +228,7 @@ modal:
         uploadFile: CSV-Datei hochladen
         stats: <b>%s</b> neue und <b>%s</b> vorhandene User gefunden
         new: Neue Verkündiger
-        existing: Verkündiger mit JWManagement Account
+        existing: Verkündiger mit JW Management Account
         name: Name
         email: E-Mail
         add: User hinzufügen

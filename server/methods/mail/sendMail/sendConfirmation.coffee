@@ -49,7 +49,7 @@ Meteor.methods
 			tagId: tagId
 			weekId: weekId
 
-		check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: projectId }, isShiftScheduler
 
 		if shifts?
 			for shift in shifts.fetch()

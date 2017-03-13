@@ -9,7 +9,7 @@ Meteor.publish 'shift', (shiftId) ->
 
 		if shift?
 			if Roles.userIsInRole @userId, Permissions.member, shift.projectId
-				if Roles.userIsInRole @userId, Permissions.shiftAdmin, shift.projectId
+				if Roles.userIsInRole @userId, Permissions.shiftScheduler, shift.projectId
 					[
 						Shifts.find shiftId
 					,

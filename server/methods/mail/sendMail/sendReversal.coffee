@@ -6,7 +6,7 @@ Meteor.methods
 		user = Meteor.users.findOne userId, fields: profile: 1
 
 		if user? and shift?
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 			thisMoment = moment(shift.date, 'YYYYDDDD')
 			thisMoment.locale(user.profile.language)

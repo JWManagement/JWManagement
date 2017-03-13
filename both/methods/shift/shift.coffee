@@ -72,7 +72,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 			Shifts.update shiftId, $set: set
 

@@ -3,7 +3,7 @@ Template.printUser.helpers
 	getUserStatistics: -> if @showStats
 		projectId = FlowRouter.getParam 'projectId'
 
-		if Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, projectId
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, projectId
 			s = UserStatistics.findOne @user._id
 
 			return '<i class="fa fa-spinner fa-pulse"></i>' if !s?

@@ -16,7 +16,7 @@ swal:
     invite:
         user:
             title: Verkündiger einladen?
-            text: Da dieser Verkündiger <b>bereits einen Account hat</b>, muss für ihn kein weiterer Account angelegt werden. Stattdessen bekommt er <b>einfach Zugriff auf dieses Projekt</b>.<br>Natürlich <b>informieren wir ihn</b> darüber. <br><p>Falls es mehrere Verkündiger mit dieser E-Mail-Adresse bei JWManagement gibt, wähle bitte den richtigen aus:</p>
+            text: Da dieser Verkündiger <b>bereits einen Account hat</b>, muss für ihn kein weiterer Account angelegt werden. Stattdessen bekommt er <b>einfach Zugriff auf dieses Projekt</b>.<br>Natürlich <b>informieren wir ihn</b> darüber. <br><p>Falls es mehrere Verkündiger mit dieser E-Mail-Adresse bei JW Management gibt, wähle bitte den richtigen aus:</p>
         users:
             title: Bist du dir sicher?
             text: An alle ausgewählten Verkündiger werden E-Mails gesendet.
