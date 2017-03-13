@@ -8,7 +8,7 @@
 
 	storeAdmin: ['admin', 'storeAdmin']
 
-	shiftAndStoreAdmin: ['admin', 'shiftAdmin', 'storeAdmin']
+	shiftAndStoreAdmin: ['admin', 'shiftAdmin', 'shiftScheduler', 'storeAdmin']
 
 	member: ['admin', 'shiftScheduler', 'shiftAdmin', 'storeAdmin', 'member']
 
