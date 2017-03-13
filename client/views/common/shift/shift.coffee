@@ -83,6 +83,7 @@ Template.shift.helpers
 						return 'approved'
 					for pending in team.pending when pending._id == Meteor.userId()
 						return 'pending'
+			@status
 
 	getTeamStatus: (team) ->
 		if @date < parseInt moment().format 'YYYYDDDD'
