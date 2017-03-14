@@ -2,40 +2,7 @@
 	.container-fluid
 		.row
 			if isMember
-				if isReady
-					+wikiTabs
-					.col-lg-3
-						.ibox
-							.ibox-content
-								h1.m-b-md.inline {{_ 'wiki.files'}}
-								if isProjectAdmin
-									label.btn.btn-default.btn-lg.btn-circle.pull-right(for="uploadFile")
-										i.fa.fa-upload
-									input#uploadFile.hidden(type="file")
-								if files.count
-									each files
-										.file-box
-											.file
-												a(href="{{url}}" target="blank")
-													span.corner
-													.file-name {{name}}
-														if isProjectAdmin
-															button.option.pull-right.dropdown-toggle(data-toggle="dropdown")
-																i.fa.fa-ellipsis-v.fa-fw
-															ul.dropdown-menu.pull-right
-																li
-																	a(href).editFile
-																		i.fa.fa-pencil.fa-fw
-																		| {{_ 'wiki.edit'}}
-																li
-																	a(href).removeFile
-																		i.fa.fa-trash-o.fa-fw
-																		| {{_ 'wiki.delete'}}
-								else
-									p {{_ 'wiki.noFiles'}}
-				else
-					.col-xs-12
-						.sk-spinner.sk-spinner-pulse
+				+wikiTabs
 			else
 				.col-xs-12
 					h2.center-align {{_ 'role.noPermission'}}
