@@ -2,7 +2,7 @@ import { Mailer } from 'meteor/lookback:emails'
 
 Mailer.config
 
-	from: 'JWManagement <no-reply@jwmanagement.org>'
+	from: 'JW Management <no-reply@jwmanagement.org>'
 	addRoutes: false
 	language: 'html'
 	plainTextOpts:
@@ -189,6 +189,6 @@ Mailer.init
 					content:
 						headline: "Herzlich Willkommen!"
 						hello: "Hallo"
-						text1: "wir möchten dir mitteilen, dass wir für dich in JWManagement ein Konto angelegt haben. Um dich anzumelden, musst du einen Benutzernamen und ein Passwort hinterlegen. Klicke dazu einfach auf den Button unten."
-						text2: "Bei Problemen kannst du dich gerne an uns wenden. <br> Wir wünschen dir viel Freude mit JWManagement. <br> Deine Brüder von JWManagement"
+						text1: "wir möchten dir mitteilen, dass wir für dich in JW Management ein Konto angelegt haben. Um dich anzumelden, musst du einen Benutzernamen und ein Passwort hinterlegen. Klicke dazu einfach auf den Button unten."
+						text2: "Bei Problemen kannst du dich gerne an uns wenden. <br> Wir wünschen dir viel Freude mit JW Management. <br> Deine Brüder von JW Management"
 						button: "Los geht's!"

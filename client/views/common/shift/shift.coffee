@@ -20,6 +20,7 @@ Template.shift.helpers
 			shift = Shifts.findOne this + '', fields:
 				tagId: 1
 				tag: 1
+				date: 1
 				start: 1
 				end: 1
 				status: 1
@@ -36,6 +37,7 @@ Template.shift.helpers
 			shift = Shifts.findOne this + '', fields:
 				tagId: 1
 				tag: 1
+				date: 1
 				start: 1
 				end: 1
 				status: 1
@@ -71,6 +73,12 @@ Template.shift.helpers
 
 	shiftClass: ->
 		try
+			if @date < parseInt moment().format 'YYYYDDDD'
+				return 'closed'
+			else if @date == parseInt moment().format 'YYYYDDDD'
+				if @end < parseInt moment().format 'Hmm'
+					return 'closed'
+
 			if @teams
 				for team in @teams
 					for participant in team.participants when participant._id == Meteor.userId()
@@ -79,8 +87,16 @@ Template.shift.helpers
 						return 'pending'
 			@status
 
+	getTeamStatus: (team) ->
+		if @date < parseInt moment().format 'YYYYDDDD'
+			return 'closed'
+		else if @date == parseInt moment().format 'YYYYDDDD'
+			if @end < parseInt moment().format 'Hmm'
+				return 'closed'
+		team.status
+
 	adminClass: ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
 			'isAdmin'
 		else
 			'noAdmin'

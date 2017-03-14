@@ -12,7 +12,7 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 		u = Meteor.users.findOne userId,
 			fields: _id: 1, profile: 1
 
-		if u? && Roles.userIsInRole @userId, ['shiftAdmin', 'admin'], projectId
+		if u? && Roles.userIsInRole @userId, ['shiftScheduler', 'shiftAdmin', 'admin'], projectId
 			extendUser = (user) ->
 				isTeamleader = Roles.userIsInRole userId, 'teamleader', tagId
 				isSubTeamleader = Roles.userIsInRole userId, 'substituteTeamleader', tagId

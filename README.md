@@ -1,6 +1,6 @@
-# What is JWManagement?
+# What is JW Management?
 
-JWManagement is a highly configurable shift management system for Jehovah's Witnesses.
+JW Management is a highly configurable shift management system for Jehovah's Witnesses.
 Built to power projects like the metropolitan witnessing, construction projects and/or similar.
 
 ### Multiple Tags
@@ -13,7 +13,7 @@ Define one or more teams in a shift. Each will have it's own team-leader. Provid
 
 ### Store Room
 
-Manage your store room via JWManagement. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
+Manage your store room via JW Management. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
 
 ### Notifications
 
@@ -27,7 +27,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 1. _(Optional)_ We recommend downloading and using Atom.io (https://atom.io), because it supports syntax highlighting.
 
-2. Download the JWManagement repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
+2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
 
 3. Open the extracted folder and switch into the both/i18n folder.
 
@@ -75,7 +75,7 @@ Same as simple setup
 ### Setup
 
 Thank you for your interest in helping us with the development of this software.
-Please follow the instructions to setup JWManagement in your local dev environment.
+Please follow the instructions to setup JW Management in your local dev environment.
 
 1. Install Meteor (https://www.meteor.com/install)
 

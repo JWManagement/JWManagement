@@ -39,13 +39,14 @@ Template.shiftModal.helpers
 			'teams.participants._id': 1
 			'teams.pending.checked': 1
 
-		for team in shift.teams when team._id == teamId
-			for user in team.pending when user.checked
-				selectedCount++
+		if shift && shift.teams
+			for team in shift.teams when team._id == teamId
+				for user in team.pending when user.checked
+					selectedCount++
 
-		if selectedCount > 0
-			for user in team.participants
-				selectedCount++
+			if selectedCount > 0
+				for user in team.participants
+					selectedCount++
 
 		selectedCount
 

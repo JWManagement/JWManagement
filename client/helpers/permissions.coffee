@@ -10,6 +10,9 @@ Template.registerHelper 'isProjectAdmin', ->
 Template.registerHelper 'isProjectShiftAdmin', ->
 	Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
 
+Template.registerHelper 'isProjectShiftScheduler', ->
+	Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
+
 Template.registerHelper 'isProjectStoreAdmin', ->
 	Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
 
@@ -26,7 +29,7 @@ Template.registerHelper 'isThisTeamleader', (shiftId, teamId) ->
 		for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
 			return true
 
-	return Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
+	return Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
 
 Template.registerHelper 'isTagTeamleader', (tagId) ->
 	a = Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')

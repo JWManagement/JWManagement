@@ -18,7 +18,7 @@ Template.admin.helpers
 	,
 		route: 'reports'
 		icon: 'comments'
-		role: 'admin,shiftAdmin,storeAdmin'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
 	,
 		route: 'store'
 		icon: 'cubes'
@@ -26,7 +26,7 @@ Template.admin.helpers
 	,
 		route: 'notes'
 		icon: 'pencil'
-		role: 'admin,shiftAdmin,storeAdmin'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
 	,
 		route: 'assemblies'
 		icon: 'home'
@@ -42,9 +42,5 @@ Template.admin.helpers
 	,
 		route: 'tools'
 		icon: 'briefcase'
-		comingSoon: true
-	,
-		route: 'import-export'
-		icon: 'download'
 		comingSoon: true
 	]
