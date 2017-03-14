@@ -1,4 +1,5 @@
 import { wrs } from '/imports/util/delay.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 import { Platform } from '/imports/util/platform.coffee'
 
 import { Helpers } from './helpers.coffee'
@@ -15,12 +16,12 @@ FlowRouter.route '/:language?',
 	action: ->
 		Helpers.doIfLoggedIn ->
 			if Platform.isCordova
-				wrs -> FlowRouter.go 'projects', language: FlowRouter.getParam('language')
+				wrs -> FlowRouter.go 'projects', language: FR.getLanguage()
 			else
 				Session.set 'parent', ''
 				BlazeLayout.render 'mainLayout', content: 'dashboard'
 		, ->
-			FlowRouter.go 'welcome', language: FlowRouter.getParam('language')
+			FlowRouter.go 'welcome', language: FR.getLanguage()
 
 FlowRouter.route '/:language?/projects',
 	name: 'projects'
@@ -40,7 +41,7 @@ FlowRouter.route '/:language/login',
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Tracker.autorun (tracker) ->
 		if Meteor.userId()
-			wrs -> FlowRouter.go 'home', language: FlowRouter.getParam('language')
+			wrs -> FlowRouter.go 'home', language: FR.getLanguage()
 			tracker.stop()
 		else
 			BlazeLayout.render 'blankLayout', content: 'login'

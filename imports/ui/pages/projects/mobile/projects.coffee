@@ -1,5 +1,6 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Permissions } from '/imports/util/permissions.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import '/imports/ui/components/spinner/spinner.js'
 
@@ -22,4 +23,4 @@ Template.projects.onCreated ->
 
 Template.projects.events
 
-	'click a.item': -> FlowRouter.go 'dashboard', language: FlowRouter.getParam('language'), projectId: @_id
+	'click a.item': -> FlowRouter.go 'dashboard', language: FR.getLanguage(), projectId: @_id

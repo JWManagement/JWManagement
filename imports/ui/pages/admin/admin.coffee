@@ -1,9 +1,11 @@
+import { FR } from '/imports/util/flowrouter.coffee'
+
 import './admin.tpl.jade'
 import './admin.scss'
 
 Template.admin.helpers
 
-	getProjectId: -> FlowRouter.getParam('projectId')
+	getProjectId: -> FR.getProjectId()
 
 	name: (route) -> TAPi18n.__('navigation.' + route)
 

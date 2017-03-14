@@ -1,5 +1,6 @@
 import { Dialogs } from '/imports/util/dialogs.coffee'
 import { Delay } from '/imports/util/delay.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import './profileDetails.tpl.jade'
 
@@ -14,7 +15,7 @@ Template.profileDetails.onRendered ->
 		autoclose: true
 		forceParse: false
 		startDate: '1900/01/01'
-		language: FlowRouter.getParam('language')
+		language: FR.getLanguage()
 
 Template.profileDetails.events
 

@@ -2,6 +2,7 @@ import { Pictures } from '/imports/api/pictures/pictures.coffee'
 import { Dialogs } from '/imports/util/dialogs.coffee'
 import { Delay } from '/imports/util/delay.coffee'
 import { wrs } from '/imports/util/delay.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import '/imports/api/resources/bootstrap-datepicker.js'
 
@@ -22,7 +23,7 @@ Template.profile.onRendered ->
 
 	$('.input-daterange').datepicker
 		format: 'dd.mm.yyyy'
-		language: FlowRouter.getParam('language')
+		language: FR.getLanguage()
 		ignoreReadonly: true
 
 Template.profile.onDestroyed ->

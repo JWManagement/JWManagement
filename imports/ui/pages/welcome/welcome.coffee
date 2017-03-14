@@ -1,6 +1,7 @@
 import { ReactiveVar } from 'meteor/reactive-var'
 import { Messages } from '/imports/api/messages/messages.coffee'
 import { Dialogs } from '/imports/util/dialogs.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import '/imports/api/resources/bootstrap.min.js'
 import '/imports/api/resources/singlePageNav.js'
@@ -39,9 +40,9 @@ Template.welcome.events
 
 	'click .navbar-collapse a': -> $('.navbar-collapse').collapse('hide')
 
-	'click #toLogin': -> FlowRouter.go 'login', language: FlowRouter.getParam('language')
+	'click #toLogin': -> FlowRouter.go 'login', language: FR.getLanguage()
 
-	'click #toDashboard': -> FlowRouter.go 'home', language: FlowRouter.getParam('language')
+	'click #toDashboard': -> FlowRouter.go 'home', language: FR.getLanguage()
 
 	'change #type': (e) -> R.selectedType.set $(e.target).find('option:selected').attr('type')
 

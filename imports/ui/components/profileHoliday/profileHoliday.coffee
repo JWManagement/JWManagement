@@ -1,4 +1,5 @@
 import { Dialogs } from '/imports/util/dialogs.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import './profileHoliday.tpl.jade'
 
@@ -15,7 +16,7 @@ Template.profileHoliday.events
 		Meteor.users.methods.vacation.add.call {}, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'
-				language: FlowRouter.getParam('language')
+				language: FR.getLanguage()
 
 	'click .removeVacation': (e) ->
 		Meteor.users.methods.vacation.remove.call vacationId: @_id

@@ -1,16 +1,18 @@
+import { FR } from '/imports/util/flowrouter.coffee'
+
 import './resetPassword.tpl.jade'
 
 Template.resetPassword.helpers
 
 	user: ->
-		token = FlowRouter.getParam('token')
+		token = FR.getToken()
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	loggingIn: -> Meteor.loggingIn() || Meteor.userId()
 
 Template.resetPassword.onCreated ->
 
-	token = FlowRouter.getParam('token')
+	token = FR.getToken()
 
 	if token? && token != ''
 		@subscribe 'userByToken', token
@@ -25,7 +27,7 @@ Template.resetPassword.events
 
 		pass1 = e.target['0'].value
 		pass2 = e.target['1'].value
-		token = FlowRouter.getParam('token')
+		token = FR.getToken()
 
 		try
 			if !token? || token == ''
@@ -40,7 +42,7 @@ Template.resetPassword.events
 						submit.ladda 'stop'
 						swal TAPi18n.__(err.error) , '', err.reason
 					else
-						language = FlowRouter.getParam('language')
+						language = FR.getLanguage()
 
 						Meteor.loginWithPassword username, pass1, (e) -> unless e
 							FlowRouter.go 'home', language: language

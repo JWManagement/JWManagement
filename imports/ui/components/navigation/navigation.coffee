@@ -2,6 +2,7 @@ import { Pictures } from '/imports/api/pictures/pictures.coffee'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { Dialogs } from '/imports/util/dialogs.coffee'
 import { wrs } from '/imports/util/delay.coffee'
+import { FR } from '/imports/util/flowrouter.coffee'
 
 import './navigation.tpl.jade'
 import './navigation.scss'
@@ -16,13 +17,13 @@ Template.navigation.helpers
 		if Session.get('parent')
 			if Session.get('target')
 				Session.get('target')
-			else if Session.get('parent') == 'settings' && FlowRouter.getParam('projectId')
+			else if Session.get('parent') == 'settings' && FR.getProjectId()
 				FlowRouter.path 'settings',
-					projectId: FlowRouter.getParam('projectId')
+					projectId: FR.getProjectId()
 					language: TAPi18n.getLanguage()
-			else if Session.get('parent') == 'admin' && FlowRouter.getParam('projectId')
+			else if Session.get('parent') == 'admin' && FR.getProjectId()
 				FlowRouter.path 'admin',
-					projectId: FlowRouter.getParam('projectId')
+					projectId: FR.getProjectId()
 					language: TAPi18n.getLanguage()
 			else if Session.get('parent') == 'home'
 				FlowRouter.path 'home', language: TAPi18n.getLanguage()
