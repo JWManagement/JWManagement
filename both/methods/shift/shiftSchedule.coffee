@@ -5,7 +5,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isMember
 			if message?
 				check message, String
 
@@ -49,7 +49,7 @@ Meteor.methods
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant
 
 			for team in shift.teams
@@ -126,7 +126,7 @@ Meteor.methods
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant
 
 			for team in shift.teams when team._id == teamId
@@ -179,7 +179,7 @@ Meteor.methods
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
 			check { tagId: shift.tagId, userId: userId }, isTeamleader
 
 			for team in shift.teams when team._id == teamId
@@ -222,7 +222,7 @@ Meteor.methods
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftAdmin
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant
 
 			for team in shift.teams when team._id == teamId

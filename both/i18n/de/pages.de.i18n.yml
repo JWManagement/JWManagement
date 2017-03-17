@@ -1,5 +1,8 @@
 navigation:
+    undefined: Unbekannte URL
     welcome: Willkommen
+    projects: Projekt wählen
+    dashboard: Startseite
     home: Übersicht
     profile: Mein Profil
     shifts: Schichten
@@ -31,7 +34,7 @@ welcome:
         dashboard: Übersicht öffnen
     header:
         title: Schichtverwaltung für theokratische Projekte
-        description: JWManagement ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
+        description: JW Management ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
     divider:
         first:
             title: Verschiedene Tags
@@ -41,27 +44,28 @@ welcome:
             description: Lege in jeder Schicht ein oder mehrere Teams an. Jedes Team hat seinen eigenen Teamleiter. Stelle überdies weitere Informationen bezüglich der Teams oder Treffpunkte bereit, wie z.B. Bilder mit Routen, Web-Links und Beschreibungen.
         third:
             title: Depot
-            description: Verwalte dein Depot über JWManagement. Basierend auf den Teamberichten aktualisiert das System automatisch die Anzahl der Exemplare per Publikation und Sprache. Werde benachrichtigt, wenn von einer Publikation nur noch wenige Exemplare auf Lager sind.
+            description: Verwalte dein Depot über JW Management. Basierend auf den Teamberichten aktualisiert das System automatisch die Anzahl der Exemplare per Publikation und Sprache. Werde benachrichtigt, wenn von einer Publikation nur noch wenige Exemplare auf Lager sind.
         fourth:
             title: Benachrichtigungen
             description: Dank der mächtigen Benachrichtigungsfunktion wirst du über deine Zu- und Absagen, sowie über jegliche Änderungen deiner Schicht benachrichtigt oder kannst selbst Rundmails an ausgewählte Verkündiger schreiben.
     feature1:
         title: Multifunktionswerkzeug
-        description: <p>JWManagement ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
+        description: <p>JW Management ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
     feature2:
         title: Letzte Änderungen
         more: Mehr zeigen
     feature3:
         title: Kostenlos & Open-Source
-        description: <p>Besuche unser Repository und schaue dir an, wie JWManagement programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>
+        description: <p>Besuche unser Repository und schaue dir an, wie JW Management programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>
         free: Völlig kostenlos
         repo: GitHub Repository
     contact:
         title: Kontaktiere uns
-        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
+        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p><p>Fülle einfach das Kontaktformular auf der rechten Seite aus.</p>
         name: Name
         email: E-Mail Adresse
         congregation: Versammlung
+        chooseType: Was für ein Anliegen hast du?
         enquiry: Projekt beantragen
         login: Problem beim Login
         problem: Problem melden
@@ -70,7 +74,6 @@ welcome:
         message: Nachricht
         send: Senden
         sendEnquiry: Anfrage senden
-        enquirySuccessful: Anfrage wurde übermittelt!
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
         loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
         toGithub: GitHub besuchen
@@ -81,7 +84,7 @@ welcome:
         privacy: Datenschutzerklärung
 login:
     name: Login
-    welcome: Willkommen zu JWManagement
+    welcome: Willkommen zu JW Management
     text: Bitte gib deine Daten ein um dich anzumelden
     forgot: Passwort vergessen?
     create: Account erstellen
@@ -107,7 +110,7 @@ profile:
     changePicture: Bild ändern...
     options:
         title: Optionen
-        helpText: Bei JWManagement brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, schreibe uns eine Mail an support@jwmanagement.org mit den Benutzernamen beider Accounts.
+        helpText: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, schreibe uns eine Mail an support@jwmanagement.org mit den Benutzernamen beider Accounts.
     availability:
         title: Verfügbarkeit
         helpText: Markiere bitte die Stunden, in denen du verfügbar bist.
@@ -241,6 +244,7 @@ users:
     addNewUser: Neuen Verkündiger anlegen
     deleted: Gelöscht!
     sendToAll: E-Mail an alle
+    sendToAllInTag: E-Mail an alle im Tag %s
     export: Export als csv
 reports:
     placements: Abgaben
@@ -268,6 +272,9 @@ reports:
     show: Zeigen
     prevMonth: Zum nächsten Monat gehen
     nextMonth: Zum vorherigen Monat gehen
+    meetingStart: Treffpunkt zu Beginn
+    meetingEnd: Treffpunkt am Ende
+    place: Ort
 settings:
     main:
         title: Allgemeine Einstellungen
@@ -340,11 +347,11 @@ notes:
     text: Text
     deleteNote: Notiz löschen
 firstLogin:
-    name: Herzlich Willkommen
-    text: <p>Wir freuen uns dich bei JWManagement begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
+    name: Herzlich Willkommen,
+    text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     agreeTerms: Ich akzeptiere die <a href="/de/terms" target="blank">Nutzungsbedingungen</a> und die <a href="/de/privacy" target="blank">Datenschutzerklärung</a>
     button: Los geht's!
-    tokenError: Token-Fehler. Bitte wende dich an den Administrator (support@jwmanagement.org) oder deinen Projektleiter.
+    tokenError: Token-Fehler. Bitte wende dich an deinen Projektleiter.
     tokenMissing: Token fehlt. Bitte verwende den Link aus der E-Mail.
     usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
     usernameMissing: Bitte gib einen Benutzernamen an.

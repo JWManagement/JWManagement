@@ -3,61 +3,62 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base@1.0.4             # Packages every Meteor app needs to have
-mobile-experience@1.0.4       # Packages for a great mobile UX
-mongo@1.1.14                   # The database Meteor supports right now
-blaze-html-templates@1.0.4    # Compile .html files into Meteor Blaze views
-session@1.1.7                 # Client-side reactive dictionary for your app
-jquery@1.11.10                  # Helpful client-side library
-tracker@1.1.1                 # Meteor's client-side reactive programming library
-es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
-ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
-
-http@1.2.10
-check@1.2.4
-random@1.0.10
-underscore@1.0.10
-email@1.1.18
-coffeescript@1.11.1_4
 accounts-base@1.2.14
 accounts-password@1.3.3
-mquandalle:jade
-aldeed:collection2
-kadira:flow-router
-kadira:blaze-layout
-arillo:flow-router-helpers
-fourseven:scss
-fortawesome:fontawesome
-momentjs:moment
-rzymek:moment-locale-de
-lookback:emails
-rochal:slimscroll
-kevohagan:sweetalert
-chuangbo:cookie
-alanning:roles
-tap:i18n
-jparker:crypto-md5
+blaze-html-templates@1.0.4
+check@1.2.4
+coffeescript@1.11.1_4
+ecmascript@0.6.1
+email@1.1.18
+es5-shim@4.6.15
+http@1.2.10
+jquery@1.11.10
+meteor-base@1.0.4
+mobile-experience@1.0.4
+mongo@1.1.14
+random@1.0.10
+session@1.1.7
+shell-server@0.2.1
 standard-minifier-css@1.3.2
 standard-minifier-js@1.2.1
-joshdellay:meteor-ladda-bootstrap
-benmgreene:jquery-sparklines
-themeteorchef:jquery-validation
-canotto90:swal-forms
-summernote:standalone
-shell-server@0.2.1
-cfs:standard-packages
+tracker@1.1.1
+underscore@1.0.10
+
+alanning:roles
+aldeed:collection2
+arillo:flow-router-helpers
+benmgreene:jquery-sparklines # remove in future
+canotto90:swal-forms # remove in future
 cfs:filesystem
-meteorhacks:subs-manager
-meteorhacks:kadira
-percolate:synced-cron
-flowkey:bootstrap-tour
-mizzao:user-status
-kevbuk:moment-range
-harrison:papa-parse
 cfs:s3
+cfs:standard-packages
+chrismbeckett:toastr # remove in future
+chuangbo:cookie # remove in future
+flowkey:bootstrap-tour # remove in future
+fortawesome:fontawesome
+fourseven:scss
+harrison:papa-parse
+joshdellay:meteor-ladda-bootstrap
+jparker:crypto-md5
+kadira:blaze-layout
+kadira:flow-router
+kevbuk:moment-range
+kevohagan:sweetalert # remove in future
+lookback:emails
 mdg:seo
 mdg:validated-method
+meteorhacks:kadira
+mizzao:user-status
+momentjs:moment
+mquandalle:jade
 okgrow:analytics
 austinsand:roba-popover
 chrismbeckett:toastr
 raix:push@3.0.3-rc.5
+percolate:synced-cron
+reywood:publish-composite
+rochal:slimscroll # remove in future
+rzymek:moment-locale-de
+summernote:standalone
+tap:i18n
+themeteorchef:jquery-validation # remove in future

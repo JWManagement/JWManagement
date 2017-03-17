@@ -1,3 +1,5 @@
+import { Permissions } from '/imports/util/permissions.coffee'
+
 Meteor.publish 'week', (projectId, week) ->
 
 	if typeof projectId == 'string' && projectId != '' && typeof week == 'string' && week != ''

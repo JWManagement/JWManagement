@@ -1,0 +1,29 @@
+feedback:
+    error:
+        agreeTermsMissing: Please agree the terms of usage and the privacy policy
+        emailMissing: Email address is missing
+        invalidToken: Invalid token. Please check the URL
+        maximumAlreadyReached: Maximum limit for team participants has already been reached
+        missingField: One or more fields are missing
+        noRequestAllowed: no more requests allowed
+        notAdmin: you're not project manager
+        noTeamleader: he/she is not team leader
+        notTagParticipant: you're not participating in this tag
+        noUserForThisEmail: There is no account with this email address
+        passwordIsTooShort: Password must be at least 8 characters long
+        passwordsAreNotMatching: The passwords do not match!
+        sendMailFailed: Email could not be sent
+        shiftsNotFound: Shifts not found
+        thisTeamIsClosed: This team is closed. You can't request participation.
+        tokenError: Token-Error. Please contact your project leader
+        tokenMissing: Token is missing. Please visit the link from the email
+        usernameExists: This username is already in use. Please choose another one
+        usernameMissing: Please provide a username
+        usernameUnavailable: This username is unavailable. Please choose anotherone.
+        noUserWithThisToken: Couldn't find a user with this token
+    success:
+        enquirySent: Enquiry has been sent. You will be noticed within a few hours
+        mailSent: Email has been sent
+        messageSent: Message has been sent
+    warning:
+        multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify an account

@@ -1,0 +1,75 @@
+.ibox
+	.ibox-title
+		h2 {{_ "profile.personalData"}}
+	.ibox-content
+		form.form-horizontal
+			.form-group
+				label.col-lg-2.control-label {{_ "input.username"}}
+				.col-lg-4
+					input#username.form-control(type='text' placeholder='{{_ "input.username"}}' value='{{username}}')
+					span.help-block {{_ 'input.helpText.username'}}
+			.hr-line-dashed
+			.form-group
+				label.col-lg-2.control-label {{_ "input.firstname"}}
+				.col-lg-4
+					input#firstname.form-control(type='text' placeholder='{{_ "input.firstname"}}' value='{{profile.firstname}}')
+				.col-xs-12.visible-xs
+					.hr-line-dashed
+				label.col-lg-2.control-label {{_ "input.lastname"}}
+				.col-lg-4
+					input#lastname.form-control(type='text' placeholder='{{_ "input.lastname"}}' value='{{profile.lastname}}')
+			.hr-line-dashed
+			.form-group
+				label.col-lg-2.control-label {{_ "input.email"}}
+				.col-lg-4
+					input#email.form-control(type='text' placeholder='{{_ "input.email"}}' value='{{profile.email}}')
+				.col-xs-12.visible-xs
+					.hr-line-dashed
+				label.col-lg-2.control-label {{_ "profile.telefon"}}
+				.col-lg-4
+					input#telefon.form-control(type='text' placeholder='{{_ "profile.placeholder.telefon"}}' value='{{profile.telefon}}')
+			.hr-line-dashed
+			.form-group
+				label.col-lg-2.control-label {{_ "profile.congregation"}}
+				.col-lg-4
+					input#congregation.form-control(type='text' placeholder='{{_ "profile.placeholder.congregation"}}' value='{{profile.congregation}}')
+				.col-xs-12.visible-xs
+					.hr-line-dashed
+				label.col-lg-2.control-label {{_ "profile.languages"}}
+				.col-lg-4
+					input#languages.form-control(type='text' placeholder='{{_ "profile.languages"}}' value='{{profile.languages}}')
+			.hr-line-dashed
+			.form-group
+				label.col-lg-2.control-label {{_ "profile.gender"}}
+				.col-lg-4
+					select#gender.form-control
+						option(value='m' selected="{{isField 'gender' 'm'}}") {{_ "profile._gender.brother"}}
+						option(value='w' selected="{{isField 'gender' 'w'}}") {{_ "profile._gender.sister"}}
+				.col-xs-12.visible-xs
+					.hr-line-dashed
+				label.col-lg-2.control-label {{_ "profile.birthday"}}
+				.col-lg-4
+					#bdate-wrapper.input-group.date
+						input#bdate.form-control(type='text' placeholder='{{_ "profile.birthday"}}' value='{{profile.bdate}}')
+						span.input-group-addon
+							.fa.fa-calendar
+			.hr-line-dashed
+			.form-group
+				label.col-lg-2.control-label {{_ "profile.privilegeOfService"}}
+				.col-lg-4
+					select#pioneer.form-control
+						option(value='publisher' selected="{{isField 'pioneer' 'publisher'}}") {{_ "profile.publisher"}}
+						option(value='auxiliary' selected="{{isField 'pioneer' 'auxiliary'}}") {{_ "profile._privilegeOfService.auxiliaryPioneer"}}
+						option(value='regular' selected="{{isField 'pioneer' 'regular'}}") {{_ "profile._privilegeOfService.pioneer"}}
+						option(value='special' selected="{{isField 'pioneer' 'special'}}") {{_ "profile._privilegeOfService.specialPioneer"}}
+						option(value='circuit' selected="{{isField 'pioneer' 'circuit'}}") {{_ "profile._privilegeOfService.circuitOverseer"}}
+						option(value='bethelite' selected="{{isField 'pioneer' 'bethelite'}}") {{_ "profile._privilegeOfService.bethelite"}}
+						option(value='ldc' selected="{{isField 'pioneer' 'ldc'}}") {{_ "profile._privilegeOfService.fulltimeConstructionServant"}}
+				.col-xs-12.visible-xs
+					.hr-line-dashed
+				label.col-lg-2.control-label {{_ "profile.ministryPrivilege"}}
+				.col-lg-4
+					select#privilege.form-control
+						option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
+						option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
+						option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}

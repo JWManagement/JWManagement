@@ -17,8 +17,8 @@ Template.reports.onCreated ->
 	month = FlowRouter.getQueryParam('month')
 
 	if !month?
-		wrs -> FlowRouter.setQueryParams month: moment(new Date).format('YYYY[M]MM')
-		month = moment(new Date).format('YYYY[M]MM')
+		wrs -> FlowRouter.setQueryParams month: moment().format('YYYY[M]MM')
+		month = moment().format('YYYY[M]MM')
 
 	Session.set 'subscribe', month
 	@autorun ->
@@ -50,7 +50,30 @@ Template.reports.events
 		if month?
 			csvContent = 'data:text/csv;charset=utf-8,' + '\uFEFF'
 			head = []
-			head.push TAPi18n.__('modal.shiftReport.date'), TAPi18n.__('shifts.start'), TAPi18n.__('shifts.end'), TAPi18n.__('modal.editShift.team'), TAPi18n.__('modal.shiftReport.teamleader'), TAPi18n.__('reports.participants'), TAPi18n.__('modal.shiftReport.texts'), TAPi18n.__('modal.shiftReport.speaks'), TAPi18n.__('modal.shiftReport.videos'), TAPi18n.__('modal.shiftReport.returnVisits'), TAPi18n.__('modal.shiftReport.bibleStudies'), TAPi18n.__('modal.shiftReport.time'), TAPi18n.__('modal.shiftReport.trolleysFilled'), TAPi18n.__('modal.shiftReport.neatnessLast'), TAPi18n.__('modal.shiftReport.experiences') + ' ' + TAPi18n.__('modal.shiftReport.expRoute'), TAPi18n.__('modal.shiftReport.expGood'), TAPi18n.__('modal.shiftReport.expProblems'), TAPi18n.__('modal.shiftReport.publications')
+			[
+				'modal.shiftReport.date'
+				'shifts.start'
+				'shifts.end'
+				'modal.editShift.team'
+				'reports.meetingStart'
+				'reports.meetingEnd'
+				'reports.place'
+				'modal.shiftReport.teamleader'
+				'reports.participants'
+				'modal.shiftReport.texts'
+				'modal.shiftReport.speaks'
+				'modal.shiftReport.videos'
+				'modal.shiftReport.returnVisits'
+				'modal.shiftReport.bibleStudies'
+				'modal.shiftReport.time'
+				'modal.shiftReport.trolleysFilled'
+				'modal.shiftReport.neatnessLast'
+				'modal.shiftReport.expRoute'
+				'modal.shiftReport.expGood'
+				'modal.shiftReport.expProblems'
+				'modal.shiftReport.publications'
+			].map (c) -> head.push TAPi18n.__(c)
+
 			csvContent += head.join(';') + '\r\n'
 
 			firstDay = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
@@ -73,18 +96,16 @@ Template.reports.events
 					row.push moment(shift.start, 'Hmm').format('HH:mm')
 					row.push moment(shift.end, 'Hmm').format('HH:mm')
 					row.push team.name
-
-					participants = ''
-					for participant in team.participants
-						if participant.thisTeamleader
-							row.push participant.name.trim()
+					row.push team.meetingStart?.name
+					row.push team.meetingEnd?.name
+					row.push team.place?.name
+					row.push team.participants.filter((p) -> p.thisTeamleader)[0]?.name.trim()
+					row.push team.participants.filter((p) -> !p.thisTeamleader).map((p) ->
+						if p.state in ['sick', 'missing']
+							p.name.trim() + ' (' + TAPi18n.__('modal.shiftReport.' + p.state) + ')'
 						else
-							participants += participant.name.trim()
-							if participant.state in ['sick', 'missing']
-								participants += '(' + TAPi18n.__('modal.shiftReport.' + participant.state) + '),'
-							else
-								participants += ','
-					row.push participants.replace(/,\s*$/, '') # remove last comma
+							p.name.trim()
+					).join(', ')
 
 					if team.report? && team.report.items?
 						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
@@ -98,7 +119,7 @@ Template.reports.events
 						row.push problems.replace(/(?:\\[rn]|[\r\n]+)+/g, ' ')
 
 						for item in team.report.items
-							row.push item.count + ' ' + item.short + '-' + item.language.short
+							row.push item.count + ' ' + item.short + '-' + item.language
 
 					csvContent += row.join(';') + '\r\n'
 

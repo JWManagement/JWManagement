@@ -1,3 +1,5 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
 Template.editShiftModal.helpers
 
 	admin: -> true
@@ -36,6 +38,8 @@ Template.editShiftModal.helpers
 	getMeetingStart: -> @meetingStart?.name || TAPi18n.__('modal.editShift.noMeeting')
 
 	getMeetingEnd: -> @meetingEnd?.name || TAPi18n.__('modal.editShift.noMeeting')
+
+	getPlace: -> @place?.name || TAPi18n.__('modal.editShift.noMeeting')
 
 	possibleTeamSizes: -> [1..15]
 
@@ -159,6 +163,22 @@ Template.editShiftModal.events
 		teamId = $(e.target).closest('.team').attr('teamId')
 
 		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'meetingEnd', null, handleError
+
+	'click .changePlace': (e) ->
+		shiftId = FlowRouter.getQueryParam('editShift')
+		teamId = $(e.target).closest('.team').attr('teamId')
+		shift = Shifts.findOne shiftId, fields: 'place': 1
+		self = this
+
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place', { _id: self._id }, handleError
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place.name', self.name, handleError
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place.time', shift.end, handleError
+
+	'click .removePlace': (e) ->
+		shiftId = FlowRouter.getQueryParam('editShift')
+		teamId = $(e.target).closest('.team').attr('teamId')
+
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place', null, handleError
 
 	'click #removeTeam': (e) ->
 		e.preventDefault()

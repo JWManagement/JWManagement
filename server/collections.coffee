@@ -1,3 +1,6 @@
+import { Files } from '/imports/api/files/files.coffee'
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
+
 validUserOrTeamOrMeeting = (userId, doc) ->
 	if userId
 		if doc.userId

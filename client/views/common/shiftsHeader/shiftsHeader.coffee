@@ -15,7 +15,7 @@ Template.shiftsHeader.helpers
 		if weeks.length == 0 then 'disabled'
 
 	weeks: ->
-		thisMonday = parseInt moment(new Date()).isoWeekday(1).format('YYYYDDDD')
+		thisMonday = parseInt moment().isoWeekday(1).format('YYYYDDDD')
 		chosenMonday = parseInt moment(FlowRouter.getQueryParam('showWeek')).isoWeekday(1).format('YYYYDDDD')
 
 		startDate = if chosenMonday < thisMonday then chosenMonday else thisMonday
@@ -54,9 +54,8 @@ Template.shiftsHeader.helpers
 		if project?.tags
 			result = []
 
-			for t in project.tags
-				if t._id in tags
-					result.push t.name
+			for t in project.tags when t._id in tags && Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
+				result.push t.name
 
 			result.join(', ')
 

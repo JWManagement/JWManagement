@@ -37,9 +37,11 @@ modal:
         projectPermissions: Project permissions
         projectRole: Project role
         tagPermissions: Tag roles
+        explanations: Explanations
         helpText:
             admin: The project manager role is the highest authorization level. A project manager is allowed to control everything. For every project there has to be at least one project manager.
-            shiftAdmin: The shift manager has the permissions of a participant but can also create, change, delete and schedule shifts.
+            shiftScheduler: The shift scheduler has the permissions of a participant but can also schedule shifts.
+            shiftAdmin: The shift manager has the permissions of a shift scheduler but can also create, change and delete shifts.
             storeAdmin: The store manager has the permissions of a participant but can also view the shift reports and edit the store.
             member: The member is the most basic role. He is allowed to view the Information Center.
             teamleader: The team leader once assigned by a project manager to a certain tag is then in charge of the shift team report for said tag.
@@ -65,6 +67,7 @@ modal:
         teamMax: Maximum participants:
         teamStart: Start:
         teamEnd: End:
+        teamPlace: Place:
         removeTeam: Remove this team
         noMeeting: No Meeting
         action: Action:
@@ -94,6 +97,9 @@ modal:
     position:
         title: Mark position with left mouse click
     shift:
+        clickToEnlarge: Click the image to enlarge it
+        openLink: View linked information
+        meetingAt: Meeting point at
         collapseTeam: Collapse team information and meeting points
         expandTeam: Expand team information and meeting points
         noParticipants: No participants
@@ -105,8 +111,6 @@ modal:
         cancelParticipation: Cancel participation
         addParticipant: Add participant
         unknownAge: Unknown age
-        closedTeam: This team is closed. You can't request participation.
-        maximumReached: Maximum limit for team participants has already been reached
         noPermission: You don't have the permission to schedule users
         noTeamleader: This user doesn't have permission to be a team leader
         alreadyTeamleader: This user is already a team leader
@@ -125,7 +129,6 @@ modal:
         allocations: Shifts
         thisWeek: this week
         lastDays: last %s days
-        noMeeting: No Meeting Point
     shiftReport:
         title: Report
         teamleader: Team leader
@@ -219,10 +222,11 @@ modal:
     uploadUserFile:
         title: User-File upload
         helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant' or 'elder'), Congregation
+        helpEncoding: The file has to be UTF-8 encoded to support all characters
         uploadFile: Upload CSV-File
         stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers
-        existing: Publishers with JWManagement Account
+        existing: Publishers with JW Management Account
         name: Name
         email: Email
         add: Add Users

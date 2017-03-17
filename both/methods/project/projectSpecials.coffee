@@ -1,7 +1,7 @@
 Meteor.methods
 
 	changeAllShiftTags: (projectId, tagId, tagName) ->
-		minDate = parseInt(moment(new Date()).format('YYYYDDDD'))
+		minDate = parseInt(moment().format('YYYYDDDD'))
 
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
@@ -17,7 +17,7 @@ Meteor.methods
 			multi: true
 
 	changeAllShiftTeams: (projectId, teamId, field, value) ->
-		minDate = parseInt(moment(new Date()).format('YYYYDDDD'))
+		minDate = parseInt(moment().format('YYYYDDDD'))
 		set = {}
 		set['teams.$.' + field] = value
 
@@ -35,7 +35,7 @@ Meteor.methods
 			multi: true
 
 	changeAllShiftMeetings: (projectId, meetingId, field, value) ->
-		minDate = parseInt(moment(new Date()).format('YYYYDDDD'))
+		minDate = parseInt(moment().format('YYYYDDDD'))
 
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
@@ -49,12 +49,17 @@ Meteor.methods
 				'teams.meetingStart._id': meetingId
 			,
 				'teams.meetingEnd._id': meetingId
+			,
+				'place': meetingId
 			]
 
 		for shift in shifts.fetch()
 			for team in shift.teams
-				if team.meetingStart._id == meetingId
+				if team.meetingStart? && team.meetingStart._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'meetingStart.' + field, value
 
-				if team.meetingEnd._id == meetingId
+				if team.meetingEnd? && team.meetingEnd._id == meetingId
 					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'meetingEnd.' + field, value
+
+				if team.place? && team.place._id == meetingId
+					Meteor.call 'updateShiftItem', shift._id, 'teams', team._id, 'place.' + field, value

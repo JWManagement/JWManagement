@@ -1,3 +1,5 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+
 Template.shiftModal.helpers
 
 	getShiftId: -> FlowRouter.getQueryParam('showShift')
@@ -23,10 +25,6 @@ Template.shiftModal.helpers
 		shift = Shifts.findOne shiftId, fields: scheduling: 1
 		shift.scheduling == 'direct'
 
-	showTeams: ->
-		showTeams = FlowRouter.getQueryParam('showTeams') + ''
-		@_id in showTeams.split('_')
-
 	meetingStartOrEnd: -> @meetingStart? || @meetingEnd?
 
 	teamPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), teamId: @_id
@@ -38,11 +36,17 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants._id': 1
 			'teams.pending.checked': 1
 
-		for team in shift.teams when team._id == teamId
-			for user in team.pending when user.checked
-				selectedCount++
+		if shift && shift.teams
+			for team in shift.teams when team._id == teamId
+				for user in team.pending when user.checked
+					selectedCount++
+
+			if selectedCount > 0
+				for user in team.participants
+					selectedCount++
 
 		selectedCount
 
@@ -51,14 +55,18 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
+			'teams.participants.checked': 1
+			'teams.participants.teamleader': 1
+			'teams.participants.substituteTeamleader': 1
 			'teams.pending.checked': 1
 			'teams.pending.teamleader': 1
 			'teams.pending.substituteTeamleader': 1
 
 		for team in shift.teams when team._id == teamId
-			for user in team.pending when user.checked
-				if user.substituteTeamleader || user.teamleader
-					tlCount++
+			for user in team.participants when user.substituteTeamleader || user.teamleader
+				tlCount++
+			for user in team.pending when user.checked && (user.substituteTeamleader || user.teamleader)
+				tlCount++
 
 		if tlCount > 0
 			TAPi18n.__('modal.shift.existingTeamleaders', tlCount)
@@ -97,54 +105,44 @@ Template.shiftModal.helpers
 		shiftId = FlowRouter.getQueryParam('showShift')
 		shift = Shifts.findOne shiftId, fields: date: 1, end: 1
 
-		if shift.date < parseInt moment(new Date).format('YYYYDDDD')
+		if shift.date < parseInt moment().format('YYYYDDDD')
 			true
-		else if shift.date == parseInt moment(new Date).format('YYYYDDDD')
-			if shift.end < parseInt moment(new Date).format('Hmm')
+		else if shift.date == parseInt moment().format('YYYYDDDD')
+			if shift.end < parseInt moment().format('Hmm')
 				true
 			else
 				false
 
 Template.shiftModal.onCreated ->
 
+	self = this
+	shiftId = FlowRouter.getQueryParam('showShift')
+
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', FlowRouter.getQueryParam('showShift')
+		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
-				wrs -> FlowRouter.setQueryParams showShift: null, showTeams: null
+				wrs -> FlowRouter.setQueryParams showShift: null
 				$('.skipping').addClass('animated').removeClass('skipping')
 
-			$('.userPopover').popover html: true
+			shift = Shifts.findOne shiftId
+
+			if shift?
+				for team in shift.teams
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.participants
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
+					self.subscribe 'userStatistics', user._id, shiftId for user in team.declined
 
 Template.shiftModal.events
-
-	'click #expandTeam': ->
-		showTeams = FlowRouter.getQueryParam('showTeams')
-		if showTeams?
-			showTeams = showTeams.split('_')
-			showTeams.push(@_id)
-		else
-			showTeams = [@_id]
-
-		wrs -> FlowRouter.setQueryParams showTeams: showTeams.join('_')
-
-	'click #collapseTeam': ->
-		showTeams = FlowRouter.getQueryParam('showTeams').split('_')
-		teamPos = showTeams.indexOf(@_id)
-		showTeams[teamPos..teamPos] = []
-
-		if showTeams.length > 0
-			showTeams = showTeams.join('_')
-		else
-			showTeams = null
-
-		wrs -> FlowRouter.setQueryParams showTeams: showTeams
 
 	'click #requestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 
-		Meteor.call 'request', shiftId, @_id, handleError
+		Shifts.methods.request.call
+			shiftId: shiftId
+			teamId: @_id
+		, handleError
 
 	'click #requestShift': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -155,7 +153,10 @@ Template.shiftModal.events
 	'click #cancelRequestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 
-		Meteor.call 'cancelRequest', shiftId, @_id
+		Shifts.methods.cancelRequest.call
+			shiftId: shiftId
+			teamId: @_id
+		, handleError
 
 	'click #cancelParticipation': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -163,7 +164,11 @@ Template.shiftModal.events
 
 		swalYesNo
 			swal: 'request.cancel'
-			doConfirm: -> Meteor.call 'cancelParticipation', shiftId, teamId, handleError
+			doConfirm: ->
+				Shifts.methods.cancelParticipation.call
+					shiftId: shiftId
+					teamId: teamId
+				, handleError
 
 	'click #setLeader': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -477,10 +482,3 @@ Template.shiftModal.events
 		swalYesNo
 			swal: 'sendMail.declined'
 			doConfirm: -> Meteor.call 'sendDeclined', shiftId, teamId, userId
-
-	'click .userPopover': (e) ->
-		RobaPopover.show
-			contentTemplate: 'userInfoPopover'
-			sourceElement: e.target
-			contentData: userId: $(e.target).closest('a').attr('data-userId')
-			placement: 'right'

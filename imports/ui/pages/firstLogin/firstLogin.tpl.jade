@@ -1,0 +1,33 @@
+.first-login-box
+	.row
+		.col-xs-12
+			.ibox-content
+				with user
+					h2.text-center.m-b-lg {{_ "firstLogin.name"}} {{profile.firstname}}
+					p.center-align {{{_ "firstLogin.text"}}}
+					if getErrorMessage
+						.alert.alert-danger {{getErrorMessage}}
+					.row
+						.col-lg-12
+							form.m-t
+								.form-group
+									input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required tabindex='1')
+									span.help-block {{_ 'input.helpText.username'}}
+								.form-group
+									input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required tabindex='2')
+								.form-group
+									input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required tabindex='3')
+								.form-group
+									.checkbox.checkbox-inline(tabindex='4')
+										input#agreeTerms(type='checkbox')
+										label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
+								button#submit.btn.btn-primary.block.full-width.ladda-button(data-style='slide-down'  type='submit') {{_ "firstLogin.button"}}
+				else
+					if loggingIn
+						.sk-spinner.sk-spinner-pulse
+					else
+						h2.center-align {{{_ 'resetPassword.noUserFound'}}}
+	.dropdown.m-t.text-center
+		+languageSwitch
+	p.m-t.text-center
+		a(href="{{pathFor 'home' language=langTag}}") {{_ "resetPassword.back"}}

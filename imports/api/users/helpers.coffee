@@ -1,0 +1,10 @@
+export Helpers =
+
+	areValidPasswords: (password1, password2) ->
+		if password1 == password2
+			if password1.length >= 8
+				return true
+			else if Meteor.isClient
+				throw new Meteor.Error 'passwordIsTooShort', 'error'
+		else if Meteor.isClient
+			throw new Meteor.Error 'passwordsAreNotMatching', 'error'

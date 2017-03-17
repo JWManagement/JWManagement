@@ -11,8 +11,8 @@ Meteor.methods
 
 			Projects.update projectId, $addToSet: notes:
 				_id: Random.id 4
-				date: parseInt moment(new Date).format('YYYYDDDD')
-				time: parseInt moment(new Date).format('Hmm')
+				date: parseInt moment().format('YYYYDDDD')
+				time: parseInt moment().format('Hmm')
 				author: user.firstname + ' ' + user.lastname
 				title: title
 				text: text

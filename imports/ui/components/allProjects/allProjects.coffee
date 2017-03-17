@@ -1,4 +1,10 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+
 import './allProjects.tpl.jade'
+
+Template.allProjects.helpers
+
+	projectCount: -> Projects.find({}, fields: _id: 1).count()
 
 Template.allProjects.onRendered -> Tracker.afterFlush => @autorun =>
 

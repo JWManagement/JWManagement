@@ -1,0 +1,17 @@
+.ibox
+	.ibox-title
+		h2 {{_ 'profile.vacation.title'}}
+		.text-muted.m-t {{_ 'profile.vacation.helpText'}}
+	.ibox-content
+		each getVacations
+			.row
+				.col-xs-11
+					.input-daterange.input-group.full-width(id="{{_id}}")
+						input.input-sm.form-control.startDate(type="text" value="{{format start 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+						span.input-group-addon {{_ 'profile.until'}}
+						input.input-sm.form-control.endDate(type="text" value="{{format end 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+				.col-xs-1.no-paddings
+					button.btn.btn-circle.btn-primary.fa.fa-trash.removeVacation(title="{{_ 'profile.deleteVacation'}}")
+		button#addVacation.btn.btn-rounded.btn-success.center-block
+			i.fa.fa-plus
+			|{{_ 'profile.addVacation'}}

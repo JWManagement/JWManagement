@@ -1,6 +1,6 @@
 Template.day.helpers
 
-	today: -> 'today' if @date == parseInt(moment(new Date).format('YYYYDDDD'))
+	today: -> 'today' if @date == parseInt(moment().format('YYYYDDDD'))
 
 	view: (a) ->
 		if a?
