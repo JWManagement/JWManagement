@@ -53,7 +53,6 @@ momentjs:moment
 mquandalle:jade
 okgrow:analytics
 austinsand:roba-popover
-chrismbeckett:toastr
 raix:push@3.0.3-rc.5
 percolate:synced-cron
 reywood:publish-composite
