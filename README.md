@@ -140,9 +140,9 @@ Please follow the instructions to setup JW Management in your local dev environm
 			"abcde": [
 				"admin"
 			],
-			"abcdef": {
+			"abcdef": [
 				"teamleader"
-			}
+			]
 		}
 	}
 	```
