@@ -63,3 +63,10 @@ FlowRouter.route '/:language/profile',
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'home'
 		BlazeLayout.render 'mainLayout', content: 'profile'
+
+FlowRouter.route '/:language/donate',
+	name: 'donate'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: ->
+		Session.set 'parent', 'home'
+		BlazeLayout.render 'blankLayout', content: 'donate'
