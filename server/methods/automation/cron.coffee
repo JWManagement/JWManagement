@@ -17,10 +17,9 @@ Meteor.startup -> if Meteor.isProduction
 	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
 	#	job: -> Meteor.call('createNewWeeks')
 
-	# THIS NEEDS A STANDARD SIZED CONTAINER
-	#SyncedCron.add
-	#	name: 'Backup'
-	#	schedule: (parser) -> parser.cron '0 2 * * *'
-	#	job: -> backup()
+	SyncedCron.add
+		name: 'Backup'
+		schedule: (parser) -> parser.cron '0 2 * * *'
+		job: -> backup()
 
 	SyncedCron.start()

@@ -130,4 +130,6 @@ Meteor.methods
 
 			if project? && project.tags
 				for tag in project.tags
-					Meteor.call 'changeTagRole', tag._id, user._id, 'none'
+					Meteor.call 'changeTagRole', tag._id, user._id, 'none', ->
+						if Roles.getRolesForUser(user._id).length == 0
+							Meteor.users.remove user._id

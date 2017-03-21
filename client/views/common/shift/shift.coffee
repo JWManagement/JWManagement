@@ -45,21 +45,6 @@ Template.shift.helpers
 				'teams.status': 1
 				'teams.participants': 1
 				'teams.pending': 1
-
-		if shift?
-			shift.isWrongTag = false
-			tags = FlowRouter.getQueryParam('showTags')
-			tagId = FlowRouter.getQueryParam('tagId')
-
-			if tags
-				if shift.tagId not in tags.split('_')
-					shift.isWrongTag = true
-			else if tagId?
-				if shift.tagId != tagId
-					shift.isWrongTag = true
-			else
-				shift.isWrongTag = true
-
 		shift
 
 	multipleTags: ->
