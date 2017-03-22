@@ -11,7 +11,7 @@ Template.wikiTabs.helpers
 		project = Projects.findOne FR.getProjectId()
 		project?.wiki?.tabs
 
-	ready: -> R.handle.ready()
+	ready: -> R.handle?.ready()
 
 Template.wikiTabs.onCreated ->
 

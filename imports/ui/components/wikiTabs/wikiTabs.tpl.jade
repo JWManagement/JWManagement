@@ -1,7 +1,7 @@
 .col-lg-9
 	.tabs-container.m-b-xl
-		ul.nav.nav-tabs
-			if ready
+		if ready
+			ul.nav.nav-tabs
 				each tabs
 					li(id="{{_id}}b")
 						a(data-toggle="tab" href="#{{_id}}") 
@@ -21,36 +21,51 @@
 					li
 						a.addTab(href title="{{_ 'wiki.addTab'}}")
 							i.fa.fa-plus.fa-fw
-				.tab-content
-					each tabs
-						.tab-pane(id="{{_id}}") 
-							each faq
-								.faq-item(id="{{_id}}")
-									a.faq-question.collapsed(data-toggle="collapse" href="#faq{{_id}}") {{question}}
-									if isProjectAdmin
-										button.btn.btn-warning.btn-sm.btn-circle.hidden.editor-btn.editQuestion(title="{{_ 'wiki.editQuestion'}}")
-											i.fa.fa-pencil.fa-fw
-										button.btn.btn-danger.btn-sm.btn-circle.pull-right.hidden.editor-btn.removeFaq(title="{{_ 'wiki.removeFaq'}}")
-											i.fa.fa-trash-o.fa-fw
-										button.btn.btn-warning.btn-sm.btn-circle.pull-right.editFaq(title="{{_ 'wiki.editFaq'}}")
-											i.fa.fa-pencil.fa-fw
-										button.btn.btn-success.btn-sm.btn-circle.pull-right.hidden.editor-btn.changeFaq(title="{{_ 'wiki.changeFaq'}}")
-											i.fa.fa-check.fa-fw
-										button.btn.btn-default.btn-sm.btn-circle.pull-right.hidden.editor-btn.cancelFaq(title="{{_ 'wiki.cancelFaq'}}")
-											i.fa.fa-times.fa-fw
-			else
+			.tab-content
+				each tabs
+					.tab-pane(id="{{_id}}") 
+						each faq
+							.faq-item(id="{{_id}}")
+								a.faq-question.collapsed(data-toggle="collapse" href="#faq{{_id}}") {{question}}
+								if isProjectAdmin
+									button.btn.btn-warning.btn-sm.btn-circle.hidden.editor-btn.editQuestion(title="{{_ 'wiki.editQuestion'}}")
+										i.fa.fa-pencil.fa-fw
+									button.btn.btn-danger.btn-sm.btn-circle.pull-right.hidden.editor-btn.removeFaq(title="{{_ 'wiki.removeFaq'}}")
+										i.fa.fa-trash-o.fa-fw
+									button.btn.btn-warning.btn-sm.btn-circle.pull-right.editFaq(title="{{_ 'wiki.editFaq'}}")
+										i.fa.fa-pencil.fa-fw
+									button.btn.btn-success.btn-sm.btn-circle.pull-right.hidden.editor-btn.changeFaq(title="{{_ 'wiki.changeFaq'}}")
+										i.fa.fa-check.fa-fw
+									button.btn.btn-default.btn-sm.btn-circle.pull-right.hidden.editor-btn.cancelFaq(title="{{_ 'wiki.cancelFaq'}}")
+										i.fa.fa-times.fa-fw
+		else
+			ul.nav.nav-tabs
 				li.active
 					a
-						.tab-title.inline Loading...
+						i.fa.fa-spinner.fa-pulse
 				li
 					a
-						.tab-title.inline Loading...
+						i.fa.fa-spinner.fa-pulse
 				li
 					a
-						.tab-title.inline Loading...
+						i.fa.fa-spinner.fa-pulse
 				li
 					a
-						.tab-title.inline Loading...
+						i.fa.fa-spinner.fa-pulse
+			.tab-content
+				.tab-pane
+					.faq-item
+						a.faq-question
+							i.fa.fa-spinner.fa-pulse
+					.faq-item
+						a.faq-question
+							i.fa.fa-spinner.fa-pulse
+					.faq-item
+						a.faq-question
+							i.fa.fa-spinner.fa-pulse
+					.faq-item
+						a.faq-question
+							i.fa.fa-spinner.fa-pulse
 		if ready
 			if isProjectAdmin
 				.row
