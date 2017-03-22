@@ -1,6 +1,8 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { FR } from '/imports/util/flowrouter.coffee'
 
+import '/imports/ui/components/itemContent/itemContent.coffee'
+
 import './wikiTabs.tpl.jade'
 
 R = {}
