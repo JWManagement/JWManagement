@@ -1,3 +1,7 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
+import { Permissions } from '/imports/util/permissions.coffee'
+
 Meteor.publish 'settings', (projectId) ->
 
 	if typeof projectId == 'string' && projectId != ''

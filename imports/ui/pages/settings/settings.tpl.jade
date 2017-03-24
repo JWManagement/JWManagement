@@ -1,52 +1,13 @@
-if queryParam 'editMeetingPicture'
+//if queryParam 'editMeetingPicture'
 	+editMeetingPictureModal
-if queryParam 'editTeamPicture'
+//if queryParam 'editTeamPicture'
 	+editTeamPictureModal
 .container-fluid
 	.row.m-t-lg
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp
-			.ibox
-				.ibox-title
-					h2 {{_ 'settings.main.title'}}
-				.ibox-content
-					if isProjectAdmin
-						form.form-horizontal
-							with getProject
-								.form-group
-									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.id'}}
-									label.col-sm-10.col-lg-8.control-label.field-label {{_id}}
-								.form-group
-									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.name.text'}}
-									.col-sm-10.col-lg-8
-										input#projectName.form-control(type='text' placeholder='{{_ "settings.main.name.placeholder"}}' value='{{name}}')
-										span.help-block {{_ 'settings.main.name.helpText'}}
-								.form-group
-									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.email.text'}}
-									.col-sm-10.col-lg-8
-										input#projectEmail.form-control(type='email' placeholder='{{_ "settings.main.email.placeholder"}}' value='{{email}}')
-										span.help-block {{_ 'settings.main.email.helpText'}}
-								.form-group
-									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.language.text'}}
-									.col-sm-10.col-lg-8
-										.dropdown
-											button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
-												span.m-r {{_ 'language.' context=language}}
-												span.caret.pull-right
-											ul.dropdown-menu
-												li.header.p-xs {{_ 'settings.main.language.helpText'}}
-												each getLanguages
-													li
-														a.changeLanguage(href newLang='{{_id}}') {{name}} ({{en}})
-							else
-								.sk-spinner.sk-spinner-pulse
-					else
-						h2.center-align {{_ 'role.noPermission'}}
-				.ibox-footer.right-align
-					if isProjectAdmin
-						#deleteProject.btn.btn-danger.m-t-xs.m-b-xs
-							i.fa.fa-trash.fa-fw
-							| {{_ 'settings.main.deleteProject'}}
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp.z-index-10
+		if isProjectAdmin
+			.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1
+				+settingsMain data=getMainData
+		//.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.z-index-10
 			.ibox
 				.ibox-title
 					h2 {{_ 'settings.tags.title'}}
@@ -150,8 +111,8 @@ if queryParam 'editTeamPicture'
 					if isProjectShiftAdmin
 						.m-sm.center-align
 							#addTag.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.tags.add'}}")
-	.row
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.animated.fadeInUp.z-index-10
+	//.row
+		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.z-index-10
 			.ibox
 				.ibox-title
 					h2 {{_ 'settings.teams.title'}}
@@ -205,7 +166,7 @@ if queryParam 'editTeamPicture'
 					if isProjectShiftAdmin
 						.m-sm.center-align
 							#addTeam.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.teams.add'}}")
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.animated.fadeInUp
+		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5
 			.ibox
 				.ibox-title
 					h2 {{_ 'settings.meetings.title'}}
