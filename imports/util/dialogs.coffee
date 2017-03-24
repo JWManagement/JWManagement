@@ -45,6 +45,8 @@ export Dialogs =
 
 	handleSuccess: (e) -> if !e
 
+		# TODO: translate
+
 		toastr.success '', 'Successfully saved',
 			closeButton: false
 			debug: false
