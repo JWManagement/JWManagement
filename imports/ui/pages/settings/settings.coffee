@@ -5,7 +5,7 @@ import '/imports/ui/components/modals/modal.coffee'
 import '/imports/ui/components/settingsMain/settingsMain.coffee'
 
 import './settings.tpl.jade'
-#import './profile.scss'
+import './settings.scss'
 
 Template.settings.helpers
 
