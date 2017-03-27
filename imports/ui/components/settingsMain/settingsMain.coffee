@@ -33,3 +33,15 @@ Template.settingsMain.events
 			field: 'language'
 			value: $(e.target).attr('newLang')
 		, Dialogs.handleSuccess
+
+	'click #deleteProject': (e) ->
+		Dialogs.swalYesNo
+			swal: 'deleteProject'
+			type: 'warning'
+			doConfirm: =>
+				Projects.methods.delete.call
+					projectId: @_id
+				, Dialogs.callback
+					onError: Dialogs.handleError
+					onSuccess: (e) ->
+						FlowRouter.go 'home', language: FR.getLanguage(), -> Dialogs.handleSuccess e
