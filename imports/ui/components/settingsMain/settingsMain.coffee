@@ -35,13 +35,19 @@ Template.settingsMain.events
 		, Dialogs.handleSuccess
 
 	'click #deleteProject': (e) ->
-		Dialogs.swalYesNo
-			swal: 'deleteProject'
-			type: 'warning'
-			doConfirm: =>
+		projectId = @_id
+
+		Dialogs.swalInput
+			swal: 'delete.project'
+			checkInput: TAPi18n.__('swal.delete.project.checkInput')
+			closeOnSuccess: false
+			doConfirm: ->
+				$('.sweet-alert').html('<h1><i class="fa fa-spinner fa-pulse"></i></h1>')
+
 				Projects.methods.delete.call
-					projectId: @_id
+					projectId: projectId
 				, Dialogs.callback
 					onError: Dialogs.handleError
 					onSuccess: (e) ->
+						Dialogs.swalClose()
 						FlowRouter.go 'home', language: FR.getLanguage(), -> Dialogs.handleSuccess e

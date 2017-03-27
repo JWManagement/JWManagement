@@ -2,7 +2,6 @@ export Dialogs =
 
 	callback: (args) -> (e, r) ->
 		if e
-			console.log e
 			Dialogs.feedback e
 			if args.onError? then args.onError e
 		else if r
