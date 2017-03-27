@@ -8,9 +8,9 @@ export MainMethods =
 	update: new ValidatedMethod
 		name: 'Projects.methods.main.update'
 		validate: (args) ->
-			Validators.isAdmin args._id
+			Validators.isAdmin args.projectId
 			new SimpleSchema
-				_id: type: String
+				projectId: type: String
 				field:
 					type: String
 					allowedValues: [
@@ -22,7 +22,7 @@ export MainMethods =
 				value: type: String
 			.validator() args
 		run: (args) -> if Meteor.isServer
-			projectId = args._id
+			projectId = args.projectId
 			field = args.field
 			value = args.value
 			set = {}

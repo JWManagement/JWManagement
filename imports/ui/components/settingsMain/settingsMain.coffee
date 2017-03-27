@@ -15,21 +15,21 @@ Template.settingsMain.events
 
 	'change #projectName': (e) ->
 		Projects.methods.main.update.call
-			_id: @_id
+			projectId: @_id
 			field: 'name'
 			value: e.target.value
 		, Dialogs.handleSuccess
 
 	'change #projectEmail': (e) ->
 		Projects.methods.main.update.call
-			_id: @_id
+			projectId: @_id
 			field: 'email'
 			value: e.target.value
 		, Dialogs.handleSuccess
 
 	'click .changeLanguage': (e) ->
 		Projects.methods.main.update.call
-			_id: @_id
+			projectId: @_id
 			field: 'language'
 			value: $(e.target).attr('newLang')
 		, Dialogs.handleSuccess
