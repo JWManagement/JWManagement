@@ -15,4 +15,4 @@ export Validators =
 
 	isShiftAdmin: (projectId) ->
 		if !Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, projectId
-			throw new Meteor.Error 'notAdmin', ''
+			throw new Meteor.Error 'notShiftAdmin', ''

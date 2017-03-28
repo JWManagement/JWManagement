@@ -15,9 +15,13 @@ Template.settingsTags.events
 	'change #tagName': (e) ->
 		tagId = @_id
 		tagName = e.target.value
-		projectId = FlowRouter.getParam('projectId')
+		projectId = FR.getProjectId()
 
-		Meteor.call 'changeAllShiftTags', projectId, tagId, tagName, handleError
+		Projects.methods.tags.changeNameAnywhere.call
+			projectId: projectId
+			tagId: tagId
+			tagName: tagName
+		, Dialogs.handleSuccess
 
 	'click .changeImg': (e) ->
 		projectId = FlowRouter.getParam('projectId')

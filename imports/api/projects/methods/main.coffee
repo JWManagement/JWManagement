@@ -53,7 +53,7 @@ export MainMethods =
 							'teams'
 							'meetings'
 						]
-					arrayId: type: Number
+					arrayId: type: String
 					field:
 						type: String
 						allowedValues: [

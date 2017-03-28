@@ -7,10 +7,12 @@ import { Permissions } from '/imports/util/permissions.coffee'
 import { Validators } from '/imports/util/validators.coffee'
 
 import { MainMethods } from './methods/main.coffee'
+import { TagMethods } from './methods/tags.coffee'
 
 export Methods =
 
 	main: MainMethods
+	tags: TagMethods
 
 	delete: new ValidatedMethod
 		name: 'Projects.methods.delete'
