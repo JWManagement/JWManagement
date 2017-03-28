@@ -23,21 +23,6 @@ Meteor.methods
 		if array == 'tags'
 			Roles.addUsersToRoles Meteor.userId(), 'teamleader', itemId
 
-	updateProjectItem: (projectId, array, arrayId, field, value) ->
-		if Meteor.isServer
-			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
-
-		if field != 'name' or value.trim() != ''
-			find = _id: projectId
-			find[array + '._id'] = arrayId
-
-			set = {}
-			set[array + '.$.' + field] = value
-
-			Projects.update find, $set: set
-		else
-			throw new Meteor.Error 500, 'Name cannot be empty'
-
 	removeProjectItem: (projectId, array, arrayId) ->
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
