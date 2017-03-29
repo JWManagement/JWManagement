@@ -54,6 +54,7 @@ Template.reports.events
 				'modal.shiftReport.date'
 				'shifts.start'
 				'shifts.end'
+				'shifts.shift.tag'
 				'modal.editShift.team'
 				'reports.meetingStart'
 				'reports.meetingEnd'
@@ -95,6 +96,7 @@ Template.reports.events
 					row.push moment(shift.date, 'YYYYDDDD').format('YYYY-MM-DD')
 					row.push moment(shift.start, 'Hmm').format('HH:mm')
 					row.push moment(shift.end, 'Hmm').format('HH:mm')
+					row.push shift.tag
 					row.push team.name
 					row.push team.meetingStart?.name
 					row.push team.meetingEnd?.name
