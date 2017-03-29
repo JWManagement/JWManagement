@@ -1,6 +1,7 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { FR } from '/imports/util/flowrouter.coffee'
+import { wrs } from '/imports/util/delay.coffee'
 
 import '/imports/ui/components/modals/modal.coffee'
 
@@ -41,7 +42,7 @@ Template.shifts.onCreated ->
 			week = moment().format('GGGG[W]WW')
 			wrs -> FlowRouter.setQueryParams showWeek: week
 
-		handle = ProjectSubs.subscribe 'tags', projectId, tags: 1
+		handle = Meteor.subscribe 'tags', projectId, tags: 1
 		handle.ready Tracker.afterFlush ->
 			showTags = FlowRouter.getQueryParam('showTags')
 
@@ -55,7 +56,7 @@ Template.shifts.onCreated ->
 
 					wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
 
-		WeekSubs.subscribe 'week', projectId, week
+		Meteor.subscribe 'week', projectId, week
 
 Template.shifts.onDestroyed ->
 
