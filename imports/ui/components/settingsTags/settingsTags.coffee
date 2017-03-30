@@ -29,9 +29,21 @@ Template.settingsTags.events
 		value = $(e.target).closest('a').attr('img')
 
 		if value == 'none'
-			Meteor.call 'updateProjectItem', projectId, 'tags', tagId, 'img', null, handleError
+			Projects.methods.main.updateArray.call
+				projectId: projectId,
+				array: 'tags'
+				arrayId: tagId
+				field: 'img'
+				value: null
+			, Dialogs.handleSuccess
 		else
-			Meteor.call 'updateProjectItem', projectId, 'tags', tagId, 'img', value, handleError
+			Projects.methods.main.updateArray.call
+				projectId: projectId,
+				array: 'tags'
+				arrayId: tagId
+				field: 'img'
+				value: value
+			, Dialogs.handleSuccess
 
 	'click #showTemplate': (e) ->
 		e.preventDefault()
