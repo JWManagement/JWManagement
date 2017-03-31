@@ -30,6 +30,7 @@ export Assistant =
 
 					Shifts.update _id: shift._id, 'teams._id': team._id,
 						$addToSet: 'teams.$.pending': user
+		true
 
 	fillShiftsArray: (projectId, date, tagId) ->
 
@@ -52,6 +53,8 @@ export Assistant =
 
 		R.shifts = Shifts.find _id: $in: shiftIds
 		R.shifts = R.shifts.fetch()
+
+		true
 
 	fillUsersArray: ->
 
@@ -83,6 +86,7 @@ export Assistant =
 						user.tlConfirmations = []
 						user.partConfirmations = []
 						R.users[user._id] = user
+		true
 
 	fillTeamsArray: ->
 
@@ -111,6 +115,7 @@ export Assistant =
 		teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
 
 	setAndOptimizeAll: ->
+		true
 
 		Assistant.setTeamleaders()
 		Assistant.optimizeAll()
@@ -127,10 +132,12 @@ export Assistant =
 
 		Assistant.setMinParticipants()
 		Assistant.optimizeMaxReachedParticipants()
+		true
 
 		Assistant.optimizeAll()
 
 	setAndOptimizeAllWithLogs: ->
+		true
 
 		console.log '> setTeamleaders'
 		Assistant.setTeamleaders()
@@ -192,6 +199,7 @@ export Assistant =
 		Assistant.optimizeAll()
 		Helpers.log()
 
+		true
 	setTeamleaders: ->
 
 		for team in R.teams
@@ -224,6 +232,7 @@ export Assistant =
 				if thisTeamleader
 					# Teamleiter einteilen, wenn vorhanden
 					Helpers.pendingToParticipants team.shiftId, team._id, thisTeamleader._id, true
+		true
 
 	optimizeMaxReachedTeamleaders: ->
 
@@ -262,6 +271,7 @@ export Assistant =
 					# Nächstes Team
 					nextTeam = true
 					break
+		true
 
 	setMinParticipants: ->
 
@@ -285,6 +295,7 @@ export Assistant =
 				# Bewerber einteilen, bis Team Minimum erreicht ist
 				for request in allRequests when team.participants.length < team.min
 					Helpers.pendingToParticipants team.shiftId, team._id, request._id, false
+		true
 
 	optimizeAll: ->
 
@@ -344,6 +355,7 @@ export Assistant =
 
 				# Wenn letzer Teilnehmer erreicht, beende Optimierung
 				if index == participantsByDeviationRatio.length - 1 then endReached = true
+		true
 
 	optimizeMaxReachedParticipants: ->
 
@@ -454,7 +466,9 @@ export Assistant =
 				for w in doneWaypoints
 					if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 					if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
+		true
 
+		true
 	optimizeByTeamReset: ->
 		if 0 == Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers() then return
 		doRestart = true
@@ -503,6 +517,7 @@ export Assistant =
 						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 
+		true
 
 	saveToDB: ->
 
@@ -543,3 +558,4 @@ export Assistant =
 
 			Shifts.update _id: shiftId, 'teams._id': team._id,
 				$set: 'teams.$': team
+		true

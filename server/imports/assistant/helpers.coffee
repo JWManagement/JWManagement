@@ -4,6 +4,7 @@ export Helpers =
 
 	logExplanation: ->
 		console.log 'AverageRatio +/- averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
+		true
 
 	log: ->
 		averageRatio = '' + Math.round (1000 * @getAverageRatioAll()) / 10
@@ -18,6 +19,7 @@ export Helpers =
 
 
 		console.log textAverageRatio + textAverageDeviationRatio + textAbandonedTeamsTl + textAbandonedTeamsUsers
+		true
 
 	pendingToParticipants: (shiftId, teamId, userId, teamleader) ->
 
@@ -77,6 +79,7 @@ export Helpers =
 
 		# Ratio errechnen
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
+		true
 
 	participantsToPending: (shiftId, teamId, userId) ->
 
@@ -124,6 +127,7 @@ export Helpers =
 
 		# Ratio errechnen
 		R.users[userId].targetAcceptionRatio = R.users[userId].acceptions / R.users[userId].targetPeriod
+		true
 
 	searchChangeables: (userId) ->
 
