@@ -17,9 +17,12 @@ export Methods =
 	delete: new ValidatedMethod
 		name: 'Projects.methods.delete'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
 			.validator() args
 		run: (args) -> if Meteor.isServer
 			projectId = args.projectId

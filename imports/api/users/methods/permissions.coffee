@@ -8,14 +8,15 @@ export PermissionMethods =
 	removeUserFromProject: new ValidatedMethod
 		name: 'Meteor.users.methods.permissions.removeUserFromProject'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				userId:
-					type: String
-					custom: -> Meteor.users.findOne(@value) || 'userDoesNotExist'
 				projectId:
 					type: String
-					custom: -> Projects.findOne(@value) || 'projectDoesNotExist'
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
+				userId:
+					type: String
+					custom: -> Validators.user.validId
 			.validator() args
 		run: (args) -> if Meteor.isServer
 			projectId = args.projectId
@@ -35,14 +36,15 @@ export PermissionMethods =
 	changeTagRole: new ValidatedMethod
 		name: 'Meteor.users.methods.permissions.changeTagRole'
 		validate: (args) ->
-			Validators.isAdmin Projects.findOne({'tags._id': args.tagId}, fields: _id: 1)._id
 			new SimpleSchema
 				userId:
 					type: String
-					custom: -> Meteor.users.findOne(@value) || 'userDoesNotExist'
+					custom: -> Validators.user.validId
 				tagId:
 					type: String
-					custom: -> Projects.findOne('tags._id': @value) || 'tagDoesNotExist'
+					custom: ->
+						Validators.tag.validId
+						Validators.tag.isAdmin
 				permission:
 					type: String
 					allowedValues: [

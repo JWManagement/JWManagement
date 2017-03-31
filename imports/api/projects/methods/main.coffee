@@ -8,9 +8,12 @@ export MainMethods =
 	update: new ValidatedMethod
 		name: 'Projects.methods.main.update'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
 				field:
 					type: String
 					allowedValues: [
@@ -43,9 +46,12 @@ export MainMethods =
 		new ValidatedMethod
 			name: 'Projects.methods.main.updateArray'
 			validate: (args) ->
-				Validators.isShiftAdmin args.projectId
 				new SimpleSchema
-					projectId: type: String
+					projectId:
+						type: String
+						custom: ->
+							Validators.project.validId
+							Validators.project.isAdmin
 					array:
 						type: String
 						allowedValues: [

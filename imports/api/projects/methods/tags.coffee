@@ -11,8 +11,14 @@ export TagMethods =
 		validate: (args) ->
 			Validators.isShiftAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
-				tagId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
+				tagId:
+					type: String
+					custom: Validators.tag.validId
 				tagName: type: String
 			.validator() args
 		run: (args) -> if Meteor.isServer

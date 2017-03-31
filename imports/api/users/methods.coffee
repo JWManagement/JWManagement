@@ -30,10 +30,15 @@ export Methods =
 	state: set: new ValidatedMethod
 		name: 'Meteor.users.methods.state.set'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
-				userId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
+				userId:
+					type: String
+					custom: Validators.user.validId
 				state:
 					type: String
 					allowedValues: ['created', 'invited', 'active']
