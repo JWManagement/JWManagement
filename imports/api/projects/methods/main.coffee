@@ -58,7 +58,7 @@ export MainMethods =
 						type: String
 						allowedValues: [
 							'name'
-							'img'
+							'description'
 							'link'
 						]
 					value: type: String
