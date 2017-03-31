@@ -5,32 +5,44 @@ import { Permissions } from './permissions.coffee'
 
 export Validators =
 
-	isTagParticipant: (shiftId) ->
-		shift = Shifts.findOne shiftId, fields: tagId: 1
+	user:
 
-		if !Roles.userIsInRole Meteor.userId(), Permissions.participant, shift.tagId
-			throw new Meteor.Error 'notTagParticipant', ''
+		validId: => Meteor.users.findOne(@value) || 'invalidUser'
 
-	isAdmin: (projectId) ->
-		if !Roles.userIsInRole Meteor.userId(), Permissions.admin, projectId
-			throw new Meteor.Error 'notAdmin', ''
+	shift:
 
-	isShiftAdmin: (projectId) ->
-		if !Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, projectId
-			throw new Meteor.Error 'notShiftAdmin', ''
+		validId: => Shifts.findOne(@value) || 'invalidShift'
 
-	custom:
+		isTagParticipant: =>
+			shift = Shifts.findOne @value, fields: tagId: 1
+			'notTagParticipant' if !Roles.userIsInRole Meteor.userId(), Permissions.participant, shift.tagId
 
-		isUser: => Meteor.users.findOne(@value) || 'invalidUser'
+	week:
 
-		isShift: => Shifts.findOne(@value) || 'invalidShift'
+		validId: => Weeks.findOne(@value) || 'invalidWeek'
 
-		isWeek: => Weeks.findOne(@value) || 'invalidWeek'
+	project:
 
-		isProject: => Projects.findOne(@value) || 'invalidProject'
+		validId: => Projects.findOne(@value) || 'invalidProject'
 
-		isTag: => Projects.findOne('tags._id': @value) || 'invalidTag'
+		isAdmin: => 'notAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.admin, @value
 
-		isTeam: => Projects.findOne('teams._id': @value) || 'invalidTeam'
+		isShiftAdmin: => 'notShiftAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, @value
 
-		isMeetingPoint: => Projects.findOne('meetings._id': @value) || 'invalidMeetingPoint'
+	tag:
+
+		validId: => Projects.findOne('tags._id': @value) || 'invalidTag'
+
+		isParticipant: => 'notTagParticipant' if !Roles.userIsInRole Meteor.userId(), Permissions.participant, @value
+
+		isAdmin: =>
+			project = Projects.findOne {'tags._id': @value}, fields: _id: 1
+			'notAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.admin, project._id
+
+	team:
+
+		validId: => Projects.findOne('teams._id': @value) || 'invalidTeam'
+
+	meetingPoint:
+
+		validId: => Projects.findOne('meetings._id': @value) || 'invalidMeetingPoint'
