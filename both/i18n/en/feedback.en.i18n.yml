@@ -21,6 +21,13 @@ feedback:
         usernameMissing: Please provide a username
         usernameUnavailable: This username is unavailable. Please choose anotherone.
         noUserWithThisToken: Couldn't find a user with this token
+        invalidUser: The specified user is invalid
+        invalidShift: The specified shift is invalid
+        invalidWeek: The specified week is invalid
+        invalidProject: The specified project is invalid
+        invalidTag: The specified tag is invalid
+        invalidTeam: The specified team is invalid
+        invalidMeetingPoint: The specified meeting point is invalid
     success:
         enquirySent: Enquiry has been sent. You will be noticed within a few hours
         mailSent: Email has been sent
