@@ -112,7 +112,7 @@ export Assistant =
 						R.teams.push team
 
 		# Teams nach Anzahl der Bewerbungen absteigend sortieren
-		teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
+		R.teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
 
 	setAndOptimizeAll: ->
 		true
@@ -299,15 +299,12 @@ export Assistant =
 
 	optimizeAll: ->
 
-		# TODO: nicht nur tauschen sondern auch setzen (bei team.pending < team.max && user.acceptions < user.targetPeriod)
-		# TODO: nicht nur tauschen sondern auch rausnehmen (bei team.participants > team.min && user.acceptions > user.targetPeriod)
-
 		endReached = false
 
 		while !endReached
+
 			averageRatio = Helpers.getAverageRatioAll()
 			restartOptimizing = false
-
 			# Sortiere alle Teilnehmer (mit angenommener Schicht) nach deren Abstand zur durchschnittlichen Ratio absteigend
 			setParticipants = Object.keys(R.users).map((userId) -> R.users[userId]).filter (user) -> user.allConfirmations.length > 0
 			participantsByDeviationRatio = setParticipants.sort (a, b) ->
@@ -318,8 +315,8 @@ export Assistant =
 
 			# Durchlaufe alle eingeteilten Bewerber und versuche zu optimieren
 			for participant, index in participantsByDeviationRatio when !restartOptimizing
-
 				# Suche alle möglichen Tausch-Kandidaten
+
 				changeables = Helpers.searchChangeables participant._id
 
 				# Sortiere Tausch-Kandidaten für bestmöglichen Tausch
@@ -332,7 +329,6 @@ export Assistant =
 
 				# Durchlaufe die Tausch-Kandidaten
 				for changeable in changeables
-
 					# Prüfe, ob Tauschen Sinn macht
 					beforeRatioDifference = Math.abs R.users[participant._id].targetAcceptionRatio - R.users[changeable._id].targetAcceptionRatio
 					newTargetAcceptionRatioPart = (R.users[participant._id].acceptions - 1) / R.users[participant._id].targetPeriod
@@ -354,7 +350,7 @@ export Assistant =
 						# TODO: Überprüfen, ob Tausch trotzdem einen Vorteil bringen würde (für die nicht-Teamleiter)
 
 				# Wenn letzer Teilnehmer erreicht, beende Optimierung
-				if index == participantsByDeviationRatio.length - 1 then endReached = true
+				if index >= participantsByDeviationRatio.length - 1 then endReached = true
 		true
 
 	optimizeMaxReachedParticipants: ->

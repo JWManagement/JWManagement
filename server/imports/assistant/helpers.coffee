@@ -3,7 +3,7 @@ import { R } from './variables.coffee'
 export Helpers =
 
 	logExplanation: ->
-		console.log 'AverageRatio +/- averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
+		console.log 'AverageRatio   +/- averageDeviationRatio [abandonedTeamsTl] (abandonedTeamsUsers)'
 		true
 
 	log: ->
@@ -12,11 +12,9 @@ export Helpers =
 		if averageRatio.length < 3 then averageRatio += '.0'
 		if averageDeviationRatio.length < 3 then averageDeviationRatio += '.0'
 		textAverageRatio = '' + averageRatio + "%"
-		textAverageDeviationRatio = ' +/- ' + averageDeviationRatio + "%"
+		textAverageDeviationRatio = '   +/- ' + averageDeviationRatio + "%"
 		textAbandonedTeamsTl = ' [' + @countAbandonedTeamsTl() + ']'
 		textAbandonedTeamsUsers = ' (' + @countAbandonedTeamsUsers() + ')'
-
-
 
 		console.log textAverageRatio + textAverageDeviationRatio + textAbandonedTeamsTl + textAbandonedTeamsUsers
 		true
@@ -38,7 +36,6 @@ export Helpers =
 				user = u
 				user.thisTeamleader = teamleader
 				break
-
 			# Gefundenen user überprüfen
 			if user == {}
 				console.log u.name + ' nicht in pending gefunden'
