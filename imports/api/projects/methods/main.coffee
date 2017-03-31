@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema'
 
 import { Projects } from '/imports/api/projects/projects.coffee'
-import { Validators } from '/imports/util/validators.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
 
 export MainMethods =
 

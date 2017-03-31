@@ -1,6 +1,6 @@
-import { wrs } from '/imports/util/delay.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
-import { Platform } from '/imports/util/platform.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+import { Platform } from '/imports/api/util/platform.coffee'
 
 import { Helpers } from './helpers.coffee'
 

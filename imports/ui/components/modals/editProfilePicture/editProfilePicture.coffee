@@ -1,5 +1,5 @@
 import { Pictures } from '/imports/api/pictures/pictures.coffee'
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 import './editProfilePicture.tpl.jade'
 

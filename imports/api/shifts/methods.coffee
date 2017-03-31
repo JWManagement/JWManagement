@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema'
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
-import { Validators } from '/imports/util/validators.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
 import { SendMail } from '/imports/api/mailer/import.coffee'
 
 export Methods =

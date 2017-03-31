@@ -1,5 +1,5 @@
 import { Helpers } from './helpers.coffee'
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 FlowRouter.route '/:language/about',
 	name: 'about'
