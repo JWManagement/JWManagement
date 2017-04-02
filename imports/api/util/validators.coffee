@@ -29,6 +29,8 @@ export Validators =
 
 		isShiftAdmin: => 'notShiftAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, @value
 
+		isMember: => 'notMember' if !Roles.userIsInRole Meteor.userId(), Permissions.member, @value
+
 	tag:
 
 		validId: => Projects.findOne('tags._id': @value) || 'invalidTag'
