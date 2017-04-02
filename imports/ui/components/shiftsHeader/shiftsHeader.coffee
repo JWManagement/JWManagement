@@ -1,3 +1,11 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+
+import './shiftsHeader.tpl.jade'
+import './shiftsHeader.scss'
+
 Template.shiftsHeader.helpers
 
 	prevWeekButton: ->
@@ -77,26 +85,19 @@ Template.shiftsHeader.onCreated ->
 
 			unless FlowRouter.getQueryParam('weekId')?
 				week = FlowRouter.getQueryParam('showWeek')
-				WeekSubs.subscribe 'futureWeeks', projectId, week
+				Meteor.subscribe 'futureWeeks', projectId, week
 
 				prevWeek = moment(week).subtract(1, 'w')
 				prevWeek = moment(prevWeek).format('GGGG[W]WW')
-				WeekSubs.subscribe 'week', projectId, prevWeek
+				Meteor.subscribe 'week', projectId, prevWeek
 
 				nextWeek = moment(week).add(1, 'w')
 				nextWeek = moment(nextWeek).format('GGGG[W]WW')
-				WeekSubs.subscribe 'week', projectId, nextWeek
+				Meteor.subscribe 'week', projectId, nextWeek
 
 Template.shiftsHeader.events
 
-	'click #hideNames': ->
-		wrs -> FlowRouter.setQueryParams view: 'hideNames'
-
-	'click #showNames': ->
-		wrs -> FlowRouter.setQueryParams view: undefined
-
-	'click #editShifts': ->
-		wrs -> FlowRouter.setQueryParams view: 'editShifts'
+	'click #editShifts': -> wrs -> FlowRouter.setQueryParams view: 'editShifts'
 
 	'click #prevWeek:not(.disabled)': ->
 		chosenMonday = parseInt moment(FlowRouter.getQueryParam('showWeek')).isoWeekday(1).format('YYYYDDDD')

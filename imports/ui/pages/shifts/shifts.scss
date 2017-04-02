@@ -1,5 +1,4 @@
 @import "../../styles/variables";
-@import "../../styles/framework/import";
 
 #shiftModal .modal-dialog {
 	animation-duration        : 0.5s;
@@ -14,34 +13,7 @@
 	background-color: #fff;
 }
 
-.hideNames {
-	.shift-banner,
-	.shift-declined-participants,
-	.shift-footer,
-	.shift-participants,
-	.shift-pending-participants,
-	.shift-teams {
-		display: none;
-	}
-
-	#hideNames {
-		@extend .btn-primary;
-	}
-
-	#showNames {
-		@extend .btn-white;
-	}
-}
-
 .editShifts {
-	#showNames {
-		@extend .btn-white;
-	}
-
-	#editShifts {
-		@extend .btn-primary;
-	}
-
 	.template-settings-wrapper {
 		@media(min-width: 993px) {
 			text-align: right;
@@ -149,10 +121,6 @@
 		}
 	}
 
-	#showNames {
-		@extend .btn-white;
-	}
-
 	.separator {
 		padding: 20px 0 !important;
 	}
@@ -205,28 +173,6 @@
 	.center-on-xs {
 		@media(max-width: 768px) {
 			text-align: center;
-		}
-	}
-
-	.header {
-		.btn {
-			overflow-x   : hidden;
-			margin-bottom: 5px;
-
-			&:active {
-				box-shadow: inset 0 3px 5px rgba(#000000, 0.13);
-			}
-		}
-
-		.dropdown-menu {
-			max-height: 260px;
-			overflow-x: hidden;
-
-			li a {
-				overflow-x   : hidden;
-				text-overflow: ellipsis;
-				padding-right: 5px;
-			}
 		}
 	}
 

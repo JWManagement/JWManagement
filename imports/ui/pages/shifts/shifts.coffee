@@ -4,6 +4,7 @@ import { FR } from '/imports/api/util/flowrouter.coffee'
 import { wrs } from '/imports/api/util/delay.coffee'
 
 import '/imports/ui/components/modals/modal.coffee'
+import '/imports/ui/components/shiftsHeader/shiftsHeader.coffee'
 
 import './shifts.tpl.jade'
 import './shifts.scss'
