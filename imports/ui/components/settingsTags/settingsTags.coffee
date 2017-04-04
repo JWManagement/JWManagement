@@ -92,9 +92,14 @@ Template.settingsTags.events
 	'click #addTag': ->
 		projectId = FlowRouter.getParam('projectId')
 
-		swalInput
+		Dialogs.swalInput
 			swal: 'add.tag'
-			doConfirm: (inputValue) -> Meteor.call 'addProjectItem', projectId, 'tags', inputValue, handleError
+			doConfirm: (inputValue) ->
+				Projects.methods.main.addToArray.call
+					projectId: projectId
+					array: 'tags' 
+					name: inputValue
+				, Dialogs.handleSuccess
 
 	'click #removeTag': ->
 		projectId = FlowRouter.getParam('projectId')
