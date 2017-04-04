@@ -1,21 +1,22 @@
-.header {
-	.btn {
-		overflow-x   : hidden;
-		margin-bottom: 5px;
+@import "../../styles/variables";
 
-		&:active {
-			box-shadow: inset 0 3px 5px rgba(#000000, 0.13);
-		}
+#page-wrapper {
+	padding: 0 !important;
+}
+
+.header {
+	margin          : -30px -35px 0;
+	padding         : 30px;
+	background-color: #e7e7e7;
+
+	.tag-chooser,
+	.week-chooser {
+		color      : darken($indigo, .5);
+		font-size  : 22px;
+		font-weight: 300;
 	}
 
-	.dropdown-menu {
-		max-height: 260px;
-		overflow-x: hidden;
-
-		li a {
-			overflow-x   : hidden;
-			text-overflow: ellipsis;
-			padding-right: 5px;
-		}
+	.btn-skip {
+		min-width: 50px;
 	}
 }
