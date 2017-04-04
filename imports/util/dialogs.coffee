@@ -141,7 +141,7 @@ export Dialogs =
 				swal.showInputError(inputError)
 				false
 			else
-				swalClose() if closeOnSuccess
+				Dialogs.swalClose() if closeOnSuccess
 				doConfirm(inputValue)
 
 	swalClose: -> swal title: '', timer: 0
