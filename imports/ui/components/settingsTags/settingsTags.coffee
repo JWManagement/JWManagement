@@ -97,7 +97,7 @@ Template.settingsTags.events
 			doConfirm: (inputValue) ->
 				Projects.methods.main.addToArray.call
 					projectId: projectId
-					array: 'tags' 
+					array: 'tags'
 					name: inputValue
 				, Dialogs.handleSuccess
 

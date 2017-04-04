@@ -9,16 +9,15 @@ export TagMethods =
 	changeNameAnywhere: new ValidatedMethod
 		name: 'Projects.methods.tags.changeNameAnywhere'
 		validate: (args) ->
-			Validators.isShiftAdmin args.projectId
 			new SimpleSchema
 				projectId:
 					type: String
 					custom: ->
 						Validators.project.validId
-						Validators.project.isAdmin
+						Validators.project.isShiftAdmin
 				tagId:
 					type: String
-					custom: Validators.tag.validId
+					custom: -> Validators.tag.validId
 				tagName: type: String
 			.validator() args
 		run: (args) -> if Meteor.isServer

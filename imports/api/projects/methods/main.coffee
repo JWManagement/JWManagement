@@ -51,7 +51,7 @@ export MainMethods =
 						type: String
 						custom: ->
 							Validators.project.validId
-							Validators.project.isAdmin
+							Validators.project.isShiftAdmin
 					array:
 						type: String
 						allowedValues: [
@@ -66,8 +66,12 @@ export MainMethods =
 							'name'
 							'description'
 							'link'
+							'img'
 						]
-					value: type: String
+					value:
+						type: String
+						optional: true
+						blackbox: true
 				.validator() args
 			run: (args) -> if Meteor.isServer
 				projectId = args.projectId
@@ -91,9 +95,12 @@ export MainMethods =
 		new ValidatedMethod
 			name: 'Projects.methods.main.addToArray'
 			validate: (args) ->
-				Validators.isShiftAdmin args.projectId
 				new SimpleSchema
-					projectId: type: String
+					projectId:
+						type: String
+						custom: ->
+							Validators.project.validId
+							Validators.project.isShiftAdmin
 					array:
 						type: String
 						allowedValues: [
