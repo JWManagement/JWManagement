@@ -5,3 +5,5 @@ export FR =
 	getLanguage: -> FlowRouter.getParam 'language'
 
 	getToken: -> FlowRouter.getParam 'token'
+
+	getShowWeek: -> FlowRouter.getQueryParam 'showWeek'
