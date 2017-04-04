@@ -1,28 +1,5 @@
 Meteor.methods
 
-	addProjectItem: (projectId, array, name) ->
-		if Meteor.isServer
-			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
-
-		if array == 'tags'
-			itemId = Random.id 6
-		else if array == 'teams'
-			itemId = Random.id 7
-		else if array == 'meetings'
-			itemId = Random.id 8
-
-		addToSet = {}
-
-		if array == 'tags'
-			addToSet[array] = _id: itemId, name: name, templates: []
-		else
-			addToSet[array] = _id: itemId, name: name
-
-		Projects.update projectId, $addToSet: addToSet
-
-		if array == 'tags'
-			Roles.addUsersToRoles Meteor.userId(), 'teamleader', itemId
-
 	removeProjectItem: (projectId, array, arrayId) ->
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin

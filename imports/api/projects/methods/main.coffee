@@ -80,3 +80,43 @@ export MainMethods =
 					Projects.update find, $set: set
 				else
 					throw new Meteor.Error 500, 'Name cannot be empty'
+
+	addToArray:
+		new ValidatedMethod
+			name: 'Projects.methods.main.addToArray'
+			validate: (args) ->
+				Validators.isShiftAdmin args.projectId
+				new SimpleSchema
+					projectId: type: String
+					array:
+						type: String
+						allowedValues: [
+							'tags'
+							'teams'
+							'meetings'
+						]
+					name: type: String
+				.validator() args
+			run: (args) -> if Meteor.isServer
+				projectId = args.projectId
+				array = args.array
+				name = args.name
+
+				if array == 'tags'
+					itemId = Random.id 6
+				else if array == 'teams'
+					itemId = Random.id 7
+				else if array == 'meetings'
+					itemId = Random.id 8
+
+				addToSet = {}
+
+				if array == 'tags'
+					addToSet[array] = _id: itemId, name: name, templates: []
+				else
+					addToSet[array] = _id: itemId, name: name
+
+				Projects.update projectId, $addToSet: addToSet
+
+				if array == 'tags'
+					Roles.addUsersToRoles Meteor.userId(), 'teamleader', itemId
