@@ -17,11 +17,13 @@ Meteor.publish 'shiftsHeader.weeks', (projectId, week) ->
 		start: $gte: moment((v1 + v2) / 2 - Math.abs(v1 - v2) / 2).isoWeekday(1).format('YYYYDDDD')
 
 	Weeks.find(filter || {}).observeChanges
-		added: (id, fields) =>
-			fields.existing = true
-
-			@added "testdata", id, fields
-		changed: (id, fields) ->
-
-			@changed "testdata", id, fields
-		removed: (id) -> @removed '', id
+		added: (id, doc) =>
+			@added 'shiftsHeader.weeks', id,
+				_id: id
+				date: doc.date
+		changed: (id, doc) ->
+			@changed 'shiftsHeader.weeks', id,
+				_id: id
+				date: doc.date
+		removed: (id) ->
+			@removed 'shiftsHeader.weeks', id
