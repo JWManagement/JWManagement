@@ -25,7 +25,7 @@ tracker@1.1.2
 underscore@1.0.10
 
 alanning:roles
-aldeed:collection2
+aldeed:collection2-core@2.0.0
 arillo:flow-router-helpers
 benmgreene:jquery-sparklines # remove in future
 canotto90:swal-forms # remove in future

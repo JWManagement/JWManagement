@@ -12,7 +12,7 @@
     "bcrypt": "^0.8.7",
     "jdenticon": "^1.4.0",
     "meteor-node-stubs": "^0.2.5",
-    "simpl-schema": "^0.2.1",
+    "simpl-schema": "^0.2.3",
     "underscore": "^1.8.3"
   }
 }

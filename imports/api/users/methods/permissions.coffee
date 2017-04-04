@@ -1,3 +1,5 @@
+import SimpleSchema from 'simpl-schema'
+
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { Permissions } from '/imports/api/util/permissions.coffee'
