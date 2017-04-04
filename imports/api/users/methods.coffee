@@ -1,8 +1,8 @@
 import SimpleSchema from 'simpl-schema'
 
 import { Pictures } from '/imports/api/pictures/pictures.coffee'
-import { Validators } from '/imports/util/validators.coffee'
-import { StringUtils } from '/imports/util/stringUtils.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
+import { StringUtils } from '/imports/api/util/stringUtils.coffee'
 
 import { Getters } from './methods/getters.coffee'
 import { ProfileMethods } from './methods/profile.coffee'
@@ -30,10 +30,15 @@ export Methods =
 	state: set: new ValidatedMethod
 		name: 'Meteor.users.methods.state.set'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
-				userId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
+				userId:
+					type: String
+					custom: Validators.user.validId
 				state:
 					type: String
 					allowedValues: ['created', 'invited', 'active']

@@ -2,7 +2,7 @@ import SimpleSchema from 'simpl-schema'
 
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
-import { Validators } from '/imports/util/validators.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
 
 export TagMethods =
 
@@ -11,8 +11,14 @@ export TagMethods =
 		validate: (args) ->
 			Validators.isShiftAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
-				tagId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
+				tagId:
+					type: String
+					custom: Validators.tag.validId
 				tagName: type: String
 			.validator() args
 		run: (args) -> if Meteor.isServer

@@ -1,4 +1,4 @@
-import { Dialogs } from '/imports/util/dialogs.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
 
 import './profileAvailability.tpl.jade'
 

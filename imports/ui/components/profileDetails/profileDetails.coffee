@@ -1,6 +1,6 @@
-import { Dialogs } from '/imports/util/dialogs.coffee'
-import { Delay } from '/imports/util/delay.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import './profileDetails.tpl.jade'
 

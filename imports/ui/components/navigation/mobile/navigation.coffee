@@ -1,4 +1,4 @@
-import { FR } from '/imports/util/flowrouter.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import './navigation.tpl.jade'
 import './navigation.scss'

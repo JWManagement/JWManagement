@@ -1,6 +1,6 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import '/imports/ui/components/modals/modal.coffee'
 

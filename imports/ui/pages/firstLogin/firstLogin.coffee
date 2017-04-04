@@ -1,5 +1,5 @@
-import { Dialogs } from '/imports/util/dialogs.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import './firstLogin.tpl.jade'
 import './firstLogin.scss'

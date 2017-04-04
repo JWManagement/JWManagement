@@ -1,5 +1,5 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 import './request.tpl.jade'
 import './request.scss'

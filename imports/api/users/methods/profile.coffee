@@ -2,8 +2,8 @@ import SimpleSchema from 'simpl-schema'
 
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { SendMail } from '/imports/api/mailer/import.coffee'
-import { Validators } from '/imports/util/validators.coffee'
-import { StringUtils } from '/imports/util/stringUtils.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
+import { StringUtils } from '/imports/api/util/stringUtils.coffee'
 
 export ProfileMethods =
 

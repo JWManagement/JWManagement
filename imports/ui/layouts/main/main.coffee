@@ -1,8 +1,8 @@
 import './mainLayout.tpl.jade'
 
-import '/imports/util/platform.coffee'
+import '/imports/api/util/platform.coffee'
 
-import { Platform } from '/imports/util/platform.coffee'
+import { Platform } from '/imports/api/util/platform.coffee'
 
 if Platform.isCordova
 	require '/imports/ui/styles/ionic/import.scss'

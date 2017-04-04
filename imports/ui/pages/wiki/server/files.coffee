@@ -1,5 +1,5 @@
 import { Files } from '/imports/api/files/files.coffee'
-import { Permissions } from '/imports/util/permissions.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
 
 Meteor.publish 'files', (projectId) ->
 

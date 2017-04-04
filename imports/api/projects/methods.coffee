@@ -3,8 +3,8 @@ import SimpleSchema from 'simpl-schema'
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Weeks } from '/imports/api/weeks/weeks.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
-import { Permissions } from '/imports/util/permissions.coffee'
-import { Validators } from '/imports/util/validators.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
 
 import { MainMethods } from './methods/main.coffee'
 import { TagMethods } from './methods/tags.coffee'
@@ -17,9 +17,12 @@ export Methods =
 	delete: new ValidatedMethod
 		name: 'Projects.methods.delete'
 		validate: (args) ->
-			Validators.isAdmin args.projectId
 			new SimpleSchema
-				projectId: type: String
+				projectId:
+					type: String
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
 			.validator() args
 		run: (args) -> if Meteor.isServer
 			projectId = args.projectId

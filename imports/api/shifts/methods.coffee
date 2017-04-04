@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema'
 import { Shifts } from './shifts.coffee'
 import { Scheduler } from './scheduler.coffee'
-import { Validators } from '/imports/util/validators.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
 import { SendMail } from '/imports/api/mailer/import.coffee'
 
 export Methods =
@@ -9,10 +9,15 @@ export Methods =
 	request: new ValidatedMethod
 		name: 'Shifts.methods.request'
 		validate: (args) ->
-			Validators.isTagParticipant args.shiftId
 			new SimpleSchema
-				shiftId: type: String
-				teamId: type: String
+				shiftId:
+					type: String
+					custom: ->
+						Validators.shift.validId
+						Validators.shift.isTagParticipant
+				teamId:
+					type: String
+					custom: Validators.custom.isTeam
 			.validator() args
 		run: (args) ->
 			shiftId = args.shiftId
@@ -90,10 +95,15 @@ export Methods =
 	cancelRequest: new ValidatedMethod
 		name: 'Shifts.methods.cancelRequest'
 		validate: (args) ->
-			Validators.isTagParticipant args.shiftId
 			new SimpleSchema
-				shiftId: type: String
-				teamId: type: String
+				shiftId:
+					type: String
+					custom: ->
+						Validators.shift.validId
+						Validators.shift.isTagParticipant
+				teamId:
+					type: String
+					custom: -> Validators.team.validId
 			.validator() args
 		run: (args) ->
 			Shifts.helpers.removeUser args.shiftId, args.teamId, Meteor.userId()
@@ -101,10 +111,15 @@ export Methods =
 	cancelParticipation: new ValidatedMethod
 		name: 'Shifts.methods.cancelParticipation'
 		validate: (args) ->
-			Validators.isTagParticipant args.shiftId
 			new SimpleSchema
-				shiftId: type: String
-				teamId: type: String
+				shiftId:
+					type: String
+					custom: ->
+						Validators.shift.validId
+						Validators.shift.isTagParticipant
+				teamId:
+					type: String
+					custom: -> Validators.team.validId
 			.validator() args
 		run: (args) ->
 			user = Meteor.user()
