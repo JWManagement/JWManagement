@@ -13,6 +13,9 @@ Template.shifts.helpers
 
 Template.shifts.onCreated ->
 
+	if !FR.getShowWeek()
+		wrs -> FlowRouter.setQueryParams showWeek: moment().format('GGGG[W]WW')
+
 Template.shifts.onDestroyed ->
 
 	Session.set 'target', undefined

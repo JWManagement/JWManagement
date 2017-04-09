@@ -1,5 +1,5 @@
 .row.header
-	.col-md-2.col-xs-12.col-xs.center-on-xs
+	.col-xs-12.col-md-3.col-xs.center-on-xs
 		if isProjectShiftAdmin
 			.btn-group
 				button#editShifts.btn.btn-primary.btn-outline(title="{{_ 'shifts.editShifts'}}")
@@ -9,29 +9,19 @@
 			button#sendConfirmWeek.btn.btn-primary.btn-outline(title="{{_ 'shifts.sendWeek'}}")
 				i.fa.fa-send.fa-fw
 				| Send Confirmations
-	.col-md-offset-1.col-md-1.col-xs-2.col-xs
+	.col-xs-2.col-md-1.col-xs
 		button#prevWeek.btn-skip.btn.btn-primary.btn-outline.pull-right(class='{{prevWeekButton}}' title="{{_ 'shifts.prevWeek'}}")
 			i.fa.fa-chevron-left
-	.col-md-4.col-xs-8.col-xs.text-center
+	.col-xs-8.col-md-4.col-xs.text-center
 		a.week-chooser(href)
 			span.m-r {{formatWeek 'showWeek'}}
 			i.fa.fa-angle-down
-		ul.dropdown-menu
-			each weeks
-				li(class="{{currentWeek}}")
-					a.week-item(href)
-						i.fa.fa-calendar-check-o.fa-fw
-						| {{formatWeek this}}
-			if isProjectShiftAdmin
-				li.add-week
-					a#addWeek(href)
-						i.fa.fa-calendar-plus-o.fa-fw
-						| {{_ 'shifts.addWeek'}}
-	.col-md-1.col-xs-2.col-xs.center
+		#datepicker-week
+	.col-xs-2.col-md-1.col-xs.center
 		button#nextWeek.btn-skip.btn.btn-primary.btn-outline(class="{{nextWeekButton}}" title="{{_ 'shifts.nextWeek'}}")
 			i.fa.fa-chevron-right
-	.col-md-offset-1.col-md-2.col-xs-12.col-xs
-		a.tag-chooser(href)
+	.col-xs-12.col-md-3.col-xs
+		a.tag-chooser.pull-right(href)
 			| Showing 1 of 3 tags
 			i.fa.fa-angle-down
 		ul.dropdown-menu.dropdown-menu-right.m-r-xs

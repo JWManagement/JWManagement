@@ -19,4 +19,16 @@
 	.btn-skip {
 		min-width: 50px;
 	}
+
+	#datepicker-week {
+		display: none;
+
+		.datepicker {
+			width: auto;
+		}
+	}
+
+	.showWeekPicker #datepicker-week {
+		display: block;
+	}
 }
