@@ -133,28 +133,43 @@ export Helpers =
 		i = 0
 
 		# Aktuellen User in foundUsers aufnehmen
-		foundUsers.push _id: userId, way: []
+		foundUsers.push
+			_id: userId
+			maxReachedDay: false
+			way: [
+				shiftId: 0
+				teamId: 0
+				fromId: 0
+				toId: 0
+				tlChange: false
+			]
 
 		while runCondition
+			if foundUsers.length > 810
+				console.log 'Fehler'
+				return
+
 			if foundUsers.length <= i
 				runCondition = false
 			else
 				foundUser = foundUsers[i]
 
-				if foundUser._id in foundUsers.map((f, index) -> f._id if index < i && !f.maxReachedDay)
-					i++
-					continue
-
 				# Alle Teams durchgehen, wo er schon als Teilnehmer angenommen ist
-				for team in R.users[foundUser._id].allConfirmations
-					team = (R.teams.filter (t) -> t._id == team.teamId && t.shiftId == team.shiftId)[0]
+				for teamP in R.users[foundUser._id].allConfirmations
+					team = (R.teams.filter (t) -> t._id == teamP.teamId && t.shiftId == teamP.shiftId)[0]
+
 					if team.participants.filter((user) -> user._id == foundUser._id).length == 0 then console.log "FEHLER"
 
 					# Erst ausführen, wenn foundUsers bereits wirklich gefundene Tausch-Kandidaten enthält
 					if i > 0
 						# foundUserTeam ist das Team, in dem der foundUser als Teilnehmer eingetragen werden soll
+
+# TODO: UNDEFINED: foundUserTeam
+						console.log JSON.stringify foundUser
+						console.log 'Wegpunkt: ' + i
 						foundUserTeam = (R.teams.filter (t) -> t._id == foundUser.way[foundUser.way.length - 1].teamId && t.shiftId == foundUser.way[foundUser.way.length - 1].shiftId)[0]
 
+						console.log JSON.stringify foundUserTeam
 						# Wenn der foundUser dort, wo er als Teilnehmer eingetragen werden soll, maxReachedDay erreicht hat, muss er auch an diesem Tag eine Schicht abgeben
 						continue if foundUser.maxReachedDay && team.date != foundUserTeam.date
 
@@ -162,17 +177,21 @@ export Helpers =
 
 					for rUser in team.pending
 						R.count++
-						# übermittelten User nicht mit siche selbst tauschen lassen
+						# übermittelten User nicht mit sich selbst tauschen lassen
 						continue if rUser._id == userId
 						# User mit einer Doppelschicht an dem Tag nicht berücksichtigen
 						continue if @getDoubleShiftOnDay rUser._id, team.date
 						# Prüfung nach Teamleiterwechsel
 						continue if teamleader && !(rUser.teamleader || rUser.substituteTeamleader)
 						# Prüfung ob noch nicht in foundUsers aufgenommen
-						alreadyFoundUser = foundUsers.filter (foundUser) -> foundUser._id == rUser._id
-						thisTeam = teamId: team._id, shiftId: team.shiftId
-						foundTeams = alreadyFoundUser.map((f) -> shiftId: f.way[f.way.length - 1].shiftId, teamId: f.way[f.way.length - 1].teamId)
-						continue if thisTeam in foundTeams
+						continue if rUser._id in foundUsers.filter((f) -> !f.maxReachedDay).map((f) -> f._id)
+
+						continue if rUser._id in foundUsers.filter((f) -> f.way[f.way.length-1].shiftId = team.shiftId && f.way[f.way.length-1].teamId = team._id).map((f) -> f._id)
+						#obige Abfrage ist gleichbedeutend mit:
+							#alreadyFoundUser = foundUsers.filter (foundUser) -> foundUser._id == rUser._id
+							#thisTeam = teamId: team._id, shiftId: team.shiftId
+							#foundTeams = alreadyFoundUser.map((f) -> shiftId: f.way[f.way.length - 1].shiftId, teamId: f.way[f.way.length - 1].teamId)
+							#continue if thisTeam in foundTeams
 
 						# User in foundUsers aufnehmen
 						foundUsers.push
@@ -186,6 +205,10 @@ export Helpers =
 								tlChange: teamleader
 							]
 			i++
+
+		# Ersten Wegpunkt mit 0 / 0 rauslöschen
+		for foundUser in foundUsers
+			foundUser.way.splice 0, 1
 
 		# Den User, von dem wir ausgegangen sind, aus den Ergebnissen entfernen
 		foundUsers.splice 0, 1
