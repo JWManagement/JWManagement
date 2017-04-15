@@ -212,7 +212,7 @@ export Helpers =
 		foundUsers.splice 0, 1
 
 		# Alle User entfernen, deren Maximum erreicht ist
-		foundUsers.filter (foundUser) => !(foundUser.maxReachedDay) && !(@getMaxReachedPeriod foundUser._id)
+		foundUsers.filter (foundUser) => !foundUser.maxReachedDay && !@getMaxReachedPeriod(foundUser._id)
 
 	countAbandonedTeamsTl: ->
 
