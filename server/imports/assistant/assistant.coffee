@@ -324,6 +324,7 @@ export Assistant =
 					# Tausch in den anderen Schichten vornehmen
 					for waypoint in changeable.way
 						Helpers.participantsToPending waypoint.shiftId, waypoint.teamId, waypoint.fromId
+					for waypoint in changeable.way
 						Helpers.pendingToParticipants waypoint.shiftId, waypoint.teamId, waypoint.toId, waypoint.tlChange
 
 					# Teamleiter dank des gewonnenen Platzes in dieser Schicht einteilen
