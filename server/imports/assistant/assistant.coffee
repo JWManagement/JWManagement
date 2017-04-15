@@ -559,7 +559,7 @@ export Assistant =
 		@calculateToMax()
 
 		# Ergebnis absperichern
-		R.finalWaypointsToMax = R.doneWaypoints
+		R.finalWaypointsToMax = JSON.parse(JSON.stringify(R.doneWaypoints))
 		backup =
 			averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
 			abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
@@ -605,13 +605,13 @@ export Assistant =
 				@calculateToMin()
 
 				# Wegpunkte abspeichern
-				R.savedWaypointsToMin = R.doneWaypoints
+				R.savedWaypointsToMin = JSON.parse(JSON.stringify(R.doneWaypoints))
 				R.doneWaypoints = []
 
 				@calculateToMax()
 
 				# Wegpunkte abspeichern
-				R.savedWaypointsToMax = R.doneWaypoints
+				R.savedWaypointsToMax = JSON.parse(JSON.stringify(R.doneWaypoints))
 				R.doneWaypoints = []
 
 				averageDeviationRatio = Helpers.getAverageDeviationRatioAll()
@@ -628,7 +628,7 @@ export Assistant =
 
 					# Schichten wieder auf Minimum setzen
 					R.finalWaypointsToMax = []
-					R.finalWaypointsToMax = R.savedWaypointsToMax
+					R.finalWaypointsToMax = JSON.parse(JSON.stringify(R.savedWaypointsToMax))
 					R.savedWaypointsToMax.reverse()
 					for w in R.savedWaypointsToMax
 						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
