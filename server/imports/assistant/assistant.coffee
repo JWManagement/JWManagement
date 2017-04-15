@@ -145,7 +145,7 @@ export Assistant =
 		# Teams nach Anzahl der Bewerbungen absteigend sortieren
 		R.teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
 
-	CalculateToMax: ->
+	calculateToMax: ->
 		# <---- NEU ---->
 		@setMoreParticipants()
 		@optimizeAll()
@@ -156,7 +156,7 @@ export Assistant =
 
 		true
 
-	CalculateToMaxWithLogs: ->
+	calculateToMaxWithLogs: ->
 		# <---- NEU ---->
 		console.log '> setMoreParticipants 1'
 		@setMoreParticipants()
@@ -175,7 +175,7 @@ export Assistant =
 
 		true
 
-	CalculateToMin: ->
+	calculateToMin: ->
 
 		@setTeamleaders()
 		@optimizeAll()
@@ -197,7 +197,7 @@ export Assistant =
 
 		true
 
-	CalculateToMinWithLogs: ->
+	calculateToMinWithLogs: ->
 
 		console.log '> setTeamleaders'
 		@setTeamleaders()
@@ -555,7 +555,7 @@ export Assistant =
 		R.doneWaypoints = []
 		R.finalWaypointsToMax = []
 
-		@CalculateToMax()
+		@calculateToMax()
 
 		# Ergebnis absperichern
 		R.finalWaypointsToMax = R.doneWaypoints
@@ -601,13 +601,13 @@ export Assistant =
 				# Schicht wieder einsetzen und wieder mit ihr optimieren
 				team['pending'] = team['savedParticipants'].concat(team['savedPending'])
 
-				@CalculateToMin()
+				@calculateToMin()
 
 				# Wegpunkte abspeichern
 				R.savedWaypointsToMin = R.doneWaypoints
 				R.doneWaypoints = []
 
-				@CalculateToMax()
+				@calculateToMax()
 
 				# Wegpunkte abspeichern
 				R.savedWaypointsToMax = R.doneWaypoints
