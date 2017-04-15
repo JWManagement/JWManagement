@@ -525,21 +525,63 @@ export Assistant =
 					if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 		true
 
+	setMoreParticipants: ->
+		# <---- NEU ---->
+
+		teamsWithMin = R.teams.filter (team) -> team.participants.length >= team.min
+
+		for team in teamsWithMin when team.pending.length > 0
+			allRequests = []
+			# Bewerber heraussuchen, die noch nicht am Maximum für diese Zeitperiode oder diesen Tag sind
+			for user in team.pending
+				maxReached = Helpers.getMaxReachedPeriod user._id
+				maxReachedDay = Helpers.getMaxReachedDay user._id, team
+				if !maxReached && !maxReachedDay
+					allRequests.push user
+
+			# User mit der niedrigsten Ratio auswählen
+			if allRequests.length >= 1
+				allRequests = allRequests.sort (a, b) -> R.users[a._id].targetAcceptionRatio - R.users[b._id].targetAcceptionRatio
+
+				# Bewerber einteilen, bis Team Maximum erreicht ist oder es sich nicht mehr lohnt
+				for request in allRequests when team.participants.length < team.max && R.users[request._id].targetAcceptionRatio < 1
+					Helpers.pendingToParticipants team.shiftId, team._id, request._id, false
 		true
+
 	optimizeByTeamReset: ->
+		# <---- NEU ---->
+
+		# Schichten der ersten Einteilung auffüllen über Minimum
+		R.doneWaypoints = []
+		R.finalWaypointsToMax = []
+
+		@CalculateToMax()
+
+		# Ergebnis absperichern
+		R.finalWaypointsToMax = R.doneWaypoints
+		backup =
+			averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
+			abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
+			abandonedTeamsUsers: Helpers.countAbandonedTeamsUsers()
+			countAbandonedTeamsAll: Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
+		Helpers.log()
+
+		# Schichten wieder auf Minimum setzen
+		R.doneWaypoints.reverse()
+		for w in R.doneWaypoints
+			if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
+			if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
+
 		if 0 == Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers() then return
 		doRestart = true
 
 		while doRestart
 			doRestart = false
-			backup =
-				averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
-				abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
-				abandonedTeamsUsers: Helpers.countAbandonedTeamsUsers()
-				countAbandonedTeamsAll: Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
-
 			for team in R.teams when team.participants.length > 0
 				R.doneWaypoints = []
+				R.savedWaypointsToMin = []
+				R.savedWaypointsToMax = []
+
 				team['savedParticipants'] = []
 				team['savedPending'] = []
 
@@ -554,27 +596,62 @@ export Assistant =
 				team['pending'] = []
 
 				# TODO: nicht bei beiden optimize all, sondern nur das nötige
-				@setAndOptimizeAll()
+				@calculateToMin()
 
 				# Schicht wieder einsetzen und wieder mit ihr optimieren
 				team['pending'] = team['savedParticipants'].concat(team['savedPending'])
 
-				@setAndOptimizeAll()
+				@CalculateToMin()
+
+				# Wegpunkte abspeichern
+				R.savedWaypointsToMin = R.doneWaypoints
+				R.doneWaypoints = []
+
+				@CalculateToMax()
+
+				# Wegpunkte abspeichern
+				R.savedWaypointsToMax = R.doneWaypoints
+				R.doneWaypoints = []
 
 				averageDeviationRatio = Helpers.getAverageDeviationRatioAll()
 				countAbandonedTeamsAll = Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
 
 				if countAbandonedTeamsAll < backup.countAbandonedTeamsAll || countAbandonedTeamsAll == backup.countAbandonedTeamsAll && averageDeviationRatio < backup.averageDeviationRatio
-					doRestart = true
+					# Bessere Einteilung übernehmen
+					backup =
+						averageDeviationRatio: Helpers.getAverageDeviationRatioAll()
+						abandonedTeamsTl: Helpers.countAbandonedTeamsTl()
+						abandonedTeamsUsers: Helpers.countAbandonedTeamsUsers()
+						countAbandonedTeamsAll: Helpers.countAbandonedTeamsTl() + Helpers.countAbandonedTeamsUsers()
 					Helpers.log()
-					break
-				else
-					R.doneWaypoints.reverse()
-					for w in R.doneWaypoints
+
+					# Schichten wieder auf Minimum setzen
+					R.finalWaypointsToMax = []
+					R.finalWaypointsToMax = R.savedWaypointsToMax
+					R.savedWaypointsToMax.reverse()
+					for w in R.savedWaypointsToMax
 						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
 
+					doRestart = true
+					break
+				else
+					# Schlechtere Einteilung rückgängig machen
+					R.savedWaypointsToMax.reverse()
+					for w in R.savedWaypointsToMax
+						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
+						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
+
+					R.savedWaypointsToMin.reverse()
+					for w in R.savedWaypointsToMin
+						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
+						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
+		for w in R.finalWaypointsToMax
+			if w.type == 'pendingToParticipants' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId, w.waypoint.tlChange
+			if w.type == 'participantsToPending' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
+
 		true
+
 
 	saveToDB: ->
 
