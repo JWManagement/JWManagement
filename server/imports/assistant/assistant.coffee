@@ -638,6 +638,7 @@ export Assistant =
 					break
 				else
 					# Schlechtere Einteilung rückgängig machen
+					R.savedWaypointsToMax.reverse()
 					for w in R.savedWaypointsToMax
 						if w.type == 'participantsToPending' then Helpers.pendingToParticipants w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.fromId, w.waypoint.tlChange
 						if w.type == 'pendingToParticipants' then Helpers.participantsToPending w.waypoint.shiftId, w.waypoint.teamId, w.waypoint.toId
