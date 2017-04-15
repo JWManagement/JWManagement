@@ -187,7 +187,7 @@ export Helpers =
 						# Prüfung ob noch nicht in foundUsers aufgenommen
 						continue if rUser._id in foundUsers.filter((f) -> !f.maxReachedDay).map((f) -> f._id)
 
-						continue if rUser._id in foundUsers.filter((f) -> f.way[f.way.length-1].shiftId = team.shiftId && f.way[f.way.length-1].teamId = team._id).map((f) -> f._id)
+						continue if rUser._id in foundUsers.filter((f) -> f.way[f.way.length-1].shiftId == team.shiftId && f.way[f.way.length-1].teamId == team._id).map((f) -> f._id)
 						#obige Abfrage ist gleichbedeutend mit:
 							#alreadyFoundUser = foundUsers.filter (foundUser) -> foundUser._id == rUser._id
 							#thisTeam = teamId: team._id, shiftId: team.shiftId
