@@ -6,4 +6,7 @@ export R =
 		R.teams = []
 		R.users = {}
 		R.doneWaypoints = []
+		R.savedWaypointsToMin = []
+		R.savedWaypointsToMax = []
+		R.finalWaypointsToMax = []
 		R.count = 0
