@@ -145,7 +145,8 @@ export Helpers =
 			]
 
 		while runCondition
-			if foundUsers.length > 810
+# TODO: Fehler abarbeiten (Dauerschleife)
+			if foundUsers.length > 2000
 				console.log 'Fehler'
 				return
 
