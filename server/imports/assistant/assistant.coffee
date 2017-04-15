@@ -175,71 +175,92 @@ export Assistant =
 
 		true
 
+	CalculateToMin: ->
 
-	setAndOptimizeAllWithLogs: ->
+		@setTeamleaders()
+		@optimizeAll()
+
+		@setTeamleaders()
+		@optimizeMaxReachedTeamleaders()
+		@optimizeAll()
+
+		@setMinParticipants()
+		@optimizeAll()
+		@setMinParticipants()
+		@optimizeMaxReachedParticipants()
+		@optimizeAll()
+
+		@setMinParticipants()
+		@optimizeMaxReachedParticipants()
+
+		@optimizeAll()
+
 		true
 
+	CalculateToMinWithLogs: ->
+
 		console.log '> setTeamleaders'
-		Assistant.setTeamleaders()
+		@setTeamleaders()
 		Helpers.log()
 
 		console.log '> optimizeAll'
-		Assistant.optimizeAll()
+		@optimizeAll()
 		Helpers.log()
 
 		##
 
 		console.log '>> setTeamleaders'
-		Assistant.setTeamleaders()
+		@setTeamleaders()
 		Helpers.log()
 
 		console.log '>> optimizeMaxReachedTeamleaders'
-		Assistant.optimizeMaxReachedTeamleaders()
+		@optimizeMaxReachedTeamleaders()
 		Helpers.log()
 
 		console.log '>> optimizeAll'
-		Assistant.optimizeAll()
+		@optimizeAll()
 		Helpers.log()
 
 		##
 
 		console.log '>>> setMinParticipants'
-		Assistant.setMinParticipants()
+		@setMinParticipants()
 		Helpers.log()
 
 		console.log '>>> optimizeAll'
-		Assistant.optimizeAll()
+		@optimizeAll()
 		Helpers.log()
 
 		console.log '>>>> setMinParticipants'
-		Assistant.setMinParticipants()
+		@setMinParticipants()
 		Helpers.log()
 
 		console.log '>>>> optimizeMaxReachedParticipants'
-		Assistant.optimizeMaxReachedParticipants()
+		@optimizeMaxReachedParticipants()
 		Helpers.log()
 
 		console.log '>>>> optimizeAll'
-		Assistant.optimizeAll()
+		@optimizeAll()
 		Helpers.log()
 
 		##
 
 		console.log '>>>> setMinParticipants'
-		Assistant.setMinParticipants()
+		@setMinParticipants()
 		Helpers.log()
 
 		console.log '>>>> optimizeMaxReachedParticipants'
-		Assistant.optimizeMaxReachedParticipants()
+		@optimizeMaxReachedParticipants()
 		Helpers.log()
 
 		##
 
 		console.log '>>>>> optimizeAll'
-		Assistant.optimizeAll()
+		@optimizeAll()
 		Helpers.log()
 
 		true
+
 	setTeamleaders: ->
 
 		for team in R.teams
