@@ -145,27 +145,36 @@ export Assistant =
 		# Teams nach Anzahl der Bewerbungen absteigend sortieren
 		R.teams = R.teams.sort (a, b) -> b.requestAmount - a.requestAmount
 
-	setAndOptimizeAll: ->
+	CalculateToMax: ->
+		# <---- NEU ---->
+		@setMoreParticipants()
+		@optimizeAll()
+		@setMoreParticipants()
+		@optimizeAll()
+		@setMoreParticipants()
+		@optimizeAll()
+
 		true
 
-		Assistant.setTeamleaders()
-		Assistant.optimizeAll()
+	CalculateToMaxWithLogs: ->
+		# <---- NEU ---->
+		console.log '> setMoreParticipants 1'
+		@setMoreParticipants()
+		@optimizeAll()
+		Helpers.log()
 
-		Assistant.setTeamleaders()
-		Assistant.optimizeMaxReachedTeamleaders()
-		Assistant.optimizeAll()
+		console.log '> setMoreParticipants 2'
+		@setMoreParticipants()
+		@optimizeAll()
+		Helpers.log()
 
-		Assistant.setMinParticipants()
-		Assistant.optimizeAll()
-		Assistant.setMinParticipants()
-		Assistant.optimizeMaxReachedParticipants()
-		Assistant.optimizeAll()
+		console.log '> setMoreParticipants 3'
+		@setMoreParticipants()
+		@optimizeAll()
+		Helpers.log()
 
-		Assistant.setMinParticipants()
-		Assistant.optimizeMaxReachedParticipants()
 		true
 
-		Assistant.optimizeAll()
 
 	setAndOptimizeAllWithLogs: ->
 		true
