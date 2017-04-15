@@ -1,36 +1,8 @@
 import { Helpers } from './helpers.coffee'
 import { R } from './variables.coffee'
 
-
-
-# TODO: a1 nicht nur tauschen sondern auch setzen (bei team.pending < team.max && user.acceptions < user.targetPeriod)
-# TODO: a1 über changeables, mit der Prüfung in searchChangeables das keiner dafür ausgetragen wird
-
-# TODO: a2 nicht nur tauschen sondern auch rausnehmen (bei team.participants > team.min && user.acceptions > user.targetPeriod)
-# TODO: a2 lieber über changeables, mit der Prüfung in searchChangeables das keiner dafür eingetragen wird
-
-# TODO: a3 Funktion: getBestChangeable() geht drei Varianten durch und liefert sortiertes searchChangeable; es muss acceptions im User eingetragen werden
-# TODO: a3 dann neu berechent, dann searchChangeables angereichert & dann sortiert (und dann wieder ausgetragen werden?)
-
-#--
-# TODO: b1 nicht nur tauschen sondern auch setzen (bei team.pending < team.max && user.acceptions < user.targetPeriod)
-# TODO: b1 signin wenn bester changeable % < 100, singout wenn bester changeable % > 100;
-
-# TODO: b2 OpportunitiesToSignIn  (change and signin) && OpportunitiesToSignOut (change and signout) --> [signout für optimizemaxreached]
-# TODO: b2 mit opportunities zwei Objekte in einem Objekt zurückgeben? dann zwei lokalen variablen zuweisen
-
-#--
-
-# TODO: c1 am Ende auffüllen und changen
-
-# TODO: c2 dann abspeichern und wieder zurücksetzen
-# TODO: c2 dann TeamReset, jedes Team raus, am Ende auffüllen und abgleichen
-# TODO: c2 bei Besserung abspeichern, Teil zurücksetzen und wieder von vorne
-
-#------
-
-# TODO: Ende: otimizeAll mit searchChangeables für Teamleitereinteilung stehen lassen!
-
+# TODO: Möglichkeit keiner Schichtleiter
+# TODO: Aufteilung Fairness (wenig Wunsch --> 0 Schichten)
 
 export Assistant =
 
@@ -105,11 +77,11 @@ export Assistant =
 									acceptions++
 
 						# User anlegen
-						user.targetPeriod = 5 # Random.choice [1, 2, 3] # TODO: CHANGE get for this tag
-						user.maxPeriod = 7 # user.targetPeriod + 1 # TODO: CHANGE get for this tag
-						user.maxDay = 1 # TODO: CHANGE get for this tag
+						user.targetPeriod = 5 # Random.choice [1, 2, 3] # TODO: Marvin CHANGE get for this tag
+						user.maxPeriod = 5 # user.targetPeriod + 1 # TODO: Marvin CHANGE get for this tag
+						user.maxDay = 1 # TODO: Marvin CHANGE get for this tag
 						user.acceptions = acceptions
-						user.doubleShiftAllowed = true
+						user.doubleShiftAllowed = true # TODO: Marvin CHANGE get for this tag
 						user.targetAcceptionRatio = user.acceptions / user.targetPeriod
 						user.requests = [{shiftId: shift._id, teamId: team._id}]
 						# TODO: Prüfen ob tlConfirmations oder partConfirmations benutzt wird
@@ -136,8 +108,8 @@ export Assistant =
 					team.start = shift.start
 					team.end = shift.end
 					team.requestAmount = team.pending.length
-					team.min = 5
-					team.max = 8
+					team.min = 5 # TODO: Marvin CHANGE get for this tag
+					team.max = 8 # TODO: Marvin CHANGE get for this tag
 
 					if team.requestAmount >= team.min # TODO: als wahrscheinlichkeit berücksichten
 						R.teams.push team
