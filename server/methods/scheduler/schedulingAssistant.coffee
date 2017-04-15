@@ -5,7 +5,9 @@ import { R } from '../../imports/assistant/variables.coffee'
 Meteor.methods
 
 	schedule: (projectId, date, tagId) ->
-		try
+		#try
+			Helpers.logExplanation()
+
 			i = 0
 			while i < 1
 				Assistant.resetAll projectId, date
@@ -16,10 +18,7 @@ Meteor.methods
 				Assistant.fillUsersArray()
 				Assistant.fillTeamsArray()
 
-				#Helpers.logExplanation()
-
-				Assistant.setAndOptimizeAll()
-				Helpers.log()
+				Assistant.calculateToMin()
 
 				Assistant.optimizeByTeamReset()
 				Helpers.log()
@@ -33,6 +32,6 @@ Meteor.methods
 
 				i++
 
-		catch e
-			console.log e.error
-			console.log 'Abgebrochen!'
+		#catch e
+		#	console.log e.error
+		#	console.log 'Abgebrochen!'

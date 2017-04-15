@@ -166,11 +166,8 @@ export Helpers =
 						# foundUserTeam ist das Team, in dem der foundUser als Teilnehmer eingetragen werden soll
 
 # TODO: UNDEFINED: foundUserTeam
-						console.log JSON.stringify foundUser
-						console.log 'Wegpunkt: ' + i
 						foundUserTeam = (R.teams.filter (t) -> t._id == foundUser.way[foundUser.way.length - 1].teamId && t.shiftId == foundUser.way[foundUser.way.length - 1].shiftId)[0]
 
-						console.log JSON.stringify foundUserTeam
 						# Wenn der foundUser dort, wo er als Teilnehmer eingetragen werden soll, maxReachedDay erreicht hat, muss er auch an diesem Tag eine Schicht abgeben
 						continue if foundUser.maxReachedDay && team.date != foundUserTeam.date
 
@@ -376,6 +373,7 @@ export Helpers =
 		# TODO: Mit als weiterer Rückgabewert in getMaxReachedDay?
 		doubleShift = false
 		confirmationsThisDay = []
+
 		cTeams = R.users[userId].allConfirmations.map (cTeam) ->
 			shiftId: cTeam.shiftId
 			teamId: cTeam.teamId

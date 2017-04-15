@@ -105,8 +105,8 @@ export Assistant =
 									acceptions++
 
 						# User anlegen
-						user.targetPeriod = 3 # Random.choice [1, 2, 3] # TODO: CHANGE get for this tag
-						user.maxPeriod = 3 # user.targetPeriod + 1 # TODO: CHANGE get for this tag
+						user.targetPeriod = 5 # Random.choice [1, 2, 3] # TODO: CHANGE get for this tag
+						user.maxPeriod = 7 # user.targetPeriod + 1 # TODO: CHANGE get for this tag
 						user.maxDay = 1 # TODO: CHANGE get for this tag
 						user.acceptions = acceptions
 						user.doubleShiftAllowed = true
