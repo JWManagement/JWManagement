@@ -12,7 +12,7 @@ if queryParam 'addParticipant'
 	+addParticipantModal
 if queryParam 'showShiftReport'
 	+shiftReport
-.wrapper-content.animated.fadeInUp(class="{{view}}")
+.wrapper-content(class="{{view}}")
 	.container-fluid
 		.row.header
 			if queryParam 'showWeek'
