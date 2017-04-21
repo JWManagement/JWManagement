@@ -1,111 +1,183 @@
-//if queryParam 'editMeetingPicture'
-	+editMeetingPictureModal
-//if queryParam 'editTeamPicture'
-	+editTeamPictureModal
-.container-fluid
-	.row.m-t-lg
-		if isProjectAdmin
-			.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1
-				+settingsMain data=getMainData
-		if isProjectShiftAdmin
-			.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.z-index-10
-				+settingsTags data=getTagData
-	//.row
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5.col-lg-offset-1.z-index-10
-			.ibox
-				.ibox-title
-					h2 {{_ 'settings.teams.title'}}
-					.text-muted.m-t.m-b-xs {{{_ 'settings.teams.helpText.main'}}}
-				.ibox-content
-					if isProjectShiftAdmin
+.wrapper-content
+	.container
+		.row
+			.col-lg-3
+				.ibox
+					.ibox-title
+						h5 Navigation
+					.ibox-content
+						ol.dd-list
+							li.dd-item
+								.dd-handle Main
+							li.dd-item
+								.dd-handle Templates
+								ol.dd-list
+									li.dd-item
+										.dd-handle Sommerwoche
+									li.dd-item
+										.dd-handle Winterwoche
+							li.dd-item
+								.dd-handle Tags
+								ol.dd-list
+									li.dd-item
+										.dd-handle Trolley
+									li.dd-item
+										.dd-handle Infostand
+							li.dd-item
+								.dd-handle Teams
+								ol.dd-list
+									li.dd-item
+										.dd-handle Hauptbahnhof
+									li.dd-item
+										.dd-handle Innenstadt
+							li.dd-item
+								.dd-handle Meeting Points
+								ol.dd-list
+									li.dd-item
+										.dd-handle Treffpunkt 1
+									li.dd-item
+										.dd-handle Treffpunkt 2
+							li.dd-item
+								.dd-handle System Behaviour
+			.col-lg-9
+				.ibox
+					.ibox-title
+						h5 Main Project Settings
+					.ibox-content
 						form.form-horizontal
-							with getProject
-								if teams
-									each teams
-										.team
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.id'}}
-												label.col-lg-8.control-label.field-label {{_id}}
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.name'}}
-												.col-sm-10.col-lg-8
-													input#teamName.form-control(type='text' placeholder='{{_ "settings.teams.name"}}' value='{{name}}')
-											.form-group
-												label.col-xs-12.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.picture'}}
-												with teamPicture
-													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label {{original.name}}
-												else
-													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label.red {{_ 'settings.teams.noPicture'}}
-												.col-xs-2
-													#editTeamPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right(title="{{_ 'settings.teams.editPicture'}}")
-												.col-xs-12.col-sm-offset-2.col-sm-10.col-lg-offset-4.col-lg-8
-													span.help-block {{_ 'settings.teams.helpText.picture'}}
-											.form-group
-												label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.link'}}
-												.col-sm-10.col-lg-8
-													input#teamLink.form-control(type='url' placeholder='{{_ "settings.teams.link"}}' value='{{link}}')
-													span.help-block {{_ 'settings.teams.helpText.link'}}
-											.form-group
-												label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.description'}}
-												.col-sm-10.col-lg-8
-													textarea#teamDescription.form-control(placeholder='{{_ "settings.teams.description"}}' rows='3') {{description}}
-													span.help-block {{_ 'settings.teams.helpText.description'}}
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.action'}}
-												.col-sm-10.col-lg-8
-													#removeTeam.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.teams.remove'}}")
-										.hr-line-dashed
-								else
-									.center-align {{_ 'settings.teams.none'}}
-							else
-								.sk-spinner.sk-spinner-pulse
-					else
-						h2.center-align {{_ 'role.noPermission'}}
-				.ibox-footer
-					if isProjectShiftAdmin
-						.m-sm.center-align
-							#addTeam.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.teams.add'}}")
-		.col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-0.col-lg-5
-			.ibox
-				.ibox-title
-					h2 {{_ 'settings.meetings.title'}}
-					.text-muted.m-t.m-b-xs {{_ 'settings.meetings.helpText.main'}}
-				.ibox-content
-					if isProjectShiftAdmin
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+							.form-group
+								label.col-lg-2.control-label Email
+								.col-lg-10
+									input.form-control(type='email' placeholder='Email')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									select.form-control.m-b(name='language')
+										option English
+										option German
+				.ibox
+					.ibox-title
+						h5 Project Templates
+					.ibox-content
+						p blah blah blah
+						a(href) Sommerwoche
+						| |
+						a(href) Winterwoche
+				.ibox
+					.ibox-title
+						h5 Template: Sommerwoche
+					.ibox-content
 						form.form-horizontal
-							with getProject
-								if meetings
-									each meetings
-										.meeting
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.meetings.id'}}
-												label.col-lg-8.control-label.field-label {{_id}}
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.meetings.name'}}
-												.col-sm-10.col-lg-8
-													input#meetingName.form-control(type='text' placeholder='{{_ "settings.meetings.name"}}' value='{{name}}')
-											.form-group
-												label.col-xs-12.col-sm-2.col-lg-4.control-label {{_ 'settings.meetings.picture'}}
-												with meetingPicture
-													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label {{original.name}}
-												else
-													label.col-xs-10.col-sm-8.col-lg-6.control-label.field-label.red {{_ 'settings.meetings.noPicture'}}
-												.col-xs-2
-													#editMeetingPicture.btn.btn-white.btn-circle.fa.fa-upload.pull-right(title="{{_ 'settings.meetings.editPicture'}}")
-												.col-xs-12.col-sm-offset-2.col-sm-10.col-lg-offset-4.col-lg-8
-													span.help-block {{_ 'settings.meetings.helpText.picture'}}
-											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.meetings.action'}}
-												.col-sm-10.col-lg-8
-													#removeMeeting.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.meetings.remove'}}")
-										.hr-line-dashed
-								else
-									.center-align {{_ 'settings.meetings.none'}}
-							else
-								.sk-spinner.sk-spinner-pulse
-					else
-						h2.center-align {{_ 'role.noPermission'}}
-				.ibox-footer
-					if isProjectShiftAdmin
-						.m-sm.center-align
-							#addMeeting.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.meetings.add'}}")
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Edit Shifts
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-danger Delete
+				.ibox
+					.ibox-title
+						h5 Project Tags
+					.ibox-content
+						p blah blah blah
+						a(href) Trolley
+						| |
+						a(href) Infostand
+				.ibox
+					.ibox-title
+						h5 Tag: Trolley
+					.ibox-content
+						form.form-horizontal
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Edit Picture
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-danger Delete
+				.ibox
+					.ibox-title
+						h5 Project Teams
+					.ibox-content
+						p blah blah blah
+						a(href) Hauptbahnhof
+						| |
+						a(href) Innenstadt
+				.ibox
+					.ibox-title
+						h5 Team: Hauptbahnhof
+					.ibox-content
+						form.form-horizontal
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Change Color
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Edit Icon
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Edit Picture
+							.form-group
+								label.col-lg-2.control-label Link
+								.col-lg-10
+									input.form-control(type='text' placeholder='Link')
+							.form-group
+								label.col-lg-2.control-label Description
+								.col-lg-10
+									input.form-control(type='text' placeholder='Description')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-danger Delete
+				.ibox
+					.ibox-title
+						h5 Project Meeting Points
+					.ibox-content
+						p blah blah blah
+						a(href) Treffpunkt 1
+						| |
+						a(href) Treffpunkt 2
+				.ibox
+					.ibox-title
+						h5 Meeting Point: Treffpunkt 1
+					.ibox-content
+						form.form-horizontal
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-primary Edit Picture
+							.form-group
+								label.col-lg-2.control-label Link
+								.col-lg-10
+									input.form-control(type='text' placeholder='Link')
+							.form-group
+								label.col-lg-2.control-label Description
+								.col-lg-10
+									input.form-control(type='text' placeholder='Description')
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-danger Delete
+				.ibox
+					.ibox-title
+						h5 System Behaviour for this Project
+					.ibox-content
+						form.form-horizontal
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')

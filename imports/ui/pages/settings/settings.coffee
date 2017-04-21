@@ -10,10 +10,6 @@ import './settings.scss'
 
 Template.settings.helpers
 
-	getMainData: -> Projects.findOne FR.getProjectId(), fields: name: 1, email: 1, language: 1
-
-	getTagData: -> Projects.findOne FR.getProjectId(), fields: tags: 1
-
 Template.settings.onCreated ->
 
 	Meteor.subscribe 'settings', FR.getProjectId()
