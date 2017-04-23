@@ -3,6 +3,7 @@ import { R } from './variables.coffee'
 
 # TODO: Möglichkeit keiner Schichtleiter
 # TODO: Aufteilung Fairness (wenig Wunsch --> 0 Schichten)
+# TODO: parallele Schichten! Tree: Tag --> Schicht --> Team
 
 export Assistant =
 
