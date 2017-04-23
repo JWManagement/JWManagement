@@ -4,7 +4,7 @@
 			.col-lg-3
 				.ibox
 					.ibox-title
-						h5 Navigation
+						h2 Navigation
 					.ibox-content
 						ol.dd-list
 							li.dd-item
@@ -39,10 +39,15 @@
 										.dd-handle Treffpunkt 2
 							li.dd-item
 								.dd-handle System Behaviour
+								ol.dd-list
+									li.dd-item
+										.dd-handle Trolley
+									li.dd-item
+										.dd-handle Infostand
 			.col-lg-9
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Main Project Settings
+						h2 Main Project Settings
 					.ibox-content
 						form.form-horizontal
 							.form-group
@@ -58,17 +63,22 @@
 									select.form-control.m-b(name='language')
 										option English
 										option German
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Project Templates
+						h2 Project Templates
 					.ibox-content
 						p blah blah blah
-						a(href) Sommerwoche
-						| |
-						a(href) Winterwoche
-				.ibox
+						form.form-horizontal
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-link + Create new template
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-link Go to "Sommerwoche" >
+									button.btn.btn-link Go to "Winterwoche" >
+				//.ibox
 					.ibox-title
-						h5 Template: Sommerwoche
+						h2 Template: Sommerwoche
 					.ibox-content
 						form.form-horizontal
 							.form-group
@@ -77,21 +87,26 @@
 									input.form-control(type='text' placeholder='Name')
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Edit Shifts
+									button.btn.btn-link Edit Shifts
 							.form-group
 								.col-lg-offset-2.col-lg-10
 									button.btn.btn-danger Delete
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Project Tags
+						h2 Project Tags
 					.ibox-content
 						p blah blah blah
-						a(href) Trolley
-						| |
-						a(href) Infostand
-				.ibox
+						form.form-horizontal
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-link + Create new tag
+							.form-group
+								.col-lg-offset-2.col-lg-10
+									button.btn.btn-link Go to "Trolley" >
+									button.btn.btn-link Go to "Infostand" >
+				//.ibox
 					.ibox-title
-						h5 Tag: Trolley
+						h2 Tag: Trolley
 					.ibox-content
 						form.form-horizontal
 							.form-group
@@ -100,21 +115,21 @@
 									input.form-control(type='text' placeholder='Name')
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Edit Picture
+									button.btn.btn-link Edit Picture
 							.form-group
 								.col-lg-offset-2.col-lg-10
 									button.btn.btn-danger Delete
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Project Teams
+						h2 Project Teams
 					.ibox-content
 						p blah blah blah
 						a(href) Hauptbahnhof
 						| |
 						a(href) Innenstadt
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Team: Hauptbahnhof
+						h2 Team: Hauptbahnhof
 					.ibox-content
 						form.form-horizontal
 							.form-group
@@ -123,13 +138,13 @@
 									input.form-control(type='text' placeholder='Name')
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Change Color
+									button.btn.btn-link Change Color
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Edit Icon
+									button.btn.btn-link Edit Icon
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Edit Picture
+									button.btn.btn-link Edit Picture
 							.form-group
 								label.col-lg-2.control-label Link
 								.col-lg-10
@@ -141,17 +156,17 @@
 							.form-group
 								.col-lg-offset-2.col-lg-10
 									button.btn.btn-danger Delete
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Project Meeting Points
+						h2 Project Meeting Points
 					.ibox-content
 						p blah blah blah
 						a(href) Treffpunkt 1
 						| |
 						a(href) Treffpunkt 2
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 Meeting Point: Treffpunkt 1
+						h2 Meeting Point: Treffpunkt 1
 					.ibox-content
 						form.form-horizontal
 							.form-group
@@ -160,7 +175,7 @@
 									input.form-control(type='text' placeholder='Name')
 							.form-group
 								.col-lg-offset-2.col-lg-10
-									button.btn.btn-primary Edit Picture
+									button.btn.btn-link Edit Picture
 							.form-group
 								label.col-lg-2.control-label Link
 								.col-lg-10
@@ -172,12 +187,206 @@
 							.form-group
 								.col-lg-offset-2.col-lg-10
 									button.btn.btn-danger Delete
-				.ibox
+				//.ibox
 					.ibox-title
-						h5 System Behaviour for this Project
+						h2 System Behaviour for this Project
 					.ibox-content
 						form.form-horizontal
 							.form-group
 								label.col-lg-2.control-label Name
 								.col-lg-10
 									input.form-control(type='text' placeholder='Name')
+				.ibox
+					.ibox-title
+						h2 Trolley
+					.ibox-content
+						p blah blah blah
+						form.form-horizontal
+							.form-group
+								label.col-lg-2.control-label Name
+								.col-lg-10
+									input.form-control(type='text' placeholder='Name')
+				.ibox
+					.ibox-content
+						h3 Verhalten bei Eingang einer Bewerbung durch den jeweiligen User:
+						.m-l-lg
+							h4
+								input(type="radio" value="" id="" name="")
+								span.m-l-sm Immer offen lassen
+							.m-l-lg
+								input(type="radio")
+								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+							.m-l-lg
+								input(type="radio")
+								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen, wenn Minimum-Limit erreicht
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+							h4
+								input(type="radio" value="" id="" name="")
+								span.m-l-sm Wenn Minimum-Limit erreicht, alle Bewerber automatisch annehmen
+							.m-l-lg
+								p Siehe "Verhalten bei Annahme einer Bewerbung"
+
+						.hr-line-dashed
+
+						h3 Verhalten bei Eingang einer Bewerbung bei bereits automatisiert eingeteilter Woche:
+						.m-l-lg
+							h4
+								input(type="radio" value="" id="" name="")
+								span.m-l-sm Immer offen lassen
+							.m-l-lg
+								input(type="radio")
+								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+							.m-l-lg
+								input(type="radio")
+								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen, wenn Minimum-Limit erreicht
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+							h4
+								input(type="radio" value="" id="" name="")
+								span.m-l-sm Wenn Minimum-Limit erreicht, alle Bewerber automatisch annehmen
+							.m-l-lg
+								p Siehe "Verhalten bei Annahme einer Bewerbung"
+
+						.hr-line-dashed
+
+						h3 Verhalten bei Eingang einer Bewerbung durch einen Admin:
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm "Bewerber" über Bewerbung benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+
+						.hr-line-dashed
+
+						h3 Verhalten bei Annahme einer Bewerbung:
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm Bewerber über Annahme benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm Alle Teilnehmer über Update der Schicht benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm Teamleiter über Update der Schicht benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+
+						.hr-line-dashed
+
+						h3 Verhalten bei Absage einer Teilnahme:
+						.m-l-lg
+							h4 Wenn dadurch das Minimum-Limit unterschritten wird
+							.m-l-lg
+								.m-b-xs Team öffnen & Alle Teilnehmer zu Bewerbern zurückstufen
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle Teilnehmer über Absage des Teams benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Teamleiter über Absage des Teams benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Administrator/Schichtplaner über Absage des Teams benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+									.m-b-xs.m-l-lg
+										input(type="checkbox")
+										span.m-l-sm Nicht benachrichtigen, wenn er das selbst ausgelöst hat
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle abgelehnten Bewerber über unterbesetztes Teams benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle Verkündiger des Tags über unterbesetztes Team benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+
+								.m-t-xs.m-b-xs
+									input(type="checkbox")
+									span.m-l-sm Falls abgelehnte Bewerber vorhanden sind, stattdessen einen dieser automatisch annehmen
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Neuen Teilnehmer über Annahme benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle Teilnehmer über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Teamleiter über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg.m-b-xs
+									input(type="checkbox")
+									span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+
+							h4 Wenn dadurch das Minimum-Limit nicht unterschritten wird (Schicht kann stattfinden)
+							.m-l-lg
+								.m-b-xs Team öffnen/offen lassen
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle Teilnehmer über Absage des Teilnehmers benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Teamleiter über Absage des Teilnehmers benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Administrator/Schichtplaner über Absage des Teilnehmers benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+
+								.m-t-xs.m-b-xs
+									input(type="checkbox")
+									span.m-l-sm Falls abgelehnte Bewerber vorhanden sind, stattdessen einen dieser automatisch annehmen
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Neuen Teilnehmer über Annahme benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Alle Teilnehmer über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Teamleiter über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+
+
+						.hr-line-dashed
