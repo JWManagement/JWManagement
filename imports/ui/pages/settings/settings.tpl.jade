@@ -208,80 +208,101 @@
 									input.form-control(type='text' placeholder='Name')
 				.ibox
 					.ibox-content
-						h3 Verhalten bei Eingang einer Bewerbung durch den jeweiligen User:
+						h3 Welche Art der Einteilung möchtest du benutzen?
 						.m-l-lg
 							h4
 								input(type="radio" value="" id="" name="")
-								span.m-l-sm Immer offen lassen
+								span.m-l-sm Komplett manuelle Einteilung
 							.m-l-lg
-								input(type="radio")
-								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen
+								input(type="checkbox")
+								span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen
 								button.btn.btn-link.btn-xs.m-l-sm(type="button")
 									i.fa.fa-envelope
 							.m-l-lg
-								input(type="radio")
-								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen, wenn Minimum-Limit erreicht
+								input(type="checkbox")
+								span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen, wenn genügend Bewerber vorhanden
 								button.btn.btn-link.btn-xs.m-l-sm(type="button")
 									i.fa.fa-envelope
 							h4
 								input(type="radio" value="" id="" name="")
-								span.m-l-sm Wenn Minimum-Limit erreicht, alle Bewerber automatisch annehmen
+								span.m-l-sm Manuelle Einteilung mit Hilfe des Einteilungsassistenten
 							.m-l-lg
-								p Siehe "Verhalten bei Annahme einer Bewerbung"
+								input(type="checkbox")
+								span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+							.m-l-lg
+								input(type="checkbox")
+								span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen, wenn genügend Bewerber vorhanden
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
+								h4.m-l-lg Wenn die Woche bereits mit dem Einteilungsassistenten eingeteilt wurde:
+								.m-l-lg
+									.m-b-xs
+										input(type="radio" value="" id="" name="")
+										span.m-l-sm Komplett manuelle Einteilung
+									.m-l-lg
+										input(type="checkbox")
+										span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen
+										button.btn.btn-link.btn-xs.m-l-sm(type="button")
+											i.fa.fa-envelope
+									.m-l-lg
+										input(type="checkbox")
+										span.m-l-sm Schichtplaner über jede Bewerbung benachrichtigen, wenn genügend Bewerber vorhanden
+										button.btn.btn-link.btn-xs.m-l-sm(type="button")
+											i.fa.fa-envelope
+									.m-t-xs.m-b-xs
+										input(type="radio" value="" id="" name="")
+										span.m-l-sm Voll-Automatische Einteilung
+									.m-l-lg
+										input(type="checkbox")
+										span.m-l-sm Schichtplaner über jede Einteilung benachrichtigen
+										button.btn.btn-link.btn-xs.m-l-sm(type="button")
+											i.fa.fa-envelope
+							h4
+								input(type="radio" value="" id="" name="")
+								span.m-l-sm Voll-Automatische Einteilung
+							.m-l-lg
+								input(type="checkbox")
+								span.m-l-sm Schichtplaner über jede Einteilung benachrichtigen
+								button.btn.btn-link.btn-xs.m-l-sm(type="button")
+									i.fa.fa-envelope
 
 						.hr-line-dashed
 
-						h3 Verhalten bei Eingang einer Bewerbung bei bereits automatisiert eingeteilter Woche:
-						.m-l-lg
-							h4
-								input(type="radio" value="" id="" name="")
-								span.m-l-sm Immer offen lassen
-							.m-l-lg
-								input(type="radio")
-								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen
-								button.btn.btn-link.btn-xs.m-l-sm(type="button")
-									i.fa.fa-envelope
-							.m-l-lg
-								input(type="radio")
-								span.m-l-sm Administrator/Schichtplaner über Bewerbung benachrichtigen, wenn Minimum-Limit erreicht
-								button.btn.btn-link.btn-xs.m-l-sm(type="button")
-									i.fa.fa-envelope
-							h4
-								input(type="radio" value="" id="" name="")
-								span.m-l-sm Wenn Minimum-Limit erreicht, alle Bewerber automatisch annehmen
-							.m-l-lg
-								p Siehe "Verhalten bei Annahme einer Bewerbung"
-
-						.hr-line-dashed
-
-						h3 Verhalten bei Eingang einer Bewerbung durch einen Admin:
+						h3 Einplanung durch den Admin ohne eine eigene Bewerbung des Verkündigers
 						.m-l-lg
 							input(type="checkbox")
-							span.m-l-sm "Bewerber" über Bewerbung benachrichtigen
+							span.m-l-sm "Bewerber" über die Einplanung benachrichtigen
 							button.btn.btn-link.btn-xs.m-l-sm(type="button")
 								i.fa.fa-envelope
 
 						.hr-line-dashed
 
-						h3 Verhalten bei Annahme einer Bewerbung:
+						h3 Benachrichtigung über Stattfinden/Änderung einer Schicht
 						.m-l-lg
 							input(type="checkbox")
-							span.m-l-sm Bewerber über Annahme benachrichtigen
+							span.m-l-sm Bewerber über seine Annahme benachrichtigen
 							button.btn.btn-link.btn-xs.m-l-sm(type="button")
 								i.fa.fa-envelope
 						.m-l-lg
 							input(type="checkbox")
-							span.m-l-sm Alle Teilnehmer über Update der Schicht benachrichtigen
+							span.m-l-sm Den Teamleiter über das Update seiner Schicht benachrichtigen
 							button.btn.btn-link.btn-xs.m-l-sm(type="button")
 								i.fa.fa-envelope
 						.m-l-lg
 							input(type="checkbox")
-							span.m-l-sm Teamleiter über Update der Schicht benachrichtigen
+							span.m-l-sm Alle anderen Teilnehmer des Teams über das Update ihrer Schicht benachrichtigen
 							button.btn.btn-link.btn-xs.m-l-sm(type="button")
 								i.fa.fa-envelope
 						.m-l-lg
 							input(type="checkbox")
-							span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+							span.m-l-sm Alle anderen Teilnehmer aller Teams dieser Schicht über das Update ihrer Schicht benachrichtigen
+							button.btn.btn-link.btn-xs.m-l-sm(type="button")
+								i.fa.fa-envelope
+						.m-l-lg
+							input(type="checkbox")
+							span.m-l-sm Alle anderen Teamleiter an diesem Tag über die Änderung eines Teamleiters benachrichtigen
 							button.btn.btn-link.btn-xs.m-l-sm(type="button")
 								i.fa.fa-envelope
 
@@ -289,28 +310,33 @@
 
 						h3 Verhalten bei Absage einer Teilnahme:
 						.m-l-lg
-							h4 Wenn dadurch das Minimum-Limit unterschritten wird
+							h4 Wenn dadurch das Minimum unterschritten wird (Schicht kann nicht mehr stattfinden)
 							.m-l-lg
-								.m-b-xs Team öffnen & Alle Teilnehmer zu Bewerbern zurückstufen
+								.m-b-xs Neue Bewerbungen werden wieder zugelassen und alle Teilnehmer werden zu Bewerbern zurückgestuft
 								.m-l-lg
 									input(type="checkbox")
-									span.m-l-sm Alle Teilnehmer über Absage des Teams benachrichtigen
+									span.m-l-sm Alle Teilnehmer des Teams über die Absage des Teams benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 								.m-l-lg
 									input(type="checkbox")
-									span.m-l-sm Teamleiter über Absage des Teams benachrichtigen
+									span.m-l-sm Alle anderen Teilnehmer aller Teams dieser Schicht über die Absage des Teams benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 								.m-l-lg
 									input(type="checkbox")
-									span.m-l-sm Administrator/Schichtplaner über Absage des Teams benachrichtigen
+									span.m-l-sm Alle anderen Teamleiter an diesem Tag über die Absage eines Teams benachrichtigen
+									button.btn.btn-link.btn-xs.m-l-sm(type="button")
+										i.fa.fa-envelope
+								.m-l-lg
+									input(type="checkbox")
+									span.m-l-sm Schichtplaner über Absage des Teams benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 									.m-b-xs.m-l-lg
 										input(type="checkbox")
 										span.m-l-sm Nicht benachrichtigen, wenn er das selbst ausgelöst hat
-								.m-l-lg
+								.m-l-lg.m-t-sm
 									input(type="checkbox")
 									span.m-l-sm Alle abgelehnten Bewerber über unterbesetztes Teams benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
@@ -341,13 +367,13 @@
 										i.fa.fa-envelope
 								.m-l-lg.m-b-xs
 									input(type="checkbox")
-									span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+									span.m-l-sm Schichtplaner über Update der Schicht benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 
-							h4 Wenn dadurch das Minimum-Limit nicht unterschritten wird (Schicht kann stattfinden)
+							h4 Wenn dadurch das Minimum nicht unterschritten wird (Schicht kann immernoch stattfinden)
 							.m-l-lg
-								.m-b-xs Team öffnen/offen lassen
+								.m-b-xs Bewerbungen werden wieder zugelassen
 								.m-l-lg
 									input(type="checkbox")
 									span.m-l-sm Alle Teilnehmer über Absage des Teilnehmers benachrichtigen
@@ -360,7 +386,7 @@
 										i.fa.fa-envelope
 								.m-l-lg
 									input(type="checkbox")
-									span.m-l-sm Administrator/Schichtplaner über Absage des Teilnehmers benachrichtigen
+									span.m-l-sm Schichtplaner über Absage des Teilnehmers benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 
@@ -384,7 +410,7 @@
 										i.fa.fa-envelope
 								.m-l-lg
 									input(type="checkbox")
-									span.m-l-sm Administrator/Schichtplaner über Update der Schicht benachrichtigen
+									span.m-l-sm Schichtplaner über Update der Schicht benachrichtigen
 									button.btn.btn-link.btn-xs.m-l-sm(type="button")
 										i.fa.fa-envelope
 
