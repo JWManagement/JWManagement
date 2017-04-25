@@ -1,4 +1,12 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+
+import './shift.tpl.jade'
 
 Template.shift.helpers
 
@@ -96,7 +104,7 @@ Template.shift.helpers
 		team.status
 
 	adminClass: ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FR.getProjectId()
 			'isAdmin'
 		else
 			'noAdmin'
@@ -121,7 +129,7 @@ Template.shift.onCreated ->
 
 	self = this
 
-	@autorun -> ShiftSubs.subscribe 'shift', self.data
+	@autorun -> Meteor.subscribe 'shift', self.data
 
 Template.shift.events
 

@@ -8,6 +8,7 @@ import '/imports/api/mailer/config.coffee'
 import '/imports/api/automation/cron.coffee'
 
 # Publications
+import '/imports/ui/components/shift/server/shift.coffee'
 import '/imports/ui/components/shiftsHeader/server/weeks.coffee'
 import '/imports/ui/components/wikiTabs/server/wiki.coffee'
 import '/imports/ui/pages/dashboard/server/dashboard.coffee'

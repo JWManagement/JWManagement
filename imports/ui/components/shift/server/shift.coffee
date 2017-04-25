@@ -1,4 +1,6 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
 
 Meteor.publish 'shift', (shiftId) ->
 	if typeof shiftId == 'string' && shiftId != ''

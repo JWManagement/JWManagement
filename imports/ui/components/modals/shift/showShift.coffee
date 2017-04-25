@@ -1,4 +1,12 @@
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Pictures } from '/imports/api/pictures/pictures.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+
+import './shift.tpl.jade'
 
 Template.shiftModal.helpers
 
@@ -27,7 +35,7 @@ Template.shiftModal.helpers
 
 	meetingStartOrEnd: -> @meetingStart? || @meetingEnd?
 
-	teamPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), teamId: @_id
+	teamPicture: -> Pictures.findOne projectId: FR.getProjectId(), teamId: @_id
 
 	meetingPicture: (meetingId) -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), meetingId: meetingId
 
@@ -119,7 +127,7 @@ Template.shiftModal.onCreated ->
 	shiftId = FlowRouter.getQueryParam('showShift')
 
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', shiftId
+		handle = Meteor.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
@@ -142,13 +150,13 @@ Template.shiftModal.events
 		Shifts.methods.request.call
 			shiftId: shiftId
 			teamId: @_id
-		, handleError
+		, Dialogs.handleError
 
 	'click #requestShift': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 
 		for team in @teams when team.participants.length < team.max
-			Meteor.call 'request', shiftId, team._id, handleError
+			Meteor.call 'request', shiftId, team._id, Dialogs.handleError
 
 	'click #cancelRequestTeam': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -156,7 +164,7 @@ Template.shiftModal.events
 		Shifts.methods.cancelRequest.call
 			shiftId: shiftId
 			teamId: @_id
-		, handleError
+		, Dialogs.handleError
 
 	'click #cancelParticipation': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -168,7 +176,7 @@ Template.shiftModal.events
 				Shifts.methods.cancelParticipation.call
 					shiftId: shiftId
 					teamId: teamId
-				, handleError
+				, Dialogs.handleError
 
 	'click #setLeader': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -180,9 +188,9 @@ Template.shiftModal.events
 				swalYesNo
 					swal: 'sendMail.teamUpdate.general'
 					doConfirm: ->
-						Meteor.call 'setLeader', shiftId, teamId, userId, handleError
+						Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 			else
-				Meteor.call 'setLeader', shiftId, teamId, userId, handleError
+				Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 
 	'click #approveRequest': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -229,24 +237,24 @@ Template.shiftModal.events
 					textAttr1: teamMin
 					textAttr2: participantCount
 					doConfirm: ->
-						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', participantCount, handleError
+						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', participantCount, Dialogs.handleError
 						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
-							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
+							Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 			else if participantCount > teamMax
 				swalYesNo
 					swal: 'request.maxReached'
 					textAttr1: teamMax
 					textAttr2: participantCount
 					doConfirm: ->
-						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', participantCount, handleError
+						Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', participantCount, Dialogs.handleError
 						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
-							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
+							Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 			else
 				swalYesNo
 					swal: 'request.approve'
 					doConfirm: ->
 						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
-							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
+							Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 		else
 			swal TAPi18n.__('swal.noTeamleader'), '', 'error'
 
@@ -295,7 +303,7 @@ Template.shiftModal.events
 
 			for team in shift.teams when team._id == teamId
 				for user in team.pending when user.checked
-					Meteor.call 'approveRequest', shiftId, teamId, user._id, handleError
+					Meteor.call 'approveRequest', shiftId, teamId, user._id, Dialogs.handleError
 
 					if chosenId
 						if chosenIsSubstituteTeamleader && user.teamleader
@@ -310,7 +318,7 @@ Template.shiftModal.events
 						chosenIsTeamleader = true
 				break
 
-			if chosenId then Meteor.call 'setLeader', shiftId, teamId, chosenId, handleError
+			if chosenId then Meteor.call 'setLeader', shiftId, teamId, chosenId, Dialogs.handleError
 
 		selectedCount++ for checkbox in $team.find('input[type=checkbox]') when checkbox.checked
 		selectedCount++ for participant in $team.find('.participant')
@@ -321,7 +329,7 @@ Template.shiftModal.events
 				textAttr1: teamMin
 				textAttr2: selectedCount
 				doConfirm: -> if checkWouldCancelOtherTeam()
-					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', selectedCount, handleError
+					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'min', selectedCount, Dialogs.handleError
 					doApprove()
 		else if selectedCount > teamMax
 			swalYesNo
@@ -329,7 +337,7 @@ Template.shiftModal.events
 				textAttr1: teamMax
 				textAttr2: selectedCount
 				doConfirm: -> if checkWouldCancelOtherTeam()
-					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', selectedCount, handleError
+					Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'max', selectedCount, Dialogs.handleError
 					doApprove()
 		else if checkWouldCancelOtherTeam()
 			doApprove()
@@ -364,7 +372,7 @@ Template.shiftModal.events
 						swalYesNo
 							swal: 'sendMail.understaffed'
 							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
-					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
+					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', Dialogs.handleError
 
 		else if wasTeamleader && !otherTeamleaderExists && participants > 1
 			swalYesNo
@@ -375,11 +383,11 @@ Template.shiftModal.events
 						swalYesNo
 							swal: 'sendMail.understaffed.teamleader'
 							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
-					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
+					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', Dialogs.handleError
 		else
 			swalYesNo
 				swal: 'request.decline'
-				doConfirm: -> Meteor.call 'declineParticipant', shiftId, teamId, userId, handleError
+				doConfirm: -> Meteor.call 'declineParticipant', shiftId, teamId, userId, Dialogs.handleError
 
 
 	'click #declineSelected': (e) ->
@@ -387,7 +395,7 @@ Template.shiftModal.events
 		teamId = @_id
 
 		for pending in @pending when pending.checked
-			Meteor.call 'declineRequest', shiftId, teamId, pending._id, handleError
+			Meteor.call 'declineRequest', shiftId, teamId, pending._id, Dialogs.handleError
 
 	'click input[type=checkbox]': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -421,13 +429,13 @@ Template.shiftModal.events
 		shiftId = FlowRouter.getQueryParam('showShift')
 		teamId = @_id
 
-		Meteor.call 'openTeam', shiftId, teamId, handleError
+		Meteor.call 'openTeam', shiftId, teamId, Dialogs.handleError
 
 	'click #closeTeam': ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		teamId = @_id
 
-		Meteor.call 'closeTeam', shiftId, teamId, handleError
+		Meteor.call 'closeTeam', shiftId, teamId, Dialogs.handleError
 
 	'click #sendUnderstaffed': ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -436,7 +444,7 @@ Template.shiftModal.events
 		swalYesNo
 			swal: 'sendMail.understaffed'
 			doConfirm: ->
-				Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
+				Meteor.call 'sendUnderstaffed', shiftId, teamId, Dialogs.handleError
 
 	'click #switch': ->
 		shiftId = FlowRouter.getQueryParam 'showShift'

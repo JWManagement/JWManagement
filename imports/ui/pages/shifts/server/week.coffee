@@ -1,4 +1,5 @@
 import { Permissions } from '/imports/api/util/permissions.coffee'
+import { Weeks } from '/imports/api/weeks/weeks.coffee'
 
 Meteor.publish 'week', (projectId, week) ->
 

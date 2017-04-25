@@ -108,4 +108,4 @@ Template.settingsTags.events
 		swalInput
 			swal: 'delete.tag'
 			checkInput: TAPi18n.__('swal.delete.tag.checkInput')
-			doConfirm: (inputValue) -> Meteor.call 'removeProjectItem', projectId, 'tags', tagId, handleError
+			doConfirm: (inputValue) -> Meteor.call 'removeProjectItem', projectId, 'tags', tagId, Dialogs.handleError

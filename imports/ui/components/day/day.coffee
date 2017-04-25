@@ -1,3 +1,11 @@
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+
+import './day.tpl.jade'
+
 Template.day.helpers
 
 	today: -> 'today' if @date == parseInt(moment().format('YYYYDDDD'))
@@ -30,9 +38,9 @@ Template.day.events
 				tagName = tag.name
 
 			if date?
-				Meteor.call 'addShift', projectId, tagId, tagName, parseInt(date), parseInt(start), handleError
+				Meteor.call 'addShift', projectId, tagId, tagName, parseInt(date), parseInt(start), Dialogs.handleError
 			else if weekId?
-				Meteor.call 'addTemplateShift', projectId, weekId, tagId, tagName, day, handleError
+				Meteor.call 'addTemplateShift', projectId, weekId, tagId, tagName, day, Dialogs.handleError
 			else
 				throw new Meteor.Error 500, 'Not enough data provided'
 
@@ -43,4 +51,4 @@ Template.day.events
 			swal: 'delete.allShifts'
 			doConfirm: ->
 				for shift in shifts
-					Meteor.call 'removeShift', shift, handleError
+					Meteor.call 'removeShift', shift, Dialogs.handleError
