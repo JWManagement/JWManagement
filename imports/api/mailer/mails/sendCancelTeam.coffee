@@ -32,3 +32,9 @@ export sendCancelTeam = (shiftId, teamId, message) ->
 					content: getMailTexts 'teamCancellation', user.profile.language
 			, (err, res) -> if err
 				console.log 'sendMail failed: ' + err
+
+			Push.send
+				from: project.name
+				title: TAPi18n.__('push.teamCancellation.headline', user.profile.language)
+				text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
+				query: userId: user._id

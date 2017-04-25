@@ -52,6 +52,8 @@ mizzao:user-status
 momentjs:moment
 mquandalle:jade
 okgrow:analytics
+austinsand:roba-popover
+raix:push@3.0.3-rc.5
 percolate:synced-cron
 reywood:publish-composite
 rochal:slimscroll # remove in future

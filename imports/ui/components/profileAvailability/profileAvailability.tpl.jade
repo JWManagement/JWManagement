@@ -22,3 +22,7 @@
 		.checkbox.checkbox-primary.checkbox-inline
 			input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
 			label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
+		.hr-line-dashed
+		.checkbox.checkbox-primary.checkbox-inline
+			input#notifyViaPush(type="checkbox" checked="{{profile.notifyViaEmail}}")
+			label(for="notifyViaEmail") {{_ 'profile.availability.notifyViaEmail'}}

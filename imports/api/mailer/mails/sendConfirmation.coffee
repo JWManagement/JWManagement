@@ -42,3 +42,12 @@ export sendConfirmation = (shiftId, teamId, userId) ->
 			set = {}
 			set['teams.' + teamNr + '.participants.' + participantNr + '.informed'] = true
 			Shifts.update shiftId, $set: set
+
+	Push.send
+		from: project.name
+		title: TAPi18n.__('push.confirmation.subject', user.profile.language)
+		text: TAPi18n.__('push.confirmation.text', {date: date, time: time}, user.profile.language)
+		badge: 1
+		sound: 'chime'
+		badge: null + 1
+		query: userId: userId

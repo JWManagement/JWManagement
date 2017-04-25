@@ -1,6 +1,6 @@
 {
   "name": "JWManagement",
-  "description": "Shift management for public witnessing",
+  "description": "A highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects and/or similar",
   "license": "SEE LICENSE IN ./LICENSE",
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
     "aws-sdk": "^2.10.0",
     "babel-runtime": "^6.20.0",
     "bcrypt": "^0.8.7",
+    "cordova-plugin-device": "^1.1.4",
     "jdenticon": "^1.4.0",
     "meteor-node-stubs": "^0.2.5",
     "simpl-schema": "^0.2.3",

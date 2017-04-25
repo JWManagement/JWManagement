@@ -39,3 +39,10 @@ Template.profileAvailability.events
 			field: 'shortTermCallsAlways'
 			value: e.target.checked
 		, Dialogs.handleSuccess
+
+	'change #notifyViaPush': (e) ->
+		Meteor.call 'updateProfile', 'notifyViaPush', e.target.checked, handleSuccess
+		if e.target.checked == false
+			Meteor.call 'updateProfile', 'notifyViaEmail', false
+
+	'change #notifyViaPush': (e) -> Meteor.call 'updateProfile', 'notifyViaEmail', e.target.checked, handleSuccess

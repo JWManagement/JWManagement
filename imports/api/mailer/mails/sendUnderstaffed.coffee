@@ -47,3 +47,11 @@ export sendUnderstaffed = (shiftId, teamId) ->
 				content: getMailTexts 'understaffed', user.profile.language
 		, (err, res) -> if err
 			console.log 'sendMail failed: ' + err
+
+		Push.send
+			from: project.name
+			title: TAPi18n.__('mail.understaffed.subject', user.profile.language)
+			text: TAPi18n.__('push.understaffed.text2', {date: date, time: time}, user.profile.language)
+			badge: 1
+			sound: 'chime'
+			query: userId: user._Id
