@@ -16,44 +16,37 @@ Template.shifts.helpers
 
 	view: (a) ->
 		if a?
-			if FlowRouter.getQueryParam('weekId')?
-				a == 'editShifts'
-			else
-				a == FlowRouter.getQueryParam('view')
-		else if FlowRouter.getQueryParam('weekId')?
-			'editShifts'
+			a == FlowRouter.getQueryParam('view')
 		else
 			FlowRouter.getQueryParam('view') || 'showNames'
 
 	getWeek: ->
-		if FlowRouter.getQueryParam('showWeek')?
-			Weeks.findOne
-				projectId: FlowRouter.getParam('projectId')
-				date: FlowRouter.getQueryParam('showWeek')
-		else if FlowRouter.getQueryParam('weekId')?
-			Weeks.findOne FlowRouter.getQueryParam('weekId')
+		Weeks.findOne
+			projectId: FlowRouter.getParam('projectId')
+			date: FlowRouter.getQueryParam('showWeek')
 
-	weekDays: -> [1..7].map (i) -> moment(new Date).isoWeekday(i).format('ddd')
+	today: -> 'today' if @date? == parseInt(moment().add(7, 'd').format('YYYYDDDD'))
+
+	weekDays: -> [1..7].map (i) ->
+		date: moment(FR.getShowWeek()).isoWeekday(i).format('ddd, DD.MM.')
+		today: 'today' if parseInt(moment(FR.getShowWeek()).isoWeekday(i).format('YYYYDDDD')) == parseInt(moment().format('YYYYDDDD'))
 
 	checkNoVisibleShifts: ->
-		weekId = FlowRouter.getQueryParam('weekId')
+		projectId = FlowRouter.getParam('projectId')
+		showWeek = FlowRouter.getQueryParam('showWeek')
+		tags = FlowRouter.getQueryParam('showTags')
 
-		unless weekId
-			projectId = FlowRouter.getParam('projectId')
-			showWeek = FlowRouter.getQueryParam('showWeek')
-			tags = FlowRouter.getQueryParam('showTags')
+		week = Weeks.findOne projectId: projectId, date: showWeek,
+			fields: days: 1
 
-			week = Weeks.findOne projectId: projectId, date: showWeek,
-				fields: days: 1
+		if week && tags
+			for day in week.days
+				for shiftId in day.shifts
+					shift = Shifts.findOne shiftId, fields: tagId: 1
 
-			if week && tags
-				for day in week.days
-					for shiftId in day.shifts
-						shift = Shifts.findOne shiftId, fields: tagId: 1
-
-						if shift && shift.tagId in tags.split('_')
-							return false
-			true
+					if shift && shift.tagId in tags.split('_')
+						return false
+		true
 
 Template.shifts.onCreated ->
 
@@ -62,34 +55,27 @@ Template.shifts.onCreated ->
 
 	@autorun ->
 		projectId = FlowRouter.getParam('projectId')
+		week = FlowRouter.getQueryParam('showWeek')
 
-		if FlowRouter.getQueryParam('weekId')?
-			weekId = FlowRouter.getQueryParam('weekId')
-			Meteor.subscribe 'weekById', weekId
+		if !week? || week == ''
+			week = moment().format('GGGG[W]WW')
+			wrs -> FlowRouter.setQueryParams showWeek: week
 
-			Meteor.subscribe 'tags', projectId, tags: 1
-		else
-			week = FlowRouter.getQueryParam('showWeek')
+		handle = Meteor.subscribe 'tags', projectId, tags: 1
+		handle.ready Tracker.afterFlush ->
+			showTags = FlowRouter.getQueryParam('showTags')
 
-			if !week? || week == ''
-				week = moment().format('GGGG[W]WW')
-				wrs -> FlowRouter.setQueryParams showWeek: week
+			if !showTags? || showTags == ''
+				project = Projects.findOne projectId, fields: tags: 1
+				visibleTags = []
 
-			handle = Meteor.subscribe 'tags', projectId, tags: 1
-			handle.ready Tracker.afterFlush ->
-				showTags = FlowRouter.getQueryParam('showTags')
+				if project?.tags
+					for tag in project.tags when Roles.userIsInRole Meteor.userId(), Permissions.participant, tag._id
+						visibleTags.push tag._id
 
-				if !showTags? || showTags == ''
-					project = Projects.findOne projectId, fields: tags: 1
-					visibleTags = []
+					wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
 
-					if project?.tags
-						for tag in project.tags when Roles.userIsInRole Meteor.userId(), Permissions.participant, tag._id
-							visibleTags.push tag._id
-
-						wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
-
-			Meteor.subscribe 'week', projectId, week
+		Meteor.subscribe 'week', projectId, week
 
 Template.shifts.onDestroyed ->
 

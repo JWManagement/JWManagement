@@ -8,16 +8,9 @@ import './day.tpl.jade'
 
 Template.day.helpers
 
-	today: -> 'today' if @date == parseInt(moment().format('YYYYDDDD'))
-
 	view: (a) ->
 		if a?
-			if FlowRouter.getQueryParam('weekId')?
-				a == 'editShifts'
-			else
-				a == FlowRouter.getQueryParam('view')
-		else if FlowRouter.getQueryParam('weekId')?
-			'editShifts'
+			a == FlowRouter.getQueryParam('view')
 		else
 			FlowRouter.getQueryParam('view') || 'showNames'
 

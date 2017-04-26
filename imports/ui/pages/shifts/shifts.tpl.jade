@@ -11,11 +11,13 @@
 		.row.seven-cols.m-t-lg
 			with getWeek
 				each days
-					+day
+					.col-md-1.col-xs
+						h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, DD.MM.'}}
+						+day
 			else
 				each weekDays
 					.col-md-1.col-xs
-						h2 {{this}}
+						h2(class='{{today}}') {{date}}
 		if checkNoVisibleShifts
 			.noVisibleShifts.center-align.m-t-xl
 				h1 {{_ 'shifts.noVisibleShifts'}}

@@ -1,26 +1,21 @@
-.col-md-1.col-xs
-	if date
-		h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, DD.MM.'}}
-	else
-		h2.center-align {{formatIsoWeekday day}}
-	.day-wrapper(date="{{date}}" day="{{day}}")
-		if shifts
-			if view 'editShifts'
-				.center-align.m-b
-					#removeAll.btn.btn-danger.btn-rounded
-						| {{_ 'day.removeAll'}}
-						i.fa.fa-trash.fa-fw
-			each shifts
-				+shift
-				.separator
-					i.fa.fa-angle-down
-			if view 'editShifts'
-				.separator
-					i.fa.fa-angle-down
-				.add-shift.center-align
-					a#addShift.btn.btn-primary.btn-circle(href title="{{_ 'shifts.addShift'}}")
-						i.fa.fa-plus
-		else if view 'editShifts'
+.day-wrapper(date="{{date}}" day="{{day}}")
+	if shifts
+		if view 'editShifts'
+			.center-align.m-b
+				#removeAll.btn.btn-danger.btn-rounded
+					| {{_ 'day.removeAll'}}
+					i.fa.fa-trash.fa-fw
+		each shifts
+			+shift
+			.separator
+				i.fa.fa-angle-down
+		if view 'editShifts'
+			.separator
+				i.fa.fa-angle-down
 			.add-shift.center-align
 				a#addShift.btn.btn-primary.btn-circle(href title="{{_ 'shifts.addShift'}}")
 					i.fa.fa-plus
+	else if view 'editShifts'
+		.add-shift.center-align
+			a#addShift.btn.btn-primary.btn-circle(href title="{{_ 'shifts.addShift'}}")
+				i.fa.fa-plus
