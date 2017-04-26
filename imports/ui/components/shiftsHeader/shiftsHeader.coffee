@@ -26,25 +26,28 @@ Template.shiftsHeader.onRendered ->
 
 		weeks = weeks.fetch().map (w) -> w.date
 
-
-		$weekPicker = $('#datepicker-week')
+		$weekPicker = $('.week-chooser')
 		$weekPicker.datepicker
 			minViewMode: 0
 			maxViewMode: 0
 			weekStart: 1
 			todayBtn: 'linked'
 			language: TAPi18n.getLanguage()
+			todayHighlight: true
 		.on 'changeDate', (e) ->
 			newWeek = moment(e.date).format('YYYY[W]WW')
+
 			if R.currentWeek != newWeek
 				R.currentWeek = newWeek
 				wrs -> FlowRouter.setQueryParams showWeek: newWeek
+
 			if !$weekPicker.data('updating')
 				$weekPicker.data('updating', true)
+
 				weekDates = [0..6].map (number) -> moment(e.date).startOf('isoWeek').add(number, 'days').toDate()
 				$(this).datepicker('clearDate').datepicker('setDates', weekDates)
+
 				$weekPicker.data('updating', false)
-		.find('.table-condensed').removeClass('table-condensed').addClass('table')
 
 		Tracker.autorun ->
 			FlowRouter.watchPathChange()
@@ -54,11 +57,6 @@ Template.shiftsHeader.onRendered ->
 				$weekPicker.datepicker 'setDate', new Date(moment(R.currentWeek).format())
 
 Template.shiftsHeader.events
-
-	'click .week-chooser': (e) ->
-		$weekChooser = $('.week-chooser')
-		$weekChooser.closest('div').toggleClass('showWeekPicker')
-		$weekChooser.find('i.fa').toggleClass('fa-angle-down').toggleClass('fa-angle-up')
 
 	'click #prevWeek': -> FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).subtract(1, 'w').format('YYYY[W]WW')
 

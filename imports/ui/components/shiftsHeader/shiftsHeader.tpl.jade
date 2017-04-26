@@ -14,9 +14,8 @@
 			i.fa.fa-chevron-left
 	.col-xs-8.col-md-4.col-xs.text-center
 		a.week-chooser(href)
+			i.fa.fa-calendar-o.m-r-sm
 			span.m-r {{formatWeek 'showWeek'}}
-			i.fa.fa-angle-down
-		#datepicker-week
 	.col-xs-2.col-md-1.col-xs.center
 		button#nextWeek.btn-skip.btn.btn-primary.btn-outline(class="{{nextWeekButton}}" title="{{_ 'shifts.nextWeek'}}")
 			i.fa.fa-chevron-right

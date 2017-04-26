@@ -19,16 +19,30 @@
 	.btn-skip {
 		min-width: 50px;
 	}
+}
 
-	#datepicker-week {
-		display: none;
+.datepicker tbody tr {
+	&:hover {
+		background-color: #eee;
 
-		.datepicker {
-			width: auto;
+		td.today,
+		td.today:hover {
+			background-color: #eee;
+		}
+
+		td.today.active {
+			background-color: $indigo;
 		}
 	}
 
-	.showWeekPicker #datepicker-week {
-		display: block;
+	td.day {
+		border-radius: 0;
+	}
+
+	td.today {
+		color           : $indigo;
+		font-weight     : 500 !important;
+		text-decoration : underline;
+		background-color: #fff;
 	}
 }
