@@ -57,9 +57,9 @@ Template.shifts.onCreated ->
 
 		if FlowRouter.getQueryParam('weekId')?
 			weekId = FlowRouter.getQueryParam('weekId')
-			WeekSubs.subscribe 'weekById', weekId
+			Meteor.subscribe 'weekById', weekId
 
-			ProjectSubs.subscribe 'tags', projectId, tags: 1
+			Meteor.subscribe 'tags', projectId, tags: 1
 		else
 			week = FlowRouter.getQueryParam('showWeek')
 
@@ -67,7 +67,7 @@ Template.shifts.onCreated ->
 				week = moment().format('GGGG[W]WW')
 				wrs -> FlowRouter.setQueryParams showWeek: week
 
-			handle = ProjectSubs.subscribe 'tags', projectId, tags: 1
+			handle = Meteor.subscribe 'tags', projectId, tags: 1
 			handle.ready Tracker.afterFlush ->
 				showTags = FlowRouter.getQueryParam('showTags')
 
@@ -81,9 +81,7 @@ Template.shifts.onCreated ->
 
 						wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
 
-			WeekSubs.subscribe 'week', projectId, week
-
-		Delay -> $('.animated').removeClass('animated').addClass('skipped')
+			Meteor.subscribe 'week', projectId, week
 
 Template.shifts.onDestroyed ->
 

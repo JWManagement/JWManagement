@@ -132,7 +132,6 @@ Template.shiftModal.onCreated ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
 				wrs -> FlowRouter.setQueryParams showShift: null
-				$('.skipping').addClass('animated').removeClass('skipping')
 
 			shift = Shifts.findOne shiftId
 
