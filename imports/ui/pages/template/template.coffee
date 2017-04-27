@@ -9,59 +9,27 @@ import './template.scss'
 
 Template.shifts.helpers
 
-	view: (a) ->
-		if a?
-			if FlowRouter.getQueryParam('weekId')?
-				a == 'editShifts'
-			else
-				a == FlowRouter.getQueryParam('view')
-		else if FlowRouter.getQueryParam('weekId')?
-			'editShifts'
-		else
-			FlowRouter.getQueryParam('view') || 'showNames'
-
 	getWeek: ->
-		if FlowRouter.getQueryParam('showWeek')?
-			Weeks.findOne
-				projectId: FlowRouter.getParam('projectId')
-				date: FlowRouter.getQueryParam('showWeek')
-		else if FlowRouter.getQueryParam('weekId')?
-			Weeks.findOne FlowRouter.getQueryParam('weekId')
+		weekId = FR.getWeekId()
+
+		if weekId?
+			Weeks.findOne FR.getWeekId()
 
 	weekDays: -> [1..7].map (i) -> moment().isoWeekday(i).format('ddd')
 
-	checkNoVisibleShifts: ->
-		weekId = FlowRouter.getQueryParam('weekId')
-
-		unless weekId
-			projectId = FlowRouter.getParam('projectId')
-			showWeek = FlowRouter.getQueryParam('showWeek')
-			tags = FlowRouter.getQueryParam('showTags')
-
-			week = Weeks.findOne projectId: projectId, date: showWeek,
-				fields: days: 1
-
-			if week && tags
-				for day in week.days
-					for shiftId in day.shifts
-						shift = Shifts.findOne shiftId, fields: tagId: 1
-
-						if shift && shift.tagId in tags.split('_')
-							return false
-			true
-
 Template.shifts.onCreated ->
 
+	# Check all this stuff vvv
+
 	@autorun ->
-		projectId = FlowRouter.getParam('projectId')
+		projectId = FR.getProjectId()
+		weekId = FR.getWeekId()
 
-		if FlowRouter.getQueryParam('weekId')?
-			weekId = FlowRouter.getQueryParam('weekId')
+		if weekId?
 			Meteor.subscribe 'weekById', weekId
-
 			Meteor.subscribe 'tags', projectId, tags: 1
 		else
-			week = FlowRouter.getQueryParam('showWeek')
+			week = FR.getShowWeek()
 
 			if !week? || week == ''
 				week = moment().format('GGGG[W]WW')
@@ -69,7 +37,7 @@ Template.shifts.onCreated ->
 
 			handle = Meteor.subscribe 'tags', projectId, tags: 1
 			handle.ready Tracker.afterFlush ->
-				showTags = FlowRouter.getQueryParam('showTags')
+				showTags = FR.getShowTags()
 
 				if !showTags? || showTags == ''
 					project = Projects.findOne projectId, fields: tags: 1
@@ -84,13 +52,6 @@ Template.shifts.onCreated ->
 			Meteor.subscribe 'week', projectId, week
 
 Template.shifts.onDestroyed ->
-
-	$('#shiftModal').modal('hide')
-	$('#editShiftModal').modal('hide')
-	$('#cancelTeamModal').modal('hide')
-	$('#addWeekModal').modal('hide')
-	$('#addParticipantModal').modal('hide')
-	$('#shiftReport').modal('hide')
 
 	Session.set 'target', undefined
 	wrs -> FlowRouter.setQueryParams showWeek: null, showTags: null, weekId: null, view: null

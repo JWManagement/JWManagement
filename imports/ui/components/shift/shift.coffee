@@ -10,70 +10,36 @@ import './shift.tpl.jade'
 
 Template.shift.helpers
 
-	view: (a) ->
-		if a?
-			if FlowRouter.getQueryParam('weekId')?
-				a == 'editShifts'
-			else
-				a == FlowRouter.getQueryParam('view')
-		else if FlowRouter.getQueryParam('weekId')?
-			'editShifts'
-		else
-			FlowRouter.getQueryParam('view') || 'showNames'
-
 	getShift: ->
 		shift = {}
 
-		if FlowRouter.getQueryParam('weekId')? || FlowRouter.getQueryParam('view') == 'editShifts'
-			shift = Shifts.findOne this + '', fields:
-				tagId: 1
-				tag: 1
-				date: 1
-				start: 1
-				end: 1
-				status: 1
-				scheduling: 1
-				'teams._id': 1
-				'teams.name': 1
-				'teams.min': 1
-				'teams.max': 1
-				'teams.meetingStart': 1
-				'teams.meetingEnd': 1
-				'teams.participants': 1
-				'teams.pending': 1
-		else
-			shift = Shifts.findOne this + '', fields:
-				tagId: 1
-				tag: 1
-				date: 1
-				start: 1
-				end: 1
-				status: 1
-				scheduling: 1
-				'teams._id': 1
-				'teams.name': 1
-				'teams.status': 1
-				'teams.participants': 1
-				'teams.pending': 1
+		shift = Shifts.findOne this + '', fields:
+			tagId: 1
+			tag: 1
+			date: 1
+			start: 1
+			end: 1
+			status: 1
+			scheduling: 1
+			'teams._id': 1
+			'teams.name': 1
+			'teams.status': 1
+			'teams.participants': 1
+			'teams.pending': 1
 
 		if shift?
 			shift.isWrongTag = false
-			tags = FlowRouter.getQueryParam('showTags')
-			tagId = FlowRouter.getQueryParam('tagId')
+			tags = FR.getShowTags()
 
-			if tags
-				if shift.tagId not in tags.split('_')
-					shift.isWrongTag = true
-			else if tagId?
-				if shift.tagId != tagId
-					shift.isWrongTag = true
+			if tags && shift.tagId not in tags.split('_')
+				shift.isWrongTag = true
 			else
 				shift.isWrongTag = true
 
 		shift
 
 	multipleTags: ->
-		tags = FlowRouter.getQueryParam('showTags')
+		tags = FR.getShowTags()
 		tags && tags.indexOf('_') > -1
 
 	getScheduling: -> if @scheduling?
@@ -127,16 +93,8 @@ Template.shift.helpers
 
 Template.shift.onCreated ->
 
-	self = this
-
-	@autorun -> Meteor.subscribe 'shift', self.data
+	@autorun => Meteor.subscribe 'shift', @data
 
 Template.shift.events
 
-	'click .shift': ->
-		shiftId = @_id
-
-		if $('.wrapper-content').hasClass('editShifts')
-			wrs -> FlowRouter.setQueryParams editShift: shiftId
-		else
-			wrs -> FlowRouter.setQueryParams showShift: shiftId
+	'click .shift': -> wrs => FlowRouter.setQueryParams showShift: @_id

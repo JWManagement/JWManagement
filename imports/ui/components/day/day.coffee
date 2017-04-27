@@ -8,12 +8,6 @@ import './day.tpl.jade'
 
 Template.day.helpers
 
-	view: (a) ->
-		if a?
-			a == FlowRouter.getQueryParam('view')
-		else
-			FlowRouter.getQueryParam('view') || 'showNames'
-
 Template.day.events
 
 	'click #addShift': (e) ->
@@ -22,7 +16,6 @@ Template.day.events
 		date = $(e.target).closest('.day-wrapper').attr('date')
 		day = $(e.target).closest('.day-wrapper').attr('day')
 		start = $(e.target).closest('.add-shift').prev('.separator').prev('.shift').attr('end') || 1000
-		weekId = FlowRouter.getQueryParam('weekId')
 		project = Projects.findOne projectId, fields: tags: 1
 
 		if project? && date?
