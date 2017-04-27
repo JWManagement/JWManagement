@@ -1,3 +1,7 @@
+import SimpleSchema from 'simpl-schema'
+import { Weeks } from '/imports/api/weeks/weeks.coffee'
+import { Validators } from '/imports/api/util/validators.coffee'
+
 Meteor.publish 'shiftsHeader.weeks', (projectId, week) ->
 	new SimpleSchema
 		projectId:

@@ -13,7 +13,17 @@ Template.shiftsHeader.helpers
 
 Template.shiftsHeader.onCreated ->
 
-	@autorun -> Meteor.subscribe 'futureWeeks', FR.getProjectId(), FR.getShowWeek()
+	@autorun ->
+		Meteor.subscribe 'shiftsHeader.weeks', FR.getProjectId(), FR.getShowWeek()
+
+		handle = Meteor.subscribe 'shiftsHeader.tags', projectId, tags: 1
+		handle.ready Tracker.afterFlush ->
+			showTags = FR.getShowTags()
+
+			if !showTags? || showTags == ''
+				project = Projects.findOne projectId, fields: tags: 1
+
+				wrs -> FlowRouter.setQueryParams showTags: project.tags.join('_')
 
 Template.shiftsHeader.onRendered ->
 
