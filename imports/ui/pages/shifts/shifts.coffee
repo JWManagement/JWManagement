@@ -22,8 +22,8 @@ Template.shifts.helpers
 
 	getWeek: ->
 		Weeks.findOne
-			projectId: FlowRouter.getParam('projectId')
-			date: FlowRouter.getQueryParam('showWeek')
+			projectId: FR.getProjectId()
+			date: FR.getShowWeek()
 
 	today: -> 'today' if @date? == parseInt(moment().add(7, 'd').format('YYYYDDDD'))
 
@@ -32,9 +32,9 @@ Template.shifts.helpers
 		today: 'today' if parseInt(moment(FR.getShowWeek()).isoWeekday(i).format('YYYYDDDD')) == parseInt(moment().format('YYYYDDDD'))
 
 	checkNoVisibleShifts: ->
-		projectId = FlowRouter.getParam('projectId')
-		showWeek = FlowRouter.getQueryParam('showWeek')
-		tags = FlowRouter.getQueryParam('showTags')
+		projectId = FR.getProjectId()
+		showWeek = FR.getShowWeek()
+		tags = FR.getShowTags()
 
 		week = Weeks.findOne projectId: projectId, date: showWeek,
 			fields: days: 1

@@ -10,9 +10,9 @@ import './showShift.tpl.jade'
 
 Template.showShift.helpers
 
-	getShiftId: -> FlowRouter.getQueryParam('showShift')
+	getShiftId: -> FR.getShowShift()
 
-	getShift: -> Shifts.findOne FlowRouter.getQueryParam('showShift')
+	getShift: -> Shifts.findOne FR.getShowShift()
 
 	sortUsers: (participants) ->
 		participants.sort (a, b) ->
@@ -29,7 +29,7 @@ Template.showShift.helpers
 				else 0
 
 	schedulingIsDirect: ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields: scheduling: 1
 		shift.scheduling == 'direct'
 
@@ -41,7 +41,7 @@ Template.showShift.helpers
 
 	getSelectedCount: (teamId) ->
 		selectedCount = 0
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
 			'teams.participants._id': 1
@@ -60,7 +60,7 @@ Template.showShift.helpers
 
 	getHasTl: (teamId) ->
 		tlCount = 0
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
 			'teams.participants.checked': 1
@@ -82,7 +82,7 @@ Template.showShift.helpers
 			TAPi18n.__('modal.shift.noExistingTeamleader')
 
 	hasTl: (teamId) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields:
 			'teams._id': 1
 			'teams.participants.thisTeamleader': 1
@@ -101,7 +101,7 @@ Template.showShift.helpers
 	notInOtherTeam: (e) ->
 		userId = Meteor.userId()
 		teamId = @_id
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields: teams: 1
 
 		for team in shift.teams when team._id != teamId
@@ -110,7 +110,7 @@ Template.showShift.helpers
 		true
 
 	alreadyOver: ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields: date: 1, end: 1
 
 		if shift.date < parseInt moment().format('YYYYDDDD')
@@ -123,28 +123,23 @@ Template.showShift.helpers
 
 Template.showShift.onCreated ->
 
-	self = this
-	shiftId = FlowRouter.getQueryParam('showShift')
+	shiftId = FR.getShowShift()
 
-	@autorun ->
+	@autorun =>
 		handle = Meteor.subscribe 'shift', shiftId
-		handle.ready Tracker.afterFlush ->
-			$('#shiftModal').modal('show')
-			$('#shiftModal').on 'hidden.bs.modal', ->
-				wrs -> FlowRouter.setQueryParams showShift: null
-
+		handle.ready Tracker.afterFlush =>
 			shift = Shifts.findOne shiftId
 
 			if shift?
 				for team in shift.teams
-					self.subscribe 'userStatistics', user._id, shiftId for user in team.participants
-					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
-					self.subscribe 'userStatistics', user._id, shiftId for user in team.declined
+					@subscribe 'userStatistics', user._id, shiftId for user in team.participants
+					@subscribe 'userStatistics', user._id, shiftId for user in team.pending
+					@subscribe 'userStatistics', user._id, shiftId for user in team.declined
 
 Template.showShift.events
 
 	'click #requestTeam': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 
 		Shifts.methods.request.call
 			shiftId: shiftId
@@ -152,13 +147,13 @@ Template.showShift.events
 		, Dialogs.handleError
 
 	'click #requestShift': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 
 		for team in @teams when team.participants.length < team.max
 			Meteor.call 'request', shiftId, team._id, Dialogs.handleError
 
 	'click #cancelRequestTeam': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 
 		Shifts.methods.cancelRequest.call
 			shiftId: shiftId
@@ -166,7 +161,7 @@ Template.showShift.events
 		, Dialogs.handleError
 
 	'click #cancelParticipation': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		swalYesNo
@@ -178,7 +173,7 @@ Template.showShift.events
 				, Dialogs.handleError
 
 	'click #setLeader': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = $(e.target).closest('.team').attr('data-id')
 		userId = @_id
 
@@ -192,7 +187,7 @@ Template.showShift.events
 				Meteor.call 'setLeader', shiftId, teamId, userId, Dialogs.handleError
 
 	'click #approveRequest': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields: teams: 1
 		teamId = $(e.target).closest('.team').data('id')
 		teamMin = $(e.target).closest('.team').data('min')
@@ -258,7 +253,7 @@ Template.showShift.events
 			swal TAPi18n.__('swal.noTeamleader'), '', 'error'
 
 	'click #approveSelected': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		$team = $(e.target).closest('.team')
 		teamId = $team.attr('data-id')
 		teamMin = parseInt($team.attr('data-min'))
@@ -342,7 +337,7 @@ Template.showShift.events
 			doApprove()
 
 	'click #declineParticipant': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1
 		$team = $(e.target).closest('.team')
 		teamId = $(e.target).closest('.team').attr('data-id')
@@ -390,21 +385,21 @@ Template.showShift.events
 
 
 	'click #declineSelected': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		for pending in @pending when pending.checked
 			Meteor.call 'declineRequest', shiftId, teamId, pending._id, Dialogs.handleError
 
 	'click input[type=checkbox]': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 		userId = $(e.target).attr('id').split('_')[2]
 
 		Meteor.call 'setPendingStatus', shiftId, teamId, userId, e.target.checked
 
 	'click #addParticipant': (e) ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = $(e.target).closest('.team').attr('data-id')
 
 		$('#shiftModal').modal('hide')
@@ -417,7 +412,7 @@ Template.showShift.events
 
 	'click #cancelTeam': ->
 		$('#shiftModal').modal('hide')
-		shiftId = FlowRouter.getQueryParam 'showShift'
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		wrs -> FlowRouter.setQueryParams
@@ -425,19 +420,19 @@ Template.showShift.events
 			shiftId: shiftId
 
 	'click #openTeam': ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		Meteor.call 'openTeam', shiftId, teamId, Dialogs.handleError
 
 	'click #closeTeam': ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		Meteor.call 'closeTeam', shiftId, teamId, Dialogs.handleError
 
 	'click #sendUnderstaffed': ->
-		shiftId = FlowRouter.getQueryParam('showShift')
+		shiftId = FR.getShowShift()
 		teamId = @_id
 
 		swalYesNo
@@ -446,12 +441,12 @@ Template.showShift.events
 				Meteor.call 'sendUnderstaffed', shiftId, teamId, Dialogs.handleError
 
 	'click #switch': ->
-		shiftId = FlowRouter.getQueryParam 'showShift'
+		shiftId = FR.getShowShift()
 		wrs -> FlowRouter.setQueryParams editShift: shiftId
 
 	'click .openReport': (e) ->
 		teamId = @_id
-		shiftId = FlowRouter.getQueryParam 'showShift'
+		shiftId = FR.getShowShift()
 
 		$('#shiftModal').modal('hide')
 
@@ -461,7 +456,7 @@ Template.showShift.events
 		swal TAPi18n.__('swal.approvalInformed'), '', 'info'
 
 	'click .sendConfirmation': (e) ->
-		shiftId = FlowRouter.getQueryParam 'showShift'
+		shiftId = FR.getShowShift()
 		teamId = $(e.target).closest('.team').attr('data-id')
 		userId = @_id
 
@@ -482,7 +477,7 @@ Template.showShift.events
 		swal TAPi18n.__('swal.declinementInformed'), '', 'info'
 
 	'click .sendDeclined': (e) ->
-		shiftId = FlowRouter.getQueryParam 'showShift'
+		shiftId = FR.getShowShift()
 		teamId = $(e.target).closest('.team').attr('data-id')
 		userId = @_id
 

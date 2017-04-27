@@ -18,7 +18,7 @@ Template.day.events
 
 	'click #addShift': (e) ->
 		projectId = FlowRouter.getParam('projectId')
-		tagId = FlowRouter.getQueryParam('tagId') || FlowRouter.getQueryParam('showTags').split(',')[0]
+		tagId = FR.getShowTags().split(',')[0]
 		date = $(e.target).closest('.day-wrapper').attr('date')
 		day = $(e.target).closest('.day-wrapper').attr('day')
 		start = $(e.target).closest('.add-shift').prev('.separator').prev('.shift').attr('end') || 1000
