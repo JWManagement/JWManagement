@@ -33,6 +33,10 @@
 		td.today.active {
 			background-color: $indigo;
 		}
+
+		td.disabled {
+			background-color: #fff;
+		}
 	}
 
 	td.day {

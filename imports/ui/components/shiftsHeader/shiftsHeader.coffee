@@ -31,9 +31,16 @@ Template.shiftsHeader.onRendered ->
 			minViewMode: 0
 			maxViewMode: 0
 			weekStart: 1
+			autoclose: true
 			todayBtn: 'linked'
 			language: TAPi18n.getLanguage()
 			todayHighlight: true
+			beforeShowDay: (date) ->
+				weekDate = moment(date).format('YYYY[W]WW')
+				week = Weeks.findOne
+					projectId: FR.getProjectId()
+					date: weekDate
+				week?
 		.on 'changeDate', (e) ->
 			newWeek = moment(e.date).format('YYYY[W]WW')
 
