@@ -48,12 +48,23 @@ Template.shifts.onCreated ->
 		projectId = FR.getProjectId()
 		week = FR.getShowWeek()
 
-		if !week
-			wrs -> FlowRouter.setQueryParams showWeek: moment().format('GGGG[W]WW')
+		if week?
+			Meteor.subscribe 'shifts.weeks', projectId, week
+			Meteor.subscribe 'shifts.tags', projectId, ->
+				tags = FR.getShowTags()
+				project = Projects.findOne projectId, fields: tags: 1
 
-		Meteor.subscribe 'week', projectId, week
+				if !tags?
+					wrs -> FlowRouter.setQueryParams showTags: project.tags.map((t) -> t._id)
+				else
+					beforeLength = tags.length
+					tags = tags.filter (t) -> t in project.tags.map (tt) -> tt._id
+
+					if tags.length != beforeLength
+						wrs -> FlowRouter.setQueryParams showTags: tags
+		else
+			wrs -> FlowRouter.setQueryParams showWeek: moment().format('GGGG[W]WW')
 
 Template.shifts.onDestroyed ->
 
 	Session.set 'target', undefined
-	wrs -> FlowRouter.setQueryParams showWeek: null, showTags: null, weekId: null, view: null
