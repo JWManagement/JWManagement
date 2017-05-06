@@ -1,15 +1,22 @@
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+
+import './users.tpl.jade'
+import './users.scss'
+
 initDone = false
 
 Template.users.helpers
 
 	getTags: ->
-		projectId = FlowRouter.getParam 'projectId'
+		projectId = FR.getProjectId()
 		project = Projects.findOne projectId
 		project?.tags
 
 	allMails: ->
 		mails = []
-		projectId = FlowRouter.getParam('projectId')
+		projectId = FR.getProjectId()
 		users = Roles.getUsersInRole Permissions.member, projectId,
 			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
 
@@ -34,7 +41,7 @@ Template.users.onCreated ->
 
 	self = this
 	initDone = false
-	projectId = FlowRouter.getParam('projectId')
+	projectId = FR.getProjectId()
 
 	drawUserlist = -> if initDone
 		Tracker.afterFlush ->
@@ -122,8 +129,8 @@ Template.users.onCreated ->
 										swal TAPi18n.__('users.deleted'), '', 'success'
 
 	@autorun ->
-		Meteor.subscribe 'tags', projectId
-		handle = UserSubs.subscribe 'usersByProject', projectId
+		Meteor.subscribe 'users.tags', projectId
+		handle = Meteor.subscribe 'users.users', projectId
 		if handle.ready()
 			Meteor.users.find().observe
 				added: drawUserlist
@@ -134,24 +141,11 @@ Template.users.onCreated ->
 
 			drawUserlist()
 
-Template.users.onRendered ->
-
-	$('.animated').removeClass('animated').addClass('skipping')
-
-Template.users.onDestroyed ->
-
-	$('#addUserModal').modal('hide')
-	$('#editPermissionsModal').modal('hide')
-	$('#inviteUserModal').modal('hide')
-	$('#uploadUserFileModal').modal('hide')
-
 Template.users.events
 
-	'click #addNewUser': ->
-		wrs -> FlowRouter.setQueryParams addUser: true
+	'click #addNewUser': -> wrs -> FlowRouter.setQueryParams addUser: true
 
-	'click #inviteUser': ->
-		wrs -> FlowRouter.setQueryParams inviteUser: true
+	'click #inviteUser': -> wrs -> FlowRouter.setQueryParams inviteUser: true
 
 	'click #exportUsers': ->
 		users = Meteor.users.find({}, fields: roles: 0, services: 0, 'profile.available': 0, 'profile.vacations': 0)

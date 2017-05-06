@@ -1,4 +1,6 @@
-Meteor.publish 'usersByProject', (projectId) ->
+import { Permissions } from '/imports/api/util/permissions.coffee'
+
+Meteor.publish 'users.users', (projectId) ->
 
 	if typeof projectId == 'string' && projectId != ''
 		if Roles.userIsInRole @userId, Permissions.shiftScheduler, projectId

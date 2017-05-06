@@ -32,6 +32,7 @@ import '/imports/ui/pages/shifts/shifts.coffee'
 import '/imports/ui/pages/admin/admin.coffee'
 import '/imports/ui/pages/settings/settings.coffee'
 import '/imports/ui/pages/wiki/wiki.coffee'
+import '/imports/ui/pages/users/users.coffee'
 import '/imports/ui/pages/support/support.coffee'
 
 # Helpers
