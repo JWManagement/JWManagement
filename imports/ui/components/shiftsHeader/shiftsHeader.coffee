@@ -11,47 +11,63 @@ R = {}
 
 Template.shiftsHeader.helpers
 
-Template.shiftsHeader.onCreated ->
+	prevWeekButton: ->
+		weeks = Weeks.find
+			projectId: FR.getProjectId()
+			date: moment(FR.getShowWeek()).subtract(1, 'w').format('YYYY[W]WW')
 
-	@autorun ->
-		Meteor.subscribe 'shiftsHeader.weeks', FR.getProjectId(), FR.getShowWeek()
+		if weeks.fetch().length == 0
+			'btn-default disabled'
+		else
+			'btn-primary'
 
-		handle = Meteor.subscribe 'shiftsHeader.tags', projectId, tags: 1
-		handle.ready Tracker.afterFlush ->
-			showTags = FR.getShowTags()
+	nextWeekButton: ->
+		weeks = Weeks.find
+			projectId: FR.getProjectId()
+			date: moment(FR.getShowWeek()).add(1, 'w').format('YYYY[W]WW')
 
-			if !showTags? || showTags == ''
-				project = Projects.findOne projectId, fields: tags: 1
-
-				wrs -> FlowRouter.setQueryParams showTags: project.tags.join('_')
+		if weeks.fetch().length == 0
+			'btn-default disabled'
+		else
+			'btn-primary'
 
 Template.shiftsHeader.onRendered ->
 
-		weeks = Weeks.find
-			projectId: FR.getProjectId()
-			start: $gte: parseInt moment().isoWeekday(1).format 'YYYYDDDD'
-		,
+	@autorun -> if Weeks.find({}, _id: 1).fetch().length > 0
+		projectId = FR.getProjectId()
+
+		v1 = parseInt moment().format('YYYYDDDD')
+		v2 = parseInt moment(FR.getShowWeek()).format('YYYYDDDD')
+		earliestWeek = (v1 + v2) / 2 - Math.abs(v1 - v2) / 2
+
+		weeks = Weeks.find projectId: projectId,
 			fields: date: 1
 			sort: start: 1
 
-		weeks = weeks.fetch().map (w) -> w.date
+		weeks = weeks
+			.fetch()
+			.map (w) -> w.date
+			.filter (w) -> w?
+
+		startDate = moment(weeks[0]).format('DD/MM/YYYY')
+		endDate = moment(weeks[weeks.length - 1]).isoWeekday(7).format('DD/MM/YYYY')
 
 		$weekPicker = $('.week-chooser')
 		$weekPicker.datepicker
-			minViewMode: 0
-			maxViewMode: 0
 			weekStart: 1
 			autoclose: true
 			todayBtn: 'linked'
 			language: TAPi18n.getLanguage()
 			todayHighlight: true
+			startDate: startDate
+			endDate: endDate
 			beforeShowDay: (date) ->
 				weekDate = moment(date).format('YYYY[W]WW')
 				week = Weeks.findOne
-					projectId: FR.getProjectId()
+					projectId: projectId
 					date: weekDate
 				week?
-		.on 'changeDate', (e) ->
+		.on 'changeDate', (e, a) ->
 			newWeek = moment(e.date).format('YYYY[W]WW')
 
 			if R.currentWeek != newWeek
@@ -66,15 +82,20 @@ Template.shiftsHeader.onRendered ->
 
 				$weekPicker.data('updating', false)
 
-		Tracker.autorun ->
-			FlowRouter.watchPathChange()
+		FlowRouter.watchPathChange()
 
-			if FR.getShowWeek() != R.currentWeek
-				R.currentWeek = FR.getShowWeek()
-				$weekPicker.datepicker 'setDate', new Date(moment(R.currentWeek).format())
+		console.log 'TODO: automatically chooses 2017W18'
+
+		if FR.getShowWeek() != R.currentWeek
+			R.currentWeek = FR.getShowWeek()
+			$weekPicker.datepicker 'update', new Date(moment(R.currentWeek).format())
 
 Template.shiftsHeader.events
 
-	'click #prevWeek': -> FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).subtract(1, 'w').format('YYYY[W]WW')
+	'click #prevWeek': ->
+		FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).subtract(1, 'w').format('YYYY[W]WW')
+		$('#prevWeek').blur()
 
-	'click #nextWeek': -> FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).add(1, 'w').format('YYYY[W]WW')
+	'click #nextWeek': ->
+		FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).add(1, 'w').format('YYYY[W]WW')
+		$('#nextWeek').blur()

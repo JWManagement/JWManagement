@@ -10,29 +10,40 @@
 				i.fa.fa-send.fa-fw
 				| Send Confirmations
 	.col-xs-2.col-md-1.col-xs
-		button#prevWeek.btn-skip.btn.btn-primary.btn-outline.pull-right(class='{{prevWeekButton}}' title="{{_ 'shifts.prevWeek'}}")
+		button#prevWeek.btn-skip.btn.btn-outline.pull-right(class='{{prevWeekButton}}' title="{{_ 'shifts.prevWeek'}}")
 			i.fa.fa-chevron-left
 	.col-xs-8.col-md-4.col-xs.text-center
 		a.week-chooser(href)
 			i.fa.fa-calendar-o.m-r-sm
-			span.m-r {{formatWeek 'showWeek'}}
+			span.m-r-sm {{formatWeek 'showWeek'}}
+			i.fa.fa-angle-down
 	.col-xs-2.col-md-1.col-xs.center
-		button#nextWeek.btn-skip.btn.btn-primary.btn-outline(class="{{nextWeekButton}}" title="{{_ 'shifts.nextWeek'}}")
+		button#nextWeek.btn-skip.btn.btn-outline(class="{{nextWeekButton}}" title="{{_ 'shifts.nextWeek'}}")
 			i.fa.fa-chevron-right
 	.col-xs-12.col-md-3.col-xs
-		a.tag-chooser.pull-right(href)
-			| Showing 1 of 3 tags
-			i.fa.fa-angle-down
-		ul.dropdown-menu.dropdown-menu-right.m-r-xs
-			each tags
-				if isTagParticipant _id
-					if showTag
-						li.tag-visible
-							a(href title="{{_ 'shifts.shownTag'}}")
-								i.fa.fa-eye
-								| {{name}}
-					else
-						li.tag-hidden
-							a(href title="{{_ 'shifts.hiddenTag'}}")
-								i.fa.fa-eye-slash
-								| {{name}}
+		.dropdown.pull-right
+			a.tag-chooser.dropdown-toggle(href data-toggle='dropdown')
+				i.fa.fa-tags.m-r-sm
+				span.m-r-sm Showing 1 of 3 tags
+				i.fa.fa-angle-down
+			ul.dropdown-menu.m-r-xs
+				li.tag-visible
+					a(href)
+						i.fa.fa-eye
+						| asdf
+				li.tag-visible
+					a(href)
+						i.fa.fa-eye
+						| blubber
+				each tags
+					if isTagParticipant _id
+						if showTag
+							li.tag-visible
+								a(href title="{{_ 'shifts.shownTag'}}")
+									i.fa.fa-eye
+									| {{name}}
+						else
+							li.tag-hidden
+								a(href title="{{_ 'shifts.hiddenTag'}}")
+									i.fa.fa-eye-slash
+									| {{name}}
