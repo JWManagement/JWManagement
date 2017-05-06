@@ -203,7 +203,7 @@ shifts:
     openRequests: Offene Bewerbungen
     automation: Automatismus
     template: Vorlage
-    noVisibleShifts: Keine Schichten dieses Tags in dieser Woche
+    noVisibleShifts: Keine Schichten für diese Woche gefunden
     start: Start
     end: Ende
     visibility: Sichtbarkeit:

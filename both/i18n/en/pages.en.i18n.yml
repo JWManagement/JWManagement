@@ -199,7 +199,7 @@ shifts:
     openRequests: Open Requests
     automation: Automatic
     template: Template
-    noVisibleShifts: No shifts by that tag this week
+    noVisibleShifts: No shifts found for this week
     start: Start
     end: End
     visibility: Visibility:
