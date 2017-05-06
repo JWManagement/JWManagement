@@ -47,7 +47,7 @@ Template.shifts.onCreated ->
 						for tag in project.tags when Roles.userIsInRole Meteor.userId(), Permissions.participant, tag._id
 							visibleTags.push tag._id
 
-						wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
+						wrs -> FlowRouter.setQueryParams showTags: visibleTags
 
 			Meteor.subscribe 'week', projectId, week
 

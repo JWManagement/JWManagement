@@ -18,9 +18,9 @@ Template.project.helpers
 		tags = tags.map (tag) -> tag._id
 		tags = tags.filter (t) -> Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
 
-		FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tags.join('_')
+		FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tags
 
-	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tagId
+	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: [tagId]
 
 	newsThere: -> @news?.text && @news.text != ''
 
@@ -42,7 +42,7 @@ Template.project.events
 					projectId: @_id
 					language: TAPi18n.getLanguage()
 				,
-					showTags: @tags[0]._id
+					showTags: [@tags[0]._id]
 			else
 				swal TAPi18n.__('swal.missingTag'), '', 'error'
 
@@ -53,7 +53,7 @@ Template.project.events
 			projectId: @projectId
 			language: TAPi18n.getLanguage()
 		,
-			showTags: @tagId
+			showTags: [@tagId]
 			showShift: @_id
 
 	'click #editNews': (e) ->

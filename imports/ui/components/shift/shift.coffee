@@ -31,7 +31,7 @@ Template.shift.helpers
 			shift.isWrongTag = false
 			tags = FR.getShowTags()
 
-			if tags && shift.tagId not in tags.split('_')
+			if tags && shift.tagId not in tags
 				shift.isWrongTag = true
 			else
 				shift.isWrongTag = true
