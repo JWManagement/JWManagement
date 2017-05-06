@@ -3,7 +3,7 @@ import { Projects } from '/imports/api/projects/projects.coffee'
 import { Permissions } from '/imports/api/util/permissions.coffee'
 import { Validators } from '/imports/api/util/validators.coffee'
 
-Meteor.publish 'shiftsHeader.tags', (projectId) ->
+Meteor.publish 'shifts.tags', (projectId) ->
 	new SimpleSchema
 		projectId:
 			type: String
@@ -12,18 +12,20 @@ Meteor.publish 'shiftsHeader.tags', (projectId) ->
 				Validators.project.isMember
 	.validate { projectId }
 
-	filter = projectId: projectId
-
-	Projects.find(filter).observeChanges
+	handle = Projects.find(_id: projectId).observeChanges
 		added: (id, doc) =>
-			if Roles.userIsInRole @userId, Permissions.participant, doc._id
-				@added 'shiftsHeader.tags', id,
-					doc: _id
+			if Roles.userIsInRole @userId, Permissions.participant, id
+				@added 'projects', id,
+					_id: id
 					tags: doc.tags
 		changed: (id, doc) =>
-			if Roles.userIsInRole @userId, Permissions.participant, doc._id
-				@changed 'shiftsHeader.tags', id,
-					_id: doc._id
+			if Roles.userIsInRole @userId, Permissions.participant, id
+				@changed 'projects', id,
+					_id: id
 					tags: doc.tags
 		removed: (id) =>
-			@removed 'shiftsHeader.tags', id
+			@removed 'projects', id
+
+	@ready()
+
+	@onStop -> handle.stop()
