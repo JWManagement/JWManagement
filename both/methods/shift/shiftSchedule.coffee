@@ -46,6 +46,9 @@ Meteor.methods
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
 		user = Meteor.users.findOne userId, fields: _id: 1
 
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', userId, shiftId
+
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
@@ -108,6 +111,9 @@ Meteor.methods
 	declineRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1
 
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', userId, shiftId
+
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
 
@@ -122,6 +128,9 @@ Meteor.methods
 	declineParticipant: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
 		user = Meteor.users.findOne userId, fields: _id: 1
+
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', userId, shiftId
 
 		if Meteor.isServer
 			check userId, isExistingUser
@@ -176,6 +185,9 @@ Meteor.methods
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
 		user = Meteor.users.findOne userId, fields: _id: 1
 
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', userId, shiftId
+
 		if Meteor.isServer
 			check userId, isExistingUser
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
@@ -218,6 +230,9 @@ Meteor.methods
 			'profile.lastname': 1
 			'profile.telefon': 1
 			'profile.email': 1
+
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', userId, shiftId
 
 		if Meteor.isServer
 			check userId, isExistingUser

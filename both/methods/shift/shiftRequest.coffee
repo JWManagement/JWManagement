@@ -5,6 +5,9 @@ Meteor.methods
 		userId = user._id
 		shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1, tagId: 1
 
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', Meteor.userId(), shiftId
+
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
 			check { tagId: shift.tagId, userId: userId }, isTagParticipant

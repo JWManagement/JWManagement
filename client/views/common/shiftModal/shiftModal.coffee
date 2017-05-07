@@ -115,9 +115,9 @@ Template.shiftModal.onCreated ->
 
 	self = this
 	shiftId = FlowRouter.getQueryParam('showShift')
+	handle = ShiftSubs.subscribe 'shift', shiftId
 
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftModal').modal('show')
 			$('#shiftModal').on 'hidden.bs.modal', ->
