@@ -15,6 +15,8 @@ Meteor.methods
 
 			for participant in team.participants when participant.teamleader
 				tlNeeded = false
+			for pendingUser in team.pending when pendingUser.teamleader
+				tlNeeded = false
 
 		if tlNeeded
 			users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
