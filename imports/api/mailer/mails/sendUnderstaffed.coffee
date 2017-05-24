@@ -13,7 +13,8 @@ export sendUnderstaffed = (shiftId, teamId) ->
 	for team in shift.teams when team._id = teamId
 		shiftData.teams[0] = team
 
-		tlNeeded = false if team.participants.filter((p) -> p.teamleader).length > 1
+		tlNeeded = false if team.participants.filter((p) -> p.teamleader).length >= 1
+		tlNeeded = false if team.pending.filter((p) -> p.teamleader).length >= 1
 
 	if tlNeeded
 		users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
