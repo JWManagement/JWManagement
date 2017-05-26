@@ -1,0 +1,32 @@
+tour:
+    dashboard:
+        welcome:
+            title: Bem Vindo ao JWManagement
+            content: Este é o seu painel de controle pessoal. Aqui você tem fácil acesso a tudo o que precisa.
+        projects:
+            title: Projetos
+            content: Este é o primeiro projeto que você está permitido a participar. Aqui também poderá ver notificações se existentes.
+        wiki:
+            title: Centro de Informação
+            content: Aqui você irá encontrar informação que o seu Gerente de Projeto deixou para você.
+        shifts:
+            title: Turnos
+            content: Aqui você pode requisitar turnos
+        settings:
+            title: Administração
+            content: Você tem permissâo para editar este projeto. Tudo o que necessita está aqui.
+        myShifts:
+            title: Meus turnos
+            content: Aqui você tem todos os seus turnos.
+            left:
+                title: Meus turnos
+                content: Na coluna à esquerda você tem os turnos que você (ainda) não está a participar, ex: turnos que você requisitou mas ainda não foram aceites ou foi negado.
+            right:
+                title: Meus turnos
+                content: Na coluna à direita você tem os turnos em que está a participar.<br>Se você é o Lider de Equipa, você pode submeter o relatório de turno, ao clicar no turno.
+        profile:
+            title: Perfil
+            content: Aqui você tem o seu perfil pessoal. O seu Gerente de Projeto irá apreciar se você mantiver seu perfil atualizado.
+        finish:
+            title: Terminado!
+            content: Esperamos que desfrute de utilizar o JWManagement

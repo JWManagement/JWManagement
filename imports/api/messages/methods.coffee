@@ -12,7 +12,7 @@ export Methods =
 				message: type: String
 				language:
 					type: String
-					allowedValues: ['de', 'en']
+					allowedValues: ['de', 'en', 'pt']
 			.validator()
 		run: (args) ->
 			newDoc =
