@@ -16,12 +16,6 @@ navigation:
     firstLogin: Primeira Entrada
     forgotPassword: Esqueci a palavra-passe
     resetPassword: Restabelecer a palavra-passe
-    about: !!!!
-    terms: !!!!
-    privacy: !!!!
-    support: !!!!
-    version: !!!!
-    new: !!!!
 welcome:
     links:
         home: Página Principal
@@ -50,7 +44,6 @@ welcome:
         description: <p>Embora JW Management esteja optimizado para projetos de pregação publica, o foco principal é ser um sistema de gerência de turnos.</p><p>Também pode gerir Indicadores de Assembleias, Exibições Biblicas, um projeto de construção ou algo similar..</p><p> Onde possivel, nós estamos dispostos a alterar o sistema para se adequar as suas necessidades.</p>
     feature2:
         title: Últimas mudanças
-        more: !!!!
     feature3:
         title: Grátis e Open-Source
         description: <p>Visite o Repositório e veja como desenvolvemos o JW Management. Você pode sugerir carateristicas, reportar erros ou diretamente propor uma “Solicitação de extração” com as suas alterações de código.</p><p>Se gostaria de traduzir o sistema para outra linguagem, envie-nos seus ficheiros traduzidos através de uma “Solicitação de extração” ou através de email.</p>
