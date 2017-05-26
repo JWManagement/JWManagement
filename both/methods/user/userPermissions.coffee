@@ -121,15 +121,17 @@ Meteor.methods
 		user = Meteor.users.findOne username: username,
 			fields: _id: 1
 
-		if user?
-			if Meteor.isServer
-				check { userId: Meteor.userId(), projectId: project._id }, isAdmin
-				check { userId: user._id, projectId: project._id }, isMember
+		if Meteor.isServer && user?
+			check { userId: Meteor.userId(), projectId: project._id }, isAdmin
+			check { userId: user._id, projectId: project._id }, isMember
 
 			Roles.removeUsersFromRoles user._id, Permissions.member, projectId
 
 			if project? && project.tags
 				for tag in project.tags
 					Meteor.call 'changeTagRole', tag._id, user._id, 'none', ->
-						if Roles.getRolesForUser(user._id).length == 0
-							Meteor.users.remove user._id
+						for group in Roles.getGroupsForUser(user._id)
+							return if Roles.userIsInRole(user._id, Permissions.member, group)
+							return if Roles.userIsInRole(user._id, Permissions.participant, group)
+
+						Meteor.users.remove user._id
