@@ -24,16 +24,24 @@ export PermissionMethods =
 			projectId = args.projectId
 			userId = args.userId
 			project = Projects.findOne projectId, fields: 'tags._id': 1
+			lastProjectLeft = true
 
 			Roles.removeUsersFromRoles userId, Permissions.member, projectId
 
-			project.tags.filter (tag) ->
-				Roles.userIsInRole userId, Permissions.participant, tag._id
-			.forEach (tag) ->
-				Meteor.users.methods.permissions.changeTagRole.call
-					tagId: tag._id
-					userId: userId
-					permission: 'none'
+			for group in Roles.getGroupsForUser userId
+				if Roles.userIsInRole userId, Permissions.member, group
+					lastProjectLeft = false
+
+			if lastProjectLeft
+				Meteor.users.remove user._id
+			else
+				project.tags.filter (tag) ->
+					Roles.userIsInRole userId, Permissions.participant, tag._id
+				.forEach (tag) ->
+					Meteor.users.methods.permissions.changeTagRole.call
+						tagId: tag._id
+						userId: userId
+						permission: 'none'
 
 	changeTagRole: new ValidatedMethod
 		name: 'Meteor.users.methods.permissions.changeTagRole'

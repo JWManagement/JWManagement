@@ -13,7 +13,7 @@ export Methods =
 				message: type: String
 				language:
 					type: String
-					allowedValues: ['de', 'en']
+					allowedValues: ['de', 'en', 'hu', 'pt']
 			.validator()
 		run: (args) ->
 			newDoc = Messages.schema.clean

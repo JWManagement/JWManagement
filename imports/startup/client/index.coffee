@@ -34,6 +34,7 @@ import '/imports/ui/pages/settings/settings.coffee'
 import '/imports/ui/pages/wiki/wiki.coffee'
 import '/imports/ui/pages/users/users.coffee'
 import '/imports/ui/pages/support/support.coffee'
+import '/imports/ui/pages/donate/donate.coffee'
 
 # Helpers
 import '/imports/api/helpers/jdenticon.coffee'

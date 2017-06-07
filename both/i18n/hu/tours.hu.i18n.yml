@@ -1,0 +1,31 @@
+tour:
+    dashboard:
+        welcome:
+            title: Üdvözlünk a JW Management-nél
+            content: Ez a személyes műszerfalad. Itt mindent megtalálsz ami fontos egy pillanat alatt.
+        projects:
+            title: Feladatok
+            content: Ez az első feladat amiben részt vehetsz. Itt mindig megtalálod az aktuális híreket, amint megjelenik.
+            title: Információs központ
+            content: Itt megtalálod az általános információkat, amelyeket a feladat irányítója biztosít a számodra.
+        shifts:
+            title: Időpontok
+            content: Itt adhatod le kéréseidet hogy melyik időszakban szeretnél szolgálni.
+        settings:
+            title: Adminisztráció
+            content: Lehetőséged van hogy módosítsd ezt a feladatot. Itt mindent beállítást megtalász.
+        myShifts:
+            title: Az időpontjaim
+            content: Itt megtalálod az összes időpontodat.
+            left:
+                title: Időpontjaim
+                content: A bal oldali oszlopban megtaláod azokat az időpontokat, amelyek még függőben vannak, (még) nem biztos hogy részt vehetsz bennük. Pl: Az időpont, amit kértél nem lett engedélyezve vagy elutasítva.
+            right:
+                title: Időpontjaim
+                content: A jobb oldali oszlopban találod azokat az időpontokat melyek engedélyezve lettek számodra. <br> Ha te vagy a csoport irányítója, akkor megadhatod az időpont jelentését az időpontra kattintva.
+        profile:
+            title: Profil
+            content: Itt megtalálod a személyes profilod. A feladat vezetője nagyon értékelni fogja és köszöni, ha mindig naprakész a profilod.
+        finish:
+            title: Kész!
+            content: Reméljük testszett a JW management használata.
