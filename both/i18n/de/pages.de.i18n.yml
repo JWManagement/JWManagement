@@ -99,7 +99,7 @@ forgotPassword:
 resetPassword:
     name: Passwort zurücksetzen
     text: Neues Passwort für %s %s eingeben.
-    noUserFound: <p>Ungültiges Token</p><p>Bitte überprüfe die URL</p>
+    noUserFound: <p>Dieser Link ist abgelaufen</p><p>Bitte lass dir einen neuen Link zuschicken.</p>
     button: Passwort ändern
     back: Zurück zur Startseite
 profile:
@@ -348,8 +348,8 @@ firstLogin:
     text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     agreeTerms: Ich akzeptiere die <a href="/de/terms" target="blank">Nutzungsbedingungen</a> und die <a href="/de/privacy" target="blank">Datenschutzerklärung</a>
     button: Los geht's!
-    tokenError: Token-Fehler. Bitte wende dich an den Administrator (support@jwmanagement.org) oder deinen Projektleiter.
-    tokenMissing: Token fehlt. Bitte verwende den Link aus der E-Mail.
+    tokenError: Abgelaufener Link. Dieser Link ist nicht mehr gültig. Bitte lass dir eine neue E-Mail schicken oder versuche, dein Passwort zurückzusetzen.
+    tokenMissing: Ungültiger Link. Bitte verwende den Link aus der E-Mail.
     usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
     usernameMissing: Bitte gib einen Benutzernamen an.
     agreeTermsMissing: Bitte akzeptiere die Nutzungsbedingungen und die Datenschutzerklärung.

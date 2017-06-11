@@ -99,7 +99,7 @@ forgotPassword:
 resetPassword:
     name: Reset password
     text: Please enter a new password for %s %s.
-    noUserFound: <p>Invalid Token</p><p>Please check the URL</p>
+    noUserFound: <p>This link has expired</p><p>Please request another reset password mail.</p>
     button: Change password
     back: Back to Home Page
 profile:
@@ -348,8 +348,8 @@ firstLogin:
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
     agreeTerms: I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>
     button: Let's Go!
-    tokenError: Token-Error. Please contact the Administrator (support@jwmanagement.org) or your project leader.
-    tokenMissing: Token is missing. Please visit the link from the email.
+    tokenError: Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.
+    tokenMissing: Invalid link. Please visit the link from the email.
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Please provide a username.
     agreeTermsMissing: Please agree the terms of usage and the privacy policy.
