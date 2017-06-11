@@ -366,5 +366,5 @@ privacy:
     title: Adatvédelmi irányelvek (angol)
     back: Vissza a kezdőoldalra
 donate:
-    title: Adományozás
-    text: <p>Köszönjük, hogy meglátogattad ezt az oldalt!</p><p>Szeretnénk elmondani, mennyit költünk<b>minden hónapban</b> A JW Management-re:</p><ul><li>50€ a  Szerver-példányokra (Galaxy)</li><li>15€ az adatbázis-példányokra (mLab)</li><li>7€ az SMTP szolgáltatóra (MailJet)</li><li>1.50€ domain-re és az email címekre (Strato)</li><li>8.50€ az Apple fejlesztői hozzáférés (99€ per Jahr) - Az alkalmazás fejlesztés alatt áll</li><li>25€ <b>egyszeri</b> Google fejlesztői hozzáférés - Az alkalmazás fejlesztés alatt áll</li></ul><p>Következtetésként havonta 82 eurót költünk, hogy folyamatosan biztosítsuk a JW Management funkcionalitását.</p><p>Apropó:<i>a "mi"</i> azt jelenti hogy egy bételszolga és egy testvér aki a gyakornok.</p><p>Ezen túlmenően további információk találhatók a rendszerről:<br>A JW Managementet 3200+ hirnök használja 100+ projektben.</p><p> Ha tetszik (és ha tetszik a JW Management is), kérjük, használd az alábbi linket, hogy segíts nekünk az ehhez szükséges pénz biztosításához.</p><p>A hálátok és a irántunk tanúsított szeretetetek támogat minket<b>nagyra értékeljük ezetket!</b><br><h4>Nagyon szépen köszönjük! <i class="fa fa-heart text-danger"></i></h4></p>
+    title:
+    text:
