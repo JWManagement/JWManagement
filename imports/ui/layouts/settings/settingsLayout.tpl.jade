@@ -1,0 +1,25 @@
+if Platform.isCordova
+	.ionic-body(class='{{platformClasses}} {{currentRouteName}}-wrapper')
+		.menu-content
+			+navigation
+
+			+Template.dynamic(template=content)
+
+			+footer
+else
+	#wrapper
+
+		#page-wrapper(class="{{currentRouteName}}-wrapper")
+
+			+navigation
+
+			.template-content
+				.wrapper-content
+					.container
+						.row
+							.col-lg-3
+								+settingsNavigation
+							.col-lg-9
+								+Template.dynamic(template=content)
+
+			+footer

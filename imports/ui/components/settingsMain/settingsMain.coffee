@@ -7,11 +7,11 @@ import './settingsMain.tpl.jade'
 
 Template.settingsMain.helpers
 
-	data: -> Template.currentData().data
+	#data: -> Template.currentData().data
 
-	getLanguages: -> Object.keys(TAPi18n.getLanguages()).map (language) ->
-		a = TAPi18n.getLanguages()[language]
-		_id: language, name: a.name, en: a.en
+	#getLanguages: -> Object.keys(TAPi18n.getLanguages()).map (language) ->
+	#	a = TAPi18n.getLanguages()[language]
+	#	_id: language, name: a.name, en: a.en
 
 Template.settingsMain.onRendered ->
 

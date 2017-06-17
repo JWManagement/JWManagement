@@ -1,4 +1,5 @@
 import { Helpers } from './helpers.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 FlowRouter.route '/:language/:projectId/dashboard',
 	name: 'dashboard'
@@ -31,10 +32,14 @@ FlowRouter.route '/:language/:projectId/admin',
 
 FlowRouter.route '/:language/:projectId/settings',
 	name: 'settings'
+	action: (e) -> wrs -> FlowRouter.go 'settingsMain', e
+
+FlowRouter.route '/:language/:projectId/settings/main',
+	name: 'settingsMain'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'admin'
-		BlazeLayout.render 'mainLayout', content: 'settings'
+		BlazeLayout.render 'settingsLayout', content: 'settingsMain'
 
 FlowRouter.route '/:language/:projectId/users',
 	name: 'users'
