@@ -23,23 +23,3 @@ Template.mainLayout.onDestroyed ->
 	$('body').removeClass('gray-bg')
 	$('body').removeClass('md-skin')
 	$('body').removeClass('top-navigation')
-
-Template.mainLayout.helpers
-
-	isCordova: -> Platform.isCordova
-
-	platformClasses: ->
-		classes = []
-
-		classes.push 'platform-cordova' if Meteor.isCordova
-		classes.push 'platform-web' if Meteor.isClient
-		classes.push 'platform-ios' if Meteor.isCordova && Platform.isIOS
-		classes.push 'platform-android' if Meteor.isCordova && Platform.isAndroid
-
-		classes.join ' '
-
-Template.registerHelper 'isIOS', -> Platform.isIOS
-
-Template.registerHelper 'isAndroid', -> Platform.isAndroid
-
-Template.registerHelper 'getOS', -> Platform.getOS()

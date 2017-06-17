@@ -7,6 +7,7 @@ import '/imports/api/router/router.coffee'
 # Layouts
 import '/imports/ui/layouts/blank/blank.coffee'
 import '/imports/ui/layouts/main/main.coffee'
+import '/imports/ui/layouts/settings/settings.coffee'
 import '/imports/ui/layouts/inverted/inverted.coffee'
 
 # Pages
@@ -47,6 +48,22 @@ import '/imports/api/resources/bootstrap.min.js'
 import { TimeSync } from 'meteor/mizzao:timesync'
 
 Meteor.startup ->
+
+	Template.registerHelper 'isIOS', -> Platform.isIOS
+
+	Template.registerHelper 'isAndroid', -> Platform.isAndroid
+
+	Template.registerHelper 'getOS', -> Platform.getOS()
+
+	Template.registerHelper 'isCordova', -> Platform.isCordova
+
+	Template.registerHelper 'platformClasses'. ->
+		classes = []
+		classes.push 'platform-cordova' if Meteor.isCordova
+		classes.push 'platform-web' if Meteor.isClient
+		classes.push 'platform-ios' if Meteor.isCordova && Platform.isIOS
+		classes.push 'platform-android' if Meteor.isCordova && Platform.isAndroid
+		classes.join ' '
 
 	TimeSync.loggingEnabled = false
 
