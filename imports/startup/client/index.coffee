@@ -57,7 +57,7 @@ Meteor.startup ->
 
 	Template.registerHelper 'isCordova', -> Platform.isCordova
 
-	Template.registerHelper 'platformClasses'. ->
+	Template.registerHelper 'platformClasses', ->
 		classes = []
 		classes.push 'platform-cordova' if Meteor.isCordova
 		classes.push 'platform-web' if Meteor.isClient
