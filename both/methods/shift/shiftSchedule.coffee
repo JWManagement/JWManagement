@@ -40,7 +40,7 @@ Meteor.methods
 									'teams.$.pending': _id: participant._id
 								$addToSet: 'teams.$.declined': participant
 
-						Meteor.call 'closeTeam', shiftId, teamId
+						Meteor.call 'openTeam', shiftId, teamId
 
 	approveRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
