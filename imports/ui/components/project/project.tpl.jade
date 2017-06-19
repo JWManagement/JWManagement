@@ -16,6 +16,15 @@ with getProject
 								else
 									i.fa.fa-users.fa-4x
 								p.project-link-caption {{tag.name}}
+		if isProjectShiftOrStoreAdmin _id
+			.admin-popup.row
+				each btn in buttons
+					if isInRole btn.role _id
+						.admin-link.col-xs-6.col-sm-4.m-b-md.center-align
+							a.btn.btn-primary.btn-lg(href="{{pathFor btn.route projectId=_id language=langTag}}")
+								.m-t-xs.m-b-sm
+									i(class="fa fa-3x fa-{{btn.icon}}")
+								p.project-link-caption {{getName btn.route}}
 		.ibox
 			.ibox-content
 				h1.m-b-md {{name}}
@@ -42,7 +51,7 @@ with getProject
 						i.fa.fa-calendar-check-o
 						p.project-link-caption {{_ 'shifts.name'}}
 					if isProjectShiftOrStoreAdmin _id
-						a.btn.btn-primary.project-link(href="{{pathFor 'admin' projectId=_id language=langTag}}")
+						a#toAdmin.btn.btn-primary.project-link(href)
 							i.fa.fa-gear
 							p.project-link-caption {{_ 'admin.nameShort'}}
 			+understaffedShiftsList shifts=understaffedShifts
