@@ -6,8 +6,7 @@ import { Helpers } from './helpers.coffee'
 
 FlowRouter.route '/support',
 	name: 'support'
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'support'
 
 FlowRouter.route '/:language?',
@@ -49,34 +48,29 @@ FlowRouter.route '/:language/login',
 FlowRouter.route '/:language/forgot',
 	name: 'forgotPassword'
 	triggersEnter: [ Helpers.checkLanguage, Helpers.logout ]
-	action: ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.setParentHome ->
 		BlazeLayout.render 'blankLayout', content: 'forgotPassword'
 
 FlowRouter.route '/:language/reset/:token?',
 	name: 'resetPassword'
 	triggersEnter: [ Helpers.checkLanguage, Helpers.logout, Helpers.migrateToken ]
-	action: ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.setParentHome ->
 		BlazeLayout.render 'blankLayout', content: 'resetPassword'
 
 FlowRouter.route '/:language/firstLogin/:token?',
 	name: 'firstLogin'
 	triggersEnter: [ Helpers.checkLanguage, Helpers.logout, Helpers.migrateToken ]
-	action: ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.setParentHome ->
 		BlazeLayout.render 'blankLayout', content: 'firstLogin'
 
 FlowRouter.route '/:language/profile',
 	name: 'profile'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'profile'
 
 FlowRouter.route '/:language/donate',
 	name: 'donate'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.setParentHome ->
 		BlazeLayout.render 'blankLayout', content: 'donate'

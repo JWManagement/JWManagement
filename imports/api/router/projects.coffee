@@ -4,23 +4,19 @@ import { wrs } from '/imports/api/util/delay.coffee'
 FlowRouter.route '/:language/:projectId/dashboard',
 	name: 'dashboard'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'dashboard'
 
 FlowRouter.route '/:language/:projectId/kb',
 	name: 'wiki'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'wiki'
 
 FlowRouter.route '/:language/:projectId/shifts',
 	name: 'shifts'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		unless Session.get('parent') in ['settings', 'home']
-			Session.set 'parent', 'home'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'shifts'
 
 FlowRouter.route '/:language/:projectId/admin',
@@ -37,34 +33,29 @@ FlowRouter.route '/:language/:projectId/settings',
 FlowRouter.route '/:language/:projectId/settings/main',
 	name: 'settingsMain'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
-		BlazeLayout.render 'settingsLayout', content: 'settingsMain'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
+		BlazeLayout.render 'adminLayout', content: 'settings'
 
 FlowRouter.route '/:language/:projectId/users',
 	name: 'users'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'users'
 
 FlowRouter.route '/:language/:projectId/reports',
 	name: 'reports'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'reports'
 
 FlowRouter.route '/:language/:projectId/store',
 	name: 'store'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'store'
 
 FlowRouter.route '/:language/:projectId/notes',
 	name: 'notes'
 	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
+	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'notes'

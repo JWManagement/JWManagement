@@ -36,6 +36,10 @@ export Helpers =
 			else
 				BlazeLayout.render 'blankLayout', content: 'login'
 
+	setParentHome: (whatToDo) ->
+		Session.set 'parent', 'home'
+		whatToDo()
+
 	# TODO: DELETE SOON
 	migrateToken: (c) ->
 		if !c.params.token? && c.queryParams.token?
