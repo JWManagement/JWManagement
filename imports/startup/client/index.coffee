@@ -7,7 +7,7 @@ import '/imports/api/router/router.coffee'
 # Layouts
 import '/imports/ui/layouts/blank/blank.coffee'
 import '/imports/ui/layouts/main/main.coffee'
-import '/imports/ui/layouts/settings/settings.coffee'
+import '/imports/ui/layouts/admin/admin.coffee'
 
 # Pages
 import { Platform } from '/imports/api/util/platform.coffee'

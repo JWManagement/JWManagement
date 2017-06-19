@@ -3,9 +3,9 @@
 #import { Delay } from '/imports/api/util/delay.coffee'
 #import { FR } from '/imports/api/util/flowrouter.coffee'
 
-import './settingsNavigation.tpl.jade'
+import './adminNavigation.tpl.jade'
 
-Template.settingsNavigation.helpers
+Template.adminNavigation.helpers
 
 	#data: -> Template.currentData().data
 

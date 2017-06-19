@@ -1,4 +1,4 @@
-import './settingsLayout.tpl.jade'
+import './adminLayout.tpl.jade'
 
 import '/imports/api/util/platform.coffee'
 
@@ -11,14 +11,15 @@ if Platform.isCordova
 else
 	require '/imports/ui/components/footer/footer.coffee'
 	require '/imports/ui/components/navigation/navigation.coffee'
+	require '/imports/ui/components/adminNavigation/adminNavigation.coffee'
 
-Template.settingsLayout.onRendered ->
+Template.adminLayout.onRendered ->
 
 	$('body').addClass('gray-bg')
 	$('body').addClass('md-skin')
 	$('body').addClass('top-navigation')
 
-Template.settingsLayout.onDestroyed ->
+Template.adminLayout.onDestroyed ->
 
 	$('body').removeClass('gray-bg')
 	$('body').removeClass('md-skin')
