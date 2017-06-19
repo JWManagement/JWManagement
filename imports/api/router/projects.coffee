@@ -19,19 +19,8 @@ FlowRouter.route '/:language/:projectId/shifts',
 	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'mainLayout', content: 'shifts'
 
-FlowRouter.route '/:language/:projectId/admin',
-	name: 'admin'
-	triggersEnter: [ Helpers.checkLanguage ]
-	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
-		BlazeLayout.render 'invertedLayout', content: 'admin'
-
 FlowRouter.route '/:language/:projectId/settings',
 	name: 'settings'
-	action: (e) -> wrs -> FlowRouter.go 'settingsMain', e
-
-FlowRouter.route '/:language/:projectId/settings/main',
-	name: 'settingsMain'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn -> Helpers.setParentHome ->
 		BlazeLayout.render 'adminLayout', content: 'settings'
