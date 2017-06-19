@@ -200,7 +200,7 @@ Meteor.methods
 
 						Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
 					else
-						Meteor.call 'cancelTeam', shiftId, teamId
+						Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 				else
 					Shifts.update _id: shiftId, 'teams._id': teamId,
 						$pull: 'teams.$.participants': _id: userId
