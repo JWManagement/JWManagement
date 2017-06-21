@@ -23,6 +23,8 @@ Template.navigation.helpers
 
 	latestRelease: -> Session.get 'latestRelease'
 
+	langIsDe: -> TAPi18n.getLanguage() == 'de'
+
 Template.navigation.onCreated ->
 
 	PictureSubs.subscribe 'profilePicture', Meteor.userId()
