@@ -44,4 +44,4 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 Template.enquiryList.events
 
 	'click .createProject': (e) ->
-		# TODO: call method
+		FlowRouter.setQueryParams createProject: true
