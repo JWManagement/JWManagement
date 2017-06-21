@@ -28,7 +28,7 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 			username: user.username
 			name: user.profile.firstname + ' ' + user.profile.lastname
 			email: user.profile.email
-			action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a> | <a class="showProjects" data-id="' + user._id + '" href>Show projects...</a>'
+			action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a> | <a class="showProjects" data-id="' + user._id + '" href>Show projects...</a>'
 			projects: projects.join(';')
 
 	$('#userTable').html('').footable
@@ -48,12 +48,8 @@ Template.allUsers.events
 
 	'click .impersonate': (e) ->
 		userId = $(e.target).attr('data-id')
-		userLang = $(e.target).attr('data-lang')
 
-		Meteor.call 'getImpersonateToken', userId, (e, token) ->
-			Accounts.callLoginMethod methodArguments: [ impToken: token ]
-
-			FlowRouter.go 'home', language: userLang
+		Impersonate.do userId, (err, userId) -> wrs -> FlowRouter.go 'home', language: '_'
 
 	'click .showProjects': (e) ->
 		userId = $(e.target).attr('data-id')

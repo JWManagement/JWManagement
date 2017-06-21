@@ -9,6 +9,10 @@
 				a.navbar-brand.dashboard {{name}}
 			else
 				a.navbar-brand JW Management
+			if isImpersonating
+				a.navbar-brand.unimpersonate(href)
+					i.fa.fa-undo.m-r-xs
+					| Unimpersonate
 		ul.nav.navbar-top-links.navbar-right#profile
 			li
 				a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')

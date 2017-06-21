@@ -40,6 +40,8 @@ Template.navigation.onDestroyed ->
 
 Template.navigation.events
 
+	'click .unimpersonate': -> Impersonate.undo -> wrs -> FlowRouter.go 'support'
+
 	'click .setLanguage': (e) ->
 		language = $(e.target).closest('a').attr('lang')
 		TAPi18n.setLanguage language
