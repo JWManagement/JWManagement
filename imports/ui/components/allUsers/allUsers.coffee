@@ -26,9 +26,9 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 		rows.push
 			id: index + 1
 			username: user.username
-			action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a>'
 			name: user.profile.firstname + ' ' + user.profile.lastname
 			email: user.profile.email
+			action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a> | <a class="showProjects" data-id="' + user._id + '" href>Show projects...</a>'
 			projects: projects.join(';')
 
 	$('#userTable').html('').footable
@@ -54,3 +54,16 @@ Template.allUsers.events
 			Accounts.callLoginMethod methodArguments: [ impToken: token ]
 
 			FlowRouter.go 'home', language: userLang
+
+	'click .showProjects': (e) ->
+		userId = $(e.target).attr('data-id')
+		projectIds = []
+
+		for role in Permissions.member
+			roleProjectIds = Roles.getGroupsForUser(userId, role).join(',')
+
+			if roleProjectIds then projectIds.push roleProjectIds
+
+		$('#projectTable .footable-filtering button').click()
+		$('#projectTable .footable-filtering input[type="text"]').val projectIds.join(',')
+		$('#projectTable .footable-filtering button').click()
