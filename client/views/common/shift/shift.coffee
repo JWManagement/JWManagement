@@ -107,6 +107,8 @@ Template.shift.helpers
 				else if aSplit[0] > bSplit[0] then 1
 				else 0
 
+	countTl: (pendings) -> pendings.filter((pending) -> pending.teamleader || pending.substituteTeamleader).length
+
 Template.shift.onCreated ->
 
 	self = this

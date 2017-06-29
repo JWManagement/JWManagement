@@ -1,20 +1,20 @@
 if isProjectShiftScheduler
-	if user.thisTeamleader
-		if user.teamleader
+	if getUser.thisTeamleader
+		if getUser.teamleader
 			b
-				u {{user.name}} {{{getUserStatistics}}}
+				u {{getUser.name}} {{{getUserStatistics}}}
 		else if substituteTeamleader
 			i
-				u {{user.name}} {{{getUserStatistics}}}
+				u {{getUser.name}} {{{getUserStatistics}}}
 		else
-			u {{user.name}} {{{getUserStatistics}}}
-	else if user.teamleader
-		b {{user.name}} {{{getUserStatistics}}}
-	else if user.substituteTeamleader
-		i {{user.name}} {{{getUserStatistics}}}
+			u {{getUser.name}} {{{getUserStatistics}}}
+	else if getUser.teamleader
+		b {{getUser.name}} {{{getUserStatistics}}}
+	else if getUser.substituteTeamleader
+		i {{getUser.name}} {{{getUserStatistics}}}
 	else
-		| {{user.name}} {{{getUserStatistics}}}
-else if user.thisTeamleader
-	u {{user.name}} {{{getUserStatistics}}}
+		| {{getUser.name}} {{{getUserStatistics}}}
+else if getUser.thisTeamleader
+	u {{getUser.name}} {{{getUserStatistics}}}
 else
-	| {{user.name}} {{{getUserStatistics}}}
+	| {{getUser.name}} {{{getUserStatistics}}}

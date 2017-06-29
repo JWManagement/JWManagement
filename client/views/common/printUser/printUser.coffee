@@ -1,5 +1,14 @@
 Template.printUser.helpers
 
+	getUser: ->
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
+			Template.currentData().user
+		else
+			user = Template.currentData().user
+			user.teamleader = false
+			user.substituteTeamleader = false
+			user
+
 	getUserStatistics: -> if @showStats
 		projectId = FlowRouter.getParam 'projectId'
 

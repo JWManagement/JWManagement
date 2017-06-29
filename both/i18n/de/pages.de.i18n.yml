@@ -227,6 +227,8 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
+        requests: Bewerbungen
+        teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
     removeAll: Alle löschen

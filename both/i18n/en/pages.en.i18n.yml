@@ -228,6 +228,8 @@ shifts:
         participants: Participants
         start: Start
         end: End
+        requests: Requests
+        teamleaders: TLs
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:
     removeAll: Remove all
