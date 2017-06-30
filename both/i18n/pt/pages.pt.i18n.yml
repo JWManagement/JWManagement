@@ -51,10 +51,8 @@ welcome:
         repo: Repositório GitHub
     contact:
         title: Contacte-nos
-        description: <p>Quer testar o sistema para usar na sua congregação?</p><p>Notifique-nos para que possamos criar um projeto para vocês.</p><p> Tem outra questão ou sugestão?</p><p>Estaremos felizes de escutar!</p>
-        name: Nome
+        name: Primeiro Nome Sobrenome
         email: Endereço de Email
-        congregation: Congregação
         enquiry: Pesquisa do projeto
         login: Problema de login
         problem: Problema

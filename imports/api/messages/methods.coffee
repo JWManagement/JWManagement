@@ -8,18 +8,20 @@ export Methods =
 			new SimpleSchema
 				name: type: String
 				email: type: SimpleSchema.RegEx.Email
-				congregation: type: String
+				projectName: type: String
 				message: type: String
 				language:
 					type: String
 					allowedValues: ['de', 'en', 'hu', 'pt']
 			.validator()
 		run: (args) ->
+			console.log args
+
 			newDoc =
 				author:
 					name: args.name
 					email: args.email
-				congregation: args.congregation
+				projectName: args.projectName
 				text: args.message
 				language: args.language
 

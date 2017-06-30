@@ -13,7 +13,7 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 		{ name: 'type', title: 'Type', breakpoints: '' }
 		{ name: 'author', title: 'Author', breakpoints: '' }
 		{ name: 'email', title: 'E-Mail' , breakpoints: '' }
-		{ name: 'congregation', title: 'congregation' , breakpoints: '' }
+		{ name: 'projectName', title: 'Project Name' , breakpoints: '' }
 		{ name: 'content', title: 'Content' , breakpoints: '' }
 		{ name: 'action', title: 'Action' , breakpoints: '' }
 	]
@@ -24,7 +24,7 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 			type: enquiry.type
 			author: enquiry.author.name
 			email: enquiry.author.email
-			congregation: enquiry.congregation
+			projectName: enquiry.projectName
 			content: enquiry.text
 			action: '<a class="createProject" data-id="" href>Create Project</a>'
 
@@ -43,5 +43,4 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 
 Template.enquiryList.events
 
-	'click .createProject': (e) ->
-		FlowRouter.setQueryParams createProject: true
+	'click .createProject': (e) -> FlowRouter.setQueryParams createProject: true

@@ -40,7 +40,7 @@ Messages.schema = new SimpleSchema
 	'recipient.email':
 		type: String
 		autoValue: -> 'support@jwmanagement.org'
-	congregation:
+	projectName:
 		type: String
 	text:
 		type: String
