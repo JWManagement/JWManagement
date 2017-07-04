@@ -1,11 +1,10 @@
-import { Methods } from './methods.coffee'
-import { Helpers } from './helpers.coffee'
+import SimpleSchema from 'simpl-schema'
 import { Mongo } from 'meteor/mongo'
 
-export Messages = new Mongo.Collection 'messages'
+import { Methods } from './methods.coffee'
+import { Helpers } from './helpers.coffee'
 
-Messages.methods = Methods
-Messages.helpers = Helpers
+export Messages = new Mongo.Collection 'messages'
 
 Messages.deny
 	insert: -> true
@@ -20,7 +19,6 @@ Messages.schema = new SimpleSchema
 		autoValue: -> Random.id()
 	createdAt:
 		type: Date
-		denyUpdate: true
 		autoValue: -> new Date
 	type:
 		type: String
@@ -29,11 +27,15 @@ Messages.schema = new SimpleSchema
 	language:
 		type: String
 		autoValue: -> 'de'
+	author:
+		type: Object
 	'author.name':
 		type: String
 	'author.email':
 		type: String
-		regEx: SimpleSchema.RegEx.Email
+		regEx: SimpleSchema.RegEx.EmailWithTLD
+	recipient:
+		type: Object
 	'recipient.name':
 		type: String
 		autoValue: -> 'Support'
@@ -46,3 +48,6 @@ Messages.schema = new SimpleSchema
 		type: String
 
 Messages.attachSchema = Messages.schema
+
+Messages.methods = Methods
+Messages.helpers = Helpers
