@@ -247,7 +247,7 @@ Template.store.events
 
 	'click #showPublication': (e) ->
 		projectId = FlowRouter.getParam('projectId')
-		short = $(e.target).attr('short')
+		short = $(e.target).closest('a').attr('short')
 
 		if FlowRouter.getQueryParam('showPublication') == short
 			wrs -> FlowRouter.setQueryParams showPublication: null
