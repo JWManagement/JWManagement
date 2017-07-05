@@ -69,6 +69,7 @@ welcome:
         suggestion: Feature Request
         question: General Question
         message: Message
+        whatFor: What do you want to organize?
         send: Send
         sendEnquiry: Send Enquiry
         enquirySuccessful: Enquiry successfully sent!

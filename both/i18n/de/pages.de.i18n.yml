@@ -68,6 +68,7 @@ welcome:
         suggestion: Verbesserung vorschlagen
         question: Generelle Frage
         message: Nachricht
+        whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
         enquirySuccessful: Anfrage wurde übermittelt!
