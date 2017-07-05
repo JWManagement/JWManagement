@@ -24,6 +24,10 @@ Messages.schema = new SimpleSchema
 		type: String
 		allowedValues: ['enquiry']
 		autoValue: -> 'enquiry'
+	status:
+		type: String
+		allowedValues: ['new', 'done']
+		autoValue: -> 'new'
 	language:
 		type: String
 		autoValue: -> 'de'

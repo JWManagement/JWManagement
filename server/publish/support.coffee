@@ -6,6 +6,7 @@ Meteor.publish 'support', ->
 		[
 			Messages.find
 				'recipient.name': 'Support'
+				status: 'new'
 			, {},
 				sort: createdAt: -1
 		,

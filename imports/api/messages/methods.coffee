@@ -29,3 +29,14 @@ export Methods =
 			Messages.schema.validate newDoc
 
 			Messages.insert newDoc
+
+	deleteProjectEnquiry: new ValidatedMethod
+		name: 'Messages.methods.deleteProjectEnquiry'
+		validate:
+			new SimpleSchema
+				messageId: type: String
+			.validator()
+		run: (args) -> if Meteor.isServer &&  Roles.userIsInRole Meteor.userId(), 'support'
+			{ Messages } = require '/imports/api/messages/messages.coffee'
+
+			Messages.update args.messageId, $set: status: 'done'
