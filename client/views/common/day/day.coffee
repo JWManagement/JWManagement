@@ -37,7 +37,8 @@ Template.day.events
 				throw new Meteor.Error 500, 'Not enough data provided'
 
 	'click #removeAll': (e) ->
-		shifts = @shifts
+		visibleTags = FlowRouter.getQueryParam('showTags').split('_')
+		shifts = @shifts.filter (s) -> Shifts.findOne(s).tagId in visibleTags
 
 		swalYesNo
 			swal: 'delete.allShifts'
