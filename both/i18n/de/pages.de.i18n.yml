@@ -136,6 +136,9 @@ profile:
     _ministryPrivilege:
         ministerialServant: Dienstamtgehilfe
         elder: Ältester
+        coordinator: Koordinator
+        secretary: Sekretär
+        serviceOverseer: Dienstaufseher
     placeholder:
         telefon: (z.B. +49 177 1234567)
         congregation: Musterstadt-Englisch-West

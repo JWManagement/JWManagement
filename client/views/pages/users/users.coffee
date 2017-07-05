@@ -83,6 +83,9 @@ Template.users.onCreated ->
 					privilege: {
 						servant: TAPi18n.__('profile._ministryPrivilege.ministerialServant')
 						elder: TAPi18n.__('profile._ministryPrivilege.elder')
+						coordinator: TAPi18n.__('profile._ministryPrivilege.coordinator')
+						secretary: TAPi18n.__('profile._ministryPrivilege.secretary')
+						serviceOverseer: TAPi18n.__('profile._ministryPrivilege.serviceOverseer')
 					}[user.profile.privilege] || TAPi18n.__('profile.publisher')
 
 			$('#userTable').html('').footable

@@ -99,6 +99,9 @@ if queryParam 'editProfilePicture'
 											option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
 											option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
 											option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}
+											option(value='coordinator' selected="{{isField 'privilege' 'coordinator'}}") {{_ "profile._ministryPrivilege.coordinator"}}
+											option(value='secretary' selected="{{isField 'privilege' 'secretary'}}") {{_ "profile._ministryPrivilege.secretary"}}
+											option(value='serviceOverseer' selected="{{isField 'privilege' 'serviceOverseer'}}") {{_ "profile._ministryPrivilege.serviceOverseer"}}
 					.ibox.animated.fadeInUp
 						.ibox-title
 							h2.animated.fadeInUp {{_ 'profile.options.title'}}

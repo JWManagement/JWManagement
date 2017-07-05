@@ -137,6 +137,9 @@ profile:
     _ministryPrivilege:
         ministerialServant: Ministerial servant
         elder: Elder
+        coordinator: Coordinator of the Body of Elders
+        secretary: Secretary
+        serviceOverseer: Service overseer
     placeholder:
         telefon: (e.g. +447712345678)
         congregation: Congregation
