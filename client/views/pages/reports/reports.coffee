@@ -25,7 +25,11 @@ Template.reports.helpers
 
 	getMonth: -> FlowRouter.getQueryParam('month')
 
-	readyOrDisabled: -> unless ShiftSubs.ready() then 'disabled'
+	readyOrDisabled: ->
+		if ShiftSubs.ready()
+			button: '', icon: 'fa-download'
+		else
+			button: 'disabled', icon: 'fa-spinner fa-pulse'
 
 	basicSums: (field) -> Template.instance().basicSums[field].get()
 
