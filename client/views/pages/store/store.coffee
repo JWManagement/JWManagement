@@ -135,10 +135,10 @@ Template.store.helpers
 		'F'
 		'G', 'GE'
 		'H', 'HI'
-		'J'
-		'KRI'
 		'I', 'IB', 'IN'
-		'K', 'KO'
+		'J'
+		'K', 'KO', 'KRI'
+		'LT',
 		'M', 'MC'
 		'O', 'OA'
 		'P', 'PH', 'PJ', 'PL', 'PR'
