@@ -1,3 +1,5 @@
+import { Reports } from '/imports/api/reports/reports.coffee'
+
 Template.reports.helpers
 
 	getProjectId: -> FlowRouter.getParam('projectId')
@@ -6,11 +8,20 @@ Template.reports.helpers
 
 	readyOrDisabled: -> unless ShiftSubs.ready() then 'disabled'
 
-Template.reports.onRendered ->
-
-	$('.animated').removeClass('animated').addClass('skipping')
+	basicSums: (field) -> Template.instance().basicSums[field].get()
 
 Template.reports.onCreated ->
+
+	defaultText = 'Loading...'
+
+	Template.instance().basicSums =
+		texts: new ReactiveVar defaultText
+		speaks: new ReactiveVar defaultText
+		videos: new ReactiveVar defaultText
+		hours: new ReactiveVar defaultText
+		'experiences.route': new ReactiveVar defaultText
+		'experiences.good': new ReactiveVar defaultText
+		'experiences.problems': new ReactiveVar defaultText
 
 	self = this
 	projectId = FlowRouter.getParam('projectId')
@@ -25,6 +36,25 @@ Template.reports.onCreated ->
 		if Session.get 'subscribe'
 			ShiftSubs.subscribe 'reports', projectId, Session.get 'subscribe'
 			Session.set 'subscribe', false
+
+Template.reports.onRendered ->
+
+	$('.animated').removeClass('animated').addClass('skipping')
+
+	projectId = FlowRouter.getParam('projectId')
+	month = FlowRouter.getQueryParam('month')
+	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
+	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
+	thisTemplate = Template.instance()
+
+	for field in Object.keys(thisTemplate.basicSums)
+		Reports.GetAggregatedReportItemValue.call
+			projectId: projectId
+			startDate: startDate
+			endDate: endDate
+			field: field
+		, (e, r) ->
+			thisTemplate.basicSums[r._id].set(r.sum)
 
 Template.reports.events
 
