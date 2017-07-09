@@ -36,6 +36,7 @@ export Reports =
 			])[0]
 
 			aggregationResult ||
+				_id: 0
 				texts: 0
 				speaks: 0
 				videos: 0
