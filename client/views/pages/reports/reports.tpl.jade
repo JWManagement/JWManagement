@@ -37,7 +37,7 @@
 									h4 0
 								.col-xs-4
 									small.stats-label {{_ 'reports.videos'}}
-									h4 {{basicSums 'videos'}}
+									h4 {{{basicSums 'videos'}}}
 					.ibox
 						.ibox-content
 							.row.m-b
@@ -46,17 +46,17 @@
 							.row.m-b
 								.col-xs-4
 									small.stats-label {{_ 'reports.talks'}}
-									h4 {{basicSums 'speaks'}}
+									h4 {{{basicSums 'speaks'}}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.addresses'}}
 									h4 0
 								.col-xs-4
 									small.stats-label {{_ 'reports.hours'}}
-									h4 {{basicSums 'hours'}}
+									h4 {{{basicSums 'hours'}}}
 							.row
 								.col-xs-4
 									small.stats-label {{_ 'reports.texts'}}
-									h4 {{basicSums 'texts'}}
+									h4 {{{basicSums 'texts'}}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.shifts'}}
 									h4 0
@@ -87,15 +87,15 @@
 							.row
 								.col-xs-4
 									small.stats-label {{_ 'reports.route'}}
-									h4 {{basicSums 'experiences.route'}}
+									h4 {{{basicSums 'experiences.route'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="route") {{_ 'reports.show'}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.good'}}
-									h4 {{basicSums 'experiences.good'}}
+									h4 {{{basicSums 'experiences.good'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="good") {{_ 'reports.show'}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.problems'}}
-									h4 {{basicSums 'experiences.problems'}}
+									h4 {{{basicSums 'experiences.problems'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="problems") {{_ 'reports.show'}}
 
 					button.btn.btn-primary.pull-right#exportReports(class='{{readyOrDisabled}}' download)

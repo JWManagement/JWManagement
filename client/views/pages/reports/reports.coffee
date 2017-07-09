@@ -1,5 +1,24 @@
 import { Reports } from '/imports/api/reports/reports.coffee'
 
+defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
+
+fetchData = (thisTemplate) ->
+	projectId = FlowRouter.getParam('projectId')
+	month = FlowRouter.getQueryParam('month')
+	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
+	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
+
+	for field in Object.keys(thisTemplate.basicSums)
+		thisTemplate.basicSums[field].set(defaultText)
+
+		Reports.GetAggregatedReportItemValue.call
+			projectId: projectId
+			startDate: startDate
+			endDate: endDate
+			field: field
+		, (e, r) ->
+			thisTemplate.basicSums[r._id].set(r.sum)
+
 Template.reports.helpers
 
 	getProjectId: -> FlowRouter.getParam('projectId')
@@ -12,16 +31,14 @@ Template.reports.helpers
 
 Template.reports.onCreated ->
 
-	defaultText = 'Loading...'
-
 	Template.instance().basicSums =
-		texts: new ReactiveVar defaultText
-		speaks: new ReactiveVar defaultText
-		videos: new ReactiveVar defaultText
-		hours: new ReactiveVar defaultText
-		'experiences.route': new ReactiveVar defaultText
-		'experiences.good': new ReactiveVar defaultText
-		'experiences.problems': new ReactiveVar defaultText
+		texts: new ReactiveVar
+		speaks: new ReactiveVar
+		videos: new ReactiveVar
+		hours: new ReactiveVar
+		'experiences.route': new ReactiveVar
+		'experiences.good': new ReactiveVar
+		'experiences.problems': new ReactiveVar
 
 	self = this
 	projectId = FlowRouter.getParam('projectId')
@@ -41,32 +58,27 @@ Template.reports.onRendered ->
 
 	$('.animated').removeClass('animated').addClass('skipping')
 
-	projectId = FlowRouter.getParam('projectId')
-	month = FlowRouter.getQueryParam('month')
-	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
-	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
 	thisTemplate = Template.instance()
 
-	for field in Object.keys(thisTemplate.basicSums)
-		Reports.GetAggregatedReportItemValue.call
-			projectId: projectId
-			startDate: startDate
-			endDate: endDate
-			field: field
-		, (e, r) ->
-			thisTemplate.basicSums[r._id].set(r.sum)
+	fetchData(thisTemplate)
 
 Template.reports.events
 
 	'click #prevMonth': ->
 		prevMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').subtract(1, 'M').format('YYYY[M]MM')
-		wrs -> FlowRouter.setQueryParams month: prevMonth
+		thisTemplate = Template.instance()
 		Session.set 'subscribe', prevMonth
+		wrs ->
+			FlowRouter.setQueryParams month: prevMonth
+			fetchData(thisTemplate)
 
 	'click #nextMonth': ->
 		nextMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').add(1, 'M').format('YYYY[M]MM')
-		wrs -> FlowRouter.setQueryParams month: nextMonth
+		thisTemplate = Template.instance()
 		Session.set 'subscribe', nextMonth
+		wrs ->
+			FlowRouter.setQueryParams month: nextMonth
+			fetchData(thisTemplate)
 
 	'click #showMissing': -> false
 
