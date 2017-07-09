@@ -255,16 +255,16 @@ reports:
     magazines: Zeitschriften
     brochures: Broschüren
     tracts: Traktate
+    invitations: Einladungen
     videos: Gezeigte Videos
     talks: Geführte Gespräche
     achievements: Was erreicht wurde
-    addresses: Weitergeleitete Adressen
     hours: Eingesetzte Stunden
     texts: Vorgelesene Bibeltexte
     shifts: Stattgefundene Schichten
-    missing: Fehlende Teamberichte
+    missing: Fehlende Berichte
     participants: Teilnehmer
-    pioneers: Teilgenommene APVs
+    fulltime: Teilgenommene Vollzeitdiener
     publishers: Teilgenommene Verkündiger
     allParticipants: Teilnehmer insgesamt
     experiences: Erfahrungen

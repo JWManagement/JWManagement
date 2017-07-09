@@ -2,17 +2,14 @@ import SimpleSchema from 'simpl-schema'
 
 export Reports =
 
-	GetAggregatedReportItemValue: new ValidatedMethod
-		name: 'Reports.getAggregatedReportItemValue'
+	GetAchievementSummary: new ValidatedMethod
+		name: 'Reports.GetAchievementSummary'
 		validate:
 			# TODO: check permissions
 			new SimpleSchema
 				projectId: type: String
 				startDate: type: SimpleSchema.Integer
 				endDate: type: SimpleSchema.Integer
-				field:
-					type: String
-					allowedValues: ['texts', 'speaks', 'videos', 'hours', 'experiences.route', 'experiences.good', 'experiences.problems']
 			.validator()
 		run: (args) -> if Meteor.isServer
 			aggregationResult = Shifts.aggregate([
@@ -28,8 +25,64 @@ export Reports =
 				$unwind: '$teams'
 			,
 				$group:
-					_id: args.field
-					sum: $sum: '$teams.report.' + args.field
+					_id: ''
+					texts: $sum: '$teams.report.texts'
+					speaks: $sum: '$teams.report.speaks'
+					videos: $sum: '$teams.report.videos'
+					hours: $sum: '$teams.report.hours'
+					route: $sum: '$teams.report.experiences.route'
+					good: $sum: '$teams.report.experiences.good'
+					problems: $sum: '$teams.report.experiences.problems'
 			])[0]
 
-			aggregationResult || _id: args.field, sum: 0
+			aggregationResult ||
+				texts: 0
+				speaks: 0
+				videos: 0
+				hours: 0
+				route: 0
+				good: 0
+				problems: 0
+
+	GetParticipantsCount: new ValidatedMethod
+		name: 'Reports.GetParticipantsCount'
+		validate:
+			# TODO: check permissions
+			new SimpleSchema
+				projectId: type: String
+				startDate: type: SimpleSchema.Integer
+				endDate: type: SimpleSchema.Integer
+			.validator()
+		run: (args) -> if Meteor.isServer
+			participants = Shifts.aggregate([
+				$match:
+					$and: [
+						projectId: args.projectId
+					,
+						date: $gte: args.startDate
+					,
+						date: $lte: args.endDate
+					]
+			,
+				$unwind: '$teams'
+			,
+				$unwind: '$teams.participants'
+			,
+				$project:
+					_id: '$teams.participants._id'
+			])
+			.map (user) -> user._id
+
+			fulltimeCount = participants.filter((userId) ->
+				user = Meteor.users.findOne(userId, 'profile.pioneer': 1)
+				user.profile.pioneer in ['regular', 'special', 'circuit', 'bethelite', 'ldc']
+			).length
+
+			publisherCount = participants.filter((userId) ->
+				user = Meteor.users.findOne(userId, 'profile.publisher': 1)
+				user.profile.pioneer in ['publisher', 'auxiliary']
+			).length
+
+			allCount = fulltimeCount + publisherCount
+
+			fulltime: fulltimeCount, publishers: publisherCount, all: allCount

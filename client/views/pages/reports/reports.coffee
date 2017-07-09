@@ -11,13 +11,25 @@ fetchData = (thisTemplate) ->
 	for field in Object.keys(thisTemplate.basicSums)
 		thisTemplate.basicSums[field].set(defaultText)
 
-		Reports.GetAggregatedReportItemValue.call
-			projectId: projectId
-			startDate: startDate
-			endDate: endDate
-			field: field
-		, (e, r) ->
-			thisTemplate.basicSums[r._id].set(r.sum)
+	Reports.GetAchievementSummary.call
+		projectId: projectId
+		startDate: startDate
+		endDate: endDate
+	, (e, result) ->
+		delete result._id
+		for field in Object.keys(result)
+			thisTemplate.basicSums[field].set(result[field])
+
+	for field in Object.keys(thisTemplate.participantsCount)
+		thisTemplate.participantsCount[field].set(defaultText)
+
+	Reports.GetParticipantsCount.call
+		projectId: projectId
+		startDate: startDate
+		endDate: endDate
+	, (e, result) ->
+		for field in Object.keys(result)
+			thisTemplate.participantsCount[field].set(result[field])
 
 Template.reports.helpers
 
@@ -33,6 +45,8 @@ Template.reports.helpers
 
 	basicSums: (field) -> Template.instance().basicSums[field].get()
 
+	participantsCount: (field) -> Template.instance().participantsCount[field].get()
+
 Template.reports.onCreated ->
 
 	Template.instance().basicSums =
@@ -40,9 +54,14 @@ Template.reports.onCreated ->
 		speaks: new ReactiveVar
 		videos: new ReactiveVar
 		hours: new ReactiveVar
-		'experiences.route': new ReactiveVar
-		'experiences.good': new ReactiveVar
-		'experiences.problems': new ReactiveVar
+		route: new ReactiveVar
+		good: new ReactiveVar
+		problems: new ReactiveVar
+
+	Template.instance().participantsCount =
+		fulltime: new ReactiveVar
+		publishers: new ReactiveVar
+		all: new ReactiveVar
 
 	self = this
 	projectId = FlowRouter.getParam('projectId')

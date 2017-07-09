@@ -256,16 +256,16 @@ reports:
     magazines: Magazines
     brochures: Brochures
     tracts: Tracts
+    invitations: Invitations
     videos: Videos Shown
     talks: Talks
     achievements: Achievements
-    addresses: Forwarded Addresses
     hours: Engaged time
     texts: Read Bible Texts
     shifts: Accomplished Shifts
-    missing: Missing Team Reports
+    missing: Missing Reports
     participants: Participants
-    pioneers: Participating Regular Pioneers
+    fulltime: Participating Fulltime-Servants
     publishers: Participating Publishers
     allParticipants: Participants overall
     experiences: Experiences
