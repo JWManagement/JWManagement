@@ -29,7 +29,6 @@ export sendCancelTeam = (shiftId, teamId, message) ->
 					name: participant.name
 					reason: message
 					text: TAPi18n.__('mail.teamCancellation.text', {date: date, time: time} , user.profile.language)
-					content: getMailTexts 'teamCancellation', user.profile.language
 			, (err, res) -> if err
 				console.log 'sendMail failed: ' + err
 

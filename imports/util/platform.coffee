@@ -7,8 +7,8 @@ export Platform =
 			'ios'
 
 	# Override isCordova for testing purposes
-	isCordova: Meteor.isCordova || false
+	isCordova: Meteor.isCordova || true
 
-	isIOS: navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) || Session.get('platformOverride') == 'iOS'
+	isIOS: navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i)
 
-	isAndroid: navigator.userAgent.indexOf('Android') > 0 || Session.get('platformOverride') == 'Android'
+	isAndroid: navigator.userAgent.indexOf('Android') > 0
