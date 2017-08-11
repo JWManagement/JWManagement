@@ -1,7 +1,5 @@
 @page {
-    size: A4;
-   size: portrait;
-   margin: 5mm;
+   margin: 4mm;
 }
 @media print{
 
@@ -27,6 +25,10 @@
                 text-align: center;
             }
         }
+    }
+
+    .footer{
+        display: none;
     }
 
 }
