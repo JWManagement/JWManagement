@@ -128,6 +128,8 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 				else
 					user.privileges = 'publisher'
 
+				user.congregation = user.profile.congregation
+
 				user
 
 			handle = Meteor.users.find userId,
