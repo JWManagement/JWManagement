@@ -89,16 +89,16 @@ Meteor.methods
 									approvedUsers.push pendingUser._id
 
 									Shifts.update _id: shiftId, 'teams._id': teamId,
-										$pull:
-											'teams.$.pending': _id: pendingUser._id
-											'teams.$.declined': _id: pendingUser._id
+										$pull: 'teams.$.pending': _id: pendingUser._id
+
+									Shifts.update _id: shiftId, 'teams._id': teamId,
+										$pull: 'teams.$.declined': _id: pendingUser._id
 										$addToSet: 'teams.$.participants': pendingUser
 								else
 									declinedUsers.push pendingUser._id
 
 									Shifts.update _id: shiftId, 'teams._id': teamId,
-										$pull:
-											'teams.$.pending': _id: pendingUser._id
+										$pull: 'teams.$.pending': _id: pendingUser._id
 										$addToSet: 'teams.$.declined': pendingUser
 
 								if pendingUser.checked
@@ -189,14 +189,12 @@ Meteor.methods
 				if wasTeamleader
 					if hasTeamleader
 						Shifts.update _id: shiftId, 'teams._id': teamId,
-							$pull:
-								'teams.$.participants': _id: userId
-								'teams.$.participants': _id: newTeamleaderData._id
+							$pull: 'teams.$.participants': _id: userId
+							$addToSet: 'teams.$.declined': participantData
 
 						Shifts.update _id: shiftId, 'teams._id': teamId,
-							$addToSet:
-								'teams.$.declined': participantData
-								'teams.$.participants': newTeamleaderData
+							$pull: 'teams.$.participants': _id: newTeamleaderData._id
+							$addToSet: 'teams.$.participants': newTeamleaderData
 
 						Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
 					else
