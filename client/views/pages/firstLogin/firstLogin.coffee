@@ -1,6 +1,17 @@
 Template.firstLogin.helpers
 
+	user: ->
+		token = FlowRouter.getQueryParam('token')
+		Meteor.users.findOne 'services.password.reset.token': token
+
 	getErrorMessage: -> Session.get('errorMessage')
+
+Template.firstLogin.onCreated ->
+
+	token = FlowRouter.getQueryParam('token')
+
+	if token? && token != ''
+		@subscribe 'userByToken', token
 
 Template.firstLogin.events
 
