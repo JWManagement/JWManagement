@@ -231,7 +231,7 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
-        requests: Bewerbungen
+        requests: Bewerbungen von
         teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:

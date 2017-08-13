@@ -66,6 +66,7 @@ with getShift
 										.shift-team-information
 											i {{team.pending.length}}
 												| {{_ 'shifts.shift.requests'}}
+												| {{team.min}}
 												| ({{countTl team.pending}}
 												| {{_ 'shifts.shift.teamleaders'}})
 else

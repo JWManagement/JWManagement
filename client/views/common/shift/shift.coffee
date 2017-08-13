@@ -42,6 +42,7 @@ Template.shift.helpers
 				scheduling: 1
 				'teams._id': 1
 				'teams.name': 1
+				'teams.min': 1
 				'teams.status': 1
 				'teams.participants': 1
 				'teams.pending': 1
