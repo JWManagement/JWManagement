@@ -13,10 +13,21 @@ Template.users.helpers
 		users = Roles.getUsersInRole Permissions.member, projectId,
 			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
 
-		for user in users.fetch()
+		for user in users.fetch().filter((u) -> u._id != 'adm').sort((u1, u2) -> u1.profile.lastname > u2.profile.lastname)
 			mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
 
 		mails.join ','
+
+	allMailsWithSemicolon: ->
+		mails = []
+		projectId = FlowRouter.getParam('projectId')
+		users = Roles.getUsersInRole Permissions.member, projectId,
+			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
+
+		for user in users.fetch().filter((u) -> u._id != 'adm').sort((u1, u2) -> u1.profile.lastname > u2.profile.lastname)
+			mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
+
+		mails.join ';'
 
 	allMailsThisTag: ->
 		mails = []
@@ -25,10 +36,24 @@ Template.users.helpers
 		users = Roles.getUsersInRole Permissions.member, projectId,
 			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
 
-		for user in users.fetch() when Roles.userIsInRole user._id, Permissions.participant, tagId
-			mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
+		for user in users.fetch().filter((u) -> u._id != 'adm').sort((u1, u2) -> u1.profile.lastname > u2.profile.lastname)
+			if Roles.userIsInRole user._id, Permissions.participant, tagId
+				mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
 
 		mails.join ','
+
+	allMailsThisTagWithSemicolon: ->
+		mails = []
+		tagId = @_id
+		projectId = FlowRouter.getParam('projectId')
+		users = Roles.getUsersInRole Permissions.member, projectId,
+			fields: 'profile.firstname': 1, 'profile.lastname': 1, 'profile.email': 1
+
+		for user in users.fetch().filter((u) -> u._id != 'adm').sort((u1, u2) -> u1.profile.lastname > u2.profile.lastname)
+			if Roles.userIsInRole user._id, Permissions.participant, tagId
+				mails.push user.profile.firstname + ' ' + user.profile.lastname + ' <' + user.profile.email + '>'
+
+		mails.join ';'
 
 Template.users.onCreated ->
 
@@ -155,6 +180,9 @@ Template.users.events
 
 	'click #inviteUser': ->
 		wrs -> FlowRouter.setQueryParams inviteUser: true
+
+	'click .showAddresses': (e) ->
+		window.prompt('Press ctrl/cmd + c to copy the mail addresses', $(e.target).closest('button').attr('addresses'));
 
 	'click #exportUsers': ->
 		users = Meteor.users.find({}, fields: services: 0, 'profile.available': 0, 'profile.vacations': 0)
