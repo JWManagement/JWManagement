@@ -157,16 +157,41 @@ Template.users.events
 		wrs -> FlowRouter.setQueryParams inviteUser: true
 
 	'click #exportUsers': ->
-		users = Meteor.users.find({}, fields: roles: 0, services: 0, 'profile.available': 0, 'profile.vacations': 0)
+		users = Meteor.users.find({}, fields: services: 0, 'profile.available': 0, 'profile.vacations': 0)
 
-		csvContent = 'data:text/csv;charset=utf-8,' + '\uFEFF'
 		head = []
-		head.push TAPi18n.__('input.email'), TAPi18n.__('input.firstname'), TAPi18n.__('input.lastname'), TAPi18n.__('input.gender'), TAPi18n.__('profile.telefon'), TAPi18n.__('profile.birthday'), TAPi18n.__('profile.privilegeOfService'), TAPi18n.__('profile.ministryPrivilege'), TAPi18n.__('profile.congregation'), TAPi18n.__('profile.languages'), TAPi18n.__('input.username')
-		csvContent += head.join(';') + '\r\n'
+		head.push(
+			TAPi18n.__('input.email')
+			TAPi18n.__('input.firstname')
+			TAPi18n.__('input.lastname')
+			TAPi18n.__('input.gender')
+			TAPi18n.__('profile.telefon')
+			TAPi18n.__('profile.birthday')
+			TAPi18n.__('profile.privilegeOfService')
+			TAPi18n.__('profile.ministryPrivilege')
+			TAPi18n.__('profile.congregation')
+			TAPi18n.__('profile.languages')
+			TAPi18n.__('input.username')
+			TAPi18n.__('input.roles'))
+
+		csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + head.join(';') + '\r\n'
 
 		for user in users.fetch()
 			row = []
-			row.push( user.profile.email, user.profile.firstname, user.profile.lastname, user.profile.gender, user.profile.telefon, user.profile.bdate, user.profile.pioneer, user.profile.privilege, user.profile.congregation, user.profile.languages, user.username)
+			row.push(
+				user.profile.email
+				user.profile.firstname
+				user.profile.lastname
+				user.profile.gender
+				user.profile.telefon
+				user.profile.bdate
+				user.profile.pioneer
+				user.profile.privilege
+				user.profile.congregation
+				user.profile.languages
+				user.username
+				'"' + Object.keys(user.roles).filter((r) -> user.roles[r][0]?).map((r) -> r + '=' + user.roles[r][0]).join(';') + '"')
+
 			csvContent += row.join(';') + '\r\n'
 
 		encodedUri = encodeURI(csvContent)
