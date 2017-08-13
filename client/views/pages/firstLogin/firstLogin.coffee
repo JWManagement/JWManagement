@@ -13,7 +13,9 @@ Template.firstLogin.events
 		agreeTerms = $('#agreeTerms').prop('checked')
 		token = FlowRouter.getQueryParam('token')
 
-		if token
+		if username.indexOf('@') > 0 || username.indexOf('.') > 0
+			Session.set 'errorMessage', TAPi18n.__('input.helpText.username')
+		else if token
 			if agreeTerms
 				if username
 					if Meteor.areValidPasswords password1, password2
