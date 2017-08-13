@@ -351,7 +351,7 @@ Template.shiftModal.events
 					if manualScheduling
 						swalYesNo
 							swal: 'sendMail.understaffed'
-							doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId
+							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
 					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
 
 		else if wasTeamleader && !otherTeamleaderExists && participants > 1
@@ -362,7 +362,7 @@ Template.shiftModal.events
 					if manualScheduling
 						swalYesNo
 							swal: 'sendMail.understaffed.teamleader'
-							doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId
+							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
 					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
 		else
 			swalYesNo
@@ -423,7 +423,7 @@ Template.shiftModal.events
 
 		swalYesNo
 			swal: 'sendMail.understaffed'
-			doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
+			doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
 
 	'click #switch': ->
 		shiftId = FlowRouter.getQueryParam 'showShift'
