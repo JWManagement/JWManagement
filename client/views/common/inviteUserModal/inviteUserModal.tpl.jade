@@ -7,18 +7,18 @@
 				h5.m-b-none {{{_ 'modal.inviteUser.key'}}}
 			.modal-body
 				if isProjectAdmin
-					if getNewUser
+					if getUsers
 						.checkbox.checkbox-primary
 							input#selectAll(type="checkbox")
 							label(for="selectAll")
 								| {{_ 'modal.inviteUser.selectAll'}}
 						table.table.table-stripped
-						each getNewUser
+						each getUsers
 							tr
 								td
 									.checkbox.checkbox-primary
 										input(id="check{{_id}}" type="checkbox")
-										label(for="check{{_id}}" class="{{isInvited}}")
+										label(for="check{{_id}}" class="{{getState}}")
 											| {{profile.firstname}} {{profile.lastname}}
 					else
 						| {{_ 'modal.inviteUser.noUsers'}}
