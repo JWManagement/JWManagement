@@ -1,8 +1,8 @@
 import { Pictures } from '/imports/api/pictures/pictures.coffee'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { Dialogs } from '/imports/util/dialogs.coffee'
-import { wrs } from '/imports/util/delay.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import './navigation.tpl.jade'
 import './navigation.scss'
@@ -34,6 +34,8 @@ Template.navigation.helpers
 
 	latestRelease: -> R.latestRelease.get()
 
+	langIsDe: -> TAPi18n.getLanguage() == 'de'
+
 Template.navigation.onCreated ->
 
 	Meteor.subscribe 'profilePicture', Meteor.userId()
@@ -48,6 +50,8 @@ Template.navigation.onDestroyed ->
 	Session.set 'target', undefined
 
 Template.navigation.events
+
+	'click .unimpersonate': -> Impersonate.undo -> wrs -> FlowRouter.go 'support'
 
 	'click .setLanguage': (e) ->
 		language = $(e.target).closest('a').attr('lang')

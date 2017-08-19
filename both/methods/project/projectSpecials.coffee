@@ -1,21 +1,5 @@
 Meteor.methods
 
-	changeAllShiftTags: (projectId, tagId, tagName) ->
-		minDate = parseInt(moment().format('YYYYDDDD'))
-
-		if Meteor.isServer
-			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
-
-		Meteor.call 'updateProjectItem', projectId, 'tags', tagId, 'name', tagName
-
-		Shifts.update
-			projectId: projectId
-			tagId: tagId
-		,
-			$set: tag: tagName
-		,
-			multi: true
-
 	changeAllShiftTeams: (projectId, teamId, field, value) ->
 		minDate = parseInt(moment().format('YYYYDDDD'))
 		set = {}

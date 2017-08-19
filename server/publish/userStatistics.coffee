@@ -92,9 +92,9 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 
 				countTeamsAll = (shift) ->
 					shift.teams.filter (t) ->
-						(userId in t.participants.map (u) -> u._id) ||
-						(userId in t.pending.map (u) -> u._id) ||
-						(userId in t.declined.map (u) -> u._id)
+						(userId in t.participants.filter((u) -> u?).map (u) -> u._id) ||
+						(userId in t.pending.filter((u) -> u?).map (u) -> u._id) ||
+						(userId in t.declined.filter((u) -> u?).map (u) -> u._id)
 					.length
 
 				countTeamsApproved = (shift) ->
@@ -127,6 +127,8 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 						user.privileges = privilege
 				else
 					user.privileges = 'publisher'
+
+				user.congregation = user.profile.congregation
 
 				user
 

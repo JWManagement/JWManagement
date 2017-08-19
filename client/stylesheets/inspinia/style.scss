@@ -11,13 +11,5 @@
 @import "../../../imports/ui/styles/variables";
 @import "../../../imports/ui/styles/custom/import";
 @import "../../../imports/ui/styles/framework/import";
-@import "pages/shifts";
 @import "pages/reports";
 @import "pages/store";
-@import "pages/users";
-@import "pages/settings";
-@media print {
-	#page-wrapper {
-		margin: 0;
-	}
-}

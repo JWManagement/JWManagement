@@ -1,6 +1,6 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
-import { Permissions } from '/imports/util/permissions.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
 import { send } from '../send.coffee'
 import { getMailTexts } from '../helpers.coffee'
 
@@ -13,7 +13,8 @@ export sendUnderstaffed = (shiftId, teamId) ->
 	for team in shift.teams when team._id = teamId
 		shiftData.teams[0] = team
 
-		tlNeeded = false if team.participants.filter((p) -> p.teamleader).length > 1
+		tlNeeded = false if team.participants.filter((p) -> p.teamleader).length >= 1
+		tlNeeded = false if team.pending.filter((p) -> p.teamleader).length >= 1
 
 	if tlNeeded
 		users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
@@ -24,7 +25,7 @@ export sendUnderstaffed = (shiftId, teamId) ->
 		users = user.fetch()
 		type = 'participant'
 
-	for user in users
+	for user in users.filter((u) -> u.profile.shortTermCalls == true)
 		thisMoment = moment(shift.date, 'YYYYDDDD')
 		thisMoment.locale(user.profile.language)
 		date = thisMoment.format('dddd, DD.MM.YYYY')

@@ -7,10 +7,10 @@ import '/imports/api/router/router.coffee'
 # Layouts
 import '/imports/ui/layouts/blank/blank.coffee'
 import '/imports/ui/layouts/main/main.coffee'
-import '/imports/ui/layouts/inverted/inverted.coffee'
+import '/imports/ui/layouts/admin/admin.coffee'
 
 # Pages
-import { Platform } from '/imports/util/platform.coffee'
+import { Platform } from '/imports/api/util/platform.coffee'
 
 if Platform.isCordova
 	require '/imports/ui/pages/dashboard/mobile/dashboard.coffee'
@@ -28,12 +28,17 @@ import '/imports/ui/pages/privacy/privacy.coffee'
 import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/profile/profile.coffee'
+import '/imports/ui/pages/shifts/shifts.coffee'
 import '/imports/ui/pages/admin/admin.coffee'
+import '/imports/ui/pages/settings/settings.coffee'
 import '/imports/ui/pages/wiki/wiki.coffee'
+import '/imports/ui/pages/users/users.coffee'
 import '/imports/ui/pages/support/support.coffee'
+import '/imports/ui/pages/donate/donate.coffee'
 
 # Helpers
 import '/imports/api/helpers/jdenticon.coffee'
+import '/imports/api/helpers/permissions.coffee'
 
 # Resources
 import '/imports/api/resources/bootstrap.min.js'
@@ -42,6 +47,22 @@ import '/imports/api/resources/bootstrap.min.js'
 import { TimeSync } from 'meteor/mizzao:timesync'
 
 Meteor.startup ->
+
+	Template.registerHelper 'isIOS', -> Platform.isIOS
+
+	Template.registerHelper 'isAndroid', -> Platform.isAndroid
+
+	Template.registerHelper 'getOS', -> Platform.getOS()
+
+	Template.registerHelper 'isCordova', -> Platform.isCordova
+
+	Template.registerHelper 'platformClasses', ->
+		classes = []
+		classes.push 'platform-cordova' if Meteor.isCordova
+		classes.push 'platform-web' if Meteor.isClient
+		classes.push 'platform-ios' if Meteor.isCordova && Platform.isIOS
+		classes.push 'platform-android' if Meteor.isCordova && Platform.isAndroid
+		classes.join ' '
 
 	TimeSync.loggingEnabled = false
 

@@ -1,3 +1,5 @@
+import SimpleSchema from 'simpl-schema'
+
 export VacationMethods =
 
 	add: new ValidatedMethod

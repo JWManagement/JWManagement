@@ -1,5 +1,5 @@
-import { Dialogs } from '/imports/util/dialogs.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import './firstLogin.tpl.jade'
 import './firstLogin.scss'
@@ -34,30 +34,33 @@ Template.firstLogin.events
 		token = FR.getToken()
 
 		try
-			if token
-				if agreeTerms
-					if username
-						if Meteor.users.helpers.areValidPasswords password1, password2
-							Meteor.users.methods.getters.usernameAvailable.call
-								username: username
-							, Dialogs.callback
-								onError: -> submit.ladda('stop')
-								onSuccess: ->
-									Meteor.users.methods.init.call
-										token: token
-										username: username
-										password: password1
-									, Dialogs.callback
-										onError: -> submit.ladda('stop')
-										onSuccess: ->
-											Meteor.loginWithPassword username, password1, ->
-												FlowRouter.go 'home'
+			if username.indexOf('@') < 0 && username.indexOf('.') < 0
+				if token
+					if agreeTerms
+						if username
+							if Meteor.users.helpers.areValidPasswords password1, password2
+								Meteor.users.methods.getters.usernameAvailable.call
+									username: username
+								, Dialogs.callback
+									onError: -> submit.ladda('stop')
+									onSuccess: ->
+										Meteor.users.methods.init.call
+											token: token
+											username: username
+											password: password1
+										, Dialogs.callback
+											onError: -> submit.ladda('stop')
+											onSuccess: ->
+												Meteor.loginWithPassword username, password1, ->
+													FlowRouter.go 'home'
+						else
+							throw new Meteor.Error 'usernameMissing', 'error'
 					else
-						throw new Meteor.Error 'usernameMissing', 'error'
+						throw new Meteor.Error 'agreeTermsMissing', 'error'
 				else
-					throw new Meteor.Error 'agreeTermsMissing', 'error'
+					throw new Meteor.Error 'tokenMissing', 'error'
 			else
-				throw new Meteor.Error 'tokenMissing', 'error'
+				throw new Meteor.Error 'usernameUnavailable', 'error'
 		catch e
 			submit.ladda('stop')
 			Dialogs.feedback e

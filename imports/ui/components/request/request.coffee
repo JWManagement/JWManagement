@@ -1,5 +1,5 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 import './request.tpl.jade'
 import './request.scss'
@@ -65,7 +65,7 @@ Template.request.helpers
 			language: TAPi18n.getLanguage()
 		,
 			showWeek: moment(@date, 'YYYYDDDD').format('GGGG[W]WW')
-			showTags: @tagId
+			showTags: [@tagId]
 			showShift: @_id
 
 	shiftRelation: ->
@@ -120,7 +120,7 @@ Template.request.events
 			projectId: @projectId
 			language: TAPi18n.getLanguage()
 		,
-			showTags: @tagId
+			showTags: [@tagId]
 			showShiftReport: shiftId
 			reportTeamId: teamId
 

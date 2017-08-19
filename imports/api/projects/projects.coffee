@@ -52,8 +52,6 @@ Projects.schema = new SimpleSchema
 		type: String
 	'tags.$.img':
 		type: String
-	'tags.$.templates':
-		type: String
 		allowedValues: [
 			'none'
 			'trolley'
@@ -66,6 +64,8 @@ Projects.schema = new SimpleSchema
 			'truck'
 			'ship'
 		]
+	'tags.$.templates':
+		type: Array
 	teams:
 		type: Array
 	'teams.$._id':

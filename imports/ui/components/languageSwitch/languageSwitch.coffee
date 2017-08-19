@@ -1,4 +1,4 @@
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 import './languageSwitch.tpl.jade'
 

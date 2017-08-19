@@ -1,5 +1,7 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
+
+import '/imports/ui/components/itemContent/itemContent.coffee'
 
 import './wikiTabs.tpl.jade'
 
@@ -11,7 +13,7 @@ Template.wikiTabs.helpers
 		project = Projects.findOne FR.getProjectId()
 		project?.wiki?.tabs
 
-	ready: -> R.handle.ready()
+	ready: -> R.handle?.ready()
 
 Template.wikiTabs.onCreated ->
 

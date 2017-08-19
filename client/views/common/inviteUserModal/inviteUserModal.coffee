@@ -1,11 +1,19 @@
 Template.inviteUserModal.helpers
 
-	getNewUser: ->
+	getUsers: ->
 		projectId = FlowRouter.getParam('projectId')
-		users = Roles.getUsersInRole Permissions.member, projectId, state: $in: ['invited', 'created']
-		users.fetch()
+		users = Roles.getUsersInRole Permissions.member, projectId
+		users.fetch().sort (u1, u2) ->
+			if u1.profile.lastname != u2.profile.lastname
+				u1.profile.lastname > u2.profile.lastname
+			else
+				u1.profile.firstname > u2.profile.firstname
 
-	isInvited: -> 'text-warning' if @state == 'invited'
+	getState: ->
+		if @state == 'invited'
+			'text-warning'
+		else if @state == 'active'
+			'text-green'
 
 Template.inviteUserModal.onRendered ->
 

@@ -1,5 +1,5 @@
 import { Projects } from '/imports/api/projects/projects.coffee'
-import { Permissions } from '/imports/util/permissions.coffee'
+import { Permissions } from '/imports/api/util/permissions.coffee'
 
 import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.coffee'
 
@@ -10,6 +10,8 @@ Template.project.helpers
 
 	getProject: -> Template.currentData().project
 
+	getName: (route) -> TAPi18n.__('navigation.' + route)
+
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
 	multipleTags: -> @tags.length > 1 if @tags
@@ -18,13 +20,39 @@ Template.project.helpers
 		tags = tags.map (tag) -> tag._id
 		tags = tags.filter (t) -> Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
 
-		FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tags.join('_')
+		FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tags
 
-	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: tagId
+	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId: @_id, language: TAPi18n.getLanguage() }, showTags: [tagId]
 
 	newsThere: -> @news?.text && @news.text != ''
 
 	understaffedShifts: -> Template.currentData().understaffedShifts
+
+	buttons: -> [
+		route: 'settings'
+		icon: 'cogs'
+		role: 'admin,shiftAdmin'
+	,
+		route: 'users'
+		icon: 'users'
+		role: 'admin'
+	,
+		route: 'reports'
+		icon: 'comments'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
+	,
+		route: 'store'
+		icon: 'cubes'
+		role: 'admin,storeAdmin'
+	,
+		route: 'notes'
+		icon: 'pencil'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
+	,
+		route: 'donate'
+		icon: 'heart'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
+	]
 
 Template.project.events
 
@@ -42,9 +70,17 @@ Template.project.events
 					projectId: @_id
 					language: TAPi18n.getLanguage()
 				,
-					showTags: @tags[0]._id
+					showTags: [@tags[0]._id]
 			else
 				swal TAPi18n.__('swal.missingTag'), '', 'error'
+
+	'click #toAdmin': (e) ->
+		e.preventDefault()
+
+		$(e.target).closest('.project-wrapper').addClass('show-admin-popup')
+
+		$('.admin-popup').on 'click', (e) ->
+			$(e.target).closest('.project-wrapper').removeClass('show-admin-popup')
 
 	'click .shift-link': (e) ->
 		e.preventDefault()
@@ -53,7 +89,7 @@ Template.project.events
 			projectId: @projectId
 			language: TAPi18n.getLanguage()
 		,
-			showTags: @tagId
+			showTags: [@tagId]
 			showShift: @_id
 
 	'click #editNews': (e) ->

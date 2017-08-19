@@ -66,6 +66,9 @@ privileges:
     circuit: CO
     bethelite: BT
     ldc: LDC
+    coordinator: CBE
+    secretary: SEC
+    serviceOverseer: SO
     elder: E
     servant: S
     publisher: P

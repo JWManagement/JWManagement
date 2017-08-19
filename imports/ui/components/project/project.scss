@@ -2,17 +2,21 @@
 @import "../../styles/framework/import";
 
 .project-wrapper {
-	&.show-tags-popup {
-		& > .tags-popup {
-			display: block !important;
-		}
-
-		& > .ibox {
-			filter: blur(15px);
-			-webkit-filter: blur(15px);
-		}
+	&.show-tags-popup > .tags-popup {
+		display: block !important;
 	}
 
+	&.show-admin-popup > .admin-popup {
+		display: block !important;
+	}
+
+	&.show-admin-popup > .ibox,
+	&.show-tags-popup > .ibox {
+		filter: blur(15px);
+		-webkit-filter: blur(15px);
+	}
+
+	.admin-popup,
 	.tags-popup {
 		top             : 0;
 		left            : 0;

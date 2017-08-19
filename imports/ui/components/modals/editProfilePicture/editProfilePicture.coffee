@@ -1,5 +1,5 @@
 import { Pictures } from '/imports/api/pictures/pictures.coffee'
-import { wrs } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
 
 import './editProfilePicture.tpl.jade'
 
@@ -12,10 +12,10 @@ Template.editProfilePicture.events
 		$('#editProfilePictureModal').modal('hide')
 
 		Meteor.users.methods.picture.remove.call {}, (e) ->
-			if e then handleError e
+			if e then Dialogs.handleError e
 			else
 				Pictures.insert picture, (e, file) ->
-					if e then handleError e
+					if e then Dialogs.handleError e
 					else
 						Tracker.autorun (tracker) ->
 							fileObj = Pictures.findOne file._id
@@ -24,6 +24,6 @@ Template.editProfilePicture.events
 
 	'click #delete': (e) ->
 		Meteor.users.methods.picture.remove.call {}, (e) ->
-			if e then handleError e
+			if e then Dialogs.handleError e
 			else
 				$('#editProfilePictureModal').modal('hide')

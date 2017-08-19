@@ -1,4 +1,4 @@
-import { Delay } from '/imports/util/delay.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
 
 jdenticon = require 'jdenticon'
 

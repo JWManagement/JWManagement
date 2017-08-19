@@ -10,26 +10,32 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 	rows = []
 	columns = [
 		{ name: 'id', title: '#', breakpoints: '', filterable: false }
-		{ name: 'firstname', title: 'First name', breakpoints: '' }
-		{ name: 'lastname', title: 'Surname' , breakpoints: '' }
 		{ name: 'username', title: 'Username' , breakpoints: '' }
+		{ name: 'name', title: 'Name', breakpoints: '' }
+		{ name: 'email', title: 'E-Mail' , breakpoints: '' }
 		{ name: 'action', title: 'Action' , breakpoints: '' }
-		{ name: 'projects', title: 'Projects' , visible: false }
+		{ name: 'projects', visible: false }
 	]
 
 	for user, index in users
 		projects = []
+		action = '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a> | '
+		projectActions = []
+		pNumber = 1
 
-		for group in Object.keys user.roles
+		for group in Object.keys user.roles when user.roles[group][0] in Permissions.member
+			projectActions.push '<a class="showProjects" data-id="' + group + '" href>P' + pNumber++ + '</a>'
 			projects.push group + '=' + user.roles[group]
+
+		action += projectActions.join(' | ')
 
 		rows.push
 			id: index + 1
 			username: user.username
-			firstname: user.profile.firstname
-			lastname: user.profile.lastname
-			action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a>'
-			projects: projects.join ';'
+			name: user.profile.firstname + ' ' + user.profile.lastname
+			email: user.profile.email
+			action: action
+			projects: projects.join(';')
 
 	$('#userTable').html('').footable
 		columns: columns
@@ -48,9 +54,12 @@ Template.allUsers.events
 
 	'click .impersonate': (e) ->
 		userId = $(e.target).attr('data-id')
-		userLang = $(e.target).attr('data-lang')
 
-		Meteor.call 'getImpersonateToken', userId, (e, token) ->
-			Accounts.callLoginMethod methodArguments: [ impToken: token ]
+		Impersonate.do userId, (err, userId) -> wrs -> FlowRouter.go 'home', language: '_'
 
-			FlowRouter.go 'home', language: userLang
+	'click .showProjects': (e) ->
+		projectId = $(e.target).attr('data-id')
+
+		$('#projectTable .footable-filtering button').click()
+		$('#projectTable .footable-filtering input[type="text"]').val projectId
+		$('#projectTable .footable-filtering button').click()

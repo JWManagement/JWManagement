@@ -1,3 +1,9 @@
+@media print {
+	#page-wrapper {
+		margin: 0;
+	}
+}
+
 h1.logo-name {
 	font-family: 'Arial';
 }
@@ -46,4 +52,8 @@ table tbody tr td .label {
 
 .footable-toggle {
 	cursor: pointer;
+}
+
+.text-green {
+	color: $green;
 }

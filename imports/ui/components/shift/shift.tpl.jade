@@ -1,0 +1,52 @@
+with getShift
+	if isWrongTag
+		.wrongTag
+	else
+		button.btn.btn-block.shift(class='{{shiftClass}} {{adminClass}}' start='{{start}}' end='{{end}}')
+			h3.shift-period {{formatTimeComparison start end}}
+			if teams
+				if multipleTags
+					.shift-banner
+						i.fa.fa-tags
+						| {{tag}}
+				.shift-teams
+					each team in teams
+						div.shift-team(class='{{getTeamStatus team}}')
+							.shift-team-header
+								i.fa.fa-map-signs
+								| {{team.name}}
+							if team.participants
+								.shift-team-participants
+									each sortUsers team.participants
+										+printUser user=this
+										br
+							if team.pending
+								if isProjectShiftScheduler
+									.shift-team-pendings
+										each sortUsers team.pending
+											+printUser user=this
+											br
+								else if directScheduling
+									.shift-team-pendings
+										each sortUsers team.pending
+											+printUser user=this
+											br
+								else
+									.shift-team-information
+										i {{team.pending.length}}
+											| {{_ 'shifts.shift.requests'}}
+											| {{team.min}}
+											| ({{countTl team.pending}}
+											| {{_ 'shifts.shift.teamleaders'}})
+else
+	button.btn.btn-block.shift.fake-shift
+		h3.shift-period
+			.fake-header
+		.shift-teams
+			div.shift-team
+				.shift-team-header
+					.fake-team-header
+				.shift-team-participants
+					.fake-text
+					.fake-text
+					.fake-text

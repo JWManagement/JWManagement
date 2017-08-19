@@ -1,5 +1,5 @@
-import { wrs } from '/imports/util/delay.coffee'
-import { Delay } from '/imports/util/delay.coffee'
+import { wrs } from '/imports/api/util/delay.coffee'
+import { Delay } from '/imports/api/util/delay.coffee'
 
 export Helpers =
 
@@ -35,6 +35,10 @@ export Helpers =
 				elseToDo()
 			else
 				BlazeLayout.render 'blankLayout', content: 'login'
+
+	setParentHome: (whatToDo) ->
+		Session.set 'parent', 'home'
+		whatToDo()
 
 	# TODO: DELETE SOON
 	migrateToken: (c) ->

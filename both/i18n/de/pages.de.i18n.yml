@@ -22,7 +22,7 @@ navigation:
     about: Impressum
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung
-    support: Support
+    donate: Spenden
     version: Version
     new: Neu
 welcome:
@@ -61,17 +61,17 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Kontaktiere uns
-        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p><p>Fülle einfach das Kontaktformular auf der rechten Seite aus.</p>
-        name: Name
+        description: <p>Möchtest du das System testen?</p><p>Wähle im Kontaktformular rechts "Projekt beantragen" aus und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wähle im Formular die entsprechende Option aus und lass es uns wissen.</p>
+        name: Vor- und Nachname
         email: E-Mail Adresse
-        congregation: Versammlung
-        chooseType: Was für ein Anliegen hast du?
+        projectName: Projektname
         enquiry: Projekt beantragen
         login: Problem beim Login
         problem: Problem melden
         suggestion: Verbesserung vorschlagen
         question: Generelle Frage
         message: Nachricht
+        whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
@@ -84,7 +84,7 @@ welcome:
         privacy: Datenschutzerklärung
 login:
     name: Login
-    welcome: Willkommen zu JW Management
+    welcome: Willkommen bei JW Management
     text: Bitte gib deine Daten ein um dich anzumelden
     forgot: Passwort vergessen?
     create: Account erstellen
@@ -101,7 +101,7 @@ forgotPassword:
 resetPassword:
     name: Passwort zurücksetzen
     text: Neues Passwort für %s %s eingeben.
-    noUserFound: <p>Ungültiges Token</p><p>Bitte überprüfe die URL</p>
+    noUserFound: <p>Dieser Link ist abgelaufen</p><p>Bitte lass dir einen neuen Link zuschicken.</p>
     button: Passwort ändern
     back: Zurück zur Startseite
 profile:
@@ -139,6 +139,9 @@ profile:
     _ministryPrivilege:
         ministerialServant: Dienstamtgehilfe
         elder: Ältester
+        coordinator: Koordinator
+        secretary: Sekretär
+        serviceOverseer: Dienstaufseher
     placeholder:
         telefon: (z.B. +49 177 1234567)
         congregation: Musterstadt-Englisch-West
@@ -204,7 +207,7 @@ shifts:
     openRequests: Offene Bewerbungen
     automation: Automatismus
     template: Vorlage
-    noVisibleShifts: Keine Schichten dieses Tags in dieser Woche
+    noVisibleShifts: Keine Schichten für diese Woche gefunden
     start: Start
     end: Ende
     visibility: Sichtbarkeit:
@@ -217,6 +220,7 @@ shifts:
     hideNames: Schicht-Teilnehmer verbergen
     showNames: Schicht-Teilnehmer zeigen
     editShifts: Schichten bearbeiten
+    printWeek: Woche drucken
     prevWeek: Zur vorherigen Woche gehen
     nextWeek: Zur nächsten Woche gehen
     sendWeek: Zuteilung für diese Woche per Mail verschicken
@@ -231,6 +235,8 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
+        requests: Bewerbungen von
+        teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
     removeAll: Alle löschen
@@ -253,16 +259,16 @@ reports:
     magazines: Zeitschriften
     brochures: Broschüren
     tracts: Traktate
+    invitations: Einladungen
     videos: Gezeigte Videos
     talks: Geführte Gespräche
     achievements: Was erreicht wurde
-    addresses: Weitergeleitete Adressen
     hours: Eingesetzte Stunden
     texts: Vorgelesene Bibeltexte
     shifts: Stattgefundene Schichten
-    missing: Fehlende Teamberichte
+    missing: Fehlende Berichte
     participants: Teilnehmer
-    pioneers: Teilgenommene APVs
+    fulltime: Teilgenommene Vollzeitdiener
     publishers: Teilgenommene Verkündiger
     allParticipants: Teilnehmer insgesamt
     experiences: Erfahrungen
@@ -351,11 +357,6 @@ firstLogin:
     text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     agreeTerms: Ich akzeptiere die <a href="/de/terms" target="blank">Nutzungsbedingungen</a> und die <a href="/de/privacy" target="blank">Datenschutzerklärung</a>
     button: Los geht's!
-    tokenError: Token-Fehler. Bitte wende dich an deinen Projektleiter.
-    tokenMissing: Token fehlt. Bitte verwende den Link aus der E-Mail.
-    usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
-    usernameMissing: Bitte gib einen Benutzernamen an.
-    agreeTermsMissing: Bitte akzeptiere die Nutzungsbedingungen und die Datenschutzerklärung.
 about:
     title: Impressum
     information: Angaben gemäß § 5 TMG:
@@ -371,3 +372,6 @@ privacy:
     title: Datenschutzerklärung
     text: <h2>Datenschutz</h2><p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns nur gemäß den Bestimmungen des deutschen Datenschutzrechts verarbeitet. Daten sind dann personenbezogen, wenn sie eindeutig einer bestimmten natürlichen Person zugeordnet werden können. Die rechtlichen Grundlagen des Datenschutzes finden Sie im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG). Nachstehende Regelungen informieren Sie insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen Daten durch den Anbieter.</p><p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz vor Zugriffen durch Dritte somit unmöglich ist.</p><h2>Cookies</h2><p>Wir verwenden auf unserer Seite sog. Cookies zum Wiedererkennen mehrfacher Nutzung unseres Angebots, durch denselben Nutzer/Internetanschlussinhaber. Cookies sind kleine Textdateien, die Ihr Internet-Browser auf Ihrem Rechner ablegt und speichert. Sie dienen dazu, unseren Internetauftritt und unsere Angebote zu optimieren. Es handelt sich dabei zumeist um sog. "Session-Cookies", die nach dem Ende Ihres Besuches wieder gelöscht werden.</p><p>Teilweise geben diese Cookies jedoch Informationen ab, um Sie automatisch wieder zu erkennen. Diese Wiedererkennung erfolgt aufgrund der in den Cookies gespeicherten IP-Adresse. Die so erlangten Informationen dienen dazu, unsere Angebote zu optimieren und Ihnen einen leichteren Zugang auf unsere Seite zu ermöglichen.</p><p>Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihres Browsers verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><h2>Serverdaten</h2><p>Aus technischen Gründen werden u.a. folgende Daten, die Ihr Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt, erfasst (sogenannte Serverlogfiles): </p><ul><li>Browsertyp und -version</li><li>verwendetes Betriebssystem</li><li>Webseite, von der aus Sie uns besuchen (Referrer URL)</li><li>Webseite, die Sie besuchen</li><li>Datum und Uhrzeit Ihres Zugriffs</li><li>Ihre Internet Protokoll (IP)-Adresse.</li></ul><p>Diese anonymen Daten werden getrennt von Ihren eventuell angegebenen personenbezogenen Daten gespeichert und lassen so keine Rückschlüsse auf eine bestimmte Person zu. Sie werden zu statistischen Zwecken ausgewertet, um unseren Internetauftritt und unsere Angebote optimieren zu können.</p><h2>Registrierungsfunktion</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, sich dort zu registrieren. Die im Zuge dieser Registrierung eingegebenen Daten, die aus der Eingabemaske des Registrierungsformular ersichtlich sind, werden ausschließlich für die Verwendung unseres Angebots erhoben und gespeichert. Mit Ihrer Registrierung auf unserer Seite werden wir zudem Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Registrierung speichern. Dies dient in dem Fall, dass ein Dritter Ihre Daten missbraucht und sich mit diesen Daten ohne Ihr Wissen auf unserer Seite registriert, als Absicherung unsererseits.  Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><h2>Newsletter</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, unseren Newsletter zu abonnieren. Mit diesem Newsletter informieren wir in regelmäßigen Abständen über unsere Angebote. Um unseren Newsletter empfangen zu können, benötigen Sie eine gültige E-Mailadresse. Die von Ihnen eingetragene E-Mail-Adresse werden wir dahingehend überprüfen, ob Sie tatsächlich der Inhaber der angegebenen E-Mail-Adresse sind bzw. deren Inhaber den Empfang des Newsletters autorisiert ist. Mit Ihrer Anmeldung zu unserem Newsletter werden wir Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Anmeldung speichern. Dies dient in dem Fall, dass ein Dritter Ihre E-Mail-Adresse missbraucht und ohne Ihr Wissen unseren Newsletter abonniert, als Absicherung unsererseits. Weitere Daten werden unsererseits nicht erhoben. Die so erhobenen Daten werden ausschließlich für den Bezug unseres Newsletters verwendet. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht. Das Abonnement dieses Newsletters können Sie jederzeit kündigen. Einzelheiten hierzu können Sie der Bestätigungsmail sowie jedem einzelnen Newsletter entnehmen.</p><h2>Kontaktmöglichkeit</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, mit uns per E-Mail und/oder über ein Kontaktformular in Verbindung zu treten. In diesem Fall werden die vom Nutzer gemachten Angaben zum Zwecke der Bearbeitung seiner Kontaktaufnahme gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><p>Einsatz von Google-Analytics mit Anonymisierungsfunktion</p><p>Wir setzen auf unserer Seite Google-Analytics, einen Webanalysedienst der Firma Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA, nachfolgend „Google“ ein. Google-Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und hierdurch eine Analyse der Benutzung der Website durch Sie ermöglichen.</p><p>Die durch diese Cookies erzeugten Informationen, beispielsweise Zeit, Ort und Häufigkeit Ihres Webseiten-Besuchs einschließlich Ihrer IP-Adresse, werden an Google in den USA übertragen und dort gespeichert.</p><p>Wir verwenden auf unserer Website Google-Analytics mit dem Zusatz "_gat._anonymizeIp". Ihre IP-Adresse wird in diesem Fall von Google schon innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt und dadurch anonymisiert.</p><p>Google wird diese Informationen benutzen, um Ihre Nutzung unserer Seite auszuwerten, um Reports über die Websiteaktivitäten für uns zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. </p><p>Google wird, nach eigenen Angaben, in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><p>Des Weiteren bietet Google für die gängigsten Browser ein Deaktivierungs-Add-on an, welches Ihnen mehr Kontrolle darüber gibt, welche Daten von Google zu der von Ihnen aufgerufenen Websites erfasst werden. Das Add-on teilt dem JavaScript (ga.js) von Google Analytics mit, dass keine Informationen zum Website-Besuch an Google Analytics übermittelt werden sollen. Das Deaktivierungs-Add-on für Browser von Google Analytics verhindert aber nicht, dass Informationen an uns oder an andere von uns gegebenenfalls eingesetzte Webanalyse-Services übermittelt werden. Weitere Informationen zur Installation des Browser Add-on erhalten Sie über nachfolgenden Link: https://tools.google.com/dlpage/gaoptout?hl=de</p><h2>Auskunft/Widerruf/Löschung</h2><p>Sie können sich aufgrund des Bundesdatenschutzgesetzes bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten und deren Berichtigung, Sperrung, Löschung oder einem Widerruf einer erteilten Einwilligung unentgeltlich an uns wenden. Wir weisen darauf hin, dass Ihnen ein Recht auf Berichtigung falscher Daten oder Löschung personenbezogener Daten zusteht, sollte diesem Anspruch keine gesetzliche Aufbewahrungspflicht entgegenstehen.</p>
     back: Zur Startseite
+donate:
+    title: Spenden
+    text: <p>Danke, dass du diese Seite besuchst!</p><p>Wenn du uns gerne dabei unterstützen möchtest JW Management zu hosten, freuen wir uns sehr! Vielen Dank! <i class="fa fa-heart text-danger"></i></p>

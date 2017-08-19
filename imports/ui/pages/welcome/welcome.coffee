@@ -1,7 +1,7 @@
 import { ReactiveVar } from 'meteor/reactive-var'
 import { Messages } from '/imports/api/messages/messages.coffee'
-import { Dialogs } from '/imports/util/dialogs.coffee'
-import { FR } from '/imports/util/flowrouter.coffee'
+import { Dialogs } from '/imports/api/util/dialogs.coffee'
+import { FR } from '/imports/api/util/flowrouter.coffee'
 
 import '/imports/api/resources/bootstrap.min.js'
 import '/imports/api/resources/singlePageNav.js'

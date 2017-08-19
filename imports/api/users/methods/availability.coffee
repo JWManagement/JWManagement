@@ -1,3 +1,5 @@
+import SimpleSchema from 'simpl-schema'
+
 export AvailabilityMethods =
 
 	toggle: new ValidatedMethod

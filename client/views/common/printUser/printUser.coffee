@@ -1,5 +1,14 @@
 Template.printUser.helpers
 
+	getUser: ->
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
+			Template.currentData().user
+		else
+			user = Template.currentData().user
+			user.teamleader = false
+			user.substituteTeamleader = false
+			user
+
 	getUserStatistics: -> if @showStats
 		projectId = FlowRouter.getParam 'projectId'
 
@@ -21,7 +30,7 @@ Template.printUser.helpers
 			week = TAPi18n.__('period.w')
 			fourWeeks = TAPi18n.__('period.4w')
 
-			result = ' (' + getField('privileges') + ')'
+			result = ' (' + getField('congregation') + '/' + getField('privileges') + ')'
 			result += ' ' + day + ':' + getField('countDayApproved') + '/' + getField('countDayOverall')
 			result += ' ' + week + ':' + getField('countWeekApproved') + '/' + getField('countWeekOverall')
 			result += ' ' + fourWeeks + ':' + getField('countWeeksApproved') + '/' + getField('countWeeksOverall')

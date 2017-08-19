@@ -41,9 +41,10 @@ Meteor.methods
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isStoreAdmin
 			check short, String
+			check language, String
 
 		Projects.update
 			_id: projectId
-			'items.short': short
+			'store.items.short': short
 		,
 			$pull: 'store.items.$.languages': short: language
