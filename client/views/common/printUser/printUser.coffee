@@ -30,7 +30,7 @@ Template.printUser.helpers
 			week = TAPi18n.__('period.w')
 			fourWeeks = TAPi18n.__('period.4w')
 
-			result = ' (' + getField('privileges') + ')'
+			result = ' (' + getField('congregation') + '/' + getField('privileges') + ')'
 			result += ' ' + day + ':' + getField('countDayApproved') + '/' + getField('countDayOverall')
 			result += ' ' + week + ':' + getField('countWeekApproved') + '/' + getField('countWeekOverall')
 			result += ' ' + fourWeeks + ':' + getField('countWeeksApproved') + '/' + getField('countWeeksOverall')

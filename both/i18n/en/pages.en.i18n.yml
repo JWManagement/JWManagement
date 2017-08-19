@@ -216,6 +216,7 @@ shifts:
     hideNames: Hide all names in the shifts
     showNames: Show all names in the shifts
     editShifts: Edit the shifts
+    printWeek: Print week
     prevWeek: Go to the previous week
     nextWeek: Go to the next week
     sendWeek: Send confirmations for all shifts in this week per mail
@@ -230,7 +231,7 @@ shifts:
         participants: Participants
         start: Start
         end: End
-        requests: Requests
+        requests: Requests of
         teamleaders: TLs
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:
@@ -352,11 +353,6 @@ firstLogin:
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
     agreeTerms: I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>
     button: Let's Go!
-    tokenError: Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.
-    tokenMissing: Invalid link. Please visit the link from the email.
-    usernameExists: This username is already in use. Please choose another one.
-    usernameMissing: Please provide a username.
-    agreeTermsMissing: Please agree the terms of usage and the privacy policy.
 about:
     title: Legal Disclosure
     information: Information in accordance with section 5 TMG

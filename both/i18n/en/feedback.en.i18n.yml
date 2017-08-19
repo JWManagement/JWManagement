@@ -5,7 +5,7 @@ feedback:
         invalidToken: Invalid token. Please check the URL
         maximumAlreadyReached: Maximum limit for team participants has already been reached
         missingField: One or more fields are missing
-        noRequestAllowed: Unfortunately the maximum amount of possible requests has been reached. No more requests are allowed.
+        noRequestAllowed: Unfortunately the maximum amount of possible requests has been reached. No more requests are allowed
         notAdmin: You need to be project manager
         notShiftAdmin: You need to be shift administrator
         notMember: You need to be a member of this project
@@ -21,7 +21,7 @@ feedback:
         tokenMissing: Token is missing. Please visit the link from the email
         usernameExists: This username is already in use. Please choose another one
         usernameMissing: Please provide a username
-        usernameUnavailable: This username is unavailable. Please choose anotherone.
+        usernameUnavailable: This username is unavailable. Please choose another one
         noUserWithThisToken: Couldn't find a user with this token
         invalidUser: The specified user is invalid
         invalidShift: The specified shift is invalid

@@ -34,30 +34,33 @@ Template.firstLogin.events
 		token = FR.getToken()
 
 		try
-			if token
-				if agreeTerms
-					if username
-						if Meteor.users.helpers.areValidPasswords password1, password2
-							Meteor.users.methods.getters.usernameAvailable.call
-								username: username
-							, Dialogs.callback
-								onError: -> submit.ladda('stop')
-								onSuccess: ->
-									Meteor.users.methods.init.call
-										token: token
-										username: username
-										password: password1
-									, Dialogs.callback
-										onError: -> submit.ladda('stop')
-										onSuccess: ->
-											Meteor.loginWithPassword username, password1, ->
-												FlowRouter.go 'home'
+			if username.indexOf('@') < 0 && username.indexOf('.') < 0
+				if token
+					if agreeTerms
+						if username
+							if Meteor.users.helpers.areValidPasswords password1, password2
+								Meteor.users.methods.getters.usernameAvailable.call
+									username: username
+								, Dialogs.callback
+									onError: -> submit.ladda('stop')
+									onSuccess: ->
+										Meteor.users.methods.init.call
+											token: token
+											username: username
+											password: password1
+										, Dialogs.callback
+											onError: -> submit.ladda('stop')
+											onSuccess: ->
+												Meteor.loginWithPassword username, password1, ->
+													FlowRouter.go 'home'
+						else
+							throw new Meteor.Error 'usernameMissing', 'error'
 					else
-						throw new Meteor.Error 'usernameMissing', 'error'
+						throw new Meteor.Error 'agreeTermsMissing', 'error'
 				else
-					throw new Meteor.Error 'agreeTermsMissing', 'error'
+					throw new Meteor.Error 'tokenMissing', 'error'
 			else
-				throw new Meteor.Error 'tokenMissing', 'error'
+				throw new Meteor.Error 'usernameUnavailable', 'error'
 		catch e
 			submit.ladda('stop')
 			Dialogs.feedback e

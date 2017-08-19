@@ -365,7 +365,7 @@ Template.showShift.events
 					if manualScheduling
 						swalYesNo
 							swal: 'sendMail.understaffed'
-							doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId
+							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
 					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
 
 		else if wasTeamleader && !otherTeamleaderExists && participants > 1
@@ -376,7 +376,7 @@ Template.showShift.events
 					if manualScheduling
 						swalYesNo
 							swal: 'sendMail.understaffed.teamleader'
-							doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId
+							doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId
 					Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant', handleError
 		else
 			swalYesNo
@@ -437,7 +437,7 @@ Template.showShift.events
 
 		swalYesNo
 			swal: 'sendMail.understaffed'
-			doConfirm: -> # Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
+			doConfirm: -> Meteor.call 'sendUnderstaffed', shiftId, teamId, handleError
 
 	'click #switch': ->
 		shiftId = FR.getShowShift()

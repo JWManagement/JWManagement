@@ -99,3 +99,6 @@ Template.shiftsHeader.events
 	'click #nextWeek': ->
 		FlowRouter.setQueryParams showWeek: moment(FR.getShowWeek()).add(1, 'w').format('YYYY[W]WW')
 		$('#nextWeek').blur()
+
+	'click #printShifts': ->
+		window.print();

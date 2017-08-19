@@ -5,6 +5,8 @@
 				button#editShifts.btn.btn-primary.btn-outline(title="{{_ 'shifts.editShifts'}}")
 					i.fa.fa-wrench
 					| Edit Shifts
+				button#printShifts.btn.btn-white(title="{{_ 'shifts.printWeek'}}")
+					i.fa.fa-print
 		if isProjectShiftScheduler
 			button#sendConfirmWeek.btn.btn-primary.btn-outline(title="{{_ 'shifts.sendWeek'}}")
 				i.fa.fa-send.fa-fw
@@ -13,7 +15,7 @@
 		button#prevWeek.btn-skip.btn.btn-outline.pull-right(class='{{prevWeekButton}}' title="{{_ 'shifts.prevWeek'}}")
 			i.fa.fa-chevron-left
 	.col-xs-8.col-md-4.col-xs.text-center
-		a.week-chooser(href)
+		a#daysOfWeek.week-chooser(href)
 			i.fa.fa-calendar-o.m-r-sm
 			span.m-r-sm {{formatWeek 'showWeek'}}
 			i.fa.fa-angle-down
@@ -22,7 +24,7 @@
 			i.fa.fa-chevron-right
 	.col-xs-12.col-md-3.col-xs
 		.dropdown.pull-right
-			a.tag-chooser.dropdown-toggle(href data-toggle='dropdown')
+			a#tagChoice.tag-chooser.dropdown-toggle(href data-toggle='dropdown')
 				i.fa.fa-tags.m-r-sm
 				span.m-r-sm Showing 1 of 3 tags
 				i.fa.fa-angle-down

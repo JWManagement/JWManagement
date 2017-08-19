@@ -25,7 +25,7 @@ export sendUnderstaffed = (shiftId, teamId) ->
 		users = user.fetch()
 		type = 'participant'
 
-	for user in users
+	for user in users.filter((u) -> u.profile.shortTermCalls == true)
 		thisMoment = moment(shift.date, 'YYYYDDDD')
 		thisMoment.locale(user.profile.language)
 		date = thisMoment.format('dddd, DD.MM.YYYY')

@@ -13,8 +13,3 @@
 @import "../../../imports/ui/styles/framework/import";
 @import "pages/reports";
 @import "pages/store";
-@media print {
-	#page-wrapper {
-		margin: 0;
-	}
-}

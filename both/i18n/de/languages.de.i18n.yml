@@ -8,6 +8,7 @@ language:
     _AR: Bambaro
     _AM: Amharisch
     _B: Tschechisch
+    _BEL: Weißrussisch
     _BL: Bulgarisch
     _BSN: Bosnisch
     _C: Kroatisch
@@ -33,6 +34,7 @@ language:
     _KO: Koreanisch
     _KRI: Krio
     _LT: Litauisch
+    _LV: Lettisch
     _M: Rumänisch
     _MC: Makedonisch
     _O: Niederländisch
@@ -53,6 +55,7 @@ language:
     _SB: Serbisch
     _SI: Thai
     _SO: Somali
+    _ST: Estnisch
     _SV: Slowenisch
     _T: Portugiesisch
     _TI: Tigrinja

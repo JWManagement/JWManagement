@@ -19,3 +19,40 @@
 		width: 14.2857%;
 	}
 }
+@page {
+	margin: 4mm;
+}
+@media print {
+	.header {
+		.center-on-xs {
+			display: none;
+		}
+
+		#nextWeek,
+		#prevWeek,
+		#tagChoice {
+			display: none;
+		}
+
+		#daysOfWeek {
+			width      : 130mm;
+			margin-left: 0;
+		}
+	}
+
+	.seven-cols {
+		.col-xs {
+			width  : 40mm;
+			display: table-cell;
+
+			h2 {
+				font-size : 15px;
+				text-align: center;
+			}
+		}
+	}
+
+	.footer {
+		display: none;
+	}
+}

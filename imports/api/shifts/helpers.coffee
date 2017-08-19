@@ -18,11 +18,15 @@ export Helpers =
 
 	removeUser: (shiftId, teamId) ->
 		userId = Meteor.userId()
+
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull:
-				'teams.$.participants': _id: userId
-				'teams.$.pending': _id: userId
-				'teams.$.declined': _id: userId
+			$pull: 'teams.$.participants': _id: userId
+
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull: 'teams.$.pending': _id: userId
+
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull: 'teams.$.declined': _id: userId
 
 	getParticipant: (userId, tagId, isThisTeamleader) ->
 		user = @getUser userId, tagId
@@ -39,28 +43,31 @@ export Helpers =
 		user = @getParticipant userId, shift.tagId, isThisTeamleader
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull:
-				'teams.$.pending': _id: userId
-				'teams.$.declined': _id: userId
+			$pull: 'teams.$.pending': _id: userId
 			$addToSet: 'teams.$.participants': user
+
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull: 'teams.$.declined': _id: userId
 
 	addRequest: (shiftId, teamId, userId, isChecked) ->
 		shift = Shifts.findOne shiftId, fields: tagId: 1
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull:
-				'teams.$.participants': _id: userId
-				'teams.$.declined': _id: userId
+			$pull: 'teams.$.participants': _id: userId
 			$addToSet: 'teams.$.pending': @getRequester userId, shift.tagId, isChecked
+
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull: 'teams.$.declined': _id: userId
 
 	addDeclined: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: tagId: 1
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull:
-				'teams.$.participants': _id: userId
-				'teams.$.pending': _id: userId
+			$pull: 'teams.$.participants': _id: userId
 			$addToSet: 'teams.$.declined': @getUser userId, shift.tagId
+
+		Shifts.update _id: shiftId, 'teams._id': teamId,
+			$pull: 'teams.$.pending': _id: userId
 
 	openTeam: (shiftId, teamId) ->
 		Shifts.update _id: shiftId, 'teams._id': teamId,

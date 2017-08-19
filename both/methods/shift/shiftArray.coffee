@@ -72,7 +72,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftSchedulerOrThisTeamleader
+			# this caused problems for shift admins that wanted fill out missing reports for their publishers
+			# check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftSchedulerOrThisTeamleader
 
 		for team in shift.teams
 			if team._id == teamId

@@ -7,10 +7,6 @@
 	background-color: $green;
 }
 
-.text-green {
-	color: $green;
-}
-
 .shift {
 	&.missing {
 		@extend .right;
