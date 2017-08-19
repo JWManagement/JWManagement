@@ -6,6 +6,7 @@ import '/imports/api/resources/footable.js'
 import '/imports/ui/components/enquiryList/enquiryList.coffee'
 import '/imports/ui/components/allProjects/allProjects.coffee'
 import '/imports/ui/components/allUsers/allUsers.coffee'
+import '/imports/ui/components/createProjectModal/createProjectModal.coffee'
 
 import './support.tpl.jade'
 
@@ -38,9 +39,11 @@ Template.support.helpers
 				username: 1
 				'profile.firstname': 1
 				'profile.lastname': 1
+				'profile.email': 1
 				'profile.language': 1
 		,
 			sort:
 				'profile.lastname': 1
 				'profile.firstname': 1
+				'profile.username': 1
 		.fetch()

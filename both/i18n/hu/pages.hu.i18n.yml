@@ -20,7 +20,6 @@ navigation:
     terms: Felhasználási feltételek
     privacy: Adatkezelési jogok
     donate: Adományozás
-    support: Támogatás
     version: Verzió
     new: Új
 welcome:
@@ -99,7 +98,7 @@ forgotPassword:
 resetPassword:
     name: Jelszó visszaállítás
     text: Adj meg új jelszót a %s %s.
-    noUserFound: <p>Érvénytelen Token</p><p>Kérjük, ellenőrizzd az URL-címet</p>
+    noUserFound:
     button: Jelszó módosítása
     back: Vissza a kezdő oldalra
 profile:
@@ -347,8 +346,8 @@ firstLogin:
     text: <p>Örömmel látjuk hogy itt vagy közöttünk!</p><p>Kérjük állítsd be a felhasználónevedet és jelszavadat. Mostantól ezekre szükszéged lesz hogy azonosítani tudjon téged a rendszerünk.</p><p>Ezt követően elkezdheted a JW Management használatát.</p><p>Leld benne örömöd!</p>
     agreeTerms: Egyetértek a <a href="/en/terms" target="blank">Használati feltételek</a> és a  <a href="/en/privacy" target="blank">Adatvédelmi irányelvek</a>
     button: Kezdjünk neki!
-    tokenError: Token-Hiba. Vedd fel a kapcsolatot az adminisztrátorral (support@jwmanagement.org) vagy a projektmenedzserrel.
-    tokenMissing: Hiányzik a token. Kérünk, látogass el az e-mail címedre kapott linkre.
+    tokenError:
+    tokenMissing: Érvénytelen link. Kérünk, látogass el az e-mail címedre kapott linkre.
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Adj meg egy felhasználónevet!
     agreeTermsMissing: Kérünk, fogadd el a használati feltételeket és az adatvédelmi irányelvet.
@@ -366,5 +365,5 @@ privacy:
     title: Adatvédelmi irányelvek (angol)
     back: Vissza a kezdőoldalra
 donate:
-    title: Adományozás
-    text: <p>Köszönjük, hogy meglátogattad ezt az oldalt!</p><p>Szeretnénk elmondani, mennyit költünk<b>minden hónapban</b> A JW Management-re:</p><ul><li>50€ a  Szerver-példányokra (Galaxy)</li><li>15€ az adatbázis-példányokra (mLab)</li><li>7€ az SMTP szolgáltatóra (MailJet)</li><li>1.50€ domain-re és az email címekre (Strato)</li><li>8.50€ az Apple fejlesztői hozzáférés (99€ per Jahr) - Az alkalmazás fejlesztés alatt áll</li><li>25€ <b>egyszeri</b> Google fejlesztői hozzáférés - Az alkalmazás fejlesztés alatt áll</li></ul><p>Következtetésként havonta 82 eurót költünk, hogy folyamatosan biztosítsuk a JW Management funkcionalitását.</p><p>Apropó:<i>a "mi"</i> azt jelenti hogy egy bételszolga és egy testvér aki a gyakornok.</p><p>Ezen túlmenően további információk találhatók a rendszerről:<br>A JW Managementet 3200+ hirnök használja 100+ projektben.</p><p> Ha tetszik (és ha tetszik a JW Management is), kérjük, használd az alábbi linket, hogy segíts nekünk az ehhez szükséges pénz biztosításához.</p><p>A hálátok és a irántunk tanúsított szeretetetek támogat minket<b>nagyra értékeljük ezetket!</b><br><h4>Nagyon szépen köszönjük! <i class="fa fa-heart text-danger"></i></h4></p>
+    title:
+    text:

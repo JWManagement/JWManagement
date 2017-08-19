@@ -1,4 +1,5 @@
 import { backup } from './backup.coffee'
+import { shiftValidation } from './shiftValidation.coffee'
 
 if Meteor.isProduction
 
@@ -20,6 +21,10 @@ if Meteor.isProduction
 	SyncedCron.add
 		name: 'Backup'
 		schedule: (parser) -> parser.cron '0 2 * * *'
-		job: -> backup()
+
+	SyncedCron.add
+		name: 'Shift validation'
+		schedule: (parser) -> parser.cron '*/5 * * * *'
+		job: -> shiftValidation()
 
 	SyncedCron.start()

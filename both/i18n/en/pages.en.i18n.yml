@@ -98,7 +98,7 @@ forgotPassword:
 resetPassword:
     name: Reset password
     text: Please enter a new password for %s %s.
-    noUserFound: <p>Invalid Token</p><p>Please check the URL</p>
+    noUserFound: <p>This link has expired</p><p>Please request another reset password mail.</p>
     button: Change password
     back: Back to Home Page
 profile:
@@ -347,6 +347,11 @@ firstLogin:
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
     agreeTerms: I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>
     button: Let's Go!
+    tokenError: Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.
+    tokenMissing: Invalid link. Please visit the link from the email.
+    usernameExists: This username is already in use. Please choose another one.
+    usernameMissing: Please provide a username.
+    agreeTermsMissing: Please agree the terms of usage and the privacy policy.
 about:
     title: Legal Disclosure
     information: Information in accordance with section 5 TMG
@@ -364,4 +369,4 @@ privacy:
     back: Back to Home Page
 donate:
     title: Donate
-    text: <p>Thank you for visiting this page!</p><p>We would like to tell you how much we spend <b>every month</b> for JW Management:</p><ul><li>50€ for the Server-Instance (Galaxy)</li><li>15€ for the Datenbase-Instance (mLab)</li><li>7€ for the SMTP provider (MailJet)</li><li>1.50€ for the domain and the email addresses (Strato)</li><li>8.50€ for the Apple Developer Account (99€ per Jahr) - App is in Development</li><li>25€ <b>once</b> for the Google Developer Account - App is in Development</li></ul><p>In conclusion we spend 82€ each month to continously provide you the functionality of JW Management.</p><p>By the way: <i>"we"</i> means one bethelite and one brother still in the apprenticeship.</p><p>Furthermore here are some more information about the system:<br>JW Management is being used by 3200+ publishers in 100+ projects.</p><p>If you like to (and if you like JW Management, too), you are welcome to use the following link to help us providing the needed money to host the app.</p><p>Your gratefulness and the love you show us by supporting us is <b>highly appreciated!</b><br><h4>Thank you very much! <i class="fa fa-heart text-danger"></i></h4></p>
+    text: <p>Thank you for visiting this page!</p><p>If you would like to help us host JW Management we would be very grateful! Thank you so much! <i class="fa fa-heart text-danger"></i></p>

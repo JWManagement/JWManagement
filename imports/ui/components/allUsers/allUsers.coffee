@@ -10,11 +10,11 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 	rows = []
 	columns = [
 		{ name: 'id', title: '#', breakpoints: '', filterable: false }
-		{ name: 'firstname', title: 'First name', breakpoints: '' }
-		{ name: 'lastname', title: 'Surname' , breakpoints: '' }
 		{ name: 'username', title: 'Username' , breakpoints: '' }
+		{ name: 'name', title: 'Name', breakpoints: '' }
+		{ name: 'email', title: 'E-Mail' , breakpoints: '' }
 		{ name: 'action', title: 'Action' , breakpoints: '' }
-		{ name: 'projects', title: 'Projects' , visible: false }
+		{ name: 'projects', visible: false }
 	]
 
 	for user, index in users
@@ -26,10 +26,10 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 		rows.push
 			id: index + 1
 			username: user.username
-			firstname: user.profile.firstname
-			lastname: user.profile.lastname
-			action: '<a class="impersonate" data-id="' + user._id + '" data-lang="' + user.profile.language + '" href>Impersonate...</a>'
-			projects: projects.join ';'
+			name: user.profile.firstname + ' ' + user.profile.lastname
+			email: user.profile.email
+			action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a> | <a class="showProjects" data-id="' + user._id + '" href>Show projects...</a>'
+			projects: projects.join(';')
 
 	$('#userTable').html('').footable
 		columns: columns
@@ -48,9 +48,18 @@ Template.allUsers.events
 
 	'click .impersonate': (e) ->
 		userId = $(e.target).attr('data-id')
-		userLang = $(e.target).attr('data-lang')
 
-		Meteor.call 'getImpersonateToken', userId, (e, token) ->
-			Accounts.callLoginMethod methodArguments: [ impToken: token ]
+		Impersonate.do userId, (err, userId) -> wrs -> FlowRouter.go 'home', language: '_'
 
-			FlowRouter.go 'home', language: userLang
+	'click .showProjects': (e) ->
+		userId = $(e.target).attr('data-id')
+		projectIds = []
+
+		for role in Permissions.member
+			roleProjectIds = Roles.getGroupsForUser(userId, role).join(',')
+
+			if roleProjectIds then projectIds.push roleProjectIds
+
+		$('#projectTable .footable-filtering button').click()
+		$('#projectTable .footable-filtering input[type="text"]').val projectIds.join(',')
+		$('#projectTable .footable-filtering button').click()

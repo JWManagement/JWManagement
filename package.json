@@ -1,6 +1,6 @@
 {
   "name": "JWManagement",
-  "description": "Shift management for public witnessing",
+  "description": "Shift management for theocratic projects",
   "license": "SEE LICENSE IN ./LICENSE",
   "repository": {
     "type": "git",
@@ -14,5 +14,10 @@
     "meteor-node-stubs": "^0.2.5",
     "simpl-schema": "^0.2.3",
     "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "start": "meteor --settings settings.json",
+    "setup": "deploy/client/setup.sh",
+    "deploy": "deploy/client/deploy.sh"
   }
 }

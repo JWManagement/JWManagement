@@ -34,6 +34,8 @@ Template.navigation.helpers
 
 	latestRelease: -> R.latestRelease.get()
 
+	langIsDe: -> TAPi18n.getLanguage() == 'de'
+
 Template.navigation.onCreated ->
 
 	Meteor.subscribe 'profilePicture', Meteor.userId()
@@ -48,6 +50,8 @@ Template.navigation.onDestroyed ->
 	Session.set 'target', undefined
 
 Template.navigation.events
+
+	'click .unimpersonate': -> Impersonate.undo -> wrs -> FlowRouter.go 'support'
 
 	'click .setLanguage': (e) ->
 		language = $(e.target).closest('a').attr('lang')
