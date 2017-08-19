@@ -478,15 +478,15 @@
 						background-color: rgba($indigo, 0.3);
 					}
 
-					.shift-team-participants {
+					.shift-team-information,
+					.shift-team-participants,
+					.shift-team-pendings {
 						padding    : 1px 5px;
 						white-space: normal;
 					}
 
 					.shift-team-pendings {
-						color      : $yellow;
-						padding    : 1px 5px;
-						white-space: normal;
+						color: $yellow;
 					}
 				}
 			}

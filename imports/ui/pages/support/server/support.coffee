@@ -7,12 +7,11 @@ Meteor.publish 'support', ->
 		[
 			Messages.find
 				'recipient.name': 'Support'
-			, {},
-				sort: createdAt: -1
+				status: 'new'
+			, {}
 		,
 			Projects.find {},
 				fields: name: 1
-				sort: name: 1
 		,
 			Meteor.users.find {},
 				fields:
@@ -22,10 +21,6 @@ Meteor.publish 'support', ->
 					'profile.lastname': 1
 					'profile.email': 1
 					'profile.language': 1
-				sort:
-					'profile.lastname': 1
-					'profile.firstname': 1
-					'profile.username': 1
 		]
 	else
 		@ready()

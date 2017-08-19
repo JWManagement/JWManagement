@@ -58,10 +58,8 @@ welcome:
         repo: GitHub Gyüjtemény
     contact:
         title: Lépj kapcsolatba velünk
-        description: <p>Szeretnél egy teszt rendszert a gyülekezetednek?</p><p>Csak osszd meg velünk, hogy létrehozhassunk neked egy projektet.</p><p>Van még egy kérdésed vagy javaslatod?</p><p>Örömmel hallanánk erről.</p>
-        name: Név
+        name: Keresztnév Vezetéknév
         email: Email cím
-        congregation: Gyülekezet
         enquiry: Projekt érdeklődés
         login: Bejelentkezési probléma
         problem: Általános probléma
@@ -251,13 +249,11 @@ reports:
     videos: Videó lejátszások
     talks: Beszélgetések
     achievements: Eredmények
-    addresses: Továbbított címek
     hours: Szolgálati idő
     texts: Felolvasott Bibliaversek
     shifts: Megvalósult szolgálati időszakok
     missing: Hiányzó csoport jelentések
     participants: Résztvevők
-    pioneers: Résztvevő általános üttörők
     publishers: Résztvevő hírnökök
     allParticipants: Az összes resztvevő
     experiences: Tapasztalatok

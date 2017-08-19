@@ -20,5 +20,6 @@ import '/imports/ui/pages/users/server/tags.coffee'
 import '/imports/ui/pages/users/server/users.coffee'
 import '/imports/ui/pages/support/server/support.coffee'
 import '/imports/api/messages/messages.coffee'
+import '/imports/api/reports/reports.coffee'
 
 Impersonate.admins = ['support']

@@ -94,7 +94,19 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 					shift.teams.filter (t) ->
 						(userId in t.participants.map (u) -> u._id) ||
 						(userId in t.pending.map (u) -> u._id) ||
-						(userId in t.declined.map (u) -> u._id)
+						(userId in t.declined.map (u) ->
+							if u?
+								u._id
+							else
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+								console.log u
+								console.log t
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+								console.log 'ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR'
+						)
 					.length
 
 				countTeamsApproved = (shift) ->

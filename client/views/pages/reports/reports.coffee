@@ -1,16 +1,67 @@
+import { Reports } from '/imports/api/reports/reports.coffee'
+
+defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
+
+fetchData = (thisTemplate) ->
+	projectId = FlowRouter.getParam('projectId')
+	month = FlowRouter.getQueryParam('month')
+	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
+	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
+
+	for field in Object.keys(thisTemplate.basicSums)
+		thisTemplate.basicSums[field].set(defaultText)
+
+	Reports.GetAchievementSummary.call
+		projectId: projectId
+		startDate: startDate
+		endDate: endDate
+	, (e, result) ->
+		delete result._id
+		for field in Object.keys(result)
+			thisTemplate.basicSums[field].set(result[field])
+
+	for field in Object.keys(thisTemplate.participantsCount)
+		thisTemplate.participantsCount[field].set(defaultText)
+
+	Reports.GetParticipantsCount.call
+		projectId: projectId
+		startDate: startDate
+		endDate: endDate
+	, (e, result) ->
+		for field in Object.keys(result)
+			thisTemplate.participantsCount[field].set(result[field])
+
 Template.reports.helpers
 
 	getProjectId: -> FlowRouter.getParam('projectId')
 
 	getMonth: -> FlowRouter.getQueryParam('month')
 
-	readyOrDisabled: -> unless ShiftSubs.ready() then 'disabled'
+	readyOrDisabled: ->
+		if ShiftSubs.ready()
+			button: '', icon: 'fa-download'
+		else
+			button: 'disabled', icon: 'fa-spinner fa-pulse'
 
-Template.reports.onRendered ->
+	basicSums: (field) -> Template.instance().basicSums[field].get()
 
-	$('.animated').removeClass('animated').addClass('skipping')
+	participantsCount: (field) -> Template.instance().participantsCount[field].get()
 
 Template.reports.onCreated ->
+
+	Template.instance().basicSums =
+		texts: new ReactiveVar
+		speaks: new ReactiveVar
+		videos: new ReactiveVar
+		hours: new ReactiveVar
+		route: new ReactiveVar
+		good: new ReactiveVar
+		problems: new ReactiveVar
+
+	Template.instance().participantsCount =
+		fulltime: new ReactiveVar
+		publishers: new ReactiveVar
+		all: new ReactiveVar
 
 	self = this
 	projectId = FlowRouter.getParam('projectId')
@@ -26,17 +77,31 @@ Template.reports.onCreated ->
 			ShiftSubs.subscribe 'reports', projectId, Session.get 'subscribe'
 			Session.set 'subscribe', false
 
+Template.reports.onRendered ->
+
+	$('.animated').removeClass('animated').addClass('skipping')
+
+	thisTemplate = Template.instance()
+
+	fetchData(thisTemplate)
+
 Template.reports.events
 
 	'click #prevMonth': ->
 		prevMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').subtract(1, 'M').format('YYYY[M]MM')
-		wrs -> FlowRouter.setQueryParams month: prevMonth
+		thisTemplate = Template.instance()
 		Session.set 'subscribe', prevMonth
+		wrs ->
+			FlowRouter.setQueryParams month: prevMonth
+			fetchData(thisTemplate)
 
 	'click #nextMonth': ->
 		nextMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').add(1, 'M').format('YYYY[M]MM')
-		wrs -> FlowRouter.setQueryParams month: nextMonth
+		thisTemplate = Template.instance()
 		Session.set 'subscribe', nextMonth
+		wrs ->
+			FlowRouter.setQueryParams month: nextMonth
+			fetchData(thisTemplate)
 
 	'click #showMissing': -> false
 

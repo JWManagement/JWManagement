@@ -61,17 +61,17 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Kontaktiere uns
-        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p><p>Fülle einfach das Kontaktformular auf der rechten Seite aus.</p>
-        name: Name
+        description: <p>Möchtest du das System testen?</p><p>Wähle im Kontaktformular rechts "Projekt beantragen" aus und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wähle im Formular die entsprechende Option aus und lass es uns wissen.</p>
+        name: Vor- und Nachname
         email: E-Mail Adresse
-        congregation: Versammlung
-        chooseType: Was für ein Anliegen hast du?
+        projectName: Projektname
         enquiry: Projekt beantragen
         login: Problem beim Login
         problem: Problem melden
         suggestion: Verbesserung vorschlagen
         question: Generelle Frage
         message: Nachricht
+        whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
@@ -138,6 +138,9 @@ profile:
     _ministryPrivilege:
         ministerialServant: Dienstamtgehilfe
         elder: Ältester
+        coordinator: Koordinator
+        secretary: Sekretär
+        serviceOverseer: Dienstaufseher
     placeholder:
         telefon: (z.B. +49 177 1234567)
         congregation: Musterstadt-Englisch-West
@@ -230,6 +233,8 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
+        requests: Bewerbungen
+        teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
     removeAll: Alle löschen
@@ -252,16 +257,16 @@ reports:
     magazines: Zeitschriften
     brochures: Broschüren
     tracts: Traktate
+    invitations: Einladungen
     videos: Gezeigte Videos
     talks: Geführte Gespräche
     achievements: Was erreicht wurde
-    addresses: Weitergeleitete Adressen
     hours: Eingesetzte Stunden
     texts: Vorgelesene Bibeltexte
     shifts: Stattgefundene Schichten
-    missing: Fehlende Teamberichte
+    missing: Fehlende Berichte
     participants: Teilnehmer
-    pioneers: Teilgenommene APVs
+    fulltime: Teilgenommene Vollzeitdiener
     publishers: Teilgenommene Verkündiger
     allParticipants: Teilnehmer insgesamt
     experiences: Erfahrungen

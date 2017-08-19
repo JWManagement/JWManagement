@@ -23,7 +23,8 @@ Template.day.events
 				Meteor.call 'addShift', projectId, tagId, tag.name, parseInt(date), parseInt(start), Dialogs.handleError
 
 	'click #removeAll': (e) ->
-		shifts = @shifts
+		visibleTags = FR.getShowTags().split('_')
+		shifts = @shifts.filter (s) -> Shifts.findOne(s).tagId in visibleTags
 
 		swalYesNo
 			swal: 'delete.allShifts'

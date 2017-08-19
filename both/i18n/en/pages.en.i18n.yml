@@ -62,17 +62,17 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Contact Us
-        description: <p>Want to test the system for your congregation?</p><p>Have a question or suggestion?</p><p>We would be happy to hear about that.</p><p>Just fill out the form on the right to let us know.</p>
-        name: Name
+        description: <p>Want to test the system?</p><p>Choose "Project Enquiry" in the form on the right and we'll create a project for you.</p><p>Have another question or suggestion?</p><p>Select the matching option in the form on the right and let us know.</p>
+        name: Firstname and Lastname
         email: Email Address
-        congregation: Congregation
-        chooseType: What type of issue do you have?
+        projectName: Project name
         enquiry: Project Enquiry
         login: Login Problem
         problem: General Problem
         suggestion: Feature Request
         question: General Question
         message: Message
+        whatFor: What do you want to organize?
         send: Send
         sendEnquiry: Send Enquiry
         issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
@@ -135,6 +135,9 @@ profile:
     _ministryPrivilege:
         ministerialServant: Ministerial servant
         elder: Elder
+        coordinator: Coordinator of the Body of Elders
+        secretary: Secretary
+        serviceOverseer: Service overseer
     placeholder:
         telefon: (e.g. +447712345678)
         congregation: Congregation
@@ -227,6 +230,8 @@ shifts:
         participants: Participants
         start: Start
         end: End
+        requests: Requests
+        teamleaders: TLs
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:
     removeAll: Remove all
@@ -249,16 +254,16 @@ reports:
     magazines: Magazines
     brochures: Brochures
     tracts: Tracts
+    invitations: Invitations
     videos: Videos Shown
     talks: Talks
     achievements: Achievements
-    addresses: Forwarded Addresses
     hours: Engaged time
     texts: Read Bible Texts
     shifts: Accomplished Shifts
-    missing: Missing Team Reports
+    missing: Missing Reports
     participants: Participants
-    pioneers: Participating Regular Pioneers
+    fulltime: Participating Fulltime-Servants
     publishers: Participating Publishers
     allParticipants: Participants overall
     experiences: Experiences

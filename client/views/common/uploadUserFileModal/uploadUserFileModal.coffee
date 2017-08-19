@@ -65,7 +65,7 @@ Template.uploadUserFileModal.events
 						telefon = user[4]
 						birthday = user[5]
 						pioneer = if user[6] in ['publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite', 'ldc'] then user[6] else 'publisher'
-						privilege = if user[7] in ['publisher', 'servant', 'elder'] then user[7] else 'publisher'
+						privilege = if user[7] in ['publisher', 'servant', 'elder', 'coordinator', 'secretary', 'serviceOverseer'] then user[7] else 'publisher'
 						congregation = user[8]
 
 						usersExisting = Meteor.users.find('profile.email': email, 'profile.firstname': firstname, 'profile.lastname': lastname).fetch()

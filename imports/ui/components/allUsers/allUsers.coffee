@@ -19,16 +19,22 @@ Template.allUsers.onCreated -> Tracker.afterFlush => @autorun =>
 
 	for user, index in users
 		projects = []
+		action = '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a> | '
+		projectActions = []
+		pNumber = 1
 
-		for group in Object.keys user.roles
+		for group in Object.keys user.roles when user.roles[group][0] in Permissions.member
+			projectActions.push '<a class="showProjects" data-id="' + group + '" href>P' + pNumber++ + '</a>'
 			projects.push group + '=' + user.roles[group]
+
+		action += projectActions.join(' | ')
 
 		rows.push
 			id: index + 1
 			username: user.username
 			name: user.profile.firstname + ' ' + user.profile.lastname
 			email: user.profile.email
-			action: '<a class="impersonate" data-id="' + user._id + '" href>Impersonate...</a> | <a class="showProjects" data-id="' + user._id + '" href>Show projects...</a>'
+			action: action
 			projects: projects.join(';')
 
 	$('#userTable').html('').footable
@@ -52,14 +58,8 @@ Template.allUsers.events
 		Impersonate.do userId, (err, userId) -> wrs -> FlowRouter.go 'home', language: '_'
 
 	'click .showProjects': (e) ->
-		userId = $(e.target).attr('data-id')
-		projectIds = []
-
-		for role in Permissions.member
-			roleProjectIds = Roles.getGroupsForUser(userId, role).join(',')
-
-			if roleProjectIds then projectIds.push roleProjectIds
+		projectId = $(e.target).attr('data-id')
 
 		$('#projectTable .footable-filtering button').click()
-		$('#projectTable .footable-filtering input[type="text"]').val projectIds.join(',')
+		$('#projectTable .footable-filtering input[type="text"]').val projectId
 		$('#projectTable .footable-filtering button').click()

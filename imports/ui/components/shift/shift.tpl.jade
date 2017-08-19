@@ -31,6 +31,12 @@ with getShift
 										each sortUsers team.pending
 											+printUser user=this
 											br
+								else
+									.shift-team-information
+										i {{team.pending.length}}
+											| {{_ 'shifts.shift.requests'}}
+											| ({{countTl team.pending}}
+											| {{_ 'shifts.shift.teamleaders'}})
 else
 	button.btn.btn-block.shift.fake-shift
 		h3.shift-period

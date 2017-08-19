@@ -69,6 +69,9 @@ privileges:
     circuit: KA
     bethelite: BTL
     ldc: LDC
+    coordinator: Koordinator
+    secretary: Sekretär
+    serviceOverseer: Dienstaufseher
     elder: Ä
     servant: DAG
     publisher: VK
