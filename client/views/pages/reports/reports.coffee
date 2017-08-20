@@ -5,6 +5,7 @@ defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
 fetchData = (thisTemplate) ->
 	projectId = FlowRouter.getParam('projectId')
 	month = FlowRouter.getQueryParam('month')
+	unless month then month = moment(new Date).format('YYYY[M]MM')
 	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
 	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
 
@@ -15,7 +16,7 @@ fetchData = (thisTemplate) ->
 		projectId: projectId
 		startDate: startDate
 		endDate: endDate
-	, (e, result) ->
+	, (e, result) -> unless e
 		delete result._id
 		for field in Object.keys(result)
 			thisTemplate.basicSums[field].set(result[field])
@@ -27,7 +28,7 @@ fetchData = (thisTemplate) ->
 		projectId: projectId
 		startDate: startDate
 		endDate: endDate
-	, (e, result) ->
+	, (e, result) -> unless e
 		for field in Object.keys(result)
 			thisTemplate.participantsCount[field].set(result[field])
 

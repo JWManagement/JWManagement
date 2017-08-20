@@ -74,16 +74,18 @@ export Reports =
 			])
 			.map (user) -> user._id
 
-			fulltimeCount = participants.filter((userId, index, self) -> if userId?
+			fulltimeCount = participants.filter((userId, index, self) ->
 				user = Meteor.users.findOne(userId, 'profile.pioneer': 1)
+				return false unless user?
 
 				unique = self.indexOf(userId) == index
 				fulltime = user.profile.pioneer in ['regular', 'special', 'circuit', 'bethelite', 'ldc']
 				fulltime && unique
 			).length
 
-			publisherCount = participants.filter((userId, index, self) -> if userId?
+			publisherCount = participants.filter((userId, index, self) ->
 				user = Meteor.users.findOne(userId, 'profile.publisher': 1)
+				return false unless user?
 
 				unique = self.indexOf(userId) == index
 				publisher = user.profile.pioneer in ['publisher', 'auxiliary']
