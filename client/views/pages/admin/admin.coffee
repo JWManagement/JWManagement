@@ -4,6 +4,13 @@ Template.admin.helpers
 
 	name: (route) -> TAPi18n.__('navigation.' + route)
 
+	dependenciesMatched: ->
+		# TODO: load projects
+		#project = Projects.findOne FlowRouter.getParam('projectId')
+
+		#project[@dependency] == true
+		true
+
 	buttons: -> [
 		route: 'settings'
 		icon: 'cogs'
@@ -23,7 +30,9 @@ Template.admin.helpers
 	,
 		route: 'vessels'
 		icon: 'ship'
-		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member'
+		role: 'support'
+		#role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member' # just for now
+		dependency: 'vesselProject'
 	,
 		route: 'notes'
 		icon: 'pencil'

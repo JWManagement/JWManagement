@@ -2,9 +2,10 @@
 	.container
 		each btn in buttons
 			unless btn.comingSoon
-				if isInRole btn.role getProjectId
-					a(href="{{pathFor btn.route projectId=getProjectId language=langTag}}")
-						.col-md-3.col-xs-4.btn-wrapper
-							.btn-inverted
-								i(class="fa fa-5x fa-{{btn.icon}}")
-								h2 {{name btn.route}}
+				if dependenciesMatched
+					if isInRole btn.role getProjectId
+						a(href="{{pathFor btn.route projectId=getProjectId language=langTag}}")
+							.col-md-3.col-xs-4.btn-wrapper
+								.btn-inverted
+									i(class="fa fa-5x fa-{{btn.icon}}")
+									h2 {{name btn.route}}
