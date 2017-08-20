@@ -194,6 +194,8 @@ Meteor.methods
 
 						Shifts.update _id: shiftId, 'teams._id': teamId,
 							$pull: 'teams.$.participants': _id: newTeamleaderData._id
+
+						Shifts.update _id: shiftId, 'teams._id': teamId,
 							$addToSet: 'teams.$.participants': newTeamleaderData
 
 						Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'

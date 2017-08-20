@@ -9,8 +9,8 @@ Meteor.methods
 
 		existing = false
 		project = Projects.findOne projectId, fields: 'store.items': 1
-		for item in project.store.items when item.short == short
-			for lang in item.languages when lang.short == language
+		for item in project.store.items when item? && item.short == short
+			for lang in item.languages when lang? && lang.short == language
 				existing = true
 
 		if existing

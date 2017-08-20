@@ -69,7 +69,7 @@ Meteor.methods
 							Shifts.update _id: shift._id, 'teams._id': team._id,
 								$set: 'teams.$.pending': updatedPending
 
-						if userId in (u._id for u in team.declined)
+						if userId in (u._id for u in team.declined.filter((u) -> u?))
 							updatedDeclined = team.participants
 
 							for user in updatedDeclined when user._id == userId
