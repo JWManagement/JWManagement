@@ -347,7 +347,18 @@ settings:
         remove: Remove this meeting point
 vessels:
     title: Vessels
+    search: Search
     addNewVessel: Add new vessel
+    localName: Inland vessel name
+    flag: Flag
+    type: Type
+    callsign: Callsign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Last visit
+    contactPoint: Contact point
+    nextVisit: Next visit after
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note

@@ -346,7 +346,18 @@ settings:
         remove: Treffpunkt löschen
 vessels:
     title: Schiffe
+    search: Schiff suchen
     addNewVessel: Neues Schiff erfassen
+    localName: Inländischer Schiffsname
+    flag: Flagge
+    type: Typ
+    callsign: Callsign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Letzter Besuch
+    contactPoint: Kontaktpunkt
+    nextVisit: Nächster Besuch frühestens
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen

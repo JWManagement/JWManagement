@@ -33,7 +33,7 @@ Vessels.schema = new SimpleSchema
 		type: String
 	eni:
 		type: String
-	emo:
+	imo:
 		type: String
 	mmsi:
 		type: String
