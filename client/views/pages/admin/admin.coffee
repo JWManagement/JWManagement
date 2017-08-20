@@ -21,6 +21,10 @@ Template.admin.helpers
 		icon: 'cubes'
 		role: 'admin,storeAdmin'
 	,
+		route: 'vessels'
+		icon: 'ship'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member'
+	,
 		route: 'notes'
 		icon: 'pencil'
 		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'

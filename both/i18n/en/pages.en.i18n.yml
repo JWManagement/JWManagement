@@ -9,6 +9,7 @@ navigation:
     users: Users
     reports: Reports
     store: Store Room
+    vessels: Vessels
     notes: Notes
     login: Login
     logout: Logout
@@ -344,6 +345,9 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
+vessels:
+    title: Vessels
+    addNewVessel: Add new vessel
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note
