@@ -138,7 +138,10 @@ Template.store.helpers
 		'WO'
 		'X'
 		'YR'
-	]
+	].map((lang) ->
+		short: lang
+		translation: TAPi18n.__('language.', context: lang)
+	).sort((a, b) -> a.translation > b.translation)
 
 	isReady: -> ProjectSubs.ready()
 
