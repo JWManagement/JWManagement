@@ -3,9 +3,10 @@ Meteor.methods
 	updateProject: (projectId, field, value) ->
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isAdmin
-			check value, String
 
-		if value.trim() != '' || field.indexOf('news') > -1
+		if field == 'vesselProject' && Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Projects.update projectId, $set: vesselProject: value
+		else if value.trim() != '' || field.indexOf('news') > -1
 			set = {}
 			set[field] = value
 

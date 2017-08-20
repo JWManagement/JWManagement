@@ -37,6 +37,24 @@ if queryParam 'editTeamPicture'
 												each getLanguages
 													li
 														a.changeLanguage(href newLang='{{_id}}') {{name}} ({{en}})
+								if isSupport
+									.form-group
+										label.col-sm-2.col-sm-2.col-lg-4.control-label Vessel project
+										.col-sm-10.col-lg-8
+											.dropdown
+												button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+													span.m-r {{getVesselProject}}
+													span.caret.pull-right
+												ul.dropdown-menu
+													li
+														a.changeVesselProject(href value='true') True
+													li
+														a.changeVesselProject(href value='false') False
+									if vesselProject
+										.form-group
+											label.col-sm-2.col-sm-2.col-lg-4.control-label Contact point name
+											.col-sm-10.col-lg-8
+												input#contactPointName.form-control(type='text' placeholder='Contact point name' value='{{contactPointName}}')
 							else
 								.sk-spinner.sk-spinner-pulse
 					else

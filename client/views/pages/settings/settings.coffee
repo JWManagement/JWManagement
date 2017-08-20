@@ -1,5 +1,13 @@
 Template.settings.helpers
 
+	isSupport: -> Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+
+	getVesselProject: ->
+		if this.vesselProject
+			'True'
+		else
+			'False'
+
 	getProject: -> Projects.findOne FlowRouter.getParam('projectId'), fields: infos: 0, items: 0
 
 	teamPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), teamId: @_id
@@ -31,18 +39,17 @@ Template.settings.events
 
 	'click .changeLanguage': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'language', $(e.target).attr('newLang'), handleError
 
+	'click .changeVesselProject': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselProject', ($(e.target).attr('value') == 'true'), handleError
+
+	'change #contactPointName': (e) -> Meteor.call 'updateProject', @_id, 'contactPointName', e.target.value, handleError
+
 	'click #deleteProject': ->
 		swalInput
 			swal: 'delete.project'
 			checkInput: TAPi18n.__('swal.delete.project.checkInput')
 			closeOnSuccess: false
 			doConfirm: ->
-				Meteor.call 'deleteProject', FlowRouter.getParam('projectId'), (e) ->
-					if e
-						swal 'Error ' + e.error, e.reason, 'error'
-					else
-						swalClose()
-						Delay -> FlowRouter.go('home')
+				Meteor.call 'deleteProject', FlowRouter.getParam('projectId')
 
 	# Tags
 
