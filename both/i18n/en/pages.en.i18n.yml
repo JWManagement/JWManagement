@@ -72,6 +72,7 @@ welcome:
         whatFor: What do you want to organize?
         send: Send
         sendEnquiry: Send Enquiry
+        fillOutCompletely: Please fill out all required fields
         enquirySuccessful: Enquiry successfully sent!
         issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
         loginTip: Tip: If you forgot your password, you can just reset it using the button beneath. If you have done this and it still doesn't work, consider talking to your elders.

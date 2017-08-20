@@ -76,4 +76,4 @@ Template.landing.events
 
 						$('#contactForm')[0].reset()
 		else
-			swal 'Bitte fülle alle Pflichtfelder aus!', '', 'error'
+			swal TAPi18n.__('welcome.contact.fillOutCompletely'), '', 'error'

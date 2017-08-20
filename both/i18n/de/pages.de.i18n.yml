@@ -71,6 +71,7 @@ welcome:
         whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
+        fillOutCompletely: Bitte fülle alle Pflichtfelder aus!
         enquirySuccessful: Anfrage wurde übermittelt!
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
         loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
