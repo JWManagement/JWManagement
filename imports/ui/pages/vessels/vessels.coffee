@@ -16,49 +16,24 @@ Template.vessels.onCreated ->
 
 			columns = [
 				{ name: 'id', title: '', breakpoints: '', filterable: false }
-				{ name: 'localName', title: TAPi18n.__('input.firstname'), breakpoints: '' }
-				{ name: 'lastname', title: TAPi18n.__('input.lastname'), breakpoints: '' }
-				{ name: 'username', title: TAPi18n.__('input.username'), breakpoints: 'all' }
-				{ name: 'email', title: TAPi18n.__('input.email'), breakpoints: 'xs' }
-				{ name: 'telefon', title: TAPi18n.__('input.telefon'), breakpoints: 'xs sm' }
-				{ name: 'congregation', title: TAPi18n.__('input.congregation'), breakpoints: 'xs sm' }
-				{ name: 'languages', title: TAPi18n.__('input.languages'), breakpoints: 'all' }
-				{ name: 'gender', title: TAPi18n.__('input.gender'), breakpoints: 'all' }
-				{ name: 'pioneer', title: TAPi18n.__('profile.privilegeOfService'), breakpoints: 'all' }
-				{ name: 'privilege', title: TAPi18n.__('profile.ministryPrivilege'), breakpoints: 'all' }
+				{ name: 'localName', title: TAPi18n.__('vessels.localName'), breakpoints: '' }
+				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: '' }
+				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: '' }
+				{ name: 'callsign', title: TAPi18n.__('vessels.callsign'), breakpoints: '' }
+				{ name: 'eni', title: TAPi18n.__('vessels.eni'), breakpoints: '' }
+				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: '' }
+				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: '' }
+				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: '' }
+				{ name: 'contactPoint', title: TAPi18n.__('vessels.contactPoint'), breakpoints: '' }
+				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: '' }
 			]
 
 			rows = []
 
-			for user, index in users.fetch()
+			for vessel, index in vessels.fetch()
 				rows.push
 					id: index + 1
-					firstname: user.profile.firstname
-					lastname: user.profile.lastname
-					username: user.username
-					email: user.profile.email
-					telefon: user.profile.telefon
-					congregation: user.profile.congregation
-					languages: user.profile.languages || '-'
-					gender: {
-						m: TAPi18n.__('profile._gender.brother')
-						w: TAPi18n.__('profile._gender.sister')
-					}[user.profile.gender] || TAPi18n.__('profile._gender.brother')
-					pioneer: {
-						auxiliary: TAPi18n.__('profile._privilegeOfService.auxiliaryPioneer')
-						regular: TAPi18n.__('profile._privilegeOfService.pioneer')
-						special: TAPi18n.__('profile._privilegeOfService.specialPioneer')
-						circuit: TAPi18n.__('profile._privilegeOfService.circuitOverseer')
-						bethelite: TAPi18n.__('profile._privilegeOfService.bethelite')
-						ldc: TAPi18n.__('profile._privilegeOfService.fulltimeConstructionServant')
-					}[user.profile.pioneer] || TAPi18n.__('profile.publisher')
-					privilege: {
-						servant: TAPi18n.__('profile._ministryPrivilege.ministerialServant')
-						elder: TAPi18n.__('profile._ministryPrivilege.elder')
-						coordinator: TAPi18n.__('profile._ministryPrivilege.coordinator')
-						secretary: TAPi18n.__('profile._ministryPrivilege.secretary')
-						serviceOverseer: TAPi18n.__('profile._ministryPrivilege.serviceOverseer')
-					}[user.profile.privilege] || TAPi18n.__('profile.publisher')
+					localName: user.localName
 
 			$('#vesselTable').html('').footable
 				columns: columns
