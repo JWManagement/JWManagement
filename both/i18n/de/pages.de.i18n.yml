@@ -347,6 +347,7 @@ settings:
 vessels:
     title: Schiffe
     search: Schiff suchen
+    placeholder: Schiffsname, Callsign, ENI, IMO oder MMSI
     addNewVessel: Neues Schiff erfassen
     localName: Inländischer Schiffsname
     flag: Flagge

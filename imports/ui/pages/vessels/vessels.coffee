@@ -45,13 +45,6 @@ Template.vessels.onCreated ->
 					size: 15
 				sorting:
 					enabled: true
-				filtering:
-					enabled: true
-					delay: 400
-					placeholder: TAPi18n.__('vessels.search')
-				state:
-					enabled: true
-					key: 'vesselTable'
 				editing:
 					enabled: true
 					alwaysShow: true
@@ -60,7 +53,9 @@ Template.vessels.onCreated ->
 						wrs -> FlowRouter.setQueryParams editVessels: row.value._id
 
 	@autorun ->
-		handle = Meteor.subscribe 'vessels', projectId
+		searchString = $('#vesselSearch').val()
+
+		handle = Meteor.subscribe 'vessels', searchString
 		if handle.ready()
 			Vessels.find().observe
 				added: drawVesselList

@@ -9,6 +9,13 @@ if queryParam 'addVessel'
 						h2.center-align.m-t-xs.m-b-none {{_ 'vessels.title'}}
 				.ibox
 					.ibox-content
+						.row
+							.col-lg-8
+								input#vesselSearch.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}')
+							.col-lg-4
+								button.btn.btn-primary.btn-block {{_ "vessels.search"}}
+				.ibox
+					.ibox-content
 						table#vesselTable.table.table-stripped
 							.sk-spinner.sk-spinner-pulse
 						.row.m-b-sm

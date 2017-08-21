@@ -348,6 +348,7 @@ settings:
 vessels:
     title: Vessels
     search: Search
+    placeholder: Vessel name, callsign, ENI, IMO or MMSI
     addNewVessel: Add new vessel
     localName: Inland vessel name
     flag: Flag
