@@ -105,7 +105,7 @@
 												.col-xs-8
 													select#newLanguage.form-control
 														each getLanguages
-															option(value='{{this}}') {{_ 'language.' context=this}}
+															option(value='{{short}}') {{translation}}
 											.form-group
 												label.col-xs-4.control-label {{_ 'store.count'}}
 												.col-xs-8
