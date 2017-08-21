@@ -22,28 +22,36 @@ Vessels.schema = new SimpleSchema
 		autoValue: -> new Date
 	createdBy:
 		type: String
-		regEx: SimpleSchema.RegEx.Id
+		autoValue: -> Meteor.userId()
 	localName:
 		type: String
 	flag:
 		type: String
+		optional: true
 	type:
 		type: String
+		optional: true
 	callsign:
 		type: String
+		optional: true
 	eni:
 		type: String
+		optional: true
 	imo:
 		type: String
+		optional: true
 	mmsi:
 		type: String
+		optional: true
 	lastVisit:
 		type: Date
 		autoValue: -> new Date
 	contactPoint:
 		type: String
+		optional: true
 	nextVisit:
 		type: Date
+		optional: true
 
 Vessels.attachSchema = Vessels.schema
 
