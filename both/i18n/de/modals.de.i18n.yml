@@ -16,6 +16,25 @@ modal:
         helpText: Der Benutzername sollte kurz und einprägsam sein. Am besten hängt er direkt mit den Vor- und Nachnamen der Benutzers zusammen.<br>Beispiele: "MaxM" oder "MMustermann"
         invite: %s (%s) einladen
         existingAccounts: Bestehende Accounts
+    addVessel:
+        title: Neues Schiff hinzufügen
+        localName: Inländischer Name
+        flag: Flagge
+        type: Typ
+        types:
+            c: Kreuzfahrtschiff
+            p: Passagierschiff
+            mf: Frachtschiff
+            mt: Tankschiff
+            pt: Schubverband
+        callsign: Callsign
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        lastVisit: Letzter Besuch
+        contactPoint: Kontaktpunkt
+        nextVisit: Nächster Besuch frühestens
+        action: Schiff hinzufügen
     addWeek:
         title: Neue Woche anlegen
         noTemplate: Bitte leg zuerst eine Vorlage an

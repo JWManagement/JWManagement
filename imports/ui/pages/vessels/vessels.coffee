@@ -1,5 +1,7 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
+import '/imports/ui/components/addVesselModal/addVesselModal.coffee'
+
 import './vessels.tpl.jade'
 
 Template.vessels.onCreated ->
@@ -68,3 +70,8 @@ Template.vessels.onCreated ->
 			initDone = true
 
 			drawVesselList()
+
+Template.vessels.events
+
+	'click #addVessel': ->
+		wrs -> FlowRouter.setQueryParams addVessel: true

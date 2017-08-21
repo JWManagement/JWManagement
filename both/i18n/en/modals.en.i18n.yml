@@ -16,6 +16,25 @@ modal:
         helpText: The username should be short and memorable. Combinations of the user's first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"
         invite: Invite %s (%s)
         existingAccounts: Existing Accounts
+    addVessel:
+        title: Add a vessel
+        localName: Local name
+        flag: Flag
+        type: Type
+        types:
+            c: Cruise ship
+            p: Passenger ship
+            mf: Motor freighter
+            mt: Motor tanker
+            pt: Pushtow
+        callsign: Callsign
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        lastVisit: Last visit
+        contactPoint: Contact point
+        nextVisit: Next visit after
+        action: Add vessel
     addWeek:
         title: Create new week
         noTemplate: Please define a template first

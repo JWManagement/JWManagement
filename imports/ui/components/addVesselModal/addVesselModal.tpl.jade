@@ -1,0 +1,58 @@
+#addVesselModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-md.animated.fadeInUp
+		.modal-content
+			.modal-header
+				i.fa.fa-user-plus.modal-icon
+				h2.m-b-none {{_ 'modal.addVessel.title'}}
+			.modal-body
+				form.form-horizontal
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.localName"}}
+						.col-sm-6
+							input.form-control(type='text' name='localName' placeholder='{{_ "modal.addVessel.localName"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.flag"}}
+						.col-sm-6
+							input.form-control(type='text' name='flag' placeholder='{{_ "modal.addVessel.flag"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.type"}}
+						.col-lg-6
+							select.form-control(name="type")
+								option(value='c') {{_ "modal.addVessel.types.c"}}
+								option(value='p') {{_ "modal.addVessel.types.p"}}
+								option(value='mf') {{_ "modal.addVessel.types.mf"}}
+								option(value='mt') {{_ "modal.addVessel.types.mt"}}
+								option(value='pt') {{_ "modal.addVessel.types.pt"}}
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.callsign"}}
+						.col-sm-6
+							input.form-control(type='text' name='callsign' placeholder='{{_ "modal.addVessel.callsign"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.eni"}}
+						.col-sm-6
+							input.form-control(type='text' name='eni' placeholder='{{_ "modal.addVessel.eni"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.imo"}}
+						.col-sm-6
+							input.form-control(type='text' name='imo' placeholder='{{_ "modal.addVessel.imo"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.mmsi"}}
+						.col-sm-6
+							input.form-control(type='text' name='mmsi' placeholder='{{_ "modal.addVessel.mmsi"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.lastVisit"}}
+						.col-sm-6
+							input.form-control(type='text' name='lastVisit' placeholder='{{_ "modal.addVessel.lastVisit"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.contactPoint"}}
+						.col-sm-6
+							input.form-control(type='text' name='contactPoint' placeholder='{{_ "modal.addVessel.contactPoint"}}' readonly disabled)
+					.form-group
+						label.col-sm-4.control-label {{_ "modal.addVessel.nextVisit"}}
+						.col-sm-6
+							input.form-control(type='text' name='nextVisit' placeholder='{{_ "modal.addVessel.nextVisit"}}')
+					.row
+						.col-sm-6.col-sm-offset-4
+							button#addUser.btn.btn-primary.btn-block {{_ 'modal.addVessel.action'}}
+			.modal-footer
+				button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}
