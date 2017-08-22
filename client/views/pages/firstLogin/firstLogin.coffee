@@ -23,10 +23,13 @@ Template.firstLogin.onCreated ->
 
 Template.firstLogin.events
 
+	'keyup #username': (e) ->
+		$('#username').val(e.target.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, ''))
+
 	'submit form': (event) ->
 		event.preventDefault()
 
-		username = $('#username').val().trim().toLowerCase()
+		username = $('#username').val().trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
 		password1 = $('#password1').val()
 		password2 = $('#password2').val()
 		agreeTerms = $('#agreeTerms').prop('checked')

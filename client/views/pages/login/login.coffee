@@ -8,6 +8,9 @@ Template.login.onRendered ->
 
 Template.login.events
 
+	'keyup #username': (e) ->
+		$('#username').val(e.target.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, ''))
+
 	'submit form': (event) ->
 		event.preventDefault()
 		Session.set 'error', ''
@@ -15,7 +18,7 @@ Template.login.events
 		submit = $('#submit').ladda()
 		submit.ladda('start')
 
-		username = $('#username').val().trim()
+		username = $('#username').val().trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
 		password = $('#password').val()
 
 		if username != '' && password != ''
