@@ -18,15 +18,15 @@ Template.vessels.onCreated ->
 			columns = [
 				{ name: 'id', title: '', breakpoints: '', filterable: false }
 				{ name: 'localName', title: TAPi18n.__('vessels.localName'), breakpoints: '' }
-				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: '' }
-				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: '' }
+				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs' }
+				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs' }
 				{ name: 'callsign', title: TAPi18n.__('vessels.callsign'), breakpoints: '' }
-				{ name: 'eni', title: TAPi18n.__('vessels.eni'), breakpoints: '' }
-				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: '' }
-				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: '' }
-				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: '' }
-				{ name: 'contactPoint', title: TAPi18n.__('vessels.contactPoint'), breakpoints: '' }
-				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: '' }
+				{ name: 'eni', title: TAPi18n.__('vessels.eni'), breakpoints: 'xs' }
+				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: 'xs' }
+				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: 'xs' }
+				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs' }
+				{ name: 'contactPoint', title: TAPi18n.__('vessels.contactPoint'), breakpoints: 'xs' }
+				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs' }
 			]
 
 			rows = []
