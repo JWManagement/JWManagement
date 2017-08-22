@@ -4,8 +4,8 @@ Meteor.methods
 		if Meteor.isServer
 			check { userId: Meteor.userId(), projectId: projectId }, isAdmin
 
-		if field == 'vesselProject' && Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
-			Projects.update projectId, $set: vesselProject: value
+		if field == 'vesselModule' && Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Projects.update projectId, $set: vesselModule: value
 		else if value.trim() != '' || field.indexOf('news') > -1
 			set = {}
 			set[field] = value

@@ -2,7 +2,7 @@
 	.container
 		each btn in buttons
 			unless btn.comingSoon
-				if dependenciesMatched
+				if dependenciesMatched btn.dependency
 					if isInRole btn.role getProjectId
 						a(href="{{pathFor btn.route projectId=getProjectId language=langTag}}")
 							.col-md-3.col-xs-4.btn-wrapper

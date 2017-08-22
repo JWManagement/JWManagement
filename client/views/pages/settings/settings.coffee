@@ -2,8 +2,8 @@ Template.settings.helpers
 
 	isSupport: -> Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
 
-	getVesselProject: ->
-		if this.vesselProject
+	getVesselModule: ->
+		if this.vesselModule
 			'True'
 		else
 			'False'
@@ -39,7 +39,7 @@ Template.settings.events
 
 	'click .changeLanguage': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'language', $(e.target).attr('newLang'), handleError
 
-	'click .changeVesselProject': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselProject', ($(e.target).attr('value') == 'true'), handleError
+	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
 
 	'change #contactPointName': (e) -> Meteor.call 'updateProject', @_id, 'contactPointName', e.target.value, handleError
 

@@ -43,14 +43,14 @@ if queryParam 'editTeamPicture'
 										.col-sm-10.col-lg-8
 											.dropdown
 												button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
-													span.m-r {{getVesselProject}}
+													span.m-r {{getVesselModule}}
 													span.caret.pull-right
 												ul.dropdown-menu
 													li
-														a.changeVesselProject(href value='true') True
+														a.changeVesselModule(href value='true') True
 													li
-														a.changeVesselProject(href value='false') False
-									if vesselProject
+														a.changeVesselModule(href value='false') False
+									if vesselModule
 										.form-group
 											label.col-sm-2.col-sm-2.col-lg-4.control-label Contact point name
 											.col-sm-10.col-lg-8

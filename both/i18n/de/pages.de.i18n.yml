@@ -346,6 +346,7 @@ settings:
         remove: Treffpunkt löschen
 vessels:
     title: Schiffe
+    nameShort: Schiffe
     search: Schiff suchen
     placeholder: Schiffsname, Callsign, ENI, IMO oder MMSI
     addNewVessel: Neues Schiff erfassen

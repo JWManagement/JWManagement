@@ -4,12 +4,14 @@ Template.admin.helpers
 
 	name: (route) -> TAPi18n.__('navigation.' + route)
 
-	dependenciesMatched: ->
-		# TODO: load projects
-		#project = Projects.findOne FlowRouter.getParam('projectId')
+	dependenciesMatched: (dependency) ->
+		if dependency
+			projectId = FlowRouter.getParam('projectId')
+			project = Projects.findOne(projectId)
 
-		#project[@dependency] == true
-		true
+			project? && project[dependency] == true
+		else
+			true
 
 	buttons: -> [
 		route: 'settings'
@@ -31,8 +33,8 @@ Template.admin.helpers
 		route: 'vessels'
 		icon: 'ship'
 		role: 'support'
-		#role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member' # just for now
-		dependency: 'vesselProject'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member'
+		dependency: 'vesselModule'
 	,
 		route: 'notes'
 		icon: 'pencil'
@@ -58,3 +60,7 @@ Template.admin.helpers
 		icon: 'heart'
 		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
 	]
+
+Template.admin.onCreated ->
+
+	Meteor.subscribe 'admin', FlowRouter.getParam('projectId')

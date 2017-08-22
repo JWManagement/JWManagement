@@ -61,5 +61,9 @@ FlowRouter.route '/:language/:projectId/vessels',
 	name: 'vessels'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'admin'
+		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
+			Session.set 'parent', 'admin'
+		else
+			Session.set 'parent', 'home'
+
 		BlazeLayout.render 'mainLayout', content: 'vessels'
