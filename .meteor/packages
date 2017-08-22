@@ -36,7 +36,6 @@ cfs:s3
 cfs:standard-packages
 chrismbeckett:toastr # remove in future
 chuangbo:cookie # remove in future
-flowkey:bootstrap-tour # remove in future
 fortawesome:fontawesome
 fourseven:scss
 gwendall:impersonate
