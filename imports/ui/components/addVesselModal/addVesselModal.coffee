@@ -6,16 +6,20 @@ Template.addVesselModal.onRendered ->
 
 	$('#addVesselModal').modal('show')
 	$('#addVesselModal').on 'hidden.bs.modal', ->
-		wrs -> FlowRouter.setQueryParams addVessel: undefined
+		wrs -> FlowRouter.setQueryParams addVessel: null
 
 Template.addVesselModal.events
 
 	'submit form': (e, a) ->
 		e.preventDefault()
 
+		$('#addVesselAction').attr('disabled', 'disabled')
+
+		localName = $(e.target).find('[name=localName]').val().trim()
+
 		Vessels.methods.addVessel.call
 			projectId: FlowRouter.getParam('projectId')
-			localName: $(e.target).find('[name=localName]').val().trim()
+			localName: localName
 			flag: $(e.target).find('[name=flag]').val().trim()
 			type: $(e.target).find('[name=type]').val().trim()
 			callsign: $(e.target).find('[name=callsign]').val().trim()
@@ -26,4 +30,5 @@ Template.addVesselModal.events
 			nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
 			comments: $(e.target).find('[name=comments]').val()
 
-		FlowRouter.setParams addVessel: undefined
+		$('#addVesselModal').modal('hide')
+		$('#vesselSearch').val(localName).keyup()
