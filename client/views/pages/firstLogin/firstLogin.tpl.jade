@@ -25,6 +25,9 @@
 				else
 					if loggingIn
 						.sk-spinner.sk-spinner-pulse
+					else if isLoading
+						h2.center-align
+							i.fa.fa-spinner.fa-pulse
 					else
 						h2.center-align {{{_ 'resetPassword.noUserFound'}}}
 	.dropdown.m-t.text-center

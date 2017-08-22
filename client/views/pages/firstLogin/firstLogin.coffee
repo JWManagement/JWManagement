@@ -1,3 +1,5 @@
+isLoading = new ReactiveVar
+
 Template.firstLogin.helpers
 
 	user: ->
@@ -6,12 +8,18 @@ Template.firstLogin.helpers
 
 	getErrorMessage: -> Session.get('errorMessage')
 
+	isLoading: -> isLoading.get()
+
 Template.firstLogin.onCreated ->
 
+	isLoading.set true
+
+	@autorun ->
 	token = FlowRouter.getQueryParam('token')
 
 	if token? && token != ''
-		@subscribe 'userByToken', token
+			handle = Meteor.subscribe 'userByToken', token
+			isLoading.set(handle.ready())
 
 Template.firstLogin.events
 
