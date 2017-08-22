@@ -352,6 +352,12 @@ vessels:
     localName: Inländischer Schiffsname
     flag: Flagge
     type: Typ
+    types:
+        c: Kreuzfahrtschiff
+        p: Passagierschiff
+        mf: Frachtschiff
+        mt: Tankschiff
+        pt: Schubverband
     callsign: Callsign
     eni: ENI
     imo: IMO

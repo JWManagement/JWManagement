@@ -4,6 +4,8 @@ import '/imports/ui/components/addVesselModal/addVesselModal.coffee'
 
 import './vessels.tpl.jade'
 
+searchString = new ReactiveVar
+
 Template.vessels.onCreated ->
 
 	initDone = false
@@ -11,10 +13,7 @@ Template.vessels.onCreated ->
 
 	drawVesselList = -> if initDone
 		Tracker.afterFlush ->
-			vessels = Vessels.find
-				localName: 1
-			, sort:
-				localName: 1
+			vessels = Vessels.find {}, sort: localName: 1
 
 			columns = [
 				{ name: 'id', title: '', breakpoints: '', filterable: false }
@@ -35,7 +34,16 @@ Template.vessels.onCreated ->
 			for vessel, index in vessels.fetch()
 				rows.push
 					id: index + 1
-					localName: user.localName
+					localName: vessel.localName
+					flag: vessel.flag
+					type: TAPi18n.__('vessels.types.' + vessel.type)
+					callsign: vessel.callsign
+					eni: vessel.eni
+					imo: vessel.imo
+					mmsi: vessel.mmsi
+					lastVisit: vessel.lastVisit
+					contactPoint: vessel.contactPoint
+					nextVisit: vessel.nextVisit
 
 			$('#vesselTable').html('').footable
 				columns: columns
@@ -49,13 +57,14 @@ Template.vessels.onCreated ->
 					enabled: true
 					alwaysShow: true
 					allowAdd: false
+					allowDelete: false
 					editRow: (row) ->
 						wrs -> FlowRouter.setQueryParams editVessels: row.value._id
 
 	@autorun ->
-		searchString = $('#vesselSearch').val()
+		FlowRouter.getParam('language') # redraw with new language
 
-		handle = Meteor.subscribe 'vessels', searchString
+		handle = Meteor.subscribe 'vessels', searchString.get()
 		if handle.ready()
 			Vessels.find().observe
 				added: drawVesselList
@@ -70,3 +79,6 @@ Template.vessels.events
 
 	'click #addVessel': ->
 		wrs -> FlowRouter.setQueryParams addVessel: true
+
+	'keyup #vesselSearch': (e) ->
+		searchString.set(e.target.value)

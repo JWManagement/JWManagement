@@ -353,6 +353,12 @@ vessels:
     localName: Inland vessel name
     flag: Flag
     type: Type
+    types:
+        c: Cruise ship
+        p: Passenger ship
+        mf: Motor freighter
+        mt: Motor tanker
+        pt: Pushtow
     callsign: Callsign
     eni: ENI
     imo: IMO
