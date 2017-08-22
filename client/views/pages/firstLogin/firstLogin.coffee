@@ -15,9 +15,9 @@ Template.firstLogin.onCreated ->
 	isLoading.set true
 
 	@autorun ->
-	token = FlowRouter.getQueryParam('token')
+		token = FlowRouter.getQueryParam('token')
 
-	if token? && token != ''
+		if token? && token != ''
 			handle = Meteor.subscribe 'userByToken', token
 			isLoading.set(handle.ready())
 
@@ -26,7 +26,7 @@ Template.firstLogin.events
 	'submit form': (event) ->
 		event.preventDefault()
 
-		username = $('#username').val()
+		username = $('#username').val().trim().toLowerCase()
 		password1 = $('#password1').val()
 		password2 = $('#password2').val()
 		agreeTerms = $('#agreeTerms').prop('checked')
