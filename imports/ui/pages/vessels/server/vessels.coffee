@@ -5,18 +5,23 @@ Meteor.publish 'vessels', (searchString) ->
 	if typeof searchString == 'string' && searchString != '' && searchString.length >= 3
 		# TODO: verify correct permissions
 		if true # Roles.userIsInRole @userId, Permissions.shiftAndStoreAdmin, projectId
-			Vessels.find
-				$or: [
-					localName: new RegExp('.*' + searchString + '.*', 'i')
-				,
-					callsign: new RegExp('.*' + searchString + '.*', 'i')
-				,
-					eni: new RegExp('.*' + searchString + '.*', 'i')
-				,
-					imo: new RegExp('.*' + searchString + '.*', 'i')
-				,
-					mmsi: new RegExp('.*' + searchString + '.*', 'i')
-				]
+			try
+				regEx = new RegExp('.*' + searchString + '.*', 'i')
+
+				Vessels.find
+					$or: [
+						localName: regEx
+					,
+						callsign: regEx
+					,
+						eni: regEx
+					,
+						imo: regEx
+					,
+						mmsi: regEx
+					]
+			catch error
+				@ready()
 		else
 			@ready()
 	else
