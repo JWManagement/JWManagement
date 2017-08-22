@@ -51,6 +51,9 @@ Vessels.schema = new SimpleSchema
 	nextVisit:
 		type: Date
 		optional: true
+	comments:
+		type: String
+		optional: true
 
 Vessels.attachSchema = Vessels.schema
 

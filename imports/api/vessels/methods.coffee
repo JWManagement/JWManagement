@@ -16,6 +16,7 @@ export Methods =
 				mmsi: type: String
 				lastVisit: type: String
 				nextVisit: type: String
+				comments: type: String
 			.validator()
 		run: (newVessel) -> if Meteor.isServer
 			{ Vessels } = require '/imports/api/vessels/vessels.coffee'

@@ -24,5 +24,6 @@ Template.addVesselModal.events
 			mmsi: $(e.target).find('[name=mmsi]').val().trim()
 			lastVisit: $(e.target).find('[name=lastVisit]').val().trim()
 			nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
+			comments: $(e.target).find('[name=comments]').val()
 
 		FlowRouter.setParams addVessel: undefined

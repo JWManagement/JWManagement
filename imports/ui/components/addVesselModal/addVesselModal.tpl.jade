@@ -47,6 +47,10 @@
 						label.col-sm-4.control-label {{_ "vessels.nextVisit"}}
 						.col-sm-6
 							input.form-control(type='text' name='nextVisit' placeholder='{{_ "vessels.nextVisit"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.comments"}}
+						.col-sm-6
+							textarea.form-control(name='comments' placeholder='{{_ "vessels.commentsPlaceholder"}}')
 					.row
 						.col-sm-6.col-sm-offset-4
 							button#addUser.btn.btn-primary.btn-block {{_ 'modal.addVessel.action'}}

@@ -27,6 +27,7 @@ Template.vessels.onCreated ->
 				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs' }
 				{ name: 'contactPoint', title: TAPi18n.__('vessels.contactPoint'), breakpoints: 'xs' }
 				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs' }
+				{ name: 'comments', title: TAPi18n.__('vessels.comments'), breakpoints: 'xs' }
 			]
 
 			rows = []
@@ -41,9 +42,10 @@ Template.vessels.onCreated ->
 					eni: vessel.eni
 					imo: vessel.imo
 					mmsi: vessel.mmsi
-					lastVisit: vessel.lastVisit
+					lastVisit: moment(vessel.lastVisit).format()
 					contactPoint: vessel.contactPoint
 					nextVisit: vessel.nextVisit
+					comments: vessel.comments
 
 			$('#vesselTable').html('').footable
 				columns: columns
