@@ -48,7 +48,6 @@ Vessels.schema = new SimpleSchema
 		autoValue: -> new Date
 	contactPoint:
 		type: String
-		optional: true
 	nextVisit:
 		type: Date
 		optional: true
