@@ -354,10 +354,11 @@ vessels:
     flag: Flagge
     type: Typ
     types:
-        c: Kreuzfahrtschiff
-        p: Passagierschiff
+        c: Containerschiff
+        cr: Kreuzfahrtschiff
         mf: Frachtschiff
         mt: Tankschiff
+        p: Passagierschiff
         pt: Schubverband
     callsign: Callsign
     eni: ENI

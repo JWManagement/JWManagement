@@ -30,7 +30,7 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	type:
 		type: String
-		optional: true
+		allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt']
 	callsign:
 		type: String
 		optional: true

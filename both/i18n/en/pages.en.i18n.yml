@@ -355,10 +355,11 @@ vessels:
     flag: Flag
     type: Type
     types:
-        c: Cruise ship
-        p: Passenger ship
+        c: Container ship
+        cr: Cruise ship
         mf: Motor freighter
         mt: Motor tanker
+        p: Passenger ship
         pt: Pushtow
     callsign: Callsign
     eni: ENI
