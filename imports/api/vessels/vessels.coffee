@@ -23,7 +23,7 @@ Vessels.schema = new SimpleSchema
 	createdBy:
 		type: String
 		autoValue: -> Meteor.userId()
-	localName:
+	name:
 		type: String
 	flag:
 		type: String
@@ -46,12 +46,12 @@ Vessels.schema = new SimpleSchema
 	lastVisit:
 		type: Date
 		autoValue: -> new Date
-	contactPoint:
+	harborGroup:
 		type: String
 	nextVisit:
 		type: Date
 		optional: true
-	comments:
+	languages:
 		type: String
 		optional: true
 

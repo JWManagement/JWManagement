@@ -7,9 +7,9 @@
 			.modal-body
 				form.form-horizontal
 					.form-group
-						label.col-sm-4.control-label {{_ "vessels.localName"}}
+						label.col-sm-4.control-label {{_ "vessels.name"}}
 						.col-sm-6
-							input.form-control(type='text' name='localName' placeholder='{{_ "vessels.localName"}}')
+							input.form-control(type='text' name='name' placeholder='{{_ "vessels.name"}}')
 					.form-group
 						label.col-sm-4.control-label {{_ "vessels.flag"}}
 						.col-sm-6
@@ -52,9 +52,9 @@
 						.col-sm-6
 							input.form-control(type='text' name='nextVisit' placeholder='{{_ "vessels.nextVisit"}}')
 					.form-group
-						label.col-sm-4.control-label {{_ "vessels.comments"}}
+						label.col-sm-4.control-label {{_ "vessels.languages"}}
 						.col-sm-6
-							textarea.form-control(name='comments' placeholder='{{_ "vessels.commentsPlaceholder"}}')
+							textarea.form-control(name='languages' placeholder='{{_ "vessels.languagesPlaceholder"}}')
 					.row
 						.col-sm-6.col-sm-offset-4
 							button#addVesselAction.btn.btn-primary.btn-block {{_ 'modal.addVessel.action'}}

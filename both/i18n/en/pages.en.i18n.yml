@@ -351,7 +351,7 @@ vessels:
     search: Search
     placeholder: Vessel name, call sign, ENI, IMO or MMSI
     addNewVessel: Add new vessel
-    localName: Vessel name
+    name: Vessel name
     flag: Flag
     type: Type
     types:
@@ -369,10 +369,10 @@ vessels:
     imo: IMO
     mmsi: MMSI
     lastVisit: Last visit
-    contactPoint: Harbor group
+    harborGroup: Harbor group
     nextVisit: Next visit after
-    comments: Language(s) on board
-    commentsPlaceholder: No person-specific information!
+    languages: Language(s) on board
+    languagesPlaceholder: No person-specific information!
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note

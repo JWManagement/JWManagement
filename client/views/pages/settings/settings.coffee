@@ -41,7 +41,7 @@ Template.settings.events
 
 	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
 
-	'change #contactPointName': (e) -> Meteor.call 'updateProject', @_id, 'contactPointName', e.target.value, handleError
+	'change #harborGroup': (e) -> Meteor.call 'updateProject', @_id, 'harborGroup', e.target.value, handleError
 
 	'click #deleteProject': ->
 		swalInput

@@ -10,7 +10,7 @@ Meteor.publish 'vessels', (searchString) ->
 
 				Vessels.find
 					$or: [
-						localName: regEx
+						name: regEx
 					,
 						callsign: regEx
 					,

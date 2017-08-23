@@ -15,11 +15,11 @@ Template.addVesselModal.events
 
 		$('#addVesselAction').attr('disabled', 'disabled')
 
-		localName = $(e.target).find('[name=localName]').val().trim()
+		name = $(e.target).find('[name=name]').val().trim()
 
 		Vessels.methods.addVessel.call
 			projectId: FlowRouter.getParam('projectId')
-			localName: localName
+			name: name
 			flag: $(e.target).find('[name=flag]').val().trim()
 			type: $(e.target).find('[name=type]').val().trim()
 			callsign: $(e.target).find('[name=callsign]').val().trim()
@@ -28,7 +28,7 @@ Template.addVesselModal.events
 			mmsi: $(e.target).find('[name=mmsi]').val().trim()
 			lastVisit: $(e.target).find('[name=lastVisit]').val().trim()
 			nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
-			comments: $(e.target).find('[name=comments]').val()
+			languages: $(e.target).find('[name=languages]').val()
 
 		$('#addVesselModal').modal('hide')
-		$('#vesselSearch').val(localName).keyup()
+		$('#vesselSearch').val(name).keyup()

@@ -13,11 +13,11 @@ Template.vessels.onCreated ->
 
 	drawVesselList = -> if initDone
 		Tracker.afterFlush ->
-			vessels = Vessels.find {}, sort: localName: 1
+			vessels = Vessels.find {}, sort: name: 1
 
 			columns = [
 				{ name: 'id', title: '', breakpoints: '', filterable: false }
-				{ name: 'localName', title: TAPi18n.__('vessels.localName'), breakpoints: '' }
+				{ name: 'name', title: TAPi18n.__('vessels.name'), breakpoints: '' }
 				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs' }
 				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs' }
 				{ name: 'callsign', title: TAPi18n.__('vessels.callsign'), breakpoints: '' }
@@ -25,9 +25,9 @@ Template.vessels.onCreated ->
 				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: 'xs' }
 				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: 'xs' }
 				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs' }
-				{ name: 'contactPoint', title: TAPi18n.__('vessels.contactPoint'), breakpoints: 'xs' }
+				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'xs' }
 				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs' }
-				{ name: 'comments', title: TAPi18n.__('vessels.comments'), breakpoints: 'xs' }
+				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'xs' }
 			]
 
 			rows = []
@@ -35,7 +35,7 @@ Template.vessels.onCreated ->
 			for vessel, index in vessels.fetch()
 				rows.push
 					id: index + 1
-					localName: vessel.localName
+					name: vessel.name
 					flag: vessel.flag
 					type: TAPi18n.__('vessels.types.' + vessel.type)
 					callsign: vessel.callsign
@@ -43,9 +43,9 @@ Template.vessels.onCreated ->
 					imo: vessel.imo
 					mmsi: vessel.mmsi
 					lastVisit: moment(vessel.lastVisit).format()
-					contactPoint: vessel.contactPoint
+					harborGroup: vessel.harborGroup
 					nextVisit: vessel.nextVisit
-					comments: vessel.comments
+					languages: vessel.languages
 
 			$('#vesselTable').html('').footable
 				columns: columns
