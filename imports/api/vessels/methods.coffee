@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema'
+import { Validators } from '/imports/api/util/validators.coffee'
 
 export Methods =
 
@@ -8,7 +9,9 @@ export Methods =
 			new SimpleSchema
 				projectId:
 					type: String
-					required: true
+					custom: ->
+						Validators.project.validId
+						Validators.project.isAdmin
 				name: type: String
 				flag: type: String
 				type:
