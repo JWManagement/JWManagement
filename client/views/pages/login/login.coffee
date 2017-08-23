@@ -15,7 +15,7 @@ Template.login.events
 		submit = $('#submit').ladda()
 		submit.ladda('start')
 
-		username = $('#username').val().trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
+		username = Validations.cleanedUsername($('#username').val())
 		password = $('#password').val()
 
 		if username != '' && password != ''

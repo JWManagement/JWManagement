@@ -48,7 +48,7 @@ Template.profile.onDestroyed ->
 Template.profile.events
 
 	'keyup #username': (e) ->
-		$('#username').val(e.target.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, ''))
+		$('#username').val(Validations.cleanedUsername(e.target.value))
 
 	'click .profile-image': (e) ->
 		wrs -> FlowRouter.setQueryParams editProfilePicture: true
@@ -58,7 +58,7 @@ Template.profile.events
 	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
 
 	'change #username': (e) ->
-		username = e.target.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '')
+		username = Validations.cleanedUsername(e.target.value)
 
 		Meteor.call 'updateProfile', 'username', username, (error) ->
 			if error
