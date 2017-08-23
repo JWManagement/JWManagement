@@ -348,26 +348,29 @@ vessels:
     title: Schiffe
     nameShort: Schiffe
     search: Schiff suchen
-    placeholder: Schiffsname, Callsign, ENI, IMO oder MMSI
+    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
     addNewVessel: Neues Schiff erfassen
-    localName: Inländischer Schiffsname
+    localName: Schiffsname
     flag: Flagge
     type: Typ
     types:
         c: Containerschiff
         cr: Kreuzfahrtschiff
-        mf: Frachtschiff
-        mt: Tankschiff
+        mf: Frachter
+        mt: Tanker
         p: Passagierschiff
-        pt: Schubverband
+        pt: Schubboot
+        rc: Flusskreuzfahrtschiff
+        f: Fähre
+        ro: Ro-Ro
     callsign: Callsign
     eni: ENI
     imo: IMO
     mmsi: MMSI
     lastVisit: Letzter Besuch
-    contactPoint: Kontaktpunkt
+    contactPoint: Hafengruppe
     nextVisit: Nächster Besuch frühestens
-    comments: Bemerkungen
+    comments: Sprache(n) an Bord
     commentsPlaceholder: Keine personenbezogenen Daten!
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.

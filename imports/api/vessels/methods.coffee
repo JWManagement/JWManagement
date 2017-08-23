@@ -6,10 +6,14 @@ export Methods =
 		name: 'Vessels.methods.addVessel'
 		validate:
 			new SimpleSchema
-				projectId: type: String
+				projectId:
+					type: String
+					required: true
 				localName: type: String
 				flag: type: String
-				type: type: String
+				type:
+					type: String
+					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro']
 				callsign: type: String
 				eni: type: String
 				imo: type: String
