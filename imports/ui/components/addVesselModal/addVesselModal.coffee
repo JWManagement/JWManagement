@@ -29,6 +29,11 @@ Template.addVesselModal.events
 			lastVisit: $(e.target).find('[name=lastVisit]').val().trim()
 			nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
 			languages: $(e.target).find('[name=languages]').val()
+		, (e, r) ->
+			if e
+				handleError e
 
-		$('#addVesselModal').modal('hide')
-		$('#vesselSearch').val(name).keyup()
+				$('#addVesselAction').removeAttr('disabled')
+			else
+				$('#addVesselModal').modal('hide')
+				$('#vesselSearch').val(name).keyup()

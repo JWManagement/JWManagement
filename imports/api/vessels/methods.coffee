@@ -1,4 +1,3 @@
-import SimpleSchema from 'simpl-schema'
 import { Validators } from '/imports/api/util/validators.coffee'
 
 export Methods =
@@ -17,13 +16,27 @@ export Methods =
 				type:
 					type: String
 					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro']
-				callsign: type: String
-				eni: type: String
-				imo: type: String
-				mmsi: type: String
-				lastVisit: type: String
-				nextVisit: type: String
-				languages: type: String
+				callsign:
+					type: String
+					optional: true
+				eni:
+					type: String
+					optional: true
+				imo:
+					type: String
+					optional: true
+				mmsi:
+					type: String
+					optional: true
+				lastVisit:
+					type: String
+					optional: true
+				nextVisit:
+					type: String
+					optional: true
+				languages:
+					type: String
+					optional: true
 			.validator()
 		run: (newVessel) -> if Meteor.isServer
 			{ Vessels } = require '/imports/api/vessels/vessels.coffee'
