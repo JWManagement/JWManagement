@@ -23,7 +23,7 @@ Template.firstLogin.onCreated ->
 
 Template.firstLogin.events
 
-	'keyup #username': (e) ->
+	'change #username': (e) ->
 		$('#username').val(Validations.cleanedUsername(e.target.value))
 
 	'submit form': (event) ->

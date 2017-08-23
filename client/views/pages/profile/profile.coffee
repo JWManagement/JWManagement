@@ -47,7 +47,7 @@ Template.profile.onDestroyed ->
 
 Template.profile.events
 
-	'keyup #username': (e) ->
+	'change #username': (e) ->
 		$('#username').val(Validations.cleanedUsername(e.target.value))
 
 	'click .profile-image': (e) ->

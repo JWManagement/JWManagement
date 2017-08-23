@@ -8,6 +8,9 @@ Template.login.onRendered ->
 
 Template.login.events
 
+	'change #username': (e) ->
+		$('#username').val(Validations.cleanedUsername(e.target.value))
+
 	'submit form': (event) ->
 		event.preventDefault()
 		Session.set 'error', ''
