@@ -13,8 +13,6 @@ input:
     passwordRepeat: Ismételd meg a jelszót
     newPassword: Új jelszó
     newPasswordRepeat: Ismételd meg az új jelszót
-    helpText:
-        username: A felhasználónév nem tartalmazhat speciális karaktereket (például @ vagy .), és ezért nem lehet megadni egy e-mail címet.
 role:
     role: Szerep
     admin: Adminisztátor

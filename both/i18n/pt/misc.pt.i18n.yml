@@ -13,8 +13,6 @@ input:
     passwordRepeat: Repita Palavra-passe
     newPassword: Nova Palavra-passe
     newPasswordRepeat: Repita nova Palavra-passe
-    helpText:
-        username: O Nome de usuário NÃO pode conter caractéres especiais (ex: @ ou , ) e portanto nunca poderá ser um endereço de email.
 role:
     role: Função
     admin: Gerente de Projeto
