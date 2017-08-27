@@ -1,6 +1,7 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
 import '/imports/ui/components/addVesselModal/addVesselModal.coffee'
+import '/imports/ui/components/editVesselModal/editVesselModal.coffee'
 
 import './vessels.tpl.jade'
 
@@ -63,6 +64,8 @@ Template.vessels.onCreated ->
 					allowAdd: false
 					allowDelete: false
 					editRow: (row) -> wrs ->
+						FlowRouter.setQueryParams editVessel: true
+						FlowRouter.setQueryParams vesselId: row.value._id
 
 	@autorun ->
 		FlowRouter.getParam('language') # redraw with new language
