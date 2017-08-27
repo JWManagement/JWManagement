@@ -5,6 +5,10 @@ import './addVesselModal.tpl.jade'
 
 isValidating = new ReactiveVar
 
+Template.addVesselModal.helpers
+
+	isValidating: -> isValidating.get()
+
 Template.addVesselModal.onRendered ->
 
 	$('#addVesselModal').modal('show')
@@ -38,6 +42,8 @@ Template.addVesselModal.events
 			mmsi: mmsi
 		, (e1) ->
 			if e1
+				isValidating.set false
+
 				handleValidationError e1
 			else
 				Vessels.methods.addVessel.call
@@ -53,7 +59,7 @@ Template.addVesselModal.events
 					nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
 					languages: $(e.target).find('[name=languages]').val()
 				, (e2) ->
-					isValidating.set true
+					isValidating.set false
 
 					if e2
 						handleError e2

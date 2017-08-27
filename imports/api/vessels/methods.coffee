@@ -16,6 +16,7 @@ export Methods =
 					type: String
 				flag:
 					type: String
+					optional: true
 				type:
 					type: String
 					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro']
