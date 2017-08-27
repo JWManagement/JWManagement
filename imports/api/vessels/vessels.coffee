@@ -44,7 +44,7 @@ Vessels.schema = new SimpleSchema
 		type: String
 		optional: true
 	lastVisit:
-		type: Date
+		type: String
 		optional: true
 	harborGroup:
 		type: String
