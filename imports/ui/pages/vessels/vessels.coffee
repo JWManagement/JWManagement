@@ -16,24 +16,26 @@ Template.vessels.onCreated ->
 			vessels = Vessels.find {}, sort: name: 1
 
 			columns = [
-				{ name: 'id', title: '', breakpoints: '', filterable: false }
+				{ name: '_id', title: '', breakpoints: '', visible: false, filterable: false }
+				{ name: 'id', title: '#', breakpoints: '', filterable: false }
 				{ name: 'name', title: TAPi18n.__('vessels.name'), breakpoints: '' }
-				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs' }
-				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs' }
+				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs', filterable: false }
+				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs', filterable: false }
 				{ name: 'callsign', title: TAPi18n.__('vessels.callsign'), breakpoints: '' }
 				{ name: 'eni', title: TAPi18n.__('vessels.eni'), breakpoints: 'xs' }
 				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: 'xs' }
 				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: 'xs' }
-				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs' }
-				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'xs' }
-				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs' }
-				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'xs' }
+				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs', filterable: false }
+				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'xs', filterable: false }
+				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs', filterable: false }
+				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'xs', filterable: false }
 			]
 
 			rows = []
 
 			for vessel, index in vessels.fetch()
 				rows.push
+					_id: vessel._id
 					id: index + 1
 					name: vessel.name
 					flag: vessel.flag
@@ -60,8 +62,7 @@ Template.vessels.onCreated ->
 					alwaysShow: true
 					allowAdd: false
 					allowDelete: false
-					editRow: (row) ->
-						wrs -> FlowRouter.setQueryParams editVessels: row.value._id
+					editRow: (row) -> wrs ->
 
 	@autorun ->
 		FlowRouter.getParam('language') # redraw with new language
@@ -79,8 +80,8 @@ Template.vessels.onCreated ->
 
 Template.vessels.events
 
-	'click #addVessel': ->
-		wrs -> FlowRouter.setQueryParams addVessel: true
-
 	'keyup #vesselSearch': (e) ->
 		searchString.set(e.target.value)
+
+	'click #addVessel': ->
+		wrs -> FlowRouter.setQueryParams addVessel: true
