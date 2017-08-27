@@ -42,7 +42,7 @@ Template.vessels.onCreated ->
 					eni: vessel.eni
 					imo: vessel.imo
 					mmsi: vessel.mmsi
-					lastVisit: moment(vessel.lastVisit).format()
+					lastVisit: vessel.lastVisit
 					harborGroup: vessel.harborGroup
 					nextVisit: vessel.nextVisit
 					languages: vessel.languages

@@ -363,7 +363,7 @@ vessels:
         rc: Flusskreuzfahrtschiff
         f: Fähre
         ro: Ro-Ro
-    callsign: Callsign
+    callsign: Rufzeichen
     eni: ENI
     imo: IMO
     mmsi: MMSI

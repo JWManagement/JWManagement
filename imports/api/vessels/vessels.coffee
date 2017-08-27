@@ -45,7 +45,6 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	lastVisit:
 		type: Date
-		autoValue: -> new Date
 	harborGroup:
 		type: String
 	nextVisit:
