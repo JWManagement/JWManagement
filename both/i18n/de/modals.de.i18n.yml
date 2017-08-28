@@ -91,6 +91,9 @@ modal:
         noPictureUploaded: Du hast noch kein Bild hochgeladen
         upload: Hochladen
         delete: Löschen
+    editVessel:
+        title: Schiff-Daten ändern
+        action: Änderungen speichern
     inviteUser:
         title: Neue Verkündiger einladen
         key: <span class="text-warning">Oranger Name</span> bedeutet, dass der User bereits eingeladen wurde.

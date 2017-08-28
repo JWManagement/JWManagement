@@ -16,7 +16,7 @@ Vessels.schema = new SimpleSchema
 	_id:
 		type: String
 		regEx: SimpleSchema.RegEx.Id
-		autoValue: -> Random.id()
+		autoValue: -> Random.id() unless @isSet
 	createdAt:
 		type: Date
 		autoValue: -> new Date
@@ -49,7 +49,7 @@ Vessels.schema = new SimpleSchema
 	harborGroup:
 		type: String
 	nextVisit:
-		type: Date
+		type: String
 		optional: true
 	languages:
 		type: String

@@ -64,8 +64,7 @@ Template.vessels.onCreated ->
 					allowAdd: false
 					allowDelete: false
 					editRow: (row) -> wrs ->
-						FlowRouter.setQueryParams editVessel: true
-						FlowRouter.setQueryParams vesselId: row.value._id
+						FlowRouter.setQueryParams editVessel: row.value._id
 
 	@autorun ->
 		FlowRouter.getParam('language') # redraw with new language

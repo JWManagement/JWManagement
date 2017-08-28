@@ -91,6 +91,9 @@ modal:
         noPictureUploaded: You have not yet uploaded any picture
         upload: Upload
         delete: Delete
+    editVessel:
+        title: Edit vessel
+        action: Save changes
     inviteUser:
         title: Invite new Publishers
         key: <span class="text-warning">Orange name</span> means that the user is already invited.

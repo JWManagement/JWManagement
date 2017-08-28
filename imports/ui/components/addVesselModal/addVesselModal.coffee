@@ -19,6 +19,7 @@ Template.addVesselModal.onRendered ->
 		calendarWeeks: true
 		maxViewMode: 0
 		weekStart: 1
+		format: 'dd.mm.yyyy'
 		language: TAPi18n.getLanguage()
 
 Template.addVesselModal.events
