@@ -109,9 +109,6 @@ export Methods =
 		run: (newVessel) -> if Meteor.isServer
 			{ Vessels } = require '/imports/api/vessels/vessels.coffee'
 
-			console.log 'newVessel'
-			console.log newVessel
-
 			project = Projects.findOne(newVessel.projectId, fields: vesselModule: 1, harborGroup: 1)
 
 			newVessel.harborGroup = project.harborGroup
@@ -136,17 +133,11 @@ export Methods =
 					for key in Object.keys(newVessel) when key in ['name', 'flag', 'type', 'callsign', 'eni', 'imo', 'mmsi', 'lastVisit', 'nextVisit', 'languages']
 						set[key] = newVessel[key]
 
-					console.log newVessel
-					console.log set
-
-					console.log Vessels.update newVessel._id, $set: set
+					Vessels.update newVessel._id, $set: set
 
 Meteor.methods
 
 	validateVesselInput: (args) ->
-
-		console.log 'args'
-		console.log args
 
 		{ Vessels } = require '/imports/api/vessels/vessels.coffee'
 
