@@ -20,7 +20,7 @@ Template.allProjects.onRendered -> Tracker.afterFlush => @autorun =>
 			id: index + 1
 			_id: project._id
 			name: project.name
-			showAdmins: '<a class="showAdmins" data-id="' + project._id + '" href>Show admins...</a> | <a class="showShifts" href="/_/' + project._id + '/shifts" target="blank">Show shifts...</a>'
+			showAdmins: '<a class="showAdmins" data-id="' + project._id + '" href>Admins...</a> | <a class="showShifts" href="/_/' + project._id + '/shifts" target="blank">Shifts...</a> | <a class="showSettings" href="/_/' + project._id + '/settings" target="blank">Settings...</a>'
 
 	$('#projectTable').html('').footable
 		columns: columns
