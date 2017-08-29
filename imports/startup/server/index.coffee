@@ -1,3 +1,4 @@
+import '/imports/api/projects/projects.coffee'
 import '/imports/api/messages/messages.coffee'
 import '/imports/api/reports/reports.coffee'
 
