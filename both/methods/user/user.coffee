@@ -35,9 +35,6 @@ Meteor.methods
 		Meteor.users.update userId, $set: set
 
 		if Meteor.isServer
-			set[field] = value
-			Meteor.users.update userId, $set: set
-
 			if field == 'profile.firstname'
 				user = Meteor.users.findOne userId, fields: 'profile.lastname': 1
 
@@ -51,16 +48,20 @@ Meteor.methods
 					field = 'name'
 					value = user.profile.firstname + ' ' + value
 			else if field == 'profile.telefon'
-				field = 'telefon'
+				field = 'phone'
 			else if field == 'profile.email'
 				field = 'email'
 			else
 				return
 
 			allMyShifts = Shifts.find
-				'teams.participants._id': userId
-				'teams.pending._id': userId
-				'teams.declined._id': userId
+				$or: [
+					'teams.participants._id': userId
+				,
+					'teams.pending._id': userId
+				,
+					'teams.declined._id': userId
+				]
 			, fields:
 				'teams._id': 1
 				'teams.participants': 1
