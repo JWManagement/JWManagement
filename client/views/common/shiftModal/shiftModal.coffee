@@ -111,6 +111,10 @@ Template.shiftModal.helpers
 			else
 				false
 
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
+
 Template.shiftModal.onCreated ->
 
 	self = this

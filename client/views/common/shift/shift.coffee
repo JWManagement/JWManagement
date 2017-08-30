@@ -25,6 +25,7 @@ Template.shift.helpers
 				scheduling: 1
 				'teams._id': 1
 				'teams.name': 1
+				'teams.icon': 1
 				'teams.min': 1
 				'teams.max': 1
 				'teams.meetingStart': 1
@@ -42,6 +43,7 @@ Template.shift.helpers
 				scheduling: 1
 				'teams._id': 1
 				'teams.name': 1
+				'teams.icon': 1
 				'teams.min': 1
 				'teams.status': 1
 				'teams.participants': 1
@@ -109,6 +111,10 @@ Template.shift.helpers
 				else 0
 
 	countTl: (pendings) -> pendings.filter((pending) -> pending.teamleader || pending.substituteTeamleader).length
+
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
 
 Template.shift.onCreated ->
 

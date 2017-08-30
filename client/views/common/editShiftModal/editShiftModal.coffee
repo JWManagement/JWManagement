@@ -98,6 +98,7 @@ Template.editShiftModal.events
 		teamId = $(e.target).closest('.team').attr('teamId')
 		newTeamId = @_id
 		newTeamName = @name
+		newTeamIcon = @icon
 		newTeamDescription = @description
 
 		if teamId != newTeamId
@@ -106,6 +107,7 @@ Template.editShiftModal.events
 					handleError e
 				else
 					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'name', newTeamName, handleError
+					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'icon', newTeamIcon, handleError
 					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'description', newTeamDescription, handleError
 
 	'click .decreaseCount': (e) ->

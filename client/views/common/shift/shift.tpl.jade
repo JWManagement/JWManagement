@@ -44,7 +44,7 @@ with getShift
 						each team in teams
 							div.shift-team(class='{{getTeamStatus team}}')
 								.shift-team-header
-									i.fa.fa-map-signs
+									i.fa(class="{{getIcon team.icon}}")
 									| {{team.name}}
 								if team.participants
 									.shift-team-participants

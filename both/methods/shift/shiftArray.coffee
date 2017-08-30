@@ -26,12 +26,14 @@ Meteor.methods
 					if !existing
 						teamId = team._id
 						teamName = team.name
+						teamIcon = team.icon
 						teamLink = team.link
 						teamDescription = team.description
 
 				if teamId != ''
 					set[array]['_id'] = teamId
 					set[array]['name'] = teamName
+					set[array]['icon'] = teamIcon
 					set[array]['link'] = teamLink
 					set[array]['description'] = teamDescription
 					set[array]['participants'] = []
