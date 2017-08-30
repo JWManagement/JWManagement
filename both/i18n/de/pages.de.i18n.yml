@@ -321,7 +321,7 @@ settings:
             description: Hier kannst du optional noch eine Beschreibung zu diesem Team angeben. Zum Beispiel könntest du ein paar Besonderheiten für diese Route erklären.
         id: ID
         name: Name
-        pickIcon: Icon auswählen
+        icon: Icon
         picture: Bild
         editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen

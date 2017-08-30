@@ -322,7 +322,7 @@ settings:
             description: Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.
         id: ID
         name: Name
-        pickIcon: Icon auswählen
+        icon: Icon
         picture: Picture
         editPicture: Upload a picture for this team
         noPicture: No picture uploaded

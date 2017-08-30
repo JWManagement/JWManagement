@@ -189,9 +189,9 @@ if queryParam 'editTeamPicture'
 												.col-sm-10.col-lg-8
 													input#teamName.form-control(type='text' placeholder='{{_ "settings.teams.name"}}' value='{{name}}')
 											.form-group
-												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.pickIcon'}}
+												label.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.icon'}}
 												.col-sm-10.col-lg-8
-													button.btn.btn-white.iconpicker
+													button.teamIcon.btn.btn-white(id="iconpicker_{{_id}}")
 											.form-group
 												label.col-xs-12.col-sm-2.col-lg-4.control-label {{_ 'settings.teams.picture'}}
 												with teamPicture

@@ -21,23 +21,32 @@ Template.settings.helpers
 Template.settings.onCreated ->
 
 	@autorun ->
-		handle = ProjectSubs.subscribe 'settings', FlowRouter.getParam('projectId')
+		projectId = FlowRouter.getParam('projectId')
+
+		handle = ProjectSubs.subscribe 'settings', projectId
 		handle.ready Tracker.afterFlush ->
-			$('.iconpicker').iconpicker
-				arrowClass: 'btn-primary'
-				arrowPrevIconClass: 'fa fa-chevron-left'
-				arrowNextIconClass: 'fa fa-chevron-right'
-				rows: 5
-				cols: 10
-				footer: true
-				header: true
-				icon: 'fa-wifi'
-				iconset: 'fontawesome'
-				labelHeader: '{0} of {1} pages'
-				labelFooter: '{0} - {1} of {2} icons'
-				placement: 'bottom'
-				search: true
-				searchText: 'Search'
+			project = Projects.findOne(projectId, fields: teams: 1)
+			if project?
+				for team in project.teams
+					if !team.icon?
+						team.icon = 'fa-map-signs'
+
+					$('#iconpicker_' + team._id).iconpicker
+						arrowClass: 'btn-primary'
+						arrowPrevIconClass: 'fa fa-chevron-left'
+						arrowNextIconClass: 'fa fa-chevron-right'
+						rows: 5
+						cols: 10
+						footer: true
+						header: true
+						icon: team.icon
+						iconset: 'fontawesome'
+						labelHeader: '{0} / {1}'
+						labelFooter: '{0} - {1} of {2} icons'
+						placement: 'bottom'
+						search: true
+						searchText: 'Search'
+						selectedClass: 'btn-primary'
 
 Template.settings.onRendered ->
 
@@ -155,6 +164,12 @@ Template.settings.events
 		projectId = FlowRouter.getParam('projectId')
 
 		Meteor.call 'changeAllShiftTeams', projectId, teamId, 'name', teamName, handleError
+
+	'change .teamIcon': (e) ->
+		teamId = @_id
+		projectId = FlowRouter.getParam('projectId')
+
+		Meteor.call 'changeAllShiftTeams', projectId, teamId, 'icon', e.icon, handleError
 
 	'click #editTeamPicture': (e) ->
 		teamId = @_id
