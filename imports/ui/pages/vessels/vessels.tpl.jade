@@ -1,0 +1,23 @@
+if queryParam 'addVessel'
+	+addVesselModal
+if queryParam 'editVessel'
+	+editVesselModal
+.wrapper-content
+	.container
+		.row
+			.col-lg-12
+				.row.m-b-lg
+					.col-xs-12
+						h2.center-align.m-t-xs.m-b-none {{_ 'vessels.title'}}
+				.ibox
+					.ibox-content
+						input#vesselSearch.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}')
+				.ibox
+					.ibox-content
+						table#vesselTable.table.table-stripped
+							.sk-spinner.sk-spinner-pulse
+						.row.m-b-sm
+							.col-xs-12
+								button#addVessel.btn.btn-primary.inline.pull-right.m-r-sm
+									i.fa.fa-user-plus
+									| {{_ 'vessels.addNewVessel'}}

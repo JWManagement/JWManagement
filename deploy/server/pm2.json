@@ -1,0 +1,28 @@
+{
+  "apps":
+  [
+    {
+      "name": "mongodb",
+      "cwd":"/home/meteor/",
+      "script": "/usr/bin/mongod",
+      "args": "--port 27017 --dbpath db/ --replSet meteor --logpath db/db.log",
+      "interpeter":"none",
+      "exec-mode":"fork"
+    },
+    {
+      "name": "jwmanagement",
+      "cwd":"/home/meteor/build/bundle",
+      "script": "main.js",
+      "env": {
+        "NODE_ENV":"production",
+        "WORKER_ID":"0",
+        "PORT":"5000",
+        "ROOT_URL":"https://eu.jwmanagement.org",
+        "MONGO_URL":"mongodb://localhost:27017/meteor",
+        "MONGO_OPLOG_URL":"mongodb://localhost:27017/local",
+        "HTTP_FORWARDED_COUNT":"1",
+        "METEOR_SETTINGS": {  }
+      }
+    }
+  ]
+}

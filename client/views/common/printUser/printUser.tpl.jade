@@ -1,21 +1,20 @@
-with user
-	if isProjectShiftAdmin
-		if thisTeamleader
-			if teamleader
-				b
-					u {{name}}
-			else if substituteTeamleader
-				i
-					u {{name}}
-			else
-				u {{name}}
-		else if teamleader
-			b {{name}}
+if isProjectShiftScheduler
+	if getUser.thisTeamleader
+		if getUser.teamleader
+			b
+				u {{getUser.name}} {{{getUserStatistics}}}
 		else if substituteTeamleader
-			i {{name}}
+			i
+				u {{getUser.name}} {{{getUserStatistics}}}
 		else
-			| {{name}}
-	else if thisTeamleader
-		u {{name}}
+			u {{getUser.name}} {{{getUserStatistics}}}
+	else if getUser.teamleader
+		b {{getUser.name}} {{{getUserStatistics}}}
+	else if getUser.substituteTeamleader
+		i {{getUser.name}} {{{getUserStatistics}}}
 	else
-		| {{name}}
+		| {{getUser.name}} {{{getUserStatistics}}}
+else if getUser.thisTeamleader
+	u {{getUser.name}} {{{getUserStatistics}}}
+else
+	| {{getUser.name}} {{{getUserStatistics}}}

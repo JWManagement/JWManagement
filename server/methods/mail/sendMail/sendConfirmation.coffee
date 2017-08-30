@@ -5,7 +5,7 @@ Meteor.methods
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 		user = Meteor.users.findOne userId, fields: profile: 1
 
-		check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
 
 		if user? and shift?
 			thisMoment = moment(shift.date, 'YYYYDDDD')
@@ -49,7 +49,7 @@ Meteor.methods
 			tagId: tagId
 			weekId: weekId
 
-		check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
+		check { userId: Meteor.userId(), projectId: projectId }, isShiftScheduler
 
 		if shifts?
 			for shift in shifts.fetch()

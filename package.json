@@ -1,14 +1,21 @@
 {
   "name": "JWManagement",
-  "description": "Shift management for public witnessing",
+  "description": "Shift management for theocratic projects",
   "license": "SEE LICENSE IN ./LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/JWDeveloper/JWManagement.git"
   },
   "dependencies": {
+    "aws-sdk": "^2.10.0",
     "babel-runtime": "^6.20.0",
     "bcrypt": "^0.8.7",
+    "simpl-schema": "^0.3.1",
     "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "start": "meteor --settings settings.json",
+    "setup": "deploy/client/setup.sh",
+    "deploy": "deploy/client/deploy.sh"
   }
 }

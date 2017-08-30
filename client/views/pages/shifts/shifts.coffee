@@ -32,7 +32,7 @@ Template.shifts.helpers
 			week = Weeks.findOne projectId: projectId, date: showWeek,
 				fields: days: 1
 
-			if week
+			if week && tags
 				for day in week.days
 					for shiftId in day.shifts
 						shift = Shifts.findOne shiftId, fields: tagId: 1

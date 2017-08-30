@@ -37,6 +37,8 @@ Template.editShiftModal.helpers
 
 	getMeetingEnd: -> @meetingEnd?.name || TAPi18n.__('modal.editShift.noMeeting')
 
+	getPlace: -> @place?.name || TAPi18n.__('modal.editShift.noMeeting')
+
 	possibleTeamSizes: -> [1..15]
 
 	isTemplate: -> FlowRouter.getQueryParam('weekId')?
@@ -96,6 +98,7 @@ Template.editShiftModal.events
 		teamId = $(e.target).closest('.team').attr('teamId')
 		newTeamId = @_id
 		newTeamName = @name
+		newTeamDescription = @description
 
 		if teamId != newTeamId
 			Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, '_id', newTeamId, (e) ->
@@ -103,6 +106,7 @@ Template.editShiftModal.events
 					handleError e
 				else
 					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'name', newTeamName, handleError
+					Meteor.call 'updateShiftItem', shiftId, 'teams', newTeamId, 'description', newTeamDescription, handleError
 
 	'click .decreaseCount': (e) ->
 		shiftId = FlowRouter.getQueryParam('editShift')
@@ -159,6 +163,22 @@ Template.editShiftModal.events
 		teamId = $(e.target).closest('.team').attr('teamId')
 
 		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'meetingEnd', null, handleError
+
+	'click .changePlace': (e) ->
+		shiftId = FlowRouter.getQueryParam('editShift')
+		teamId = $(e.target).closest('.team').attr('teamId')
+		shift = Shifts.findOne shiftId, fields: 'place': 1
+		self = this
+
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place', { _id: self._id }, handleError
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place.name', self.name, handleError
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place.time', shift.end, handleError
+
+	'click .removePlace': (e) ->
+		shiftId = FlowRouter.getQueryParam('editShift')
+		teamId = $(e.target).closest('.team').attr('teamId')
+
+		Meteor.call 'updateShiftItem', shiftId, 'teams', teamId, 'place', null, handleError
 
 	'click #removeTeam': (e) ->
 		e.preventDefault()

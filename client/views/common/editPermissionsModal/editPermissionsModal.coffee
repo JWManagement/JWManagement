@@ -16,6 +16,7 @@ Template.editPermissionsModal.helpers
 		{
 			admin: TAPi18n.__('role.admin')
 			shiftAdmin: TAPi18n.__('role.shiftAdmin')
+			shiftScheduler: TAPi18n.__('role.shiftScheduler')
 			storeAdmin: TAPi18n.__('role.storeAdmin')
 			member: TAPi18n.__('role.member')
 			teamleader: TAPi18n.__('role.teamleader')

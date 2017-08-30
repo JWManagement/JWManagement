@@ -1,0 +1,16 @@
+.container
+	.row
+		.col-sm-8.col-sm-offset-2
+			.ibox-content
+				.text-center.article-title
+					h1 {{_ 'donate.title'}}
+				| {{{_ 'donate.text'}}}
+				form.text-center.m-t-xl.m-b-xl(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank")
+					input(type="hidden" name="cmd" value="_s-xclick")
+					input(type="hidden" name="hosted_button_id" value="DGHRXWMX3PHCG")
+					input(type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Mit PayPal spenden")
+					img(alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1")
+				.dropdown.m-t.text-center
+					+languageSwitch
+				p.m-t-lg.text-center
+					a(href="{{pathFor 'welcome' language=langTag}}") {{_ 'terms.back'}}

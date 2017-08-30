@@ -1,0 +1,31 @@
+#createProjectModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm
+		.modal-content
+			.modal-header
+				i.fa.fa-magic.modal-icon
+				h2.m-b-none Create project
+			.modal-body
+				form.form-horizontal
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Project ID
+						.col-sm-12
+							input#projectId.form-control(type='text' placeholder='Project ID')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Project Name
+						.col-sm-12
+							input#projectName.form-control(type='text' placeholder='Project Name')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label E-Mail
+						.col-sm-12
+							input#email.form-control(type='text' placeholder='E-Mail')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Language
+						.col-sm-12
+							input#language.form-control(type='text' placeholder='Language' value='en')
+			.modal-footer
+				button#createProject.btn.btn-primary.pull-left Create project
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

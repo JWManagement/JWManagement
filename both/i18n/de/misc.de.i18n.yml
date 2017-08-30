@@ -16,6 +16,7 @@ input:
 role:
     role: Rolle
     admin: Administrator
+    shiftScheduler: Schichteinteiler
     shiftAdmin: Schichtplaner
     storeAdmin: Literaturdiener
     member: Teilnehmer
@@ -26,6 +27,7 @@ role:
     noPermission: Keine Berechtigung
 permissions:
     notAdmin: Dieser Benutzer ist kein Projekt Administrator
+    notShiftScheduler: Dieser Benutzer ist kein Schichteinteiler
     notShiftAdmin: Dieser Benutzer ist kein Schichtplaner
     notStoreAdmin: Dieser Benutzer ist kein Literaturdiener
     notProjectParticipant: Dieser Benutzer nimmt nicht an diesem Projekt teil
@@ -58,3 +60,20 @@ intervals:
     every: Jede Woche
     even: Jede gerade Woche
     odd: Jede ungerade Woche
+privileges:
+    auxiliary: HPV
+    regular: APV
+    special: SPV
+    circuit: KA
+    bethelite: BTL
+    ldc: LDC
+    coordinator: Koordinator
+    secretary: Sekretär
+    serviceOverseer: Dienstaufseher
+    elder: Ä
+    servant: DAG
+    publisher: VK
+period:
+    d: T
+    w: W
+    4w: 4W

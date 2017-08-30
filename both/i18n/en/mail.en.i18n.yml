@@ -1,12 +1,12 @@
 mail:
     footer: This is an automated mail. We don't expect an answer to it.
-    link: Open JWManagement
+    link: Open JW Management
     accountCreated:
-        subject: JWManagement Account Created!
+        subject: JW Management Account Created!
         headline: Welcome!
         hello: Hello
-        text1: We would like to tell you that we have created an account for you in JWManagement. You can set your personal username and password by clicking on the button below.
-        text2: In case of problems please feel free to contact us.<br>We wish you much joy using JWManagement.<br>Your brothers from JWManagement
+        text1: We would like to tell you that we have created an account for you in JW Management. You can set your personal username and password by clicking on the button below.
+        text2: In case of problems please feel free to contact us.<br>We wish you much joy using JW Management.<br>Your brothers from JW Management
         button: Let's Go!
     teamCancellation:
         subject: Team cancelled
@@ -15,10 +15,10 @@ mail:
         text: Unfortunately we had to tell you that your team assignment on <b>__date__</b> at <b>__time__</b> o'clock was <u>cancelled</u>.
         missingParticipant: A participant is missing. If there are enough participants the team can take place again.
     confirmation:
-        subject: New Request Accepted
-        headline: Your Request was accepted!
+        subject: New Request Approved
+        headline: Your Request was approved!
         hello: Hello
-        text1: Your request for the following shift was accepted:
+        text1: Your request for the following shift was approved:
         datetime: __date__ from __time__ o'clock
     declined:
         subject: Request not considered

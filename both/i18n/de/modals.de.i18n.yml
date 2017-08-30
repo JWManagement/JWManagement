@@ -16,6 +16,9 @@ modal:
         helpText: Der Benutzername sollte kurz und einprägsam sein. Am besten hängt er direkt mit den Vor- und Nachnamen der Benutzers zusammen.<br>Beispiele: "MaxM" oder "MMustermann"
         invite: %s (%s) einladen
         existingAccounts: Bestehende Accounts
+    addVessel:
+        title: Neues Schiff hinzufügen
+        action: Schiff hinzufügen
     addWeek:
         title: Neue Woche anlegen
         noTemplate: Bitte leg zuerst eine Vorlage an
@@ -37,9 +40,11 @@ modal:
         projectPermissions: Projekt Berechtigungen
         projectRole: Projekt-Rolle
         tagPermissions: Tag-Rollen
+        explanations: Erklärungen
         helpText:
             admin: Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.
-            shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten erstellen, ändern, löschen und einteilen.
+            shiftScheduler: Ein Schichteinteiler hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten einteilen.
+            shiftAdmin: Ein Schichtplaner hat die Berechtigungen eines Schichteinteilers und kann darüber hinaus Schichten erstellen, ändern und löschen.
             storeAdmin: Ein Literaturdiener hat die Berechtigungen eines Teilnehmers und kann darüber hinaus die Schichtberichte und das Depot einsehen und bearbeiten.
             member: Ein Teilnehmer darf die Informationsseite sehen.
             teamleader: Ein Teamleiter kann in Schichten des Tags als Teamleiter eingesetzt werden. Damit ist dann für die Abgabe des Schicht-Team-Berichts zuständig.
@@ -65,6 +70,7 @@ modal:
         teamMax: Max. Teilnehmer:
         teamStart: Start:
         teamEnd: Ende:
+        teamPlace: Ort:
         removeTeam: Dieses Team löschen
         noMeeting: Kein Treffpunkt
         action: Aktion:
@@ -85,6 +91,9 @@ modal:
         noPictureUploaded: Du hast noch kein Bild hochgeladen
         upload: Hochladen
         delete: Löschen
+    editVessel:
+        title: Schiff-Daten ändern
+        action: Änderungen speichern
     inviteUser:
         title: Neue Verkündiger einladen
         key: <span class="text-warning">Oranger Name</span> bedeutet, dass der User bereits eingeladen wurde.
@@ -94,6 +103,9 @@ modal:
     position:
         title: Position mit linker Maustaste markieren
     shift:
+        clickToEnlarge: Zum Vergrößern auf Bild klicken
+        openLink: Verknüpfte Informationen ansehen
+        meetingAt: Treffpunkt um
         collapseTeam: Team Informationen und Treffpunkte verbergen
         expandTeam: Team Informationen und Treffpunkte anzeigen
         noParticipants: Keine Teilnehmer
@@ -112,19 +124,19 @@ modal:
         alreadyTeamleader: Dieser Verkündiger ist bereits Teamleiter
         openTeam: Team öffnen
         closeTeam: Team schließen
+        sendUnderstaffed: Unterbesetzt-Mail schicken
         switch: Schicht bearbeiten
         existingTeamleaders: Teamleiter vorhanden
         noExistingTeamleader: Teamleiter fehlt
         notTeamleader: Kein Teamleiter
         selected: Ausgewählt:
         of: von
-        acceptSelected: Ausgewählte annehmen
+        approveSelected: Ausgewählte annehmen
         declineSelected: Ausgewählte ablehnen
         report: Bericht
         allocations: Zuteilungen
         thisWeek: diese Woche
         lastDays: letze %s Tage
-        noMeeting: Kein Treffpunkt gesetzt
     shiftReport:
         title: Bericht
         teamleader: Teamleiter
@@ -217,11 +229,12 @@ modal:
         invite: Einladen
     uploadUserFile:
         title: User-Datei hochladen
-        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant' oder 'elder'), Versammlung
+        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant', 'elder', 'coordinator', 'secretary' oder 'serviceOverseer'), Versammlung
+        helpEncoding: Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!
         uploadFile: CSV-Datei hochladen
         stats: <b>%s</b> neue und <b>%s</b> vorhandene User gefunden
         new: Neue Verkündiger
-        existing: Verkündiger mit JWManagement Account
+        existing: Verkündiger mit JW Management Account
         name: Name
         email: E-Mail
         add: User hinzufügen

@@ -16,12 +16,11 @@ Meteor.publish 'reports', (projectId, month) ->
 			,
 				fields:
 					projectId: 1
+					tag: 1
 					date: 1
 					start: 1
 					end: 1
-					'teams.name': 1
-					'teams.participants': 1
-					'teams.report': 1
+					teams: 1
 		else
 			@ready()
 	else

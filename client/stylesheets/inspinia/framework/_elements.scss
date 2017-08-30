@@ -150,26 +150,6 @@
 	position        : relative;
 	text-decoration : none;
 }
-/* TOOLTIPS */
-.tooltip-inner {
-	background-color: #2F4050;
-}
-
-.tooltip.top .tooltip-arrow {
-	border-top-color: #2F4050;
-}
-
-.tooltip.right .tooltip-arrow {
-	border-right-color: #2F4050;
-}
-
-.tooltip.bottom .tooltip-arrow {
-	border-bottom-color: #2F4050;
-}
-
-.tooltip.left .tooltip-arrow {
-	border-left-color: #2F4050;
-}
 /* EASY PIE CHART*/
 .easypiechart {
 	position  : relative;
@@ -2399,29 +2379,6 @@ a.forum-item-title:hover {
 .select2-container--default .select2-selection--multiple,
 .select2-container--default .select2-selection--single {
 	border-color: $border-color;
-}
-/* Tour */
-.tour-tour .btn.btn-default {
-	background-color: #ffffff;
-	border          : 1px solid #d2d2d2;
-	color           : inherit;
-}
-
-.tour-step-backdrop {
-	z-index: 2101;
-}
-
-.tour-backdrop {
-	z-index: 2100;
-	opacity: 0.7;
-}
-
-.popover[class*=tour-] {
-	z-index: 2100;
-}
-
-body.tour-open .animated {
-	animation-fill-mode: initial;
 }
 /* Resizable */
 .resizable-panels .ibox {

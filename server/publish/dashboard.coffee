@@ -6,6 +6,7 @@ Meteor.publish 'dashboard', ->
 			fields:
 				name: 1
 				description: 1
+				vesselModule: 1
 				news: 1
 				tags: 1
 				teams: 1

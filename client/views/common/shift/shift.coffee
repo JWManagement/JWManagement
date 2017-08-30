@@ -18,6 +18,7 @@ Template.shift.helpers
 			shift = Shifts.findOne this + '', fields:
 				tagId: 1
 				tag: 1
+				date: 1
 				start: 1
 				end: 1
 				status: 1
@@ -34,12 +35,14 @@ Template.shift.helpers
 			shift = Shifts.findOne this + '', fields:
 				tagId: 1
 				tag: 1
+				date: 1
 				start: 1
 				end: 1
 				status: 1
 				scheduling: 1
 				'teams._id': 1
 				'teams.name': 1
+				'teams.min': 1
 				'teams.status': 1
 				'teams.participants': 1
 				'teams.pending': 1
@@ -47,17 +50,9 @@ Template.shift.helpers
 		if shift?
 			shift.isWrongTag = false
 			tags = FlowRouter.getQueryParam('showTags')
-			tagId = FlowRouter.getQueryParam('tagId')
 
-			if tags
-				if shift.tagId not in tags.split('_')
-					shift.isWrongTag = true
-			else if tagId?
-				if shift.tagId != tagId
-					shift.isWrongTag = true
-			else
+			if tags && shift.tagId not in tags.split('_')
 				shift.isWrongTag = true
-
 		shift
 
 	multipleTags: ->
@@ -69,16 +64,30 @@ Template.shift.helpers
 
 	shiftClass: ->
 		try
+			if @date < parseInt moment().format 'YYYYDDDD'
+				return 'closed'
+			else if @date == parseInt moment().format 'YYYYDDDD'
+				if @end < parseInt moment().format 'Hmm'
+					return 'closed'
+
 			if @teams
 				for team in @teams
 					for participant in team.participants when participant._id == Meteor.userId()
-						return 'accepted'
+						return 'approved'
 					for pending in team.pending when pending._id == Meteor.userId()
 						return 'pending'
 			@status
 
+	getTeamStatus: (team) ->
+		if @date < parseInt moment().format 'YYYYDDDD'
+			return 'closed'
+		else if @date == parseInt moment().format 'YYYYDDDD'
+			if @end < parseInt moment().format 'Hmm'
+				return 'closed'
+		team.status
+
 	adminClass: ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.shiftAdmin, FlowRouter.getParam('projectId')
+		if Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
 			'isAdmin'
 		else
 			'noAdmin'
@@ -98,6 +107,8 @@ Template.shift.helpers
 				else if aSplit[0] < bSplit[0] then -1
 				else if aSplit[0] > bSplit[0] then 1
 				else 0
+
+	countTl: (pendings) -> pendings.filter((pending) -> pending.teamleader || pending.substituteTeamleader).length
 
 Template.shift.onCreated ->
 

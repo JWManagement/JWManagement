@@ -8,7 +8,11 @@
 			else if name
 				a.navbar-brand.dashboard {{name}}
 			else
-				a.navbar-brand JWManagement
+				a.navbar-brand JW Management
+			if isImpersonating
+				a.navbar-brand.unimpersonate(href)
+					i.fa.fa-undo.m-r-xs
+					| Unimpersonate
 		ul.nav.navbar-top-links.navbar-right#profile
 			li
 				a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')
@@ -37,8 +41,25 @@
 										unless equals lang langTag
 											| ({{_ 'language.' context=lang lang=lang }})
 										i.fa.fa-angle-double-right.fa-fw.pull-right
+					if langIsDe
+						li.divider
+						li
+							a(href='https://github.com/JWDeveloper/JWManagement/wiki' target='blank')
+								i.fa.fa-question.fa-fw
+								| Hilfe
+					if isSupport
+						li.divider
+						li
+							a(href="{{pathFor 'support'}}")
+								i.fa.fa-heart.fa-fw
+								| Support
 					li.divider
 					li
 						a#logout(href)
 							i.fa.fa-power-off.fa-fw
 							| {{_ 'navigation.logout'}}
+					with latestRelease
+						.version
+							if new
+								.label.label-primary.pull-left {{_ 'navigation.new'}}
+							a(href='//github.com/JWDeveloper/JWManagement/releases' target='blank') Version {{tag}}

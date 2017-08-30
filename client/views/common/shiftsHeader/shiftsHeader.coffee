@@ -54,9 +54,8 @@ Template.shiftsHeader.helpers
 		if project?.tags
 			result = []
 
-			for t in project.tags
-				if t._id in tags
-					result.push t.name
+			for t in project.tags when t._id in tags && Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
+				result.push t.name
 
 			result.join(', ')
 
@@ -189,3 +188,5 @@ Template.shiftsHeader.events
 			swalYesNo
 				swal: 'sendMail.confirmWeek'
 				doConfirm: -> Meteor.call 'sendConfirmWeek', projectId, tagId, week._id
+	'click #printShifts': ->
+		window.print();

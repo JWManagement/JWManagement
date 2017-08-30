@@ -25,7 +25,7 @@ Template.dashboard.helpers
 						reportSubmitted = team.report.submitted
 
 			(@date < thisDate || @date == thisDate && @end <= thisTime) && !reportSubmitted && isTeamleader
-		else if a == 'accepted'
+		else if a == 'approved'
 			for team in @teams
 				for participant in team.participants
 					value = value || Meteor.userId() == participant._id
@@ -56,7 +56,7 @@ Template.dashboard.helpers
 				for participant in team.participants
 					value = value || Meteor.userId() == participant._id
 			if value
-				'accepted'
+				'approved'
 			else
 				value = false
 				for team in @teams
@@ -69,7 +69,7 @@ Template.dashboard.helpers
 
 	teamRelation: ->
 		for user in @participants when Meteor.userId() == user._id
-			return 'accepted'
+			return 'approved'
 
 		for user in @pending when Meteor.userId() == user._id
 			return 'pending'
@@ -128,7 +128,16 @@ Template.dashboard.helpers
 
 	getProjectName: -> Projects.findOne(@projectId).name
 
-	getProjects: -> Projects.find {}, sort: name: 1
+	getProjects: ->
+		projects = Projects.find {}, sort: name: 1
+		result = []
+
+		for project, index in projects.fetch()
+			if index % 2 == 0
+				result.push projects: [ project ]
+			else
+				result[result.length - 1].projects.push project
+		result
 
 	getFakeProjects: ->
 		me = Meteor.user()
@@ -161,9 +170,15 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	multipleTags: -> @tags.length > 1
+	multipleTags: -> if @tags then @tags.length > 1
 
 	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
+
+	getAllTagsPath: (tags) ->
+		tags = tags.map (tag) -> tag._id
+		tags = tags.filter (t) -> Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
+
+		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
@@ -201,76 +216,6 @@ Template.dashboard.onCreated ->
 			ShiftSubs.subscribe 'shift', shift._id
 
 Template.dashboard.onRendered ->
-
-	tour = new Tour
-		template: Blaze.toHTML Template.tourTemplate
-		steps: [
-			orphan: true
-			backdrop: true
-			title: TAPi18n.__('tour.dashboard.welcome.title')
-			content: TAPi18n.__('tour.dashboard.welcome.content')
-		,
-			element: '.project-wrapper:first > div'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.projects.title')
-			content: TAPi18n.__('tour.dashboard.projects.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(0)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.wiki.title')
-			content: TAPi18n.__('tour.dashboard.wiki.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(1)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.shifts.title')
-			content: TAPi18n.__('tour.dashboard.shifts.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(2)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.settings.title')
-			content: TAPi18n.__('tour.dashboard.settings.content')
-		,
-			element: '#myShifts'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.content')
-			onShow: (tour) ->
-				$('#myShifts').html('<h1 class="center-align" id="myShifts">Meine Schichten</h1>')
-				$('#personalShiftsContainer').html(
-					'<div class="vertical-container light-timeline center-orientation" id="vertical-timeline">
-						<div class="vertical-timeline-block shift accepted"><div class="vertical-timeline-icon"><i class="fa fa-thumbs-o-up"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Angenommene Bewerbung</h2><span class="vertical-date">in 2 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
-						<div class="vertical-timeline-block shift pending"><div class="vertical-timeline-icon"><i class="fa fa-question"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Offene Bewerbung</h2><span class="vertical-date">in 20 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
-					</div>'
-				)
-		,
-			element: '.accepted > .vertical-timeline-content'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.right.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.right.content')
-		,
-			element: '.pending > .vertical-timeline-content'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.left.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.left.content')
-			onNext: (tour) ->
-				$('#myShifts').html('')
-				$('#personalShiftsContainer').html('')
-
-		,
-			element: '#profile'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.profile.title')
-			content: TAPi18n.__('tour.dashboard.profile.content')
-			onShow: (tour) -> FlowRouter.reload()
-		,
-			orphan: true
-			backdrop: true
-			title: TAPi18n.__('tour.dashboard.finish.title')
-			content: TAPi18n.__('tour.dashboard.finish.content')
-		]
-
-	tour.init()
-	tour.start()
 
 	$('.animated').removeClass('animated').addClass('skipped')
 
@@ -338,7 +283,13 @@ Template.dashboard.events
 			for participant in team.participants when participant._id == Meteor.userId()
 				teamId = team._id
 
-		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
+		FlowRouter.go 'shifts',
+			projectId: @projectId
+			language: TAPi18n.getLanguage()
+		,
+			showTags: @tagId
+			showShiftReport: shiftId
+			reportTeamId: teamId
 		false
 
 	'click #showOlder': -> Session.set 'showOlder', true

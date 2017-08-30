@@ -1,11 +1,14 @@
 language:
     _de: German
     _en: English
+    _pt: Portuguese
+    _hu: Hungarian
     _A: Arabic
     _AL: Albanian
     _AR: Bambara
     _AM: Amharic
     _B: Czech
+    _BEL: Belorussian
     _BL: Bulgarian
     _BSN: Bosnian
     _C: Croatian
@@ -15,21 +18,23 @@ language:
     _DAR: Dari
     _DGS: German Sign Language
     _E: English
-    _EDF: English edition for the Deaf
     _ED: Edo
+    _EDF: English edition for the Deaf
     _EW: Ewe
     _F: French
     _G: Greek
     _GE: Georgian
     _H: Hungarian
     _HI: Hindi
-    _J: Japanese
-    _KRI: Krio
     _I: Italian
     _IB: Igbo
     _IN: Indonesian
+    _J: Japanese
     _K: Ukrainian
     _KO: Korean
+    _KRI: Krio
+    _LT: Lithuanian
+    _LV: Letvian
     _M: Romanian
     _MC: Macedonian
     _O: Dutch
@@ -50,6 +55,7 @@ language:
     _SB: Serbian
     _SI: Thai
     _SO: Somali
+    _ST: Estonian
     _SV: Slovenian
     _T: Portugese
     _TI: Tigrinya

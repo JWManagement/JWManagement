@@ -47,6 +47,9 @@ Template.profile.onDestroyed ->
 
 Template.profile.events
 
+	'change #username': (e) ->
+		$('#username').val(Validations.cleanedUsername(e.target.value))
+
 	'click .profile-image': (e) ->
 		wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
@@ -54,15 +57,18 @@ Template.profile.events
 
 	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
 
-	'change #username': (e) -> Meteor.call 'updateProfile', 'username', e.target.value, (error) ->
-		if error
-			if error.error == 406
-				swal TAPi18n.__('profile.usernameTaken'), '', 'error'
-				Delay -> $(e.target).val Meteor.user().username
+	'change #username': (e) ->
+		username = Validations.cleanedUsername(e.target.value)
+
+		Meteor.call 'updateProfile', 'username', username, (error) ->
+			if error
+				if error.error == 406
+					swal TAPi18n.__('profile.usernameTaken'), '', 'error'
+					Delay -> $(e.target).val Meteor.user().username
+				else
+					handleError error
 			else
-				handleError error
-		else
-			handleSuccess error
+				handleSuccess error
 
 	'change #email': (e) -> Meteor.call 'updateProfile', 'email', e.target.value, handleSuccess
 

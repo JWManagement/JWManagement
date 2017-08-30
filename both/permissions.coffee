@@ -4,11 +4,13 @@
 
 	shiftAdmin: ['admin', 'shiftAdmin']
 
+	shiftScheduler: ['admin', 'shiftAdmin', 'shiftScheduler']
+
 	storeAdmin: ['admin', 'storeAdmin']
 
-	shiftAndStoreAdmin: ['admin', 'shiftAdmin', 'storeAdmin']
+	shiftAndStoreAdmin: ['admin', 'shiftAdmin', 'shiftScheduler', 'storeAdmin']
 
-	member: ['admin', 'shiftAdmin', 'storeAdmin', 'member']
+	member: ['admin', 'shiftScheduler', 'shiftAdmin', 'storeAdmin', 'member']
 
 	teamleader: ['teamleader', 'substituteTeamleader']
 

@@ -3,21 +3,22 @@
 		.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
 			.ibox-content
 				.text-center.article-title
-					h1 Impressum
-
-				h2 Angaben gemäß § 5 TMG:
+					h1 {{_ 'about.title'}}
+				h2 {{_ 'about.information'}}
 				p
 					| Marvin Zeising
 					br
-					| Kantstr. 12
+					| Am Steinfels 1
 					br
-					| 40822 Mettmann
-
-				h2 Kontakt:
+					| 65618 Selters (Taunus)
+					br
+					| Germany
+				h2 {{_ 'about.contact'}}
 				p
-					| Telefon: +49 177 3291529
+					| {{_ 'about.telephone'}}: +49 177 3291529
 					br
-					| E-Mail: marvin.zeising@gmail.com
-
+					| {{_ 'about.email'}}: support@jwmanagement.org
+				.dropdown.m-t.text-center
+					+languageSwitch
 				p.m-t-lg.text-center
-					a(href="{{pathFor 'welcome' language='de'}}") Zur Startseite
+					a(href="{{pathFor 'welcome' language=langTag}}") {{_ 'about.back'}}

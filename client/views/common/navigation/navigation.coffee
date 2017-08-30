@@ -21,15 +21,26 @@ Template.navigation.helpers
 
 	toLower: (str) -> str?.toLowerCase()
 
+	latestRelease: -> Session.get 'latestRelease'
+
+	langIsDe: -> TAPi18n.getLanguage() == 'de'
+
 Template.navigation.onCreated ->
 
 	PictureSubs.subscribe 'profilePicture', Meteor.userId()
+
+	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
+		Session.set 'latestRelease',
+			tag: a.data.tag_name
+			new: moment(new Date).diff(a.data.published_at, 'days') < 3
 
 Template.navigation.onDestroyed ->
 
 	Session.set 'target', undefined
 
 Template.navigation.events
+
+	'click .unimpersonate': -> Impersonate.undo -> wrs -> FlowRouter.go 'support'
 
 	'click .setLanguage': (e) ->
 		language = $(e.target).closest('a').attr('lang')

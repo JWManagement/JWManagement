@@ -6,14 +6,12 @@
 		if error
 			.alert.alert-danger {{error}}
 		.form-group
-			input.form-control#username(type='text' placeholder='{{_ "input.username"}}' tabindex='1' required)
+			input.form-control#username(type='text' name='username' placeholder='{{_ "input.username"}}' required autofocus)
 		.form-group
-			input.form-control#password(type='password' placeholder='{{_ "input.password"}}' tabindex='2' required)
+			input.form-control#password(type='password' password='password' placeholder='{{_ "input.password"}}' required)
 		button.ladda-button.btn.btn-primary.full-width.m-b#submit(data-style='slide-down' type='submit') {{_ "login.name"}}
-		a(href="{{pathFor 'forgotPassword' language=langTag}}")
-			small {{_ "login.forgot"}}
-		p.text-muted.text-center.m-t
-			small {{{_ "login.existing"}}}
+		.m-b
+			a(href="{{pathFor 'forgotPassword' language=langTag}}") {{_ "login.forgot"}}
 		.dropdown
 			+languageSwitch
 	p.m-t-lg.text-center

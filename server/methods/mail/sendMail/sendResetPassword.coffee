@@ -27,7 +27,7 @@ Meteor.methods
 
 		Meteor.call 'sendMail',
 			recipient: obj.email
-			sender: 'JWManagement'
+			sender: 'JW Management'
 			from: 'support@jwmanagement.org'
 			subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language)
 			template: 'resetPassword'

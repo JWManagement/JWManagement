@@ -1,0 +1,71 @@
+#addVesselModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-md.animated.fadeInUp
+		.modal-content
+			form.form-horizontal
+				.modal-header
+					i.fa.fa-user-plus.modal-icon
+					h2.m-b-none {{_ 'modal.addVessel.title'}}
+				.modal-body
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.name"}}
+						.col-sm-6
+							input.form-control(type='text' name='name' placeholder='{{_ "vessels.name"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.flag"}}
+						.col-sm-6
+							input.form-control(type='text' name='flag' placeholder='{{_ "vessels.flag"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.type"}}
+						.col-lg-6
+							select.form-control(name="type")
+								option(value='c') {{_ "vessels.types.c"}}
+								option(value='mf') {{_ "vessels.types.mf"}}
+								option(value='mt') {{_ "vessels.types.mt"}}
+								option(value='pt') {{_ "vessels.types.pt"}}
+								option(value='p') {{_ "vessels.types.p"}}
+								option(value='cr') {{_ "vessels.types.cr"}}
+								option(value='rc') {{_ "vessels.types.rc"}}
+								option(value='f') {{_ "vessels.types.f"}}
+								option(value='ro') {{_ "vessels.types.ro"}}
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.callsign"}}
+						.col-sm-6
+							input.form-control(type='text' name='callsign' placeholder='{{_ "vessels.callsign"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.eni"}}
+						.col-sm-6
+							input.form-control(type='text' name='eni' placeholder='{{_ "vessels.eni"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.imo"}}
+						.col-sm-6
+							input.form-control(type='text' name='imo' placeholder='{{_ "vessels.imo"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.mmsi"}}
+						.col-sm-6
+							input.form-control(type='text' name='mmsi' placeholder='{{_ "vessels.mmsi"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.lastVisit"}}
+						.col-sm-6
+							input#datepicker.form-control(type='text' name='lastVisit' placeholder='{{_ "vessels.lastVisit"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.nextVisit"}}
+						.col-sm-6
+							input.form-control(type='text' name='nextVisit' placeholder='{{_ "vessels.nextVisit"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.languages"}}
+						.col-sm-6
+							textarea.form-control(name='languages' placeholder='{{_ "vessels.languagesPlaceholder"}}')
+					.form-group
+						label.col-sm-4.control-label {{_ "vessels.comments"}}
+						.col-sm-6
+							textarea.form-control(name='comments' placeholder='{{_ "vessels.commentsPlaceholder"}}')
+				.modal-footer
+					.pull-left
+						button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}
+					.pull-right
+						if isValidating
+							button.btn.btn-primary.disabled
+								i.fa.fa-spinner.fa-pulse
+								| {{_ 'modal.addVessel.action'}}
+						else
+							button#addVesselAction.btn.btn-primary {{_ 'modal.addVessel.action'}}
