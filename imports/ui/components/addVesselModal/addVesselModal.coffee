@@ -59,6 +59,7 @@ Template.addVesselModal.events
 					lastVisit: $(e.target).find('[name=lastVisit]').val().trim()
 					nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
 					languages: $(e.target).find('[name=languages]').val()
+					comments: $(e.target).find('[name=comments]').val()
 				, (e2) ->
 					isValidating.set false
 

@@ -42,6 +42,9 @@ export Methods =
 				languages:
 					type: String
 					optional: true
+				comments:
+					type: String
+					optional: true
 			.validator()
 		run: (newVessel) -> if Meteor.isServer
 			{ Vessels } = require '/imports/api/vessels/vessels.coffee'
@@ -105,6 +108,9 @@ export Methods =
 				languages:
 					type: String
 					optional: true
+				comments:
+					type: String
+					optional: true
 			.validator()
 		run: (newVessel) -> if Meteor.isServer
 			{ Vessels } = require '/imports/api/vessels/vessels.coffee'
@@ -130,7 +136,7 @@ export Methods =
 				else
 					set = {}
 
-					for key in Object.keys(newVessel) when key in ['name', 'flag', 'type', 'callsign', 'eni', 'imo', 'mmsi', 'lastVisit', 'nextVisit', 'languages']
+					for key in Object.keys(newVessel) when key in ['name', 'flag', 'type', 'callsign', 'eni', 'imo', 'mmsi', 'lastVisit', 'nextVisit', 'languages', 'comments']
 						set[key] = newVessel[key]
 
 					Vessels.update newVessel._id, $set: set

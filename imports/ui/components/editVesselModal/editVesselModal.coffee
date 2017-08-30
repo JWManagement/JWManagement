@@ -48,8 +48,7 @@ Template.editVesselModal.events
 			lastVisit: $(e.target).find('[name=lastVisit]').val().trim()
 			nextVisit: $(e.target).find('[name=nextVisit]').val().trim()
 			languages: $(e.target).find('[name=languages]').val()
-
-		console.log input._id
+			comments: $(e.target).find('[name=comments]').val()
 
 		Meteor.call 'validateVesselInput',
 			_id: input._id

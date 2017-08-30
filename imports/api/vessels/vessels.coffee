@@ -54,6 +54,9 @@ Vessels.schema = new SimpleSchema
 	languages:
 		type: String
 		optional: true
+	comments:
+		type: String
+		optional: true
 
 Vessels.attachSchema = Vessels.schema
 

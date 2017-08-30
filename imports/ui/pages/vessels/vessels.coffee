@@ -30,6 +30,7 @@ Template.vessels.onCreated ->
 				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'xs', filterable: false }
 				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs', filterable: false }
 				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'xs', filterable: false }
+				{ name: 'comments', title: TAPi18n.__('vessels.comments'), breakpoints: 'all', filterable: false }
 			]
 
 			rows = []
@@ -49,6 +50,7 @@ Template.vessels.onCreated ->
 					harborGroup: vessel.harborGroup
 					nextVisit: vessel.nextVisit
 					languages: vessel.languages
+					comments: vessel.comments
 
 			$('#vesselTable').html('').footable
 				columns: columns
