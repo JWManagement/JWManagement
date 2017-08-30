@@ -20,16 +20,16 @@ Template.vessels.onCreated ->
 				{ name: '_id', title: '', breakpoints: '', visible: false, filterable: false }
 				{ name: 'id', title: '#', breakpoints: '', filterable: false }
 				{ name: 'name', title: TAPi18n.__('vessels.name'), breakpoints: '' }
-				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs', filterable: false }
-				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs', filterable: false }
+				{ name: 'flag', title: TAPi18n.__('vessels.flag'), breakpoints: 'xs sm', filterable: false }
+				{ name: 'type', title: TAPi18n.__('vessels.type'), breakpoints: 'xs sm', filterable: false }
 				{ name: 'callsign', title: TAPi18n.__('vessels.callsign'), breakpoints: '' }
 				{ name: 'eni', title: TAPi18n.__('vessels.eni'), breakpoints: 'xs' }
 				{ name: 'imo', title: TAPi18n.__('vessels.imo'), breakpoints: 'xs' }
 				{ name: 'mmsi', title: TAPi18n.__('vessels.mmsi'), breakpoints: 'xs' }
-				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'xs', filterable: false }
-				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'xs', filterable: false }
-				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'xs', filterable: false }
-				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'xs', filterable: false }
+				{ name: 'lastVisit', title: TAPi18n.__('vessels.lastVisit'), breakpoints: 'all', filterable: false }
+				{ name: 'harborGroup', title: TAPi18n.__('vessels.harborGroup'), breakpoints: 'all', filterable: false }
+				{ name: 'nextVisit', title: TAPi18n.__('vessels.nextVisit'), breakpoints: 'all', filterable: false }
+				{ name: 'languages', title: TAPi18n.__('vessels.languages'), breakpoints: 'all', filterable: false }
 				{ name: 'comments', title: TAPi18n.__('vessels.comments'), breakpoints: 'all', filterable: false }
 			]
 
