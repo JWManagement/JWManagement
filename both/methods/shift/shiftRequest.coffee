@@ -135,14 +135,13 @@ Meteor.methods
 							$addToSet: 'teams.$.pending': user
 
 	cancelRequest: (shiftId, teamId) ->
-		user = Meteor.user()
 		shift = Shifts.findOne shiftId, fields: teams: 1
 
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull: 'teams.$.pending': _id: user._id
+			$pull: 'teams.$.pending': _id: Meteor.userId()
 
 	cancelParticipation: (shiftId, teamId) ->
 		user = Meteor.user()
