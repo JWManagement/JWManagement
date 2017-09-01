@@ -365,6 +365,8 @@ vessels:
         rc: River cruise ship
         f: Ferry
         ro: Ro-Ro
+        t: Tug
+        unknown: Unknown
     callsign: Call sign
     eni: ENI
     imo: IMO

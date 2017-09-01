@@ -364,6 +364,8 @@ vessels:
         rc: Flusskreuzfahrtschiff
         f: Fähre
         ro: Ro-Ro
+        t: Schlepper
+        unknown: Unbekannt
     callsign: Rufzeichen
     eni: ENI
     imo: IMO

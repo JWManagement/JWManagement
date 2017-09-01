@@ -20,7 +20,7 @@ export Methods =
 					optional: true
 				type:
 					type: String
-					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro']
+					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 				callsign:
 					type: String
 					optional: true
@@ -86,7 +86,7 @@ export Methods =
 					optional: true
 				type:
 					type: String
-					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro']
+					allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 				callsign:
 					type: String
 					optional: true
