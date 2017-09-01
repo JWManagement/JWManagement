@@ -153,23 +153,23 @@ Meteor.methods
 		if typeof args.callsign == 'string' && args.callsign.length > 0
 			vessel = Vessels.findOne(callsign: args.callsign)
 
-			if (args._id? && args.callsign != vessel.callsign) || (!args._id? && vessel?)
+			if vessel? && ((args._id? && args._id != vessel._id) || !args._id?)
 				throw new Meteor.Error 'validation-error', 'callsignUnique'
 
 		if typeof args.eni == 'string' && args.eni.length > 0
 			vessel = Vessels.findOne(eni: args.eni)
 
-			if (args._id? && args.eni != vessel.eni) || (!args._id? && vessel?)
+			if vessel? && ((args._id? && args._id != vessel._id) || !args._id?)
 				throw new Meteor.Error 'validation-error', 'eniUnique'
 
 		if typeof args.imo == 'string' && args.imo.length > 0
 			vessel = Vessels.findOne(imo: args.imo)
 
-			if (args._id? && args.imo != vessel.imo) || (!args._id? && vessel?)
+			if vessel? && ((args._id? && args._id != vessel._id) || !args._id?)
 				throw new Meteor.Error 'validation-error', 'imoUnique'
 
 		if typeof args.mmsi == 'string' && args.mmsi.length > 0
 			vessel = Vessels.findOne(mmsi: args.mmsi)
 
-			if (args._id? && args.mmsi != vessel.mmsi) || (!args._id? && vessel?)
+			if vessel? && ((args._id? && args._id != vessel._id) || !args._id?)
 				throw new Meteor.Error 'validation-error', 'mmsiUnique'
