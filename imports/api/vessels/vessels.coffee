@@ -15,7 +15,6 @@ Vessels.schema = new SimpleSchema
 
 	_id:
 		type: String
-		regEx: SimpleSchema.RegEx.Id
 		autoValue: -> Random.id() unless @isSet
 	createdAt:
 		type: Date
