@@ -160,6 +160,7 @@ modal:
         texts: Bible Texts
         speaks: Conversations
         videos: Shown Videos
+        website: Website shown
         returnVisits: Return Visits
         bibleStudies: Bible Studies
         time: Hours of Service

@@ -29,6 +29,7 @@ export Reports =
 					texts: $sum: '$teams.report.texts'
 					speaks: $sum: '$teams.report.speaks'
 					videos: $sum: '$teams.report.videos'
+					website: $sum: '$teams.report.website'
 					hours: $sum: '$teams.report.hours'
 					route: $sum: '$teams.report.experiences.route'
 					good: $sum: '$teams.report.experiences.good'
@@ -40,6 +41,7 @@ export Reports =
 				texts: 0
 				speaks: 0
 				videos: 0
+				website: 0
 				hours: 0
 				route: 0
 				good: 0

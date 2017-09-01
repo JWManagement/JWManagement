@@ -54,6 +54,7 @@ Template.reports.onCreated ->
 		texts: new ReactiveVar
 		speaks: new ReactiveVar
 		videos: new ReactiveVar
+		website: new ReactiveVar
 		hours: new ReactiveVar
 		route: new ReactiveVar
 		good: new ReactiveVar
@@ -130,6 +131,7 @@ Template.reports.events
 				'modal.shiftReport.texts'
 				'modal.shiftReport.speaks'
 				'modal.shiftReport.videos'
+				'modal.shiftReport.website'
 				'modal.shiftReport.returnVisits'
 				'modal.shiftReport.bibleStudies'
 				'modal.shiftReport.time'
@@ -176,7 +178,7 @@ Template.reports.events
 					).join(', ')
 
 					if team.report? && team.report.items?
-						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
+						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.website, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
 
 						route = team.report.experiences.route || ''
 						good = team.report.experiences.good || ''

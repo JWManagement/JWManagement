@@ -264,6 +264,7 @@ reports:
     achievements: Achievements
     hours: Engaged time
     texts: Read Bible Texts
+    website: Website shown
     shifts: Accomplished Shifts
     missing: Missing Reports
     participants: Participants
