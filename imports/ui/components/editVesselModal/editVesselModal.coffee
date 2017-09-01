@@ -69,5 +69,4 @@ Template.editVesselModal.events
 					if e2
 						handleError e2
 					else
-						$('#addVesselModal').modal('hide')
-						$('#vesselSearch').val(name).keyup()
+						$('#editVesselModal').modal('hide')
