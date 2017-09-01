@@ -23,12 +23,17 @@ Meteor.methods
 		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
 			vessels = Vessels.find().fetch()
 
-			for vessel in vessels
-				oldId = vessel._id
-				vessel._id = vessel._id._str
+			i = 0
+			j = 0
+			compare = Math.round(vessels.length / 10)
 
-				Vessels.insert vessel
-				Vessels.remove oldId
+			for vessel in vessels
+				Vessels.update vessel._id, $set: harborGroup: 'Service Department'
+				i++
+
+				if i % compare == 0
+					j++
+					console.log j + ' / 10'
 
 			console.log 'done'
 		else
