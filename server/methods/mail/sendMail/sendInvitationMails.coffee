@@ -14,6 +14,7 @@ Meteor.methods
 				'profile.firstname': 1
 				'profile.lastname': 1
 				'profile.language': 1
+				state: 1
 
 			if altered > 0
 				Meteor.call 'sendMail',
@@ -32,5 +33,5 @@ Meteor.methods
 				, (err, res) ->
 					if err
 						console.log 'sendMail failed: ' + err
-					else
+					else if user.state == 'created'
 						Meteor.call 'setState', projectId, userId, 'invited'
