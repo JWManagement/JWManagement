@@ -209,11 +209,15 @@ Template.dashboard.helpers
 
 Template.dashboard.onCreated ->
 
-	DashboardSubs.subscribe 'dashboard'
+	@autorun ->
+		userId = Meteor.userId() # for reactivity
+		projectIds = GetGroupsForUser userId, Permissions.member
 
-	@autorun -> if DashboardSubs.ready()
-		for shift in Shifts.find().fetch()
-			ShiftSubs.subscribe 'shift', shift._id
+		DashboardSubs.subscribe 'dashboard', projectIds
+
+		if DashboardSubs.ready()
+			for shift in Shifts.find().fetch()
+				ShiftSubs.subscribe 'shift', shift._id
 
 Template.dashboard.onRendered ->
 

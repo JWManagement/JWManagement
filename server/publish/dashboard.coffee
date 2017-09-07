@@ -1,5 +1,4 @@
-Meteor.publish 'dashboard', ->
-	projectIds = GetGroupsForUser @userId, Permissions.member
+Meteor.publish 'dashboard', (projectIds) ->
 
 	[
 		Projects.find _id: $in: projectIds,
