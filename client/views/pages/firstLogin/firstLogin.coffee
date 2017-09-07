@@ -19,7 +19,7 @@ Template.firstLogin.onCreated ->
 
 		if token? && token != ''
 			handle = Meteor.subscribe 'userByToken', token
-			isLoading.set(handle.ready())
+			isLoading.set(!handle.ready())
 
 Template.firstLogin.events
 
