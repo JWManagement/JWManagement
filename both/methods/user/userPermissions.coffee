@@ -1,5 +1,18 @@
 Meteor.methods
 
+	registerUserForProject: (userId, token) ->
+		oldUser = Meteor.users.findOne 'services.password.reset.token': token,
+			fields: roles: 1
+
+		newUser = Meteor.users.findOne userId,
+			fields: _id: 1
+
+		if oldUser? && newUser?
+			for id in Object.keys(oldUser.roles)
+				Roles.addUsersToRoles userId, oldUser.roles[id][0], id
+
+			Meteor.users.remove oldUser._id
+
 	changeProjectRole: (projectId, userId, permission) ->
 		projectPermissions = Permissions.member
 
