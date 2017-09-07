@@ -11,6 +11,8 @@ Template.editVesselModal.helpers
 
 	isValidating: -> isValidating.get()
 
+	isSelected: (t) -> 'selected' if @type == t
+
 Template.editVesselModal.onCreated ->
 
 	Meteor.subscribe 'vessel', FlowRouter.getQueryParam('editVessel')
