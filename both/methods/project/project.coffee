@@ -33,3 +33,9 @@ Meteor.methods
 				handleError e
 			else
 				swal 'support@jwmanagement.org has been informed', '', 'success'
+
+	getProjectCount: ->
+		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Projects.find({}, fields: _id: 1).count()
+		else
+			0

@@ -9,7 +9,7 @@ Template.allUsers.helpers
 
 Template.allUsers.onCreated ->
 
-	Meteor.call 'getUserCount', (e, r) -> userCount.set r
+	Meteor.call 'getUserCount', (e, r) -> userCount.set(r)
 
 	initDone = false
 
@@ -52,6 +52,7 @@ Template.allUsers.onCreated ->
 				columns: columns
 				rows: rows
 				sorting: enabled: true
+				filtering: enabled: false
 				paging:
 					enabled: true
 					size: 20
