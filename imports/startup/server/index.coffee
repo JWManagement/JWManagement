@@ -8,6 +8,8 @@ import '/imports/ui/pages/support/server/support.coffee'
 import '/imports/ui/pages/vessels/server/vessel.coffee'
 import '/imports/ui/pages/vessels/server/vessels.coffee'
 
+import '/imports/ui/components/allUsers/server/support.users.coffee'
+
 Impersonate.admins = ['support']
 
 SimpleSchemaHelper.init()
