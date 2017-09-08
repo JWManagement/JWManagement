@@ -110,7 +110,8 @@ profile:
     changePicture: Bild ändern...
     options:
         title: Optionen
-        helpText: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, schreibe uns eine Mail an support@jwmanagement.org mit den Benutzernamen beider Accounts.
+        helpText:
+            mergeAccounts: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, klicke auf "Berechtigungen übertragen" und gib die Anmeldedaten deines zweiten Accounts ein. Die Berechtigungen dieses Accounts werden dann in den angegebenen Account übertragen.
     availability:
         title: Verfügbarkeit
         helpText: Markiere bitte die Stunden, in denen du verfügbar bist.
@@ -147,6 +148,7 @@ profile:
         languages: Deutsch, Französisch, Englisch
     changePassword: Passwort ändern
     deleteAccount: Account löschen
+    mergeAccounts: Berechtigungen übertragen
     vacation:
         title: Urlaub
         helpText: Gib bitte die Zeiträume an, in denen du nicht verfügbar bist.

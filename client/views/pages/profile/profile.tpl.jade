@@ -1,11 +1,13 @@
 if queryParam 'editProfilePicture'
 	+editProfilePictureModal
+if queryParam 'mergeAccounts'
+	+mergeAccountsModal
 .wrapper-content
 	.container-fluid
 		with currentUser
 			.row.m-b-lg.m-t-lg
-				.col-md-6.animated.fadeInRight
-					.profile-image-wrapper.animated.fadeInLeft
+				.col-md-6
+					.profile-image-wrapper
 						with picture
 							.profile-image
 								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
@@ -24,9 +26,9 @@ if queryParam 'editProfilePicture'
 									p {{_ "profile.speaks"}} {{profile.languages}}
 			.row.m-t-lg
 				.col-md-6
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ "profile.personalData"}}
+							h2 {{_ "profile.personalData"}}
 						.ibox-content
 							form.form-horizontal
 								.form-group
@@ -101,21 +103,25 @@ if queryParam 'editProfilePicture'
 											option(value='coordinator' selected="{{isField 'privilege' 'coordinator'}}") {{_ "profile._ministryPrivilege.coordinator"}}
 											option(value='secretary' selected="{{isField 'privilege' 'secretary'}}") {{_ "profile._ministryPrivilege.secretary"}}
 											option(value='serviceOverseer' selected="{{isField 'privilege' 'serviceOverseer'}}") {{_ "profile._ministryPrivilege.serviceOverseer"}}
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.options.title'}}
-							.text-muted.m-t {{_ 'profile.options.helpText'}}
+							h2 {{_ 'profile.options.title'}}
 						.ibox-content
+							.text-muted.m-t {{_ 'profile.options.helpText.mergeAccounts'}}
+							#mergeAccounts.btn.btn-rounded.btn-warning.m-t {{_ "profile.mergeAccounts"}}	
+							//hr
+							//leave project
+							hr
 							#changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
 							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}	
 				.col-md-6
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.availability.title'}}
+							h2 {{_ 'profile.availability.title'}}
 							.text-muted.m-t {{_ 'profile.availability.helpText'}}
 						.ibox-content
 							.table-responsive
-								table.table.table-bordered.timetable.animated.fadeInUp
+								table.table.table-bordered.timetable
 									thead
 										tr
 											td
@@ -133,9 +139,9 @@ if queryParam 'editProfilePicture'
 							.checkbox.checkbox-primary.checkbox-inline
 								input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
 								label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.vacation.title'}}
+							h2 {{_ 'profile.vacation.title'}}
 							.text-muted.m-t {{_ 'profile.vacation.helpText'}}
 						.ibox-content
 							each getVacations

@@ -111,7 +111,8 @@ profile:
     changePicture: Edit image...
     options:
         title: Settings
-        helpText: In JW Management you can do everything with just one single account, so you just have to remember one username and password. If you have multiple accounts, please write us an email to support@jwmanagement.org with the usernames of both accounts.
+        helpText:
+            mergeAccounts: In JW Management you can do everything with just one single account. You just have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account's permissions into the ones of the specified account.
     availability:
         title: Availability
         helpText: Please mark the hours in which you are available.
@@ -147,7 +148,8 @@ profile:
         congregation: Congregation
         languages: Languages
     changePassword: Change password
-    deleteAccount: Delete Account
+    deleteAccount: Delete account
+    mergeAccounts: Merge accounts
     vacation:
         title: Holiday
         helpText: Please add the periods in which you are not available.

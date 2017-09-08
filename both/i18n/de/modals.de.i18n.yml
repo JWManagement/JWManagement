@@ -239,3 +239,9 @@ modal:
         name: Name
         email: E-Mail
         add: User hinzufügen
+    mergeAccounts:
+        title: Accounts zusammenführen
+        description: Gib hier die Anmeldedaten des Accounts ein, auf den du die Berechtigungen des aktuellen Accoutns übertragen möchtest. Du wirst direkt mit dem angegebenen Account angemeldet.
+        username: Benutzername
+        password: Passwort
+        merge: Berechtigungen übertragen

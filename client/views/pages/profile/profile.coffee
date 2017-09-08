@@ -36,12 +36,9 @@ Template.profile.onRendered ->
 			startDate: '1900/01/01'
 			language: FlowRouter.getParam('language')
 
-Template.profile.onRendered ->
-
-	$('.animated').removeClass('animated').addClass('skipped')
-
 Template.profile.onDestroyed ->
 
+	$('#mergeAccountsModal').modal('hide')
 	$('#editProfilePictureModal').modal('hide')
 	Session.set('target', undefined)
 
@@ -98,6 +95,9 @@ Template.profile.events
 			Meteor.call 'updateProfile', 'shortTermCallsAlways', false
 
 	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, handleSuccess
+
+	'click #mergeAccounts': ->
+		wrs -> FlowRouter.setQueryParams mergeAccounts: true
 
 	'click #changePassword': ->
 		swal.withForm

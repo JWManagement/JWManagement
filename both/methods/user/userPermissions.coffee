@@ -13,6 +13,19 @@ Meteor.methods
 
 			Meteor.users.remove oldUser._id
 
+	mergeAccounts: (oldUserId, newUserId) ->
+		oldUser = Meteor.users.findOne oldUserId,
+			fields: roles: 1
+
+		newUser = Meteor.users.findOne newUserId,
+			fields: _id: 1
+
+		if oldUser? && newUser?
+			for id in Object.keys(oldUser.roles)
+				Roles.addUsersToRoles newUserId, oldUser.roles[id][0], id
+
+			Meteor.users.remove oldUser._id
+
 	changeProjectRole: (projectId, userId, permission) ->
 		projectPermissions = Permissions.member
 

@@ -85,8 +85,6 @@ Template.firstLogin.events
 							, 500
 						else
 							Meteor.loginWithPassword username, password, ->
-								console.log 'whoop whoop'
-
 								Meteor.call 'registerUserForProject', Meteor.userId(), token
 
 								FlowRouter.go 'home'
