@@ -1,12 +1,15 @@
 import './allUsers.tpl.jade'
 
 searchString = new ReactiveVar
+userCount = new ReactiveVar
 
 Template.allUsers.helpers
 
-	userCount: -> Meteor.users.find({}, fields: _id: 1).count()
+	userCount: -> userCount.get()
 
 Template.allUsers.onCreated ->
+
+	Meteor.call 'getUserCount', (e, r) -> userCount.set r
 
 	initDone = false
 

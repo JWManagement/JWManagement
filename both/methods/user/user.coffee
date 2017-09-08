@@ -142,3 +142,9 @@ Meteor.methods
 				throw new Meteor.Error 500, 'State ' + state + ' invalid'
 		else
 			throw new Meteor.Error 500, 'Insufficient permissions'
+
+	getUserCount: ->
+		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Meteor.users.find({}, fields: _id: 1).count()
+		else
+			0
