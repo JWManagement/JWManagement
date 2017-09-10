@@ -1,3 +1,5 @@
+newsMaxSize = 500
+
 Template.dashboard.helpers
 
 	loading: -> !DashboardSubs.ready()
@@ -262,7 +264,7 @@ Template.dashboard.events
 	'click #editNews': (e) ->
 		$('#'+@_id).find('.news-content').addClass('hidden')
 		$('#'+@_id).find('.news-editor').removeClass('hidden')
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)
 
 	'click #cancelNews': (e) ->
 		$('#'+@_id).find('.news-editor').addClass('hidden')
@@ -278,7 +280,7 @@ Template.dashboard.events
 			$('#'+projectId).find('.news-content').removeClass('hidden')
 
 	'keyup #news-textarea': (e) ->
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)
 
 	'click .vertical-timeline-content[data-type="missing"]': (e) ->
 		shiftId = @_id

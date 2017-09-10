@@ -45,10 +45,10 @@ if queryParam 'showShiftReport'
 													| {{_ 'dashboard.noNews'}}
 											if isInRole 'admin' _id
 												.news-editor.hidden
-													textarea#news-textarea(rows="4" maxlength="140") {{{html2win news.text}}}
+													textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
 													button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
 													button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
-													.chars-left 140/140
+													.chars-left 500/500
 										.project-link-wrapper
 											a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
 												i.fa.fa-book
