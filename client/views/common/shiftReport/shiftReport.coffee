@@ -87,6 +87,9 @@ Template.shiftReport.events
 	'change #texts': (e) ->
 		Meteor.call 'updateReport', @_id, @team._id, 'texts', e.target.value
 
+	'change #website': (e) ->
+		Meteor.call 'updateReport', @_id, @team._id, 'website', e.target.value
+
 	'change #speaks': (e) ->
 		Meteor.call 'updateReport', @_id, @team._id, 'speaks', e.target.value
 

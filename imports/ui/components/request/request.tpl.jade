@@ -34,7 +34,7 @@ with getShift
 						each teams
 							div.shift-team(class="{{teamRelation}}")
 								.shift-team-header
-									i.fa.fa-map-signs
+									i.fa(class="{{getIcon icon}}")
 									| {{name}}
 								if participants
 									.shift-team-participants

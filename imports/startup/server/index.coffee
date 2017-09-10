@@ -22,4 +22,9 @@ import '/imports/ui/pages/support/server/support.coffee'
 import '/imports/api/messages/messages.coffee'
 import '/imports/api/reports/reports.coffee'
 
+# Miscellaneous
+import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
+
 Impersonate.admins = ['support']
+
+SimpleSchemaHelper.init()

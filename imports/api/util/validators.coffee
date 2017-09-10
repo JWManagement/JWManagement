@@ -7,11 +7,11 @@ export Validators =
 
 	user:
 
-		validId: => Meteor.users.findOne(@value) || 'invalidUser'
+		validId: => Meteor.users.findOne(@value, fields: _id: 1) || 'invalidUser'
 
 	shift:
 
-		validId: => Shifts.findOne(@value) || 'invalidShift'
+		validId: => Shifts.findOne(@value, fields: _id: 1) || 'invalidShift'
 
 		isTagParticipant: =>
 			shift = Shifts.findOne @value, fields: tagId: 1
@@ -19,11 +19,11 @@ export Validators =
 
 	week:
 
-		validId: => Weeks.findOne(@value) || 'invalidWeek'
+		validId: => Weeks.findOne(@value, fields: _id: 1) || 'invalidWeek'
 
 	project:
 
-		validId: => Projects.findOne(@value) || 'invalidProject'
+		validId: => Projects.findOne(@value, fields: _id: 1) || 'invalidProject'
 
 		isAdmin: => 'notAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.admin, @value
 
@@ -33,7 +33,7 @@ export Validators =
 
 	tag:
 
-		validId: => Projects.findOne('tags._id': @value) || 'invalidTag'
+		validId: => Projects.findOne({ 'tags._id': @value }, fields: _id: 1) || 'invalidTag'
 
 		isParticipant: => 'notTagParticipant' if !Roles.userIsInRole Meteor.userId(), Permissions.participant, @value
 

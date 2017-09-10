@@ -1,6 +1,7 @@
 import { Dialogs } from '/imports/api/util/dialogs.coffee'
 import { Delay } from '/imports/api/util/delay.coffee'
 import { FR } from '/imports/api/util/flowrouter.coffee'
+import { StringUtils } from '/imports/api/util/stringUtils.coffee'
 
 import './profileDetails.tpl.jade'
 
@@ -34,12 +35,12 @@ Template.profileDetails.events
 	'change #username': (e) ->
 		Meteor.users.methods.profile.update.call
 			field: 'username'
-			value: e.target.value
+			value: StringUtils.cleanedUsername(e.target.value)
 		, (error) ->
 			if error
 				if error.error == 406
 					swal TAPi18n.__('profile.usernameTaken'), '', 'error'
-					Delay -> $(e.target).val Meteor.user().username
+					Delay -> $(e.target).val(Meteor.user().username)
 				else
 					Dialogs.handleError error
 			else

@@ -15,6 +15,7 @@ Meteor.methods
 			unless init?
 				Meteor.call 'updateReport', shiftId, teamId, 'init', true
 				Meteor.call 'updateReport', shiftId, teamId, 'texts', 0
+				Meteor.call 'updateReport', shiftId, teamId, 'website', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'speaks', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'videos', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'returnVisits', 0

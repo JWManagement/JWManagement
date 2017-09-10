@@ -133,3 +133,11 @@ export ProfileMethods =
 					user.username
 				else
 					throw new Meteor.Error 'invalidToken', 'error'
+
+Meteor.methods
+
+	getUserCount: ->
+		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Meteor.users.find({}, fields: _id: 1).count()
+		else
+			0

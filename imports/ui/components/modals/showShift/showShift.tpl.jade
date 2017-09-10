@@ -8,7 +8,7 @@ with getShift
 				each teams
 					.panel.panel-success.team(class='{{status}}' data-id='{{_id}}' data-min='{{min}}' data-max='{{max}}')
 						.panel-heading
-							i.fa.fa-map-signs.fa-fw
+							i.fa.fa-fw(class="{{getIcon icon}}")
 							| {{name}}
 						.panel-description
 							with teamPicture

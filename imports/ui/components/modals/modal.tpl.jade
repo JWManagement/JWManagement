@@ -1,3 +1,3 @@
 with getTemplate
-	.modal.inmodal(tabindex='-1' aria-hidden='true' id='{{this}}')
+	.modal.inmodal.animated.fadeInUp(tabindex='-1' aria-hidden='true' id='{{this}}')
 		+Template.dynamic(template=this)

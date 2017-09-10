@@ -93,7 +93,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 5. Open Terminal, cd to the created folder and run
 
 	```shell
-	meteor npm install && npm run start
+	meteor npm install && npm start
 	```
 
 	This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.

@@ -19,3 +19,5 @@ export StringUtils =
 		str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('-')).join '-'
 		str = (w.substr(0, 1).toUpperCase() + w.substr(1) for w in str.split('/')).join '/'
 		str
+
+	cleanedUsername: (username) -> username.trim().toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '')

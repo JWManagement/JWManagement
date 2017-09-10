@@ -5,6 +5,7 @@ defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
 fetchData = (thisTemplate) ->
 	projectId = FlowRouter.getParam('projectId')
 	month = FlowRouter.getQueryParam('month')
+	unless month then month = moment(new Date).format('YYYY[M]MM')
 	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
 	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
 
@@ -15,7 +16,7 @@ fetchData = (thisTemplate) ->
 		projectId: projectId
 		startDate: startDate
 		endDate: endDate
-	, (e, result) ->
+	, (e, result) -> unless e
 		delete result._id
 		for field in Object.keys(result)
 			thisTemplate.basicSums[field].set(result[field])
@@ -27,7 +28,7 @@ fetchData = (thisTemplate) ->
 		projectId: projectId
 		startDate: startDate
 		endDate: endDate
-	, (e, result) ->
+	, (e, result) -> unless e
 		for field in Object.keys(result)
 			thisTemplate.participantsCount[field].set(result[field])
 
@@ -53,6 +54,7 @@ Template.reports.onCreated ->
 		texts: new ReactiveVar
 		speaks: new ReactiveVar
 		videos: new ReactiveVar
+		website: new ReactiveVar
 		hours: new ReactiveVar
 		route: new ReactiveVar
 		good: new ReactiveVar
@@ -129,6 +131,7 @@ Template.reports.events
 				'modal.shiftReport.texts'
 				'modal.shiftReport.speaks'
 				'modal.shiftReport.videos'
+				'modal.shiftReport.website'
 				'modal.shiftReport.returnVisits'
 				'modal.shiftReport.bibleStudies'
 				'modal.shiftReport.time'
@@ -175,7 +178,7 @@ Template.reports.events
 					).join(', ')
 
 					if team.report? && team.report.items?
-						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
+						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.website, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
 
 						route = team.report.experiences.route || ''
 						good = team.report.experiences.good || ''

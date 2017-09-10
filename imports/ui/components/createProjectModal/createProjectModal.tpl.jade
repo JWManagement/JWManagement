@@ -8,29 +8,24 @@
 				form.form-horizontal
 					.form-group
 						.col-sm-12.m-b-xs
-							label.control-label Title
+							label.control-label Project ID
 						.col-sm-12
-							input#title.form-control(type='text' placeholder='Titel')
+							input#projectId.form-control(type='text' placeholder='Project ID')
 					.form-group
 						.col-sm-12.m-b-xs
-							label.control-label Title
+							label.control-label Project Name
 						.col-sm-12
-							input#title.form-control(type='text' placeholder='Titel')
+							input#projectName.form-control(type='text' placeholder='Project Name')
 					.form-group
 						.col-sm-12.m-b-xs
-							label.control-label Title
+							label.control-label E-Mail
 						.col-sm-12
-							input#title.form-control(type='text' placeholder='Titel')
+							input#email.form-control(type='text' placeholder='E-Mail')
 					.form-group
 						.col-sm-12.m-b-xs
-							label.control-label Title
+							label.control-label Language
 						.col-sm-12
-							input#title.form-control(type='text' placeholder='Titel')
-					.form-group
-						.col-sm-12.m-b-xs
-							label.control-label Text
-						.col-sm-12
-							textarea#text.form-control(rows='4')
+							input#language.form-control(type='text' placeholder='Language' value='en')
 			.modal-footer
 				button#createProject.btn.btn-primary.pull-left Create project
 				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

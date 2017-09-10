@@ -121,11 +121,19 @@ Template.showShift.helpers
 			else
 				false
 
-Template.showShift.onCreated ->
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
 
-	shiftId = FR.getShowShift()
+Template.shiftModal.onCreated ->
+
+	$('#shiftModal').modal('show')
+	$('#shiftModal').on 'hidden.bs.modal', ->
+		wrs -> FlowRouter.setQueryParams showShift: null
 
 	@autorun =>
+		shiftId = FR.getShowShift()
+		
 		handle = Meteor.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush =>
 			shift = Shifts.findOne shiftId

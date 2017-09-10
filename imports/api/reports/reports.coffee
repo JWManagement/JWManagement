@@ -29,6 +29,7 @@ export Reports =
 					texts: $sum: '$teams.report.texts'
 					speaks: $sum: '$teams.report.speaks'
 					videos: $sum: '$teams.report.videos'
+					website: $sum: '$teams.report.website'
 					hours: $sum: '$teams.report.hours'
 					route: $sum: '$teams.report.experiences.route'
 					good: $sum: '$teams.report.experiences.good'
@@ -40,6 +41,7 @@ export Reports =
 				texts: 0
 				speaks: 0
 				videos: 0
+				website: 0
 				hours: 0
 				route: 0
 				good: 0
@@ -76,6 +78,7 @@ export Reports =
 
 			fulltimeCount = participants.filter((userId, index, self) ->
 				user = Meteor.users.findOne(userId, 'profile.pioneer': 1)
+				return false unless user?
 
 				unique = self.indexOf(userId) == index
 				fulltime = user.profile.pioneer in ['regular', 'special', 'circuit', 'bethelite', 'ldc']
@@ -84,6 +87,7 @@ export Reports =
 
 			publisherCount = participants.filter((userId, index, self) ->
 				user = Meteor.users.findOne(userId, 'profile.publisher': 1)
+				return false unless user?
 
 				unique = self.indexOf(userId) == index
 				publisher = user.profile.pioneer in ['publisher', 'auxiliary']

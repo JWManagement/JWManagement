@@ -106,6 +106,10 @@ Template.request.helpers
 
 	getProjectName: -> Projects.findOne(@projectId, fields: name: 1).name
 
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
+
 Template.request.events
 
 	'click .missing.shift>.vertical-timeline-content': (e) ->

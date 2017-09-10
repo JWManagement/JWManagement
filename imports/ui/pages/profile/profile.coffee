@@ -26,6 +26,8 @@ Template.profile.onRendered ->
 		language: FR.getLanguage()
 		ignoreReadonly: true
 
+	# TODO: what?!
+
 Template.profile.onDestroyed ->
 
 	Session.set 'target', undefined

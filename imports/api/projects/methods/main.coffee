@@ -30,17 +30,19 @@ export MainMethods =
 			value = args.value
 			set = {}
 
-			if value.trim() != ''
-				if field == 'news'
-					set =
-						text: value
-						date: moment().format()
-				else
-					set[field] = value
+			if field == 'vesselModule' && Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+				Projects.update projectId, $set: vesselModule: value
+			else if value.trim() != '' || field.indexOf('news') > -1
+				set = {}
+				set[field] = value
 
 				Projects.update projectId, $set: set
+			else if field == 'email'
+				Projects.update projectId, $set: email: 'no-reply@jwmanagement.org'
+
+				throw new Meteor.Error 'Email is required', ''
 			else
-				throw new Meteor.Error 'invalidValue', ''
+				throw new Meteor.Error 'Name is required', ''
 
 	updateArray:
 		new ValidatedMethod

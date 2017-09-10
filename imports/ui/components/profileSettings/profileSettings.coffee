@@ -42,6 +42,9 @@ Template.profileSettings.events
 			else
 				swal TAPi18n.__('password.notMatching'), '', 'error'
 
+	'click #mergeAccount': ->
+		wrs -> FlowRouter.setQueryParams mergeAccounts: true
+
 	'click #deleteAccount': ->
 		Dialogs.swalYesNo
 			swal: 'delete.account'

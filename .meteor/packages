@@ -28,6 +28,7 @@ underscore@1.0.10
 
 alanning:roles
 aldeed:collection2-core
+aldeed:simple-schema
 arillo:flow-router-helpers
 benmgreene:jquery-sparklines # remove in future
 canotto90:swal-forms # remove in future
@@ -36,7 +37,6 @@ cfs:s3
 cfs:standard-packages
 chrismbeckett:toastr # remove in future
 chuangbo:cookie # remove in future
-flowkey:bootstrap-tour # remove in future
 fortawesome:fontawesome
 fourseven:scss
 gwendall:impersonate

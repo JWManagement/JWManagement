@@ -1,5 +1,7 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
+import '/imports/ui/components/enquiryList/server/support.messages.coffee'
+
 import './enquiryList.tpl.jade'
 
 Template.enquiryList.helpers
@@ -45,7 +47,11 @@ Template.enquiryList.onCreated -> Tracker.afterFlush => @autorun =>
 
 Template.enquiryList.events
 
-	'click .createProject': (e) -> FlowRouter.setQueryParams createProject: true
+	'click .createProject': (e) ->
+		FlowRouter.setQueryParams
+			createProject: true
+			projectName: $(e.target).closest('tr').find('td:nth-child(5)').html()
+			email: $(e.target).closest('tr').find('td:nth-child(4)').html()
 
 	'click .deleteProjectEnquiry': (e) ->
 		messageId = $(e.target).attr('data-id')

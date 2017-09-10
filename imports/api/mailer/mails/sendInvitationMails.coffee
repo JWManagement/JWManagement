@@ -14,6 +14,7 @@ export sendInvitationMails = (userIds, projectId) ->
 			'profile.firstname': 1
 			'profile.lastname': 1
 			'profile.language': 1
+			state: 1
 
 		send
 			recipient: user.profile.email
@@ -31,8 +32,5 @@ export sendInvitationMails = (userIds, projectId) ->
 		, (err, res) ->
 			if err
 				console.log 'sendMail failed: ' + err
-			else
-				Meteor.users.methods.state.set.call
-					projectId: projectId
-					userId: userId
-					state: 'invited'
+			else if user.state == 'created'
+				Meteor.call 'setState', projectId, userId, 'invited'

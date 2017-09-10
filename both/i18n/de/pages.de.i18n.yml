@@ -12,6 +12,7 @@ navigation:
     users: Benutzer
     reports: Berichte
     store: Depot
+    vessels: Schiffe
     notes: Notizen
     login: Anmelden
     logout: Abmelden
@@ -74,6 +75,8 @@ welcome:
         whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
+        fillOutCompletely: Bitte fülle alle Pflichtfelder aus!
+        enquirySuccessful: Anfrage wurde übermittelt!
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
         loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
         toGithub: GitHub besuchen
@@ -110,7 +113,8 @@ profile:
     changePicture: Bild ändern...
     options:
         title: Optionen
-        helpText: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, schreibe uns eine Mail an support@jwmanagement.org mit den Benutzernamen beider Accounts.
+        helpText:
+            mergeAccounts: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, klicke auf "Berechtigungen übertragen" und gib die Anmeldedaten deines zweiten Accounts ein. Die Berechtigungen dieses Accounts werden dann in den angegebenen Account übertragen.
     availability:
         title: Verfügbarkeit
         helpText: Markiere bitte die Stunden, in denen du verfügbar bist.
@@ -147,6 +151,7 @@ profile:
         languages: Deutsch, Französisch, Englisch
     changePassword: Passwort ändern
     deleteAccount: Account löschen
+    mergeAccounts: Berechtigungen übertragen
     vacation:
         title: Urlaub
         helpText: Gib bitte die Zeiträume an, in denen du nicht verfügbar bist.
@@ -264,6 +269,7 @@ reports:
     achievements: Was erreicht wurde
     hours: Eingesetzte Stunden
     texts: Vorgelesene Bibeltexte
+    website: Website gezeigt
     shifts: Stattgefundene Schichten
     missing: Fehlende Berichte
     participants: Teilnehmer
@@ -322,6 +328,7 @@ settings:
             description: Hier kannst du optional noch eine Beschreibung zu diesem Team angeben. Zum Beispiel könntest du ein paar Besonderheiten für diese Route erklären.
         id: ID
         name: Name
+        icon: Icon
         picture: Bild
         editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen
@@ -345,6 +352,38 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
+vessels:
+    title: Schiffe
+    nameShort: Schiffe
+    search: Schiff suchen
+    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    addNewVessel: Neues Schiff erfassen
+    name: Schiffsname
+    flag: Flagge
+    type: Typ
+    types:
+        c: Containerschiff
+        cr: Kreuzfahrtschiff
+        mf: Frachter
+        mt: Tanker
+        p: Passagierschiff
+        pt: Schubboot
+        rc: Flusskreuzfahrtschiff
+        f: Fähre
+        ro: Ro-Ro
+        t: Schlepper
+        unknown: Unbekannt
+    callsign: Rufzeichen
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Letzter Besuch
+    harborGroup: Hafengruppe
+    nextVisit: Nächster Besuch frühestens
+    languages: Sprache(n) an Bord
+    languagesPlaceholder: Keine personenbezogenen Daten!
+    comments: Bemerkungen
+    commentsPlaceholder: Keine personenbezogenen Daten!
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen

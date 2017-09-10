@@ -8,22 +8,41 @@
 					if getErrorMessage
 						.alert.alert-danger {{getErrorMessage}}
 					.row
-						.col-lg-12
-							form.m-t
-								.form-group
-									input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required tabindex='1')
-									span.help-block {{_ 'input.helpText.username'}}
-								.form-group
-									input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required tabindex='2')
-								.form-group
-									input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required tabindex='3')
-								.form-group
-									.checkbox.checkbox-inline(tabindex='4')
-										input#agreeTerms(type='checkbox')
-										label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
-								button#submit.btn.btn-primary.block.full-width.ladda-button(data-style='slide-down'  type='submit') {{_ "firstLogin.button"}}
+						if noState
+							.center-align
+								.col-lg-12.m-t
+									button#createAccount.btn.btn-primary I need to create an account
+								.col-lg-12.m-t
+									| - or -
+								.col-lg-12.m-t
+									button#haveAccount.btn.btn-primary I already have an account
+						else
+							.col-lg-12
+								form.m-t
+									if registerState
+										.form-group
+											input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required tabindex='1')
+										.form-group
+											input#password1.form-control(type='password' placeholder='{{_ "input.password"}}' required tabindex='2')
+										.form-group
+											input#password2.form-control(type='password' placeholder='{{_ "input.passwordRepeat"}}' required tabindex='3')
+										.form-group
+											.checkbox.checkbox-inline(tabindex='4')
+												input#agreeTerms(type='checkbox')
+												label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
+										button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}
+										button#haveAccount.btn.btn-white.block.full-width.m-t I already have an account
+									else
+										.form-group
+											input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required tabindex='1')
+										.form-group
+											input#password.form-control(type='password' placeholder='{{_ "input.password"}}' required tabindex='2')
+										button.btn.btn-primary.block.full-width.ladda-button(data-style='slide-down' type='submit') {{_ "firstLogin.button"}}
+										button#createAccount.btn.btn-white.block.full-width.m-t I need to create an account
 				else
 					if loggingIn
+						.sk-spinner.sk-spinner-pulse
+					else if isLoading
 						.sk-spinner.sk-spinner-pulse
 					else
 						h2.center-align {{{_ 'resetPassword.noUserFound'}}}

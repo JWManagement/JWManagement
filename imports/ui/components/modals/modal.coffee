@@ -13,6 +13,7 @@ Template.modal.onCreated ->
 	template = Template.currentData().template
 
 	require './editProfilePicture/editProfilePicture.coffee' if template == 'editProfilePicture'
+	require './mergeAccounts/mergeAccounts.coffee' if template == 'mergeAccounts'
 	require './showShift/showShift.coffee' if template == 'showShift'
 
 Template.modal.onRendered ->

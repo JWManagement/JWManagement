@@ -16,6 +16,9 @@ modal:
         helpText: The username should be short and memorable. Combinations of the user's first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"
         invite: Invite %s (%s)
         existingAccounts: Existing Accounts
+    addVessel:
+        title: Add a vessel
+        action: Add vessel
     addWeek:
         title: Create new week
         noTemplate: Please define a template first
@@ -88,6 +91,9 @@ modal:
         noPictureUploaded: You have not yet uploaded any picture
         upload: Upload
         delete: Delete
+    editVessel:
+        title: Edit vessel
+        action: Save changes
     inviteUser:
         title: Invite new Publishers
         key: <span class="text-warning">Orange name</span> means that the user is already invited.
@@ -152,6 +158,7 @@ modal:
         texts: Bible Texts
         speaks: Conversations
         videos: Shown Videos
+        website: Website shown
         returnVisits: Return Visits
         bibleStudies: Bible Studies
         time: Hours of Service
@@ -230,3 +237,9 @@ modal:
         name: Name
         email: Email
         add: Add Users
+    mergeAccounts:
+        title: Merge accoutns
+        description: Enter the credentials of the account in which you want to merge this account's permissions. You will be logged in into that account right away.
+        username: Username
+        password: Password
+        merge: Merge accounts

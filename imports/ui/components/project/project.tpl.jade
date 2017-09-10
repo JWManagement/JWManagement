@@ -17,14 +17,16 @@ with getProject
 									i.fa.fa-users.fa-4x
 								p.project-link-caption {{tag.name}}
 		if isProjectShiftOrStoreAdmin _id
+			// OR IS VESSEL PROJECT
 			.admin-popup.row
 				each btn in buttons
-					if isInRole btn.role _id
-						.admin-link.col-xs-6.col-sm-4.m-b-md.center-align
-							a.btn.btn-primary.btn-lg(href="{{pathFor btn.route projectId=_id language=langTag}}")
-								.m-t-xs.m-b-sm
-									i(class="fa fa-3x fa-{{btn.icon}}")
-								p.project-link-caption {{getName btn.route}}
+					if dependenciesMatched btn.dependency
+						if isInRole btn.role _id
+							.admin-link.col-xs-6.col-sm-4.m-b-md.center-align
+								a.btn.btn-primary.btn-lg(href="{{pathFor btn.route projectId=_id language=langTag}}")
+									.m-t-xs.m-b-sm
+										i(class="fa fa-3x fa-{{btn.icon}}")
+									p.project-link-caption {{getName btn.route}}
 		.ibox
 			.ibox-content
 				h1.m-b-md {{name}}
@@ -39,10 +41,10 @@ with getProject
 							| {{_ 'dashboard.noNews'}}
 					if isInRole 'admin' _id
 						.news-editor.hidden
-							textarea#news-textarea(rows="4" maxlength="140") {{{html2win news.text}}}
+							textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
 							button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
 							button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
-							.chars-left 140/140
+							.chars-left 500/500
 				.link-wrapper
 					a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
 						i.fa.fa-book

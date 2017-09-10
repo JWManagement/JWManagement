@@ -1,3 +1,5 @@
+import { StringUtils } from '/imports/api/util/stringUtils.coffee'
+
 import './login.tpl.jade'
 import './login.scss'
 
@@ -11,6 +13,9 @@ Template.login.onRendered ->
 
 Template.login.events
 
+	'change #username': (e) ->
+		$('#username').val(StringUtils.cleanedUsername(e.target.value))
+
 	'submit form': (event) ->
 		event.preventDefault()
 		Session.set 'error', ''
@@ -18,7 +23,7 @@ Template.login.events
 		submit = $('#submit').ladda()
 		submit.ladda('start')
 
-		username = $('#username').val().trim()
+		username = StringUtils.cleanedUsername($('#username').val())
 		password = $('#password').val()
 
 		if username != '' && password != ''

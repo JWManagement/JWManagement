@@ -13,8 +13,6 @@ input:
     passwordRepeat: Passwort wiederholen
     newPassword: Neues Passwort
     newPasswordRepeat: Neues Passwort wiederholen
-    helpText:
-        username: Der Benutzername darf keine Sonderzeichen (z.B. @ oder .) enthalten und kann somit keine E-Mail Adresse sein.
 role:
     role: Rolle
     admin: Administrator

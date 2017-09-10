@@ -25,6 +25,9 @@ export Methods =
 			userId = Meteor.userId()
 			shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1, tagId: 1
 
+			if Meteor.isClient
+				Meteor.subscribe 'userStatistics', Meteor.userId(), shiftId
+
 			if shift.scheduling == 'manual'
 				# Wenn gewähltes Team offen ist, Bewerbung registrieren
 				for team in shift.teams when team._id == teamId

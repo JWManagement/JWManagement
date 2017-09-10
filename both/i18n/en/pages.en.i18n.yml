@@ -12,6 +12,7 @@ navigation:
     users: Users
     reports: Reports
     store: Store Room
+    vessels: Vessels
     notes: Notes
     login: Login
     logout: Logout
@@ -75,6 +76,8 @@ welcome:
         whatFor: What do you want to organize?
         send: Send
         sendEnquiry: Send Enquiry
+        fillOutCompletely: Please fill out all required fields
+        enquirySuccessful: Enquiry successfully sent!
         issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
         loginTip: Tip: If you forgot your password, you can just reset it using the button beneath. If you have done this and it still doesn't work, consider talking to your elders.
         toGithub: Visit GitHub
@@ -107,7 +110,8 @@ profile:
     changePicture: Edit image...
     options:
         title: Settings
-        helpText: In JW Management you can do everything with just one single account, so you just have to remember one username and password. If you have multiple accounts, please write us an email to support@jwmanagement.org with the usernames of both accounts.
+        helpText:
+            mergeAccounts: In JW Management you can do everything with just one single account. You just have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account's permissions into the ones of the specified account.
     availability:
         title: Availability
         helpText: Please mark the hours in which you are available.
@@ -143,7 +147,8 @@ profile:
         congregation: Congregation
         languages: Languages
     changePassword: Change password
-    deleteAccount: Delete Account
+    deleteAccount: Delete account
+    mergeAccounts: Merge accounts
     vacation:
         title: Holiday
         helpText: Please add the periods in which you are not available.
@@ -261,6 +266,7 @@ reports:
     achievements: Achievements
     hours: Engaged time
     texts: Read Bible Texts
+    website: Website shown
     shifts: Accomplished Shifts
     missing: Missing Reports
     participants: Participants
@@ -319,6 +325,7 @@ settings:
             description: Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.
         id: ID
         name: Name
+        icon: Icon
         picture: Picture
         editPicture: Upload a picture for this team
         noPicture: No picture uploaded
@@ -342,6 +349,38 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
+vessels:
+    title: Vessels
+    nameShort: Vessels
+    search: Search
+    placeholder: Vessel name, call sign, ENI, IMO or MMSI
+    addNewVessel: Add new vessel
+    name: Vessel name
+    flag: Flag
+    type: Type
+    types:
+        c: Container ship
+        cr: Cruise ship
+        mf: Cargo
+        mt: Tanker
+        p: Passenger ship
+        pt: Pushtow
+        rc: River cruise ship
+        f: Ferry
+        ro: Ro-Ro
+        t: Tug
+        unknown: Unknown
+    callsign: Call sign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Last visit
+    harborGroup: Harbor group
+    nextVisit: Next visit after
+    languages: Language(s) on board
+    languagesPlaceholder: No person-specific information!
+    comments: Comments
+    commentsPlaceholder: No person-specific information!
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note

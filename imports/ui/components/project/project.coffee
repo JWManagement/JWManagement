@@ -6,6 +6,8 @@ import '/imports/ui/components/understaffedShiftsList/understaffedShiftsList.cof
 import './project.tpl.jade'
 import './project.scss'
 
+newsMaxSize = 500
+
 Template.project.helpers
 
 	getProject: -> Template.currentData().project
@@ -28,6 +30,15 @@ Template.project.helpers
 
 	understaffedShifts: -> Template.currentData().understaffedShifts
 
+	dependenciesMatched: (dependency) ->
+		if dependency
+			projectId = FlowRouter.getParam('projectId')
+			project = Projects.findOne(projectId)
+
+			project? && project[dependency] == true
+		else
+			true
+
 	buttons: -> [
 		route: 'settings'
 		icon: 'cogs'
@@ -44,6 +55,12 @@ Template.project.helpers
 		route: 'store'
 		icon: 'cubes'
 		role: 'admin,storeAdmin'
+	,
+		route: 'vessels'
+		icon: 'ship'
+		role: 'support'
+		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member'
+		dependency: 'vesselModule'
 	,
 		route: 'notes'
 		icon: 'pencil'
@@ -95,7 +112,7 @@ Template.project.events
 	'click #editNews': (e) ->
 		$('#'+@_id).find('.news-content').addClass('hidden')
 		$('#'+@_id).find('.news-editor').removeClass('hidden')
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)
 
 	'click #cancelNews': (e) ->
 		$('#'+@_id).find('.news-editor').addClass('hidden')
@@ -111,4 +128,4 @@ Template.project.events
 			$('#'+projectId).find('.news-content').removeClass('hidden')
 
 	'keyup #news-textarea': (e) ->
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)

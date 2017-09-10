@@ -2,13 +2,14 @@ import { Projects } from '/imports/api/projects/projects.coffee'
 import { Shifts } from '/imports/api/shifts/shifts.coffee'
 import { Permissions } from '/imports/api/util/permissions.coffee'
 
-Meteor.publish 'dashboard', ->
-	projectIds = Permissions.getGroupsForUser @userId, Permissions.member
+Meteor.publish 'dashboard', (projectIds) ->
 
 	[
 		Projects.find _id: $in: projectIds,
 			fields:
 				name: 1
+				description: 1
+				vesselModule: 1
 				news: 1
 				tags: 1
 	,

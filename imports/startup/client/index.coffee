@@ -1,6 +1,9 @@
 # Meteor.users
 import '/imports/api/users/users.coffee'
 
+# For Meteor.methods
+import '/imports/api/projects/projects.coffee'
+
 # Router
 import '/imports/api/router/router.coffee'
 
@@ -11,6 +14,7 @@ import '/imports/ui/layouts/admin/admin.coffee'
 
 # Pages
 import { Platform } from '/imports/api/util/platform.coffee'
+import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
 
 if Platform.isCordova
 	require '/imports/ui/pages/dashboard/mobile/dashboard.coffee'
@@ -35,6 +39,7 @@ import '/imports/ui/pages/wiki/wiki.coffee'
 import '/imports/ui/pages/users/users.coffee'
 import '/imports/ui/pages/support/support.coffee'
 import '/imports/ui/pages/donate/donate.coffee'
+import '/imports/ui/pages/vessels/vessels.coffee'
 
 # Helpers
 import '/imports/api/helpers/jdenticon.coffee'
@@ -67,6 +72,8 @@ Meteor.startup ->
 	TimeSync.loggingEnabled = false
 
 	BlazeLayout.setRoot('body')
+
+	SimpleSchemaHelper.init()
 
 	Tracker.autorun ->
 
