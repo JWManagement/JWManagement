@@ -10,7 +10,6 @@ import '/imports/api/router/router.coffee'
 # Layouts
 import '/imports/ui/layouts/blank/blank.coffee'
 import '/imports/ui/layouts/main/main.coffee'
-import '/imports/ui/layouts/admin/admin.coffee'
 
 # Pages
 import { Platform } from '/imports/api/util/platform.coffee'
@@ -33,7 +32,6 @@ import '/imports/ui/pages/terms/terms.coffee'
 import '/imports/ui/pages/welcome/welcome.coffee'
 import '/imports/ui/pages/profile/profile.coffee'
 import '/imports/ui/pages/shifts/shifts.coffee'
-import '/imports/ui/pages/admin/admin.coffee'
 import '/imports/ui/pages/settings/settings.coffee'
 import '/imports/ui/pages/wiki/wiki.coffee'
 import '/imports/ui/pages/users/users.coffee'

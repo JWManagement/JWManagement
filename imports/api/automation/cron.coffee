@@ -1,5 +1,5 @@
 import { backup } from './backup.coffee'
-import { shiftValidation } from './shiftValidation.coffee'
+#import { shiftValidation } from './shiftValidation.coffee'
 
 if Meteor.isProduction
 
