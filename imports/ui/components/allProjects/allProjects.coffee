@@ -11,7 +11,11 @@ Template.allProjects.onRendered -> Tracker.afterFlush => @autorun =>
 
 	Meteor.call 'getProjectCount', (e, r) -> projectCount.set(r)
 
-	projects = Template.currentData().projects
+	projects = Projects.find {},
+		fields: name: 1
+	,
+		sort: name: 1
+
 	initDone = false
 
 	drawProjectList = -> if initDone
@@ -25,7 +29,7 @@ Template.allProjects.onRendered -> Tracker.afterFlush => @autorun =>
 				{ name: 'showAdmins', title: 'Action' , breakpoints: '' }
 			]
 
-			for project, index in projects
+			for project, index in projects.fetch()
 				rows.push
 					id: index + 1
 					_id: project._id
@@ -63,6 +67,5 @@ Template.allProjects.events
 	'click .showAdmins': (e) ->
 		projectId = $(e.target).attr('data-id')
 
-		$('#userTable .footable-filtering button').click()
-		$('#userTable .footable-filtering input[type="text"]').val projectId + '=admin'
-		$('#userTable .footable-filtering button').click()
+		$('#userString').val projectId + '=admin'
+		$('#userString').keyup()

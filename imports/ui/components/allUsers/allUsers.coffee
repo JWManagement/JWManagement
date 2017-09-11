@@ -16,7 +16,21 @@ Template.allUsers.onCreated ->
 	drawUserList = -> if initDone
 		Tracker.afterFlush ->
 
-			users = Meteor.users.find { username: $ne: 'adm' }, sort: 'profile.lastname': 1
+			users = Meteor.users.find
+				username: $ne: 'adm'
+			,
+				fields:
+					roles: 1
+					username: 1
+					'profile.firstname': 1
+					'profile.lastname': 1
+					'profile.email': 1
+					'profile.language': 1
+			,
+				sort:
+					'profile.lastname': 1
+					'profile.firstname': 1
+					'profile.username': 1
 
 			rows = []
 			columns = [
@@ -84,6 +98,5 @@ Template.allUsers.events
 	'click .showProjects': (e) ->
 		projectId = $(e.target).attr('data-id')
 
-		$('#projectTable .footable-filtering button').click()
-		$('#projectTable .footable-filtering input[type="text"]').val projectId
-		$('#projectTable .footable-filtering button').click()
+		$('#projectString').val projectId
+		$('#projectString').keyup()
