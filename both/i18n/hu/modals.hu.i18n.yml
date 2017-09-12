@@ -49,11 +49,11 @@ modal:
             participant: A résztvevő megtekintheti és kérheti a szolgálati időpontot hozzárendelt címkével.
             nothing: A "Nincs" lehetőséggel a felhasználó nem láthatja vagy kérheti címkés szolgálati időpontot. Egyik szolgálati időpontban sem lehet ütemezni.
     editProfilePicture:
-        title: Profil kép cseréje 
+        title: Profil kép cseréje
         text: A képnek legalább 256x256 képpontnak kell lennie. Az elfogadott formátumok JPEG és PNG.
         upload: Kép feltöltése
         remove: Kép eltávolítása
-    editShift: 
+    editShift:
         title: Szolgálati időszak információjának szerkesztése
         mainData: Főbb részletek
         tag: Címke
@@ -190,7 +190,7 @@ modal:
         addParticipant: Résztvevő hozzáadása
         unknownAge: Ismeretlen életkor
         closedTeam: Ez a csoport zárva van. Nem kérhetsz részvételi lehetőséget.
-        maximumReached: A csoport elérte amaximális létszámot 
+        maximumReached: A csoport elérte amaximális létszámot
         noPermission: Nincs engedélyed a felhasználók ütemezésére
         noTeamleader: Ennek a felhasználónak nincs engedélye, hogy csoportvezető legyen
         alreadyTeamleader: Ez a felhasználó már csoportvezető
@@ -226,7 +226,6 @@ modal:
         helpText: Személyes adatok szabályai (* mező kitöltése kötelező): <br> Email*, Keresztnév*, Vezetéknév*, Nem (F vagy N)*, Telefonszám, Születési dátum (Német, Angol vagy ISO 8601 formátum), Szolgálati kiváltság ('hírnök', 'kisegítő', 'általános', 'különleges', 'körzet', 'bétel' vagy 'htk'), Gyülekezeti kiváltság ('hírnök', 'kisegítőszolga' vagy 'vén'), Gyülekezet
         helpEncoding: A fájlnak UTF-8 kódolásúnak kell lennie, hogy támogatni tudja az összes karaktert
         uploadFile: CSV-Fájl feltöltése
-        stats: <b>%s</b> új és <b>%s</b> meglévő felhasználók találhatók
         new: Új hírnök
         existing: Hirnökök JW Management felhasználói fiókkal
         name: Név

@@ -1,15 +1,9 @@
 Template.uploadUserFileModal.helpers
 
-	getNewUsers: -> Session.get 'newUsers'
+	getUsers: -> Session.get 'users'
 
-	getExistingUsers: -> Session.get 'existingUsers'
-
-	countNewUsers: ->
-		users = Session.get 'newUsers'
-		if users? then users.length else 0
-
-	countExistingUsers: ->
-		users = Session.get 'existingUsers'
+	countUsers: ->
+		users = Session.get 'users'
 		if users? then users.length else 0
 
 	addOne: (val) -> val + 1
@@ -23,39 +17,34 @@ Template.uploadUserFileModal.onRendered ->
 		wrs -> FlowRouter.setQueryParams uploadUserFile: undefined, addUser: true
 		$('.modal-backdrop').remove()
 
-		if !Session.get('newUsers')? then Session.set 'newUsers', undefined
-		if !Session.get('existingUsers')? then Session.set 'existingUsers', undefined
+		if !Session.get('users')? then Session.set 'users', undefined
 		if !Session.get('uploading')? then Session.set 'uploading', undefined
 
 Template.uploadUserFileModal.events
 
 	'click #addUsers': ->
 		projectId = FlowRouter.getParam('projectId')
-		newUsers = Session.get('newUsers')
-		existingUsers = Session.get('existingUsers')
+		users = Session.get('users')
 
 		swalYesNo
 			swal: 'add.users'
 			type: 'warning'
-			doConfirm: -> Meteor.call 'createAccounts', newUsers, existingUsers, projectId
+			doConfirm: -> Meteor.call 'createAccounts', users, projectId
 
 	'change #uploadFile': (e) ->
-		newUsers = []
-		existingUsers = []
+		users = []
 
 		Session.set 'uploading', true
 
 		$(e.target).parse
 			before: (file, inputElement) ->
 				unless file.type in ['application/vnd.ms-excel', 'text/csv']
-					swal 'Error false File format', 'File had to be a CSV-File', 'error'
+					swal 'Error false File format', 'File has to be a CSV-File', 'error'
 					Session.set 'uploading', false
 					{ action: 'abort', reason: 'file format' }
 			config:
 				complete: (results, parser) ->
-					emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
-					newUsers = []
-					existingUsers = []
+					users = []
 
 					for user in results.data
 						email = user[0].toLowerCase().replace(/ /g,'')
@@ -68,14 +57,7 @@ Template.uploadUserFileModal.events
 						privilege = if user[7] in ['publisher', 'servant', 'elder', 'coordinator', 'secretary', 'serviceOverseer'] then user[7] else 'publisher'
 						congregation = user[8]
 
-						usersExisting = Meteor.users.find('profile.email': email, 'profile.firstname': firstname, 'profile.lastname': lastname).fetch()
-
-						if usersExisting.length > 0
-							existingUsers.push
-								email: email
-								firstname: firstname
-								lastname: lastname
-						else if email.match emailPattern
+						if email.match(/^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i)
 							if moment(birthday, 'DD.MM.YYYY').isValid()
 								bdate = birthday
 							else if moment(birthday, 'YYYY-MM-DD').isValid()
@@ -85,7 +67,7 @@ Template.uploadUserFileModal.events
 							else
 								bdate = '01.01.1970'
 
-							newUsers.push
+							users.push
 								email: email
 								firstname: firstname
 								lastname: lastname
@@ -97,6 +79,5 @@ Template.uploadUserFileModal.events
 								congregation: congregation
 								language: TAPi18n.getLanguage()
 
-					Session.set 'newUsers', newUsers
-					Session.set 'existingUsers', existingUsers
+					Session.set 'users', users
 					Session.set 'uploading', false
