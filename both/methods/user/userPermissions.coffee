@@ -13,7 +13,7 @@ Meteor.methods
 
 			Meteor.users.remove oldUser._id
 
-	mergeAccounts: (oldUserId, newUserId) ->
+	mergeAccounts: (oldUserId, newUserId) -> if oldUserId != newUserId
 		oldUser = Meteor.users.findOne oldUserId,
 			fields: roles: 1
 
