@@ -11,13 +11,6 @@
 							label.col-sm-4.control-label {{_ "input.email"}}:
 							.col-sm-6
 								input#email.form-control(type='email' name='email' placeholder='{{_ "input.email"}}' autocomplete='off' spellcheck='off' required)
-						if multipleUsernames
-							.form-group
-								label.col-sm-4.control-label {{_ 'modal.addUser.existingAccounts'}}:
-								.col-sm-6
-									each multipleUsernames
-										#addExistingUser.btn.btn-primary.btn-block(userId='{{_id}}' username='{{username}}' title="{{_ 'modal.addUser.invite' name username}}")
-											| {{_ 'modal.addUser.invite' name username}}
 						.form-group
 							label.col-sm-4.control-label {{_ "input.firstname"}}:
 							.col-sm-6
