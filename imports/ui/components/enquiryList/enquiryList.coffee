@@ -6,7 +6,7 @@ Template.enquiryList.helpers
 
 	countEnquiries: ->
 		enquiries = Messages.find { 'recipient.name': 'Support' }, _id: 1
-		enquiries.length || 0
+		enquiries.fetch().length
 
 Template.enquiryList.onCreated ->
 
