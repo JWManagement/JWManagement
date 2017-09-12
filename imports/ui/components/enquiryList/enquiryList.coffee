@@ -38,7 +38,7 @@ Template.enquiryList.onCreated ->
 				email: enquiry.author.email
 				projectName: enquiry.projectName
 				content: enquiry.text
-				action: '<a class="createProject" data-id="" href>Create Project</a> | <a class="deleteProjectEnquiry" data-id="' + enquiry._id + '" href>Delete</a>'
+				action: '<a class="createProject" href>Create Project</a> | <a class="deleteProjectEnquiry" data-id="' + enquiry._id + '" href>Delete</a>'
 
 		Delay -> $('#enquiryTable').html('').footable
 			columns: columns
@@ -60,6 +60,7 @@ Template.enquiryList.events
 			createProject: true
 			projectName: $(e.target).closest('tr').find('td:nth-child(5)').html()
 			email: $(e.target).closest('tr').find('td:nth-child(4)').html()
+			name: $(e.target).closest('tr').find('td:nth-child(3)').html()
 
 	'click .deleteProjectEnquiry': (e) ->
 		messageId = $(e.target).attr('data-id')
