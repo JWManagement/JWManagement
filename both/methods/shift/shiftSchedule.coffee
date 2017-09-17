@@ -35,9 +35,13 @@ Meteor.methods
 							participant.thisTeamleader = false
 
 							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull:
-									'teams.$.participants': _id: participant._id
-									'teams.$.pending': _id: participant._id
+								$pull: 'teams.$.declined': _id: participant._id
+
+							Shifts.update _id: shiftId, 'teams._id': teamId,
+								$pull: 'teams.$.pending': _id: participant._id
+
+							Shifts.update _id: shiftId, 'teams._id': teamId,
+								$pull: 'teams.$.participants': _id: participant._id
 								$addToSet: 'teams.$.declined': participant
 
 						Meteor.call 'openTeam', shiftId, teamId
