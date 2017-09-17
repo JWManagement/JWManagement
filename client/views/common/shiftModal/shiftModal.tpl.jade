@@ -104,14 +104,14 @@
 									if isProjectShiftScheduler
 										each user in sortUsers pending
 											.pending
-												.float-right
-													if user.email
-														a(href="mailto:{{user.email}}")
-															i.fa.fa-envelope.fa-fw
-													if user.phone
-														a(href="tel:{{user.phone}}")
-															i.fa.fa-phone.fa-fw
 												.checkbox.m-n
+													.float-right
+														if user.email
+															a(href="mailto:{{user.email}}")
+																i.fa.fa-envelope.fa-fw
+														if user.phone
+															a(href="tel:{{user.phone}}")
+																i.fa.fa-phone.fa-fw
 													input(type='checkbox' id='selectUser_{{_id}}_{{user._id}}' checked='{{user.checked}}')
 													label(for='selectUser_{{_id}}_{{user._id}}')
 														+printUser user=user showStats=true
