@@ -14,8 +14,6 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "start": "meteor --settings settings.json",
-    "setup": "deploy/client/setup.sh",
-    "deploy": "deploy/client/deploy.sh"
+    "start": "meteor --settings settings.json"
   }
 }
