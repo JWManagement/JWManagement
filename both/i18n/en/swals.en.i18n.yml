@@ -1,273 +1,273 @@
 swal:
-    error: Error
-    publisherInOtherTeam: One of the selected publishers is already part of another team. Please remove them from there first.
-    onlyTeam: You can't delete this team. It is the only team in this shift. Every shift needs to have at least one team.
-    noTeamleader: Every team requires a team leader. Unfortunately this publisher does not have permission to serve as a team leader.
-    ownPermission: You are not allowed to revoke your own permissions. Another administrator has to do that.
-    approvalInformed: This participant has been informed that their request has been approved.
-    declinementInformed: This participant has been informed that their request was declined.
-    vacationEndInPast: The end date cannot be in the past.
-    missingTag: No tag defined. Please first define a tag under Admin > Settings
+    error: Błąd
+    publisherInOtherTeam: Jeden z zaznaczonych głosicieli jest już członkiem innego zespołu. Proszę usuń go najpierw z tamtego zespołu.
+    onlyTeam: Nie możesz usunąć tego zespołu. To jest jedyny zespół dla tej zmiany. Każda zmiana musi mieć przypisany przynajmniej jeden zespół.
+    noTeamleader: Każdy zespół musi posiadać koordynatora zespołu. Niestety ten głosiciel nie ma uprawnień do występowania w tej roli.
+    ownPermission: Nie możesz odebrać sobie uprawnień. Może to zrobić tylko inny administrator.
+    approvalInformed: Ten współpracownik został już poinformowany o zaakceptowaniu jego zgłoszenia.
+    declinementInformed: Ten współpracownik został już poinformowany o tym, że jego zgłoszenie zostało odrzucone.
+    vacationEndInPast: Data końcowa nie może być z przeszłości.
+    missingTag: Brak zdefiniowanych tagów. Prosimy najpierw stworzyć nowy tak w zakładce Admin > Ustawienia
     logout:
-        title: Hint
-        text: It is not necessary to log out unless you are on a shared computer. Your connection is encrypted and we save session information only in your local browser. Nobody else can see or hijack your session.
-        confirm: Logout
-        cancel: Cancel
+        title: Podpowiedź
+        text: Wylogowanie nie jest niezbędne jeżeli nie korzystasz z wspólnego komputera. Twoje połączenie jest szyfrowane a wszelkie dane sesji zapisujemy tylko w twojej przeglądarce. Nikt inny nie jest w stanie zobaczyć lub ukraść danych sesji.
+        confirm: Wyloguj się
+        cancel: Anuluj
     invite:
         user:
-            title: Invite Publisher?
-            text: This publisher <b>already has an account</b>, so no further account has to be created. Instead the publisher will <b>simply be given permission to access this project</b>.<br>Of course <b>we will inform him</b> about this change. <br><p>In case of more than one publisher registered with the same email address, please choose the right one:</p>
+            title: Zaprosić głosiciela?
+            text: Ten głosiciel <b>już ma konto</b>, więc nowe nie zostało stworzone. Zamiast tego otrzymał <b>poprostu uprawnienia dostępu do tego projektu</b>.<br>Oczywiście <b>poinformujemy go</b> o tej zmienie. <br><p>W wypadku jeżeli więcej niż jeden głosiciel zarejestrował się pod tym samym adresem email, proszę wybierz prawidłowego:</p>
         users:
-            title: Are you sure?
-            text: We will send an email to all selected publishers.
-            confirm: Invite
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Wyślemy informacje do zaznaczonych głoscieli.
+            confirm: Zaproś
+            cancel: Anuluj
     sendMail:
         confirmWeek:
-            title: Are you sure?
-            text: All approved publishers will receive a confirmation email and all declined publishers will receive a rejection email.
-            confirm: Yes
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Wszyscy zaakceptowani i odrzuceni głosiciele dostaną emaila z informacją.
+            confirm: Tak
+            cancel: Anuluj
         confirmation:
-            title: Inform Publisher?
-            text: The publisher will be informed via email about the approval of this shift.
-            confirm: Yes
-            cancel: Cancel
+            title: Poinformować głosiciela?
+            text: Głosiciel zostanie poinformowany przez e-mail o zaakceptowaniu tego zgłoszenia.
+            confirm: Tak
+            cancel: Anuluj
         declined:
-            title: Inform Publisher?
-            text: The publisher will be informed via email that the request was declined.
-            confirm: Yes
-            cancel: Cancel
+            title: Poinformować głosiciela?
+            text: Głosiciel zostanie poinformowany przez e-mail o odrzuceniu tego zgłoszenia.
+            confirm: Tak
+            cancel: Anuluj
         selectTag:
-            title: Which Tag?
-            text: Please select the tag you want to send confirmation emails for:
+            title: Jaki Tag?
+            text: Proszę wybierz tag, dla którego chcesz wysłać emaile z potwierdzeniem:
             confirm: OK
-            cancel: Cancel
+            cancel: Anuluj
         teamUpdate:
             user:
-                title: Team leader already informed
-                text: The team leader is already informed. Do you want to send an email with this update to him?
-                confirm: Yes
-                cancel: No
+                title: Koordynator zespołu już został poinformowany
+                text: Koordynator zespołu jest już poinformowany. Czy chesz wysłać e-mail z tą aktualizacją do niego?
+                confirm: Tak
+                cancel: Nie
             general:
-                title: Are you sure?
-                text: Already informed publishers will receive an email with the updated information about the team.
-                confirm: Yes
-                cancel: No
+                title: Czy jesteś pewny?
+                text: Poinformowani głosciele otrzymają maila z zaktualizowanymi informacji o tym zespole.
+                confirm: Tak
+                cancel: Nie
         understaffed:
-            title: Inform Publishers?
-            text: Inform all publishers about this understaffed team?
-            confirm: Yes
-            cancel: No
+            title: Poinformować głosiciela?
+            text: Poinformować wszystkich głosicieli o niepełnych grupach?
+            confirm: Tal
+            cancel: Nie
             teamleader:
-                title: Inform Team Leaders?
-                text: Inform all team leaders about this team?
-                confirm: Yes
-                cancel: No
+                title: Poinformować koordynatora zespołu?
+                text: Czy poinformować wszystkich koordynatorów zespołów?
+                confirm: Tak
+                cancel: Nie
     add:
         meeting:
-            title: Add new meeting point
+            title: Dodaj nową zbiórkę
             text: ''
-            placeholder: Name
-            confirm: Add
-            cancel: Cancel
+            placeholder: Nazwa
+            confirm: Dodaj
+            cancel: Anuluj
         question:
-            title: Add a new question/title
+            title: Dodaj nowe pytanie/tytuł
             text: ''
-            placeholder: Question/Title
-            inputError: You need to write something!
-            confirm: Add
-            cancel: Cancel
+            placeholder: Pytanie/Tytuł
+            inputError: Musisz coś napisać!
+            confirm: Dodaj
+            cancel: Anuluj
         tab:
-            title: Add a new tab
+            title: Dodaj nową zakładkę
             text: ''
-            placeholder: Title
-            inputError: Invalid tab name!
-            confirm: Add
-            cancel: Cancel
+            placeholder: Tytuł
+            inputError: Nieprawidłowa nazwa zakładki!
+            confirm: Dodaj
+            cancel: Anuluj
         tag:
-            title: Add new tag
+            title: Dodaj nowy tag
             text: ''
-            placeholder: Name
-            inputError: Invalid tag name!
-            confirm: Create
-            cancel: Cancel
+            placeholder: Nazwa
+            inputError: Nieprawidłowa nazwa tagu!
+            confirm: Stwórz
+            cancel: Anuluj
         team:
-            title: Add new team
+            title: Dodaj nowy zespół
             text: ''
-            placeholder: Name
-            inputError: Invalid team name!
-            confirm: Add
-            cancel: Cancel
+            placeholder: Nazwa
+            inputError: Niepoprawna nazwa zespołu!
+            confirm: Dodaj
+            cancel: Anuluj
         template:
-            title: Add template
+            title: Dodaj szablon
             text: ''
-            placeholder: Name
-            inputError: Invalid template name!
-            confirm: Add
-            cancel: Cancel
+            placeholder: Nazwa
+            inputError: Niepoprawna nazwa szablonu!
+            confirm: Dodaj
+            cancel: Anuluj
         user:
-            title: Created!
-            text: The User was created.
+            title: Stworzono!
+            text: Użytkownik został stworzony.
         users:
-            title: Are you sure?
-            text: All shown publishers will be added to the project.
-            confirm: Add
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Wszyscy pokazani głosiciele zostaną dodani do tego projektu.
+            confirm: Dodaj
+            cancel: Anuluj
     update:
         file:
-            title: Change Filename
+            title: Zmień nazwę pliku
             text: ''
-            placeholder: Filename
-            inputError: Invalid filename!
-            confirm: Change
-            cancel: Cancel
+            placeholder: Plik
+            inputError: Niepoprawna nazwa pliku!
+            confirm: Zmień
+            cancel: Anuluj
         password:
-            title: Change password
-            passwordOld: Old password
-            passwordNew1: New password
-            passwordNew2: Repeat new password
-            confirm: Change
-            cancel: Cancel
-            passwordChanged: Password changed
+            title: Zmień hasło
+            passwordOld: Stare hasło
+            passwordNew1: Niewe hasło
+            passwordNew2: Powtórz nowe hasło
+            confirm: Zmień
+            cancel: Anuluj
+            passwordChanged: Hasło zostało zmienione
         question:
-            title: Change Question
+            title: Zmień pytanie
             text: ''
-            placeholder: Question/Title
-            confirm: Change
-            cancel: Cancel
+            placeholder: Pytanie/Tytuł
+            confirm: Zmień
+            cancel: Anuluj
         template:
-            title: Edit name
+            title: Edytuj nazwę
             text: ''
-            placeholder: Name
-            confirm: Change
-            cancel: Cancel
+            placeholder: Nazwa
+            confirm: Zmień
+            cancel: Anuluj
     delete:
         account:
-            title: Really delete your account?
-            text: The account will be irreversibly deleted!
-            confirm: Delete my Account!
-            cancel: Cancel
+            title: Na pewno usunąć Twoje konto?
+            text: Konto zostanie nieodwracalnie usunięte!
+            confirm: Usuń moje konto!
+            cancel: Anuluj
         allShifts:
-            title: Are you sure?
-            text: All shifts on this day and all requests for these shifts will irreversibly get deleted.
-            confirm: Delete
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Wszystkie zmiany z tego dnia i wszystkie zgłoszenia dla tych zmian zostaną nieodwracalnie usunięte.
+            confirm: Usuń
+            cancel: Anuluj
         file:
-            title: Are you sure?
-            text: The file will be deleted permanetly.
-            confirm: Delete
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Ten plik zostanie stale usunięty.
+            confirm: Usuń
+            cancel: Anuluj
         language:
-            title: Really delete this language?
-            text: This will delete the language with its stock.
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć ten język?
+            text: Usuwając język usuwasz również ilość publikacji w tym języku.
+            confirm: Usuń
+            cancel: Anuluj
         meeting:
-            title: Really delete this meeting point?
-            text: The meeting point will also get removed from all existing shifts planned for the future.
-            checkInput: delete
-            placeholder: Please type "%s" for approval
-            inputError: The input did not match with "%s"
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć ten punkt zbiórki?
+            text: Punkt zbiórki zostanie również usunięty ze wszystkich istniejących zmian zaplanowanych w przyszłości. <br><br> Any potwierdzić wpisz "usuń".
+            checkInput: usuń
+            placeholder: Proszę wpisz "%s" aby potwierdzić
+            inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"
+            confirm: Usuń
+            cancel: Anuluj
         note:
-            title: Really delete this note?
-            text: The note will be irreversibly deleted.
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć tą noatkę?
+            text: Nietatka zostanie nieodwracalnie usunięta.
+            confirm: Usuń
+            cancel: Anuluj
         project:
-            title: Really delete this project?
-            text: This will irreversibly delete all settings associated with this project, e.g. shifts, reports, requests, literature. Only the user accounts will remain.
-            checkInput: delete this project
-            placeholder: Please type "%s" for approval
-            inputError: The input did not match with "%s"
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć ten projekt?
+            text: To nieodwracalnie usunie wszystkie ustawienia związane z tym projektem, m. in. harmonogram zmian, sprawozdania, prośby, magazyn. Tylko konta użytkowników nie zostaną usunięte. <br><br> Any potwierdzić wpisz "usuń ten projekt".
+            checkInput: usuń ten projekt
+            placeholder: Proszę wpisz "%s" aby potwierdzić
+            inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"
+            confirm: Usuń
+            cancel: Anuluj
         publication:
-            title: Remove this publication from your store?
-            text: You will loose all stored data for this publication.
-            confirm: Remove
-            cancel: Cancel
+            title: Usunąć tą publikację z magazynu?
+            text: Stracisz wszelkie zebrane dane dotyczące tej publikacji.
+            confirm: Usuń
+            cancel: Anuluj
         question:
-            title: Are you sure?
-            text: This will irreversibly delete the question and its answer.
-            confirm: Delete
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: To nieodwracalnie usunie pytanie i powiązaną odpowiedź.
+            confirm: Usuń
+            cancel: Anuluj
         shift:
-            title: Really delete this shift?
-            text: All requests for this shift will be removed.
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć tą zmianę?
+            text: Wszelkie zgłoszenia dla tej zmiany zostaną usunięte.
+            confirm: Usuń
+            cancel: Anuluj
         store:
-            title: Really reset store room?
-            text: This will delete all added publications.
-            confirm: Reset
-            cancel: Cancel
+            title: Na pewno zresetować magazyn?
+            text: To usunie wszystkie dodane publikacje.
+            confirm: Zresetuj
+            cancel: Anuluj
         tab:
-            title: Are you sure?
-            text: The whole tab with all the questions will be deleted.
-            confirm: Delete
-            cancel: Cancel
+            title: Czy jesteś pewny?
+            text: Cała zakładka ze wszystkimi pytaniami zostanie usunięta.
+            confirm: Usuń
+            cancel: Anuluj
         tag:
-            title: Really delete tag?
-            text: All shifts belonging to this tag will also be deleted. This includes all requests for these shifts. <br><br> To confirm type in "delete".
-            checkInput: delete
-            placeholder: Please type "%s" for approval
-            inputError: The input did not match with "%s"
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć tag?
+            text: Wszystkie zmiany należace do tego tagu również zostaną usunięte. Podobnie wszyskie zgłoszenia dotyczące tych zmian. <br><br> Aby potwierdzić wpisz "usuń".
+            checkInput: usuń
+            placeholder: Proszę wpisz "%s" aby potwierdzić
+            inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"
+            confirm: Usuń
+            cancel: Anuluj
         team:
-            title: Really delete this team?
-            text: The team will get removed from all existing shifts planned for the future. approved requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".
-            checkInput: delete
-            placeholder: Please type "%s" for approval
-            inputError: The input did not match with "%s"
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć ten zespół?
+            text: Ten zespół zostanie usunięty ze wszystkich istniejących zmian zaplanowanych w przyszłości. Zaakceptowane miejsca z tych zmian zostaną ponownie dla innych zespołów. <br><br> Any potwierdzić wpisz "usuń".
+            checkInput: usuń
+            placeholder: Proszę wpisz "%s" aby potwierdzić
+            inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"
+            confirm: Usuń
+            cancel: Anuluj
         template:
-            title: Really delete template?
+            title: Na pewno usunąć ten szablon?
             text: ''
-            confirm: Delete
-            cancel: Cancel
+            confirm: Usuń
+            cancel: Anuluj
         user:
-            title: Really delete this user?
-            text: All project permissions will be revoked.
-            confirm: Delete
-            cancel: Cancel
+            title: Na pewno usunąć tego użytkownika?
+            text: Wszelkie uprawnienia tego użytkownika w projekcie zostaną usunięte.
+            confirm: Usuń
+            cancel: Anuluj
     request:
         approve:
-            title: Really approve publisher?
-            text: This publisher has previously been declined. Therefore please make sure that the publisher is still able and willing to participate.
-            confirm: Yes
-            cancel: No
+            title: Na pewno zaakceptować tego głosiciela?
+            text: Zgłoszenie tego głosiciela zostało wcześniej odrzucone. W związku z tym proszę upewnij się że ten głosiciel jest dalej dostępny i chętny do współpracy.
+            confirm: Tak
+            cancel: Nie
         cancel:
-            title: Are you sure?
-            text: The team will be removed if you are the last participant.
-            confirm: Yes, cancel my participation
-            cancel: No
+            title: Czy jesteś pewny?
+            text: Zespół zostanie usunięty jeżeli jesteś ostatnim współpracownikiem.
+            confirm: Tak, anuluj moje zgłoszenie
+            cancel: Nie
         decline:
-            title: Really decline participant?
-            text: If participant is already informed he will receive a reversal email.
-            confirm: Yes
-            cancel: No
+            title: Na pewno odrzucić zgłoszenie współpracownika?
+            text: Jeżeli współpracownik został wcześniej poinformowany, to otrzyma wiadomość z odrzuceniem zgłoszenia.
+            confirm: Tak
+            cancel: Nie
         maxReached:
-            title: Too many users selected
-            text: Set team maximum limit from __attr1__ to __attr2__ and approve selected?
-            confirm: Approve selected
-            cancel: Cancel
+            title: Za dużo wybranych użytkowników
+            text: Zmienić maksymalną ilość członków zespołu z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
+            confirm: Zaakceptuj zaznaczonych
+            cancel: Anuluj
         minNotReached:
-            title: Not enough users selected
-            text: Set team minimum limit from __attr1__ to __attr2__ and approve selected?
-            confirm: Approve selected
-            cancel: Cancel
+            title: Za mało wybranych użytkowników
+            text: Zmienić minimalną ilość członków zespołu z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
+            confirm: Zaakceptuj zaznaczonych
+            cancel: Anuluj
         minReached:
-            title: Really decline participant?
-            text: This team's minimum limit has been reached. If you decline this user, the system will remove this team.
-            confirm: Remove team
-            cancel: No
+            title: Na pewno odrzucić zgłoszenie współpracownika?
+            text: Minimalna ilość członków zespołu została osiągnięta. Jeżeli odrzucisz zgłoszenie tego użytkownika, system usunie ten zespół.
+            confirm: Usuń zespół
+            cancel: Nie
         noNewTeamleader:
-            title: Really decline participant?
-            text: Unfortunately there is no other possible team leader in this team. If you decline this user, the system will remove this team.
-            confirm: Remove team
-            cancel: No
+            title: Na pewno odrzucić zgłoszenie współpracownika?
+            text: Niestety w tym zespole nie ma innego dostępnego koordynatora zespołu. Jeżeli odrzucisz zgłoszenie tego użytkownika, system usunie ten zespół.
+            confirm: Usuń zespół
+            cancel: Nie
