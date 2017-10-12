@@ -119,7 +119,10 @@ export Methods =
 
 			newVessel.harborGroup = project.harborGroup
 
-			Vessels.schema.clean newVessel, mutate: true
+			Vessels.schema.clean newVessel,
+				mutate: true
+				removeEmptyStrings: false
+
 			Vessels.schema.validate newVessel
 
 			Meteor.call 'validateVesselInput',
