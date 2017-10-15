@@ -139,7 +139,7 @@ export Methods =
 				else
 					set = {}
 
-					for key in Object.keys(newVessel) when key in ['name', 'flag', 'type', 'callsign', 'eni', 'imo', 'mmsi', 'lastVisit', 'nextVisit', 'languages', 'comments']
+					for key in Object.keys(newVessel) when key in ['name', 'flag', 'type', 'callsign', 'eni', 'imo', 'mmsi', 'lastVisit', 'nextVisit', 'languages', 'comments', 'harborGroup']
 						set[key] = newVessel[key]
 
 					Vessels.update newVessel._id, $set: set
