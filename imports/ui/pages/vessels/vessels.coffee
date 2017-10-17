@@ -102,10 +102,9 @@ Template.vessels.onCreated ->
 			vessel
 
 	drawTable = -> Tracker.afterFlush ->
-		$('#table').html('')
 		table = FooTable.init '#table',
 			columns: columns
-			rows: []
+			rows: getRows()
 			empty: ''
 			paging:
 				enabled: true
@@ -126,6 +125,7 @@ Template.vessels.onCreated ->
 		if language != tempLanguage
 			language = tempLanguage
 
+			$('#table').html('')
 			drawTable()
 
 	@autorun ->
