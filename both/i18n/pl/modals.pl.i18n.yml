@@ -1,0 +1,246 @@
+modal:
+    close: Zamknij
+    addParticipant:
+        title: Dodaj współpracownika
+        description: Wybierz głosiciela którego chcesz dodać do tego przydziału.
+        submit: Dodaj
+        alreadyRequested: Ten użytkownik już dostał prośbę o przyłączenie
+        alreadyParticipating: Ten użytkownik jest już współpracownikiem
+        select: Wybierz głosiciela
+        available: dostępny
+        callable: dostępny w krótkim czasie
+    addUser:
+        title: Stwórz nowego użytkownika
+        action: Tworzenie użytkownika
+        upload: Wrzuć plik
+        helpText: Nazwa użytkownika powinna być krótka i łatwa w zapamiętaniu. Dobrym pomyslem może być kombinacja imienia i nazwiska.<br>Przykład: "JanK" or "JKowalski"
+        invite: Zaproś %s (%s)
+        existingAccounts: Istniejące konto
+    addVessel:
+        title: Add a vessel
+        action: Add vessel
+    addWeek:
+        title: Stwórz nowy tydzień
+        noTemplate: Proszę najpierw zdefiniować szablon
+        defineTemplate: Zdefiniuj szablon
+        action: Stwórz nowy tydzień
+        text:
+            top: Wybierz tydzień do którego ten szablon zostanie zastosowany:
+            bottom: Wybierz szablonowy tydzień:
+    cancelTeam:
+        title: Anuluj grupę
+        text: Opisz dlaczego ta grupa została anulowana. Wszyscy członkowie tej grupy dostaną tą wiadomość w mailu.
+        action: Anuluj grupę
+    copyShift:
+        title: Kopiuj zmianę
+        text: Wybierz dni do których chesz skopiować tą zmianę
+        action: Kopiuj zmianę
+    editPermissions:
+        title: Zarządzaj upranieniami %s
+        projectPermissions: Uprawnienia projektu
+        projectRole: Rola projektu
+        tagPermissions: Rola tagów
+        explanations: Wyjaśnienia
+        helpText:
+            admin: Menażer projektu to najwyższy stopień autoryzacji. Menadżer projektu jest uprawniony do kontrolowania wszystkiego. Do każdego projektu musi być przynajmniej jeden menadżer.
+            shiftScheduler: Osoba z uprawnieniami Zmiany harmonogramu ma te same uprawnienia co Współpracownik, ale może również układać harmonogram zmian.
+            shiftAdmin: Menadżer zmian ma uprawnienia Zmian harmonogramu ale również może tworzyć, zmieniać i usuwać zmiany.
+            storeAdmin: Menadżer magazynu ma te same uprawnienia co Współpracownik ale może również oglądać sprawozdania i edytować magazyn.
+            member: Członek jest to najbardziej podstawowa rola. Może oglądać Centrum Informacji.
+            teamleader: Kordynator grup wyznaczony przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
+            substituteTeamleader: Zastępca koordynatora grup.
+            participant: Współpracownik widzi i wysyła prośby dotyczące wybranej zmiany dla wybranego Tagu.
+            nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi harmonogramu ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
+    editProfilePicture:
+        title: Zmień zdjęcie profilowe
+        text: Zdjęcie powinno mieć przynajmniej 256x256 pikseli. Akceptowany format: JPEG, PNG.
+        upload: Wrzuć zdjęcie
+        remove: Usuń zdjęcie
+    editShift:
+        title: Edytuj informacje o zmianie
+        mainData: Główne informacje
+        tag: Tag
+        team: Grupa
+        teams: Grupy przypisane do tej zmiany
+        helpText:
+            tag: Ustaw Tag zmiany. Wszyscy użytkownicy z uprawnieniami do tego Tagu będą widzieć tą zmianę.
+            scheduling: Jeżeli wybierzesz 'akceptuj automatycznie' prośby będą akcpetowane w momencie, kiedy zostanie osiągnięta minimalna liczba współpracowników.
+        addTeam: Dodaj nowy zespół
+        teamMin: Minimalna ilość współpracowników:
+        teamMax: Maksymalna ilość współpracowników:
+        teamStart: Start:
+        teamEnd: Koniec:
+        teamPlace: Miejsce:
+        removeTeam: Usuń ten zespół
+        noMeeting: Brak zbiórki
+        action: Akcja:
+        delete: Usuń
+        switch: Harmonogram zmian
+        copyShift: Kopiuj zmianę
+    editTeamPicture:
+        title: Zmień zdjęcie zespołu
+        currentPicture: Aktualne zdjęcie:
+        hints: Te zdjęcie prawdopodobnie głosiciel będzie widział większe.
+        noPictureUploaded: Nie masz wrzuconych żadnych zdjęć
+        upload: Wrzuć
+        delete: Usuń
+    editMeetingPicture:
+        title: Zmień zdjęcie zbiórki
+        currentPicture: Aktualne zdjęcie:
+        hints: Te zdjęcie prawdopodobnie głosiciel będzie widział większe.
+        noPictureUploaded: Nie masz wrzuconych żadnych zdjęć
+        upload: Wrzuć
+        delete: Usuń
+    editVessel:
+        title: Edytuj vessel
+        action: Zapisz zmiany
+    inviteUser:
+        title: Zaproś nowego głosiciela
+        key: <span class="text-warning">Pomarańczowa nazwa</span> oznacza, że ten użytkownik już został zaproszony.
+        selectAll: Zaznacz wszystkich
+        noUsers: Brak nowych głosicieli
+        invite: Zaproś
+    position:
+        title: Zaznacz pozycję klikając lewy klawisz myszy
+    shift:
+        clickToEnlarge: Kliknij zdjęcie aby je powiększyć
+        openLink: Zobacz powiązane informacje
+        meetingAt: Zbiórka o
+        collapseTeam: Rozwiń informacje zespołu i punkty zbiórek
+        expandTeam: Rozszerz informacje o zespole i punktach zbiórek
+        noParticipants: Brak współpracowników
+        requestTeam: Zgłoś chęć współpracy
+        requestTeamAgain: Zgłoś chęć współpracy ponownie
+        requests: Prośby
+        cancelTeam: Anuluj zespół
+        cancelRequest: Anuluj prośbę
+        cancelParticipation: Anuluj współpracę
+        addParticipant: Dodaj współpracownika
+        unknownAge: Nieznany wiek
+        closedTeam: Ten zespół jest zamknięty. Nie możesz zgłosić chęci współpracy.
+        maximumReached: Osiągniętą maksymalną ilość współpracowników.
+        noPermission: Nie masz uprawnień do wyznaczania użytkowników
+        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora grupy
+        alreadyTeamleader: Ten użytkownik jest już Koordynatora grupy
+        openTeam: Otwórz zespół
+        closeTeam: Zamknij zespół
+        sendUnderstaffed: Wyślij maila z informacją o braku współpracowników
+        switch: Edyuj zmianę
+        existingTeamleaders: Koordynator grupy istnieje
+        noExistingTeamleader: Brakuje koordynatora grupy
+        notTeamleader: Brak koordynatora zespołu
+        selected: Wybrane:
+        of: z
+        approveSelected: Zaakceptuj zaznaczonych
+        declineSelected: Odrzuć zaznaczone
+        report: Sprawozdanie
+        allocations: Zmiany
+        thisWeek: ten tydzień
+        lastDays: ostatnie %s dni
+    shiftReport:
+        title: Sprawozdanie
+        teamleader: Koordynator zespołu
+        substituteTeamleader: Zastępca koordynatora zespołu
+        publications: Publikacje
+        occurrences: Zdarzenie
+        store: Magazyn
+        experiences: Doświadczenia
+        present: Obecny
+        sick: Chory
+        missing: Brak
+        name: Imię
+        language: Język
+        count: Ilość
+        action: Akcja
+        noPublications: Brak publikacji
+        select_publication: Wybierz publikacje
+        selectPublicationFirst: Proszę najpierw wybrać publiakcje
+        addItem: Dodaj tą publikację
+        removeItem: Usuń tą publikację
+        texts: Wersety biblijne
+        speaks: Rozmowy
+        videos: Pokazane filmy
+        website: Pokazana strona
+        returnVisits: Odwiedziny ponowne
+        bibleStudies: Studia Biblijne
+        time: Godziny służby
+        trolleysFilled: Wóżki są uzupełnione
+        neatnessLast: Stan wzóków po zmianie
+        bad: Zły
+        normal: Normalny
+        good: Dobry
+        yes: Tak
+        no: Nie
+        expRoute: Ulica
+        expGood: Ciekawe doświadczenia
+        expProblems: Problemy / Trudności
+        date: Data
+        toShift: Do zmiany
+        pages:
+            publisher: Głosiciel
+            items: Rozpowszechione publikacje
+            occurrences: Zdarzenia
+            store: Magazyn
+            experiences: Doświadczenia
+            prevPage: Idź do wcześniejszej strony
+            nextPage: Idź do kolejnej strony
+            finish: Zakończ sprawozdanie
+    shift:
+        collapseTeam: Rozwiń ulicę i punkty zbiórek
+        expandTeam: Rozszerz ulicę i punkty zbiórek
+        noParticipants: Brak współpracowników
+        requestTeam: Zgłoś chęć współpracy
+        requestTeamAgain: Zgłoś chęć współpracy ponownie
+        requests: Prośby
+        cancelRequest: Anuluj prośbę
+        cancelParticipation: Anuluj współpracę
+        addParticipant: Dodaj współpracownika
+        unknownAge: Nieznany wiek
+        closedTeam: Ten zespół jest zamknięty. Nie możesz zgłosić chęci współpracy.
+        maximumReached: Osiągniętą maksymalną ilość współpracowników.
+        noPermission: Nie masz uprawnień do wyznaczania użytkowników
+        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora grupy
+        alreadyTeamleader: Ten użytkownik jest już Koordynatora grupy
+        openTeam: Otwórz zespół
+        closeTeam: Zamknij zespół
+        switch: Edytuj zmianę
+        existingTeamleaders: Koordynator grupy istnieje
+        noExistingTeamleader: Brakuje koordynatora grupy
+    position:
+        title: Zaznacz pozycję lewym klawiszem myszy
+    route:
+        title: Stwórz/edytuj ulicę
+        routeMarkers: Marker ulicy
+        addRouteMarkers: Kliknij na mapie aby dodać nowy marker ulicy
+    addParticipant:
+        title: Dodaj współpracownika
+        noUsers: Brak dostępnych użytkowników
+        description: Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany
+        submit: Dodaj
+        alreadyRequested: Ten użytkownik otrzymał już prośbę o współpracę
+        alreadyParticipating: Ten użytkownik jest już współpracownikiem
+        available_users: Dostępni głosiciele
+        all_users: Inni głosiciele
+        select: Wybierz głosiciela
+    inviteUser:
+        title: Zaproś nowego głosiciela
+        key: <span class="text-warning">Pomarańczowa nazwa</span> oznacza, że użytkownik został już zaproszony.
+        selectAll: Wybierz wszystkich
+        noUsers: Brak nowych głosicieli
+        invite: Zaproś
+    uploadUserFile:
+        title: Użytkownik - Wyślij plik
+        helpText: Porządek danych osobistych (* pola wymagane): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant', 'elder', 'coordinator', 'secretary' or 'serviceOverseer'), Congregation
+        helpEncoding: Plik musi mieć kodowanie UTF-8 aby wspierać wszystkie znaki
+        uploadFile: Wyślij plik CSV
+        new: Nowi głosiciele
+        existing: Głosiciele z kontem JW Management
+        name: Nazwa
+        email: Email
+        add: Dodaj użytkowników
+    mergeAccounts:
+        title: Scal konta
+        description: Wprowadź dane logowania konta które chcesz scalić. Zostaniesz zalogowany na to konto za chwilę.
+        username: Użytkownik
+        password: Hasło
+        merge: Scal konta
