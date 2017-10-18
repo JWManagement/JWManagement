@@ -15,7 +15,7 @@ Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) 
 		return @ready()
 
 	try
-		regEx = new RegExp('.*' + searchString + '.*', 'i')
+		regEx = new RegExp(searchString, 'i')
 		limit = 20
 		limit = 0 if retrieveAllResults
 		self = this

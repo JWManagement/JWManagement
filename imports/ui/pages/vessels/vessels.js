@@ -182,7 +182,12 @@ function updateSearch(search) {
         Template.vessels.searchString.set(search);
 
         if (search.length > 0) {
-            regEx.set(new RegExp('.*' + search + '.*', 'i'));
+            if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
+                Template.vessels.searchString.set('.');
+                regEx.set(new RegExp('.', 'i'));
+            } else {
+                regEx.set(new RegExp(search, 'i'));
+            }
             doSubscribe();
         } else {
             awaitedCount.set(0)
