@@ -1,12 +1,17 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish 'vessel', (vesselId) ->
+Meteor.publish 'vessel', (vesselId, projectId) ->
 
 	if typeof vesselId == 'string' && vesselId != ''
-		# TODO: verify correct permissions
-		if true # Roles.userIsInRole @userId, Permissions.shiftAndStoreAdmin, projectId
-			Vessels.find vesselId
-		else
-			@ready()
-	else
 		@ready()
+
+	if !Roles.userIsInRole @userId, Permissions.member, projectId
+		@ready()
+
+	project = Projects.findOne projectId,
+		fields: _id: 0, vesselModule: 1
+
+	if !project.vesselModule
+		@ready()
+
+	Vessels.find vesselId

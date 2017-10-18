@@ -15,7 +15,7 @@ Template.editVesselModal.helpers
 
 Template.editVesselModal.onCreated ->
 
-	Meteor.subscribe 'vessel', FlowRouter.getQueryParam('editVessel')
+	Meteor.subscribe 'vessel', FlowRouter.getQueryParam('editVessel'), FlowRouter.getParam('projectId')
 
 Template.editVesselModal.onRendered ->
 

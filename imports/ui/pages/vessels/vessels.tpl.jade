@@ -11,19 +11,20 @@ if queryParam 'editVessel'
 						h2.center-align.m-t-xs.m-b-none {{_ 'vessels.title'}}
 				.ibox
 					.ibox-content
-						input#search.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}')
-				.ibox
+						input#search.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}' autocomplete='off')
+				.ibox.relative
 					.ibox-content
-						table#table.table.table-stripped.no
 						if isLoading
-							.center-align.h4
-								i.fa.fa-spinner.fa-pulse
-						else if noResults
+							.ibox-loading-overlay
+								.loading-icon
+									i.fa.fa-circle-o-notch.fa-spin
+						table#table.table.table-stripped.no
+						if noResults
 							.center-align.h4 {{_ 'vessels.noResults'}}
 						else if moreResultsAvailable
-							.center-align.h4 {{_ 'vessels.moreResultsAvailable'}}
-						else if tooManyResultsAvailable
-							.center-align.h4 {{_ 'vessels.tooManyResultsAvailable'}}
+							.center-align.h4
+								| {{_ 'vessels.moreResultsAvailable' totalFound}}
+								button#more.btn.btn-default.btn-sm ...
 						.row.m-b-sm
 							.col-xs-12
 								button#addVessel.btn.btn-primary.inline.pull-right.m-r-sm

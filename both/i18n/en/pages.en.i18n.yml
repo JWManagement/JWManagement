@@ -382,8 +382,7 @@ vessels:
     comments: Comments
     commentsPlaceholder: No person-specific information!
     noResults: No results
-    moreResultsAvailable: Refine your search to get more results...
-    tooManyResultsAvailable: Too many results. Please refine your search...
+    moreResultsAvailable: We found %s results. The first 20 are shown.
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note
