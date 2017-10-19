@@ -165,7 +165,11 @@ Meteor.methods
 					$pull: 'teams.$.participants': _id: userId
 					$addToSet: 'teams.$.pending': cancelledUser
 
-				if shift.scheduling == 'manual' and Meteor.isThisWeek(shift.date)
+				firstDay = moment().startOf('isoWeek')
+				lastDay = moment().endOf('isoWeek')
+				isThisWeek = moment(shift.date, 'YYYYDDDD').isBetween(firstDay, lastDay, null, '[]')
+
+				if shift.scheduling == 'manual' && isThisWeek
 					Meteor.call 'sendUnderstaffed', shiftId, teamId
 				#else if shift.scheduling == 'manual'
 				#	Meteor.call 'sendToOrga', shift.projectId, 'teamCancel', shiftId, teamId
