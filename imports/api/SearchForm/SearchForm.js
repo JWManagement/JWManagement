@@ -2,6 +2,8 @@ import {
     Counts
 } from '/imports/api/counts/counts.coffee';
 
+import './SearchForm.tpl.jade';
+
 module.exports = class SearchForm {
     constructor(
         db,
@@ -36,53 +38,64 @@ module.exports = class SearchForm {
     }
 
     registerHelpers() {
-        Template[this.templateName].helpers({
-            valueOrDash: (value) => {
-                return (value != '' ? value : '-');
-            },
-            isLoading: () => {
-                return this.isLoading.get();
-            },
-            noResults: () => {
-                return this.noResults.get() && !this.isLoading.get();
-            },
-            results: () => {
-                if (!this.noResults.get() && !this.isLoading.get()) {
-                    var results = this.db.find(this.searchCriteria(this.regEx.get()), {
-                        sort: {
-                            name: 1,
-                            callsign: 1
-                        }
-                    }).fetch();
+        Template.registerHelper('getTemplate', () => {
+            return Template[this.templateName].helpers;
+        });
 
-                    if (results.length > 0) {
-                        return results;
-                    }
-                }
+        Template.registerHelper('valueOrDash', (value) => {
+            return (value != '' ? value : '-');
+        });
 
-                return false;
-            },
-            moreResultsAvailable: () => {
-                return this.db.find(this.searchCriteria(this.regEx.get()), {
+        Template.registerHelper('isLoading', () => {
+            return this.isLoading.get();
+        });
+
+        Template.registerHelper('noResults', () => {
+            return this.noResults.get() && !this.isLoading.get();
+        });
+
+        Template.registerHelper('results', () => {
+            if (!this.noResults.get() && !this.isLoading.get()) {
+                var results = this.db.find(this.searchCriteria(this.regEx.get()), {
                     sort: {
-                        name: 1
+                        name: 1,
+                        callsign: 1
                     }
-                }).fetch().length == this.maxResultsShown;
-            },
-            totalFound: () => {
-                var counters = Counts.find({
-                    _id: this.publicationName
-                }, {
-                    fields: {
-                        count: 1
-                    }
-                });
+                }).fetch();
 
-                if (counters.count() > 0) {
-                    return counters.fetch()[0].count;
+                if (results.length > 0) {
+                    return results;
                 }
-                return '';
             }
+
+            return false;
+        });
+
+        Template.registerHelper('moreResultsAvailable', () => {
+            return this.db.find(this.searchCriteria(this.regEx.get()), {
+                sort: {
+                    name: 1
+                }
+            }).fetch().length == this.maxResultsShown;
+        });
+
+        Template.registerHelper('totalFound', () => {
+            var counters = Counts.find({
+                _id: this.publicationName
+            }, {
+                fields: {
+                    count: 1
+                }
+            });
+
+            if (counters.count() > 0) {
+                return counters.fetch()[0].count;
+            }
+            return '';
+        });
+
+        Template.registerHelper('maxResultsShown', () => {
+            return this.maxResultsShown;
         });
     }
 

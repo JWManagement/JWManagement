@@ -2,11 +2,9 @@ import {
     Vessels
 } from '/imports/api/vessels/vessels.coffee';
 
-const SearchForm = require('/imports/api/SearchForm/SearchForm.js')
-
-import '/imports/ui/components/addVesselModal/addVesselModal.coffee';
-import '/imports/ui/components/editVesselModal/editVesselModal.coffee';
 import './vessels.tpl.jade';
+
+const SearchForm = require('/imports/api/SearchForm/SearchForm.js')
 
 var db = Vessels;
 var templateName = 'vessels';
