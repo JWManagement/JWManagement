@@ -3,7 +3,7 @@ if isLoading
 		i.fa.fa-circle-o-notch.fa-spin
 		| {{_ 'searchForm.loading'}}...
 else if noResults
-	.search-title {{_ 'vessels.noResults'}}
+	.search-title {{_ 'searchForm.noResults'}}
 else
 	.search-title.clearfix
 		.pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
