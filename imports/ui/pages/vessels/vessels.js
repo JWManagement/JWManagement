@@ -40,12 +40,10 @@ var getColumns = () => {
         {
             name: 'flag',
             title: TAPi18n.__('vessels.flag'),
-            breakpoints: 'xs sm'
         },
         {
             name: 'type',
             title: TAPi18n.__('vessels.type'),
-            breakpoints: 'xs sm'
         },
         {
             name: 'callsign',
@@ -62,31 +60,6 @@ var getColumns = () => {
         {
             name: 'mmsi',
             title: TAPi18n.__('vessels.mmsi')
-        },
-        {
-            name: 'lastVisit',
-            title: TAPi18n.__('vessels.lastVisit'),
-            breakpoints: 'all'
-        },
-        {
-            name: 'harborGroup',
-            title: TAPi18n.__('vessels.harborGroup'),
-            breakpoints: 'all'
-        },
-        {
-            name: 'nextVisit',
-            title: TAPi18n.__('vessels.nextVisit'),
-            breakpoints: 'all'
-        },
-        {
-            name: 'languages',
-            title: TAPi18n.__('vessels.languages'),
-            breakpoints: 'all'
-        },
-        {
-            name: 'comments',
-            title: TAPi18n.__('vessels.comments'),
-            breakpoints: 'all'
         }
     ];
 };

@@ -29,6 +29,15 @@ Meteor.publish 'vessels', (searchString, projectId, limit) ->
 				{ imo: regEx },
 				{ mmsi: regEx }
 			]}, {
+				fields: {
+					'name': 1,
+					'flag': 1,
+					'type': 1,
+					'callsign': 1,
+					'eni': 1,
+					'imo': 1,
+					'mmsi': 1
+				},
 				sort: { name: 1 },
 				limit: limit
 			})
