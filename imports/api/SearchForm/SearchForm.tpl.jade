@@ -1,16 +1,16 @@
 if isLoading
 	.search-title.clearfix
 		i.fa.fa-circle-o-notch.fa-spin
-		| Loading...
+		| {{_ 'searchForm.loading'}}...
 else if noResults
 	.search-title {{_ 'vessels.noResults'}}
 else
 	.search-title.clearfix
-		.pull-left {{totalFound}} results
+		.pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
 		if moreResultsAvailable
-			.pull-right Showing the first {{maxResultsShown}}
+			.pull-right {{_ 'searchForm.showingTheFirstX' maxResultsShown}}
 		else
-			.pull-right Showing all
+			.pull-right {{_ 'searchForm.showingAll' count=totalFound}}
 
 table#table.table.table-stripped.results-desktop
 
@@ -19,10 +19,10 @@ if results
 		each results
 			tr
 				th
-					b Name:
-					b Callsign:
-					b Type:
-					b Flag:
+					b {{_ 'vessels.name'}}:
+					b {{_ 'vessels.callsign'}}:
+					b {{_ 'vessels.type'}}:
+					b {{_ 'vessels.flag'}}:
 				td
 					span {{valueOrDash name}}
 					span {{valueOrDash callsign}}
@@ -35,4 +35,6 @@ if noResults
 		button#createNew.btn.btn-primary.btn-circle
 			i.fa.fa-plus
 else if moreResultsAvailable
-	button#more.btn.btn-default.btn-sm ...
+	.center-align.m-t-sm.m-b-sm
+		button#more.btn.btn-primary.btn-outline.btn-circle
+			i.fa.fa-arrow-down

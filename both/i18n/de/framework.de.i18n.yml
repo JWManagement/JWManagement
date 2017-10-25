@@ -1,0 +1,7 @@
+searchForm:
+    loading: Lade
+    xResults: %s Ergebnis
+    xResults_plural: %s Ergebnisse
+    showingTheFirstX: Zeige die ersten %s
+    showingAll: ''
+    showingAll_plural: Zeige alle
