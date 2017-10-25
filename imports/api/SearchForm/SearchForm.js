@@ -54,18 +54,28 @@ module.exports = class SearchForm {
             return this.noResults.get() && !this.isLoading.get();
         });
 
-        Template.registerHelper('results', () => {
+        Template.registerHelper('resultsMobile', () => {
             if (!this.noResults.get() && !this.isLoading.get()) {
-                var results = this.db.find(this.searchCriteria(this.regEx.get()), {
-                    sort: {
-                        name: 1,
-                        callsign: 1
-                    }
-                }).fetch();
+                var columns = this.getColumns()
+                .filter((column) => {
+                    return column.mobile == true;
+                })
+                .map((column) => {
+                    return {
+                        name: column.name,
+                        translation: TAPi18n.__('vessels.' + column.name)
+                    };
+                });
 
-                if (results.length > 0) {
-                    return results;
-                }
+                return this.getRows()
+                .map((row) => {
+                    return columns.map((column) => {
+                        return {
+                            th: column.translation,
+                            td: row[column.name]
+                        };
+                    });
+                });
             }
 
             return false;
@@ -221,7 +231,8 @@ module.exports = class SearchForm {
 
         return this.db.find(this.searchCriteria(this.regEx.get()), {
                 sort: {
-                    name: 1
+                    name: 1,
+                    callsign: 1
                 }
             })
             .fetch()

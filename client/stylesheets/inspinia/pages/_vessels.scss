@@ -26,22 +26,25 @@ body.md-skin.gray-bg[page='vessels'] {
 	}
 
 	.results-mobile {
+		margin-left: 15px;
 		@media(min-width: 760px) {
 			display: none;
 		}
 
 		tr td,
 		tr th {
-			cursor    : pointer;
-			padding   : 10px 15px;
-			font-size : 15px;
-			text-align: left;
+			cursor       : pointer;
+			padding      : 10px 15px 10px 0;
+			font-size    : 15px;
+			text-align   : left;
+			border-bottom: 1px solid #eee;
 
 			b,
 			span {
 				display    : block;
 				margin     : 3px 0;
 				line-height: 1;
+				white-space: nowrap;
 
 				&:empty {
 					content: " ";
@@ -49,8 +52,13 @@ body.md-skin.gray-bg[page='vessels'] {
 			}
 		}
 
-		tr td {
-			//padding-left: 0;
+		tr td.item {
+			width: 100%;
+		}
+
+		tr td.link {
+			color    : #ccc;
+			font-size: 20px;
 		}
 	}
 }

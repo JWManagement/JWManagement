@@ -10,8 +10,8 @@ var db = Vessels;
 var templateName = 'vessels';
 var publicationName = 'vessels';
 var translatedAttributes = [{
-    'attribute': 'type',
-    'i18nPath': 'vessels.types'
+    attribute: 'type',
+    i18nPath: 'vessels.types'
 }];
 var searchCriteria = (search) => {
     return {
@@ -30,38 +30,34 @@ var searchCriteria = (search) => {
 }
 var getColumns = () => {
     return [{
-            name: '_id',
-            visible: false
-        },
-        {
-            name: 'name',
-            title: TAPi18n.__('vessels.name')
-        },
-        {
-            name: 'flag',
-            title: TAPi18n.__('vessels.flag'),
-        },
-        {
-            name: 'type',
-            title: TAPi18n.__('vessels.type'),
-        },
-        {
-            name: 'callsign',
-            title: TAPi18n.__('vessels.callsign')
-        },
-        {
-            name: 'eni',
-            title: TAPi18n.__('vessels.eni')
-        },
-        {
-            name: 'imo',
-            title: TAPi18n.__('vessels.imo')
-        },
-        {
-            name: 'mmsi',
-            title: TAPi18n.__('vessels.mmsi')
-        }
-    ];
+        name: '_id',
+        visible: false
+    }, {
+        name: 'name',
+        title: TAPi18n.__('vessels.name'),
+        mobile: true
+    }, {
+        name: 'flag',
+        title: TAPi18n.__('vessels.flag'),
+        mobile: true
+    }, {
+        name: 'type',
+        title: TAPi18n.__('vessels.type'),
+        mobile: true
+    }, {
+        name: 'callsign',
+        title: TAPi18n.__('vessels.callsign'),
+        mobile: true
+    }, {
+        name: 'eni',
+        title: TAPi18n.__('vessels.eni')
+    }, {
+        name: 'imo',
+        title: TAPi18n.__('vessels.imo')
+    }, {
+        name: 'mmsi',
+        title: TAPi18n.__('vessels.mmsi')
+    }];
 };
 
 var vesselSearchForm = new SearchForm(

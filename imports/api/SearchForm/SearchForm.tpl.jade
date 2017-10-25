@@ -14,23 +14,21 @@ else
 
 table#table.table.table-stripped.results-desktop
 
-if results
+if resultsMobile
 	table.results-mobile
-		each results
+		each resultsMobile
 			tr
 				th
-					b {{_ 'vessels.name'}}:
-					b {{_ 'vessels.callsign'}}:
-					b {{_ 'vessels.type'}}:
-					b {{_ 'vessels.flag'}}:
-				td
-					span {{valueOrDash name}}
-					span {{valueOrDash callsign}}
-					span {{valueOrDash type}}
-					span {{valueOrDash flag}}
+					each this
+						b {{th}}:
+				td.item
+					each this
+						span {{valueOrDash td}}
+				td.link
+					i.fa.fa-chevron-right
 
 if noResults
-	.center-align.m-t-xl
+	.center-align.m-t-xl.m-b-sm
 		p Search for a vessel or create a new one
 		button#createNew.btn.btn-primary.btn-circle
 			i.fa.fa-plus
