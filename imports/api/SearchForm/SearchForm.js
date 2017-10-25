@@ -261,8 +261,9 @@ module.exports = class SearchForm {
 
         var search = this.searchString.get();
         var projectId = FlowRouter.getParam('projectId');
+        var limit = retrieveAllResults ? 0 : this.maxResultsShown;
 
-        this.handle = Meteor.subscribe(this.publicationName, search, projectId, retrieveAllResults);
+        this.handle = Meteor.subscribe(this.publicationName, search, projectId, limit);
 
         Counts.find(this.templateName, {
             fields: {

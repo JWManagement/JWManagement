@@ -1,6 +1,6 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) ->
+Meteor.publish 'vessels', (searchString, projectId, limit) ->
 
 	if typeof searchString != 'string' || searchString == ''
 		return @ready()
@@ -16,8 +16,7 @@ Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) 
 
 	try
 		regEx = new RegExp(searchString, 'i')
-		limit = 20
-		limit = 0 if retrieveAllResults
+
 		self = this
 		initialLoadDone = false
 		publishedItemsCount = 0
