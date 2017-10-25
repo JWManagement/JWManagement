@@ -25,6 +25,8 @@ Template.navigation.helpers
 
 	langIsDe: -> TAPi18n.getLanguage() == 'de'
 
+	showSearch: -> FlowRouter.getRouteName() == 'vessels'
+
 Template.navigation.onCreated ->
 
 	PictureSubs.subscribe 'profilePicture', Meteor.userId()

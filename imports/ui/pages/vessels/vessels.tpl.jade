@@ -2,31 +2,43 @@ if queryParam 'addVessel'
 	+addVesselModal
 if queryParam 'editVessel'
 	+editVesselModal
-.wrapper-content
-	.container
-		.row
-			.col-lg-12
-				.row.m-b-lg
-					.col-xs-12
-						h2.center-align.m-t-xs.m-b-none {{_ 'vessels.title'}}
-				.ibox
-					.ibox-content
-						input#search.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}' autocomplete='off')
-				.ibox.relative
-					.ibox-content
-						if isLoading
-							.ibox-loading-overlay
-								.loading-icon
-									i.fa.fa-circle-o-notch.fa-spin
-						table#table.table.table-stripped.no
-						if noResults
-							.center-align.h4 {{_ 'vessels.noResults'}}
-						else if moreResultsAvailable
-							.center-align.h4
-								| {{_ 'vessels.moreResultsAvailable' totalFound}}
-								button#more.btn.btn-default.btn-sm ...
-						.row.m-b-sm
-							.col-xs-12
-								button#addVessel.btn.btn-primary.inline.pull-right.m-r-sm
-									i.fa.fa-plus
-									| {{_ 'vessels.addNewVessel'}}
+
+.relative
+
+	if isLoading
+		.search-title Loading...
+		.ibox-loading-overlay
+			.loading-icon
+				i.fa.fa-circle-o-notch.fa-spin
+	else if noResults
+		.search-title {{_ 'vessels.noResults'}}
+	else
+		.search-title.clearfix
+			.pull-left {{totalFound}} results
+			if moreResultsAvailable
+				.pull-right Showing the first 20
+
+	table#table.table.table-stripped.results-desktop
+
+	if results
+		table.results-mobile
+			each results
+				tr
+					th
+						b Name:
+						b Callsign:
+						b Type:
+						b Flag:
+					td
+						span {{valueOrDash name}}
+						span {{valueOrDash callsign}}
+						span {{valueOrDash type}}
+						span {{valueOrDash flag}}
+
+	if noResults
+		.center-align.m-t-xl
+			p Search for a vessel or create a new one
+			button#createNew.btn.btn-primary.btn-circle
+				i.fa.fa-plus
+	else if moreResultsAvailable
+		button#more.btn.btn-default.btn-sm ...

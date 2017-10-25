@@ -1,4 +1,15 @@
+body.md-skin.gray-bg[page='vessels'] {
+	background-color: #fff !important;
+	padding-top     : 100px;
+
+	.navbar {
+		box-shadow: none;
+	}
+}
+
 .vessels-wrapper {
+	height: 100%;
+
 	.relative {
 		position: relative;
 	}
@@ -22,5 +33,51 @@
 		text-align: center;
 		margin-top: 50px;
 		font-size : 40px;
+	}
+
+	.footer {
+		display: none;
+	}
+
+	.search-title {
+		background-color: #e8e8e8;
+		font-size       : 14px;
+		padding         : 6px 10px;
+		color           : #777;
+	}
+
+	.results-desktop {
+		@media(max-width: 759px) {
+			display: none !important;
+		}
+	}
+
+	.results-mobile {
+		@media(min-width: 760px) {
+			display: none;
+		}
+
+		tr td,
+		tr th {
+			cursor    : pointer;
+			padding   : 10px 15px;
+			font-size : 15px;
+			text-align: left;
+
+			b,
+			span {
+				display    : block;
+				margin     : 3px 0;
+				line-height: 1;
+
+				&:empty {
+					content: " ";
+				}
+			}
+		}
+
+		tr td {
+			//padding-left: 0;
+		}
 	}
 }

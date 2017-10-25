@@ -63,3 +63,7 @@
 							if new
 								.label.label-primary.pull-left {{_ 'navigation.new'}}
 							a(href='//github.com/JWDeveloper/JWManagement/releases' target='blank') Version {{tag}}
+		if showSearch
+			.search.input-group
+				span.input-group-addon &#xF002;
+				input#search.form-control(type='text' placeholder='{{_ "vessels.placeholder"}}' autocomplete='off')

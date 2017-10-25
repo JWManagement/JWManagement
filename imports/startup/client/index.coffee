@@ -10,3 +10,5 @@ import './projectRoutes.coffee'
 import './policyRoutes.coffee'
 
 SimpleSchemaHelper.init()
+
+Tracker.autorun -> $('body').attr('page', FlowRouter.getRouteName())

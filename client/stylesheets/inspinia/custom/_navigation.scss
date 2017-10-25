@@ -38,4 +38,24 @@
 	.navbar.navbar-fixed-top {
 		transition-duration: 0s;
 	}
+
+	.search.input-group {
+		margin: 56px 10px 10px;
+
+		.input-group-addon {
+			color                    : #8e8e8e;
+			padding                  : 6px 6px 6px 12px;
+			font-family              : FontAwesome;
+			border                   : none !important;
+			border-top-left-radius   : 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		input {
+			border                    : none;
+			border-top-right-radius   : 5px;
+			border-bottom-right-radius: 5px;
+			padding-left              : 2px;
+		}
+	}
 }

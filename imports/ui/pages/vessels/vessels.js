@@ -9,7 +9,8 @@ import '/imports/ui/components/addVesselModal/addVesselModal.coffee';
 import '/imports/ui/components/editVesselModal/editVesselModal.coffee';
 import './vessels.tpl.jade';
 
-Template.vessels.searchString = new ReactiveVar('');
+db = Vessels;
+searchString = new ReactiveVar('');
 isLoading = new ReactiveVar(false);
 noResults = new ReactiveVar(true);
 itemCount = new ReactiveVar;
@@ -17,9 +18,13 @@ awaitedCount = new ReactiveVar;
 regEx = new ReactiveVar;
 table = null;
 language = '';
-Template.vessels.handle = null;
+handle = null;
 
-Template.vessels.helpers({
+Template['vessels'].helpers({
+
+    valueOrDash: (value) => {
+        return (value != '' ? value : '-');
+    },
 
     isLoading: () => {
         return isLoading.get();
@@ -29,10 +34,46 @@ Template.vessels.helpers({
         return noResults.get() && !isLoading.get();
     },
 
+    results: () => {
+        if (!noResults.get() && !isLoading.get()) {
+            var regExSearch = regEx.get();
+
+            results = db.find({
+                $or: [{
+                        name: regExSearch
+                    },
+                    {
+                        callsign: regExSearch
+                    },
+                    {
+                        eni: regExSearch
+                    },
+                    {
+                        imo: regExSearch
+                    },
+                    {
+                        mmsi: regExSearch
+                    }
+                ]
+            }, {
+                sort: {
+                    name: 1,
+                    callsign: 1
+                }
+            }).fetch()
+
+            if (results.length > 0) {
+                return results;
+            }
+        }
+
+        return false;
+    },
+
     moreResultsAvailable: () => {
         var regExSearch = regEx.get();
 
-        return Vessels.find({
+        return db.find({
             $or: [{
                     name: regExSearch
                 },
@@ -73,9 +114,9 @@ Template.vessels.helpers({
     }
 });
 
-Template.vessels.onCreated(() => {
+Template['vessels'].onCreated(() => {
 
-    Template.vessels.searchString.set('');
+    searchString.set('');
     isLoading.set(false);
     noResults.set(true);
     itemCount.set(0);
@@ -95,25 +136,13 @@ Template.vessels.onCreated(() => {
                     columns: getColumns(),
                     rows: getRows(),
                     empty: '',
+                    showToggle: false,
                     paging: {
                         enabled: true,
                         size: 20
                     },
                     sorting: {
                         enabled: true
-                    },
-                    editing: {
-                        enabled: true,
-                        alwaysShow: true,
-                        allowAdd: false,
-                        allowDelete: false,
-                        editRow: (row) => {
-                            wrs(() => {
-                                FlowRouter.setQueryParams({
-                                    editVessel: row.value._id
-                                });
-                            });
-                        }
                     }
                 });
             });
@@ -121,8 +150,8 @@ Template.vessels.onCreated(() => {
     });
 
     Tracker.autorun(() => {
-        var ready = Template.vessels.handle !== null && Template.vessels.handle.ready();
-        var search = Template.vessels.searchString.get();
+        var ready = handle !== null && handle.ready();
+        var search = searchString.get();
 
         if (isLoading.get()) {
             var rowCount = getRowCount();
@@ -138,7 +167,7 @@ Template.vessels.onCreated(() => {
         }
     });
 
-    return Vessels.find().observeChanges({
+    return db.find().observeChanges({
         added: () => {
             reloadRowsIfIsUpdate()
         },
@@ -153,37 +182,40 @@ Template.vessels.onCreated(() => {
     });
 });
 
-Template.vessels.events({
+Template['vessels'].onRendered(() => {
 
-    'keyup #search': (e) => {
+    $('#search').keyup((e) => {
         updateSearch(e.target.value);
-    },
+    });
 
-    'change #search': (e) => {
+    $('#search').change((e) => {
         updateSearch(e.target.value);
-    },
+    });
+})
+
+Template['vessels'].events({
 
     'click #more': (e) => {
         isLoading.set(true);
         doSubscribe(true);
     },
 
-    'click #addVessel': () => {
+    'click #createNew': () => {
         wrs(() => {
             FlowRouter.setQueryParams({
-                addVessel: true
+                createNew: true
             });
         });
     }
 });
 
 function updateSearch(search) {
-    if (Template.vessels.searchString.get() !== search) {
-        Template.vessels.searchString.set(search);
+    if (searchString.get() !== search) {
+        searchString.set(search);
 
         if (search.length > 0) {
             if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
-                Template.vessels.searchString.set('.');
+                searchString.set('.');
                 regEx.set(new RegExp('.', 'i'));
             } else {
                 regEx.set(new RegExp(search, 'i'));
@@ -201,13 +233,13 @@ function updateSearch(search) {
 
 function doSubscribe(retrieveAllResults = false) {
 
-    if (Template.vessels.handle !== null)
-        Template.vessels.handle.stop();
+    if (handle !== null)
+        handle.stop();
 
-    var search = Template.vessels.searchString.get();
+    var search = searchString.get();
     var projectId = FlowRouter.getParam('projectId');
 
-    Template.vessels.handle = Meteor.subscribe('vessels', search, projectId, retrieveAllResults);
+    handle = Meteor.subscribe('vessels', search, projectId, retrieveAllResults);
 
     Counts.find('vessels', {
         fields: {
@@ -229,7 +261,7 @@ function getRowCount() {
         return 0;
     }
 
-    var vessels = Vessels.find({
+    var vessels = db.find({
         $or: [{
                 name: regEx.get()
                 },
@@ -266,7 +298,7 @@ function getRows() {
         return [];
     }
 
-    var vessels = Vessels.find({
+    var vessels = db.find({
         $or: [{
                 name: regEx.get()
                 },
@@ -338,17 +370,17 @@ function getColumns() {
         {
             name: 'eni',
             title: TAPi18n.__('vessels.eni'),
-            breakpoints: 'xs'
+            breakpoints: ''
         },
         {
             name: 'imo',
             title: TAPi18n.__('vessels.imo'),
-            breakpoints: 'xs'
+            breakpoints: ''
         },
         {
             name: 'mmsi',
             title: TAPi18n.__('vessels.mmsi'),
-            breakpoints: 'xs'
+            breakpoints: ''
         },
         {
             name: 'lastVisit',
