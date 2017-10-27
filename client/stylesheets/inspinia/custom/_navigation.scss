@@ -1,4 +1,12 @@
 .navigation-wrapper {
+	.navbar-brand {
+		padding-left: 15px;
+	}
+
+	.nav.navbar-top-links {
+		padding-right: 0;
+	}
+
 	.language-item > a:hover ~ .language-menu,
 	.language-item:hover > .language-menu,
 	.language-menu:hover {

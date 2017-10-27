@@ -1,13 +1,11 @@
-body.md-skin.gray-bg[page='vessels'] {
+body.md-skin[page='vessels'] {
 	background-color: #fff !important;
 	padding-top     : 100px;
 
 	.navbar {
 		box-shadow: none;
 	}
-}
 
-.vessels-wrapper {
 	.footer {
 		display: none;
 	}
