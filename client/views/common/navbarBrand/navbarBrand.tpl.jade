@@ -1,0 +1,13 @@
+.navbar-header
+	if target
+		a.navbar-brand(href="{{target}}")
+			i.fa.fa-chevron-left.m-r-xs
+			| {{name}}
+	else if name
+		a.navbar-brand.dashboard {{name}}
+	else
+		a.navbar-brand JW Management
+	if isImpersonating
+		a.navbar-brand.unimpersonate(href)
+			i.fa.fa-undo.m-r-xs
+			| Unimpersonate
