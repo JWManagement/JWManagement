@@ -1,3 +1,3 @@
 Template.navigation.onDestroyed ->
 
-	#Session.set 'target', undefined
+	Session.set 'target', undefined

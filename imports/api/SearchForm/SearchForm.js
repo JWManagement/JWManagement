@@ -4,6 +4,8 @@ import {
 
 import './SearchForm.tpl.jade';
 
+import './SearchForm.scss'
+
 module.exports = class SearchForm {
     constructor(
         db,
