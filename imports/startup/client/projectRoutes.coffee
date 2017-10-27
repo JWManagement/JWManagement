@@ -66,4 +66,4 @@ FlowRouter.route '/:language/:projectId/vessels',
 		else
 			Session.set 'parent', 'home'
 
-		BlazeLayout.render 'mainLayout', content: 'vessels'
+		BlazeLayout.render 'vessels'

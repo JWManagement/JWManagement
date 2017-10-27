@@ -34,12 +34,17 @@ module.exports = class SearchForm {
         this.registerHelpers();
         this.registerOnCreated();
         this.registerOnRendered();
+        this.registerOnDestroyed();
         this.registerEvents();
     }
 
     registerHelpers() {
         Template.registerHelper('getTemplate', () => {
             return Template[this.templateName].helpers;
+        });
+
+        Template.registerHelper('getSearchPlaceholder', () => {
+            return TAPi18n.__(this.templateName + '.placeholder');
         });
 
         Template.registerHelper('valueOrDash', (value) => {
@@ -185,7 +190,17 @@ module.exports = class SearchForm {
             $('#search').change((e) => {
                 this.updateSearch(e.target.value);
             });
-        })
+
+            $('body').addClass('md-skin');
+            $('body').addClass('top-navigation');
+        });
+    }
+
+    registerOnDestroyed() {
+        Template[this.templateName].onDestroyed(() => {
+            $('body').removeClass('md-skin');
+            $('body').removeClass('top-navigation');
+        });
     }
 
     registerEvents() {
