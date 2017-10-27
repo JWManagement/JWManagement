@@ -27,7 +27,7 @@ Template.settings.onCreated ->
 		handle.ready Tracker.afterFlush ->
 			project = Projects.findOne(projectId, fields: teams: 1)
 			if project?
-				for team in project.teams
+				for team in project.teams?
 					if !team.icon?
 						team.icon = 'fa-map-signs'
 
