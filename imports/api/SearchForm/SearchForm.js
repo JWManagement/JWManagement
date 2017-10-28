@@ -195,6 +195,7 @@ module.exports = class SearchForm {
 
             $('body').addClass('md-skin');
             $('body').addClass('top-navigation');
+            $('body').attr('type', 'SearchForm');
         });
     }
 
@@ -202,6 +203,7 @@ module.exports = class SearchForm {
         Template[this.templateName].onDestroyed(() => {
             $('body').removeClass('md-skin');
             $('body').removeClass('top-navigation');
+            $('body').attr('type', '');
         });
     }
 
