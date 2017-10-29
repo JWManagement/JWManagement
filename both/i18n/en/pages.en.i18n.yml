@@ -397,6 +397,8 @@ firstLogin:
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Please provide a username.
     agreeTermsMissing: Please agree the terms of usage and the privacy policy.
+    buttonCreateAccount: I need to create an account
+    buttonHaveAccount: I already have an account
 about:
     title: Legal Disclosure
     information: Information in accordance with section 5 TMG

@@ -178,7 +178,7 @@ swal:
             cancel: Anuluj
         project:
             title: Na pewno usunąć ten projekt?
-            text: To nieodwracalnie usunie wszystkie ustawienia związane z tym projektem, m. in. harmonogram zmian, sprawozdania, prośby, magazyn. Tylko konta użytkowników nie zostaną usunięte. <br><br> Any potwierdzić wpisz "usuń ten projekt".
+            text: To nieodwracalnie usunie wszystkie ustawienia związane z tym projektem, m. in. grafik, sprawozdania, prośby, magazyn. Tylko konta użytkowników nie zostaną usunięte. <br><br> Any potwierdzić wpisz "usuń ten projekt".
             checkInput: usuń ten projekt
             placeholder: Proszę wpisz "%s" aby potwierdzić
             inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"

@@ -43,14 +43,14 @@ modal:
         explanations: Wyjaśnienia
         helpText:
             admin: Menażer projektu to najwyższy stopień autoryzacji. Menadżer projektu jest uprawniony do kontrolowania wszystkiego. Do każdego projektu musi być przynajmniej jeden menadżer.
-            shiftScheduler: Osoba z uprawnieniami Zmiany harmonogramu ma te same uprawnienia co Współpracownik, ale może również układać harmonogram zmian.
-            shiftAdmin: Menadżer zmian ma uprawnienia Zmian harmonogramu ale również może tworzyć, zmieniać i usuwać zmiany.
+            shiftScheduler: Osoba z uprawnieniami Zmiany grafiku ma te same uprawnienia co Współpracownik, ale może również układać grafik.
+            shiftAdmin: Menadżer zmian ma uprawnienia Zmian grafiku ale również może tworzyć, zmieniać i usuwać zmiany.
             storeAdmin: Menadżer magazynu ma te same uprawnienia co Współpracownik ale może również oglądać sprawozdania i edytować magazyn.
             member: Członek jest to najbardziej podstawowa rola. Może oglądać Centrum Informacji.
             teamleader: Kordynator grup wyznaczony przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
             substituteTeamleader: Zastępca koordynatora grup.
             participant: Współpracownik widzi i wysyła prośby dotyczące wybranej zmiany dla wybranego Tagu.
-            nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi harmonogramu ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
+            nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi grafik ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
     editProfilePicture:
         title: Zmień zdjęcie profilowe
         text: Zdjęcie powinno mieć przynajmniej 256x256 pikseli. Akceptowany format: JPEG, PNG.
@@ -75,7 +75,7 @@ modal:
         noMeeting: Brak zbiórki
         action: Akcja:
         delete: Usuń
-        switch: Harmonogram zmian
+        switch: Grafik
         copyShift: Kopiuj zmianę
     editTeamPicture:
         title: Zmień zdjęcie zespołu

@@ -2,7 +2,7 @@ navigation:
     welcome: Witaj
     home: Panel startowy
     profile: Mój profil
-    shifts: Harmonogram
+    shifts: Grafik
     wiki: Centrum informacji
     admin: Adminitracja
     settings: Ustawienia
@@ -32,12 +32,12 @@ welcome:
         login: Login
         dashboard: Otwórz panel startowy
     header:
-        title: Zaawansowany harmonogram zmian
-        description: JW Management jest wysoce konfigurowalnym harmonogramem zmian dla Świadków Jehowy. Stworzony by usprawnić projekty typu świadczenia wielkomiejskiego i projektów budowlanych.
+        title: Zaawansowany grafik
+        description: JW Management jest wysoce konfigurowalnym grafikiem zmian dla Świadków Jehowy. Stworzony by usprawnić projekty typu świadczenia wielkomiejskiego i projektów budowlanych.
     divider:
         first:
             title: Wiele Tagów
-            description: Łatwo oddziel różne harmonogramy przez tagi; Przypisz głosicieli do tagów w miejscach gdzie sami mogą wysłać gotowość do współpracy. Zdefiniuj również którzy głosiciele otrzymają uprawnienia koordynatorów grupy.
+            description: Łatwo oddziel różne grafiki przez tagi; Przypisz głosicieli do tagów w miejscach gdzie sami mogą wysłać gotowość do współpracy. Zdefiniuj również którzy głosiciele otrzymają uprawnienia koordynatorów grupy.
         second:
             title: Zespołu zmian
             description: Zdefiniuj jeden lub więcej zespołów do zmian. Każdy z nich będzie miał własnego koordynatora. Udostępnij dodatkowe informacje dla każdego zespołu, np. opis, zdjęcie z ulicą, miejscami zbiórek i wiele wiele więcej.
@@ -49,7 +49,7 @@ welcome:
             description: Dzięki potężnemu systemowi powiadomień, możesz być informowany w sprawie swoich zgłoszeń, gdy zostaną one potwierdzone, odrzucone lub gdy wystąpi w nich jakaś zmiana. Możesz łatwo odpowiedzieć na każde powiadomienie.
     feature1:
         title: Wielofunkcyjne narzędzie
-        description: <p>Ponieważ JW Management został zoptymalizowany pod program głoszenia publicznego, skupia się głównie na zarządzaniu harmonogramem zmian.</p><p>Możesz go zatem wykorzystać również do zarządzania zgromadzeniem, wystawami biblijnymi, projektami budowlanymi lub czymś podobnym.</p><p>Jeżeli jest to możliwe chętnie dopasujemy system do Twoich potrzeb.</p>
+        description: <p>Ponieważ JW Management został zoptymalizowany pod program głoszenia publicznego, skupia się głównie na zarządzaniu grafikiem zmian.</p><p>Możesz go zatem wykorzystać również do zarządzania zgromadzeniem, wystawami biblijnymi, projektami budowlanymi lub czymś podobnym.</p><p>Jeżeli jest to możliwe chętnie dopasujemy system do Twoich potrzeb.</p>
     feature2:
         title: Ostatnie zmiany
         more: Pokaż więcej
@@ -201,7 +201,7 @@ wiki:
     changeFaq: Zapisz tą odpowiedź
     cancelFaq: Anuluj edycję
 shifts:
-    name: Harmonogram zmian
+    name: Grafik
     route: Ulica
     addShift: Dodaj nową zmianę
     addWeek: Dodaj nowy tydzień
@@ -216,7 +216,7 @@ shifts:
     helpText:
         start: To jest pierwszy tydzień stworzony przez system.
         end: To jest ostatni tydzień stworzony przez system.
-        visibility: To definiuje ile tygodni do przodu głosiciele będą mogli zobaczyć harmonogram i wysyłać prośby. Uwzględniając początkowy i końcowy tydzień, system automatycznie stworzy potrzebne zmiany.
+        visibility: To definiuje ile tygodni do przodu głosiciele będą mogli zobaczyć grafik i wysyłać prośby. Uwzględniając początkowy i końcowy tydzień, system automatycznie stworzy potrzebne zmiany.
     weeks: tygodni
     sendWeek: Wyślij potwierdzenia
     hideNames: Ukryj wszystkie nazwy w zmianach
@@ -229,7 +229,7 @@ shifts:
     hiddenTag: Zmiany z tym tagiem są aktualnie ukryte
     shift:
         tag: Tag
-        schedule: Harmonogram
+        schedule: Grafik
         teamleader: Koordynator zespołu
         teams: Zespoły
         noTeams: Brak zespołów
@@ -301,12 +301,12 @@ settings:
         deleteProject: Usuń projekt
     tags:
         title: Tags
-        helpText: <p>Każda zmiana ma przypisany tag. Dodatkowo każdy użytkownik może mieć udostępniony lub odebrany dostęp do oglądania zmian zależnie od tagu.</p><p>Tagi mogą dotyczyć różnych aktywności (np. głoszenia z wózkami, stanowiskami informacyjnymi, głoszeniu na ulic, itd.). Dzielenie zmian na różne tagi może być użyteczne, na przykłąd jeżeli będzie istnieć w tym samym czasie kilka zmian lub jeżeli tylko wybrani głosicieli zostali przeszkolenie w jakimś rodzaju służby publicznej.</p><p>Dla każdego tagu można ustawić tygodniowy szablon zmian. Używając opcji automatycznej podczas tworzenia harmonogramu, system będzie mógł użyć tego szablonu. To zaoszczędzi dla Menadżera projektu lub Menadżera zmian sporo czasu potrzebnego na układanie harmonogramu.</p>
+        helpText: <p>Każda zmiana ma przypisany tag. Dodatkowo każdy użytkownik może mieć udostępniony lub odebrany dostęp do oglądania zmian zależnie od tagu.</p><p>Tagi mogą dotyczyć różnych aktywności (np. głoszenia z wózkami, stanowiskami informacyjnymi, głoszeniu na ulic, itd.). Dzielenie zmian na różne tagi może być użyteczne, na przykłąd jeżeli będzie istnieć w tym samym czasie kilka zmian lub jeżeli tylko wybrani głosicieli zostali przeszkolenie w jakimś rodzaju służby publicznej.</p><p>Dla każdego tagu można ustawić tygodniowy szablon zmian. Używając opcji automatycznej podczas tworzenia grafiku, system będzie mógł użyć tego szablonu. To zaoszczędzi dla Menadżera projektu lub Menadżera zmian sporo czasu potrzebnego na układanie grafiku.</p>
         id: ID
         name: Nazwa
         img:
             name: Zdjęcie
-            helpText: To zdjęcie będzie pokazane w panelu startowym po kliknięciu 'Harmonogram zmian'. Zdjęcie powinno podpowiadać jakiego rodzaju zmian dotyczy harmonogram w tym tagu. Jeżeli chciałbyś dodać inne zdjęcie, prosimy wyślij je do nas na support@jwmanagement.org opisując swój opomysł
+            helpText: To zdjęcie będzie pokazane w panelu startowym po kliknięciu 'Grafik'. Zdjęcie powinno podpowiadać jakiego rodzaju zmian dotyczy grafiku w tym tagu. Jeżeli chciałbyś dodać inne zdjęcie, prosimy wyślij je do nas na support@jwmanagement.org opisując swój opomysł
         templates: Szablony
         showTemplate: Edytuj zmiany
         editTemplate: Edytuj nazwę
@@ -397,6 +397,8 @@ firstLogin:
     usernameExists: Ta nazwa użytkownika jest już zajęta. Proszę wybrać inną.
     usernameMissing: Wprowadź nazwę użytkownika.
     agreeTermsMissing: Aby korzystać z systemu musisz wyrazić zgodę z warunkami użytkowania i polityką prywatności.
+    buttonCreateAccount: Potrzebuję nowego konta
+    buttonHaveAccount: Mam już konto
 about:
     title: Legal Disclosure
     information: Information in accordance with section 5 TMG

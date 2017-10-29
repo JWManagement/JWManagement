@@ -16,7 +16,7 @@ input:
 role:
     role: Rola
     admin: Menadżer projekut
-    shiftScheduler: Harmonogram zmian
+    shiftScheduler: Grafik
     shiftAdmin: Menadżer zmian
     storeAdmin: Menadżer magazynu
     member: Członek
@@ -27,7 +27,7 @@ role:
     noPermission: Brak uprawnień
 permissions:
     notAdmin: Ten użytkownik nie jest menadżerem projektu
-    notShiftScheduler: Ten użytkownik nie układa harmonogramu zmian
+    notShiftScheduler: Ten użytkownik nie układa grafiku
     notShiftAdmin: Ten użytkownik nie jest menadżerem zmian
     notStoreAdmin: Ten użytkownik nie jest menadżerem magazynu
     notProjectParticipant: Ten użytkownik nie jest współpracownikiem tego projektu
@@ -41,7 +41,7 @@ time:
     years: lata
     to: do
 scheduling:
-    name: Harmonogram
+    name: Grafik
     direct: Akceptuj automatycznie
     manual: Akceptuj ręcznie
 password:
