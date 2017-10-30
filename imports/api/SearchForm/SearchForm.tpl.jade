@@ -25,15 +25,16 @@ table#table.table.table-stripped.results-desktop
 if resultsMobile
 	table.results-mobile
 		each resultsMobile
-			tr
-				th
-					each this
-						b {{th}}:
-				td.item
-					each this
-						span {{valueOrDash td}}
-				td.link
-					i.fa.fa-chevron-right
+			a(href='/en/yeQQzgQrXtAGrcuJt/vessels/59a8fc91071416195daa2a5c')
+				tr
+					th
+						each this
+							b {{th}}:
+					td.item
+						each this
+							span {{valueOrDash td}}
+					td.link
+						i.fa.fa-chevron-right
 
 if noResults
 	.center-align.m-t-xl.m-b-sm

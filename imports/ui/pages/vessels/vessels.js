@@ -60,7 +60,7 @@ var getColumns = () => {
     }];
 };
 
-var vesselSearchForm = new SearchForm(
+new SearchForm(
     db,
     templateName,
     publicationName,

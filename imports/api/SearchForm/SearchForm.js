@@ -3,7 +3,6 @@ import {
 } from '/imports/api/counts/counts.coffee';
 
 import './SearchForm.tpl.jade';
-
 import './SearchForm.scss'
 
 module.exports = class SearchForm {
@@ -41,83 +40,74 @@ module.exports = class SearchForm {
     }
 
     registerHelpers() {
-        Template.registerHelper('getTemplate', () => {
-            return Template[this.templateName].helpers;
-        });
-
-        Template.registerHelper('getSearchPlaceholder', () => {
-            return TAPi18n.__(this.templateName + '.placeholder');
-        });
-
-        Template.registerHelper('valueOrDash', (value) => {
-            return (value != '' ? value : '-');
-        });
-
-        Template.registerHelper('isLoading', () => {
-            return this.isLoading.get();
-        });
-
-        Template.registerHelper('noResults', () => {
-            return this.noResults.get() && !this.isLoading.get();
-        });
-
-        Template.registerHelper('resultsMobile', () => {
-            if (!this.noResults.get() && !this.isLoading.get()) {
-                var columns = this.getColumns()
-                .filter((column) => {
-                    return column.mobile == true;
-                })
-                .map((column) => {
-                    return {
-                        name: column.name,
-                        translation: TAPi18n.__('vessels.' + column.name)
-                    };
-                });
-
-                return this.getRows()
-                .map((row) => {
-                    return columns.map((column) => {
+        Template.SearchForm.helpers({
+            'getSearchPlaceholder': () => {
+                return TAPi18n.__(this.templateName + '.placeholder');
+            },
+            'valueOrDash': (value) => {
+                return (value != '' ? value : '-');
+            },
+            'isLoading': () => {
+                return this.isLoading.get();
+            },
+            'noResults': () => {
+                return this.noResults.get() && !this.isLoading.get();
+            },
+            'resultsMobile': () => {
+                if (!this.noResults.get() && !this.isLoading.get()) {
+                    var columns = this.getColumns()
+                    .filter((column) => {
+                        return column.mobile == true;
+                    })
+                    .map((column) => {
                         return {
-                            th: column.translation,
-                            td: row[column.name]
+                            name: column.name,
+                            translation: TAPi18n.__('vessels.' + column.name)
                         };
                     });
+
+                    return this.getRows()
+                    .map((row) => {
+                        return columns.map((column) => {
+                            return {
+                                th: column.translation,
+                                td: row[column.name]
+                            };
+                        });
+                    });
+                }
+
+                return false;
+            },
+            'moreResultsAvailable': () => {
+                return this.db.find(this.searchCriteria(this.regEx.get()), {
+                    sort: {
+                        name: 1
+                    }
+                }).fetch().length == this.maxResultsShown;
+            },
+            'totalFound': () => {
+                var counters = Counts.find({
+                    _id: this.publicationName
+                }, {
+                    fields: {
+                        count: 1
+                    }
                 });
-            }
 
-            return false;
-        });
-
-        Template.registerHelper('moreResultsAvailable', () => {
-            return this.db.find(this.searchCriteria(this.regEx.get()), {
-                sort: {
-                    name: 1
+                if (counters.count() > 0) {
+                    return counters.fetch()[0].count;
                 }
-            }).fetch().length == this.maxResultsShown;
-        });
-
-        Template.registerHelper('totalFound', () => {
-            var counters = Counts.find({
-                _id: this.publicationName
-            }, {
-                fields: {
-                    count: 1
-                }
-            });
-
-            if (counters.count() > 0) {
-                return counters.fetch()[0].count;
+                return '';
+            },
+            'maxResultsShown': () => {
+                return this.maxResultsShown;
             }
-            return '';
-        });
-
-        Template.registerHelper('maxResultsShown', () => {
-            return this.maxResultsShown;
         });
     }
 
     registerOnCreated() {
-        Template[this.templateName].onCreated(() => {
+        Template.SearchForm.onCreated(() => {
             this.searchString.set('');
             this.isLoading.set(false);
             this.noResults.set(true);
@@ -185,7 +175,7 @@ module.exports = class SearchForm {
     }
 
     registerOnRendered() {
-        Template[this.templateName].onRendered(() => {
+        Template.SearchForm.onRendered(() => {
             $('#search').keyup((e) => {
                 this.updateSearch(e.target.value);
             });
@@ -200,7 +190,7 @@ module.exports = class SearchForm {
     }
 
     registerOnDestroyed() {
-        Template[this.templateName].onDestroyed(() => {
+        Template.SearchForm.onDestroyed(() => {
             $('body').removeClass('md-skin');
             $('body').removeClass('top-navigation');
             $('body').attr('type', '');
@@ -208,7 +198,7 @@ module.exports = class SearchForm {
     }
 
     registerEvents() {
-        Template[this.templateName].events({
+        Template.SearchForm.events({
             'click #more': (e) => {
                 this.isLoading.set(true);
                 this.doSubscribe(true);
