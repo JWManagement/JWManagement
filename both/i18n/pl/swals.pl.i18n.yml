@@ -1,8 +1,8 @@
 swal:
     error: Błąd
-    publisherInOtherTeam: Jeden z zaznaczonych głosicieli jest już członkiem innego zespołu. Proszę usuń go najpierw z tamtego zespołu.
-    onlyTeam: Nie możesz usunąć tego zespołu. To jest jedyny zespół dla tej zmiany. Każda zmiana musi mieć przypisany przynajmniej jeden zespół.
-    noTeamleader: Każdy zespół musi posiadać koordynatora zespołu. Niestety ten głosiciel nie ma uprawnień do występowania w tej roli.
+    publisherInOtherTeam: Jeden z zaznaczonych głosicieli jest już członkiem innej zmiany. Proszę usuń go najpierw z tamtej zmiany.
+    onlyTeam: Nie możesz usunąć tej lokalizacii. To jest jedyna lokalizacja dla tej zmiany. Każda zmiana musi mieć przypisany przynajmniej jedną lokalizację.
+    noTeamleader: Każdy zmiana musi posiadać koordynatora zmiany. Niestety ten głosiciel nie ma uprawnień do występowania w tej roli.
     ownPermission: Nie możesz odebrać sobie uprawnień. Może to zrobić tylko inny administrator.
     approvalInformed: Ten współpracownik został już poinformowany o zaakceptowaniu jego zgłoszenia.
     declinementInformed: Ten współpracownik został już poinformowany o tym, że jego zgłoszenie zostało odrzucone.
@@ -45,23 +45,23 @@ swal:
             cancel: Anuluj
         teamUpdate:
             user:
-                title: Koordynator zespołu już został poinformowany
-                text: Koordynator zespołu jest już poinformowany. Czy chesz wysłać e-mail z tą aktualizacją do niego?
+                title: Koordynator zmiany już został poinformowany
+                text: Koordynator zmiany jest już poinformowany. Czy chesz wysłać e-mail z tą aktualizacją do niego?
                 confirm: Tak
                 cancel: Nie
             general:
                 title: Czy jesteś pewny?
-                text: Poinformowani głosciele otrzymają maila z zaktualizowanymi informacji o tym zespole.
+                text: Poinformowani głosciele otrzymają maila z zaktualizowanymi informacji o tej zmianie.
                 confirm: Tak
                 cancel: Nie
         understaffed:
             title: Poinformować głosiciela?
-            text: Poinformować wszystkich głosicieli o niepełnych grupach?
+            text: Poinformować wszystkich głosicieli o niepełnych zmianach?
             confirm: Tal
             cancel: Nie
             teamleader:
-                title: Poinformować koordynatora zespołu?
-                text: Czy poinformować wszystkich koordynatorów zespołów?
+                title: Poinformować koordynatora zmiany?
+                text: Czy poinformować wszystkich koordynatorów zmian?
                 confirm: Tak
                 cancel: Nie
     add:
@@ -93,10 +93,10 @@ swal:
             confirm: Stwórz
             cancel: Anuluj
         team:
-            title: Dodaj nowy zespół
+            title: Dodaj nową lokalizację
             text: ''
             placeholder: Nazwa
-            inputError: Niepoprawna nazwa zespołu!
+            inputError: Niepoprawna nazwa lokalizacji!
             confirm: Dodaj
             cancel: Anuluj
         template:
@@ -218,8 +218,8 @@ swal:
             confirm: Usuń
             cancel: Anuluj
         team:
-            title: Na pewno usunąć ten zespół?
-            text: Ten zespół zostanie usunięty ze wszystkich istniejących zmian zaplanowanych w przyszłości. Zaakceptowane miejsca z tych zmian zostaną ponownie dla innych zespołów. <br><br> Any potwierdzić wpisz "usuń".
+            title: Na pewno usunąć tą lokalizację?
+            text: Ta lokalizacja zostanie usunięta ze wszystkich istniejących zmian zaplanowanych w przyszłości. <br><br> Any potwierdzić wpisz "usuń".
             checkInput: usuń
             placeholder: Proszę wpisz "%s" aby potwierdzić
             inputError: Wpisany tekst nie zgadza się. Wpisz słowo "%s"
@@ -243,7 +243,7 @@ swal:
             cancel: Nie
         cancel:
             title: Czy jesteś pewny?
-            text: Zespół zostanie usunięty jeżeli jesteś ostatnim współpracownikiem.
+            text: Zmiana zostanie anulowana jeżeli jesteś ostatnim współpracownikiem.
             confirm: Tak, anuluj moje zgłoszenie
             cancel: Nie
         decline:
@@ -253,21 +253,21 @@ swal:
             cancel: Nie
         maxReached:
             title: Za dużo wybranych użytkowników
-            text: Zmienić maksymalną ilość członków zespołu z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
+            text: Zmienić maksymalną ilość członków zmiany z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
             confirm: Zaakceptuj zaznaczonych
             cancel: Anuluj
         minNotReached:
             title: Za mało wybranych użytkowników
-            text: Zmienić minimalną ilość członków zespołu z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
+            text: Zmienić minimalną ilość członków zmiany z __attr1__ do __attr2__ i zaakceptować zaznaczonych?
             confirm: Zaakceptuj zaznaczonych
             cancel: Anuluj
         minReached:
             title: Na pewno odrzucić zgłoszenie współpracownika?
-            text: Minimalna ilość członków zespołu została osiągnięta. Jeżeli odrzucisz zgłoszenie tego użytkownika, system usunie ten zespół.
-            confirm: Usuń zespół
+            text: Minimalna ilość członków zmiany została osiągnięta. Jeżeli odrzucisz zgłoszenie tego użytkownika, system anuluje tą zmianę.
+            confirm: Anuluj zmianę
             cancel: Nie
         noNewTeamleader:
             title: Na pewno odrzucić zgłoszenie współpracownika?
-            text: Niestety w tym zespole nie ma innego dostępnego koordynatora zespołu. Jeżeli odrzucisz zgłoszenie tego użytkownika, system usunie ten zespół.
-            confirm: Usuń zespół
+            text: Niestety w tej zmianie nie ma innego dostępnego koordynatora zmiany. Jeżeli odrzucisz zgłoszenie tego użytkownika, system anuluje tą zmianę.
+            confirm: Anluj zmianę
             cancel: Nie

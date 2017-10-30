@@ -28,9 +28,9 @@ modal:
             top: Wybierz tydzień do którego ten szablon zostanie zastosowany:
             bottom: Wybierz szablonowy tydzień:
     cancelTeam:
-        title: Anuluj grupę
-        text: Opisz dlaczego ta grupa została anulowana. Wszyscy członkowie tej grupy dostaną tą wiadomość w mailu.
-        action: Anuluj grupę
+        title: Anuluj zmianę
+        text: Opisz dlaczego ta zmiana została anulowana. Wszyscy członkowie tej zmiany dostaną tą wiadomość w mailu.
+        action: Anuluj zmianę
     copyShift:
         title: Kopiuj zmianę
         text: Wybierz dni do których chesz skopiować tą zmianę
@@ -47,8 +47,8 @@ modal:
             shiftAdmin: Menadżer zmian ma uprawnienia Zmian grafiku ale również może tworzyć, zmieniać i usuwać zmiany.
             storeAdmin: Menadżer magazynu ma te same uprawnienia co Współpracownik ale może również oglądać sprawozdania i edytować magazyn.
             member: Członek jest to najbardziej podstawowa rola. Może oglądać Centrum Informacji.
-            teamleader: Kordynator grup wyznaczony przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
-            substituteTeamleader: Zastępca koordynatora grup.
+            teamleader: Kordynator zmian wyznaczony jest przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
+            substituteTeamleader: Zastępca koordynatora zmian.
             participant: Współpracownik widzi i wysyła prośby dotyczące wybranej zmiany dla wybranego Tagu.
             nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi grafik ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
     editProfilePicture:
@@ -60,25 +60,25 @@ modal:
         title: Edytuj informacje o zmianie
         mainData: Główne informacje
         tag: Tag
-        team: Grupa
-        teams: Grupy przypisane do tej zmiany
+        team: Zmiana
+        teams: Lokalizacje przypisane do tej zmiany
         helpText:
             tag: Ustaw Tag zmiany. Wszyscy użytkownicy z uprawnieniami do tego Tagu będą widzieć tą zmianę.
             scheduling: Jeżeli wybierzesz 'akceptuj automatycznie' prośby będą akcpetowane w momencie, kiedy zostanie osiągnięta minimalna liczba współpracowników.
-        addTeam: Dodaj nowy zespół
+        addTeam: Dodaj nową lokalizację
         teamMin: Minimalna ilość współpracowników:
         teamMax: Maksymalna ilość współpracowników:
         teamStart: Start:
         teamEnd: Koniec:
         teamPlace: Miejsce:
-        removeTeam: Usuń ten zespół
+        removeTeam: Usuń tą lokalizację
         noMeeting: Brak zbiórki
         action: Akcja:
         delete: Usuń
         switch: Grafik
         copyShift: Kopiuj zmianę
     editTeamPicture:
-        title: Zmień zdjęcie zespołu
+        title: Zmień zdjęcie lokalizacji
         currentPicture: Aktualne zdjęcie:
         hints: Te zdjęcie prawdopodobnie głosiciel będzie widział większe.
         noPictureUploaded: Nie masz wrzuconych żadnych zdjęć
@@ -106,29 +106,29 @@ modal:
         clickToEnlarge: Kliknij zdjęcie aby je powiększyć
         openLink: Zobacz powiązane informacje
         meetingAt: Zbiórka o
-        collapseTeam: Rozwiń informacje zespołu i punkty zbiórek
-        expandTeam: Rozszerz informacje o zespole i punktach zbiórek
+        collapseTeam: Zwiń informacje o lokalizacji i punktach zbiórek
+        expandTeam: Rozwiń informacje o lokalizacji i punktach zbiórek
         noParticipants: Brak współpracowników
         requestTeam: Zgłoś chęć współpracy
         requestTeamAgain: Zgłoś chęć współpracy ponownie
         requests: Prośby
-        cancelTeam: Anuluj zespół
-        cancelRequest: Anuluj prośbę
+        cancelTeam: Anuluj zmianę
+        cancelRequest: Anuluj zgłoszenie
         cancelParticipation: Anuluj współpracę
         addParticipant: Dodaj współpracownika
         unknownAge: Nieznany wiek
-        closedTeam: Ten zespół jest zamknięty. Nie możesz zgłosić chęci współpracy.
+        closedTeam: Ta zmiana jest zamknięta. Nie możesz zgłosić chęci współpracy.
         maximumReached: Osiągniętą maksymalną ilość współpracowników.
         noPermission: Nie masz uprawnień do wyznaczania użytkowników
-        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora grupy
-        alreadyTeamleader: Ten użytkownik jest już Koordynatora grupy
-        openTeam: Otwórz zespół
-        closeTeam: Zamknij zespół
+        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora zmian
+        alreadyTeamleader: Ten użytkownik jest już Koordynatorem zmian
+        openTeam: Otwórz zmianę
+        closeTeam: Zamknij zmianę
         sendUnderstaffed: Wyślij maila z informacją o braku współpracowników
         switch: Edyuj zmianę
-        existingTeamleaders: Koordynator grupy istnieje
-        noExistingTeamleader: Brakuje koordynatora grupy
-        notTeamleader: Brak koordynatora zespołu
+        existingTeamleaders: Koordynator zmiany istnieje
+        noExistingTeamleader: Brakuje koordynatora zmiany
+        notTeamleader: Brak koordynatora zmiany
         selected: Wybrane:
         of: z
         approveSelected: Zaakceptuj zaznaczonych
@@ -139,8 +139,8 @@ modal:
         lastDays: ostatnie %s dni
     shiftReport:
         title: Sprawozdanie
-        teamleader: Koordynator zespołu
-        substituteTeamleader: Zastępca koordynatora zespołu
+        teamleader: Koordynator zmiany
+        substituteTeamleader: Zastępca koordynatora zmiany
         publications: Publikacje
         occurrences: Zdarzenie
         store: Magazyn
@@ -191,21 +191,21 @@ modal:
         noParticipants: Brak współpracowników
         requestTeam: Zgłoś chęć współpracy
         requestTeamAgain: Zgłoś chęć współpracy ponownie
-        requests: Prośby
-        cancelRequest: Anuluj prośbę
+        requests: Zgłoszenia
+        cancelRequest: Anuluj zgłoszenie
         cancelParticipation: Anuluj współpracę
         addParticipant: Dodaj współpracownika
         unknownAge: Nieznany wiek
-        closedTeam: Ten zespół jest zamknięty. Nie możesz zgłosić chęci współpracy.
+        closedTeam: Ten zmiana jest zamknięta. Nie możesz zgłosić chęci współpracy.
         maximumReached: Osiągniętą maksymalną ilość współpracowników.
         noPermission: Nie masz uprawnień do wyznaczania użytkowników
-        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora grupy
-        alreadyTeamleader: Ten użytkownik jest już Koordynatora grupy
-        openTeam: Otwórz zespół
-        closeTeam: Zamknij zespół
+        noTeamleader: Ten użytkownik nie ma uprawnień Koordynatora zmian
+        alreadyTeamleader: Ten użytkownik jest już Koordynatorem zmian
+        openTeam: Otwórz zmianę
+        closeTeam: Zamknij zmianę
         switch: Edytuj zmianę
-        existingTeamleaders: Koordynator grupy istnieje
-        noExistingTeamleader: Brakuje koordynatora grupy
+        existingTeamleaders: Koordynator zmiany istnieje
+        noExistingTeamleader: Brakuje koordynatora zmiany
     position:
         title: Zaznacz pozycję lewym klawiszem myszy
     route:

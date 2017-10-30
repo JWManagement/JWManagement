@@ -20,8 +20,8 @@ role:
     shiftAdmin: Menadżer zmian
     storeAdmin: Menadżer magazynu
     member: Członek
-    teamleader: Koordynator grup
-    substituteTeamleader: Zasdtępca koordynatora grup
+    teamleader: Koordynator zmian
+    substituteTeamleader: Zasdtępca koordynatora zmian
     participant: Współpracownik
     nothing: Nic
     noPermission: Brak uprawnień
@@ -31,13 +31,13 @@ permissions:
     notShiftAdmin: Ten użytkownik nie jest menadżerem zmian
     notStoreAdmin: Ten użytkownik nie jest menadżerem magazynu
     notProjectParticipant: Ten użytkownik nie jest współpracownikiem tego projektu
-    notTeamleader: Ten użytkownik nie jest koordynatorem grup
+    notTeamleader: Ten użytkownik nie jest koordynatorem zmian
     notTagParticipant: Ten użytkownik nie jest współpracownikiem dla tego tagu
-    notTeamParticipant: Ten użytkownik nie jest współpracownikiem tej grupy
+    notTeamParticipant: Ten użytkownik nie jest współpracownikiem dla tej zmiany
 time:
     start: Start
     end: Koniec
-    suffix: godziny
+    suffix: godzina
     years: lata
     to: do
 scheduling:
