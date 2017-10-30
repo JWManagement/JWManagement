@@ -1,0 +1,58 @@
+body.md-skin[type='SearchForm'] {
+	background-color: #fff !important;
+	padding-top     : 100px;
+
+	.navbar {
+		box-shadow: none;
+	}
+
+	.search-title {
+		background-color: #e8e8e8;
+		font-size       : 14px;
+		padding         : 6px 10px;
+		color           : #777;
+	}
+
+	.results-desktop {
+		@media(max-width: 759px) {
+			display: none !important;
+		}
+	}
+
+	.results-mobile {
+		margin-left: 15px;
+		@media(min-width: 760px) {
+			display: none;
+		}
+
+		tr td,
+		tr th {
+			cursor       : pointer;
+			padding      : 10px 15px 10px 0;
+			font-size    : 15px;
+			text-align   : left;
+			border-bottom: 1px solid #eee;
+
+			b,
+			span {
+				display    : block;
+				margin     : 3px 0;
+				line-height: 1;
+				white-space: nowrap;
+
+				&:empty {
+					content: " ";
+				}
+			}
+		}
+
+		tr td.item {
+			width: 100%;
+		}
+
+		tr td.link {
+			color    : #ccc;
+			font-size: 20px;
+		}
+	}
+}
