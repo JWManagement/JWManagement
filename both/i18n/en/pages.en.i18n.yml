@@ -385,6 +385,19 @@ vessels:
 vessel:
     title: Vessel
     nameShort: Vessel
+    identificationSection: Identification data
+    name: Vessel name
+    flag: Flag
+    type: Type
+    callsign: Call sign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    visitSection: Last visit
+    lastVisit: Last visit
+    nextVisitAfter: Next visit after
+    languages: Languages
+    comments: Comments
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note

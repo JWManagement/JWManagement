@@ -1,16 +1,21 @@
 .navigation-wrapper
 	nav.navbar.navbar-fixed-top
-		+navbarBrand
-		ul.nav.navbar-top-links.navbar-right
-			li
-				a(href='')
-					i.fa.fa-pencil
+		if isEditMode
+			.navbar-header
+				a#cancelEditing.navbar-brand(href) Cancel
+			.navbar-header.navbar-right
+				a#saveChanges.navbar-brand(href) Save
+		else
+			+navbarBrand
+			.navbar-header.navbar-right
+				a#editEntity.navbar-brand(href) Edit
 
 form.form-horizontal
-	.section
-		.section-header Main
-		.section-content
-			.form-group
-				label.control-label.col-xs-2
-				.col-xs-10
-					input.form-control(type='text' placeholder='')
+	each sections
+		.section
+			.section-header {{getTranslatedKey header}}
+			.section-content
+				each contents
+					.form-group
+						.key.col-xs-3 {{getTranslatedKey key}}
+						.value.col-xs-9 {{value}}

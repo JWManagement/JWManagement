@@ -5,17 +5,19 @@ module.exports = class EntityForm {
     constructor(
         db,
         templateName,
-        publicationName
+        publicationName,
+        sections
     ) {
         this.isLoading = new ReactiveVar(true);
         this.noResults = new ReactiveVar(true);
         this.language = '';
         this.handle = null;
-        this.mode = 'edit';
+        this.mode = new ReactiveVar('view');
 
         this.db = db;
         this.templateName = templateName;
         this.publicationName = publicationName;
+        this.sections = sections;
 
         this.registerHelpers();
         this.registerOnCreated();
@@ -31,6 +33,15 @@ module.exports = class EntityForm {
             },
             'noResults': () => {
                 return this.noResults.get() && !this.isLoading.get();
+            },
+            'isEditMode': () => {
+                return this.mode.get() == 'edit';
+            },
+            'sections': () => {
+                return this.sections;
+            },
+            'getTranslatedKey': (key) => {
+                return TAPi18n.__(this.templateName + '.' + key);
             }
         });
     }
@@ -79,7 +90,15 @@ module.exports = class EntityForm {
 
     registerEvents() {
         Template.EntityForm.events({
-            // TODO: super events
+            'click #editEntity': () => {
+                this.mode.set('edit');
+            },
+            'click #cancelEditing': () => {
+                this.mode.set('view');
+            },
+            'click #saveChanges': () => {
+                this.mode.set('view');
+            }
         });
     }
 
