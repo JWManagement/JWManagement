@@ -18,7 +18,7 @@ module.exports = class SearchForm {
         this.isLoading = new ReactiveVar(false);
         this.noResults = new ReactiveVar(true);
         this.itemCount = new ReactiveVar(0);
-        this.awaitedCount = new ReactiveVar(0);
+        this.awaitedCount = new ReactiveVar(-1);
         this.regEx = new ReactiveVar(new RegExp(''));
         this.table = null;
         this.language = '';
@@ -108,12 +108,6 @@ module.exports = class SearchForm {
 
     registerOnCreated() {
         Template.SearchForm.onCreated(() => {
-            this.searchString.set('');
-            this.isLoading.set(false);
-            this.noResults.set(true);
-            this.itemCount.set(0);
-            this.awaitedCount.set(-1);
-
             Tracker.autorun(() => {
                 var tempLanguage = FlowRouter.getParam('language');
 
@@ -176,6 +170,10 @@ module.exports = class SearchForm {
 
     registerOnRendered() {
         Template.SearchForm.onRendered(() => {
+            if($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
+                $('#search').val(this.searchString.get());
+            }
+
             $('#search').keyup((e) => {
                 this.updateSearch(e.target.value);
             });
