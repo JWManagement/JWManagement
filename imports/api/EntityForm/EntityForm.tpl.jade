@@ -18,4 +18,7 @@ form.form-horizontal
 				each contents
 					.form-group
 						.key.col-xs-3 {{getTranslatedKey key}}
-						.value.col-xs-9 {{value}}
+						if dropdownContainer
+							.value.col-xs-9 {{getItemKeyDropdown key dropdownContainer}}
+						else
+							.value.col-xs-9 {{getItemKeyValue key}}

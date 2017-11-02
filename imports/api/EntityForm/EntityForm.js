@@ -13,6 +13,8 @@ module.exports = class EntityForm {
         this.language = '';
         this.handle = null;
         this.mode = new ReactiveVar('view');
+        this.itemId = '';
+        this.item = new ReactiveVar({});
 
         this.db = db;
         this.templateName = templateName;
@@ -42,6 +44,12 @@ module.exports = class EntityForm {
             },
             'getTranslatedKey': (key) => {
                 return TAPi18n.__(this.templateName + '.' + key);
+            },
+            'getItemKeyValue': (key) => {
+                return this.item.get()[key];
+            },
+            'getItemKeyDropdown': (key, container) => {
+                return TAPi18n.__(this.templateName + '.' + container + '.' + this.item.get()[key]);
             }
         });
     }
@@ -50,6 +58,11 @@ module.exports = class EntityForm {
         Template.EntityForm.onCreated(() => {
             this.isLoading.set(true);
             this.noResults.set(true);
+
+            this.itemId = FlowRouter.getParam('itemId');
+            var projectId = FlowRouter.getParam('projectId');
+
+            this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
 
             Tracker.autorun(() => {
                 var tempLanguage = FlowRouter.getParam('language');
@@ -61,12 +74,15 @@ module.exports = class EntityForm {
                 }
             });
 
-            return this.db.find().observeChanges({
+            return this.db.find({_id: this.itemId}).observe({
+                added: (item) => {
+                    this.item.set(item);
+                },
                 changed: () => {
-                    // TODO: show warning
+                    console.log('this item has changed');
                 },
                 removed: () => {
-                    // TODO: show error
+                    console.log('this item has been deleted');
                 }
             });
         });
@@ -77,6 +93,8 @@ module.exports = class EntityForm {
             $('body').addClass('md-skin');
             $('body').addClass('top-navigation');
             $('body').attr('type', 'EntityForm');
+
+            this.itemId = FlowRouter.getParam('itemId');
         });
     }
 
@@ -85,6 +103,10 @@ module.exports = class EntityForm {
             $('body').removeClass('md-skin');
             $('body').removeClass('top-navigation');
             $('body').attr('type', '');
+
+            if (this.handle !== null) {
+                this.handle.stop();
+            }
         });
     }
 

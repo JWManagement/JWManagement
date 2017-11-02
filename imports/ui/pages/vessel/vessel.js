@@ -20,7 +20,7 @@ var sections = [{
     }, {
         key: 'type',
         value: 'rc',
-        type: 'dropdown'
+        dropdownContainer: 'types'
     }, {
         key: 'callsign',
         value: '12341234'
