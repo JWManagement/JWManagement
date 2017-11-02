@@ -55,37 +55,7 @@ module.exports = class EntityForm {
     }
 
     registerOnCreated() {
-        Template.EntityForm.onCreated(() => {
-            this.isLoading.set(true);
-            this.noResults.set(true);
-
-            this.itemId = FlowRouter.getParam('itemId');
-            var projectId = FlowRouter.getParam('projectId');
-
-            this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
-
-            Tracker.autorun(() => {
-                var tempLanguage = FlowRouter.getParam('language');
-
-                if (this.language !== tempLanguage) {
-                    this.language = tempLanguage;
-
-                    // TODO: do stuff
-                }
-            });
-
-            return this.db.find({_id: this.itemId}).observe({
-                added: (item) => {
-                    this.item.set(item);
-                },
-                changed: () => {
-                    console.log('this item has changed');
-                },
-                removed: () => {
-                    console.log('this item has been deleted');
-                }
-            });
-        });
+        Template.EntityForm.onCreated(() => {});
     }
 
     registerOnRendered() {
@@ -95,6 +65,21 @@ module.exports = class EntityForm {
             $('body').attr('type', 'EntityForm');
 
             this.itemId = FlowRouter.getParam('itemId');
+            var projectId = FlowRouter.getParam('projectId');
+
+            this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
+
+            this.changeObserver = this.db.find({_id: this.itemId}).observe({
+                added: (item) => {
+                    this.item.set(item);
+                },
+                changed: () => {
+                    // TODO: to be handled later
+                },
+                removed: () => {
+                    // TODO: to be handled later
+                }
+            });
         });
     }
 
@@ -106,6 +91,10 @@ module.exports = class EntityForm {
 
             if (this.handle !== null) {
                 this.handle.stop();
+            }
+
+            if (this.changeObserver !== null) {
+                this.changeObserver.stop();
             }
         });
     }

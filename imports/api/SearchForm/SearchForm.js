@@ -33,7 +33,6 @@ module.exports = class SearchForm {
         this.getColumns = getColumns;
 
         this.registerHelpers();
-        this.registerOnCreated();
         this.registerOnRendered();
         this.registerOnDestroyed();
         this.registerEvents();
@@ -109,9 +108,19 @@ module.exports = class SearchForm {
         });
     }
 
-    registerOnCreated() {
-        Template.SearchForm.onCreated(() => {
-            Tracker.autorun(() => {
+    registerOnRendered() {
+        Template.SearchForm.onRendered(() => {
+            $('body').addClass('md-skin');
+            $('body').addClass('top-navigation');
+            $('body').attr('type', 'SearchForm');
+
+            if(this.searchString.get() != '') {
+                this.language = '';
+            }
+
+            var template = Template.instance();
+
+            template.autorun(() => {
                 var tempLanguage = FlowRouter.getParam('language');
 
                 if (this.language !== tempLanguage) {
@@ -137,7 +146,7 @@ module.exports = class SearchForm {
                 }
             });
 
-            Tracker.autorun(() => {
+            template.autorun(() => {
                 var ready = this.handle !== null && this.handle.ready();
                 var search = this.searchString.get();
 
@@ -155,7 +164,7 @@ module.exports = class SearchForm {
                 }
             });
 
-            this.db.find().observeChanges({
+            this.changeObserver = this.db.find().observeChanges({
                 added: () => {
                     this.reloadRowsIfIsUpdate()
                 },
@@ -168,11 +177,7 @@ module.exports = class SearchForm {
                     this.reloadRowsIfIsUpdate()
                 }
             });
-        });
-    }
 
-    registerOnRendered() {
-        Template.SearchForm.onRendered(() => {
             if($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
                 $('#search').val(this.searchString.get());
             }
@@ -183,10 +188,6 @@ module.exports = class SearchForm {
             $('#search').change((e) => {
                 this.updateSearch(e.target.value);
             });
-
-            $('body').addClass('md-skin');
-            $('body').addClass('top-navigation');
-            $('body').attr('type', 'SearchForm');
         });
     }
 
@@ -195,6 +196,14 @@ module.exports = class SearchForm {
             $('body').removeClass('md-skin');
             $('body').removeClass('top-navigation');
             $('body').attr('type', '');
+
+            if (this.handle !== null) {
+                this.handle.stop();
+            }
+
+            if (this.changeObserver !== null) {
+                this.changeObserver.stop();
+            }
         });
     }
 
