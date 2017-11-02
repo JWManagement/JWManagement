@@ -68,12 +68,15 @@ module.exports = class SearchForm {
 
                     return this.getRows()
                     .map((row) => {
-                        return columns.map((column) => {
-                            return {
-                                th: column.translation,
-                                td: row[column.name]
-                            };
-                        });
+                        return {
+                            _id: TAPi18n.__(FlowRouter.current().path + '/' + row._id),
+                            columns: columns.map((column) => {
+                                return {
+                                    th: column.translation,
+                                    td: row[column.name]
+                                };
+                            })
+                        };
                     });
                 }
 
@@ -152,7 +155,7 @@ module.exports = class SearchForm {
                 }
             });
 
-            return this.db.find().observeChanges({
+            this.db.find().observeChanges({
                 added: () => {
                     this.reloadRowsIfIsUpdate()
                 },

@@ -25,13 +25,13 @@ table#table.table.table-stripped.results-desktop
 if resultsMobile
 	table.results-mobile
 		each resultsMobile
-			a(href='/en/yeQQzgQrXtAGrcuJt/vessels/59a8fc91071416195daa2a5c')
+			a(href='{{_id}}')
 				tr
 					th
-						each this
+						each columns
 							b {{th}}:
 					td.item
-						each this
+						each columns
 							span {{valueOrDash td}}
 					td.link
 						i.fa.fa-chevron-right
