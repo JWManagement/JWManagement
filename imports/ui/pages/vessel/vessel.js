@@ -4,7 +4,7 @@ import {
 
 import './vessel.tpl.jade';
 
-const EntityForm = require('/imports/api/EntityForm/EntityForm.js')
+const EntityForm = require('/imports/api/EntityForm/EntityForm.js');
 
 var db = Vessels;
 var templateName = 'vessel';
@@ -12,44 +12,33 @@ var publicationName = 'vessel';
 var sections = [{
     header: 'identificationSection',
     contents: [{
-        key: 'name',
-        value: 'Super vessel 8000'
+        key: 'name'
     }, {
-        key: 'flag',
-        value: 'Germany'
+        key: 'flag'
     }, {
         key: 'type',
-        value: 'rc',
         dropdownContainer: 'types'
     }, {
-        key: 'callsign',
-        value: '12341234'
+        key: 'callsign'
     }, {
-        key: 'eni',
-        value: '12341234'
+        key: 'eni'
     }, {
-        key: 'imo',
-        value: '12341234'
+        key: 'imo'
     }, {
-        key: 'mmsi',
-        value: '12341234'
+        key: 'mmsi'
     }],
 }, {
     header: 'visitSection',
     contents: [{
-        key: 'lastVisit',
-        value: '12341234'
+        key: 'lastVisit'
     }, {
-        key: 'nextVisitAfter',
-        value: '12341234'
+        key: 'nextVisitAfter'
     }, {
-        key: 'languages',
-        value: '12341234'
+        key: 'languages'
     }, {
-        key: 'comments',
-        value: '12341234'
+        key: 'comments'
     }]
-}]
+}];
 
 new EntityForm(
     db,
