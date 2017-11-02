@@ -1,14 +1,9 @@
 .navigation-wrapper
 	nav.navbar.navbar-fixed-top
-		if isEditMode
 			.navbar-header
 				a#cancelEditing.navbar-brand(href) Cancel
 			.navbar-header.navbar-right
 				a#saveChanges.navbar-brand(href) Save
-		else
-			+navbarBrand
-			.navbar-header.navbar-right
-				a#editEntity.navbar-brand(href) Edit
 
 form.form-horizontal
 	each sections
@@ -18,7 +13,8 @@ form.form-horizontal
 				each contents
 					.form-group
 						.key.col-xs-3 {{getTranslatedKey key}}
+						.value.col-xs-9
 						if dropdownContainer
 							.value.col-xs-9 {{getItemKeyDropdown key dropdownContainer}}
 						else
-							.value.col-xs-9 {{getItemKeyValue key}}
+								input(type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')

@@ -12,7 +12,6 @@ module.exports = class EntityForm {
         this.noResults = new ReactiveVar(true);
         this.language = '';
         this.handle = null;
-        this.mode = new ReactiveVar('view');
         this.itemId = '';
         this.item = new ReactiveVar({});
 
@@ -35,9 +34,6 @@ module.exports = class EntityForm {
             },
             'noResults': () => {
                 return this.noResults.get() && !this.isLoading.get();
-            },
-            'isEditMode': () => {
-                return this.mode.get() == 'edit';
             },
             'sections': () => {
                 return this.sections;
@@ -101,14 +97,11 @@ module.exports = class EntityForm {
 
     registerEvents() {
         Template.EntityForm.events({
-            'click #editEntity': () => {
-                this.mode.set('edit');
-            },
-            'click #cancelEditing': () => {
-                this.mode.set('view');
+            'click #cancelChanges': () => {
+                // TODO: check for changed content and ask for "really?!"
             },
             'click #saveChanges': () => {
-                this.mode.set('view');
+                // TODO: display sth like "CHANGED!"
             }
         });
     }

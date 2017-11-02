@@ -46,6 +46,10 @@ body.md-skin[type='EntityForm'] {
 				border-bottom : 1px solid #ddd;
 			}
 
+			.value input {
+				border: 0;
+			}
+
 			.key {
 				color        : #777;
 				text-align   : right;
