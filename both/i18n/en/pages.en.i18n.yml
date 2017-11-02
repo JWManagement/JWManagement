@@ -385,6 +385,7 @@ vessels:
 vessel:
     title: Vessel
     nameShort: Vessel
+    back: Back
     identificationSection: Identification data
     name: Vessel name
     flag: Flag
