@@ -179,7 +179,10 @@ module.exports = class SearchForm {
             });
 
             if($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
-                $('#search').val(this.searchString.get());
+                var search = this.searchString.get();
+                $('#search').val(search);
+                this.searchString.set('');
+                this.updateSearch(search);
             }
 
             $('#search').keyup((e) => {
