@@ -30,9 +30,11 @@ var sections = [{
 }, {
     header: 'visitSection',
     contents: [{
-        key: 'lastVisit'
+        key: 'lastVisit',
+        type: 'date'
     }, {
-        key: 'nextVisitAfter'
+        key: 'nextVisitAfter',
+        type: 'date'
     }]
 }];
 

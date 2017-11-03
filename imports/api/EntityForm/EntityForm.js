@@ -45,6 +45,9 @@ module.exports = class EntityForm {
             },
             'getItemKeyDropdown': (key, container) => {
                 return TAPi18n.__(this.templateName + '.' + container + '.' + this.item.get()[key]);
+            },
+            'isDate': (elem) => {
+                return elem.type == 'date';
             }
         });
     }

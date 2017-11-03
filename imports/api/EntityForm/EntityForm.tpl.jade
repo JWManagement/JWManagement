@@ -13,7 +13,9 @@ form.form-horizontal
 					.form-group
 						.key.col-xs-3 {{getTranslatedKey key}}
 						.value.col-xs-9
-							if dropdownContainer
+							if isDate this
+								input(type='date' placeholder='{{getTranslatedKey key}}' value='{{value}}')
+							else if dropdownContainer
 								.value.col-xs-9 {{getItemKeyDropdown key dropdownContainer}}
 							else
 								input(type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')
