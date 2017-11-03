@@ -21,7 +21,6 @@ module.exports = class EntityForm {
         this.sections = sections;
 
         this.registerHelpers();
-        this.registerOnCreated();
         this.registerOnRendered();
         this.registerOnDestroyed();
         this.registerEvents();
@@ -48,10 +47,6 @@ module.exports = class EntityForm {
                 return TAPi18n.__(this.templateName + '.' + container + '.' + this.item.get()[key]);
             }
         });
-    }
-
-    registerOnCreated() {
-        Template.EntityForm.onCreated(() => {});
     }
 
     registerOnRendered() {
