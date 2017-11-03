@@ -33,10 +33,6 @@ var sections = [{
         key: 'lastVisit'
     }, {
         key: 'nextVisitAfter'
-    }, {
-        key: 'languages'
-    }, {
-        key: 'comments'
     }]
 }];
 

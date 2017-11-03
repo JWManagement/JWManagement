@@ -377,9 +377,6 @@ vessels:
     harborGroup: Hafengruppe
     nextVisit: Nächster Besuch frühestens
     languages: Sprache(n) an Bord
-    languagesPlaceholder: Keine personenbezogenen Daten!
-    comments: Bemerkungen
-    commentsPlaceholder: Keine personenbezogenen Daten!
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
