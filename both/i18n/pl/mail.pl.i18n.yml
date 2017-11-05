@@ -9,11 +9,11 @@ mail:
         text2: W przypadków problemów śmiało pisz do nas.<br>Życzymy Ci dużo radości w korzystaniu z JW Management.<br>Twoi bracia z JW Management
         button: Zaczynamy!
     teamCancellation:
-        subject: Grupa anulowana
-        headline: Grupa została anulowana.
+        subject: Zmiana anulowana
+        headline: Zmiana została anulowana.
         hello: Witaj
         text: Niestety chcieliśmy poinformować Cię, że twoja zmiana <b>__date__</b> o <b>__time__</b> godzinie został <u>anulowany</u>.
-        missingParticipant: Brakuje współpracownika. Jeżeli będzie wystarczająco współpracowników grupa może powstać ponownie.
+        missingParticipant: Aktualnie brakuje współpracownika. Jeżeli będzie wystarczająco współpracowników zmiana może powstać ponownie.
     confirmation:
         subject: Nowa prośba zaakceptowana
         headline: Twoja prośba została zaakceptowana!
@@ -30,19 +30,19 @@ mail:
     reversal:
         subject: Usunięcie
         hello: Witaj
-        text1: Zostałeś usunięty z następującej grupy:
+        text1: Zostałeś usunięty z następującej zmiany:
         datetime: __date__ o godzinie __time__
     teamUpdate:
-        subject: Grupa została zmieniona
+        subject: Zmiana została zmieniona
         _changed: zmieniona.
         changed:
             participant: Współpracownik
             time: Czas
             location: Miejsce
-            leader: Koordynator grupy
+            leader: Koordynator zmiany
         hello: Witaj
-        text1: Zostałeś oznaczony jako koordynator grupy więc informujemy Cię o zmianach w Twojej grupie.
-        text2: Tutaj jest aktualny skład grupy
+        text1: Zostałeś oznaczony jako koordynator zmiany.
+        text2: Tutaj jest aktualny skład zmiany
         datetime: __date__ o godzinie __time__
     joinProject:
         subject: Dołączyłeś do projektu
@@ -51,18 +51,18 @@ mail:
         text1: Zostałeś zaproszony do następującego projektu
         text2: Znajdziesz ten projekt w zakładce "Moje Projekty".<br>Miłego dnia!
     understaffed:
-        subject: Grupa nie zebrana
-        headline: Grupa nie została zebrana
+        subject: Zmiana nie została skompletowana
+        headline: Zmiana nie została skompletowana
         hello: Witaj
-        text1: Następująca Grupa nie została zebrana i potrzebuje
-        text2: Proszę zobacz czy możesz jakoś pomóc tej grupie.
+        text1: Następująca zmiana nie została zebrana i potrzebuje
+        text2: Proszę zobacz czy możesz jakoś pomóc tej zmianie.
         datetime: __date__ o godzinie __time__
     toOrga:
-        hello: Witaj ogranizatorze grupy
+        hello: Witaj koordynatorze zmiany
         subject:
-            teamCancel: Grupa została anulowana
+            teamCancel: Zmiana została anulowana
         text:
-            teamCancel: Grupa <b>"__team__"</b> na <b>__date__</b> o godzinie <b>__time__</b> została <u>anulowana</u>.
+            teamCancel: Zmiana <b>"__team__"</b> na <b>__date__</b> o godzinie <b>__time__</b> została <u>anulowana</u>.
     resetPassword:
         subject: Zresetuj hasło
         headline: Zresetuj swoje hasło

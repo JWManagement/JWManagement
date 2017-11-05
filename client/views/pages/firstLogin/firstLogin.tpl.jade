@@ -11,11 +11,11 @@
 						if noState
 							.center-align
 								.col-lg-12.m-t
-									button#createAccount.btn.btn-primary I need to create an account
+									button#createAccount.btn.btn-primary {{_ "firstLogin.buttonCreateAccount"}}
 								.col-lg-12.m-t
 									| - or -
 								.col-lg-12.m-t
-									button#haveAccount.btn.btn-primary I already have an account
+									button#haveAccount.btn.btn-primary {{_ "firstLogin.buttonHaveAccount"}}
 						else
 							.col-lg-12
 								form.m-t
@@ -31,7 +31,7 @@
 												input#agreeTerms(type='checkbox')
 												label(for='agreeTerms') {{{_ 'firstLogin.agreeTerms'}}}
 										button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}
-										button#haveAccount.btn.btn-white.block.full-width.m-t I already have an account
+										button#haveAccount.btn.btn-white.block.full-width.m-t {{_ "firstLogin.buttonHaveAccount"}}
 									else
 										.form-group
 											input#username.form-control(type='text' placeholder='{{_ "input.username"}}' required)
