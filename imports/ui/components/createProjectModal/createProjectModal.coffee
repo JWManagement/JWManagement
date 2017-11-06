@@ -19,15 +19,17 @@ Template.createProjectModal.onRendered ->
 			tagId += possible.charAt(Math.floor(Math.random() * possible.length))
 		break unless Projects.findOne(projectId)?
 
+	splittedName = FlowRouter.getQueryParam('name').split(' ')
+
 	$('#projectId').val(projectId)
 	$('#projectName').val(FlowRouter.getQueryParam('projectName'))
 	$('#email').val(FlowRouter.getQueryParam('email'))
-	$('#firstName').val(FlowRouter.getQueryParam('name').split(' ')[0])
-	$('#lastName').val(FlowRouter.getQueryParam('name'))
+	$('#firstName').val(splittedName[0])
+
+	splittedName[0] = ''
+	$('#lastName').val(splittedName.join(' ').substring(1))
 	$('#tagId').val(tagId)
-	$('#tagName').val('Trolley/Public Witnessing')
 	$('#teamId').val(teamId)
-	$('#teamName').val('Standort/Location/Route1')
 
 Template.createProjectModal.events
 
@@ -71,3 +73,11 @@ Template.createProjectModal.events
 						$('#projectString').keyup()
 		else
 			swal 'Please fill out all the fields', '', 'error'
+
+	'change #language': (e) ->
+		if e.target.value == 'de'
+			$('#tagName').val('Trolley')
+			$('#teamName').val('Standort/Route 1')
+		else
+			$('#tagName').val('Public Witnessing')
+			$('#teamName').val('Location/Route 1')

@@ -6,7 +6,7 @@
 				h2.m-b-none Create project
 			.modal-body
 				form.form-horizontal
-					.form-group
+					.form-group.hidden
 						.col-sm-12.m-b-xs
 							label.control-label Project ID
 						.col-sm-12
@@ -35,8 +35,8 @@
 						.col-sm-12.m-b-xs
 							label.control-label Language
 						.col-sm-12
-							input#language.form-control(type='text' placeholder='Language' value='en')
-					.form-group
+							input#language.form-control(type='text' placeholder='Language (de/en)')
+					.form-group.hidden
 						.col-sm-12.m-b-xs
 							label.control-label Tag ID
 						.col-sm-12
@@ -46,7 +46,7 @@
 							label.control-label Tag Name
 						.col-sm-12
 							input#tagName.form-control(type='text' placeholder='Tag Name')
-					.form-group
+					.form-group.hidden
 						.col-sm-12.m-b-xs
 							label.control-label Team ID
 						.col-sm-12
