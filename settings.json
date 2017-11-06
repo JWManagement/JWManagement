@@ -5,9 +5,5 @@
 				"trackingId": "UA-70976865-1"
 			}
 		}
-	},
-	"PrerenderIO": {
-		"prerenderServiceUrl": "http://localhost:3000/",
-		"token": "z2nMr1jIoWf5M4aKY8bN"
 	}
 }
