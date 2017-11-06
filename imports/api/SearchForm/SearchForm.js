@@ -55,28 +55,28 @@ module.exports = class SearchForm {
             'resultsMobile': () => {
                 if (!this.noResults.get() && !this.isLoading.get()) {
                     var columns = this.getColumns()
-                    .filter((column) => {
-                        return column.mobile == true;
-                    })
-                    .map((column) => {
-                        return {
-                            name: column.name,
-                            translation: TAPi18n.__('vessels.' + column.name)
-                        };
-                    });
+                        .filter((column) => {
+                            return column.mobile == true;
+                        })
+                        .map((column) => {
+                            return {
+                                name: column.name,
+                                translation: TAPi18n.__('vessels.' + column.name)
+                            };
+                        });
 
                     return this.getRows()
-                    .map((row) => {
-                        return {
-                            _id: TAPi18n.__(FlowRouter.current().path + '/' + row._id),
-                            columns: columns.map((column) => {
-                                return {
-                                    th: column.translation,
-                                    td: row[column.name]
-                                };
-                            })
-                        };
-                    });
+                        .map((row) => {
+                            return {
+                                _id: TAPi18n.__(FlowRouter.current().path + '/' + row._id),
+                                columns: columns.map((column) => {
+                                    return {
+                                        th: column.translation,
+                                        td: row[column.name]
+                                    };
+                                })
+                            };
+                        });
                 }
 
                 return false;
@@ -114,7 +114,7 @@ module.exports = class SearchForm {
             $('body').addClass('top-navigation');
             $('body').attr('type', 'SearchForm');
 
-            if(this.searchString.get() != '') {
+            if (this.searchString.get() != '') {
                 this.language = '';
             }
 
@@ -178,7 +178,7 @@ module.exports = class SearchForm {
                 }
             });
 
-            if($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
+            if ($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
                 var search = this.searchString.get();
                 $('#search').val(search);
                 this.searchString.set('');
@@ -222,6 +222,15 @@ module.exports = class SearchForm {
                         createNew: true
                     });
                 });
+            },
+            'click .results-desktop tr': (e) => {
+                FlowRouter.go(
+                    FlowRouter.path('/:l/:p/vessels/:v', {
+                        l: TAPi18n.getLanguage(),
+                        p: FlowRouter.getParam('projectId'),
+                        v: $(e.target).closest('tr').find('td').first().html()
+                    })
+                );
             }
         });
     }

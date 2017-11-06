@@ -17,6 +17,10 @@ body.md-skin[type='SearchForm'] {
 		@media(max-width: 759px) {
 			display: none !important;
 		}
+
+		tr {
+			cursor: pointer;
+		}
 	}
 
 	.results-mobile {
