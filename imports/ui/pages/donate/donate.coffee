@@ -1,0 +1,1 @@
+import './donate.tpl.jade'

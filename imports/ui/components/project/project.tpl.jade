@@ -1,0 +1,59 @@
+with getProject
+	.project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
+		if multipleTags
+			.tags-popup.row
+				.team-link.col-xs-6.col-sm-4.m-b-md.center-align
+					a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
+						.m-t-xs.m-b-sm
+							i.fa.fa-calendar-check-o.fa-3x
+						p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
+				each tag in tags
+					if isTagParticipant tag._id _id
+						.team-link.col-xs-6.col-sm-4.m-b-md.center-align
+							a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
+								if tag.img
+									img(src='/img/{{tag.img}}.png')
+								else
+									i.fa.fa-users.fa-4x
+								p.project-link-caption {{tag.name}}
+		if isProjectShiftOrStoreAdmin _id
+			// OR IS VESSEL PROJECT
+			.admin-popup.row
+				each btn in buttons
+					if dependenciesMatched btn.dependency
+						if isInRole btn.role _id
+							.admin-link.col-xs-6.col-sm-4.m-b-md.center-align
+								a.btn.btn-primary.btn-lg(href="{{pathFor btn.route projectId=_id language=langTag}}")
+									.m-t-xs.m-b-sm
+										i(class="fa fa-3x fa-{{btn.icon}}")
+									p.project-link-caption {{getName btn.route}}
+		.ibox
+			.ibox-content
+				h1.m-b-md {{name}}
+				.news-wrapper.clearfix
+					.news-content
+						if isInRole 'admin' _id
+							button#editNews.btn.btn-primary.btn-sm.btn-circle.fa.fa-pencil.pull-right(title="{{_ 'dashboard.editNews'}}")
+						if newsThere
+							p.news {{{news.text}}}
+							p.news-date.inline {{_ 'dashboard.newsFrom'}} {{format news.date '' 'DD.MM.YYYY HH:mm'}}
+						else
+							| {{_ 'dashboard.noNews'}}
+					if isInRole 'admin' _id
+						.news-editor.hidden
+							textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
+							button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
+							button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
+							.chars-left 500/500
+				.link-wrapper
+					a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
+						i.fa.fa-book
+						p.project-link-caption {{_ 'wiki.nameShort'}}
+					a#toShifts.btn.btn-primary.project-link(href="{{pathFor 'shifts' projectId=_id language=langTag}}")
+						i.fa.fa-calendar-check-o
+						p.project-link-caption {{_ 'shifts.name'}}
+					if isProjectShiftOrStoreAdmin _id
+						a#toAdmin.btn.btn-primary.project-link(href)
+							i.fa.fa-gear
+							p.project-link-caption {{_ 'admin.nameShort'}}
+			+understaffedShiftsList shifts=understaffedShifts

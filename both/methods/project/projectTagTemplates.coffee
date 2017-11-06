@@ -13,8 +13,8 @@ Meteor.methods
 				weekId: weekId
 				name: name
 				interval: 'm'
-				startWeek: moment(new Date).format('GGGG[W]WW')
-				endWeek: moment(new Date).format('GGGG[W]WW')
+				startWeek: moment().format('GGGG[W]WW')
+				endWeek: moment().format('GGGG[W]WW')
 				visiblePeriod: 8
 
 		Weeks.insert

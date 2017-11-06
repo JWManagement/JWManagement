@@ -1,3 +1,5 @@
+import '/imports/ui/components/allUsers/server/support.users.coffee'
+
 import './allUsers.tpl.jade'
 
 searchString = new ReactiveVar

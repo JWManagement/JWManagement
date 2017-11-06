@@ -1,0 +1,24 @@
+@import "../../../styles/variables";
+
+.dashboard-wrapper {
+	.content {
+		background-color: #efeff4;
+	}
+
+	.bar-subheader {
+		height       : auto;
+		position     : relative;
+		padding      : 15px 10px 25px;
+		border-bottom: 0;
+
+		h2,
+		p {
+			position: relative;
+			margin  : 0;
+		}
+
+		h2 {
+			color: $indigo;
+		}
+	}
+}

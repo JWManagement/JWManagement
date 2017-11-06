@@ -13,10 +13,6 @@ Messages.deny
 
 Messages.schema = new SimpleSchema
 
-	_id:
-		type: String
-		regEx: SimpleSchema.RegEx.Id
-		autoValue: -> Random.id()
 	createdAt:
 		type: Date
 		autoValue: -> new Date

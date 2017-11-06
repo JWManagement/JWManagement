@@ -1,7 +1,7 @@
-#import { Projects } from '/imports/api/projects/projects.coffee'
-#import { Weeks } from '/imports/api/weeks/weeks.coffee'
-#import { Shifts } from '/imports/api/shifts/shifts.coffee'
-#import { Permissions } from './permissions.coffee'
+import { Projects } from '/imports/api/projects/projects.coffee'
+import { Weeks } from '/imports/api/weeks/weeks.coffee'
+import { Shifts } from '/imports/api/shifts/shifts.coffee'
+import { Permissions } from './permissions.coffee'
 
 export Validators =
 
@@ -23,7 +23,7 @@ export Validators =
 
 	project:
 
-		validId: => 'invalidProject' # Projects.findOne(@value, fields: _id: 1) || 'invalidProject'
+		validId: => Projects.findOne(@value, fields: _id: 1) || 'invalidProject'
 
 		isAdmin: => 'notAdmin' if !Roles.userIsInRole Meteor.userId(), Permissions.admin, @value
 

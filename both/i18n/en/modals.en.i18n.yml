@@ -117,8 +117,6 @@ modal:
         cancelParticipation: Cancel participation
         addParticipant: Add participant
         unknownAge: Unknown age
-        closedTeam: This team is closed. You can't request participation.
-        maximumReached: Maximum limit for team participants has already been reached
         noPermission: You don't have the permission to schedule users
         noTeamleader: This user doesn't have permission to be a team leader
         alreadyTeamleader: This user is already a team leader

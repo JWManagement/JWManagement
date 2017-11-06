@@ -1,0 +1,97 @@
+with data
+	.ibox
+		.ibox-title
+			h2 {{_ 'settings.tags.title'}}
+			.text-muted.m-t {{{_ 'settings.tags.helpText'}}}
+		.ibox-content
+			form.form-horizontal
+				if tags
+					each tags
+						.tag
+							.form-group
+								label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.id'}}
+								label.col-sm-10.col-lg-8.control-label.field-label {{_id}}
+							.form-group
+								label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.name'}}
+								.col-sm-10.col-lg-8
+									input#tagName.form-control(type='text' placeholder='{{_ "settings.tags.name"}}' value='{{name}}')
+							.form-group
+								label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.img.name'}}:
+								.col-sm-10.col-lg-8
+									.dropdown
+										button.btn.btn-white.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+											if img
+												span.m-r {{img}}
+											else
+												span.m-r users
+											span.caret.pull-right
+										ul.dropdown-menu.dropdown-menu-inverted
+											li.header.p-xs {{_ 'settings.tags.img.helpText'}}
+											li.inverted
+												a.changeImg(href img='none')
+													i.fa.fa-users.fa-3x
+											li.inverted
+												a.changeImg(href img='trolley')
+													img(src='/img/trolley.png' height='50px')
+											li.inverted
+												a.changeImg(href img='information-stand')
+													img(src='/img/information-stand.png' height='50px')
+											li.inverted
+												a.changeImg(href img='helmet')
+													img(src='/img/helmet.png' height='50px')
+											li.inverted
+												a.changeImg(href img='chef')
+													img(src='/img/chef.png' height='50px')
+											li.inverted
+												a.changeImg(href img='cleaning')
+													img(src='/img/cleaning.png' height='50px')
+											li.inverted
+												a.changeImg(href img='first-aid')
+													img(src='/img/first-aid.png' height='50px')
+											li.inverted
+												a.changeImg(href img='internet')
+													img(src='/img/internet.png' height='50px')
+											li.inverted
+												a.changeImg(href img='truck')
+													img(src='/img/truck.png' height='50px')
+											li.inverted
+												a.changeImg(href img='ship')
+													img(src='/img/ship.png' height='50px')
+							.form-group(tagId='{{_id}}')
+								label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.templates'}}
+								.col-sm-10.col-lg-8
+									ul.week-group
+										each templates
+											li.week-group-item
+												.dropdown
+													a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')
+														button.pull-right
+															i.fa.fa-wrench.fa-fw
+														| {{name}}
+													ul.dropdown-menu
+														li
+															a#showTemplate(href)
+																i.fa.fa-wrench.fa-fw
+																| {{_ 'settings.tags.showTemplate'}}
+														li
+															a#editTemplate(href)
+																i.fa.fa-pencil.fa-fw
+																| {{_ 'settings.tags.editTemplate'}}
+														li
+															a#removeTemplate(href)
+																i.fa.fa-trash.fa-fw
+																| {{_ 'settings.tags.removeTemplate'}}
+										li.week-group-item
+											a#addTemplate(href)
+												i.fa.fa-plus.fa-fw
+												| {{_ 'settings.tags.addTemplate'}}
+							.form-group
+								label.col-sm-2.col-lg-4.control-label {{_ 'settings.tags.action'}}
+								.col-sm-10.col-lg-8
+									#removeTag.btn.btn-danger.btn-circle.fa.fa-trash(title="{{_ 'settings.tags.remove'}}")
+						.hr-line-dashed
+				else
+					.center-align {{_ 'settings.tags.none'}}
+		.ibox-footer
+			.m-sm.center-align
+				#addTag.btn.btn-primary.btn-circle.fa.fa-plus(title="{{_ 'settings.tags.add'}}")

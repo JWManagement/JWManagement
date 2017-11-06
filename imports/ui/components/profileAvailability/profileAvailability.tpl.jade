@@ -1,0 +1,24 @@
+.ibox
+	.ibox-title
+		h2 {{_ 'profile.availability.title'}}
+		.text-muted.m-t {{_ 'profile.availability.helpText'}}
+	.ibox-content
+		.table-responsive
+			table.table.table-bordered.timetable
+				thead
+					tr
+						td
+						each hour in hours
+							td {{hour}}
+				tbody
+					each day in weekdays
+						tr(data-day="{{day}}")
+							td.day {{_ 'weekdays.' context=day}}
+							each hour in hours
+								td(class="{{isAvailable day hour}}" data-hour="{{hour}}")
+		.checkbox.checkbox-primary.checkbox-inline
+			input#shortTermCalls(type="checkbox" checked="{{profile.shortTermCalls}}")
+			label(for="shortTermCalls") {{_ 'profile.availability.shortTermCalls'}}
+		.checkbox.checkbox-primary.checkbox-inline
+			input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
+			label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}

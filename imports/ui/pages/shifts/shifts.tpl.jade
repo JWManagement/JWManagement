@@ -1,0 +1,23 @@
++modal template='showShift'
++modal template='editShift'
++modal template='copyShift'
++modal template='cancelTeam'
++modal template='addWeek'
++modal template='addParticipant'
++modal template='showShiftReport'
+.wrapper-content
+	.container-fluid
+		+shiftsHeader
+		.row.seven-cols.m-t-lg
+			with getWeek
+				each days
+					.col-md-1.col-xs
+						h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, DD.MM.'}}
+						+day
+			else
+				each weekDays
+					.col-md-1.col-xs
+						h2(class='{{today}}') {{date}}
+		if checkNoVisibleShifts
+			.noVisibleShifts.center-align.m-t-xl
+				h1 {{_ 'shifts.noVisibleShifts'}}

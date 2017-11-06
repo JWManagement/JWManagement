@@ -22,7 +22,7 @@ Template.addWeekModal.onCreated ->
 
 			weeks = Weeks.find
 				projectId: FlowRouter.getParam('projectId')
-				start: $gte: parseInt moment(new Date).isoWeekday(1).format 'YYYYDDDD'
+				start: $gte: parseInt moment().isoWeekday(1).format 'YYYYDDDD'
 			,
 				fields: date: 1
 				sort: start: 1

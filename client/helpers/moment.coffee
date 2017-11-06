@@ -39,7 +39,7 @@ Template.registerHelper 'formatTimeComparison', (a, b, showSuffix = true) ->
 
 Template.registerHelper 'formatIsoWeekday', (a) ->
 	TAPi18n.getLanguage()
-	moment(new Date).isoWeekday(a).format('dddd')
+	moment().isoWeekday(a).format('dddd')
 
 Template.registerHelper 'formatWeek', (a) ->
 	TAPi18n.getLanguage()

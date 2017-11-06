@@ -1,0 +1,53 @@
+with getShift
+	if showShift
+		.shift.vertical-timeline-block(class="{{shiftRelation}}")
+			.vertical-timeline-icon
+				if isRelation 'missing'
+					i.fa.fa-envelope
+				else if isRelation 'approved'
+					i.fa.fa-thumbs-o-up
+				else if isRelation 'pending'
+					i.fa.fa-question
+				else if isRelation 'declined'
+					i.fa.fa-thumbs-o-down
+			a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
+				if isRelation 'missing'
+					h2  {{_ "dashboard.missing"}}
+				else if isRelation 'approved'
+					h2  {{_ "dashboard.approved"}}
+				else if isRelation 'pending'
+					h2  {{_ "dashboard.pending"}}
+				else if isRelation 'declined'
+					h2  {{_ "dashboard.declined"}}
+				.tag
+					if multipleProjects
+						| {{getProjectName}},
+					| {{tag}}
+				span.vertical-date
+					| {{formatToNow date start}}
+					br
+					small {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}
+					br
+					small {{formatTimeComparison start end}}
+				if teams
+					.shift-teams.clearfix
+						each teams
+							div.shift-team(class="{{teamRelation}}")
+								.shift-team-header
+									i.fa(class="{{getIcon icon}}")
+									| {{name}}
+								if participants
+									.shift-team-participants
+										each participants
+											if thisTeamleader
+												u {{name}}
+												br
+										each participants
+											unless thisTeamleader
+												| {{name}}
+												br
+								else if pending
+									.shift-team-participants
+										each pending
+											u {{name}}
+											br
