@@ -1,8 +1,5 @@
 navigation:
-    undefined: Route not found
     welcome: Welcome
-    projects: Choose a project
-    dashboard: Dashboard
     home: Dashboard
     profile: My Profile
     shifts: Shifts
@@ -99,6 +96,10 @@ forgotPassword:
     text: Enter your email address and we will send you a link to reset your password.
     button: Send password reset link
     back: Back to Home Page
+    noUserForThisEmail: There is no account with this email address
+    multipleAccountsForThisEmail: There are multiple accounts with this email. Please specify a user.
+    emailMissing: Email address is missing
+    mailSent: You will receive an email shortly. Follow the link in the email to reset your password.
 resetPassword:
     name: Reset password
     text: Please enter a new password for %s %s.
@@ -209,7 +210,7 @@ shifts:
     openRequests: Open Requests
     automation: Automatic
     template: Template
-    noVisibleShifts: No shifts found for this week
+    noVisibleShifts: No shifts by that tag this week
     start: Start
     end: End
     visibility: Visibility:
@@ -222,7 +223,6 @@ shifts:
     hideNames: Hide all names in the shifts
     showNames: Show all names in the shifts
     editShifts: Edit the shifts
-    printWeek: Print week
     prevWeek: Go to the previous week
     nextWeek: Go to the next week
     sendWeek: Send confirmations for all shifts in this week per mail
@@ -418,7 +418,6 @@ firstLogin:
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
     agreeTerms: I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>
     button: Let's Go!
-<<<<<<< HEAD
     tokenError: Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.
     tokenMissing: Invalid link. Please visit the link from the email.
     usernameExists: This username is already in use. Please choose another one.
@@ -426,8 +425,6 @@ firstLogin:
     agreeTermsMissing: Please agree the terms of usage and the privacy policy.
     buttonCreateAccount: I need to create an account
     buttonHaveAccount: I already have an account
-=======
->>>>>>> feature/restructuring
 about:
     title: Legal Disclosure
     information: Information in accordance with section 5 TMG

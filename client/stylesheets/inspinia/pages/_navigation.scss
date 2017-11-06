@@ -1,0 +1,43 @@
+.navigation-wrapper {
+	a.dropdown-toggle {
+		display         : table;
+		padding         : 5px 10px 0 !important;
+		background-color: $indigo !important;
+
+		.jdenticon {
+			display      : table-cell;
+			padding-right: 10px;
+		}
+
+		.profile-picture {
+			border-radius: 20px;
+			margin-right : 10px;
+		}
+
+		.username {
+			display       : table-cell;
+			vertical-align: middle;
+			padding-bottom: 5px;
+		}
+	}
+
+	ul.dropdown-menu {
+		padding: 10px;
+		border : none;
+
+		&.dropdown-menu-right {
+			left: auto;
+		}
+
+		li a {
+			padding: 5px !important;
+			color  : #555;
+
+			&:hover {
+				padding         : 5px;
+				color           : #333 !important;
+				background-color: #eee !important;
+			}
+		}
+	}
+}

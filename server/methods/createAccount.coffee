@@ -1,5 +1,7 @@
 Meteor.methods
 
+	usernameAvailable: (username) -> if Meteor.users.findOne(username: username)? then false else true
+
 	createAccount: (userObject, projectId) ->
 		check userObject, Object
 		check { userId: Meteor.userId(), projectId: projectId}, isAdmin

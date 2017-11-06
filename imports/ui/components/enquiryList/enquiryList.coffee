@@ -1,7 +1,5 @@
 import { Messages } from '/imports/api/messages/messages.coffee'
 
-import '/imports/ui/components/enquiryList/server/support.messages.coffee'
-
 import './enquiryList.tpl.jade'
 
 Template.enquiryList.helpers

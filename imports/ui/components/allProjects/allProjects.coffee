@@ -1,7 +1,3 @@
-import { Projects } from '/imports/api/projects/projects.coffee'
-
-import '/imports/ui/components/allProjects/server/support.projects.coffee'
-
 import './allProjects.tpl.jade'
 
 searchString = new ReactiveVar

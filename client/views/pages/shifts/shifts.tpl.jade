@@ -1,0 +1,32 @@
+if queryParam 'showShift'
+	+shiftModal
+if queryParam 'editShift'
+	+editShiftModal
+if queryParam 'copyShift'
+	+copyShiftModal
+if queryParam 'cancelTeam'
+	+cancelTeamModal
+if queryParam 'addWeek'
+	+addWeekModal
+if queryParam 'addParticipant'
+	+addParticipantModal
+if queryParam 'showShiftReport'
+	+shiftReport
+.wrapper-content.animated.fadeInUp(class="{{view}}")
+	.container-fluid
+		.row.header
+			if queryParam 'showWeek'
+				+shiftsHeader
+			else
+				+shiftsTemplateHeader
+		.row.seven-cols.m-t-lg
+			with getWeek
+				each days
+					+day
+			else
+				each weekDays
+					.col-md-1.col-xs
+						h2 {{this}}
+		if checkNoVisibleShifts
+			.noVisibleShifts.center-align.m-t-xl
+				h1 {{_ 'shifts.noVisibleShifts'}}

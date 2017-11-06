@@ -1,0 +1,54 @@
+.col-md-3.col-xs-12.col-xs.center-on-xs
+	.btn-group
+		button#hideNames.btn.btn-white(title="{{_ 'shifts.hideNames'}}")
+			i.fa.fa-eye-slash
+		button#showNames.btn.btn-primary(title="{{_ 'shifts.showNames'}}")
+			i.fa.fa-eye
+		if isProjectShiftAdmin
+			button#editShifts.btn.btn-white(title="{{_ 'shifts.editShifts'}}")
+				i.fa.fa-wrench
+	if isProjectShiftScheduler
+		button#sendConfirmWeek.btn.btn-white(title="{{_ 'shifts.sendWeek'}}")
+			i.fa.fa-send.fa-fw
+	button#printShifts.btn.btn-white(title="Print Week")
+		i.fa.fa-print
+.col-md-1.col-xs-2.col-xs
+	button#prevWeek.btn.btn-primary.btn-block(class='{{prevWeekButton}}' title="{{_ 'shifts.prevWeek'}}")
+		i.fa.fa-chevron-left
+.col-md-4.col-xs-8.col-xs
+	button#daysOfWeek.btn.btn-primary.btn-block.week-chooser.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+		i.fa.fa-calendar-check-o.fa-fw
+		span.m-r {{formatWeek 'showWeek'}}
+		span.caret
+	ul.dropdown-menu
+		each weeks
+			li(class="{{currentWeek}}")
+				a.week-item(href)
+					i.fa.fa-calendar-check-o.fa-fw
+					| {{formatWeek this}}
+		if isProjectShiftAdmin
+			li.add-week
+				a#addWeek(href)
+					i.fa.fa-calendar-plus-o.fa-fw
+					| {{_ 'shifts.addWeek'}}
+.col-md-1.col-xs-2.col-xs.center
+	button#nextWeek.btn.btn-primary.btn-block(class="{{nextWeekButton}}" title="{{_ 'shifts.nextWeek'}}")
+		i.fa.fa-chevron-right
+.col-md-offset-1.col-md-2.col-xs-12.col-xs
+	button#tagChoice.btn.btn-primary.btn-block.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+		i.fa.fa-tags
+		| {{visibleTags}}
+		span.caret
+	ul.dropdown-menu.dropdown-menu-right.m-r-xs
+		each tags
+			if isTagParticipant _id
+				if showTag
+					li.tag-visible
+						a(href title="{{_ 'shifts.shownTag'}}")
+							i.fa.fa-eye
+							| {{name}}
+				else
+					li.tag-hidden
+						a(href title="{{_ 'shifts.hiddenTag'}}")
+							i.fa.fa-eye-slash
+							| {{name}}

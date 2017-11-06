@@ -58,7 +58,6 @@ momentjs:moment
 mquandalle:jade
 okgrow:analytics
 percolate:synced-cron
-reywood:publish-composite
 rochal:slimscroll # remove in future
 rzymek:moment-locale-de
 summernote:standalone

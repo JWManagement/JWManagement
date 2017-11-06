@@ -44,6 +44,9 @@ scheduling:
     name: Scheduling
     direct: Approve immediately
     manual: Approve manually
+password:
+    tooShort: Password must be at least 8 characters long
+    notMatching: The passwords do not match!
 weekdays:
     _mo: Monday
     _tu: Tuesday

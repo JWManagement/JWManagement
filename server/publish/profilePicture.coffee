@@ -1,5 +1,3 @@
-import { Pictures } from '/imports/api/pictures/pictures.coffee'
-
 Meteor.publish 'profilePicture', (userId) ->
 
 	if userId == @userId
