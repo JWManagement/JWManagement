@@ -1,6 +1,6 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) ->
+Meteor.publish 'vessels', (searchString, projectId, limit) ->
 
 	if typeof searchString != 'string' || searchString == ''
 		return @ready()
@@ -16,8 +16,7 @@ Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) 
 
 	try
 		regEx = new RegExp(searchString, 'i')
-		limit = 20
-		limit = 0 if retrieveAllResults
+
 		self = this
 		initialLoadDone = false
 		publishedItemsCount = 0
@@ -30,6 +29,15 @@ Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) 
 				{ imo: regEx },
 				{ mmsi: regEx }
 			]}, {
+				fields: {
+					'name': 1,
+					'flag': 1,
+					'type': 1,
+					'callsign': 1,
+					'eni': 1,
+					'imo': 1,
+					'mmsi': 1
+				},
 				sort: { name: 1 },
 				limit: limit
 			})

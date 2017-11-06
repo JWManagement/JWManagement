@@ -10,6 +10,7 @@ navigation:
     reports: Reports
     store: Store Room
     vessels: Vessels
+    vessel: Vessel
     notes: Notes
     login: Login
     logout: Logout
@@ -378,11 +379,34 @@ vessels:
     harborGroup: Harbor group
     nextVisit: Next visit after
     languages: Language(s) on board
-    languagesPlaceholder: No person-specific information!
-    comments: Comments
-    commentsPlaceholder: No person-specific information!
-    noResults: No results
-    moreResultsAvailable: We found %s results. The first 20 are shown.
+vessel:
+    title: Vessel
+    nameShort: Vessel
+    back: Back
+    identificationSection: Identification data
+    name: Vessel name
+    flag: Flag
+    type: Type
+    callsign: Call sign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    types:
+        c: Container ship
+        cr: Cruise ship
+        mf: Cargo
+        mt: Tanker
+        p: Passenger ship
+        pt: Pushtow
+        rc: River cruise ship
+        f: Ferry
+        ro: Ro-Ro
+        t: Tug
+        unknown: Unknown
+    visitSection: Last visit
+    lastVisit: Last visit
+    nextVisitAfter: Next visit after
+    languages: Language(s) on board
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note
