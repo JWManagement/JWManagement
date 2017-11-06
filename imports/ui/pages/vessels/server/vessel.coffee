@@ -11,7 +11,7 @@ Meteor.publish 'vessel', (vesselId, projectId) ->
 	project = Projects.findOne projectId,
 		fields: _id: 0, vesselModule: 1
 
-	if !project? || !project.vesselModule
+	if !project.vesselModule
 		@ready()
 
 	Vessels.find vesselId

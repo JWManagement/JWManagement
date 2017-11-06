@@ -4,7 +4,7 @@ import '/imports/api/reports/reports.coffee'
 
 import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
 
-import '/imports/ui/pages/vessel/server/vessel.coffee'
+import '/imports/ui/pages/vessels/server/vessel.coffee'
 import '/imports/ui/pages/vessels/server/vessels.coffee'
 
 import '/imports/ui/components/allUsers/server/support.users.coffee'
