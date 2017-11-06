@@ -62,6 +62,13 @@ Template.enquiryList.events
 			email: $(e.target).closest('tr').find('td:nth-child(4)').html()
 			name: $(e.target).closest('tr').find('td:nth-child(3)').html()
 
+	'click .createProjectEmpty': (e) ->
+		FlowRouter.setQueryParams
+			createProject: true
+			projectName: 'My Project'
+			email: 'support@jwmanagement.org'
+			name: 'John Doe'
+
 	'click .deleteProjectEnquiry': (e) ->
 		messageId = $(e.target).attr('data-id')
 
