@@ -68,7 +68,7 @@ module.exports = class SearchForm {
                     return this.getRows()
                         .map((row) => {
                             return {
-                                _id: TAPi18n.__(FlowRouter.current().path + '/' + row._id),
+                                _id: FlowRouter.current().path + '/' + row._id,
                                 columns: columns.map((column) => {
                                     return {
                                         th: column.translation,
@@ -224,13 +224,7 @@ module.exports = class SearchForm {
                 });
             },
             'click .results-desktop tr': (e) => {
-                FlowRouter.go(
-                    FlowRouter.path('/:l/:p/vessels/:v', {
-                        l: TAPi18n.getLanguage(),
-                        p: FlowRouter.getParam('projectId'),
-                        v: $(e.target).closest('tr').find('td').first().html()
-                    })
-                );
+                FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
             }
         });
     }
@@ -277,7 +271,7 @@ module.exports = class SearchForm {
     }
 
     reloadRowsIfIsUpdate() {
-        if (!this.isLoading.get()) {
+        if (!this.isLoading.get() && this.table != undefined) {
             var rowCount = this.getRowCount();
 
             if (this.itemCount.get() != rowCount) {
