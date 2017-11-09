@@ -114,10 +114,7 @@ module.exports = class SearchForm {
             $('body').addClass('top-navigation');
             $('body').attr('type', 'SearchForm');
 
-            if (this.searchString.get() != '') {
-                this.language = '';
-            }
-
+            this.language = '';
             var template = Template.instance();
 
             template.autorun(() => {
@@ -254,20 +251,21 @@ module.exports = class SearchForm {
             return [];
         }
 
-        return this.db.find(this.searchCriteria(this.regEx.get()), {
-                sort: {
-                    name: 1,
-                    callsign: 1
-                }
-            })
-            .fetch()
-            .map((item) => {
-                for (var i = 0; i < this.translatedAttributes.length; i++) {
-                    var attr = this.translatedAttributes[i]['attribute'];
-                    item[attr] = TAPi18n.__(this.translatedAttributes[i]['i18nPath'] + '.' + item[attr]);
-                }
-                return item;
-            });
+        return this.db
+        .find(this.searchCriteria(this.regEx.get()), {
+            sort: {
+                name: 1,
+                callsign: 1
+            }
+        })
+        .fetch()
+        .map((item) => {
+            for (var i = 0; i < this.translatedAttributes.length; i++) {
+                var attr = this.translatedAttributes[i]['attribute'];
+                item[attr] = TAPi18n.__(this.translatedAttributes[i]['i18nPath'] + '.' + item[attr]);
+            }
+            return item;
+        });
     }
 
     reloadRowsIfIsUpdate() {
