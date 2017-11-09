@@ -9,7 +9,7 @@ module.exports = class EntityForm {
         sections
     ) {
         this.isLoading = new ReactiveVar(true);
-        this.noResults = new ReactiveVar(true);
+        this.noResult = new ReactiveVar(true);
         this.language = '';
         this.handle = null;
         this.itemId = '';
@@ -31,8 +31,8 @@ module.exports = class EntityForm {
             'isLoading': () => {
                 return this.isLoading.get();
             },
-            'noResults': () => {
-                return this.noResults.get() && !this.isLoading.get();
+            'noResult': () => {
+                return this.noResult.get();
             },
             'sections': () => {
                 return this.sections;
@@ -58,20 +58,31 @@ module.exports = class EntityForm {
             $('body').addClass('top-navigation');
             $('body').attr('type', 'EntityForm');
 
+            this.isLoading.set(true);
+            this.noResult.set(false);
+
             this.itemId = FlowRouter.getParam('itemId');
             var projectId = FlowRouter.getParam('projectId');
 
             this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
 
             this.changeObserver = this.db.find({_id: this.itemId}).observe({
-                added: (item) => {
-                    this.item.set(item);
+                added: (newItem) => {
+                    this.noResult.set(false);
+                    this.item.set(newItem);
                 },
-                changed: () => {
-                    // TODO: to be handled later
-                },
-                removed: () => {
-                    // TODO: to be handled later
+                changed: (oldItem, newItem) => {
+                    if (this.handle.ready()) {
+                        this.item.set(newItem);
+                        alert('Someone just changed some data on this page. We already pulled these changes for you.')
+                    }
+                }
+            });
+
+            Tracker.autorun((tracker) => {
+                if (this.handle.ready()) {
+                    this.isLoading.set(false);
+                    tracker.stop();
                 }
             });
         });
@@ -100,17 +111,16 @@ module.exports = class EntityForm {
             },
             'click #saveChanges': () => {
                 // TODO: display sth like "CHANGED!"
+            },
+            'click #back': (e) => {
+                e.preventDefault();
+                wrs(() => {
+                    FlowRouter.go(FlowRouter.path(Session.get('parent'), {
+                        language: TAPi18n.getLanguage(),
+                        projectId: FlowRouter.getParam('projectId')
+                    }));
+                });
             }
         });
-    }
-
-    doSubscribe() {
-        if (this.handle !== null) {
-            this.handle.stop();
-        }
-
-        var itemId = FlowRouter.getParam('itemId')
-
-        this.handle = Meteor.subscribe(this.publicationName, itemId);
     }
 }
