@@ -14,17 +14,17 @@ form.form-horizontal
 			p We couldn't find anything.
 			button#back.btn.btn-primary Go back
 	else
-	each sections
-		.section
-			.section-header {{getTranslatedKey header}}
-			.section-content
-				each contents
-					.form-group
-						.key.col-xs-3 {{getTranslatedKey key}}
-						.value.col-xs-9
-							if isDate this
-								input(type='date' placeholder='{{getTranslatedKey key}}' value='{{value}}')
-							else if dropdownContainer
-								.value.col-xs-9 {{getItemKeyDropdown key dropdownContainer}}
-							else
-								input(type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')
+		each sections
+			.section
+				.section-header {{getTranslatedKey header}}
+				.section-content
+					each contents
+						.form-group
+							.key.col-xs-3 {{getTranslatedKey key}}
+							.value.col-xs-9
+								if isDate this
+									input(name='{{key}}' type='date' placeholder='{{getTranslatedKey key}}' value='{{value}}' readonly)
+								else if dropdownContainer
+									input(name='{{key}}' type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyDropdown key dropdownContainer}}' readonly)
+								else
+									input(name='{{key}}' type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')
