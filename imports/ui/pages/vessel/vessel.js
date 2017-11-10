@@ -33,7 +33,7 @@ var sections = [{
         key: 'lastVisit',
         type: 'date'
     }, {
-        key: 'nextVisitAfter',
+        key: 'nextVisit',
         type: 'date'
     }]
 }];

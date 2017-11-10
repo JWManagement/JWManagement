@@ -1,5 +1,5 @@
 import './EntityForm.tpl.jade';
-import './EntityForm.scss'
+import './EntityForm.scss';
 
 module.exports = class EntityForm {
     constructor(
@@ -8,17 +8,17 @@ module.exports = class EntityForm {
         publicationName,
         sections
     ) {
+        this.db = db;
+        this.templateName = templateName;
+        this.publicationName = publicationName;
+        this.sections = sections;
+
         this.isLoading = new ReactiveVar(true);
         this.noResult = new ReactiveVar(true);
         this.language = '';
         this.handle = null;
         this.itemId = '';
         this.item = new ReactiveVar({});
-
-        this.db = db;
-        this.templateName = templateName;
-        this.publicationName = publicationName;
-        this.sections = sections;
 
         this.registerHelpers();
         this.registerOnRendered();
@@ -66,7 +66,9 @@ module.exports = class EntityForm {
 
             this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
 
-            this.changeObserver = this.db.find({_id: this.itemId}).observe({
+            this.changeObserver = this.db.find({
+                _id: this.itemId
+            }).observe({
                 added: (newItem) => {
                     this.noResult.set(false);
                     this.item.set(newItem);
@@ -75,6 +77,7 @@ module.exports = class EntityForm {
                     if (this.handle.ready()) {
                         this.item.set(newItem);
                         alert('Someone just changed some data on this page. We already pulled these changes for you.')
+                        // TODO: translate
                     }
                 }
             });

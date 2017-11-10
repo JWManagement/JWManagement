@@ -405,7 +405,7 @@ vessel:
         unknown: Unknown
     visitSection: Last visit
     lastVisit: Last visit
-    nextVisitAfter: Next visit after
+    nextVisit: Next visit after
     languages: Language(s) on board
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
