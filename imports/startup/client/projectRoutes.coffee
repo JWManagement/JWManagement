@@ -66,6 +66,7 @@ FlowRouter.route '/:language/:projectId/vessels',
 		else
 			Session.set 'parent', 'home'
 
+		require('/imports/ui/pages/vessels/vessels.js')
 		BlazeLayout.render 'vessels'
 
 FlowRouter.route '/:language/:projectId/vessels/:itemId',
@@ -74,4 +75,5 @@ FlowRouter.route '/:language/:projectId/vessels/:itemId',
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'vessels'
 
+		require('/imports/ui/pages/vessel/vessel.js')
 		BlazeLayout.render 'vessel'
