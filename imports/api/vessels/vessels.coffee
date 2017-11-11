@@ -1,9 +1,6 @@
 import SimpleSchema from 'simpl-schema'
 import { Mongo } from 'meteor/mongo'
 
-import { Methods } from './methods.coffee'
-import { Helpers } from './helpers.coffee'
-
 export Vessels = new Mongo.Collection 'vessels'
 
 Vessels.deny
@@ -58,6 +55,3 @@ Vessels.schema = new SimpleSchema
 		optional: true
 
 Vessels.attachSchema = Vessels.schema
-
-Vessels.methods = Methods
-Vessels.helpers = Helpers
