@@ -1,7 +1,7 @@
 import './bootstrap-datepicker.js'
 
 !function (a) {
-    a.fn.datepicker.dates.de = {
+    a.fn.datepicker.dates.pl = {
         days: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
         daysShort: ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"],
         daysMin: ["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "Sb"],
