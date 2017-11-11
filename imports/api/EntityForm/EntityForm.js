@@ -113,7 +113,26 @@ module.exports = class EntityForm {
                 // TODO: check for changed content and ask for "really?!"
             },
             'click #saveChanges': () => {
-                // TODO: display sth like "CHANGED!"
+                var isValidating = new ReactiveVar(); // TODO: register in class
+                isValidating.set(true);
+
+                var entity = {
+                    _id: this.itemId,
+                    projectId: FlowRouter.getParam('projectId'),
+                    name: $('[name=name]').val().trim(),
+                    flag: $('[name=flag]').val().trim(),
+                    callsign: $('[name=callsign]').val().trim(),
+                    eni: $('[name=eni]').val().trim(),
+                    imo: $('[name=imo]').val().trim(),
+                    mmsi: $('[name=mmsi]').val().trim()
+                };
+
+                Meteor.call('VesselService.update', entity, (e, a) => {
+                    console.log(e);
+                    console.log(a);
+                    // TODO: handle errors
+                    // TODO: else handle success
+                });
             },
             'click #back': (e) => {
                 e.preventDefault();
