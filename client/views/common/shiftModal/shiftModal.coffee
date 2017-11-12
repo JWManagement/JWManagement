@@ -277,9 +277,13 @@ Template.shiftModal.events
 			chosenId = ''
 			chosenIsTeamleader = false
 			chosenIsSubstituteTeamleader = false
+			alreadyHasTeamleader = false
 			shift = Shifts.findOne shiftId, fields: teams: 1
 
 			for team in shift.teams when team._id == teamId
+				for user in team.participants when user.thisTeamleader
+					alreadyHasTeamleader = true
+
 				for user in team.pending when user.checked
 					Meteor.call 'approveRequest', shiftId, teamId, user._id, handleError
 
@@ -296,7 +300,8 @@ Template.shiftModal.events
 						chosenIsTeamleader = true
 				break
 
-			if chosenId then Meteor.call 'setLeader', shiftId, teamId, chosenId, handleError
+			if chosenId && !alreadyHasTeamleader
+				Meteor.call 'setLeader', shiftId, teamId, chosenId, handleError
 
 		selectedCount++ for checkbox in $team.find('input[type=checkbox]') when checkbox.checked
 		selectedCount++ for participant in $team.find('.participant')
