@@ -10,41 +10,42 @@ Meteor.methods
 				check message, String
 
 			for team in shift.teams when team._id == teamId
-				Meteor.call 'sendCancelTeam', shiftId, teamId, message, ->
-					if message == 'missingParticipant'
-						for pendingUser in team.pending
-							pendingUser.checked = false
-							pendingUser.informed = false
+				if message == 'missingParticipant'
+					for pendingUser in team.pending
+						pendingUser.checked = false
+						pendingUser.informed = false
 
-							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull: 'teams.$.pending': _id: pendingUser._id
-								$addToSet: 'teams.$.declined': pendingUser
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$pull: 'teams.$.pending': _id: pendingUser._id
+							$addToSet: 'teams.$.declined': pendingUser
 
-						for participant in team.participants
-							participant.checked = true
-							participant.informed = false
+					for participant in team.participants
+						participant.checked = true
+						participant.informed = false
 
-							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull: 'teams.$.participants': _id: participant._id
-								$addToSet: 'teams.$.pending': participant
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$pull: 'teams.$.participants': _id: participant._id
+							$addToSet: 'teams.$.pending': participant
 
-						Meteor.call 'openTeam', shiftId, teamId
+					Meteor.call 'openTeam', shiftId, teamId
 
-					else
-						for participant in team.participants.concat(team.pending)
-							participant.thisTeamleader = false
+				else
+					for participant in team.participants.concat(team.pending)
+						participant.thisTeamleader = false
 
-							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull: 'teams.$.declined': _id: participant._id
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$pull: 'teams.$.declined': _id: participant._id
 
-							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull: 'teams.$.pending': _id: participant._id
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$pull: 'teams.$.pending': _id: participant._id
 
-							Shifts.update _id: shiftId, 'teams._id': teamId,
-								$pull: 'teams.$.participants': _id: participant._id
-								$addToSet: 'teams.$.declined': participant
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$pull: 'teams.$.participants': _id: participant._id
+							$addToSet: 'teams.$.declined': participant
 
-						Meteor.call 'openTeam', shiftId, teamId
+					Meteor.call 'openTeam', shiftId, teamId
+
+				Meteor.call 'sendCancelTeam', shiftId, teamId, message
 
 	approveRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
