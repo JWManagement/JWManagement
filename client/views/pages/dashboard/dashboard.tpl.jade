@@ -144,7 +144,7 @@ if queryParam 'showShiftReport'
 												each teams
 													div.shift-team(class="{{teamRelation}}")
 														.shift-team-header
-															i.fa.fa-map-signs
+															i.fa.fa-fw(class='{{getIcon icon}}')
 															| {{name}}
 														if participants
 															.shift-team-participants

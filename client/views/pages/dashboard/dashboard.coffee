@@ -209,6 +209,10 @@ Template.dashboard.helpers
 
 	showOlder: -> Session.get 'showOlder'
 
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
+
 Template.dashboard.onCreated ->
 
 	@autorun ->
