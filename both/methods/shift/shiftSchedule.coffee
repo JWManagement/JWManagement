@@ -270,4 +270,5 @@ Meteor.methods
 						$addToSet: 'teams.$.declined': user
 
 			Shifts.update _id: shiftId, 'teams._id': teamId,
-				$addToSet: 'teams.$.participants': user
+				$pull: 'teams.$.declined': _id: userId
+				$addToSet: 'teams.$.pending': user
