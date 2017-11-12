@@ -134,7 +134,10 @@ Template.dashboard.helpers
 		projects = Projects.find {}, sort: name: 1
 		result = []
 
-		for project, index in projects.fetch()
+		projects = projects.fetch().filter (project) ->
+			Roles.userIsInRole Meteor.userId(), Permissions.member, project._id
+
+		for project, index in projects
 			if index % 2 == 0
 				result.push projects: [ project ]
 			else
