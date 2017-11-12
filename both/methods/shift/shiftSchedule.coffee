@@ -22,6 +22,7 @@ Meteor.methods
 					for participant in team.participants
 						participant.checked = true
 						participant.informed = false
+						participant.thisTeamleader = false
 
 						Shifts.update _id: shiftId, 'teams._id': teamId,
 							$pull: 'teams.$.participants': _id: participant._id
