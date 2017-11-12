@@ -79,12 +79,12 @@
 												if isProjectShiftScheduler
 													unless thisTeamleader
 														if teamleader
-															a#setLeader(href)
+															a.setLeader(href)
 																i.fa.fa-star.fa-fw
 														else if substituteTeamleader
-															a#setLeader(href)
+															a.setLeader(href)
 																i.fa.fa-star.fa-fw
-													a#declineParticipant(href)
+													a.declineParticipant(href)
 														i.fa.fa-thumbs-down.fa-fw
 													if informed
 														a.sentConfirmation.pull-right.m-l-sm(href)
@@ -131,7 +131,7 @@
 										each sortUsers declined
 											.declined
 												.float-right
-													a#approveRequest(href)
+													a.approveRequest(href)
 														i.fa.fa-thumbs-up.fa-fw
 													if email
 														a(href="mailto:{{email}}")
@@ -161,10 +161,10 @@
 									if getSelectedCount _id
 										.select-action-bar
 											if hasTl _id
-												button#approveSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.approveSelected'}}
+												button.approveSelected.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm {{_ 'modal.shift.approveSelected'}}
 											else
 												button.btn.btn-primary.m-t-sm.m-b-sm.m-r-sm.disabled {{_ 'modal.shift.notTeamleader'}}
-											button#declineSelected.btn.btn-danger.m-t-sm.m-b-sm {{_ 'modal.shift.declineSelected'}}
+											button.declineSelected.btn.btn-danger.m-t-sm.m-b-sm {{_ 'modal.shift.declineSelected'}}
 											hr.m-n
 								if isThisTeamleader getShiftId _id
 									.btn-group.pull-right
@@ -174,41 +174,41 @@
 										ul.dropdown-menu
 											if isProjectShiftScheduler
 												li
-													a#addParticipant(href)
+													a.addParticipant(href)
 														i.fa.fa-fw.fa-user-plus
 														| {{_ 'modal.shift.addParticipant'}}
 											li
-												a#cancelTeam(href)
+												a.cancelTeam(href)
 													i.fa.fa-fw.fa-calendar-times-o
 													| {{_ 'modal.shift.cancelTeam'}}
 											if isProjectShiftScheduler
 												if equals status 'closed'
 													li
-														a#openTeam(href)
+														a.openTeam(href)
 															i.fa.fa-fw.fa-unlock
 															| {{_ 'modal.shift.openTeam'}}
 												else
 													li
-														a#closeTeam(href)
+														a.closeTeam(href)
 															i.fa.fa-fw.fa-lock
 															| {{_ 'modal.shift.closeTeam'}}
 												li
-													a#sendUnderstaffed(href)
+													a.sendUnderstaffed(href)
 														i.fa.fa-fw.fa-share
 														| {{_ 'modal.shift.sendUnderstaffed'}}
 								if inArray participants '_id' currentUser._id
-									button#cancelParticipation.btn.btn-danger.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelParticipation'}}
+									button.cancelParticipation.btn.btn-danger.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelParticipation'}}
 								else if inArray pending '_id' currentUser._id
-									button#cancelRequestTeam.btn.btn-warning.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelRequest'}}
+									button.cancelRequestTeam.btn.btn-warning.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.cancelRequest'}}
 								else if inArray declined '_id' currentUser._id
 									if equals status 'open'
 										if notInOtherTeam
 											unless alreadyOver
-												button#requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeamAgain'}}
+												button.requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeamAgain'}}
 								else if equals status 'open'
 									if notInOtherTeam
 										unless alreadyOver
-											button#requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeam'}}
+											button.requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeam'}}
 								if isThisTeamleader getShiftId _id
 									button.openReport.btn.btn-primary.m-t-sm {{_ 'modal.shift.report'}}
 				.modal-footer
