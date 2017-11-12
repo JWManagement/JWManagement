@@ -2,7 +2,7 @@ Meteor.publish 'userStatistics', (userId, shiftId) ->
 	self = this
 
 	shift = Shifts.findOne shiftId,
-		fields: projectId: 1, groupId: 1, date: 1
+		fields: projectId: 1, tagId: 1, date: 1
 
 	if shift?
 		projectId = shift.projectId
