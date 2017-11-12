@@ -121,7 +121,7 @@ profile:
     speaks: Speaks
     telefon: Phone
     congregation: Congregation
-    languages: Languages Spoken
+    languages: Foreign languages
     gender: Gender
     _gender:
         brother: Brother
