@@ -236,7 +236,10 @@ shifts:
         participants: Participants
         start: Start
         end: End
-        requests: Requests of
+        requests: Request
+        requests_plural: Requests
+        requestsOf: Request of
+        requestsOf_plural: Requests of
         teamleaders: TLs
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:

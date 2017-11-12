@@ -236,7 +236,6 @@ shifts:
         participants: Współpracownicy
         start: Start
         end: Koniec
-        requests: Prośby
         teamleaders: Koordynatorów zmiany
         noPermission: Tylko Menadżer projektu lub Menadżer zmian jest uprawniony aby edytować lub usuwać zmiany
 day:

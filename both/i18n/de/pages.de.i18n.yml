@@ -235,7 +235,10 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
-        requests: Bewerbungen von
+        requests: Bewerbung
+        requests_plural: Bewerbungen
+        requestsOf: Bewerbung von
+        requestsOf_plural: Bewerbungen von
         teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
