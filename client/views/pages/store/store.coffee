@@ -37,8 +37,6 @@ Template.store.helpers
 				short: 'yp1'
 			,
 				short: 'yp2'
-			,
-				short: 'ypq'
 			]
 		,
 			type: 'brochures'
@@ -70,6 +68,8 @@ Template.store.helpers
 				short: 'rk'
 			,
 				short: 'yc'
+			,
+				short: 'ypq'
 			]
 		,
 			type: 'magazines'
