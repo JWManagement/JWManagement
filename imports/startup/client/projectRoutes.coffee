@@ -77,3 +77,12 @@ FlowRouter.route '/:language/:projectId/vessels/:itemId',
 
 		require('/imports/ui/pages/vessel/vessel.js')
 		BlazeLayout.render 'vessel'
+
+FlowRouter.route '/:language/:projectId/vessels/:itemId/:key',
+	name: 'vessel.update'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		Session.set 'parent', 'vessel'
+
+		require('/imports/ui/pages/vessel.update/vessel.update.js')
+		BlazeLayout.render 'vessel.update'
