@@ -1,0 +1,30 @@
+.navigation-wrapper
+	nav.navbar.navbar-fixed-top
+		+navbarBrand(custom=true)
+		.navbar-header.navbar-right
+			a#saveChanges.navbar-brand(href) Save
+
+form.form-horizontal
+	if isLoading
+		.center-align
+			i.fa.fa-circle-o-notch.fa-spin
+	else if noResult
+		.center-align
+			h2 Oops!
+			p We couldn't find anything.
+			button#back.btn.btn-primary Go back
+	else
+		each sections
+			.section
+				.section-header {{getTranslatedKey header}}
+				.section-content
+					each contents
+						.form-group
+							.key.col-xs-3 {{getTranslatedKey key}}
+							.value.col-xs-9
+								if isDate this
+									input(name='{{key}}' type='date' placeholder='{{getTranslatedKey key}}' value='{{value}}' readonly)
+								else if dropdownContainer
+									input(name='{{key}}' type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyDropdown key dropdownContainer}}' readonly)
+								else
+									input(name='{{key}}' type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')
