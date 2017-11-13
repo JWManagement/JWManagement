@@ -4,7 +4,7 @@ import {
 
 import './vessel.tpl.jade';
 
-const EntityForm = require('/imports/api/EntityForm/EntityForm.js');
+const DetailsForm = require('/imports/api/DetailsForm/DetailsForm.js');
 
 var db = Vessels;
 var templateName = 'vessel';
@@ -38,7 +38,7 @@ var sections = [{
     }]
 }];
 
-new EntityForm(
+new DetailsForm(
     db,
     templateName,
     publicationName,

@@ -1,7 +1,7 @@
-import './EntityForm.tpl.jade';
-import './EntityForm.scss';
+import './DetailsForm.tpl.jade';
+import './DetailsForm.scss';
 
-module.exports = class EntityForm {
+module.exports = class DetailsForm {
     constructor(
         db,
         templateName,
@@ -27,7 +27,7 @@ module.exports = class EntityForm {
     }
 
     registerHelpers() {
-        Template.EntityForm.helpers({
+        Template.DetailsForm.helpers({
             'isLoading': () => {
                 return this.isLoading.get();
             },
@@ -53,10 +53,10 @@ module.exports = class EntityForm {
     }
 
     registerOnRendered() {
-        Template.EntityForm.onRendered(() => {
+        Template.DetailsForm.onRendered(() => {
             $('body').addClass('md-skin');
             $('body').addClass('top-navigation');
-            $('body').attr('type', 'EntityForm');
+            $('body').attr('type', 'DetailsForm');
 
             this.isLoading.set(true);
             this.noResult.set(false);
@@ -92,7 +92,7 @@ module.exports = class EntityForm {
     }
 
     registerOnDestroyed() {
-        Template.EntityForm.onDestroyed(() => {
+        Template.DetailsForm.onDestroyed(() => {
             $('body').removeClass('md-skin');
             $('body').removeClass('top-navigation');
             $('body').attr('type', '');
@@ -108,7 +108,7 @@ module.exports = class EntityForm {
     }
 
     registerEvents() {
-        Template.EntityForm.events({
+        Template.DetailsForm.events({
             'click #cancelChanges': () => {
                 // TODO: check for changed content and ask for "really?!"
             },
