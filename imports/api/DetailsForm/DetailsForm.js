@@ -74,11 +74,7 @@ module.exports = class DetailsForm {
                     this.item.set(newItem);
                 },
                 changed: (oldItem, newItem) => {
-                    if (this.handle.ready()) {
-                        this.item.set(newItem);
-                        alert('Someone just changed some data on this page. We already pulled these changes for you.')
-                        // TODO: translate
-                    }
+                    this.item.set(newItem);
                 }
             });
 
@@ -109,39 +105,9 @@ module.exports = class DetailsForm {
 
     registerEvents() {
         Template.DetailsForm.events({
-            'click #cancelChanges': () => {
-                // TODO: check for changed content and ask for "really?!"
-            },
-            'click #saveChanges': () => {
-                var isValidating = new ReactiveVar(); // TODO: register in class
-                isValidating.set(true);
-
-                var entity = {
-                    _id: this.itemId,
-                    projectId: FlowRouter.getParam('projectId'),
-                    name: $('[name=name]').val().trim(),
-                    flag: $('[name=flag]').val().trim(),
-                    callsign: $('[name=callsign]').val().trim(),
-                    eni: $('[name=eni]').val().trim(),
-                    imo: $('[name=imo]').val().trim(),
-                    mmsi: $('[name=mmsi]').val().trim()
-                };
-
-                Meteor.call('VesselService.update', entity, (e, a) => {
-                    console.log(e);
-                    console.log(a);
-                    // TODO: handle errors
-                    // TODO: else handle success
-                });
-            },
-            'click #back': (e) => {
-                e.preventDefault();
-                wrs(() => {
-                    FlowRouter.go(FlowRouter.path(Session.get('parent'), {
-                        language: TAPi18n.getLanguage(),
-                        projectId: FlowRouter.getParam('projectId')
-                    }));
-                });
+            'click .input': (e) => {
+                var key = $(e.target).closest('.input').attr('key');
+                FlowRouter.go(FlowRouter.current().path + '/' + key);
             }
         });
     }

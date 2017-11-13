@@ -1,5 +1,5 @@
 body.md-skin[type='DetailsForm'] {
-	background-color: #fff !important;
+	background-color: #eee !important;
 	padding-top     : 50px;
 
 	.navbar {
@@ -7,15 +7,6 @@ body.md-skin[type='DetailsForm'] {
 			&.navbar-left {
 				float      : left;
 				margin-left: 10px;
-			}
-
-			&.navbar-right {
-				float       : right !important;
-				margin-right: 0;
-
-				a {
-					padding-right: 15px;
-				}
 			}
 		}
 	}
@@ -26,40 +17,46 @@ body.md-skin[type='DetailsForm'] {
 
 			.section-header {
 				color         : #3f51b5;
-				font-size     : 15px;
-				padding-left  : 15px;
-				padding-bottom: 7px;
+				padding       : 7px 0 7px 15px;
+				font-size     : 13px;
+				letter-spacing: 0.3px;
+				text-transform: uppercase;
 			}
 
 			.section-content {
-				border-top   : 1px solid #ddd;
-				border-bottom: 1px solid #ddd;
+				font-size       : 15px;
+				border-top      : 1px solid #ddd;
+				border-bottom   : 1px solid #ddd;
+				background-color: #fff;
 			}
 
 			div.form-group {
 				&:last-of-type {
 					border-bottom: 0;
 				}
+				cursor       : pointer;
 				margin       : 0 0 0 15px;
 				padding      : 0;
 				border-bottom: 1px solid #ddd;
-			}
 
-			.value {
-				padding-right: 0;
-
-				input {
-					width  : 100%;
-					border : 0;
-					padding: 8px 0;
-					outline: none;
+				.key {
+					float  : left;
+					padding: 9px 0;
 				}
-			}
 
-			.key {
-				color     : #777;
-				padding   : 8px 0;
-				text-align: right;
+				.value {
+					color     : #777;
+					float     : right;
+					padding   : 8px;
+					text-align: right;
+
+					.icon {
+						font-size    : 18px;
+						padding-top  : 2px;
+						padding-left : 7px;
+						padding-right: 3px;
+					}
+				}
 			}
 		}
 	}
