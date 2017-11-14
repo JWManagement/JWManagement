@@ -1,6 +1,9 @@
 .navigation-wrapper
 	nav.navbar.navbar-fixed-top
-		+navbarBrand(custom=true)
+		a.navbar-back(href="{{getBackLink}}")
+			i.fa.fa-angle-left.m-r-xs
+			| Back
+		.navbar-title Vessel
 
 form.form-horizontal
 	if isLoading

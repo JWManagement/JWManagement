@@ -28,6 +28,12 @@ module.exports = class DetailsForm {
 
     registerHelpers() {
         Template.DetailsForm.helpers({
+            'getBackLink': () => {
+                return FlowRouter.path('vessel.search', {
+                    language: FlowRouter.getParam('language'),
+                    projectId: FlowRouter.getParam('projectId')
+                });
+            },
             'isLoading': () => {
                 return this.isLoading.get();
             },

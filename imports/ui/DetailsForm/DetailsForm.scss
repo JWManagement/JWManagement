@@ -3,11 +3,21 @@ body.md-skin[type='DetailsForm'] {
 	padding-top     : 50px;
 
 	.navbar {
-		.navbar-header {
-			&.navbar-left {
-				float      : left;
-				margin-left: 10px;
-			}
+		width: 100%;
+
+		.navbar-back {
+			position: absolute;
+		}
+
+		.navbar-back,
+		.navbar-title {
+			color      : #fff;
+			height     : 50px;
+			padding    : 15px;
+			font-size  : 18px;
+			text-align : center;
+			line-height: 20px;
+			font-weight: 300;
 		}
 	}
 
