@@ -58,7 +58,7 @@ FlowRouter.route '/:language/:projectId/notes',
 		BlazeLayout.render 'mainLayout', content: 'notes'
 
 FlowRouter.route '/:language/:projectId/vessels',
-	name: 'vessels'
+	name: 'vessel.search'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
@@ -70,7 +70,7 @@ FlowRouter.route '/:language/:projectId/vessels',
 		BlazeLayout.render 'vessel.search'
 
 FlowRouter.route '/:language/:projectId/vessels/:itemId',
-	name: 'vessel'
+	name: 'vessel.details'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'vessel.search' # TODO: simplify
