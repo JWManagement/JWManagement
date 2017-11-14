@@ -8,7 +8,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		if array == 'teams'
 			if project.teams.length > 0
@@ -52,7 +53,9 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: value, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		find = _id: shiftId
 		find[array + '._id'] = arrayId
@@ -97,7 +100,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		for team in shift.teams when team._id == teamId
 			newPending = team.pending
@@ -115,6 +119,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		Shifts.update shiftId, $pull: pull
