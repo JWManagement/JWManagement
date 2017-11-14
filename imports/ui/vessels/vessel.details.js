@@ -4,7 +4,7 @@ import {
 
 import './vessel.details.tpl.jade';
 
-const DetailsForm = require('/imports/api/DetailsForm/DetailsForm.js');
+const DetailsForm = require('/imports/ui/DetailsForm/DetailsForm.js');
 
 var db = Vessels;
 var templateName = 'vessel';
