@@ -2,6 +2,8 @@ import {
     Counts
 } from '/imports/api/counts/counts.coffee';
 
+import '/imports/ui/navbar/brand.coffee'
+
 import './SearchForm.tpl.jade';
 import './SearchForm.scss'
 

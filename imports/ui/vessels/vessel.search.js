@@ -4,7 +4,7 @@ import {
 
 import './vessel.search.tpl.jade';
 
-const SearchForm = require('/imports/api/SearchForm/SearchForm.js')
+const SearchForm = require('/imports/ui/SearchForm/SearchForm.js')
 
 var db = Vessels;
 var templateName = 'vessels';
