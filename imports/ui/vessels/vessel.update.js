@@ -4,7 +4,7 @@ import {
 
 import './vessel.update.tpl.jade';
 
-const UpdateForm = require('/imports/api/UpdateForm/UpdateForm.js');
+const UpdateForm = require('/imports/ui/UpdateForm/UpdateForm.js');
 
 var db = Vessels;
 var templateName = 'vessel.update';

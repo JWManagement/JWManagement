@@ -3,20 +3,25 @@ body.md-skin[type='UpdateForm'] {
 	padding-top     : 50px;
 
 	.navbar {
-		.navbar-header {
-			&.navbar-left {
-				float      : left;
-				margin-left: 10px;
-			}
+		width: 100%;
 
-			&.navbar-right {
-				float       : right !important;
-				margin-right: 0;
+		.navbar-back {
+			position   : absolute;
+			font-weight: 300;
+		}
 
-				a {
-					padding-right: 15px;
-				}
-			}
+		.navbar-back,
+		.navbar-title {
+			color      : #fff;
+			height     : 50px;
+			padding    : 15px;
+			font-size  : 18px;
+			text-align : center;
+			line-height: 20px;
+		}
+
+		.navbar-title {
+			font-weight: 400;
 		}
 	}
 
