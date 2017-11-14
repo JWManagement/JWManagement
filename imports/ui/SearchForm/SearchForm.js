@@ -40,6 +40,12 @@ module.exports = class SearchForm {
 
     registerHelpers() {
         Template.SearchForm.helpers({
+            'getBackLink': () => {
+                return FlowRouter.path('admin', {
+                    language: FlowRouter.getParam('language'),
+                    projectId: FlowRouter.getParam('projectId')
+                });
+            },
             'getSearchPlaceholder': () => {
                 return TAPi18n.__(this.templateName + '.placeholder');
             },
