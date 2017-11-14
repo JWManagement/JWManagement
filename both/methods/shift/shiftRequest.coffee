@@ -205,6 +205,8 @@ Meteor.methods
 							$addToSet: 'teams.$.participants': newTeamleaderData
 
 						Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+
+						Meteor.call 'openTeam', shiftId, teamId
 					else
 						Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 				else
@@ -213,3 +215,5 @@ Meteor.methods
 						$addToSet: 'teams.$.declined': participantData
 
 					Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
+
+					Meteor.call 'openTeam', shiftId, teamId
