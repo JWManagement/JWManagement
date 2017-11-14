@@ -7,7 +7,8 @@ body.md-skin[type='SearchForm'] {
 		box-shadow: none;
 
 		.navbar-back {
-			position: absolute;
+			position   : absolute;
+			font-weight: 300;
 		}
 
 		.navbar-back,
@@ -18,7 +19,10 @@ body.md-skin[type='SearchForm'] {
 			font-size  : 18px;
 			text-align : center;
 			line-height: 20px;
-			font-weight: 300;
+		}
+
+		.navbar-title {
+			font-weight: 400;
 		}
 	}
 
