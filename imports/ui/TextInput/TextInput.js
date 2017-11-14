@@ -1,17 +1,15 @@
-import './UpdateForm.tpl.jade';
-import './UpdateForm.scss';
+import './TextInput.tpl.jade';
+import './TextInput.scss';
 
-module.exports = class UpdateForm {
+module.exports = class TextInput {
     constructor(
         db,
         templateName,
-        publicationName,
-        sections
+        publicationName
     ) {
         this.db = db;
         this.templateName = templateName;
         this.publicationName = publicationName;
-        this.sections = sections;
 
         this.isLoading = new ReactiveVar(true);
         this.noResult = new ReactiveVar(true);
@@ -27,40 +25,20 @@ module.exports = class UpdateForm {
     }
 
     registerHelpers() {
-        Template.UpdateForm.helpers({
-            'isLoading': () => {
-                return this.isLoading.get();
+        console.log('registerHelpers');
+        Template.TextInput.helpers({
+            'getTranslatedKey': () => {
+                console.log('getTranslatedKey2');
+                return TAPi18n.__(FlowRouter.getRouteName().replace('update', '') + FlowRouter.getParam('key'));
             },
-            'noResult': () => {
-                return this.noResult.get();
-            },
-            'sections': () => {
-                return this.sections;
-            },
-            'getTranslatedKey': (key) => {
-                return TAPi18n.__(this.templateName + '.' + key);
-            },
-            'getItemKeyValue': (key) => {
-                return this.item.get()[key];
-            },
-            'getItemKeyDropdown': (key, container) => {
-                return TAPi18n.__(this.templateName + '.' + container + '.' + this.item.get()[key]);
-            },
-            'isDate': (elem) => {
-                return elem.type == 'date';
+            'getValue': () => {
+                return this.item.get()[FlowRouter.getParam('key')];
             }
         });
     }
 
     registerOnRendered() {
-        Template.UpdateForm.onRendered(() => {
-            $('body').addClass('md-skin');
-            $('body').addClass('top-navigation');
-            $('body').attr('type', 'UpdateForm');
-
-            this.isLoading.set(true);
-            this.noResult.set(false);
-
+        Template.TextInput.onRendered(() => {
             this.itemId = FlowRouter.getParam('itemId');
             var projectId = FlowRouter.getParam('projectId');
 
@@ -76,8 +54,6 @@ module.exports = class UpdateForm {
                 changed: (oldItem, newItem) => {
                     if (this.handle.ready()) {
                         this.item.set(newItem);
-                        alert('Someone just changed some data on this page. We already pulled these changes for you.')
-                        // TODO: translate
                     }
                 }
             });
@@ -92,11 +68,7 @@ module.exports = class UpdateForm {
     }
 
     registerOnDestroyed() {
-        Template.UpdateForm.onDestroyed(() => {
-            $('body').removeClass('md-skin');
-            $('body').removeClass('top-navigation');
-            $('body').attr('type', '');
-
+        Template.TextInput.onDestroyed(() => {
             if (this.handle !== null) {
                 this.handle.stop();
             }
@@ -108,11 +80,8 @@ module.exports = class UpdateForm {
     }
 
     registerEvents() {
-        Template.UpdateForm.events({
-            'click #cancelChanges': () => {
-                // TODO: check for changed content and ask for "really?!"
-            },
-            'click #saveChanges': () => {
+        Template.TextInput.events({
+            'change input': () => {
                 var isValidating = new ReactiveVar(); // TODO: register in class
                 isValidating.set(true);
 
@@ -127,21 +96,12 @@ module.exports = class UpdateForm {
                     mmsi: $('[name=mmsi]').val().trim()
                 };
 
-                Meteor.call('VesselService.update', entity, (e, a) => {
-                    console.log(e);
-                    console.log(a);
+                //Meteor.call('VesselService.update', entity, (e, a) => {
+                    //console.log(e);
+                    //console.log(a);
                     // TODO: handle errors
                     // TODO: else handle success
-                });
-            },
-            'click #back': (e) => {
-                e.preventDefault();
-                wrs(() => {
-                    FlowRouter.go(FlowRouter.path(Session.get('parent'), {
-                        language: TAPi18n.getLanguage(),
-                        projectId: FlowRouter.getParam('projectId')
-                    }));
-                });
+                //});
             }
         });
     }
