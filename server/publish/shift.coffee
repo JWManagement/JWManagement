@@ -20,9 +20,7 @@ Meteor.publish 'shift', (shiftId) ->
 
 					for team in shift.teams
 						for participant in team.participants when participant._id == @userId
-							isTeamleader = participant.thisTeamleader
-							break
-						break
+							isTeamleader = isTeamleader || participant.thisTeamleader
 
 					if isTeamleader
 						[
