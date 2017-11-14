@@ -62,27 +62,27 @@ FlowRouter.route '/:language/:projectId/vessels',
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
-			Session.set 'parent', 'admin'
+			Session.set 'parent', 'admin' # TODO: simplify
 		else
-			Session.set 'parent', 'home'
+			Session.set 'parent', 'home' # TODO: simplify
 
-		require('/imports/ui/pages/vessels/vessels.js')
-		BlazeLayout.render 'vessels'
+		require('/imports/ui/vessels/vessel.search.js')
+		BlazeLayout.render 'vessel.search'
 
 FlowRouter.route '/:language/:projectId/vessels/:itemId',
 	name: 'vessel'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'vessels'
+		Session.set 'parent', 'vessel.search' # TODO: simplify
 
-		require('/imports/ui/pages/vessel/vessel.js')
-		BlazeLayout.render 'vessel'
+		require('/imports/ui/vessels/vessel.details.js')
+		BlazeLayout.render 'vessel.details'
 
 FlowRouter.route '/:language/:projectId/vessels/:itemId/:key',
 	name: 'vessel.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'vessel'
+		Session.set 'parent', 'vessel' # TODO: simplify
 
-		require('/imports/ui/pages/vessel.update/vessel.update.js')
+		require('/imports/ui/vessels/vessel.update.js')
 		BlazeLayout.render 'vessel.update'

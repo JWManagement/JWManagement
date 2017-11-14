@@ -2,7 +2,7 @@ import {
     Vessels
 } from '/imports/api/vessels/vessels.coffee';
 
-import './vessels.tpl.jade';
+import './vessel.search.tpl.jade';
 
 const SearchForm = require('/imports/api/SearchForm/SearchForm.js')
 

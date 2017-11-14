@@ -2,7 +2,7 @@ import {
     Vessels
 } from '/imports/api/vessels/vessels.coffee';
 
-import './vessel.tpl.jade';
+import './vessel.details.tpl.jade';
 
 const DetailsForm = require('/imports/api/DetailsForm/DetailsForm.js');
 
