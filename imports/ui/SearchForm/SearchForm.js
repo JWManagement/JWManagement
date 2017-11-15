@@ -5,331 +5,320 @@ import {
 import './SearchForm.tpl.jade';
 import './SearchForm.scss'
 
-module.exports = class SearchForm {
-    constructor(
-        db,
-        templateName,
-        publicationName,
-        translatedAttributes,
-        searchCriteria,
-        getColumns
-    ) {
-        this.searchString = new ReactiveVar('');
-        this.isLoading = new ReactiveVar(false);
-        this.noResults = new ReactiveVar(true);
-        this.itemCount = new ReactiveVar(0);
-        this.awaitedCount = new ReactiveVar(-1);
-        this.regEx = new ReactiveVar(new RegExp(''));
-        this.table = null;
-        this.language = '';
-        this.handle = null;
-        this.maxResultsShown = 20;
+Template.SearchForm.helpers({
+    'getBackLink': () => {
+        return FlowRouter.path('admin', {
+            language: FlowRouter.getParam('language'),
+            projectId: FlowRouter.getParam('projectId')
+        });
+    },
+    'getSearchPlaceholder': () => {
+        return TAPi18n.__(Template.instance().templateName + '.placeholder');
+    },
+    'valueOrDash': (value) => {
+        return (value != '' ? value : '-');
+    },
+    'isLoading': () => {
+        return Template.instance().isLoading.get();
+    },
+    'noResults': () => {
+        var template = Template.instance();
+        return template.noResults.get() && !template.isLoading.get();
+    },
+    'resultsMobile': () => {
+        var template = Template.instance();
 
-        this.db = db;
-        this.templateName = templateName;
-        this.publicationName = publicationName;
-        this.translatedAttributes = translatedAttributes;
-        this.searchCriteria = searchCriteria;
-        this.getColumns = getColumns;
-
-        this.registerHelpers();
-        this.registerOnRendered();
-        this.registerOnDestroyed();
-        this.registerEvents();
-    }
-
-    registerHelpers() {
-        Template.SearchForm.helpers({
-            'getBackLink': () => {
-                return FlowRouter.path('admin', {
-                    language: FlowRouter.getParam('language'),
-                    projectId: FlowRouter.getParam('projectId')
+        if (!template.noResults.get() && !template.isLoading.get()) {
+            var columns = template.getColumns()
+                .filter((column) => {
+                    return column.mobile == true;
+                })
+                .map((column) => {
+                    return {
+                        name: column.name,
+                        translation: TAPi18n.__('vessels.' + column.name)
+                    };
                 });
-            },
-            'getSearchPlaceholder': () => {
-                return TAPi18n.__(this.templateName + '.placeholder');
-            },
-            'valueOrDash': (value) => {
-                return (value != '' ? value : '-');
-            },
-            'isLoading': () => {
-                return this.isLoading.get();
-            },
-            'noResults': () => {
-                return this.noResults.get() && !this.isLoading.get();
-            },
-            'resultsMobile': () => {
-                if (!this.noResults.get() && !this.isLoading.get()) {
-                    var columns = this.getColumns()
-                        .filter((column) => {
-                            return column.mobile == true;
+
+            return getRows(template)
+                .map((row) => {
+                    return {
+                        _id: FlowRouter.current().path + '/' + row._id,
+                        columns: columns.map((column) => {
+                            return {
+                                th: column.translation,
+                                td: row[column.name]
+                            };
                         })
-                        .map((column) => {
-                            return {
-                                name: column.name,
-                                translation: TAPi18n.__('vessels.' + column.name)
-                            };
-                        });
-
-                    return this.getRows()
-                        .map((row) => {
-                            return {
-                                _id: FlowRouter.current().path + '/' + row._id,
-                                columns: columns.map((column) => {
-                                    return {
-                                        th: column.translation,
-                                        td: row[column.name]
-                                    };
-                                })
-                            };
-                        });
-                }
-
-                return false;
-            },
-            'moreResultsAvailable': () => {
-                return this.db.find(this.searchCriteria(this.regEx.get()), {
-                    sort: {
-                        name: 1
-                    }
-                }).fetch().length == this.maxResultsShown;
-            },
-            'totalFound': () => {
-                var counters = Counts.find({
-                    _id: this.publicationName
-                }, {
-                    fields: {
-                        count: 1
-                    }
+                    };
                 });
-
-                if (counters.count() > 0) {
-                    return counters.fetch()[0].count;
-                }
-                return '';
-            },
-            'maxResultsShown': () => {
-                return this.maxResultsShown;
-            }
-        });
-    }
-
-    registerOnRendered() {
-        Template.SearchForm.onRendered(() => {
-            $('body').addClass('md-skin');
-            $('body').addClass('top-navigation');
-            $('body').attr('type', 'SearchForm');
-
-            this.language = '';
-            var template = Template.instance();
-
-            template.autorun(() => {
-                var tempLanguage = FlowRouter.getParam('language');
-
-                if (this.language !== tempLanguage) {
-                    this.language = tempLanguage;
-
-                    Tracker.afterFlush(() => {
-                        $('#table').html('');
-
-                        this.table = FooTable.init('#table', {
-                            columns: this.getColumns(),
-                            rows: this.getRows(),
-                            empty: '',
-                            showToggle: false,
-                            paging: {
-                                enabled: true,
-                                size: this.maxResultsShown
-                            },
-                            sorting: {
-                                enabled: true
-                            }
-                        });
-                    });
-                }
-            });
-
-            template.autorun(() => {
-                var ready = this.handle !== null && this.handle.ready();
-                var search = this.searchString.get();
-
-                if (this.isLoading.get()) {
-                    var rowCount = this.getRowCount();
-                    var awaited = this.awaitedCount.get()
-
-                    if (awaited == 0 || search.length == 0 || ready) {
-                        if (rowCount == awaited) {
-                            this.itemCount.set(rowCount);
-                            this.table.loadRows(this.getRows());
-                            this.isLoading.set(false);
-                        }
-                    }
-                }
-            });
-
-            this.changeObserver = this.db.find().observeChanges({
-                added: () => {
-                    this.reloadRowsIfIsUpdate()
-                },
-                changed: () => {
-                    if (!this.isLoading.get()) {
-                        this.table.loadRows(getRows());
-                    }
-                },
-                removed: () => {
-                    this.reloadRowsIfIsUpdate()
-                }
-            });
-
-            if ($('#search').val() == '' && $('#search').val() != this.searchString.get()) {
-                var search = this.searchString.get();
-                $('#search').val(search);
-                this.searchString.set('');
-                this.updateSearch(search);
-            }
-
-            $('#search').keyup((e) => {
-                this.updateSearch(e.target.value);
-            });
-            $('#search').change((e) => {
-                this.updateSearch(e.target.value);
-            });
-        });
-    }
-
-    registerOnDestroyed() {
-        Template.SearchForm.onDestroyed(() => {
-            $('body').removeClass('md-skin');
-            $('body').removeClass('top-navigation');
-            $('body').attr('type', '');
-
-            if (this.handle !== null) {
-                this.handle.stop();
-            }
-
-            if (this.changeObserver !== null) {
-                this.changeObserver.stop();
-            }
-        });
-    }
-
-    registerEvents() {
-        Template.SearchForm.events({
-            'click #more': (e) => {
-                this.isLoading.set(true);
-                this.doSubscribe(true);
-            },
-            'click #createNew': () => {
-                wrs(() => {
-                    FlowRouter.setQueryParams({
-                        createNew: true
-                    });
-                });
-            },
-            'click .results-desktop tr': (e) => {
-                FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
-            }
-        });
-    }
-
-    getRowCount() {
-        if (this.regEx.get() == '') {
-            return 0;
         }
 
-        var items = this.db.find(this.searchCriteria(this.regEx.get()), {
-            fields: {
-                _id: 1
-            }
-        }).fetch();
+        return false;
+    },
+    'moreResultsAvailable': () => {
+        var template = Template.instance();
 
-        if (items.length == 0) {
-            this.noResults.set(true);
-        } else {
-            this.noResults.set(false);
-        }
-
-        return items.length;
-    }
-
-    getRows() {
-        if (this.regEx.get() == '') {
-            return [];
-        }
-
-        return this.db
-        .find(this.searchCriteria(this.regEx.get()), {
+        return template.db.find(template.searchCriteria(template.regEx.get()), {
             sort: {
-                name: 1,
-                callsign: 1
+                name: 1
             }
-        })
-        .fetch()
-        .map((item) => {
-            for (var i = 0; i < this.translatedAttributes.length; i++) {
-                var attr = this.translatedAttributes[i]['attribute'];
-                item[attr] = TAPi18n.__(this.translatedAttributes[i]['i18nPath'] + '.' + item[attr]);
-            }
-            return item;
-        });
-    }
-
-    reloadRowsIfIsUpdate() {
-        if (!this.isLoading.get() && this.table != undefined) {
-            var rowCount = this.getRowCount();
-
-            if (this.itemCount.get() != rowCount) {
-                this.itemCount.set(rowCount);
-                this.table.loadRows(this.getRows());
-            }
-        }
-    }
-
-    updateSearch(search) {
-        if (this.searchString.get() !== search) {
-            this.searchString.set(search);
-
-            if (search.length > 0) {
-                if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
-                    this.searchString.set('.');
-                    this.regEx.set(new RegExp('.', 'i'));
-                } else {
-                    this.regEx.set(new RegExp(search, 'i'));
-                }
-                this.doSubscribe();
-            } else {
-                this.awaitedCount.set(0)
-                this.noResults.set(true);
-                this.regEx.set('');
-            }
-
-            this.isLoading.set(true);
-        }
-    }
-
-    doSubscribe(retrieveAllResults = false) {
-        if (this.handle !== null) {
-            this.handle.stop();
-        }
-
-        var search = this.searchString.get();
-        var projectId = FlowRouter.getParam('projectId');
-        var limit = retrieveAllResults ? 0 : this.maxResultsShown;
-
-        this.handle = Meteor.subscribe(this.publicationName, search, projectId, limit);
-
-        Counts.find(this.templateName, {
+        }).fetch().length == template.maxResultsShown;
+    },
+    'totalFound': () => {
+        var counters = Counts.find({
+            _id: Template.instance().publicationName
+        }, {
             fields: {
                 count: 1
             }
-        }).observeChanges({
-            added: (id, fields) => {
-                if (retrieveAllResults) {
-                    this.awaitedCount.set(fields.count)
-                } else {
-                    this.awaitedCount.set(Math.min(this.maxResultsShown, fields.count));
+        });
+
+        if (counters.count() > 0) {
+            return counters.fetch()[0].count;
+        }
+        return '';
+    },
+    'maxResultsShown': () => {
+        return  Template.instance().maxResultsShown;
+    }
+});
+
+Template.SearchForm.onCreated(() => {
+    var template = Template.instance();
+    var data = Template.currentData().data;
+
+    template.db = data.db;
+    template.templateName = data.templateName;
+    template.publicationName = data.publicationName;
+    template.translatedAttributes = data.translatedAttributes;
+    template.searchCriteria = data.searchCriteria;
+    template.getColumns = data.getColumns;
+
+    template.searchString = new ReactiveVar('');
+    template.isLoading = new ReactiveVar(false);
+    template.noResults = new ReactiveVar(true);
+    template.itemCount = new ReactiveVar(0);
+    template.awaitedCount = new ReactiveVar(-1);
+    template.regEx = new ReactiveVar(new RegExp(''));
+    template.table = null;
+    template.language = '';
+    template.handle = null;
+    template.maxResultsShown = 20;
+});
+
+Template.SearchForm.onRendered(() => {
+    $('body').addClass('md-skin');
+    $('body').addClass('top-navigation');
+    $('body').attr('type', 'SearchForm');
+
+    var template = Template.instance();
+    template.language = '';
+
+    template.autorun(() => {
+        var tempLanguage = FlowRouter.getParam('language');
+
+        if (template.language !== tempLanguage) {
+            template.language = tempLanguage;
+
+            Tracker.afterFlush(() => {
+                $('#table').html('');
+
+                template.table = FooTable.init('#table', {
+                    columns: template.getColumns(),
+                    rows: getRows(template),
+                    empty: '',
+                    showToggle: false,
+                    paging: {
+                        enabled: true,
+                        size: template.maxResultsShown
+                    },
+                    sorting: {
+                        enabled: true
+                    }
+                });
+            });
+        }
+    });
+
+    template.autorun(() => {
+        var template = Template.instance();
+        var ready = template.handle !== null && template.handle.ready();
+        var search = template.searchString.get();
+
+        if (template.isLoading.get()) {
+            var rowCount = getRowCount(template);
+            var awaited = template.awaitedCount.get()
+
+            if (awaited == 0 || search.length == 0 || ready) {
+                if (rowCount == awaited) {
+                    template.itemCount.set(rowCount);
+                    template.table.loadRows(getRows(template));
+                    template.isLoading.set(false);
                 }
             }
-        });
+        }
+    });
+
+    template.changeObserver = template.db.find().observeChanges({
+        added: () => {
+            reloadRowsIfIsUpdate(template)
+        },
+        changed: () => {
+            if (!template.isLoading.get()) {
+                template.table.loadRows(getRows(template));
+            }
+        },
+        removed: () => {
+            reloadRowsIfIsUpdate(template)
+        }
+    });
+
+    if ($('#search').val() == '' && $('#search').val() != template.searchString.get()) {
+        var search = template.searchString.get();
+        $('#search').val(search);
+        template.searchString.set('');
+        updateSearch(template, search);
     }
+
+    $('#search').keyup((e) => {
+        updateSearch(template, e.target.value);
+    });
+    $('#search').change((e) => {
+        updateSearch(template, e.target.value);
+    });
+});
+
+Template.SearchForm.onDestroyed(() => {
+    $('body').removeClass('md-skin');
+    $('body').removeClass('top-navigation');
+    $('body').attr('type', '');
+
+    var template = Template.instance();
+
+    if (template.handle !== null) {
+        template.handle.stop();
+    }
+
+    if (template.changeObserver !== null) {
+        template.changeObserver.stop();
+    }
+});
+
+Template.SearchForm.events({
+    'click #more': (e) => {
+        Template.instance().isLoading.set(true);
+        doSubscribe(template, true);
+    },
+    'click #createNew': () => {
+        wrs(() => {
+            FlowRouter.setQueryParams({
+                createNew: true
+            });
+        });
+    },
+    'click .results-desktop tr': (e) => {
+        FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
+    }
+});
+
+function getRowCount(template) {
+    if (template.regEx.get() == '') {
+        return 0;
+    }
+
+    var items = template.db.find(template.searchCriteria(template.regEx.get()), {
+        fields: {
+            _id: 1
+        }
+    }).fetch();
+
+    if (items.length == 0) {
+        template.noResults.set(true);
+    } else {
+        template.noResults.set(false);
+    }
+
+    return items.length;
+}
+
+function getRows(template) {
+    if (template.regEx.get() == '') {
+        return [];
+    }
+
+    return template.db
+    .find(template.searchCriteria(template.regEx.get()), {
+        sort: {
+            name: 1,
+            callsign: 1
+        }
+    })
+    .fetch()
+    .map((item) => {
+        for (var i = 0; i < template.translatedAttributes.length; i++) {
+            var attr = template.translatedAttributes[i]['attribute'];
+            item[attr] = TAPi18n.__(template.translatedAttributes[i]['i18nPath'] + '.' + item[attr]);
+        }
+        return item;
+    });
+}
+
+function reloadRowsIfIsUpdate(template) {
+    if (!template.isLoading.get() && template.table != undefined) {
+        var rowCount = getRowCount(template);
+
+        if (template.itemCount.get() != rowCount) {
+            template.itemCount.set(rowCount);
+            template.table.loadRows(getRows(template));
+        }
+    }
+}
+
+function updateSearch(template, search) {
+    if (template.searchString.get() !== search) {
+        template.searchString.set(search);
+
+        if (search.length > 0) {
+            if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
+                template.searchString.set('.');
+                template.regEx.set(new RegExp('.', 'i'));
+            } else {
+                template.regEx.set(new RegExp(search, 'i'));
+            }
+            doSubscribe(template);
+        } else {
+            template.awaitedCount.set(0)
+            template.noResults.set(true);
+            template.regEx.set('');
+        }
+
+        template.isLoading.set(true);
+    }
+}
+
+function doSubscribe(template, retrieveAllResults = false) {
+    if (template.handle !== null) {
+        template.handle.stop();
+    }
+
+    var search = template.searchString.get();
+    var projectId = FlowRouter.getParam('projectId');
+    var limit = retrieveAllResults ? 0 : template.maxResultsShown;
+
+    template.handle = Meteor.subscribe(template.publicationName, search, projectId, limit);
+
+    Counts.find(template.templateName, {
+        fields: {
+            count: 1
+        }
+    }).observeChanges({
+        added: (id, fields) => {
+            if (retrieveAllResults) {
+                template.awaitedCount.set(fields.count)
+            } else {
+                template.awaitedCount.set(Math.min(template.maxResultsShown, fields.count));
+            }
+        }
+    });
 }

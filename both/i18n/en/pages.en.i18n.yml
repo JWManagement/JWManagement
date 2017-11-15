@@ -10,7 +10,8 @@ navigation:
     reports: Reports
     store: Store Room
     vessels: Vessels
-    vessel: Vessel
+    vessel:
+        search: Vessels
     notes: Notes
     login: Login
     logout: Logout
