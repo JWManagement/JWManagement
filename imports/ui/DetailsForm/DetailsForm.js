@@ -1,120 +1,107 @@
 import './DetailsForm.tpl.jade';
 import './DetailsForm.scss';
 
-module.exports = class DetailsForm {
-    constructor(
-        db,
-        templateName,
-        publicationName,
-        sections
-    ) {
-        this.db = db;
-        this.templateName = templateName;
-        this.publicationName = publicationName;
-        this.sections = sections;
-
-        this.isLoading = new ReactiveVar(true);
-        this.noResult = new ReactiveVar(true);
-        this.language = '';
-        this.handle = null;
-        this.itemId = '';
-        this.item = new ReactiveVar({});
-
-        this.registerHelpers();
-        this.registerOnRendered();
-        this.registerOnDestroyed();
-        this.registerEvents();
-    }
-
-    registerHelpers() {
-        Template.DetailsForm.helpers({
-            'getBackLink': () => {
-                return FlowRouter.path('vessel.search', {
-                    language: FlowRouter.getParam('language'),
-                    projectId: FlowRouter.getParam('projectId')
-                });
-            },
-            'isLoading': () => {
-                return this.isLoading.get();
-            },
-            'noResult': () => {
-                return this.noResult.get();
-            },
-            'sections': () => {
-                return this.sections;
-            },
-            'getTranslatedKey': (key) => {
-                return TAPi18n.__(this.templateName + '.' + key);
-            },
-            'getItemKeyValue': (key) => {
-                return this.item.get()[key];
-            },
-            'getItemKeyDropdown': (key, container) => {
-                return TAPi18n.__(this.templateName + '.' + container + '.' + this.item.get()[key]);
-            },
-            'isDate': (elem) => {
-                return elem.type == 'date';
-            }
+Template.DetailsForm.helpers({
+    'getBackLink': () => {
+        return FlowRouter.path('vessel.search', {
+            language: FlowRouter.getParam('language'),
+            projectId: FlowRouter.getParam('projectId')
         });
+    },
+    'isLoading': () => {
+        return Template.instance().isLoading.get();
+    },
+    'noResult': () => {
+        return Template.instance().noResult.get();
+    },
+    'sections': () => {
+        return Template.instance().sections;
+    },
+    'getTranslatedKey': (key) => {
+        return TAPi18n.__(Template.instance().templateName + '.' + key);
+    },
+    'getItemKeyValue': (key) => {
+        return Template.instance().item.get()[key];
+    },
+    'getItemKeyDropdown': (key, container) => {
+        var template = Template.instance();
+        return TAPi18n.__(template.templateName + '.' + container + '.' + template.item.get()[key]);
+    },
+    'isDate': (elem) => {
+        return elem.type == 'date';
+    }
+});
+
+Template.DetailsForm.onCreated(() => {
+    var template = Template.instance();
+    var data = Template.currentData().data;
+
+    template.db = data.db;
+    template.templateName = data.templateName;
+    template.publicationName = data.publicationName;
+    template.sections = data.sections;
+
+    template.isLoading = new ReactiveVar(true);
+    template.noResult = new ReactiveVar(true);
+    template.language = '';
+    template.handle = null;
+    template.itemId = '';
+    template.item = new ReactiveVar({});
+});
+Template.DetailsForm.onRendered(() => {
+    $('body').addClass('md-skin');
+    $('body').addClass('top-navigation');
+    $('body').attr('type', 'DetailsForm');
+
+    var template = Template.instance();
+
+    template.isLoading.set(true);
+    template.noResult.set(false);
+
+    template.itemId = FlowRouter.getParam('itemId');
+    var projectId = FlowRouter.getParam('projectId');
+
+    template.handle = Meteor.subscribe(template.publicationName, template.itemId, projectId);
+
+    template.changeObserver = template.db.find({
+        _id: template.itemId
+    }).observe({
+        added: (newItem) => {
+            template.noResult.set(false);
+            template.item.set(newItem);
+        },
+        changed: (oldItem, newItem) => {
+            template.item.set(newItem);
+        }
+    });
+
+    Tracker.autorun((tracker) => {
+        if (template.handle.ready()) {
+            template.isLoading.set(false);
+            tracker.stop();
+        }
+    });
+});
+
+Template.DetailsForm.onDestroyed(() => {
+    $('body').removeClass('md-skin');
+    $('body').removeClass('top-navigation');
+    $('body').attr('type', '');
+
+    var template = Template.instance();
+
+    if (template.handle !== null) {
+        template.handle.stop();
     }
 
-    registerOnRendered() {
-        Template.DetailsForm.onRendered(() => {
-            $('body').addClass('md-skin');
-            $('body').addClass('top-navigation');
-            $('body').attr('type', 'DetailsForm');
-
-            this.isLoading.set(true);
-            this.noResult.set(false);
-
-            this.itemId = FlowRouter.getParam('itemId');
-            var projectId = FlowRouter.getParam('projectId');
-
-            this.handle = Meteor.subscribe(this.publicationName, this.itemId, projectId);
-
-            this.changeObserver = this.db.find({
-                _id: this.itemId
-            }).observe({
-                added: (newItem) => {
-                    this.noResult.set(false);
-                    this.item.set(newItem);
-                },
-                changed: (oldItem, newItem) => {
-                    this.item.set(newItem);
-                }
-            });
-
-            Tracker.autorun((tracker) => {
-                if (this.handle.ready()) {
-                    this.isLoading.set(false);
-                    tracker.stop();
-                }
-            });
-        });
+    if (template.changeObserver !== null) {
+        template.changeObserver.stop();
     }
+});
 
-    registerOnDestroyed() {
-        Template.DetailsForm.onDestroyed(() => {
-            $('body').removeClass('md-skin');
-            $('body').removeClass('top-navigation');
-            $('body').attr('type', '');
-
-            if (this.handle !== null) {
-                this.handle.stop();
-            }
-
-            if (this.changeObserver !== null) {
-                this.changeObserver.stop();
-            }
-        });
+Template.DetailsForm.events({
+    'click .input': (e) => {
+        var key = $(e.target).closest('.input').attr('key');
+        FlowRouter.go(FlowRouter.current().path + '/' + key);
     }
-
-    registerEvents() {
-        Template.DetailsForm.events({
-            'click .input': (e) => {
-                var key = $(e.target).closest('.input').attr('key');
-                FlowRouter.go(FlowRouter.current().path + '/' + key);
-            }
-        });
-    }
-}
+});
