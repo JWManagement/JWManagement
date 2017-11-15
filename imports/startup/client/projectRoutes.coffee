@@ -19,8 +19,11 @@ FlowRouter.route '/:language/:projectId/admin',
 	name: 'admin'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
-		BlazeLayout.render 'invertedLayout', content: 'admin'
+		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
+			Session.set 'parent', 'home'
+			BlazeLayout.render 'invertedLayout', content: 'admin'
+		else
+			wrs -> FlowRouter.go 'home'
 
 FlowRouter.route '/:language/:projectId/settings',
 	name: 'settings'
@@ -61,11 +64,6 @@ FlowRouter.route '/:language/:projectId/vessels',
 	name: 'vessel.search'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
-			Session.set 'parent', 'admin' # TODO: simplify
-		else
-			Session.set 'parent', 'home' # TODO: simplify
-
 		require('/imports/ui/vessels/vessel.search.js')
 		BlazeLayout.render 'vessel.search'
 
@@ -73,8 +71,6 @@ FlowRouter.route '/:language/:projectId/vessels/:itemId',
 	name: 'vessel.details'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'vessel.search' # TODO: simplify
-
 		require('/imports/ui/vessels/vessel.details.js')
 		BlazeLayout.render 'vessel.details'
 
@@ -82,7 +78,5 @@ FlowRouter.route '/:language/:projectId/vessels/:itemId/:key',
 	name: 'vessel.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'vessel' # TODO: simplify
-
 		require('/imports/ui/vessels/vessel.update.js')
 		BlazeLayout.render 'vessel.update'

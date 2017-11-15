@@ -3,7 +3,7 @@ import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({
     'getBackLink': () => {
-        return FlowRouter.path('vessel.search', {
+        return FlowRouter.path(FlowRouter.getRouteName().replace('details', 'search'), {
             language: FlowRouter.getParam('language'),
             projectId: FlowRouter.getParam('projectId')
         });
@@ -18,14 +18,14 @@ Template.DetailsForm.helpers({
         return Template.instance().sections;
     },
     'getTranslatedKey': (key) => {
-        return TAPi18n.__(Template.instance().templateName + '.' + key);
+        return TAPi18n.__(FlowRouter.getRouteName().replace('details', '') + key);
     },
     'getItemKeyValue': (key) => {
         return Template.instance().item.get()[key];
     },
     'getItemKeyDropdown': (key, container) => {
         var template = Template.instance();
-        return TAPi18n.__(template.templateName + '.' + container + '.' + template.item.get()[key]);
+        return TAPi18n.__(FlowRouter.getRouteName().replace('details', '') + container + '.' + template.item.get()[key]);
     },
     'isDate': (elem) => {
         return elem.type == 'date';
@@ -37,7 +37,6 @@ Template.DetailsForm.onCreated(() => {
     var data = Template.currentData().data;
 
     template.db = data.db;
-    template.templateName = data.templateName;
     template.publicationName = data.publicationName;
     template.sections = data.sections;
 

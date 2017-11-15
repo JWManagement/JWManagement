@@ -28,6 +28,7 @@ navigation:
     support: Support
     version: Version
     new: New
+    back: Back
 welcome:
     links:
         home: Home
