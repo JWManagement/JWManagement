@@ -354,11 +354,9 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
-vessels:
-    title: Vessels
+BROKEN_vessels:
     nameShort: Vessels
     search: Search
-    placeholder: Vessel name, call sign, ENI, IMO or MMSI
     addNewVessel: Add new vessel
     name: Vessel name
     flag: Flag
@@ -384,33 +382,34 @@ vessels:
     nextVisit: Next visit after
     languages: Language(s) on board
 vessel:
-    title: Vessel
-    nameShort: Vessel
-    back: Back
-    identificationSection: Identification data
-    name: Vessel name
-    flag: Flag
-    type: Type
-    callsign: Call sign
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    types:
-        c: Container ship
-        cr: Cruise ship
-        mf: Cargo
-        mt: Tanker
-        p: Passenger ship
-        pt: Pushtow
-        rc: River cruise ship
-        f: Ferry
-        ro: Ro-Ro
-        t: Tug
-        unknown: Unknown
-    visitSection: Last visit
-    lastVisit: Last visit
-    nextVisit: Next visit after
-    languages: Language(s) on board
+    search:
+        title: Vessels
+        placeholder: Vessel name, call sign, ENI, IMO or MMSI
+    entity:
+        name: Vessel name
+        flag: Flag
+        type: Type
+        callsign: Call sign
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        types:
+            c: Container ship
+            cr: Cruise ship
+            mf: Cargo
+            mt: Tanker
+            p: Passenger ship
+            pt: Pushtow
+            rc: River cruise ship
+            f: Ferry
+            ro: Ro-Ro
+            t: Tug
+            unknown: Unknown
+        lastVisit: Last visit
+        nextVisit: Next visit after
+    details:
+        identificationSection: Identification data
+        visitSection: Last visit
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note

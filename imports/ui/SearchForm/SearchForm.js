@@ -12,8 +12,8 @@ Template.SearchForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
-    'getSearchPlaceholder': () => {
-        return TAPi18n.__(Template.instance().templateName + '.placeholder');
+    'getTranslation': (key) => {
+        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
     'valueOrDash': (value) => {
         return (value != '' ? value : '-');
@@ -29,14 +29,14 @@ Template.SearchForm.helpers({
         var template = Template.instance();
 
         if (!template.noResults.get() && !template.isLoading.get()) {
-            var columns = template.getColumns()
+            var columns = template.getColumns
                 .filter((column) => {
                     return column.mobile == true;
                 })
                 .map((column) => {
                     return {
                         name: column.name,
-                        translation: TAPi18n.__('vessels.' + column.name)
+                        translation: TAPi18n.__(FlowRouter.getRouteName().replace('search', 'entity.') + column.name)
                     };
                 });
 
@@ -66,9 +66,7 @@ Template.SearchForm.helpers({
         }).fetch().length == template.maxResultsShown;
     },
     'totalFound': () => {
-        var counters = Counts.find({
-            _id: Template.instance().publicationName
-        }, {
+        var counters = Counts.find(Template.instance().publicationName, {
             fields: {
                 count: 1
             }
@@ -89,11 +87,13 @@ Template.SearchForm.onCreated(() => {
     var data = Template.currentData().data;
 
     template.db = data.db;
-    template.templateName = data.templateName;
     template.publicationName = data.publicationName;
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
-    template.getColumns = data.getColumns;
+    template.getColumns = data.getColumns.map((column) => {
+        column.title = TAPi18n.__(FlowRouter.getRouteName().replace('search', 'entity.') + column.name)
+        return column;
+    });
 
     template.searchString = new ReactiveVar('');
     template.isLoading = new ReactiveVar(false);
@@ -125,7 +125,7 @@ Template.SearchForm.onRendered(() => {
                 $('#table').html('');
 
                 template.table = FooTable.init('#table', {
-                    columns: template.getColumns(),
+                    columns: template.getColumns,
                     rows: getRows(template),
                     empty: '',
                     showToggle: false,
@@ -207,7 +207,8 @@ Template.SearchForm.onDestroyed(() => {
 
 Template.SearchForm.events({
     'click #more': (e) => {
-        Template.instance().isLoading.set(true);
+        var template = Template.instance();
+        template.isLoading.set(true);
         doSubscribe(template, true);
     },
     'click #createNew': () => {
@@ -308,7 +309,7 @@ function doSubscribe(template, retrieveAllResults = false) {
 
     template.handle = Meteor.subscribe(template.publicationName, search, projectId, limit);
 
-    Counts.find(template.templateName, {
+    Counts.find(template.publicationName, {
         fields: {
             count: 1
         }

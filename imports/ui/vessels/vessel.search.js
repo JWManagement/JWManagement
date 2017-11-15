@@ -10,11 +10,32 @@ Template['vessel.search'].helpers({
     data: () => {
         return {
             db: Vessels,
-            templateName: 'vessels',
             publicationName: 'vessels',
             translatedAttributes: [{
                 attribute: 'type',
                 i18nPath: 'vessels.types'
+            }],
+            getColumns: [{
+                name: '_id',
+                visible: false
+            }, {
+                name: 'name',
+                mobile: true
+            }, {
+                name: 'flag',
+                mobile: true
+            }, {
+                name: 'type',
+                mobile: true
+            }, {
+                name: 'callsign',
+                mobile: true
+            }, {
+                name: 'eni'
+            }, {
+                name: 'imo'
+            }, {
+                name: 'mmsi'
             }],
             searchCriteria: (search) => {
                 return {
@@ -30,37 +51,6 @@ Template['vessel.search'].helpers({
                         mmsi: search
                     }]
                 };
-            },
-            getColumns: () => {
-                return [{
-                    name: '_id',
-                    visible: false
-                }, {
-                    name: 'name',
-                    title: TAPi18n.__('vessels.name'),
-                    mobile: true
-                }, {
-                    name: 'flag',
-                    title: TAPi18n.__('vessels.flag'),
-                    mobile: true
-                }, {
-                    name: 'type',
-                    title: TAPi18n.__('vessels.type'),
-                    mobile: true
-                }, {
-                    name: 'callsign',
-                    title: TAPi18n.__('vessels.callsign'),
-                    mobile: true
-                }, {
-                    name: 'eni',
-                    title: TAPi18n.__('vessels.eni')
-                }, {
-                    name: 'imo',
-                    title: TAPi18n.__('vessels.imo')
-                }, {
-                    name: 'mmsi',
-                    title: TAPi18n.__('vessels.mmsi')
-                }];
             }
         };
     }
