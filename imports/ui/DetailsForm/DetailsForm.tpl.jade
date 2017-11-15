@@ -3,7 +3,7 @@
 		a.navbar-back(href="{{getBackLink}}")
 			i.fa.fa-angle-left.m-r-xs
 			| Back
-		.navbar-title Vessel
+		.navbar-title {{getTranslation 'title'}}
 
 form.form-horizontal
 	if isLoading
@@ -17,11 +17,11 @@ form.form-horizontal
 	else
 		each sections
 			.section
-				.section-header {{getTranslatedKey header}}
+				.section-header {{getTranslation header}}
 				.section-content
 					each contents
 						.input.form-group(key='{{key}}')
-							.key {{getTranslatedKey key}}
+							.key {{getEntityTranslation key}}
 							.value
-								| {{getItemKeyValue key}}
+								| {{getValue key}}
 								i.fa.fa-angle-right.icon

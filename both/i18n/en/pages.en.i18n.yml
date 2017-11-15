@@ -382,17 +382,10 @@ BROKEN_vessels:
     nextVisit: Next visit after
     languages: Language(s) on board
 vessel:
-    search:
-        title: Vessels
-        placeholder: Vessel name, call sign, ENI, IMO or MMSI
     entity:
         name: Vessel name
         flag: Flag
         type: Type
-        callsign: Call sign
-        eni: ENI
-        imo: IMO
-        mmsi: MMSI
         types:
             c: Container ship
             cr: Cruise ship
@@ -405,9 +398,17 @@ vessel:
             ro: Ro-Ro
             t: Tug
             unknown: Unknown
+        callsign: Call sign
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
         lastVisit: Last visit
         nextVisit: Next visit after
+    search:
+        title: Vessels
+        placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
+        title: Edit vessel
         identificationSection: Identification data
         visitSection: Last visit
 notes:

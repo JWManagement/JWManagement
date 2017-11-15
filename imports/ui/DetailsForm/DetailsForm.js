@@ -8,6 +8,12 @@ Template.DetailsForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
+    'getTranslation': (key) => {
+        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
+    },
+    'getEntityTranslation': (key) => {
+        return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + key);
+    },
     'isLoading': () => {
         return Template.instance().isLoading.get();
     },
@@ -17,15 +23,12 @@ Template.DetailsForm.helpers({
     'sections': () => {
         return Template.instance().sections;
     },
-    'getTranslatedKey': (key) => {
-        return TAPi18n.__(FlowRouter.getRouteName().replace('details', '') + key);
-    },
-    'getItemKeyValue': (key) => {
+    'getValue': (key) => {
         return Template.instance().item.get()[key];
     },
     'getItemKeyDropdown': (key, container) => {
         var template = Template.instance();
-        return TAPi18n.__(FlowRouter.getRouteName().replace('details', '') + container + '.' + template.item.get()[key]);
+        return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + container + '.' + template.item.get()[key]);
     },
     'isDate': (elem) => {
         return elem.type == 'date';

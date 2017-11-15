@@ -10,7 +10,6 @@ Template['vessel.details'].helpers({
     data: () => {
         return {
             db: Vessels,
-            templateName: 'vessel',
             publicationName: 'vessel',
             sections: [{
                 header: 'identificationSection',
