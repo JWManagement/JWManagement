@@ -5,7 +5,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
 
 		if shift?
 			if shift.teams?
@@ -15,6 +16,7 @@ Meteor.methods
 			unless init?
 				Meteor.call 'updateReport', shiftId, teamId, 'init', true
 				Meteor.call 'updateReport', shiftId, teamId, 'texts', 0
+				Meteor.call 'updateReport', shiftId, teamId, 'website', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'speaks', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'videos', 0
 				Meteor.call 'updateReport', shiftId, teamId, 'returnVisits', 0
@@ -36,7 +38,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
 
 		set = {}
 		set['teams.$.report.' + field] = value
@@ -52,7 +55,8 @@ Meteor.methods
 			check parseInt(count), Match.Integer
 			check shiftId, isExistingShift
 			check shift.projectId, isExistingProject
-			check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
 
 		for team in shift.teams when team._id == teamId
 			newItems = if team.report.items then team.report.items else []
@@ -97,8 +101,8 @@ Meteor.methods
 		if Meteor.isServer
 			check parseInt(count), Match.Integer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
-
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: teamId, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
 			$pull: 'teams.$.report.items':

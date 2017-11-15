@@ -8,7 +8,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		if array == 'teams'
 			if project.teams.length > 0
@@ -26,12 +27,14 @@ Meteor.methods
 					if !existing
 						teamId = team._id
 						teamName = team.name
+						teamIcon = team.icon
 						teamLink = team.link
 						teamDescription = team.description
 
 				if teamId != ''
 					set[array]['_id'] = teamId
 					set[array]['name'] = teamName
+					set[array]['icon'] = teamIcon
 					set[array]['link'] = teamLink
 					set[array]['description'] = teamDescription
 					set[array]['participants'] = []
@@ -50,7 +53,9 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { shiftId: shiftId, teamId: value, userId: Meteor.userId() }, isShiftSchedulerOrThisTeamleader
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		find = _id: shiftId
 		find[array + '._id'] = arrayId
@@ -72,7 +77,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftSchedulerOrThisTeamleader
+			# this caused problems for shift admins that wanted fill out missing reports for their publishers
+			# check { shiftId: shiftId, teamId: teamId, userId: userId }, isShiftSchedulerOrThisTeamleader
 
 		for team in shift.teams
 			if team._id == teamId
@@ -94,7 +100,8 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		for team in shift.teams when team._id == teamId
 			newPending = team.pending
@@ -112,6 +119,7 @@ Meteor.methods
 
 		if Meteor.isServer
 			check shiftId, isExistingShift
-			check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
+			# this most likely caused some problems for users with less permissions
+			# check { userId: Meteor.userId(), projectId: shift.projectId }, isShiftScheduler
 
 		Shifts.update shiftId, $pull: pull

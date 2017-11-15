@@ -1,0 +1,66 @@
+body.md-skin[type='EntityForm'] {
+	background-color: #fff !important;
+	padding-top     : 50px;
+
+	.navbar {
+		.navbar-header {
+			&.navbar-left {
+				float      : left;
+				margin-left: 10px;
+			}
+
+			&.navbar-right {
+				float       : right !important;
+				margin-right: 0;
+
+				a {
+					padding-right: 15px;
+				}
+			}
+		}
+	}
+
+	form.form-horizontal {
+		.section {
+			margin-top: 15px;
+
+			.section-header {
+				color         : #3f51b5;
+				font-size     : 15px;
+				padding-left  : 15px;
+				padding-bottom: 7px;
+			}
+
+			.section-content {
+				border-top   : 1px solid #ddd;
+				border-bottom: 1px solid #ddd;
+			}
+
+			div.form-group {
+				&:last-of-type {
+					border-bottom: 0;
+				}
+				margin       : 0 0 0 15px;
+				padding      : 0;
+				border-bottom: 1px solid #ddd;
+			}
+
+			.value {
+				padding-right: 0;
+
+				input {
+					width  : 100%;
+					border : 0;
+					padding: 8px 0;
+					outline: none;
+				}
+			}
+
+			.key {
+				color     : #777;
+				padding   : 8px 0;
+				text-align: right;
+			}
+		}
+	}
+}

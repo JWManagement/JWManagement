@@ -42,6 +42,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 The translation files are build with a "key: value" pattern.
 You only need to translate the value.
+Anything NOT translated will be displayed in english (so you don't necessarily have to translate everything).
 
 ### Submit
 
@@ -92,10 +93,10 @@ Please follow the instructions to setup JW Management in your local dev environm
 5. Open Terminal, cd to the created folder and run
 
 	```shell
-	meteor npm install && meteor --settings settings.json
+	meteor npm install && npm start
 	```
 
-	This will take some seconds since meteor now downloads all node modules and npm packages on which the app depends.
+	This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
@@ -112,7 +113,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 	{
 		"_id": "asiduvaosnfvpasdf",
 		"createdAt": new Date(1450919856316),
-		"username": "myuser",
+		"username": "johndoe",
 		"profile": {
 			"bdate": "",
 			"email": "john@doe.com",
@@ -156,25 +157,11 @@ Please follow the instructions to setup JW Management in your local dev environm
 		"email": "support@jwmanagement.org",
 		"language": "en",
 		"news": {},
-		"wiki": {
-			"tabs": [
-				{
-					"_id": "aisudhvboabfvop",
-					"title": "My first tab",
-					"faq": [
-						{
-							"_id": "osduvnalsiehfp",
-							"question": "My first question",
-							"answer": "My first answer"
-						}
-					]
-				}
-			]
-		},
+		"wiki": { "tabs": [] },
 		"tags": [
 			{
 				"_id": "abc",
-				"name": "Cart witnessing",
+				"name": "Cart Witnessing",
 				"img": "trolley",
 				"templates": []
 			}
@@ -182,7 +169,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 		"teams": [
 			{
 				"_id": "abcdef",
-				"name": "Standard",
+				"name": "Location/Route 1",
 				"link": "",
 				"description": ""
 			}
@@ -192,7 +179,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 	}
 	```
 
-9. Now login on the website with 'myuser' and password '12345678'
+9. Now login on the website with 'johndoe' and password '12345678'
 
 ### Development
 

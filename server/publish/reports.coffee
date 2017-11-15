@@ -16,6 +16,7 @@ Meteor.publish 'reports', (projectId, month) ->
 			,
 				fields:
 					projectId: 1
+					tag: 1
 					date: 1
 					start: 1
 					end: 1

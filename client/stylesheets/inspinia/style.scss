@@ -31,8 +31,8 @@
 @import "custom/editPermissionsModal";
 @import "custom/addWeekModal";
 @import "custom/addUserModal";
-@import "custom/tourTemplate";
 @import "custom/editPictureModal";
+@import "custom/printingLayout";
 @import "custom/checkbox";
 @import "pages/landing";
 @import "pages/navigation";
@@ -47,6 +47,7 @@
 @import "pages/settings";
 @import "pages/login";
 @import "pages/firstLogin";
+@import "pages/vessels";
 @media print {
 	#page-wrapper {
 		margin: 0;

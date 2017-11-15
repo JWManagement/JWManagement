@@ -1,12 +1,14 @@
 if isSupport
+	if queryParam 'createProject'
+		+createProjectModal
 	.container-fluid
 		.row
 			.col-md-8.col-md-offset-2
-				+enquiryList enquiries=enquiries
+				+enquiryList
 		.row
 			.col-md-6
-				+allProjects projects=projects
+				+allProjects
 			.col-md-6
-				+allUsers users=users
+				+allUsers
 else
 	h2.center-align No permission

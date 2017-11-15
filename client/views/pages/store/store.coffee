@@ -37,8 +37,6 @@ Template.store.helpers
 				short: 'yp1'
 			,
 				short: 'yp2'
-			,
-				short: 'ypq'
 			]
 		,
 			type: 'brochures'
@@ -70,6 +68,8 @@ Template.store.helpers
 				short: 'rk'
 			,
 				short: 'yc'
+			,
+				short: 'ypq'
 			]
 		,
 			type: 'magazines'
@@ -106,51 +106,42 @@ Template.store.helpers
 			,
 				short: 'CO-inv18'
 			,
-				short: 'CO-inv19'
-			,
-				short: 'CO-inv20'
-			,
 				short: 'inv'
 			,
 				short: 'jwcd'
 			,
-				short: 'mi16'
-			,
-				short: 'mi17'
-			,
 				short: 'mi18'
-			,
-				short: 'mi19'
-			,
-				short: 'mi20'
 			]
 		]
 
 	getLanguages: -> [
 		'A', 'AL', 'AR', 'AM'
-		'B', 'BL', 'BSN'
+		'B', 'BEL', 'BL', 'BSN'
 		'C', 'CB', 'CH', 'CHS'
 		'DAR', 'DGS'
 		'E', 'ED', 'EW'
 		'F'
 		'G', 'GE'
 		'H', 'HI'
-		'J'
-		'KRI'
 		'I', 'IB', 'IN'
-		'K', 'KO'
+		'J'
+		'K', 'KO', 'KRI'
+		'LT', 'LV'
 		'M', 'MC'
 		'O', 'OA'
 		'P', 'PH', 'PJ', 'PL', 'PR'
 		'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU'
-		'S', 'SB', 'SI', 'SO', 'SV'
+		'S', 'SB', 'SI', 'SO', 'ST', 'SV'
 		'T', 'TI', 'TK', 'TL', 'TW'
 		'U', 'UD'
 		'V', 'VT'
 		'WO'
 		'X'
 		'YR'
-	]
+	].map((lang) ->
+		short: lang
+		translation: TAPi18n.__('language.', context: lang)
+	).sort((a, b) -> a.translation > b.translation)
 
 	isReady: -> ProjectSubs.ready()
 
@@ -247,7 +238,7 @@ Template.store.events
 
 	'click #showPublication': (e) ->
 		projectId = FlowRouter.getParam('projectId')
-		short = $(e.target).attr('short')
+		short = $(e.target).closest('a').attr('short')
 
 		if FlowRouter.getQueryParam('showPublication') == short
 			wrs -> FlowRouter.setQueryParams showPublication: null

@@ -5,6 +5,7 @@ Meteor.methods
 		check value, Match.Any
 
 		set = {}
+		userId = Meteor.userId()
 
 		if field == 'username'
 			value = value.toLowerCase()
@@ -31,33 +32,41 @@ Meteor.methods
 			field = 'profile.' + field
 
 		set[field] = value
-		Meteor.users.update Meteor.userId(), $set: set
+		Meteor.users.update userId, $set: set
 
 		if Meteor.isServer
-			set[field] = value
-			Meteor.users.update Meteor.userId(), $set: set
-
 			if field == 'profile.firstname'
-				user = Meteor.users.findOne Meteor.userId(), fields: 'profile.lastname': 1
+				user = Meteor.users.findOne userId, fields: 'profile.lastname': 1
 
 				if user?
 					field = 'name'
 					value = value + ' ' + user.profile.lastname
 			else if field == 'profile.lastname'
-				user = Meteor.users.findOne Meteor.userId(), fields: 'profile.firstname': 1
+				user = Meteor.users.findOne userId, fields: 'profile.firstname': 1
 
 				if user?
 					field = 'name'
 					value = user.profile.firstname + ' ' + value
 			else if field == 'profile.telefon'
-				field = 'telefon'
+				field = 'phone'
 			else if field == 'profile.email'
 				field = 'email'
 			else
 				return
 
-			allMyShifts = Shifts.find 'teams.participants._id': Meteor.userId(),
-				fields: 'teams._id': 1, 'teams.participants': 1, 'teams.pending': 1, 'teams.declined': 1
+			allMyShifts = Shifts.find
+				$or: [
+					'teams.participants._id': userId
+				,
+					'teams.pending._id': userId
+				,
+					'teams.declined._id': userId
+				]
+			, fields:
+				'teams._id': 1
+				'teams.participants': 1
+				'teams.pending': 1
+				'teams.declined': 1
 
 			for shift in allMyShifts.fetch()
 				for team in shift.teams
@@ -69,36 +78,36 @@ Meteor.methods
 					updateDeclined = false
 					setTeam = {}
 
-					for user in team.participants when user._id == Meteor.userId()
+					for user in team.participants when user._id == userId
 						updateParticipants = true
 						break
-					for user in team.pending when user._id == Meteor.userId()
+					for user in team.pending when user._id == userId
 						updatePending = true
 						break
-					for user in team.declined when user._id == Meteor.userId()
+					for user in team.declined when user._id == userId
 						updateDeclined = true
 						break
 
 					if updateParticipants
 						newParticipants = team.participants
-						for user in newParticipants when user._id == Meteor.userId()
+						for user in newParticipants when user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.participants'] = newParticipants
 					if updatePending
 						newPending = team.pending
-						for user in newPending when user._id == Meteor.userId()
+						for user in newPending when user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.pending'] = newPending
 					if updateDeclined
 						newDeclined = team.declined
-						for user in newDeclined when user._id == Meteor.userId()
+						for user in newDeclined when user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.declined'] = newDeclined
 
-					if setTeam != {}
+					if typeof setTeam == 'object' && Object.keys(setTeam).length > 0
 						Shifts.update _id: shift._id, 'teams._id': team._id,
 							$set: setTeam
 
@@ -133,3 +142,9 @@ Meteor.methods
 				throw new Meteor.Error 500, 'State ' + state + ' invalid'
 		else
 			throw new Meteor.Error 500, 'Insufficient permissions'
+
+	getUserCount: ->
+		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+			Meteor.users.find({}, fields: _id: 1).count()
+		else
+			0

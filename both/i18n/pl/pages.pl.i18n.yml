@@ -1,0 +1,418 @@
+navigation:
+    welcome: Witaj
+    home: Panel startowy
+    profile: Mój profil
+    shifts: Grafik
+    wiki: Centrum informacji
+    admin: Adminitracja
+    settings: Ustawienia
+    users: Użytkownicy
+    reports: Sprawozdania
+    store: Magazyn
+    vessels: Vessels
+    notes: Notatki
+    login: Zaloguj
+    logout: Wyloguj
+    loggingOut: Wylogowywanie...
+    firstLogin: Pierwszy login
+    forgotPassword: Zapomniałem hasło
+    resetPassword: Resetuj hasło
+    about: O tej stronie
+    terms: Warunki korzystania
+    privacy: Polityka prywatności
+    donate: Wesprzyj
+    support: Wsparcie
+    version: Wersja
+    new: Nowy
+welcome:
+    links:
+        home: Start
+        features: Możliwości
+        contact: Kontakt
+        login: Login
+        dashboard: Otwórz panel startowy
+    header:
+        title: Zaawansowany grafik
+        description: JW Management jest wysoce konfigurowalnym grafikiem zmian dla Świadków Jehowy. Stworzony by usprawnić projekty typu świadczenia wielkomiejskiego i projektów budowlanych.
+    divider:
+        first:
+            title: Wiele Tagów
+            description: Łatwo oddziel różne grafiki przez tagi; Przypisz głosicieli do tagów w miejscach gdzie sami mogą wysłać gotowość do współpracy. Zdefiniuj również którzy głosiciele otrzymają uprawnienia koordynatorów zmian.
+        second:
+            title: Lokalizacja zmian
+            description: Zdefiniuj jedną lub więcej lokalizacji dla zmiany. Każda będzie miała własnego koordynatora. Udostępnij dodatkowe informacje dla każdej lokalizacji, np. opis, zdjęcie z ulice, miejsca zbiórek i wiele wiele więcej.
+        third:
+            title: Magazyn
+            description: Zarządzaj magazynem przez JW Management. Po każdej zmianie koordynator zmiany może wysłać sprawozdanie co zostało rozpowszechnione. System automatycznie zaktualizuje ilość publikacji, które pozostały. Dostaniesz powiadomienie gdy ilość publikacji będzie niewielka.
+        fourth:
+            title: Powiadomienia
+            description: Dzięki potężnemu systemowi powiadomień, możesz być informowany w sprawie swoich zgłoszeń, gdy zostaną one potwierdzone, odrzucone lub gdy wystąpi w nich jakaś zmiana. Możesz łatwo odpowiedzieć na każde powiadomienie.
+    feature1:
+        title: Wielofunkcyjne narzędzie
+        description: <p>Ponieważ JW Management został zoptymalizowany pod program głoszenia publicznego, skupia się głównie na zarządzaniu grafikiem zmian.</p><p>Możesz go zatem wykorzystać również do zarządzania zgromadzeniem, wystawami biblijnymi, projektami budowlanymi lub czymś podobnym.</p><p>Jeżeli jest to możliwe chętnie dopasujemy system do Twoich potrzeb.</p>
+    feature2:
+        title: Ostatnie zmiany
+        more: Pokaż więcej
+    feature3:
+        title: Darmowy & Otwarty
+        description: <p>Odwiedź nasze repozytorium i zobacz jak zaprojetkowaliśmy JW Management. Możesz zgłosić nowy pomysł, błąd lub 'Pull Request' z twoim kodem.</p><p>Jeżeli chciałbyś przetłumaczyć system na inny język, wyślij do nas pliki tłumaczeń jako 'Pull Request' lub przez email.</p>
+        free: Całkowicie darmowy
+        repo: GitHub Repozytorium
+    contact:
+        title: Kontakt z nami
+        description: <p>Chcesz przetestować nasz system?</p><p>Wybierz "Zapytanie o projekt" w formularzu po prawej stronie a my stworzymy projekt dla Ciebie.</p><p>Masz inne pytanie lub sugestie?</p><p>Wybierz odpowiednią opcję z formularza po prawej i daj nam o nich znać.</p>
+        name: Imię i nazwisko
+        email: Adres email
+        projectName: Nazwa projektu
+        enquiry: Zapytanie o projekt
+        login: Problem z logowanie
+        problem: Ogólny problem
+        suggestion: Prośba o modyfikacje
+        question: Ogólne pytanie
+        message: Wiadomość
+        whatFor: Co chciałbyś organizować?
+        send: Wyślij
+        sendEnquiry: Wyślij zapytanie
+        fillOutCompletely: Proszę uzupełnij wszystkie wymagane pola
+        enquirySuccessful: Zapytanie wysłane z powodzeniem!
+        issueTip: Podpowiedź: Możesz bezpośrednio powiedzieć nam o błędzie lub propozycji zmian przez system zgłoszeń na GitHub. Dzięki temu będziesz mógł na bierząco zobaczyć co robimy i kiedy proponowane przez Ciebie zmiany wejdą w życie.
+        loginTip: Podpowiedź: Jeżeli zapomnisz swojego hasła, możesz poprostu zresetować je używając przycisku pod spodem. Jeżeli zrobiłeś to i dalej masz problem, poproś o pomoc starszych.
+        toGithub: Odwiedź GitHub
+        toForgotPassword: Zresetuj hasło
+        required: Wymagane
+        about: O tej stronie
+        terms: Warunki korzystania
+        privacy: Polityka prywatności
+login:
+    name: Login
+    welcome: Witaj w JW Management
+    text: Proszę wprowadź dane logowania
+    forgot: Zapomniałeś hasła?
+    create: Stwórz konto
+    back: Wróć do strony głównej
+forgotPassword:
+    name: Zapomniałeś hasła?
+    text: Wprowadź swój adres email a my wyślemy Ci link potrzebny do zresetowania hasła.
+    button: Wyślij link resetujący hasło
+    back: Wróć do strony głównej
+    noUserForThisEmail: Nie ma konta z takim adresem e-mail
+    multipleAccountsForThisEmail: Z tym adresem powiązane jest kilka kont. Proszę sprecyzować użytkownika.
+    emailMissing: Brakuje adresu e-mail
+    mailSent: Za chwilę otrzymasz e-mail. Otwórz go i kliknij w link aby zresetować Twoje hasło.
+resetPassword:
+    name: Reset hasła
+    text: Proszę wprowadź nowe hasło dla %s %s.
+    noUserFound: <p>Ten link stracił ważność</p><p>Wyślij nową prośbę o zresetowanie hasła.</p>
+    button: Zmień hasło
+    back: Wróć do strony głównej
+profile:
+    name: Mój profil
+    personalData: Moje informacje osobiste
+    changePicture: Zmień zdjęcie...
+    options:
+        title: Ustawienia
+        helpText:
+            mergeAccounts: W JW Management możesz zrobić wszystko z dosłownie jednym kontem. Dzięki temu wystarczy, że zapamiętasz tylko jedną nazwę użytkownika i jedno hasło. Jeżeli masz więcej kont kliknij w "Scal konta" i wprowadź dane logowania dla innych konto. Ta opcja doda (scali) uprawnienia wielu kont w jedno.
+    availability:
+        title: Dostępność
+        helpText: Proszę zaznacz godziny w których jesteś dostępny.
+        shortTermCalls: Jestem dostępny nawet w ostatniej chwili
+        shortTermCallsAlways: Nawet jeżeli nie zaznaczyłem dostępności
+    speaks: Speaks
+    telefon: Telefon
+    congregation: Zbór
+    languages: Język
+    gender: Płeć
+    _gender:
+        brother: Brat
+        sister: Siostra
+    birthday: Data narodzin
+    publisher: Głosiciel
+    privilegeOfService: Przywilej służby
+    _privilegeOfService:
+        auxiliaryPioneer: Pionier pomocniczy
+        pioneer: Pionier stały
+        specialPioneer: Pionier specjalny
+        circuitOverseer: Nadzorca obwodu
+        bethelite: Betelczyk
+        fulltimeConstructionServant: Sługa budowlany
+    ministryPrivilege: Zadania zborowe
+    _ministryPrivilege:
+        ministerialServant: Sługa pomocniczy
+        elder: Starszy
+        coordinator: Koordynator Grona Starszych
+        secretary: Sekretarz
+        serviceOverseer: Nadzorca służby
+    placeholder:
+        telefon: (np. +48 123 456 789)
+        congregation: Zbór
+        languages: Języki
+    changePassword: Zmień hasło
+    deleteAccount: Usuń konta
+    mergeAccounts: Scal konta
+    vacation:
+        title: Wakacje
+        helpText: Proszę dodać terminy w których nie będziesz dostępny
+    until: do
+    addVacation: Dodaj wakacje
+    deleteVacation: Usuń te wakacje
+    usernameTaken: Ta nazwa użytkownika jest już przez kogoś zajęta. Proszę wybrać inną.
+dashboard:
+    loadingProjects: Ładowanie projektów...
+    projects: Moje projekty
+    noProjects: Nie jesteś współpracownikiem w żadnym projekcie
+    loadingShifts: Ładowanie zmian...
+    shifts: Moje zmiany
+    noShifts: Aktualnie nie masz żadnych zmian
+    news: Aktualne wiadomości
+    noNews: Brak wiadomości
+    newsFrom: Ostatnio zmieniona
+    editNews: Edytuj tą informację
+    changeNews: Edytuj wiadomość
+    cancelNews: Anuluj edycję
+    understaffed: Za mało osób
+    understaffedMore: Pokaż więcej zmian z brakami głosicieli
+    missing: Brakuje sprawozdania ze zmiany
+    missing_plural: Brakujące sprawozdania ze zmian
+    approved: Prośba zaakceptowana
+    approved_plural: Zaakceptowane prośby
+    pending: Prośba oczekuje na rozpatrzenie
+    pending_plural: Prośby oczekujące na rozpatrzenie
+    declined: Prośba odrzucona
+    declined_plural: Odrzucone prośby
+    marked: Zmiana bez wystarczającej liczby głosicieli
+    marked_plural: Zmiany bez wystarczającej liczy błosicieli
+    participant: Współpracownik zmiany
+    participant_plural: Współpracownicy zmiany
+    showOlder: Pokaż również starsze zmiany
+    showAll: Pokaż wszystko
+wiki:
+    name: Centrum informacji
+    nameShort: Info
+    files: Pliki
+    addQuestion: Dodaj pytanie / tytuł
+    edit: Edytuj
+    delete: Usuń
+    noFiles: Brak dostępnych plików
+    addTab: Dodaj nową zakładkę
+    editQuestion: Edytuj to pytanie
+    removeFaq: Usuń to pytanie
+    editFaq: Edytuj tą odpowiedź
+    changeFaq: Zapisz tą odpowiedź
+    cancelFaq: Anuluj edycję
+shifts:
+    name: Grafik
+    route: Ulica
+    addShift: Dodaj nową zmianę
+    addWeek: Dodaj nowy tydzień
+    requests: Prośby
+    openRequests: Otwarte prośby
+    automation: Automatycznie
+    template: Szablon
+    noVisibleShifts: Brak zmian dla tego tagu w tym tygodniu
+    start: Start
+    end: Koniec
+    visibility: Widoczność:
+    helpText:
+        start: To jest pierwszy tydzień stworzony przez system.
+        end: To jest ostatni tydzień stworzony przez system.
+        visibility: To definiuje ile tygodni do przodu głosiciele będą mogli zobaczyć grafik i wysyłać prośby. Uwzględniając początkowy i końcowy tydzień, system automatycznie stworzy potrzebne zmiany.
+    weeks: tygodni
+    sendWeek: Wyślij potwierdzenia
+    hideNames: Zwiń wszystkie zmiany
+    showNames: Rozwiń wszystkie zmiany
+    editShifts: Edytuj zmiany
+    prevWeek: Idź do wcześniejszego tygodnia
+    nextWeek: Idź do następnego tygodnia
+    sendWeek: Wyślij mailowe potwierdzenia dla wszystkich zmian w tym tygodniu
+    shownTag: Zmiany z tym tagiem są aktualnie widoczne
+    hiddenTag: Zmiany z tym tagiem są aktualnie ukryte
+    shift:
+        tag: Tag
+        schedule: Grafik
+        teamleader: Koordynator zmiany
+        teams: Lokalizacje
+        noTeams: Brak lokalizacji
+        participants: Współpracownicy
+        start: Start
+        end: Koniec
+        teamleaders: Koordynatorów zmiany
+        noPermission: Tylko Menadżer projektu lub Menadżer zmian jest uprawniony aby edytować lub usuwać zmiany
+day:
+    removeAll: Usuń wszystkie
+admin:
+    name: Administrator
+    nameShort: Admin
+users:
+    title: Lista użytkowników
+    search: Szukaj...
+    inviteUser: Zaproś dodanych użytkowników
+    addNewUser: Dodaj nowego użytkownika
+    deleted: Usunięty!
+    sendToAll: Wyślij e-mail do wszystkich
+    sendToAllInTag: Wyślij e-mail do wszystkich z tagiem %s
+    export: Eksportuj jako CSV
+reports:
+    placements: Publikacje
+    bibles: Biblie
+    books: Książki
+    magazines: Czasopisma
+    brochures: Broszury
+    tracts: Traktaty
+    invitations: Zaproszenia
+    videos: Pokazane filmy
+    talks: Rozmowy
+    achievements: Osiągnięcia
+    hours: Poświęcony czas
+    texts: Przeczytane wersety Biblijne
+    website: Pokazana strona
+    shifts: Odbyte zmiany
+    missing: Brakujących sprawozdań
+    participants: Współpracownicy
+    fulltime: Współpracujący słudzy pełnoczasowi
+    publishers: Współpracujący głosiciele
+    allParticipants: Współpracownicy razem
+    experiences: Doświadczenia
+    route: Droga
+    good: Dobre doświadczenia
+    problems: Problemy / Trudności
+    show: Pokaż
+    prevMonth: Idź do poprzedniego miesiąca
+    nextMonth: Idź do następnego miesiąca
+    meetingStart: Zbiórka start
+    meetingEnd: Zbiórka koniec
+    place: Miejsce
+settings:
+    main:
+        title: Główne ustawienia
+        id: ID
+        name:
+            text: Nazwa
+            placeholder: Nazwa projektu
+            helpText: W wielu przypadkach nazwa projetku to nazwa zboru. Dla większych projektów zawierających wiele zborów to możę być nazwa miasta w którym projekt jest prowadzony. Jeżeli projetk nie dotyczy organizacji służby z wózkami, nazwa może również odnosić się do tego co będzie organizowane w tym projekcie.
+        email:
+            text: Email
+            placeholder: Adres e-mail projetku
+            helpText: W wiadomościach email np. zawierających potwierdzenia przydziału, ten adres będzie ustawiony jako Odpowiedz-Do, więc jeżeli któryś ze współpracowników odpowie na ten e-mail, wiadomość zostanie normalnie wysłana na skrzynkę odbiorczą tego adresu (oczywiście pod warunkiem, że na programie współpracownika ma poprawnie skonfigurowaną swoją pocztę). Dodatkowo, ten adres będzie poinformowany w wypadku gdy ktoś wycofa swoją prośbę w ostatniej chwili.
+        language:
+            text: Język
+            helpText: Jeżeli system będzie informował wymieniony wyżej adres o zmianach, to wyśle e-maile w języku sprecyzowanym tutaj.
+        deleteProject: Usuń projekt
+    tags:
+        title: Tags
+        helpText: <p>Każda zmiana ma przypisany tag. Dodatkowo każdy użytkownik może mieć udostępniony lub odebrany dostęp do oglądania zmian zależnie od tagu.</p><p>Tagi mogą dotyczyć różnych aktywności (np. głoszenia z wózkami, stanowiskami informacyjnymi, głoszeniu na ulic, itd.). Dzielenie zmian na różne tagi może być użyteczne, na przykłąd jeżeli będzie istnieć w tym samym czasie kilka zmian lub jeżeli tylko wybrani głosicieli zostali przeszkolenie w jakimś rodzaju służby publicznej.</p><p>Dla każdego tagu można ustawić tygodniowy szablon zmian. Używając opcji automatycznej podczas tworzenia grafiku, system będzie mógł użyć tego szablonu. To zaoszczędzi dla Menadżera projektu lub Menadżera zmian sporo czasu potrzebnego na układanie grafiku.</p>
+        id: ID
+        name: Nazwa
+        img:
+            name: Zdjęcie
+            helpText: To zdjęcie będzie pokazane w panelu startowym po kliknięciu 'Grafik'. Zdjęcie powinno podpowiadać jakiego rodzaju zmian dotyczy grafiku w tym tagu. Jeżeli chciałbyś dodać inne zdjęcie, prosimy wyślij je do nas na support@jwmanagement.org opisując swój opomysł
+        templates: Szablony
+        showTemplate: Edytuj zmiany
+        editTemplate: Edytuj nazwę
+        removeTemplate: Usuń
+        addTemplate: Stwórz nowy szablon
+        action: Akcje
+        none: Zadne taki nie zostały jeszcze dodane
+        add: Dodaj nowy tag
+        remove: Usuń ten tag
+    teams:
+        title: Lokalizacja
+        helpText:
+            main: Każda zmiana musi mieć przydzieloną przynajmniej jedną lokalizację.
+            picture: Głosiciele będą widzieli to zdjęcie. W związku z tym, zdjęcie powinno podpowiadać o jaką lokalizę chodzi. Na przykład może przedstawiać ulicę na Google Maps lub OpenStreetMap (w zależności który z nich ma lepsze pokrycie twojego ternu).
+            link: Ten link będzie powiązany ze zdjęciem. Gdy użytkownik kliknie zdjęcie zostanie przekierowany na adres z tego linku. Na przykład możesz tutaj umieścić tutaj link do mapy Google Maps or OpenStreetMap.
+            description: Tutaj możesz dodatkowo ustawić opis dla tej lokalizacji. Na przykład możesz wyjaśnić niektóre szczegóły.
+        id: ID
+        name: Nazwa
+        icon: Ikona
+        picture: Zdjęcie
+        editPicture: Wstaw zdjęcie dla tej lokalizacji
+        noPicture: Brak wysłanego zdjęcia
+        link: Link
+        description: Opis
+        action: Akcje
+        none: Żaden lokalizacja nie została jeszcze dodana
+        add: Dodaj nową lokalizację
+        remove: Usuń tą lokalizację
+    meetings:
+        title: Meeting Point
+        helpText:
+            main: Dla każdej lokalizacji można przypisać punkt zbiórki. Dzięki temu, zmiennicy mogą spotkać się niezależnie jedni od drugich. To może być użyteczne, jeżeli lokalizacje mogą być tak oddalone od siebie, że wspólne spotkanie zabrało by za dużo czasu. Punkty zbiórki są definiowane ze współrzędnymi.
+            picture: Głosiciele będą widzieli to zdjęcie. W związku z tym, zdjęcie powinno wskazywać więcej informacji dla tego punktu zbiórki. Na przykład może przedstawiać ulicę na Google Maps lub OpenStreetMap (w zależności który z nich ma lepsze pokrycie twojego ternu).
+        id: ID
+        name: Nazwa
+        picture: Zdjęcie
+        editPicture: Wrzuć zdjęcie dla tego punktu zbiórki
+        noPicture: Brak wysłanego zdjęcia
+        action: Akcje
+        none: Żaden punkt zbiórki nie został jeszcze stworzony
+        add: Dodaj nowy punkt zbiórki
+        remove: Usuń ten punkt zbiórki
+vessels:
+    title: Vessels
+    nameShort: Vessels
+    search: Search
+    placeholder: Vessel name, call sign, ENI, IMO or MMSI
+    addNewVessel: Add new vessel
+    name: Vessel name
+    flag: Flag
+    type: Type
+    types:
+        c: Container ship
+        cr: Cruise ship
+        mf: Cargo
+        mt: Tanker
+        p: Passenger ship
+        pt: Pushtow
+        rc: River cruise ship
+        f: Ferry
+        ro: Ro-Ro
+        t: Tug
+        unknown: Unknown
+    callsign: Call sign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Last visit
+    harborGroup: Harbor group
+    nextVisit: Next visit after
+    languages: Language(s) on board
+    languagesPlaceholder: No person-specific information!
+    comments: Comments
+    commentsPlaceholder: No person-specific information!
+notes:
+    description: Tutaj możesz stworzyć proste notatki. Każdy Menadżer projektu, Menadżer zmian i Menażer magazynu będą widzieli te notatki. Dzięki temu możecie wymieniać się informacjami.
+    createNote: Stwórz notatkę
+    title: Tytuł
+    text: Tekst
+    deleteNote: Usuń tą notatkę
+firstLogin:
+    name: Witaj
+    text: <p>Czekaliśmy na Ciebie.</p><p>Proszę ustaw swoją nazwę użytkownika i hasło. Od teraz będziesz potrzebował ich aby zalogować się do systemu.</p><p>Po tym kroku będziesz mógł zacząć korzystać z JW Management.</p><p>Powodzenia!</p>
+    agreeTerms: Zgadzam się z <a href="/en/terms" target="blank">warunkami użytkownia</a> i <a href="/en/privacy" target="blank">polityką prywatności</a>
+    button: Zaczynamy!
+    tokenError: Ten link jest już nieważny. Poproś o nowy email lub spróbuj zresetować swojego hasło.
+    tokenMissing: Niepoprawny link. Upewnij się że skopiowałeś cały link z emaila.
+    usernameExists: Ta nazwa użytkownika jest już zajęta. Proszę wybrać inną.
+    usernameMissing: Wprowadź nazwę użytkownika.
+    agreeTermsMissing: Aby korzystać z systemu musisz wyrazić zgodę z warunkami użytkowania i polityką prywatności.
+    buttonCreateAccount: Potrzebuję nowego konta
+    buttonHaveAccount: Mam już konto
+about:
+    title: Legal Disclosure
+    information: Information in accordance with section 5 TMG
+    contact: Kontakt
+    telephone: Telefon
+    email: E-Mail
+    back: Wróć do strony głównej
+terms:
+    title: Warunki użytkowania
+    text: <h2>Limitation of liability for internal content</h2><p>The content of our website has been compiled with meticulous care and to the best of our knowledge. However, we cannot assume any liability for the up-to-dateness, completeness or accuracy of any of the pages.</p><p>Pursuant to section 7, para. 1 of the TMG (Telemediengesetz – Tele Media Act by German law), we as service providers are liable for our own content on these pages in accordance with general laws. However, pursuant to sections 8 to 10 of the TMG, we as service providers are not under obligation to monitor external information provided or stored on our website. Once we have become aware of a specific infringement of the law, we will immediately remove the content in question. Any liability concerning this matter can only be assumed from the point in time at which the infringement becomes known to us.</p><h2>Limitation of liability for external links</h2><p>Our website contains links to the websites of third parties (“external links”). As the content of these websites is not under our control, we cannot assume any liability for such external content. In all cases, the provider of information of the linked websites is liable for the content and accuracy of the information provided. At the point in time when the links were placed, no infringements of the law were recognisable to us. As soon as an infringement of the law becomes known to us, we will immediately remove the link in question.</p><h2>Copyright</h2><p>The content and works published on this website are governed by the copyright laws of Germany. Any duplication, processing, distribution or any form of utilisation beyond the scope of copyright law shall require the prior written consent of the author or authors in question.</p><h2>Data protection</h2><p>A visit to our website can result in the storage on our server of information about the access (date, time, page accessed). This does not represent any analysis of personal data (e.g., name, address or e-mail address). If personal data are collected, this only occurs – to the extent possible – with the prior consent of the user of the website. Any forwarding of the data to third parties without the express consent of the user shall not take place.</p><p>We would like to expressly point out that the transmission of data via the Internet (e.g., by e-mail) can offer security vulnerabilities. It is therefore impossible to safeguard the data completely against access by third parties. We cannot assume any liability for damages arising as a result of such security vulnerabilities.</p><p>The use by third parties of all published contact details for the purpose of advertising is expressly excluded. We reserve the right to take legal steps in the case of the unsolicited sending of advertising information; e.g., by means of spam mail.</p><p>Source: Mustervorlage.net</p>
+    back: Wróć do strony głównej
+privacy:
+    title: Polityka prywatności danych
+    text: <h2>Data Privacy</h2><p>Our website may be used without entering personal information. Different rules may apply to certain services on our site, however, and are explained separately below. We collect personal information from you (e.g. name, address, email address, telephone number, etc.) in accordance with the provisions of German data protection statutes. Information is considered personal if it can be associated exclusively to a specific natural person. The legal framework for data protection may be found in the German Federal Data Protection Act (BDSG) and the Telemedia Act (TMG). The provisions below serve to provide information as to the manner, extent and purpose for collecting, using and processing personal information by the provider.</p><p>Please be aware that data transfer via the internet is subject to security risks and, therefore, complete protection against third-party access to transferred data cannot be ensured.</p><h2>Cookies</h2><p>Our website makes use of so-called cookies in order to recognize repeat use of our website by the same user/internet connection subscriber. Cookies are small text files that your internet browser downloads and stores on your computer. They are used to improve our website and services. In most cases these are so-called "session cookies" that are deleted once you leave our website.</p><p>To an extent, however, these cookies also pass along information used to automatically recognize you. Recognition occurs through an IP address saved to the cookies. The information thereby obtained is used to improve our services and to expedite your access to the website.</p><p>You can prevent cookies from being installed by adjusting the settings on your browser software accordingly. You should be aware, however, that by doing so you may not be able to make full use of all the functions of our website.</p><h2>Server Data</h2><p>For technical reasons, data such as the following, which your internet browser transmits to us or to our web space provider (so called server log files), is collected:</p><ul><li>type and version of the browser you use</li><li>operating system</li><li>websites that linked you to our site (referrer URL)</li><li>websites that you visit</li><li>date and time of your visit</li><li>your Internet Protocol (IP) address.</li></ul><p>This anonymous data is stored separately from any personal information you may have provided, thereby making it impossible to connect it to any particular person. The data is used for statistical purposes in order to improve our website and services.</p><h2>Purpose of Registering</h2><p>We offer you the opportunity to sign up for our website. The information entered when signing up, as shown in the registration form, is collected and stored solely for use by our website. When signing up for our website, we also store your IP address and the date and time you registered. This serves to protect us in the event a third party improperly and without your knowledge makes use of your data to sign up for our site. None of this information is transferred to third parties. Nor is any of this information matched to any information that may be collected by other components of our website.</p><h2>Newsletter</h2><p>Our website offers you the opportunity to subscribe to our newsletter. The newsletter provides you periodically with information about our services. To receive our newsletter, we require a valid email address. We will review the email address you provide for the purpose of determining whether you are in fact the owner of the email address provided or whether the actual owner of said address is authorized to receive the newsletter. When subscribing to our newsletter, we will store your IP address as well as the date and time you subscribed. This serves to protect us in the event a third party improperly and without your knowledge makes use of your email address to subscribe to our newsletter. We will not collect any other data. The data thereby collected is used solely for the purpose of receiving our newsletter. No data is transferred to third parties. Nor is any of this information matched to any information that other components of our website may collect. You may cancel your subscription to the newsletter at any time. You will find additional details in the email confirming your subscription as well as in each newsletter.</p><h2>Contacting Us</h2><p>On our website we offer you the opportunity to contact us, either by email and/or by using a contact form. In such event, information provided by the user is stored for the purpose of facilitating communications with the user. No data is transferred to third parties. Nor is any of this information matched to any information that may be collected by other components of our website.</p><h2>Use of Google Analytics with anonymization</h2><p>Our website uses Google Analytics, a web analysis service from Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA, hereinafter referred to as “Google“. Google Analytics employs so-called “cookies“, text files that are stored to your computer in order to facilitate an analysis of your use of the site. The information generated by these cookies, such as time, place and frequency of your visits to our site, including your IP address, is transmitted to Google’s location in the US and stored there. In using Google Analytics our website employs the extension, "_gat._anonymizeIp". In doing so, Google abbreviates and thereby anonymizes your IP address before transferring it from member states of the European Union or signatory states to the Agreement on the European Economic Area. Google uses this information to analyze your use of our site, to compile reports for us on internet activity and to provide other services relating to website and internet use. Google may also transfer this information to third parties where required to do so by law or where such third parties process this data on Google’s behalf.  Google states that it will in never associate your IP address with other data held by Google. You can prevent cookies from being installed by adjusting the settings on your browser software accordingly. You should be aware, however, that by doing so you may not be able to make full use of all the functions of our website. Furthermore, Google offers a deactivation add-on for most current browsers that provides you with more control over what data Google can collect on websites you access. The add-on tells the JavaScript (ga.js) used by Google Analytics not to transmit any information about website visits to Google Analytics. However, the browser deactivation add-on offered by Google Analytics does not prevent information from being transmitted to us or to other web analysis services we may engage. You can find additional information on how to install the browser add-on at the following link: https://tools.google.com/dlpage/gaoptout?hl=de</p><h2>Information/Cancellation/Deletion</h2><p>On the basis of the Federal Data Protection Act, you may contact us at no cost if you have questions relating to the collection, processing or use of your personal information, if you wish to request the correction, blocking or deletion of the same, or if you wish to cancel explicitly granted consent. Please note that you have the right to have incorrect data corrected or to have personal data deleted, where such claim is not barred by any legal obligation to retain this data.</p>
+    back: Wróć do strony głównej
+donate:
+    title: Wesprzyj
+    text: <p>Dziękuję za odwiedzenie tej strony!</p><p>Jeżeli chciałbyś wesprzeć nas w utrzymaniu serwerów JW Management będziemy bardzo wdzięczni! Dziękujemy bardzo! <i class="fa fa-heart text-danger"></i></p>

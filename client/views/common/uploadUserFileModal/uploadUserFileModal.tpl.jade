@@ -12,7 +12,7 @@
 					if uploading
 						.sk-spinner.sk-spinner-pulse
 					.row
-						.col-sm-6
+						.col-sm-12
 							h3 {{_ 'modal.uploadUserFile.new'}}
 							table.table
 								thead
@@ -21,22 +21,7 @@
 										th {{_ 'modal.uploadUserFile.name'}}
 										th {{_ 'modal.uploadUserFile.email'}}
 								tbody
-									each getNewUsers
-										tr
-											td {{addOne @index}}
-											td
-												b {{firstname}} {{lastname}}
-											td {{email}}
-						.col-sm-6
-							h3 {{_ 'modal.uploadUserFile.existing'}}
-							table.table
-								thead
-									tr
-										th #
-										th {{_ 'modal.uploadUserFile.name'}}
-										th {{_ 'modal.uploadUserFile.email'}}
-								tbody
-									each getExistingUsers
+									each getUsers
 										tr
 											td {{addOne @index}}
 											td
@@ -49,6 +34,5 @@
 					label.btn.btn-primary.pull-left
 						input#uploadFile.hide(type='file')
 						| {{_ 'modal.uploadUserFile.uploadFile'}}
-					#stats.pull-left.m-l {{{_ 'modal.uploadUserFile.stats' countNewUsers countExistingUsers}}}
 					button#addUsers.btn.btn-primary(data-dismiss='modal') {{_ 'modal.uploadUserFile.add'}}
 				button#close.btn.btn-white.pull-right(data-dismiss='modal') {{_ 'modal.close'}}

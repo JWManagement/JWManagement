@@ -13,8 +13,6 @@ input:
     passwordRepeat: Repeat password
     newPassword: New password
     newPasswordRepeat: Repeat new password
-    helpText:
-        username: The username must NOT contain any special characters (e.g. @ or .) and therefore can't be an email address.
 role:
     role: Role
     admin: Project manager
@@ -69,6 +67,9 @@ privileges:
     circuit: CO
     bethelite: BT
     ldc: LDC
+    coordinator: CBE
+    secretary: SEC
+    serviceOverseer: SO
     elder: E
     servant: S
     publisher: P

@@ -1,4 +1,4 @@
-import { Messages } from '/imports/api/messages/messages.coffee'
+import SimpleSchema from 'simpl-schema'
 
 export Methods =
 
@@ -7,23 +7,36 @@ export Methods =
 		validate:
 			new SimpleSchema
 				name: type: String
-				email: type: SimpleSchema.RegEx.Email
-				congregation: type: String
+				email: type: SimpleSchema.RegEx.EmailWithTLD
+				projectName: type: String
 				message: type: String
 				language:
 					type: String
-					allowedValues: ['de', 'en']
+					allowedValues: ['de', 'en', 'hu', 'pt', 'pl']
 			.validator()
-		run: (args) ->
+		run: (args) -> if Meteor.isServer
 			newDoc =
 				author:
 					name: args.name
 					email: args.email
-				congregation: args.congregation
+				projectName: args.projectName
 				text: args.message
 				language: args.language
 
-			Messages.schema.clean newDoc
+			{ Messages } = require '/imports/api/messages/messages.coffee'
+
+			Messages.schema.clean newDoc, mutate: true
 			Messages.schema.validate newDoc
 
 			Messages.insert newDoc
+
+	deleteProjectEnquiry: new ValidatedMethod
+		name: 'Messages.methods.deleteProjectEnquiry'
+		validate:
+			new SimpleSchema
+				messageId: type: String
+			.validator()
+		run: (args) -> if Meteor.isServer &&  Roles.userIsInRole Meteor.userId(), 'support'
+			{ Messages } = require '/imports/api/messages/messages.coffee'
+
+			Messages.update args.messageId, $set: status: 'done'

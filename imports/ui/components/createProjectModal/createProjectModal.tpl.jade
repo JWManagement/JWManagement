@@ -1,0 +1,61 @@
+#createProjectModal.modal.inmodal(tabindex='-1' aria-hidden='true')
+	.modal-dialog.modal-sm
+		.modal-content
+			.modal-header
+				i.fa.fa-magic.modal-icon
+				h2.m-b-none Create project
+			.modal-body
+				form.form-horizontal
+					.form-group.hidden
+						.col-sm-12.m-b-xs
+							label.control-label Project ID
+						.col-sm-12
+							input#projectId.form-control(type='text' placeholder='Project ID')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Project Name
+						.col-sm-12
+							input#projectName.form-control(type='text' placeholder='Project Name')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label First Name
+						.col-sm-12
+							input#firstName.form-control(type='text' placeholder='First Name')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Last Name
+						.col-sm-12
+							input#lastName.form-control(type='text' placeholder='Last Name')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label E-Mail
+						.col-sm-12
+							input#email.form-control(type='text' placeholder='E-Mail')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Language
+						.col-sm-12
+							input#language.form-control(type='text' placeholder='Language (de/en)')
+					.form-group.hidden
+						.col-sm-12.m-b-xs
+							label.control-label Tag ID
+						.col-sm-12
+							input#tagId.form-control(type='text' placeholder='Tag ID')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Tag Name
+						.col-sm-12
+							input#tagName.form-control(type='text' placeholder='Tag Name')
+					.form-group.hidden
+						.col-sm-12.m-b-xs
+							label.control-label Team ID
+						.col-sm-12
+							input#teamId.form-control(type='text' placeholder='Team ID')
+					.form-group
+						.col-sm-12.m-b-xs
+							label.control-label Team Name
+						.col-sm-12
+							input#teamName.form-control(type='text' placeholder='Team Name')
+			.modal-footer
+				button#createProject.btn.btn-primary.pull-left Create project
+				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

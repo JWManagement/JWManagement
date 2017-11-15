@@ -16,6 +16,9 @@ modal:
         helpText: The username should be short and memorable. Combinations of the user's first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"
         invite: Invite %s (%s)
         existingAccounts: Existing Accounts
+    addVessel:
+        title: Add a vessel
+        action: Add vessel
     addWeek:
         title: Create new week
         noTemplate: Please define a template first
@@ -88,6 +91,9 @@ modal:
         noPictureUploaded: You have not yet uploaded any picture
         upload: Upload
         delete: Delete
+    editVessel:
+        title: Edit vessel
+        action: Save changes
     inviteUser:
         title: Invite new Publishers
         key: <span class="text-warning">Orange name</span> means that the user is already invited.
@@ -154,6 +160,7 @@ modal:
         texts: Bible Texts
         speaks: Conversations
         videos: Shown Videos
+        website: Website shown
         returnVisits: Return Visits
         bibleStudies: Bible Studies
         time: Hours of Service
@@ -223,12 +230,17 @@ modal:
         invite: Invite
     uploadUserFile:
         title: User-File upload
-        helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant' or 'elder'), Congregation
+        helpText: Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Date of birth (German, English or ISO 8601 format), Privilege of service ('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' or 'ldc'), Ministry privilege ('publisher', 'servant', 'elder', 'coordinator', 'secretary' or 'serviceOverseer'), Congregation
         helpEncoding: The file has to be UTF-8 encoded to support all characters
         uploadFile: Upload CSV-File
-        stats: <b>%s</b> new and <b>%s</b> existing users found
         new: New Publishers
         existing: Publishers with JW Management Account
         name: Name
         email: Email
         add: Add Users
+    mergeAccounts:
+        title: Merge accoutns
+        description: Enter the credentials of the account in which you want to merge this account's permissions. You will be logged in into that account right away.
+        username: Username
+        password: Password
+        merge: Merge accounts

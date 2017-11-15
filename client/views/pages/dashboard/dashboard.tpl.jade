@@ -45,10 +45,10 @@ if queryParam 'showShiftReport'
 													| {{_ 'dashboard.noNews'}}
 											if isInRole 'admin' _id
 												.news-editor.hidden
-													textarea#news-textarea(rows="4" maxlength="140") {{{html2win news.text}}}
+													textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
 													button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
 													button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
-													.chars-left 140/140
+													.chars-left 500/500
 										.project-link-wrapper
 											a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
 												i.fa.fa-book
@@ -60,6 +60,10 @@ if queryParam 'showShiftReport'
 												a.btn.btn-primary.project-link(href="{{pathFor 'admin' projectId=_id language=langTag}}")
 													i.fa.fa-gear
 													p.project-link-caption {{_ 'admin.nameShort'}}
+											else if vesselModule
+												a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessels' projectId=_id language=langTag}}")
+													i.fa.fa-ship
+													p.project-link-caption {{_ 'vessels.nameShort'}}
 									if getUnderstaffedShifts
 										ul.list-group
 											each getUnderstaffedShifts
@@ -140,7 +144,7 @@ if queryParam 'showShiftReport'
 												each teams
 													div.shift-team(class="{{teamRelation}}")
 														.shift-team-header
-															i.fa.fa-map-signs
+															i.fa.fa-fw(class='{{getIcon icon}}')
 															| {{name}}
 														if participants
 															.shift-team-participants

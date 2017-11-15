@@ -17,7 +17,7 @@ Template.day.events
 
 	'click #addShift': (e) ->
 		projectId = FlowRouter.getParam('projectId')
-		tagId = FlowRouter.getQueryParam('tagId') || FlowRouter.getQueryParam('showTags').split(',')[0]
+		tagId = FlowRouter.getQueryParam('tagId') || FlowRouter.getQueryParam('showTags').split('_')[0]
 		tagName = ''
 		date = $(e.target).closest('.day-wrapper').attr('date')
 		day = $(e.target).closest('.day-wrapper').attr('day')
@@ -37,7 +37,8 @@ Template.day.events
 				throw new Meteor.Error 500, 'Not enough data provided'
 
 	'click #removeAll': (e) ->
-		shifts = @shifts
+		visibleTags = FlowRouter.getQueryParam('showTags').split('_')
+		shifts = @shifts.filter (s) -> Shifts.findOne(s).tagId in visibleTags
 
 		swalYesNo
 			swal: 'delete.allShifts'

@@ -34,10 +34,16 @@ if queryParam 'uploadUserFile'
 										| {{_ 'users.export'}}
 							.row
 								.col-xs-12
-									a.btn.btn-primary.inline(href="mailto:?bcc={{allMails}}")
-										i.fa.fa-send
-										| {{_ 'users.sendToAll'}}
-									each getTags
-										a.btn.btn-primary.inline.m-r-xs(href="mailto:?bcc={{allMailsThisTag}}")
+									.btn-group.m-t-sm.m-r-xs
+										a.btn.btn-primary.inline(href="mailto:?bcc={{allMails}}")
 											i.fa.fa-send
-											| {{_ 'users.sendToAllInTag' name}}
+											| {{_ 'users.sendToAll'}}
+										button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsWithSemicolon}}")
+											i.fa.fa-clipboard
+									each getTags
+										.btn-group.m-t-sm.m-r-sm
+											a.btn.btn-primary.inline(href="mailto:?bcc={{allMailsThisTag}}")
+												i.fa.fa-send
+												| {{_ 'users.sendToAllInTag' name}}
+											button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsThisTagWithSemicolon}}")
+												i.fa.fa-clipboard

@@ -8,6 +8,9 @@ Template.login.onRendered ->
 
 Template.login.events
 
+	'change #username': (e) ->
+		$('#username').val(Validations.cleanedUsername(e.target.value))
+
 	'submit form': (event) ->
 		event.preventDefault()
 		Session.set 'error', ''
@@ -15,7 +18,7 @@ Template.login.events
 		submit = $('#submit').ladda()
 		submit.ladda('start')
 
-		username = $('#username').val().trim()
+		username = Validations.cleanedUsername($('#username').val())
 		password = $('#password').val()
 
 		if username != '' && password != ''

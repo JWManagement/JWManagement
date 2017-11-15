@@ -1,0 +1,71 @@
+mail:
+    footer: To jest automatycznie wysłany mail. Nie oczekujemy, że na niego odpowiesz.
+    link: Otwórz JW Management
+    accountCreated:
+        subject: Konto JW Management zostało stworzone!
+        headline: Witaj!
+        hello: Cześć
+        text1: Chcemy powiedzieć Ci, że stworzyliśmy dla Ciebie konto JW Management. Możesz ustawić swoją nazwę użytkownika i hasło klikając w przycisk poniżej.
+        text2: W przypadków problemów śmiało pisz do nas.<br>Życzymy Ci dużo radości w korzystaniu z JW Management.<br>Twoi bracia z JW Management
+        button: Zaczynamy!
+    teamCancellation:
+        subject: Zmiana anulowana
+        headline: Zmiana została anulowana.
+        hello: Witaj
+        text: Niestety chcieliśmy poinformować Cię, że twoja zmiana <b>__date__</b> o <b>__time__</b> godzinie został <u>anulowany</u>.
+        missingParticipant: Aktualnie brakuje współpracownika. Jeżeli będzie wystarczająco współpracowników zmiana może powstać ponownie.
+    confirmation:
+        subject: Nowa prośba zaakceptowana
+        headline: Twoja prośba została zaakceptowana!
+        hello: Cześć
+        text1: Twoja prośba dla następujących zmian została zaakceptowana:
+        datetime: __date__ o godzinie __time__
+    declined:
+        subject: Prośba nie rozpatrzona
+        headline: Prośba nie została rozpatrzona
+        hello: Witaj
+        text1: Niestety Twoja prośba dotycząca następujących zmian nie została rozpatrzona:
+        text2: Dziękujemy za Twoją propozycję!
+        datetime: __date__ o godzinie __time__
+    reversal:
+        subject: Usunięcie
+        hello: Witaj
+        text1: Zostałeś usunięty z następującej zmiany:
+        datetime: __date__ o godzinie __time__
+    teamUpdate:
+        subject: Zmiana została zmieniona
+        _changed: zmieniona.
+        changed:
+            participant: Współpracownik
+            time: Czas
+            location: Miejsce
+            leader: Koordynator zmiany
+        hello: Witaj
+        text1: Zostałeś oznaczony jako koordynator zmiany.
+        text2: Tutaj jest aktualny skład zmiany
+        datetime: __date__ o godzinie __time__
+    joinProject:
+        subject: Dołączyłeś do projektu
+        headline: Zostałeś dodany do projektu
+        hello: Cześć
+        text1: Zostałeś zaproszony do następującego projektu
+        text2: Znajdziesz ten projekt w zakładce "Moje Projekty".<br>Miłego dnia!
+    understaffed:
+        subject: Zmiana nie została skompletowana
+        headline: Zmiana nie została skompletowana
+        hello: Witaj
+        text1: Następująca zmiana nie została zebrana i potrzebuje
+        text2: Proszę zobacz czy możesz jakoś pomóc tej zmianie.
+        datetime: __date__ o godzinie __time__
+    toOrga:
+        hello: Witaj koordynatorze zmiany
+        subject:
+            teamCancel: Zmiana została anulowana
+        text:
+            teamCancel: Zmiana <b>"__team__"</b> na <b>__date__</b> o godzinie <b>__time__</b> została <u>anulowana</u>.
+    resetPassword:
+        subject: Zresetuj hasło
+        headline: Zresetuj swoje hasło
+        text1: Witaj,<br>Proszę kliknij w przycisk poniżej aby ustawić nowe hasło:
+        button: Resetuj hasło
+        text2: <p>Użyteczne podpowiedzi dotyczące bezpiecznego hasło można znaleźć na <a href="https://wol.jw.org/pl/wol/d/r12/lp-p/102001451">g01 6/22 s. 31</a></p><p>Jeżeli to nie ty prosiłeś o zresetowanie hasła, śmiało możesz usunąć tą wiadomość.</p>

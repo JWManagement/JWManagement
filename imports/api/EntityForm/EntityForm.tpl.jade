@@ -1,0 +1,21 @@
+.navigation-wrapper
+	nav.navbar.navbar-fixed-top
+		+navbarBrand(custom=true)
+		.navbar-header.navbar-right
+			a#saveChanges.navbar-brand(href) Save
+
+form.form-horizontal
+	each sections
+		.section
+			.section-header {{getTranslatedKey header}}
+			.section-content
+				each contents
+					.form-group
+						.key.col-xs-3 {{getTranslatedKey key}}
+						.value.col-xs-9
+							if isDate this
+								input(type='date' placeholder='{{getTranslatedKey key}}' value='{{value}}')
+							else if dropdownContainer
+								.value.col-xs-9 {{getItemKeyDropdown key dropdownContainer}}
+							else
+								input(type='text' placeholder='{{getTranslatedKey key}}' value='{{getItemKeyValue key}}')

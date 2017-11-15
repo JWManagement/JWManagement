@@ -1,3 +1,5 @@
+newsMaxSize = 500
+
 Template.dashboard.helpers
 
 	loading: -> !DashboardSubs.ready()
@@ -132,7 +134,10 @@ Template.dashboard.helpers
 		projects = Projects.find {}, sort: name: 1
 		result = []
 
-		for project, index in projects.fetch()
+		projects = projects.fetch().filter (project) ->
+			Roles.userIsInRole Meteor.userId(), Permissions.member, project._id
+
+		for project, index in projects
 			if index % 2 == 0
 				result.push projects: [ project ]
 			else
@@ -207,85 +212,23 @@ Template.dashboard.helpers
 
 	showOlder: -> Session.get 'showOlder'
 
+	getIcon: (icon) ->
+		if icon? then icon
+		else 'map-signs'
+
 Template.dashboard.onCreated ->
 
-	DashboardSubs.subscribe 'dashboard'
+	@autorun ->
+		userId = Meteor.userId() # for reactivity
+		projectIds = GetGroupsForUser userId, Permissions.member
 
-	@autorun -> if DashboardSubs.ready()
-		for shift in Shifts.find().fetch()
-			ShiftSubs.subscribe 'shift', shift._id
+		DashboardSubs.subscribe 'dashboard', projectIds
+
+		if DashboardSubs.ready()
+			for shift in Shifts.find().fetch()
+				ShiftSubs.subscribe 'shift', shift._id
 
 Template.dashboard.onRendered ->
-
-	tour = new Tour
-		template: Blaze.toHTML Template.tourTemplate
-		steps: [
-			orphan: true
-			backdrop: true
-			title: TAPi18n.__('tour.dashboard.welcome.title')
-			content: TAPi18n.__('tour.dashboard.welcome.content')
-		,
-			element: '.project-wrapper:first > div'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.projects.title')
-			content: TAPi18n.__('tour.dashboard.projects.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(0)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.wiki.title')
-			content: TAPi18n.__('tour.dashboard.wiki.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(1)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.shifts.title')
-			content: TAPi18n.__('tour.dashboard.shifts.content')
-		,
-			element: '.project-wrapper:first .project-link-wrapper > a:eq(2)'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.settings.title')
-			content: TAPi18n.__('tour.dashboard.settings.content')
-		,
-			element: '#myShifts'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.content')
-			onShow: (tour) ->
-				$('#myShifts').html('<h1 class="center-align" id="myShifts">Meine Schichten</h1>')
-				$('#personalShiftsContainer').html(
-					'<div class="vertical-container light-timeline center-orientation" id="vertical-timeline">
-						<div class="vertical-timeline-block shift approved"><div class="vertical-timeline-icon"><i class="fa fa-thumbs-o-up"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Angenommene Bewerbung</h2><span class="vertical-date">in 2 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
-						<div class="vertical-timeline-block shift pending"><div class="vertical-timeline-icon"><i class="fa fa-question"></i></div><a class="vertical-timeline-content" href=""><span class="float-right"></span><h2>Offene Bewerbung</h2><span class="vertical-date">in 20 Tagen<br><small>Fr., 1. Januar 2016</small><br><small>10 - 12 Uhr</small></span><div class="shift-participants animated fadeInDown"><div class="inline-block"><b><u>Max Mustermann</u></b><br>John Doe<br>Gustav Gans<br></div></div></a></div>
-					</div>'
-				)
-		,
-			element: '.approved > .vertical-timeline-content'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.right.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.right.content')
-		,
-			element: '.pending > .vertical-timeline-content'
-			placement: 'top'
-			title: TAPi18n.__('tour.dashboard.myShifts.left.title')
-			content: TAPi18n.__('tour.dashboard.myShifts.left.content')
-			onNext: (tour) ->
-				$('#myShifts').html('')
-				$('#personalShiftsContainer').html('')
-
-		,
-			element: '#profile'
-			placement: 'bottom'
-			title: TAPi18n.__('tour.dashboard.profile.title')
-			content: TAPi18n.__('tour.dashboard.profile.content')
-			onShow: (tour) -> FlowRouter.reload()
-		,
-			orphan: true
-			backdrop: true
-			title: TAPi18n.__('tour.dashboard.finish.title')
-			content: TAPi18n.__('tour.dashboard.finish.content')
-		]
-
-	tour.init()
-	tour.start()
 
 	$('.animated').removeClass('animated').addClass('skipped')
 
@@ -328,7 +271,7 @@ Template.dashboard.events
 	'click #editNews': (e) ->
 		$('#'+@_id).find('.news-content').addClass('hidden')
 		$('#'+@_id).find('.news-editor').removeClass('hidden')
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)
 
 	'click #cancelNews': (e) ->
 		$('#'+@_id).find('.news-editor').addClass('hidden')
@@ -344,7 +287,7 @@ Template.dashboard.events
 			$('#'+projectId).find('.news-content').removeClass('hidden')
 
 	'keyup #news-textarea': (e) ->
-		$('#'+@_id).find('.chars-left').html(140 - $('#'+@_id).find('#news-textarea').val().length + "/140")
+		$('#'+@_id).find('.chars-left').html(newsMaxSize - $('#'+@_id).find('#news-textarea').val().length + '/' + newsMaxSize)
 
 	'click .vertical-timeline-content[data-type="missing"]': (e) ->
 		shiftId = @_id

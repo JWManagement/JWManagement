@@ -188,3 +188,5 @@ Template.shiftsHeader.events
 			swalYesNo
 				swal: 'sendMail.confirmWeek'
 				doConfirm: -> Meteor.call 'sendConfirmWeek', projectId, tagId, week._id
+	'click #printShifts': ->
+		window.print();

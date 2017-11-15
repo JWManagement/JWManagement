@@ -47,13 +47,19 @@
 																			.checkbox.checkbox-primary.checkbox-inline
 																				input#togglePublication(type="checkbox" short="{{item.short}}" checked="{{addedItem item.short}}")
 																				label
-																		a#showPublication.forum-item-title(href short="{{item.short}}") {{_ 'store.publication.' context=item.short }}
+																		a#showPublication.forum-item-title(href short="{{item.short}}")
+																			| {{_ 'store.publication.' context=item.short }}
+																			sup
+																				i.fa.fa-external-link
 																	.col-xs-6.visible-xs
 																		if viewAll
 																			.checkbox.checkbox-primary.checkbox-inline
 																				input#togglePublication(type="checkbox" short="{{item.short}}" checked="{{addedItem item.short}}")
 																				label
-																		a#showPublication.forum-item-title.m-t(href short="{{item.short}}") {{item.short}}
+																		a#showPublication.forum-item-title.m-t(href short="{{item.short}}")
+																			| {{item.short}}
+																			sup
+																				i.fa.fa-external-link
 																.col-sm-2.forum-info.hidden-xs.visible-sm.visible-md.visible-lg
 																	.views-number.m-b-xs {{item.short}}
 																	small {{_ 'store.short'}}
@@ -86,11 +92,11 @@
 									h3 {{_ 'store.languages'}}
 									ul.list-group
 										each lang in getLanguages
-											with haveThisLanguage lang
+											with haveThisLanguage lang.short
 												li.list-group-item
 													a#removeLanguage.btn.btn-danger.btn-xs.fa.fa-trash.pull-right(href title="{{_ 'store.removeLanguage'}}")
 													span.badge.badge-primary {{stock}}
-													| {{_ 'language.' context=short}}
+													| {{lang.translation}}
 									if addLanguage
 										hr
 										form.form-horizontal
@@ -99,7 +105,7 @@
 												.col-xs-8
 													select#newLanguage.form-control
 														each getLanguages
-															option(value='{{this}}') {{_ 'language.' context=this}}
+															option(value='{{short}}') {{translation}}
 											.form-group
 												label.col-xs-4.control-label {{_ 'store.count'}}
 												.col-xs-8

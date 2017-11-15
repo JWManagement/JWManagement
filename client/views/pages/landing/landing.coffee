@@ -46,24 +46,27 @@ Template.landing.events
 		name = $('#name').val()
 		email = $('#email').val()
 		type = $('#type :selected').attr('type')
-		congregation = $('#congregation').val()
+		projectName = $('#projectName').val()
 		message = $('#message').val()
 
-		if name != '' && email != '' && type != '' && message != '' && (congregation != '' || type != 'enquiry')
+		if name != '' && email != '' && type != '' && message != '' && (projectName != '' || type != 'enquiry')
 			if type == 'enquiry'
 				Messages.methods.addProjectEnquiry.call
 					name: name
 					email: email
-					congregation: congregation
+					projectName: projectName
 					message: message
 					language: TAPi18n.getLanguage()
 				, (e, r) ->
 					if e
+						console.log e
 						handleError e
 					else
 						swal TAPi18n.__('welcome.contact.enquirySuccessful'), '', 'success'
 
 						$('#contactForm')[0].reset()
+
+						Meteor.call 'sendMessage', name, email, type, name + ' <' + email + '> requested a project'
 			else
 				Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
 					if e
@@ -73,4 +76,4 @@ Template.landing.events
 
 						$('#contactForm')[0].reset()
 		else
-			swal 'Bitte fülle alle Pflichtfelder aus!', '', 'error'
+			swal TAPi18n.__('welcome.contact.fillOutCompletely'), '', 'error'

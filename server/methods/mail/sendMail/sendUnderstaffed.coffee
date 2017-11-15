@@ -15,6 +15,8 @@ Meteor.methods
 
 			for participant in team.participants when participant.teamleader
 				tlNeeded = false
+			for pendingUser in team.pending when pendingUser.teamleader
+				tlNeeded = false
 
 		if tlNeeded
 			users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
@@ -25,7 +27,7 @@ Meteor.methods
 			users = users.fetch().filter (u) -> Roles.userIsInRole u._id, Permissions.participant, shift.tagId
 			type = 'participant'
 
-		for user in users
+		for user in users.filter((u) -> u.profile.shortTermCalls == true)
 			thisMoment = moment(shift.date, 'YYYYDDDD')
 			thisMoment.locale(user.profile.language)
 			date = thisMoment.format('dddd, DD.MM.YYYY')

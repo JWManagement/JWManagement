@@ -36,16 +36,16 @@ Template.profile.onRendered ->
 			startDate: '1900/01/01'
 			language: FlowRouter.getParam('language')
 
-Template.profile.onRendered ->
-
-	$('.animated').removeClass('animated').addClass('skipped')
-
 Template.profile.onDestroyed ->
 
+	$('#mergeAccountsModal').modal('hide')
 	$('#editProfilePictureModal').modal('hide')
 	Session.set('target', undefined)
 
 Template.profile.events
+
+	'change #username': (e) ->
+		$('#username').val(Validations.cleanedUsername(e.target.value))
 
 	'click .profile-image': (e) ->
 		wrs -> FlowRouter.setQueryParams editProfilePicture: true
@@ -54,15 +54,18 @@ Template.profile.events
 
 	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
 
-	'change #username': (e) -> Meteor.call 'updateProfile', 'username', e.target.value, (error) ->
-		if error
-			if error.error == 406
-				swal TAPi18n.__('profile.usernameTaken'), '', 'error'
-				Delay -> $(e.target).val Meteor.user().username
+	'change #username': (e) ->
+		username = Validations.cleanedUsername(e.target.value)
+
+		Meteor.call 'updateProfile', 'username', username, (error) ->
+			if error
+				if error.error == 406
+					swal TAPi18n.__('profile.usernameTaken'), '', 'error'
+					Delay -> $(e.target).val Meteor.user().username
+				else
+					handleError error
 			else
-				handleError error
-		else
-			handleSuccess error
+				handleSuccess error
 
 	'change #email': (e) -> Meteor.call 'updateProfile', 'email', e.target.value, handleSuccess
 
@@ -92,6 +95,9 @@ Template.profile.events
 			Meteor.call 'updateProfile', 'shortTermCallsAlways', false
 
 	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, handleSuccess
+
+	'click #mergeAccounts': ->
+		wrs -> FlowRouter.setQueryParams mergeAccounts: true
 
 	'click #changePassword': ->
 		swal.withForm

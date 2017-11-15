@@ -9,6 +9,7 @@ navigation:
     users: Benutzer
     reports: Berichte
     store: Depot
+    vessels: Schiffe
     notes: Notizen
     login: Anmelden
     logout: Abmelden
@@ -20,7 +21,6 @@ navigation:
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung
     donate: Spenden
-    support: Support
     version: Version
     new: Neu
 welcome:
@@ -59,18 +59,20 @@ welcome:
         repo: GitHub Repository
     contact:
         title: Kontaktiere uns
-        description: <p>Möchtest du das System für deine Versammlung testen?</p><p>Lass es uns wissen und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wir würden uns freuen davon zu erfahren.</p>
-        name: Name
+        description: <p>Möchtest du das System testen?</p><p>Wähle im Kontaktformular rechts "Projekt beantragen" aus und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wähle im Formular die entsprechende Option aus und lass es uns wissen.</p>
+        name: Vor- und Nachname
         email: E-Mail Adresse
-        congregation: Versammlung
+        projectName: Projektname
         enquiry: Projekt beantragen
         login: Problem beim Login
         problem: Problem melden
         suggestion: Verbesserung vorschlagen
         question: Generelle Frage
         message: Nachricht
+        whatFor: Was möchtest du mit dem System verwalten?
         send: Senden
         sendEnquiry: Anfrage senden
+        fillOutCompletely: Bitte fülle alle Pflichtfelder aus!
         enquirySuccessful: Anfrage wurde übermittelt!
         issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
         loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
@@ -99,7 +101,7 @@ forgotPassword:
 resetPassword:
     name: Passwort zurücksetzen
     text: Neues Passwort für %s %s eingeben.
-    noUserFound: <p>Ungültiges Token</p><p>Bitte überprüfe die URL</p>
+    noUserFound: <p>Dieser Link ist abgelaufen</p><p>Bitte lass dir einen neuen Link zuschicken.</p>
     button: Passwort ändern
     back: Zurück zur Startseite
 profile:
@@ -108,7 +110,8 @@ profile:
     changePicture: Bild ändern...
     options:
         title: Optionen
-        helpText: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, schreibe uns eine Mail an support@jwmanagement.org mit den Benutzernamen beider Accounts.
+        helpText:
+            mergeAccounts: Bei JW Management brauchst du für alles nur einen einzigen Account und musst dir nur einen Benutzernamen und ein Passwort merken. Falls du mehrere Accounts hast, klicke auf "Berechtigungen übertragen" und gib die Anmeldedaten deines zweiten Accounts ein. Die Berechtigungen dieses Accounts werden dann in den angegebenen Account übertragen.
     availability:
         title: Verfügbarkeit
         helpText: Markiere bitte die Stunden, in denen du verfügbar bist.
@@ -117,7 +120,7 @@ profile:
     speaks: Spricht
     telefon: Telefon
     congregation: Versammlung
-    languages: Sprachen
+    languages: Fremdsprachen
     gender: Geschlecht
     _gender:
         brother: Bruder
@@ -136,12 +139,16 @@ profile:
     _ministryPrivilege:
         ministerialServant: Dienstamtgehilfe
         elder: Ältester
+        coordinator: Koordinator
+        secretary: Sekretär
+        serviceOverseer: Dienstaufseher
     placeholder:
         telefon: (z.B. +49 177 1234567)
         congregation: Musterstadt-Englisch-West
         languages: Deutsch, Französisch, Englisch
     changePassword: Passwort ändern
     deleteAccount: Account löschen
+    mergeAccounts: Berechtigungen übertragen
     vacation:
         title: Urlaub
         helpText: Gib bitte die Zeiträume an, in denen du nicht verfügbar bist.
@@ -228,6 +235,11 @@ shifts:
         participants: Teilnehmer
         start: Start
         end: Ende
+        requests: Bewerbung
+        requests_plural: Bewerbungen
+        requestsOf: Bewerbung von
+        requestsOf_plural: Bewerbungen von
+        teamleaders: TL
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
     removeAll: Alle löschen
@@ -250,16 +262,17 @@ reports:
     magazines: Zeitschriften
     brochures: Broschüren
     tracts: Traktate
+    invitations: Einladungen
     videos: Gezeigte Videos
     talks: Geführte Gespräche
     achievements: Was erreicht wurde
-    addresses: Weitergeleitete Adressen
     hours: Eingesetzte Stunden
     texts: Vorgelesene Bibeltexte
+    website: Website gezeigt
     shifts: Stattgefundene Schichten
-    missing: Fehlende Teamberichte
+    missing: Fehlende Berichte
     participants: Teilnehmer
-    pioneers: Teilgenommene APVs
+    fulltime: Teilgenommene Vollzeitdiener
     publishers: Teilgenommene Verkündiger
     allParticipants: Teilnehmer insgesamt
     experiences: Erfahrungen
@@ -314,6 +327,7 @@ settings:
             description: Hier kannst du optional noch eine Beschreibung zu diesem Team angeben. Zum Beispiel könntest du ein paar Besonderheiten für diese Route erklären.
         id: ID
         name: Name
+        icon: Icon
         picture: Bild
         editPicture: Ein Bild für dieses Team hochladen
         noPicture: Kein Bild hochgeladen
@@ -337,6 +351,40 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
+vessels:
+    title: Schiffe
+    nameShort: Schiffe
+    search: Schiff suchen
+    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    addNewVessel: Neues Schiff erfassen
+    name: Schiffsname
+    flag: Flagge
+    type: Typ
+    types:
+        c: Containerschiff
+        cr: Kreuzfahrtschiff
+        mf: Frachter
+        mt: Tanker
+        p: Passagierschiff
+        pt: Schubboot
+        rc: Flusskreuzfahrtschiff
+        f: Fähre
+        ro: Ro-Ro
+        t: Schlepper
+        unknown: Unbekannt
+    callsign: Rufzeichen
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    lastVisit: Letzter Besuch
+    harborGroup: Hafengruppe
+    nextVisit: Nächster Besuch frühestens
+    languages: Sprache(n) an Bord
+    languagesPlaceholder: Keine personenbezogenen Daten!
+    comments: Bemerkungen
+    commentsPlaceholder: Keine personenbezogenen Daten!
+    noResults: Keine Ergebnisse
+    moreResultsAvailable: Wir haben %s Ergebnisse gefunden. Die ersten 20 werden gezeigt.
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
@@ -348,8 +396,8 @@ firstLogin:
     text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
     agreeTerms: Ich akzeptiere die <a href="/de/terms" target="blank">Nutzungsbedingungen</a> und die <a href="/de/privacy" target="blank">Datenschutzerklärung</a>
     button: Los geht's!
-    tokenError: Token-Fehler. Bitte wende dich an den Administrator (support@jwmanagement.org) oder deinen Projektleiter.
-    tokenMissing: Token fehlt. Bitte verwende den Link aus der E-Mail.
+    tokenError: Abgelaufener Link. Dieser Link ist nicht mehr gültig. Bitte lass dir eine neue E-Mail schicken oder versuche, dein Passwort zurückzusetzen.
+    tokenMissing: Ungültiger Link. Bitte verwende den Link aus der E-Mail.
     usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
     usernameMissing: Bitte gib einen Benutzernamen an.
     agreeTermsMissing: Bitte akzeptiere die Nutzungsbedingungen und die Datenschutzerklärung.
@@ -370,4 +418,4 @@ privacy:
     back: Zur Startseite
 donate:
     title: Spenden
-    text: <p>Danke, dass du diese Seite besuchst!</p><p>Wir möchten dich gerne darüber informieren, wie viel wir <b>jeden Monat</b> für JW Management bezahlen:</p><ul><li>50€ für die Server-Instanz (Galaxy)</li><li>15€ für die Datenbank-Instanz (mLab)</li><li>7€ für den SMTP Provider (MailJet)</li><li>1.50€ für die Domain und die E-Mail Adressen (Strato)</li><li>8.50€ für den Apple Developer Account (99€ pro Jahr) - App ist in Entwicklung</li><li>25€ <b>einmalig</b> für den Google Developer Account - App ist in der Entwicklung</li></ul><p>Somit geben wir <b>jeden Monat 82€</b> aus, um euch JW Management weiterhin zu ermöglichen.</p><p>Mit <i>wir</i> sind übrigens zwei Entwickler gemeint: ein Betheldiener und ein Bruder in der Ausbildung.</p><p>Um die Kosten in Relation zu setzen, noch folgende Informationen:<br>JW Management wird von 100+ Projekten und 3200+ Verkündigern genutzt.</p><p>Wenn du möchtest (und dir JW Management gefällt), kannst du uns beim Decken der Kosten gerne unterstützen und den nachfolgenden Link dafür nutzen.</p><p>Dein Verständnis und die uns damit erwiesene Liebe <b>schätzen wir sehr!</b><br><h4>Vielen Dank! <i class="fa fa-heart text-danger"></i></h4></p>
+    text: <p>Danke, dass du diese Seite besuchst!</p><p>Wenn du uns gerne dabei unterstützen möchtest JW Management zu hosten, freuen wir uns sehr! Vielen Dank! <i class="fa fa-heart text-danger"></i></p>

@@ -1,0 +1,47 @@
+.navigation-wrapper
+	nav.navbar.navbar-fixed-top
+		+navbarBrand
+		+navbarProfile
+		.search.input-group
+			span.input-group-addon &#xF002;
+			input#search.form-control(type='text' placeholder='{{getSearchPlaceholder}}' autocomplete='off')
+
+if isLoading
+	.search-title.clearfix
+		i.fa.fa-circle-o-notch.fa-spin
+		| {{_ 'searchForm.loading'}}...
+else if noResults
+	.search-title {{_ 'searchForm.noResults'}}
+else
+	.search-title.clearfix
+		.pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
+		if moreResultsAvailable
+			.pull-right {{_ 'searchForm.showingTheFirstX' maxResultsShown}}
+		else
+			.pull-right {{_ 'searchForm.showingAll' count=totalFound}}
+
+table#table.table.table-stripped.results-desktop
+
+if resultsMobile
+	table.results-mobile
+		each resultsMobile
+			a(href='{{_id}}')
+				tr
+					th
+						each columns
+							b {{th}}:
+					td.item
+						each columns
+							span {{valueOrDash td}}
+					td.link
+						i.fa.fa-chevron-right
+
+if noResults
+	.center-align.m-t-xl.m-b-sm
+		p Search for a vessel or create a new one
+		button#createNew.btn.btn-primary.btn-circle
+			i.fa.fa-plus
+else if moreResultsAvailable
+	.center-align.m-t-sm.m-b-sm
+		button#more.btn.btn-primary.btn-outline.btn-circle
+			i.fa.fa-arrow-down

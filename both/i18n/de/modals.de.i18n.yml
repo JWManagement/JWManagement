@@ -16,6 +16,9 @@ modal:
         helpText: Der Benutzername sollte kurz und einprägsam sein. Am besten hängt er direkt mit den Vor- und Nachnamen der Benutzers zusammen.<br>Beispiele: "MaxM" oder "MMustermann"
         invite: %s (%s) einladen
         existingAccounts: Bestehende Accounts
+    addVessel:
+        title: Neues Schiff hinzufügen
+        action: Schiff hinzufügen
     addWeek:
         title: Neue Woche anlegen
         noTemplate: Bitte leg zuerst eine Vorlage an
@@ -88,6 +91,9 @@ modal:
         noPictureUploaded: Du hast noch kein Bild hochgeladen
         upload: Hochladen
         delete: Löschen
+    editVessel:
+        title: Schiff-Daten ändern
+        action: Änderungen speichern
     inviteUser:
         title: Neue Verkündiger einladen
         key: <span class="text-warning">Oranger Name</span> bedeutet, dass der User bereits eingeladen wurde.
@@ -154,6 +160,7 @@ modal:
         texts: Bibeltexte
         speaks: Gespräche
         videos: Gezeigte Videos
+        website: Website gezeigt
         returnVisits: Rückbesuche
         bibleStudies: Bibelkurse
         time: Dienstzeit
@@ -223,12 +230,17 @@ modal:
         invite: Einladen
     uploadUserFile:
         title: User-Datei hochladen
-        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant' oder 'elder'), Versammlung
+        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant', 'elder', 'coordinator', 'secretary' oder 'serviceOverseer'), Versammlung
         helpEncoding: Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!
         uploadFile: CSV-Datei hochladen
-        stats: <b>%s</b> neue und <b>%s</b> vorhandene User gefunden
         new: Neue Verkündiger
         existing: Verkündiger mit JW Management Account
         name: Name
         email: E-Mail
         add: User hinzufügen
+    mergeAccounts:
+        title: Accounts zusammenführen
+        description: Gib hier die Anmeldedaten des Accounts ein, auf den du die Berechtigungen des aktuellen Accoutns übertragen möchtest. Du wirst direkt mit dem angegebenen Account angemeldet.
+        username: Benutzername
+        password: Passwort
+        merge: Berechtigungen übertragen

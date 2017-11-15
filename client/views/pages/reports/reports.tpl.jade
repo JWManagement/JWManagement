@@ -10,9 +10,6 @@
 							h2.center-align.m-t-xs.m-b-none {{format getMonth 'YYYY-MM' 'MMMM YYYY'}}
 						.col-md-1.col-xs-3
 							button#nextMonth.btn.btn-primary.btn-block.fa.fa-chevron-right(title="{{_ 'reports.nextMonth'}}")
-					.row.m-b-lg
-						.col-xs-12.center-align
-							h2 Coming soon
 					.ibox
 						.ibox-content
 							.row.m-b
@@ -21,23 +18,23 @@
 							.row.m-b
 								.col-xs-4
 									small.stats-label {{_ 'reports.bibles'}}
-									h4 0
+									h4 Coming soon
 								.col-xs-4
 									small.stats-label {{_ 'reports.magazines'}}
-									h4 0
+									h4 Coming soon
 								.col-xs-4
 									small.stats-label {{_ 'reports.tracts'}}
-									h4 0
+									h4 Coming soon
 							.row
 								.col-xs-4
 									small.stats-label {{_ 'reports.books'}}
-									h4 0
+									h4 Coming soon
 								.col-xs-4
 									small.stats-label {{_ 'reports.brochures'}}
-									h4 0
+									h4 Coming soon
 								.col-xs-4
-									small.stats-label {{_ 'reports.videos'}}
-									h4 0
+									small.stats-label {{_ 'reports.invitations'}}
+									h4 Coming soon
 					.ibox
 						.ibox-content
 							.row.m-b
@@ -46,23 +43,26 @@
 							.row.m-b
 								.col-xs-4
 									small.stats-label {{_ 'reports.talks'}}
-									h4 0
+									h4 {{{basicSums 'speaks'}}}
 								.col-xs-4
-									small.stats-label {{_ 'reports.addresses'}}
-									h4 0
+									small.stats-label {{_ 'reports.videos'}}
+									h4 {{{basicSums 'videos'}}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.hours'}}
-									h4 0
+									h4 {{{basicSums 'hours'}}}
 							.row
-								.col-xs-4
+								.col-xs-3
 									small.stats-label {{_ 'reports.texts'}}
-									h4 0
-								.col-xs-4
+									h4 {{{basicSums 'texts'}}}
+								.col-xs-3
+									small.stats-label {{_ 'reports.website'}}
+									h4 {{{basicSums 'website'}}}
+								.col-xs-3
 									small.stats-label {{_ 'reports.shifts'}}
-									h4 0
-								.col-xs-4
+									h4 Coming soon
+								.col-xs-3
 									small.stats-label {{_ 'reports.missing'}}
-									h4 0
+									h4 Coming soon
 									button#showMissing.btn.btn-primary.btn-xs {{_ 'reports.show'}}
 					.ibox
 						.ibox-content
@@ -71,14 +71,14 @@
 									h3 {{_ 'reports.participants'}}
 							.row
 								.col-xs-4
-									small.stats-label {{_ 'reports.pioneers'}}
-									h4 0
+									small.stats-label {{_ 'reports.fulltime'}}
+									h4 {{{participantsCount 'fulltime'}}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.publishers'}}
-									h4 0
+									h4 {{{participantsCount 'publishers'}}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.allParticipants'}}
-									h4 0
+									h4 {{{participantsCount 'all'}}}
 					.ibox
 						.ibox-content
 							.row.m-b
@@ -87,19 +87,19 @@
 							.row
 								.col-xs-4
 									small.stats-label {{_ 'reports.route'}}
-									h4 0
+									h4 {{{basicSums 'route'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="route") {{_ 'reports.show'}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.good'}}
-									h4 0
+									h4 {{{basicSums 'good'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="good") {{_ 'reports.show'}}
 								.col-xs-4
 									small.stats-label {{_ 'reports.problems'}}
-									h4 0
+									h4 {{{basicSums 'problems'}}}
 									button#showExperiences.btn.btn-primary.btn-xs(type="problems") {{_ 'reports.show'}}
 
-					button.btn.btn-primary.pull-right#exportReports(class='{{readyOrDisabled}}' download)
-						i.fa.fa-download
+					button.btn.btn-primary.pull-right#exportReports(class='{{readyOrDisabled.button}}' download)
+						i.fa(class='{{readyOrDisabled.icon}}')
 						| {{_ 'users.export'}}
 				else
 					.ibox

@@ -12,7 +12,7 @@ Meteor.methods
 
 		for team in shift.teams when team._id == teamId
 
-			for participant in team.participants when participant.informed && participant.email?
+			for participant in team.participants when participant.email?
 				user = Meteor.users.findOne participant._id, fields: 'profile.language': 1
 				project = Projects.findOne shift.projectId, fields: name: 1, email:1
 				date = moment(shift.date, 'YYYYDDDD').format('DD.MM.YYYY')
