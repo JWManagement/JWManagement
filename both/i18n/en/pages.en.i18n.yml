@@ -13,6 +13,7 @@ navigation:
     vessel:
         search: Vessels
         details: Vessel
+        update: Edit vessel
     notes: Notes
     login: Login
     logout: Logout

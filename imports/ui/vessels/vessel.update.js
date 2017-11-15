@@ -4,13 +4,13 @@ import {
 
 import './vessel.update.tpl.jade';
 
-const UpdateForm = require('/imports/ui/UpdateForm/UpdateForm.js');
+import '/imports/ui/UpdateForm/UpdateForm.js';
 
-var db = Vessels;
-var templateName = 'vessel.update';
-var publicationName = 'vessel';
-
-new UpdateForm(
-    db,
-    templateName,
-    publicationName);
+Template['vessel.update'].helpers({
+    data: () => {
+        return {
+            db: Vessels,
+            publicationName: 'vessel'
+        }
+    }
+});

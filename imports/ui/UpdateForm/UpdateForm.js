@@ -1,76 +1,53 @@
 import './UpdateForm.tpl.jade';
 import './UpdateForm.scss';
 
-const TextInput = require('/imports/ui/TextInput/TextInput.js');
+import './TextInput.js';
 
-module.exports = class UpdateForm {
-    constructor(
-        db,
-        templateName,
-        publicationName,
-        sections
-    ) {
-        this.db = db;
-        this.templateName = templateName;
-        this.publicationName = publicationName;
-        this.sections = sections;
-
-        this.isLoading = new ReactiveVar(true);
-        this.noResult = new ReactiveVar(true);
-        this.language = '';
-        this.handle = null;
-        this.itemId = '';
-        this.item = new ReactiveVar({});
-        this.inputType = new ReactiveVar('');
-
-        this.registerHelpers();
-        this.registerOnRendered();
-        this.registerOnDestroyed();
-        this.registerEvents();
-    }
-
-    registerHelpers() {
-        Template.UpdateForm.helpers({
-            'getBackLink': () => {
-                return FlowRouter.path('vessel.details', {
-                    language: FlowRouter.getParam('language'),
-                    projectId: FlowRouter.getParam('projectId'),
-                    itemId: FlowRouter.getParam('itemId')
-                });
-            },
-            'getSectionName': () => {
-                return TAPi18n.__(FlowRouter.getRouteName().replace('update', '') + FlowRouter.getParam('key'));
-            },
-            'isText': () => {
-                return this.inputType.get()
-            }
+Template.UpdateForm.helpers({
+    'getBackLink': () => {
+        return FlowRouter.path(FlowRouter.getRouteName().replace('update', 'details'), {
+            language: FlowRouter.getParam('language'),
+            projectId: FlowRouter.getParam('projectId'),
+            itemId: FlowRouter.getParam('itemId')
         });
+    },
+    'getSectionName': () => {
+        return TAPi18n.__(FlowRouter.getRouteName().replace('update', '') + FlowRouter.getParam('key'));
+    },
+    'isText': () => {
+        return Template.instance().inputType.get()
     }
+});
 
-    registerOnRendered() {
-        Template.UpdateForm.onRendered(() => {
-            $('body').addClass('md-skin');
-            $('body').addClass('top-navigation');
-            $('body').attr('type', 'UpdateForm');
+Template.UpdateForm.onCreated(() => {
+    var template = Template.instance();
+    var data = Template.currentData().data;
 
-            new TextInput(
-                this.db,
-                this.templateName,
-                this.publicationName);
+    template.db = data.db;
+    template.publicationName = data.publicationName;
+    template.sections = data.sections;
 
-            this.inputType.set('text');
-        });
-    }
+    template.isLoading = new ReactiveVar(true);
+    template.noResult = new ReactiveVar(true);
+    template.language = '';
+    template.handle = null;
+    template.itemId = '';
+    template.item = new ReactiveVar({});
+    template.inputType = new ReactiveVar('');
+});
 
-    registerOnDestroyed() {
-        Template.UpdateForm.onDestroyed(() => {
-            $('body').removeClass('md-skin');
-            $('body').removeClass('top-navigation');
-            $('body').attr('type', '');
-        });
-    }
+Template.UpdateForm.onRendered(() => {
+    $('body').addClass('md-skin');
+    $('body').addClass('top-navigation');
+    $('body').attr('type', 'UpdateForm');
 
-    registerEvents() {
-        Template.UpdateForm.events({});
-    }
-}
+    Template.instance().inputType.set('text');
+});
+
+Template.UpdateForm.onDestroyed(() => {
+    $('body').removeClass('md-skin');
+    $('body').removeClass('top-navigation');
+    $('body').attr('type', '');
+});
+
+Template.UpdateForm.events({});
