@@ -21,6 +21,9 @@ Template.SearchForm.helpers({
     'isLoading': () => {
         return Template.instance().isLoading.get();
     },
+    'hasSearchString': () => {
+        return Template.instance().searchString.get() != '';
+    },
     'noResults': () => {
         var template = Template.instance();
         return template.noResults.get() && !template.isLoading.get();

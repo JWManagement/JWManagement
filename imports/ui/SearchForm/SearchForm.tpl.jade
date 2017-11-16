@@ -39,8 +39,12 @@ if resultsMobile
 
 if noResults
 	.center-align.m-t-xl.m-b-sm
-		p Search for a vessel. Type * to see all.
-		p Or create a new one
+		if hasSearchString
+			p We couldn't find anything
+			p But you can create a new entry
+		else
+			p Type to search. Type * to see everything.
+			p Or create a new entry
 		button#createNew.btn.btn-primary.btn-circle
 			i.fa.fa-plus
 else if moreResultsAvailable
