@@ -218,7 +218,7 @@ Template.SearchForm.events({
             });
         });
     },
-    'click .results-desktop tr': (e) => {
+    'click .results-desktop tr:not(.footable-empty)': (e) => {
         FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
     }
 });
