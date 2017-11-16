@@ -180,13 +180,6 @@ Template.SearchForm.onRendered(() => {
         template.searchString.set('');
         updateSearch(template, search);
     }
-
-    $('#search').keyup((e) => {
-        updateSearch(template, e.target.value);
-    });
-    $('#search').change((e) => {
-        updateSearch(template, e.target.value);
-    });
 });
 
 Template.SearchForm.onDestroyed(() => {
@@ -220,6 +213,12 @@ Template.SearchForm.events({
     },
     'click .results-desktop tr:not(.footable-empty)': (e) => {
         FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
+    },
+    'keyup #search': (e) => {
+        updateSearch(Template.instance(), e.target.value);
+    },
+    'change #search': (e) => {
+        updateSearch(Template.instance(), e.target.value);
     }
 });
 
