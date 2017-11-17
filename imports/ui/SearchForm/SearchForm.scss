@@ -27,7 +27,7 @@ body.md-skin[type='SearchForm'] {
 	}
 
 	.search.input-group {
-		margin: 0 10px 10px;
+		margin: 0 9px 10px 10px; // why 9? see .input > margin-left
 
 		.input-group-addon {
 			color                    : #8e8e8e;
@@ -42,16 +42,17 @@ body.md-skin[type='SearchForm'] {
 			border                    : none;
 			border-top-right-radius   : 5px;
 			border-bottom-right-radius: 5px;
-			padding-left              : 2px;
+			margin-left               : -1px;
+			padding-left              : 5px;
 		}
 	}
 
 	.search-title {
-		background-color: #e8e8e8;
-		font-size       : 14px;
-		padding         : 6px 10px;
 		color           : #777;
 		height          : 32px;
+		padding         : 6px 10px;
+		font-size       : 14px;
+		background-color: #e8e8e8;
 	}
 
 	.results-desktop {
@@ -72,8 +73,8 @@ body.md-skin[type='SearchForm'] {
 
 		a {
 			width  : 100%;
-			display: inline-block;
 			color  : inherit;
+			display: inline-block;
 
 			tr td,
 			tr th {
@@ -85,8 +86,8 @@ body.md-skin[type='SearchForm'] {
 
 				b,
 				span {
-					display    : block;
 					margin     : 3px 0;
+					display    : block;
 					line-height: 1;
 					white-space: nowrap;
 
