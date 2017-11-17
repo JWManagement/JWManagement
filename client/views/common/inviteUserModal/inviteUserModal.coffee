@@ -2,12 +2,11 @@ Template.inviteUserModal.helpers
 
 	getUsers: ->
 		projectId = FlowRouter.getParam('projectId')
+		language = TAPi18n.getLanguage()
 		users = Roles.getUsersInRole Permissions.member, projectId
 		users.fetch().sort (u1, u2) ->
-			if u1.profile.lastname != u2.profile.lastname
-				u1.profile.lastname > u2.profile.lastname
-			else
-				u1.profile.firstname > u2.profile.firstname
+			u1.profile.lastname.localeCompare(u2.profile.lastname, language) ||
+				u1.profile.firstname.localeCompare(u2.profile.firstname, language)
 
 	getState: ->
 		if @state == 'invited'
