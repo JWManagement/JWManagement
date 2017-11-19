@@ -25,6 +25,13 @@ Template.UpdateForm.helpers({
 
         return {
             value: template.value.get(),
+            updateEntity: (value) => {
+                Meteor.call(
+                    FlowRouter.getRouteName(),
+                    FlowRouter.getParam('itemId'),
+                    FlowRouter.getParam('key'),
+                    value);
+            }
         }
     }
 });
