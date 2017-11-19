@@ -10,8 +10,8 @@ Template.TextInput.helpers({
 });
 
 Template.TextInput.onCreated(() => {
-    var template = Template.instance();
-    var data = Template.currentData().data;
+    const template = Template.instance();
+    const data = Template.currentData();
 
     template.db = data.db;
     template.templateName = data.templateName;

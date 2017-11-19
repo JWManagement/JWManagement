@@ -20,8 +20,8 @@ Template.UpdateForm.helpers({
 });
 
 Template.UpdateForm.onCreated(() => {
-    var template = Template.instance();
-    var data = Template.currentData().data;
+    const template = Template.instance();
+    const data = Template.currentData().data;
 
     template.db = data.db;
     template.publicationName = data.publicationName;

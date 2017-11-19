@@ -28,14 +28,14 @@ Template.SearchForm.helpers({
         return Template.instance().searchString.get() != '';
     },
     'noResults': () => {
-        var template = Template.instance();
+        const template = Template.instance();
         return template.noResults.get() && !template.isLoading.get();
     },
     'resultsMobile': () => {
-        var template = Template.instance();
+        const template = Template.instance();
 
         if (!template.noResults.get() && !template.isLoading.get()) {
-            var columns = template.getColumns
+            const columns = template.getColumns
                 .filter((column) => {
                     return column.mobile == true;
                 })
@@ -63,16 +63,15 @@ Template.SearchForm.helpers({
         return false;
     },
     'moreResultsAvailable': () => {
-        var template = Template.instance();
-
-        var searchCriteria = template.searchCriteria(template.regEx.get());
+        const template = Template.instance();
+        const searchCriteria = template.searchCriteria(template.regEx.get());
 
         return template.db
             .find(searchCriteria.selector, searchCriteria.options)
             .fetch().length == template.maxResultsShown;
     },
     'totalFound': () => {
-        var counters = Counts.find(Template.instance().publicationName, {
+        const counters = Counts.find(Template.instance().publicationName, {
             fields: {
                 count: 1
             }
@@ -84,13 +83,13 @@ Template.SearchForm.helpers({
         return '';
     },
     'maxResultsShown': () => {
-        return  Template.instance().maxResultsShown;
+        return Template.instance().maxResultsShown;
     }
 });
 
 Template.SearchForm.onCreated(() => {
-    var template = Template.instance();
-    var data = Template.currentData().data;
+    const template = Template.instance();
+    const data = Template.currentData().data;
 
     template.db = data.db;
     template.publicationName = data.publicationName;
@@ -118,7 +117,7 @@ Template.SearchForm.onRendered(() => {
     $('body').addClass('top-navigation');
     $('body').attr('type', 'SearchForm');
 
-    var template = Template.instance();
+    const template = Template.instance();
     template.language = '';
 
     template.autorun(() => {
@@ -148,13 +147,13 @@ Template.SearchForm.onRendered(() => {
     });
 
     template.autorun(() => {
-        var template = Template.instance();
-        var ready = template.handle !== null && template.handle.ready();
-        var search = template.searchString.get();
+        const template = Template.instance();
+        const ready = template.handle !== null && template.handle.ready();
+        const search = template.searchString.get();
 
         if (template.isLoading.get()) {
-            var rowCount = getRowCount(template);
-            var awaited = template.awaitedCount.get()
+            const rowCount = getRowCount(template);
+            const awaited = template.awaitedCount.get()
 
             if (awaited == 0 || search.length == 0 || ready) {
                 if (rowCount == awaited) {
@@ -181,7 +180,7 @@ Template.SearchForm.onRendered(() => {
     });
 
     if ($('#search').val() == '' && $('#search').val() != template.searchString.get()) {
-        var search = template.searchString.get();
+        const search = template.searchString.get();
         $('#search').val(search);
         template.searchString.set('');
         updateSearch(template, search);
@@ -193,7 +192,7 @@ Template.SearchForm.onDestroyed(() => {
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
 
-    var template = Template.instance();
+    const template = Template.instance();
 
     if (template.handle !== null) {
         template.handle.stop();
@@ -206,7 +205,7 @@ Template.SearchForm.onDestroyed(() => {
 
 Template.SearchForm.events({
     'click #more': (e) => {
-        var template = Template.instance();
+        const template = Template.instance();
         template.isLoading.set(true);
         doSubscribe(template, true);
     },
@@ -233,7 +232,7 @@ function getRowCount(template) {
         return 0;
     }
 
-    var items = template.db.find(template.searchCriteria(template.regEx.get()).selector, {
+    const items = template.db.find(template.searchCriteria(template.regEx.get()).selector, {
         fields: {
             _id: 1
         }
@@ -253,16 +252,15 @@ function getRows(template) {
         return [];
     }
 
-    var searchCriteria = template.searchCriteria(template.regEx.get());
+    const searchCriteria = template.searchCriteria(template.regEx.get());
+    const schema = template.db.schema._schema;
 
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
-        var schema = template.db.schema._schema;
-
         for (var i = 0; i < Object.keys(schema).length; i++) {
-            var key = Object.keys(schema)[i];
-            var attr = schema[key].type.definitions[0];
+            const key = Object.keys(schema)[i];
+            const attr = schema[key].type.definitions[0];
 
             if ('allowedValues' in attr) {
                 item[key] = TAPi18n.__(['dropdowns', attr.custom(), item[key].toLowerCase()].join('.'));
@@ -275,7 +273,7 @@ function getRows(template) {
 
 function reloadRowsIfIsUpdate(template) {
     if (!template.isLoading.get() && template.table != undefined) {
-        var rowCount = getRowCount(template);
+        const rowCount = getRowCount(template);
 
         if (template.itemCount.get() != rowCount) {
             template.itemCount.set(rowCount);
@@ -311,9 +309,9 @@ function doSubscribe(template, retrieveAllResults = false) {
         template.handle.stop();
     }
 
-    var search = template.searchString.get();
-    var projectId = FlowRouter.getParam('projectId');
-    var limit = retrieveAllResults ? 0 : template.maxResultsShown;
+    const search = template.searchString.get();
+    const projectId = FlowRouter.getParam('projectId');
+    const limit = retrieveAllResults ? 0 : template.maxResultsShown;
 
     template.handle = Meteor.subscribe(template.publicationName, search, projectId, limit);
 
