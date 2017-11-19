@@ -16,6 +16,16 @@ Template.UpdateForm.helpers({
     },
     'isText': () => {
         return Template.instance().inputType.get() == 'text';
+    },
+    'isDropdown': () => {
+        return Template.instance().inputType.get() == 'dropdown';
+    },
+    'textInputData': () => {
+        const template = Template.instance();
+
+        return {
+            value: template.value.get(),
+        }
     }
 });
 
