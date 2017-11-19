@@ -1,6 +1,6 @@
 body.md-skin[type='SearchForm'] {
 	background-color: #fff !important;
-	padding-top     : 132px;
+	padding-top     : 126px;
 
 	.navbar {
 		width     : 100%;
@@ -66,7 +66,7 @@ body.md-skin[type='SearchForm'] {
 	}
 
 	.results-mobile {
-		margin-left: 15px;
+		width: 100%;
 		@media(min-width: 760px) {
 			display: none;
 		}
@@ -76,35 +76,42 @@ body.md-skin[type='SearchForm'] {
 			color  : inherit;
 			display: inline-block;
 
-			tr td,
-			tr th {
-				cursor       : pointer;
-				padding      : 10px 15px 10px 0;
-				font-size    : 15px;
-				text-align   : left;
-				border-bottom: 1px solid #eee;
+			tr {
+				td,
+				th {
+					cursor       : pointer;
+					padding      : 10px 15px 10px 0;
+					font-size    : 15px;
+					text-align   : left;
+					border-bottom: 1px solid #eee;
 
-				b,
-				span {
-					margin     : 3px 0;
-					display    : block;
-					line-height: 1;
-					white-space: nowrap;
+					b,
+					span {
+						margin     : 3px 0;
+						display    : block;
+						line-height: 1;
+						white-space: nowrap;
 
-					&:empty {
-						content: " ";
+						&:empty {
+							content: " ";
+						}
 					}
 				}
-			}
 
-			tr td.item {
-				width: 100%;
-			}
+				th.left {
+					width        : 15px;
+					border-bottom: 0;
+				}
 
-			tr td.link {
-				color         : #ccc;
-				font-size     : 20px;
-				vertical-align: middle;
+				td.item {
+					width: 100%;
+				}
+
+				td.link {
+					color         : #ccc;
+					font-size     : 20px;
+					vertical-align: middle;
+				}
 			}
 		}
 	}
