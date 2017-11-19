@@ -62,11 +62,11 @@ Template.SearchForm.helpers({
     'moreResultsAvailable': () => {
         var template = Template.instance();
 
-        return template.db.find(template.searchCriteria(template.regEx.get()), {
-            sort: {
-                name: 1
-            }
-        }).fetch().length == template.maxResultsShown;
+        var searchCriteria = template.searchCriteria(template.regEx.get());
+
+        return template.db
+            .find(searchCriteria.selector, searchCriteria.options)
+            .fetch().length == template.maxResultsShown;
     },
     'totalFound': () => {
         var counters = Counts.find(Template.instance().publicationName, {
@@ -230,7 +230,7 @@ function getRowCount(template) {
         return 0;
     }
 
-    var items = template.db.find(template.searchCriteria(template.regEx.get()), {
+    var items = template.db.find(template.searchCriteria(template.regEx.get()).selector, {
         fields: {
             _id: 1
         }
@@ -250,13 +250,9 @@ function getRows(template) {
         return [];
     }
 
-    return template.db
-    .find(template.searchCriteria(template.regEx.get()), {
-        sort: {
-            name: 1,
-            callsign: 1
-        }
-    })
+    var searchCriteria = template.searchCriteria(template.regEx.get());
+
+    return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
         for (var i = 0; i < template.translatedAttributes.length; i++) {

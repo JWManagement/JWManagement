@@ -39,17 +39,25 @@ Template['vessel.search'].helpers({
             }],
             searchCriteria: (search) => {
                 return {
-                    $or: [{
-                        name: search
-                    }, {
-                        callsign: search
-                    }, {
-                        eni: search
-                    }, {
-                        imo: search
-                    }, {
-                        mmsi: search
-                    }]
+                    selector: {
+                        $or: [{
+                            name: search
+                        }, {
+                            callsign: search
+                        }, {
+                            eni: search
+                        }, {
+                            imo: search
+                        }, {
+                            mmsi: search
+                        }]
+                    },
+                    options: {
+                        sort: {
+                            name: 1,
+                            callsign: 1
+                        }
+                    }
                 };
             }
         };
