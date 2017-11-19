@@ -252,7 +252,7 @@ function getRows(template) {
     }
 
     const searchCriteria = template.searchCriteria(template.regEx.get());
-    const schema = template.db.schema._schema;
+    const schema = template.db.schemaObj;
 
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
@@ -262,7 +262,7 @@ function getRows(template) {
             const attr = schema[key].type.definitions[0];
 
             if ('allowedValues' in attr) {
-                item[key] = TAPi18n.__(['dropdowns', attr.custom(), item[key].toLowerCase()].join('.'));
+                item[key] = TAPi18n.__(['dropdowns', attr.dropdown, item[key].toLowerCase()].join('.'));
             }
         }
 

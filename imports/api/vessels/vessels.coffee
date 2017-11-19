@@ -8,7 +8,7 @@ Vessels.deny
 	update: -> true
 	remove: -> true
 
-Vessels.schema = new SimpleSchema
+Vessels.schemaObj =
 
 	_id:
 		type: String
@@ -26,7 +26,7 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	type:
 		type: String
-		custom: -> 'vesselType'
+		dropdown: 'vesselType'
 		allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 	callsign:
 		type: String
@@ -54,5 +54,15 @@ Vessels.schema = new SimpleSchema
 	comments:
 		type: String
 		optional: true
+
+schemaObj = {}
+
+for schemaObjKey, schemaObjValue of Vessels.schemaObj
+	schemaObj[schemaObjKey] = {}
+
+	for keyAttr, keyValue of schemaObjValue when keyAttr != 'dropdown'
+		schemaObj[schemaObjKey][keyAttr] = keyValue
+
+Vessels.schema = new SimpleSchema(schemaObj)
 
 Vessels.attachSchema = Vessels.schema

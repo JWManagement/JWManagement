@@ -82,7 +82,7 @@ Template.UpdateForm.onRendered(() => {
         }
     });
 
-    var schema = template.db.schema._schema;
+    var schema = template.db.schemaObj;
 
     for (var i = 0; i < Object.keys(schema).length; i++) {
         var schemaKey = Object.keys(schema)[i];
