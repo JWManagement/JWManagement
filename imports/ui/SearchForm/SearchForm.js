@@ -12,6 +12,9 @@ Template.SearchForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
+    'getTitle': (key) => {
+        return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
+    },
     'getTranslation': (key) => {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },

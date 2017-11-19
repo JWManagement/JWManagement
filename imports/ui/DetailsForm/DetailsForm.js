@@ -8,6 +8,9 @@ Template.DetailsForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
+    'getTitle': (key) => {
+        return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
+    },
     'getTranslation': (key) => {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
@@ -50,6 +53,7 @@ Template.DetailsForm.onCreated(() => {
     template.itemId = '';
     template.item = new ReactiveVar({});
 });
+
 Template.DetailsForm.onRendered(() => {
     $('body').addClass('md-skin');
     $('body').addClass('top-navigation');

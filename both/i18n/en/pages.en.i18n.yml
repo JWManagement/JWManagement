@@ -12,7 +12,7 @@ navigation:
     vessels: Vessels
     vessel:
         search: Vessels
-        details: Vessel
+        details: Vessel details
         update: Edit vessel
     notes: Notes
     login: Login
@@ -393,10 +393,8 @@ vessel:
         lastVisit: Last visit
         nextVisit: Next visit after
     search:
-        title: Vessels
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
-        title: Edit vessel
         identificationSection: Identification data
         visitSection: Last visit
 notes:
