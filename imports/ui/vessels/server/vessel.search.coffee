@@ -1,6 +1,6 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish 'vessels', (searchString, projectId, limit) ->
+Meteor.publish 'vessel.search', (searchString, projectId, limit) ->
 
 	if typeof searchString != 'string' || searchString == ''
 		return @ready()
@@ -42,7 +42,7 @@ Meteor.publish 'vessels', (searchString, projectId, limit) ->
 				limit: limit
 			})
 
-		@added('counts', 'vessels', { count: cursor.count() })
+		@added('counts', 'vessel.search', { count: cursor.count() })
 
 		cursorCount = cursor.count()
 

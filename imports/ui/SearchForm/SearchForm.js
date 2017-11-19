@@ -71,7 +71,7 @@ Template.SearchForm.helpers({
             .fetch().length == template.maxResultsShown;
     },
     'totalFound': () => {
-        const counters = Counts.find(Template.instance().publicationName, {
+        const counters = Counts.find(FlowRouter.getRouteName(), {
             fields: {
                 count: 1
             }
@@ -92,7 +92,6 @@ Template.SearchForm.onCreated(() => {
     const data = Template.currentData().data;
 
     template.db = data.db;
-    template.publicationName = data.publicationName;
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
     template.getColumns = data.getColumns.map((column) => {
@@ -312,10 +311,11 @@ function doSubscribe(template, retrieveAllResults = false) {
     const search = template.searchString.get();
     const projectId = FlowRouter.getParam('projectId');
     const limit = retrieveAllResults ? 0 : template.maxResultsShown;
+    const routeName = FlowRouter.getRouteName();
 
-    template.handle = Meteor.subscribe(template.publicationName, search, projectId, limit);
+    template.handle = Meteor.subscribe(routeName, search, projectId, limit);
 
-    Counts.find(template.publicationName, {
+    Counts.find(routeName, {
         fields: {
             count: 1
         }

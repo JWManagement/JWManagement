@@ -10,7 +10,6 @@ Template['vessel.search'].helpers({
     data: () => {
         return {
             db: Vessels,
-            publicationName: 'vessels',
             translatedAttributes: [{
                 attribute: 'type',
                 i18nPath: 'vessels.types'
