@@ -14,4 +14,5 @@ Meteor.publish 'vessel', (vesselId, projectId) ->
 	if !project? || !project.vesselModule
 		@ready()
 
+	# TODO: send only one field
 	Vessels.find vesselId

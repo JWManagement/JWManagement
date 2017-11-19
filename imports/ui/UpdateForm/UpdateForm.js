@@ -41,12 +41,8 @@ Template.UpdateForm.onCreated(() => {
     const data = Template.currentData().data;
 
     template.db = data.db;
-    template.publicationName = data.publicationName;
-    template.sections = data.sections;
-
-    template.isLoading = new ReactiveVar(true);
-    template.noResult = new ReactiveVar(true);
-    template.language = '';
+    template.isLoading = new ReactiveVar(true); // TODO: add helper for this
+    template.noResult = new ReactiveVar(true); // TODO: add helper for this
     template.handle = null;
     template.itemId = '';
     template.value = new ReactiveVar('');

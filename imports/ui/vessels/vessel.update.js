@@ -9,8 +9,7 @@ import '/imports/ui/UpdateForm/UpdateForm.js';
 Template['vessel.update'].helpers({
     data: () => {
         return {
-            db: Vessels,
-            publicationName: 'vessel'
+            db: Vessels
         }
     }
 });

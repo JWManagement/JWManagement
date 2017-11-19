@@ -30,8 +30,9 @@ Template.DetailsForm.helpers({
         return Template.instance().item.get()[key];
     },
     'getItemKeyDropdown': (key, container) => {
-        var template = Template.instance();
-        return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + container + '.' + template.item.get()[key]);
+        const template = Template.instance();
+        const routeName = FlowRouter.getRouteName();
+        return TAPi18n.__([routeName.split('.')[0], 'entity', container, template.item.get()[key]].join('.'));
     },
     'isDate': (elem) => {
         return elem.type == 'date';
@@ -39,11 +40,10 @@ Template.DetailsForm.helpers({
 });
 
 Template.DetailsForm.onCreated(() => {
-    var template = Template.instance();
-    var data = Template.currentData().data;
+    const template = Template.instance();
+    const data = Template.currentData().data;
 
     template.db = data.db;
-    template.publicationName = data.publicationName;
     template.sections = data.sections;
 
     template.isLoading = new ReactiveVar(true);
@@ -59,15 +59,16 @@ Template.DetailsForm.onRendered(() => {
     $('body').addClass('top-navigation');
     $('body').attr('type', 'DetailsForm');
 
-    var template = Template.instance();
+    const template = Template.instance();
 
     template.isLoading.set(true);
     template.noResult.set(false);
 
     template.itemId = FlowRouter.getParam('itemId');
-    var projectId = FlowRouter.getParam('projectId');
+    const projectId = FlowRouter.getParam('projectId');
+    const routeName = FlowRouter.getRouteName().split('.')[0];
 
-    template.handle = Meteor.subscribe(template.publicationName, template.itemId, projectId);
+    template.handle = Meteor.subscribe(routeName, template.itemId, projectId);
 
     template.changeObserver = template.db.find({
         _id: template.itemId
@@ -94,7 +95,7 @@ Template.DetailsForm.onDestroyed(() => {
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
 
-    var template = Template.instance();
+    const template = Template.instance();
 
     if (template.handle !== null) {
         template.handle.stop();
@@ -107,7 +108,7 @@ Template.DetailsForm.onDestroyed(() => {
 
 Template.DetailsForm.events({
     'click .input': (e) => {
-        var key = $(e.target).closest('.input').attr('key');
+        const key = $(e.target).closest('.input').attr('key');
         FlowRouter.go(FlowRouter.current().path + '/' + key);
     }
 });
