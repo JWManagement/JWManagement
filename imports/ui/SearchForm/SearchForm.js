@@ -255,10 +255,17 @@ function getRows(template) {
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
-        for (var i = 0; i < template.translatedAttributes.length; i++) {
-            var attr = template.translatedAttributes[i]['attribute'];
-            item[attr] = TAPi18n.__(template.translatedAttributes[i]['i18nPath'] + '.' + item[attr]);
+        var schema = template.db.schema._schema;
+
+        for (var i = 0; i < Object.keys(schema).length; i++) {
+            var key = Object.keys(schema)[i];
+            var attr = schema[key].type.definitions[0];
+
+            if ('allowedValues' in attr) {
+                item[key] = TAPi18n.__(['dropdowns', attr.custom(), item[key].toLowerCase()].join('.'));
+            }
         }
+
         return item;
     });
 }

@@ -26,6 +26,7 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	type:
 		type: String
+		custom: -> 'vesselType'
 		allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 	callsign:
 		type: String
