@@ -22,18 +22,18 @@ module.exports = class PersistenceManager {
 
     create(entity) {
         this.validate(entity);
-        this.db.insert(newVessel);
+        this.db.insert(entity);
     }
 
-    update(entity) {
+    update(entityId, key, value) {
         try {
+            var entity = this.db.findOne(entityId);
+            entity[key] = value;
             this.validate(entity);
+            Vessels.update(entity._id, entity);
         } catch(e) {
             throw new Meteor.Error(e.error, e.details);
         }
-
-        console.log('doing real databse update now!');
-        //Vessels.update(newVessel);
     }
 
     delete(entity) {}
