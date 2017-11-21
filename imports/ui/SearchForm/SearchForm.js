@@ -215,7 +215,7 @@ Template.SearchForm.events({
             });
         });
     },
-    'click .results-desktop tr:not(.footable-empty)': (e) => {
+    'click .results-desktop tbody tr:not(.footable-empty)': (e) => {
         FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
     },
     'keyup #search': (e) => {
@@ -259,7 +259,7 @@ function getRows(template) {
     .map((item) => {
         for (var i = 0; i < Object.keys(schema).length; i++) {
             const key = Object.keys(schema)[i];
-            const attr = schema[key].type.definitions[0];
+            const attr = schema[key];
 
             if ('allowedValues' in attr) {
                 item[key] = TAPi18n.__(['dropdowns', attr.dropdown, item[key].toLowerCase()].join('.'));

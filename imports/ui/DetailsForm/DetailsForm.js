@@ -27,12 +27,18 @@ Template.DetailsForm.helpers({
         return Template.instance().sections;
     },
     'getValue': (key) => {
-        return Template.instance().item.get()[key];
-    },
-    'getItemKeyDropdown': (key, container) => {
-        const template = Template.instance();
-        const routeName = FlowRouter.getRouteName();
-        return TAPi18n.__([routeName.split('.')[0], 'entity', container, template.item.get()[key]].join('.'));
+        var template = Template.instance();
+
+        if (key in template.item.get()) {
+            var value = template.item.get()[key];
+            var attr = template.db.schemaObj[key];
+
+            if ('allowedValues' in attr) {
+                return TAPi18n.__(['dropdowns', attr.dropdown, value.toLowerCase()].join('.'));
+            }
+
+            return value;
+        }
     },
     'isDate': (elem) => {
         return elem.type == 'date';

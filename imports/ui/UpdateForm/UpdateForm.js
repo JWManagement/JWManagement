@@ -82,20 +82,12 @@ Template.UpdateForm.onRendered(() => {
         }
     });
 
-    var schema = template.db.schemaObj;
+    var attr = template.db.schemaObj[FlowRouter.getParam('key')];
 
-    for (var i = 0; i < Object.keys(schema).length; i++) {
-        var schemaKey = Object.keys(schema)[i];
-
-        if (FlowRouter.getParam('key') == schemaKey) {
-            var attr = schema[schemaKey].type.definitions[0];
-
-            if ('allowedValues' in attr) {
-                template.inputType.set('dropdown');
-            } else {
-                template.inputType.set('text');
-            }
-        }
+    if ('allowedValues' in attr) {
+        template.inputType.set('dropdown');
+    } else {
+        template.inputType.set('text');
     }
 });
 
