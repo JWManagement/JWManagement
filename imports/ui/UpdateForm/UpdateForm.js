@@ -2,6 +2,7 @@ import './UpdateForm.tpl.jade';
 import './UpdateForm.scss';
 
 import './TextInput.js';
+import './DateInput.js';
 
 Template.UpdateForm.helpers({
     'getBackLink': () => {
@@ -17,10 +18,27 @@ Template.UpdateForm.helpers({
     'isText': () => {
         return Template.instance().inputType.get() == 'text';
     },
+    'isDate': () => {
+        return Template.instance().inputType.get() == 'date';
+    },
     'isDropdown': () => {
         return Template.instance().inputType.get() == 'dropdown';
     },
     'textInputData': () => {
+        const template = Template.instance();
+
+        return {
+            value: template.value.get(),
+            updateEntity: (value) => {
+                Meteor.call(
+                    FlowRouter.getRouteName(),
+                    FlowRouter.getParam('itemId'),
+                    FlowRouter.getParam('key'),
+                    value);
+            }
+        }
+    },
+    'dateInputData': () => {
         const template = Template.instance();
 
         return {
@@ -86,6 +104,8 @@ Template.UpdateForm.onRendered(() => {
 
     if ('allowedValues' in attr) {
         template.inputType.set('dropdown');
+    } else if (attr.type == Date) {
+        template.inputType.set('date');
     } else {
         template.inputType.set('text');
     }

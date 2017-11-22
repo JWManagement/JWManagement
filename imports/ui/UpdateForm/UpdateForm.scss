@@ -43,12 +43,18 @@ body.md-skin[type='UpdateForm'] {
 			background-color: #fff;
 
 			.text-input input {
-				width      : 100%;
-				border     : 0;
-				outline    : 0;
-				padding    : 10px 0;
-				margin-left: 15px;
+				width  : 100%;
+				border : 0;
+				outline: 0;
+				padding: 10px 0 10px 15px;
 			}
 		}
+
+		.date-input input {
+			border     : 0;
+			outline    : 0;
+			margin-left: 15px;
+		}
+	}
 	}
 }
