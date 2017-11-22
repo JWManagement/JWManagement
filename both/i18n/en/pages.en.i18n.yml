@@ -354,33 +354,6 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
-BROKEN_vessels:
-    nameShort: Vessels
-    search: Search
-    addNewVessel: Add new vessel
-    name: Vessel name
-    flag: Flag
-    type: Type
-    types:
-        c: Container ship
-        cr: Cruise ship
-        mf: Cargo
-        mt: Tanker
-        p: Passenger ship
-        pt: Pushtow
-        rc: River cruise ship
-        f: Ferry
-        ro: Ro-Ro
-        t: Tug
-        unknown: Unknown
-    callsign: Call sign
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    lastVisit: Last visit
-    harborGroup: Harbor group
-    nextVisit: Next visit after
-    languages: Language(s) on board
 vessel:
     entity:
         name: Vessel name
@@ -390,8 +363,10 @@ vessel:
         eni: ENI
         imo: IMO
         mmsi: MMSI
-        lastVisit: Last visit
-        nextVisit: Next visit after
+        lastVisit: Date
+        nextVisit: Next visit not before
+        harborGroup: Harbor group
+        languages: Language(s) on board
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
