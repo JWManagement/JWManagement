@@ -26,6 +26,15 @@ body.md-skin[type='DetailsForm'] {
 	}
 
 	form.form-horizontal {
+		.loading {
+			margin-top: 100px;
+			text-align: center;
+
+			i.fa {
+				color: #3f51b5;
+			}
+		}
+
 		.section {
 			margin-top: 15px;
 
