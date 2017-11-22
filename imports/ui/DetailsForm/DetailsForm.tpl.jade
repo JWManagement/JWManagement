@@ -20,8 +20,13 @@ form.form-horizontal
 				.section-header {{getTranslation header}}
 				.section-content
 					each contents
-						.input.form-group(key='{{key}}')
-							.key {{getEntityTranslation key}}
-							.value
-								| {{getValue key}}
-								i.fa.fa-angle-right.icon
+						if isReadonly key
+							.form-group
+								.key {{getEntityTranslation key}}
+								.value {{getValue key}}
+						else
+							.input.form-group(key='{{key}}')
+								.key {{getEntityTranslation key}}
+								.value
+									| {{getValue key}}
+									i.fa.fa-angle-right.icon

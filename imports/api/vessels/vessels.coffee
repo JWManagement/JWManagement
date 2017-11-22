@@ -41,12 +41,13 @@ Vessels.schemaObj =
 		type: String
 		optional: true
 	lastVisit:
-		type: String
+		type: Date
 		optional: true
 	harborGroup:
 		type: String
+		readonly: true
 	nextVisit:
-		type: String
+		type: Date
 		optional: true
 	languages:
 		type: String
@@ -60,7 +61,7 @@ schemaObj = {}
 for schemaObjKey, schemaObjValue of Vessels.schemaObj
 	schemaObj[schemaObjKey] = {}
 
-	for keyAttr, keyValue of schemaObjValue when keyAttr != 'dropdown'
+	for keyAttr, keyValue of schemaObjValue when keyAttr not in ['dropdown', 'readonly']
 		schemaObj[schemaObjKey][keyAttr] = keyValue
 
 Vessels.schema = new SimpleSchema(schemaObj)
