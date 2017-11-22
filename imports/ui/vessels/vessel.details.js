@@ -31,11 +31,13 @@ Template['vessel.details'].helpers({
             }, {
                 header: 'visitSection',
                 contents: [{
-                    key: 'lastVisit',
-                    type: 'date'
+                    key: 'harborGroup'
                 }, {
-                    key: 'nextVisit',
-                    type: 'date'
+                    key: 'lastVisit'
+                }, {
+                    key: 'nextVisit'
+                }, {
+                    key: 'languages'
                 }]
             }]
         }
