@@ -8,7 +8,7 @@ Vessels.deny
 	update: -> true
 	remove: -> true
 
-Vessels.schemaObj =
+Vessels.schema = new SimpleSchema
 
 	_id:
 		type: String
@@ -26,7 +26,6 @@ Vessels.schemaObj =
 		optional: true
 	type:
 		type: String
-		dropdown: 'vesselType'
 		allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 	callsign:
 		type: String
@@ -40,30 +39,23 @@ Vessels.schemaObj =
 	mmsi:
 		type: String
 		optional: true
-	lastVisit:
-		type: Date
-		optional: true
-	harborGroup:
-		type: String
-		readonly: true
-	nextVisit:
-		type: Date
-		optional: true
-	languages:
-		type: String
-		optional: true
-	comments:
-		type: String
-		optional: true
-
-schemaObj = {}
-
-for schemaObjKey, schemaObjValue of Vessels.schemaObj
-	schemaObj[schemaObjKey] = {}
-
-	for keyAttr, keyValue of schemaObjValue when keyAttr not in ['dropdown', 'readonly']
-		schemaObj[schemaObjKey][keyAttr] = keyValue
-
-Vessels.schema = new SimpleSchema(schemaObj)
+	visits:
+		type: Array
+	'visits.$': new SimpleSchema
+		userId:
+			type: String
+		isUserVisible:
+			type: Boolean
+		harborGroupId:
+			type: String
+		date:
+			type: Date
+			optional: true
+		dateNext:
+			type: Date
+			optional: true
+		languages:
+			type: String
+			optional: true
 
 Vessels.attachSchema = Vessels.schema
