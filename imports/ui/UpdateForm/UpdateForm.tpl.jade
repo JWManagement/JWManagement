@@ -4,9 +4,16 @@
 			i.fa.fa-angle-left.m-r-xs
 			| {{_ 'navigation.back'}}
 		.navbar-title {{getKeyTranslation}}
+		if isDropdown
+			+DropdownHeader
 
-form.form-horizontal
-	.section
-		.section-header {{getKeyTranslation}}
+if isDropdown
+	+DropdownInput
+else
+	form.form-horizontal
+		.section
+			.section-header {{getKeyTranslation}}
 			if isText
 				+TextInput data=textInputData
+			else if isDate
+				+DateInput data=dateInputData
