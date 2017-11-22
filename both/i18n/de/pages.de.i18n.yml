@@ -9,7 +9,10 @@ navigation:
     users: Benutzer
     reports: Berichte
     store: Depot
-    vessels: Schiffe
+    vessel:
+        search: Schiffe
+        details: Schiffsdaten
+        update: Schiff bearbeiten
     notes: Notizen
     login: Anmelden
     logout: Abmelden
@@ -23,6 +26,7 @@ navigation:
     donate: Spenden
     version: Version
     new: Neu
+    back: Zurück
 welcome:
     links:
         home: Start
@@ -348,35 +352,24 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
-vessels:
-    title: Schiffe
-    nameShort: Schiffe
-    search: Schiff suchen
-    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
-    addNewVessel: Neues Schiff erfassen
-    name: Schiffsname
-    flag: Flagge
-    type: Typ
-    types:
-        c: Containerschiff
-        cr: Kreuzfahrtschiff
-        mf: Frachter
-        mt: Tanker
-        p: Passagierschiff
-        pt: Schubboot
-        rc: Flusskreuzfahrtschiff
-        f: Fähre
-        ro: Ro-Ro
-        t: Schlepper
-        unknown: Unbekannt
-    callsign: Rufzeichen
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    lastVisit: Letzter Besuch
-    harborGroup: Hafengruppe
-    nextVisit: Nächster Besuch frühestens
-    languages: Sprache(n) an Bord
+vessel:
+    entity:
+        name: Schiffsname
+        flag: Flagge
+        type: Typ
+        callsign: Rufzeichen
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        lastVisit: Datum
+        nextVisit: Nächster Besuch frühestens
+        harborGroup: Hafengruppe
+        languages: Sprache(n) an Bord
+    search:
+        placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    details:
+        identificationSection: Identifikationsdaten
+        visitSection: Daten des letzten Besuches
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
