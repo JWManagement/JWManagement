@@ -10,10 +10,6 @@ Template['vessel.search'].helpers({
     data: () => {
         return {
             db: Vessels,
-            translatedAttributes: [{
-                attribute: 'type',
-                i18nPath: 'vessels.types'
-            }],
             getColumns: [{
                 name: '_id',
                 visible: false
@@ -25,6 +21,7 @@ Template['vessel.search'].helpers({
                 mobile: true
             }, {
                 name: 'type',
+                dropdown: 'vesselType',
                 mobile: true
             }, {
                 name: 'callsign',

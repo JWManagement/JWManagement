@@ -257,12 +257,15 @@ function getRows(template) {
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
-        for (var i = 0; i < Object.keys(schema).length; i++) {
-            const key = Object.keys(schema)[i];
-            const attr = schema[key];
+        for (var i = 0; i < template.getColumns.length; i++) {
+            if (template.getColumns[i].dropdown != null) {
+                const keys = [
+                    'dropdowns',
+                    template.getColumns[i].dropdown,
+                    item[template.getColumns[i].name].toLowerCase()
+                ];
 
-            if ('allowedValues' in attr) {
-                item[key] = TAPi18n.__(['dropdowns', attr.dropdown, item[key].toLowerCase()].join('.'));
+                item[template.getColumns[i].name] = TAPi18n.__(keys.join('.'));
             }
         }
 
