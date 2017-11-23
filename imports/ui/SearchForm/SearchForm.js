@@ -252,7 +252,6 @@ function getRows(template) {
     }
 
     const searchCriteria = template.searchCriteria(template.regEx.get());
-    const schema = template.db.schemaObj;
 
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
