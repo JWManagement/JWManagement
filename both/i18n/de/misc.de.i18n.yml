@@ -77,3 +77,16 @@ period:
     d: T
     w: W
     4w: 4W
+dropdowns:
+    vesselType:
+        c: Containerschiff
+        cr: Kreuzfahrtschiff
+        mf: Frachter
+        mt: Tanker
+        p: Passagierschiff
+        pt: Schubboot
+        rc: Flusskreuzfahrtschiff
+        f: Fähre
+        ro: Ro-Ro
+        t: Schlepper
+        unknown: Unbekannt
