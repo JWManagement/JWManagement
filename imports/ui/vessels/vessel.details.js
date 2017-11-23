@@ -31,13 +31,31 @@ Template['vessel.details'].helpers({
             }, {
                 header: 'visitSection',
                 contents: [{
-                    key: 'harborGroup'
-                }, {
-                    key: 'lastVisit'
-                }, {
-                    key: 'nextVisit'
-                }, {
-                    key: 'languages'
+                    key: 'visits',
+                    type: [{
+                        key: 'person',
+                        readonly: true
+                    }, {
+                        key: 'harbor',
+                        readonly: true
+                    }, {
+                        key: 'harborGroup',
+                        readonly: true
+                    }, {
+                        key: 'country',
+                        readonly: true
+                    }, {
+                        key: 'date',
+                        readonly: true,
+                        type: Date
+                    }, {
+                        key: 'dateNext',
+                        readonly: true,
+                        type: Date
+                    }, {
+                        key: 'languages',
+                        readonly: true
+                    }]
                 }]
             }]
         }

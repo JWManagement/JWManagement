@@ -19,8 +19,20 @@ form.form-horizontal
 			.section
 				.section-header {{getTranslation section.header}}
 				.section-content
-					each contents
-						if isReadonly key
+					each content in section.contents
+						if isArray content
+							a(href='_id')
+								tr
+									th.left
+									th
+										each columns
+											b th:
+									td.item
+										each columns
+											span valueOrDash td
+									td.link
+										i.fa.fa-chevron-right
+						else if content.readonly
 							.form-group
 								.key {{getEntityTranslation content.key}}
 								.value {{getValue content}}

@@ -17,13 +17,15 @@ Template.DetailsForm.helpers({
     'getEntityTranslation': (key) => {
         return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + key);
     },
-    'isReadonly': (key) => {
+    'isArray': (content) => {
         var template = Template.instance();
 
-        if (key in template.item.get()) {
-            var attr = template.db.schemaObj[key];
-            return 'readonly' in attr && attr.readonly;
+        if (typeof(content.type) == Array) {
+            console.log(true);
+            return true;
         }
+
+        return false;
     },
     'isLoading': () => {
         return Template.instance().isLoading.get();
