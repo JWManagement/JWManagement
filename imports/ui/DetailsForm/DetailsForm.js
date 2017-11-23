@@ -34,26 +34,27 @@ Template.DetailsForm.helpers({
     'sections': () => {
         return Template.instance().sections;
     },
-    'getValue': (key) => {
-        var template = Template.instance();
+    'getValue': (content) => {
+        const template = Template.instance();
+        const key = content.key;
 
         if (key in template.item.get()) {
-            var value = template.item.get()[key];
-            var attr = template.db.schemaObj[key];
+            const value = template.item.get()[key];
 
-            if ('allowedValues' in attr) {
-                return TAPi18n.__(['dropdowns', attr.dropdown, value.toLowerCase()].join('.'));
-            }
+            if (content.dropdown != null) {
+                const keys = [
+                    'dropdowns',
+                    content.dropdown,
+                    value.toLowerCase()
+                ];
 
-            if(attr.type == Date) {
+                return TAPi18n.__(keys.join('.'));
+            } else if (content.type == Date) {
                 return moment(value).format('DD.MM.YYYY');
+            } else {
+                return value;
             }
-
-            return value;
         }
-    },
-    'isDate': (elem) => {
-        return elem.type == 'date';
     }
 });
 

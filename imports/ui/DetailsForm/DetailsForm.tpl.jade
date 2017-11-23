@@ -15,18 +15,18 @@ form.form-horizontal
 			p We couldn't find anything.
 			button#back.btn.btn-primary Go back
 	else
-		each sections
+		each section in sections
 			.section
-				.section-header {{getTranslation header}}
+				.section-header {{getTranslation section.header}}
 				.section-content
 					each contents
 						if isReadonly key
 							.form-group
-								.key {{getEntityTranslation key}}
-								.value {{getValue key}}
+								.key {{getEntityTranslation content.key}}
+								.value {{getValue content}}
 						else
 							.input.form-group(key='{{key}}')
-								.key {{getEntityTranslation key}}
+								.key {{getEntityTranslation content.key}}
 								.value
-									| {{getValue key}}
+									| {{getValue content}}
 									i.fa.fa-angle-right.icon
