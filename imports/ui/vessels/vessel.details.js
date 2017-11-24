@@ -10,9 +10,11 @@ Template['vessel.details'].helpers({
     data: () => {
         return {
             db: Vessels,
-            sections: [{
+            sections: [
+                {
                 header: 'identificationSection',
-                contents: [{
+                    contents: [
+                        {
                     key: 'name'
                 }, {
                     key: 'flag'
@@ -27,47 +29,41 @@ Template['vessel.details'].helpers({
                     key: 'imo'
                 }, {
                     key: 'mmsi'
-                }],
+                        }
+                    ]
             }, {
                 header: 'visitSection',
-                contents: [{
+                    contents: [
+                        {
                     key: 'visits',
-                    type: [{
+                            type: [
+                                {
                         key: 'visit',
-                        fields: [{
-                            key: 'person',
-                            readonly: true,
-                            overview: true
-                        }, {
-                            key: 'harbor',
-                            readonly: true,
-                            overview: true
-                        }, {
-                            key: 'harborGroup',
-                            readonly: true,
-                            overview: true
-                        }, {
-                            key: 'country',
-                            readonly: true,
-                            overview: true
-                        }, {
+                                    type: [
+                                        {
                             key: 'date',
-                            readonly: true,
-                            overview: true,
                             type: Date
                         }, {
                             key: 'dateNext',
-                            readonly: true,
-                            overview: true,
                             type: Date
                         }, {
-                            key: 'languages',
-                            readonly: true,
-                            overview: true
-                        }]
-                    }]
-                }]
-            }]
+                                            key: 'languages'
+                                        }, {
+                                            key: 'person'
+                                        }, {
+                                            key: 'harbor'
+                                        }, {
+                                            key: 'harborGroup'
+                                        }, {
+                                            key: 'country'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                }
+            ]
         }
     }
 });
