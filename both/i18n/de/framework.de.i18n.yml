@@ -6,3 +6,7 @@ searchForm:
     showingTheFirstX: Zeige die ersten %s
     showingAll: ''
     showingAll_plural: Zeige alle
+    typeToSearch: Tippe um zu suchen (* um alles zu sehen)
+    createNew: Erstelle einen neuen Eintrag
+    showAll: Zeige alle %s
+    or: – ODER –
