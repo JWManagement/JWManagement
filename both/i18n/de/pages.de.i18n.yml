@@ -361,10 +361,13 @@ vessel:
         eni: ENI
         imo: IMO
         mmsi: MMSI
-        lastVisit: Datum
-        nextVisit: Nächster Besuch frühestens
-        harborGroup: Hafengruppe
-        languages: Sprache(n) an Bord
+        visits:
+            new: Einen neuen Besuch erfassen
+            noElements: Dieses Schiff scheint noch nicht besucht worden zu sein
+            lastVisit: Datum
+            nextVisit: Nächster Besuch frühestens
+            harborGroup: Hafengruppe
+            languages: Sprache(n) an Bord
     search:
         placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
     details:

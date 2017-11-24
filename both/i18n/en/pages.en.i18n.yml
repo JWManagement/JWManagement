@@ -363,10 +363,13 @@ vessel:
         eni: ENI
         imo: IMO
         mmsi: MMSI
-        lastVisit: Date
-        nextVisit: Next visit not before
-        harborGroup: Harbor group
-        languages: Language(s) on board
+        visits:
+            new: Note a new visit
+            noElements: This ship does not seem to have been visited yet
+            lastVisit: Date
+            nextVisit: Next visit not before
+            harborGroup: Harbor group
+            languages: Language(s) on board
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
