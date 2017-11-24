@@ -21,6 +21,9 @@ Template.DetailsForm.helpers({
             key
         ].join('.'));
     },
+    'isButton': (action) => {
+        return action.type == 'button';
+    },
     'isArray': (content) => {
         return typeof(content.type) == 'object';
     },

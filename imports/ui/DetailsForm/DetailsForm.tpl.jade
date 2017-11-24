@@ -48,3 +48,8 @@ form.form-horizontal
 								.value
 									| {{getValue content}}
 									i.fa.fa-angle-right.icon
+
+				each action in section.actions
+					if isButton action
+						.m-sm
+							button.btn.btn-primary.btn-block.p-xs {{getEntityTranslation action.key}}

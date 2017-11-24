@@ -62,6 +62,12 @@ Template['vessel.details'].helpers({
                             ]
                         }
                     ],
+                    actions: [
+                        {
+                            key: 'visits.new',
+                            type: 'button'
+                        }
+                    ]
                 }
             ]
         }
