@@ -371,7 +371,7 @@ vessel:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
         identificationSection: Identification data
-        visitSection: Last visit
+        visitSection: Visit data
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
     createNote: Create note
