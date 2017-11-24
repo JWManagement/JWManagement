@@ -20,6 +20,23 @@ Template.DetailsForm.helpers({
     'isArray': (content) => {
         return typeof(content.type) == 'object';
     },
+    'getArrayElements': (content) => {
+        const template = Template.instance();
+
+        if (template.item.get()[content.key] != null) {
+            return template.item.get()[content.key];
+        }
+
+        return [];
+    },
+    'getArrayTranslation': (array, key) => {
+        return TAPi18n.__([
+            FlowRouter.getRouteName().split('.')[0],
+            'entity',
+            'visits',
+            'noElements'
+        ].join('.'));
+    },
     'isLoading': () => {
         return Template.instance().isLoading.get();
     },
