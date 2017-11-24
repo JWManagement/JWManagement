@@ -362,8 +362,8 @@ vessel:
         imo: IMO
         mmsi: MMSI
         visits:
-            new: Einen neuen Besuch erfassen
-            noElements: Dieses Schiff scheint noch nicht besucht worden zu sein
+            new: Neuen Besuch erfassen
+            noElements: Dieses Schiff wurde noch nicht besucht
             lastVisit: Datum
             nextVisit: Nächster Besuch frühestens
             harborGroup: Hafengruppe

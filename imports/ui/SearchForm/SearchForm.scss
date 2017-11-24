@@ -1,6 +1,7 @@
 body.md-skin[type='SearchForm'] {
 	background-color: #fff !important;
 	padding-top     : 126px;
+	margin-bottom   : 30px;
 
 	.navbar {
 		width     : 100%;
@@ -118,5 +119,9 @@ body.md-skin[type='SearchForm'] {
 
 	.noResultsOr {
 		color: #777;
+	}
+
+	.p-b-lg {
+		padding-bottom: 20px;
 	}
 }

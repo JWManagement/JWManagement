@@ -365,7 +365,7 @@ vessel:
         mmsi: MMSI
         visits:
             new: Note a new visit
-            noElements: This ship does not seem to have been visited yet
+            noElements: This ship has not been visited yet
             lastVisit: Date
             nextVisit: Next visit not before
             harborGroup: Harbor group
