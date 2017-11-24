@@ -51,6 +51,57 @@ body.md-skin[type='DetailsForm'] {
 				border-top      : 1px solid #ddd;
 				border-bottom   : 1px solid #ddd;
 				background-color: #fff;
+
+				.array {
+					width  : 100%;
+					color  : inherit;
+					display: inline-block;
+
+					tr.array-item {
+						td,
+						th {
+							cursor       : pointer;
+							padding      : 10px 15px 10px 0;
+							font-size    : 15px;
+							text-align   : left;
+							border-bottom: 1px solid #eee;
+
+							b,
+							span {
+								margin     : 3px 0;
+								display    : block;
+								line-height: 1;
+								white-space: nowrap;
+
+								&:empty {
+									content: " ";
+								}
+							}
+						}
+
+						th.left {
+							width        : 15px;
+							border-bottom: 0;
+						}
+
+						td.item {
+							width: 100%;
+						}
+
+						td.link {
+							color         : #ccc;
+							font-size     : 20px;
+							vertical-align: middle;
+						}
+					}
+
+					tr.array-item:last-of-type {
+						td,
+						th {
+							border-bottom: 0;
+						}
+					}
+				}
 			}
 
 			div.form-group {

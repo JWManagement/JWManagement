@@ -21,17 +21,20 @@ form.form-horizontal
 				.section-content
 					each content in section.contents
 						if isArray content
-							a(href='_id')
-								tr
-									th.left
-									th
-										each columns
-											b th:
-									td.item
-										each columns
-											span valueOrDash td
-									td.link
-										i.fa.fa-chevron-right
+							.array(key='{{content.key}}')
+								each item in content.type
+									tr.array-item
+										th.left
+										th
+											each field in item.fields
+												div
+													b {{field.key}}:
+										td.item
+											each field in item.fields
+												div
+													span {{field.key}}
+										td.link
+											i.fa.fa-chevron-right
 						else if content.readonly
 							.form-group
 								.key {{getEntityTranslation content.key}}

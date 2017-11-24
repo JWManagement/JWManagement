@@ -18,14 +18,7 @@ Template.DetailsForm.helpers({
         return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + key);
     },
     'isArray': (content) => {
-        var template = Template.instance();
-
-        if (typeof(content.type) == Array) {
-            console.log(true);
-            return true;
-        }
-
-        return false;
+        return typeof(content.type) == 'object';
     },
     'isLoading': () => {
         return Template.instance().isLoading.get();

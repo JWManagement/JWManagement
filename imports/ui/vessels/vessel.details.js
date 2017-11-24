@@ -33,28 +33,38 @@ Template['vessel.details'].helpers({
                 contents: [{
                     key: 'visits',
                     type: [{
-                        key: 'person',
-                        readonly: true
-                    }, {
-                        key: 'harbor',
-                        readonly: true
-                    }, {
-                        key: 'harborGroup',
-                        readonly: true
-                    }, {
-                        key: 'country',
-                        readonly: true
-                    }, {
-                        key: 'date',
-                        readonly: true,
-                        type: Date
-                    }, {
-                        key: 'dateNext',
-                        readonly: true,
-                        type: Date
-                    }, {
-                        key: 'languages',
-                        readonly: true
+                        key: 'visit',
+                        fields: [{
+                            key: 'person',
+                            readonly: true,
+                            overview: true
+                        }, {
+                            key: 'harbor',
+                            readonly: true,
+                            overview: true
+                        }, {
+                            key: 'harborGroup',
+                            readonly: true,
+                            overview: true
+                        }, {
+                            key: 'country',
+                            readonly: true,
+                            overview: true
+                        }, {
+                            key: 'date',
+                            readonly: true,
+                            overview: true,
+                            type: Date
+                        }, {
+                            key: 'dateNext',
+                            readonly: true,
+                            overview: true,
+                            type: Date
+                        }, {
+                            key: 'languages',
+                            readonly: true,
+                            overview: true
+                        }]
                     }]
                 }]
             }]
