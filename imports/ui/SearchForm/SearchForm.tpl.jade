@@ -6,13 +6,16 @@
 		.navbar-title {{getTitle}}
 		.search.input-group
 			span.input-group-addon &#xF002;
-			input#search.form-control(type='search' placeholder='{{getTranslation "placeholder"}}' autocomplete='off')
+			input#search.form-control(type='search' placeholder='{{getTranslation "placeholder"}}' autocomplete='off' autofocus)
 		if isLoading
 			.search-title.clearfix
 				i.fa.fa-circle-o-notch.fa-spin
 				| {{_ 'searchForm.loading'}}...
 		else if noResults
-			.search-title {{_ 'searchForm.noResults'}}
+			if hasSearchString
+				.search-title {{_ 'searchForm.noResults'}}
+			else
+				.search-title {{_ 'searchForm.typeToSearch'}}
 		else
 			.search-title.clearfix
 				.pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
@@ -39,16 +42,9 @@ if resultsMobile
 						i.fa.fa-chevron-right
 
 if noResults
-	.center-align.m-t-xl.m-b-sm
-		if hasSearchString
-			p We couldn't find anything
-			p But you can create a new entry
-		else
-			p Type to search. Type * to see everything.
-			p Or create a new entry
-		button#createNew.btn.btn-primary.btn-circle
-			i.fa.fa-plus
+	p.noResultsOr.center-align.m-lg {{_ 'searchForm.or'}}
+	.m-sm
+		button#createNew.btn.btn-primary.btn-block.p-xs {{_ 'searchForm.createNew'}}
 else if moreResultsAvailable
-	.center-align.m-t-sm.m-b-sm
-		button#more.btn.btn-primary.btn-outline.btn-circle
-			i.fa.fa-arrow-down
+	.m-sm
+		button#more.btn.btn-primary.btn-block.p-xs {{_ 'searchForm.showAll' totalFound}}
