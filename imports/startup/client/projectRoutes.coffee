@@ -60,12 +60,21 @@ FlowRouter.route '/:language/:projectId/notes',
 		Session.set 'parent', 'admin'
 		BlazeLayout.render 'mainLayout', content: 'notes'
 
+# VESSELS
+
 FlowRouter.route '/:language/:projectId/vessels',
 	name: 'vessel.search'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.search.js')
 		BlazeLayout.render 'vessel.search'
+
+FlowRouter.route '/:language/:projectId/vessels/new',
+	name: 'vessel.insert'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.insert.js')
+		BlazeLayout.render 'vessel.insert'
 
 FlowRouter.route '/:language/:projectId/vessels/:itemId',
 	name: 'vessel.details'

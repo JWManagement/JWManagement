@@ -210,9 +210,7 @@ Template.SearchForm.events({
     },
     'click #createNew': () => {
         wrs(() => {
-            FlowRouter.setQueryParams({
-                createNew: true
-            });
+            FlowRouter.go(FlowRouter.current().path + '/new');
         });
     },
     'click .results-desktop tbody tr:not(.footable-empty)': (e) => {
