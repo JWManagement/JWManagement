@@ -26,6 +26,8 @@ body.md-skin[type='DetailsForm'] {
 	}
 
 	form.form-horizontal {
+		padding-bottom: 30px;
+
 		.loading {
 			margin-top: 100px;
 			text-align: center;
@@ -51,6 +53,12 @@ body.md-skin[type='DetailsForm'] {
 				border-top      : 1px solid #ddd;
 				border-bottom   : 1px solid #ddd;
 				background-color: #fff;
+
+				> p {
+					color     : #333;
+					margin    : 10px 15px;
+					font-style: italic;
+				}
 
 				.array {
 					width  : 100%;
