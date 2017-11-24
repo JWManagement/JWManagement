@@ -52,4 +52,4 @@ form.form-horizontal
 				each action in section.actions
 					if isButton action
 						.m-sm
-							button.btn.btn-primary.btn-block.p-xs {{getEntityTranslation action.key}}
+							a.btn.btn-primary.btn-block.p-xs(href='{{getActionPath action}}') {{getEntityTranslation action.key}}
