@@ -99,7 +99,7 @@ Template.SearchForm.onCreated(() => {
         return column;
     });
 
-    template.searchString = new ReactiveVar('');
+    template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '');
     template.isLoading = new ReactiveVar(false);
     template.noResults = new ReactiveVar(true);
     template.itemCount = new ReactiveVar(0);
@@ -286,6 +286,7 @@ function reloadRowsIfIsUpdate(template) {
 function updateSearch(template, search) {
     if (template.searchString.get() !== search) {
         template.searchString.set(search);
+        Session.set(FlowRouter.getRouteName() + '.searchString', search);
 
         if (search.length > 0) {
             if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
