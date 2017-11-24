@@ -15,7 +15,11 @@ Template.DetailsForm.helpers({
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
     'getEntityTranslation': (key) => {
-        return TAPi18n.__(FlowRouter.getRouteName().replace('details', 'entity.') + key);
+        return TAPi18n.__([
+            FlowRouter.getRouteName().split('.')[0],
+            'entity',
+            key
+        ].join('.'));
     },
     'isArray': (content) => {
         return typeof(content.type) == 'object';
@@ -54,13 +58,11 @@ Template.DetailsForm.helpers({
             const value = template.item.get()[key];
 
             if (content.dropdown != null) {
-                const keys = [
+                return TAPi18n.__([
                     'dropdowns',
                     content.dropdown,
                     value.toLowerCase()
-                ];
-
-                return TAPi18n.__(keys.join('.'));
+                ].join('.'));
             } else if (content.type == Date) {
                 return moment(value).format('DD.MM.YYYY');
             } else {

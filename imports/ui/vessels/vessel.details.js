@@ -12,41 +12,41 @@ Template['vessel.details'].helpers({
             db: Vessels,
             sections: [
                 {
-                header: 'identificationSection',
+                    header: 'identificationSection',
                     contents: [
                         {
-                    key: 'name'
-                }, {
-                    key: 'flag'
-                }, {
-                    key: 'type',
-                    dropdown: 'vesselType'
-                }, {
-                    key: 'callsign'
-                }, {
-                    key: 'eni'
-                }, {
-                    key: 'imo'
-                }, {
-                    key: 'mmsi'
+                            key: 'name'
+                        }, {
+                            key: 'flag'
+                        }, {
+                            key: 'type',
+                            dropdown: 'vesselType'
+                        }, {
+                            key: 'callsign'
+                        }, {
+                            key: 'eni'
+                        }, {
+                            key: 'imo'
+                        }, {
+                            key: 'mmsi'
                         }
                     ]
-            }, {
-                header: 'visitSection',
+                }, {
+                    header: 'visitSection',
                     contents: [
                         {
-                    key: 'visits',
+                            key: 'visits',
                             type: [
                                 {
-                        key: 'visit',
+                                    key: 'visit',
                                     type: [
                                         {
-                            key: 'date',
-                            type: Date
-                        }, {
-                            key: 'dateNext',
-                            type: Date
-                        }, {
+                                            key: 'date',
+                                            type: Date
+                                        }, {
+                                            key: 'dateNext',
+                                            type: Date
+                                        }, {
                                             key: 'languages'
                                         }, {
                                             key: 'person'
