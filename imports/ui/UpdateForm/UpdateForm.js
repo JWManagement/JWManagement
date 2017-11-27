@@ -1,8 +1,9 @@
 import './UpdateForm.tpl.jade';
 import './UpdateForm.scss';
 
-import './TextInput.js'; // TODO: rename
-import './DateInput.js'; // TODO: rename
+import './UpdateFormTextInput.js';
+import './UpdateFormDateInput.js';
+import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
     'getBackLink': () => {

@@ -1,13 +1,13 @@
-import './DropdownInput.tpl.jade';
-import './DropdownHeader.tpl.jade';
+import './UpdateFormDropdownInput.tpl.jade';
+import './UpdateFormDropdownInputHeader.tpl.jade';
 
-Template.DropdownInput.helpers({
+Template.UpdateFormDropdownInput.helpers({
     'items': () => {
         return [];
     }
 });
 
-Template.DropdownInput.onCreated(() => {
+Template.UpdateFormDropdownInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
@@ -15,11 +15,11 @@ Template.DropdownInput.onCreated(() => {
     template.updateEntity = data.updateEntity;
 });
 
-Template.DropdownInput.onRendered(() => {});
+Template.UpdateFormDropdownInput.onRendered(() => {});
 
-Template.DropdownInput.onDestroyed(() => {});
+Template.UpdateFormDropdownInput.onDestroyed(() => {});
 
-Template.DropdownInput.events({
+Template.UpdateFormDropdownInput.events({
     'change input': () => {
         const template = Template.instance();
         const value = $('input').val().trim();

@@ -1,6 +1,6 @@
-import './DateInput.tpl.jade';
+import './UpdateFormTextInput.tpl.jade';
 
-Template.DateInput.helpers({
+Template.UpdateFormTextInput.helpers({
     'getKeyTranslation': () => {
         return TAPi18n.__(FlowRouter.getRouteName().replace('update', 'entity.') + FlowRouter.getParam('key'));
     },
@@ -9,7 +9,7 @@ Template.DateInput.helpers({
     }
 });
 
-Template.DateInput.onCreated(() => {
+Template.UpdateFormTextInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
@@ -17,11 +17,11 @@ Template.DateInput.onCreated(() => {
     template.updateEntity = data.updateEntity;
 });
 
-Template.DateInput.onRendered(() => {});
+Template.UpdateFormTextInput.onRendered(() => {});
 
-Template.DateInput.onDestroyed(() => {});
+Template.UpdateFormTextInput.onDestroyed(() => {});
 
-Template.DateInput.events({
+Template.UpdateFormTextInput.events({
     'change input': () => {
         const template = Template.instance();
         const value = $('input').val().trim();

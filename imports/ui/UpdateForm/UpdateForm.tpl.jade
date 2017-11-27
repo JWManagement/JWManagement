@@ -5,15 +5,15 @@
 			| {{_ 'navigation.back'}}
 		.navbar-title {{getKeyTranslation}}
 		if isDropdown
-			+DropdownHeader
+			+UpdateFormDropdownInputHeader
 
 if isDropdown
-	+DropdownInput
+	+UpdateFormDropdownInput
 else
 	form.form-horizontal
 		.section
 			.section-header {{getKeyTranslation}}
 			if isText
-				+TextInput data=textInputData
+				+UpdateFormTextInput data=textInputData
 			else if isDate
-				+DateInput data=dateInputData
+				+UpdateFormDateInput data=dateInputData
