@@ -1,8 +1,8 @@
 import './InsertForm.tpl.jade';
 import './InsertForm.scss';
 
-import './TextInput.js';
-import './DateInput.js';
+import './InsertFormTextInput.js';
+import './InsertFormDateInput.js';
 
 Template.InsertForm.helpers({
     'getBackLink': () => {
