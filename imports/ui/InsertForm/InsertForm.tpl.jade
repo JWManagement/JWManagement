@@ -6,13 +6,15 @@
 		.navbar-title {{getTitle}}
 
 form.form-horizontal
-	each section in sections
+	each section in getSections
 		.section
 			if section.header
 				.section-header {{getDetailTranslation section.header}}
 			.section-content
 				each content in section.contents
-					if isText
-						+TextInput data=textInputData
-					else if isDate
-						+DateInput data=dateInputData
+					if isText content
+						with content
+							+InsertFormTextInput data=textInputData
+					else if isDate content
+						with content
+							+InsertFormDateInput data=dateInputData

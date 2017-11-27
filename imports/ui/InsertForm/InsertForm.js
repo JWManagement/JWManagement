@@ -11,6 +11,9 @@ Template.InsertForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
+    'getSections': () => {
+        return Template.instance().sections;
+    },
     'getTitle': (key) => {
         return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
     },
@@ -21,14 +24,26 @@ Template.InsertForm.helpers({
             key
         ].join('.'));
     },
-    'isText': () => {
-        return Template.instance().inputType.get() == 'text';
+    'isText': (content) => {
+        return !('dropdown' in content || content.type == Date);
     },
-    'isDate': () => {
-        return Template.instance().inputType.get() == 'date';
+    'isDate': (content) => {
+        return content.type == Date;
     },
-    'isDropdown': () => {
-        return Template.instance().inputType.get() == 'dropdown';
+    'isDropdown': (content) => {
+        return 'dropdown' in content;
+    },
+    'textInputData': () => {
+        return {
+            key: Template.currentData().key,
+            parentInstance: Template.instance()
+        };
+    },
+    'dateInputData': () => {
+        return {
+            key: Template.currentData().key,
+            parentInstance: Template.instance()
+        };
     }
 });
 
@@ -37,7 +52,7 @@ Template.InsertForm.onCreated(() => {
     const data = Template.currentData().data;
 
     template.db = data.db;
-    template.fields = data.fields;
+    template.sections = data.sections;
 });
 
 Template.InsertForm.onRendered(() => {
