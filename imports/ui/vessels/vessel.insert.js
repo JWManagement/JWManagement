@@ -12,7 +12,7 @@ Template['vessel.insert'].helpers({
             db: Vessels,
             sections: [
                 {
-                    header: '',
+                    header: 'identificationSection',
                     contents: [
                         {
                             key: 'name'

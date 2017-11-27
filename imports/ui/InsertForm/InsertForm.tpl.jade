@@ -8,7 +8,8 @@
 form.form-horizontal
 	each section in sections
 		.section
-			.section-header {{getTranslation section.header}}
+			if section.header
+				.section-header {{getDetailTranslation section.header}}
 			.section-content
 				each content in section.contents
 					if isText

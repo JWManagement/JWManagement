@@ -17,7 +17,8 @@ form.form-horizontal
 	else
 		each section in sections
 			.section
-				.section-header {{getTranslation section.header}}
+				if section.header
+					.section-header {{getTranslation section.header}}
 				.section-content
 					each content in section.contents
 						if isArray content
