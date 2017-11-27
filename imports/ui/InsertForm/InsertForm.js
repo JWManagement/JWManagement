@@ -3,6 +3,7 @@ import './InsertForm.scss';
 
 import './InsertFormTextInput.js';
 import './InsertFormDateInput.js';
+import './InsertFormDropdownInput.js';
 
 Template.InsertForm.helpers({
     'getBackLink': () => {
@@ -30,6 +31,8 @@ Template.InsertForm.helpers({
     'isDate': (field) => {
         return field.type == Date;
     },
+    'isDropdown': (field) => {
+        return 'dropdown' in field;
     },
     'getInputData': () => {
         return {

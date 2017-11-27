@@ -16,3 +16,6 @@ form.form-horizontal
 				else if isDate field
 					with field
 						+InsertFormDateInput data=getInputData
+				else if isDropdown field
+					with field
+						+InsertFormDropdownInput data=getInputData

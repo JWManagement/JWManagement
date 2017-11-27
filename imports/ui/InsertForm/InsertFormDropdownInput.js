@@ -1,25 +1,27 @@
-import './DropdownInput.tpl.jade';
-import './DropdownHeader.tpl.jade';
+import './InsertFormDropdownInput.tpl.jade';
+import './InsertFormDropdownHeader.tpl.jade';
 
-Template.DropdownInput.helpers({
+Template.InsertFormDropdownInput.helpers({
     'items': () => {
         return [];
     }
 });
 
-Template.DropdownInput.onCreated(() => {
+Template.InsertFormDropdownInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
+
+    console.log('ssdf');
 
     template.value = data.value;
     template.updateEntity = data.updateEntity;
 });
 
-Template.DropdownInput.onRendered(() => {});
+Template.InsertFormDropdownInput.onRendered(() => {});
 
-Template.DropdownInput.onDestroyed(() => {});
+Template.InsertFormDropdownInput.onDestroyed(() => {});
 
-Template.DropdownInput.events({
+Template.InsertFormDropdownInput.events({
     'change input': () => {
         const template = Template.instance();
         const value = $('input').val().trim();
