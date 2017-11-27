@@ -10,27 +10,22 @@ Template['vessel.insert'].helpers({
     data: () => {
         return {
             db: Vessels,
-            sections: [
+            fields: [
                 {
-                    header: 'identificationSection',
-                    contents: [
-                        {
-                            key: 'name'
-                        }, {
-                            key: 'flag'
-                        }, {
-                            key: 'type',
-                            dropdown: 'vesselType'
-                        }, {
-                            key: 'callsign'
-                        }, {
-                            key: 'eni'
-                        }, {
-                            key: 'imo'
-                        }, {
-                            key: 'mmsi'
-                        }
-                    ]
+                    key: 'name'
+                }, {
+                    key: 'flag'
+                }, {
+                    key: 'type',
+                    dropdown: 'vesselType'
+                }, {
+                    key: 'callsign'
+                }, {
+                    key: 'eni'
+                }, {
+                    key: 'imo'
+                }, {
+                    key: 'mmsi'
                 }
             ]
         }

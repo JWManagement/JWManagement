@@ -11,35 +11,27 @@ Template.InsertForm.helpers({
             projectId: FlowRouter.getParam('projectId')
         });
     },
-    'getSections': () => {
-        return Template.instance().sections;
+    'getFields': () => {
+        return Template.instance().fields;
     },
     'getTitle': (key) => {
         return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
     },
-    'getDetailTranslation': (key) => { // TODO: registerHelper
+    'getEntityTranslation': (key) => { // TODO: registerHelper
         return TAPi18n.__([
             FlowRouter.getRouteName().split('.')[0],
-            'details',
+            'entity',
             key
         ].join('.'));
     },
-    'isText': (content) => {
-        return !('dropdown' in content || content.type == Date);
+    'isText': (field) => {
+        return !('dropdown' in field || field.type == Date);
     },
-    'isDate': (content) => {
-        return content.type == Date;
+    'isDate': (field) => {
+        return field.type == Date;
     },
-    'isDropdown': (content) => {
-        return 'dropdown' in content;
     },
-    'textInputData': () => {
-        return {
-            key: Template.currentData().key,
-            parentInstance: Template.instance()
-        };
-    },
-    'dateInputData': () => {
+    'getInputData': () => {
         return {
             key: Template.currentData().key,
             parentInstance: Template.instance()
@@ -52,7 +44,12 @@ Template.InsertForm.onCreated(() => {
     const data = Template.currentData().data;
 
     template.db = data.db;
-    template.sections = data.sections;
+    template.fields = data.fields;
+
+    template.setFieldValue = (key, value) => {
+        console.log(key);
+        console.log(value);
+    }
 });
 
 Template.InsertForm.onRendered(() => {
