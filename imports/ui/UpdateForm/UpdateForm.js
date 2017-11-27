@@ -13,9 +13,6 @@ Template.UpdateForm.helpers({
             itemId: FlowRouter.getParam('itemId')
         });
     },
-    'getKeyTranslation': () => {
-        return TAPi18n.__(FlowRouter.getRouteName().replace('update', 'entity.') + FlowRouter.getParam('key'));
-    },
     'isText': () => {
         return Template.instance().inputType.get() == 'text';
     },

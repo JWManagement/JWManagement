@@ -1,5 +1,7 @@
 import '/imports/api/projects/projects.coffee'
 
+import './templateHelpers.js'
+
 import './mainRoutes.coffee'
 import './projectRoutes.coffee'
 import './policyRoutes.coffee'

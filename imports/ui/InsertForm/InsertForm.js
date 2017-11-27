@@ -15,16 +15,6 @@ Template.InsertForm.helpers({
     'getFields': () => {
         return Template.instance().fields;
     },
-    'getTitle': (key) => {
-        return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
-    },
-    'getEntityTranslation': (key) => { // TODO: registerHelper
-        return TAPi18n.__([
-            FlowRouter.getRouteName().split('.')[0],
-            'entity',
-            key
-        ].join('.'));
-    },
     'isText': (field) => {
         return !('dropdown' in field || field.type == Date);
     },

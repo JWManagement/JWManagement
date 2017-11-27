@@ -3,7 +3,7 @@
 		a.navbar-back(href="{{getBackLink}}")
 			i.fa.fa-angle-left.m-r-xs
 			| {{_ 'navigation.back'}}
-		.navbar-title {{getKeyTranslation}}
+		.navbar-title {{getTitle}}
 		if isDropdown
 			+UpdateFormDropdownInputHeader
 
@@ -12,7 +12,7 @@ if isDropdown
 else
 	form.form-horizontal
 		.section
-			.section-header {{getKeyTranslation}}
+			.section-header {{getEntityTranslation}}
 			if isText
 				+UpdateFormTextInput data=textInputData
 			else if isDate
