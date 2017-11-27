@@ -42,14 +42,28 @@ Template.SearchForm.helpers({
                 .map((column) => {
                     return {
                         name: column.name,
-                        translation: TAPi18n.__(FlowRouter.getRouteName().replace('search', 'entity.') + column.name)
+                        translation: TAPi18n.__([
+                            FlowRouter.getRouteName().split('.')[0],
+                            'entity',
+                            column.name
+                        ].join('.'))
                     };
                 });
+
+            const language = FlowRouter.getParam('language');
+            const projectId = FlowRouter.getParam('projectId');
 
             return getRows(template)
                 .map((row) => {
                     return {
-                        _id: FlowRouter.current().path + '/' + row._id,
+                        link: FlowRouter.path([
+                            FlowRouter.getRouteName().split('.')[0],
+                            'details'
+                        ].join('.'), {
+                            language: language,
+                            projectId: projectId,
+                            itemId: row._id
+                        }),
                         columns: columns.map((column) => {
                             return {
                                 th: column.translation,
@@ -95,7 +109,11 @@ Template.SearchForm.onCreated(() => {
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
     template.getColumns = data.getColumns.map((column) => {
-        column.title = TAPi18n.__(FlowRouter.getRouteName().replace('search', 'entity.') + column.name)
+        column.title = TAPi18n.__([
+            FlowRouter.getRouteName().split('.')[0],
+            'entity',
+            column.name
+        ].join('.'));
         return column;
     });
 

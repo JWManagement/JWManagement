@@ -14,8 +14,12 @@ Template.InsertForm.helpers({
     'getTitle': (key) => {
         return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
     },
-    'getTranslation': (key) => {
-        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
+    'getDetailTranslation': (key) => { // TODO: registerHelper
+        return TAPi18n.__([
+            FlowRouter.getRouteName().split('.')[0],
+            'details',
+            key
+        ].join('.'));
     },
     'isText': () => {
         return Template.instance().inputType.get() == 'text';
