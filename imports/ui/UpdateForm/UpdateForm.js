@@ -1,8 +1,8 @@
 import './UpdateForm.tpl.jade';
 import './UpdateForm.scss';
 
-import './TextInput.js';
-import './DateInput.js';
+import './TextInput.js'; // TODO: rename
+import './DateInput.js'; // TODO: rename
 
 Template.UpdateForm.helpers({
     'getBackLink': () => {
@@ -59,6 +59,7 @@ Template.UpdateForm.onCreated(() => {
     const data = Template.currentData().data;
 
     template.db = data.db;
+    template.fields = data.fields;
     template.isLoading = new ReactiveVar(true); // TODO: add helper for this
     template.noResult = new ReactiveVar(true); // TODO: add helper for this
     template.handle = null;
@@ -100,14 +101,19 @@ Template.UpdateForm.onRendered(() => {
         }
     });
 
-    var attr = template.db.schemaObj[FlowRouter.getParam('key')];
+    for (var i = 0; i < template.fields.length; i++) {
+        var field = template.fields[i];
 
-    if ('allowedValues' in attr) {
-        template.inputType.set('dropdown');
-    } else if (attr.type == Date) {
-        template.inputType.set('date');
-    } else {
-        template.inputType.set('text');
+        if (field.key == FlowRouter.getParam('key')) {
+            if ('dropdown' in field) {
+                template.inputType.set('dropdown');
+            } else if (field.type == Date) {
+                template.inputType.set('date');
+            } else {
+                template.inputType.set('text');
+            }
+            break;
+        }
     }
 });
 

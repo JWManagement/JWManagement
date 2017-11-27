@@ -9,7 +9,25 @@ import '/imports/ui/UpdateForm/UpdateForm.js';
 Template['vessel.update'].helpers({
     data: () => {
         return {
-            db: Vessels
+            db: Vessels,
+            fields: [
+                {
+                    key: 'name'
+                }, {
+                    key: 'flag'
+                }, {
+                    key: 'type',
+                    dropdown: 'vesselType'
+                }, {
+                    key: 'callsign'
+                }, {
+                    key: 'eni'
+                }, {
+                    key: 'imo'
+                }, {
+                    key: 'mmsi'
+                }
+            ]
         }
     }
 });
