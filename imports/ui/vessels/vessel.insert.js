@@ -9,7 +9,30 @@ import '/imports/ui/InsertForm/InsertForm.js';
 Template['vessel.insert'].helpers({
     data: () => {
         return {
-            db: Vessels
+            db: Vessels,
+            sections: [
+                {
+                    header: '',
+                    contents: [
+                        {
+                            key: 'name'
+                        }, {
+                            key: 'flag'
+                        }, {
+                            key: 'type',
+                            dropdown: 'vesselType'
+                        }, {
+                            key: 'callsign'
+                        }, {
+                            key: 'eni'
+                        }, {
+                            key: 'imo'
+                        }, {
+                            key: 'mmsi'
+                        }
+                    ]
+                }
+            ]
         }
     }
 });

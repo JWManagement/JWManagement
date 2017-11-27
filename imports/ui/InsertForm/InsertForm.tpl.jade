@@ -3,17 +3,15 @@
 		a.navbar-back(href="{{getBackLink}}")
 			i.fa.fa-angle-left.m-r-xs
 			| {{_ 'navigation.back'}}
-		.navbar-title {{getKeyTranslation}}
-		if isDropdown
-			+DropdownHeader
+		.navbar-title {{getTitle}}
 
-if isDropdown
-	+DropdownInput
-else
-	form.form-horizontal
+form.form-horizontal
+	each section in sections
 		.section
-			.section-header {{getKeyTranslation}}
-			if isText
-				+TextInput data=textInputData
-			else if isDate
-				+DateInput data=dateInputData
+			.section-header {{getTranslation section.header}}
+			.section-content
+				each content in section.contents
+					if isText
+						+TextInput data=textInputData
+					else if isDate
+						+DateInput data=dateInputData
