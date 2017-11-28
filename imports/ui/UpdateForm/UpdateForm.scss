@@ -46,46 +46,80 @@ body.md-skin[type='UpdateForm'] {
 		}
 	}
 
-	form.form-horizontal .section {
-		margin-top: 15px;
+	form.form-horizontal {
+		.section {
+			margin-top: 15px;
 
-		.section-header {
-			color         : #3f51b5;
-			padding       : 7px 0 7px 15px;
-			font-size     : 13px;
-			letter-spacing: 0.3px;
-			text-transform: uppercase;
-		}
+			.section-header {
+				color         : #3f51b5;
+				padding       : 7px 0 7px 15px;
+				font-size     : 13px;
+				letter-spacing: 0.3px;
+				text-transform: uppercase;
+			}
 
-		.section-content {
-			font-size       : 15px;
-			border-top      : 1px solid #ddd;
-			border-bottom   : 1px solid #ddd;
-			background-color: #fff;
+			.section-content {
+				font-size       : 15px;
+				border-top      : 1px solid #ddd;
+				border-bottom   : 1px solid #ddd;
+				background-color: #fff;
 
-			.text-input input {
-				width  : 100%;
-				border : 0;
-				outline: 0;
-				padding: 10px 0 10px 15px;
+				.text-input input {
+					width  : 100%;
+					border : 0;
+					outline: 0;
+					padding: 10px 0 10px 15px;
+				}
+			}
+
+			.section-loading {
+				padding         : 10px 15px;
+				border-top      : 1px solid #ddd;
+				border-bottom   : 1px solid #ddd;
+				background-color: #fff;
+
+				i.fa {
+					line-height: 21px;
+				}
+			}
+
+			.date-input input {
+				border     : 0;
+				outline    : 0;
+				margin-left: 15px;
+			}
+
+			.section-error {
+				display: none;
 			}
 		}
 
-		.section-loading {
-			padding         : 10px 15px;
-			border-top      : 1px solid #ddd;
-			border-bottom   : 1px solid #ddd;
-			background-color: #fff;
-
-			i.fa {
-				line-height: 21px;
+		.section.has-error {
+			.section-header {
+				color: #f44336;
 			}
-		}
 
-		.date-input input {
-			border     : 0;
-			outline    : 0;
-			margin-left: 15px;
+			.section-content {
+				border-top   : 0.5px solid #f44336;
+				border-bottom: 0.5px solid #f44336;
+			}
+
+			input {
+				background-color: lighten(#f44336, 35%);
+
+				&::placeholder {
+					color: lighten(#f44336, 20%);
+				}
+			}
+
+			.section-error {
+				display: block;
+
+				p {
+					color  : #f44336;
+					padding: 5px 0 5px 15px;
+				}
+			}
 		}
 	}
 

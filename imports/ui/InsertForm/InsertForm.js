@@ -23,7 +23,7 @@ Template.InsertForm.helpers({
         const errors = template.errors.get();
         const inputData = {
             key: currentData.key,
-            parentInstance: Template.instance()
+            parentInstance: template
         };
 
         errors.some((error) => {

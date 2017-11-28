@@ -23,11 +23,17 @@ Template.UpdateForm.helpers({
     },
     getInputData() {
         const template = Template.instance();
-
-        return {
+        const error = template.error.get();
+        const inputData = {
             value: template.value,
             parentInstance: template
+        };
+
+        if (error != null) {
+            inputData.error = error;
         }
+
+        return inputData;
     }
 });
 
@@ -39,6 +45,7 @@ Template.UpdateForm.onCreated(() => {
     template.fields = data.fields;
     template.isLoading = new ReactiveVar(true);
     template.noResult = new ReactiveVar(true);
+    template.error = new ReactiveVar();
     template.handle = null;
     template.itemId = '';
     template.value = '';
@@ -50,10 +57,9 @@ Template.UpdateForm.onCreated(() => {
         const key = FlowRouter.getParam('key');
 
         Meteor.call(routeName, itemId, key, value, (e) => {
-            console.log(e);
             if (e != null) {
-                if (e.error.error == 'validation-error') {
-                    template.errors.set(e.error.details);
+                if (e.error.error == 'validation-error' && e.error.reason.length > 0) {
+                    template.error.set(e.error.reason[0].type);
                 } else {
                     alert('SERVER ERROR')
                 }

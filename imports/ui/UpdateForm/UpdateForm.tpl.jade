@@ -9,13 +9,13 @@ if isDropdown
 	+UpdateFormDropdownInput
 else
 	form.form-horizontal
-		.section
-			.section-header {{getEntityTranslation}}
-			if isReady
-				if isText
-					+UpdateFormTextInput data=getInputData
-				else if isDate
-					+UpdateFormDateInput data=getInputData
-			else
+		if isReady
+			if isText
+				+UpdateFormTextInput data=getInputData
+			else if isDate
+				+UpdateFormDateInput data=getInputData
+		else
+			.section
+				.section-header {{getEntityTranslation}}
 				.section-loading
 					i.fa.fa-circle-o-notch.fa-spin

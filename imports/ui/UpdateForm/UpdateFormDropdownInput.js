@@ -2,7 +2,8 @@ import './UpdateFormDropdownInput.tpl.jade';
 
 Template.UpdateFormDropdownInput.helpers({
     items() {
-        return [];
+        const template = Template.instance();
+        return template.allowedValues;
     }
 });
 
@@ -11,7 +12,7 @@ Template.UpdateFormDropdownInput.onCreated(() => {
     const data = Template.currentData().data;
 
     template.value = data.value;
-    template.updateEntity = data.updateEntity;
+    template.updateForm = data.parentInstance;
 });
 
 Template.UpdateFormDropdownInput.onRendered(() => {});
@@ -19,10 +20,10 @@ Template.UpdateFormDropdownInput.onRendered(() => {});
 Template.UpdateFormDropdownInput.onDestroyed(() => {});
 
 Template.UpdateFormDropdownInput.events({
-    'change input': () => {
+    'change select': () => {
         const template = Template.instance();
-        const value = $('input').val().trim();
+        const value = $('select').val();
 
-        template.updateEntity(value);
+        template.updateForm.updateEntity(value);
     }
 });
