@@ -99,9 +99,7 @@ Template.UpdateForm.onRendered(() => {
         }
     });
 
-    for (let i = 0; i < template.fields.length; i++) {
-        let field = template.fields[i];
-
+    template.fields.some((field) => {
         if (field.key == FlowRouter.getParam('key')) {
             if ('dropdown' in field) {
                 template.inputType.set('dropdown');
@@ -110,9 +108,9 @@ Template.UpdateForm.onRendered(() => {
             } else {
                 template.inputType.set('text');
             }
-            break;
+            return true;
         }
-    }
+    });
 });
 
 Template.UpdateForm.onDestroyed(() => {

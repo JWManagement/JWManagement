@@ -34,9 +34,7 @@ module.exports = class PersistenceManager {
     checkUniqueFields(entity) {
         const errors = [];
 
-        for (let i = 0; i < this.db.uniqueKeys.length; i++) {
-            let key = this.db.uniqueKeys[i];
-
+        this.db.uniqueKeys.forEach((key) => {
             if (key in entity) {
                 const alreadyExistingEntitiesCount = this.db.find({
                     _id: {
@@ -56,7 +54,7 @@ module.exports = class PersistenceManager {
                     });
                 }
             }
-        }
+        });
 
         if (errors.length > 0) {
             throw new ValidationError(errors);

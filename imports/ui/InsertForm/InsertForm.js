@@ -26,13 +26,12 @@ Template.InsertForm.helpers({
             parentInstance: Template.instance()
         };
 
-        for (let i = 0; i < errors.length; i++) {
-            let error = errors[i];
-
+        errors.some((error) => {
             if (error.name == inputData.key) {
                 inputData.error = error.type;
+                return true;
             }
-        }
+        });
 
         if (template.entity[inputData.key] != null &&
             template.entity[inputData.key] != '') {

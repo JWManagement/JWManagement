@@ -269,8 +269,7 @@ function getRows(template) {
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
-        for (let i = 0; i < template.getColumns.length; i++) {
-            const column = template.getColumns[i];
+        template.getColumns.forEach((column) => {
             if (column.dropdown != null && column.name in item) {
                 const keys = [
                     'dropdowns',
@@ -280,7 +279,7 @@ function getRows(template) {
 
                 item[template.getColumns[i].name] = TAPi18n.__(keys.join('.'));
             }
-        }
+        });
 
         return item;
     });
