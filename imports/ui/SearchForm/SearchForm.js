@@ -105,14 +105,7 @@ Template.SearchForm.onCreated(() => {
     template.db = data.db;
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
-    template.getColumns = data.getColumns.map((column) => {
-        column.title = TAPi18n.__([
-            FlowRouter.getRouteName().split('.')[0],
-            'entity',
-            column.name
-        ].join('.'));
-        return column;
-    });
+    template.getColumns = data.getColumns;
 
     template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '');
     template.isLoading = new ReactiveVar(false);
@@ -270,14 +263,15 @@ function getRows(template) {
     .fetch()
     .map((item) => {
         template.getColumns.forEach((column) => {
-            if (column.dropdown != null && column.name in item) {
+            if (column.type == 'dropdown' && column.name in item) {
                 const keys = [
-                    'dropdowns',
-                    column.dropdown,
+                    FlowRouter.getRouteName().split('.')[0],
+                    'entity',
+                    column.name + 'Values',
                     item[column.name].toLowerCase()
                 ];
 
-                item[template.getColumns[i].name] = TAPi18n.__(keys.join('.'));
+                item[column.name] = TAPi18n.__(keys.join('.'));
             }
         });
 

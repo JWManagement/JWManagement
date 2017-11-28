@@ -20,7 +20,7 @@ Template['vessel.details'].helpers({
                             key: 'flag'
                         }, {
                             key: 'type',
-                            dropdown: 'vesselType'
+                            type: 'dropdown'
                         }, {
                             key: 'callsign'
                         }, {

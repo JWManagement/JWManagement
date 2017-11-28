@@ -21,7 +21,7 @@ Template['vessel.search'].helpers({
                 mobile: true
             }, {
                 name: 'type',
-                dropdown: 'vesselType',
+                type: 'dropdown',
                 mobile: true
             }, {
                 name: 'callsign',

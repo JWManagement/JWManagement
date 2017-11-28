@@ -53,10 +53,11 @@ Template.DetailsForm.helpers({
         if (key in template.item.get()) {
             const value = template.item.get()[key];
 
-            if (content.dropdown != null) {
+            if (content.type == 'dropdown') {
                 return TAPi18n.__([
-                    'dropdowns',
-                    content.dropdown,
+                    FlowRouter.getRouteName().split('.')[0],
+                    'entity',
+                    key + 'Values',
                     value.toLowerCase()
                 ].join('.'));
             } else if (content.type == Date) {
