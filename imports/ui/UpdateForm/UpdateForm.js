@@ -101,7 +101,7 @@ Template.UpdateForm.onRendered(() => {
 
     template.fields.some((field) => {
         if (field.key == FlowRouter.getParam('key')) {
-            if ('dropdown' in field) {
+            if (field.type == 'dropdown') {
                 template.inputType.set('dropdown');
             } else if (field.type == Date) {
                 template.inputType.set('date');
