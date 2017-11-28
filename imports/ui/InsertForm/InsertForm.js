@@ -25,10 +25,27 @@ Template.InsertForm.helpers({
         return 'dropdown' in field;
     },
     'getInputData': () => {
-        return {
-            key: Template.currentData().key,
+        const template = Template.instance();
+        const currentData = Template.currentData();
+        const errors = template.errors.get();
+        const inputData = {
+            key: currentData.key,
             parentInstance: Template.instance()
         };
+
+        for (var i = 0; i < errors.length; i++) {
+            var error = errors[i];
+
+            if (error.name == inputData.key) {
+                inputData.error = error.type;
+            }
+        }
+
+        if (template.entity[inputData.key] != null && template.entity[inputData.key] != '') {
+            inputData.value = template.entity[input];
+        }
+
+        return inputData;
     },
     'isSaving': () => {
         return Template.instance().isSaving.get();
@@ -42,6 +59,7 @@ Template.InsertForm.onCreated(() => {
     template.db = data.db;
     template.fields = data.fields;
     template.entity = {};
+    template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);
 
     template.setFieldValue = (key, value) => {
@@ -62,6 +80,9 @@ Template.InsertForm.onDestroyed(() => {
 });
 
 Template.InsertForm.events({
+    'change input': (e) => {
+        $(e.target).closest('.section').removeClass('has-error');
+    },
     'click .navbar-save': (e) => {
         e.preventDefault();
 
@@ -70,12 +91,11 @@ Template.InsertForm.events({
         template.isSaving.set(true);
 
         Meteor.call(FlowRouter.getRouteName(), template.entity, (e) => {
-            //template.isSaving.set(false);
+            template.isSaving.set(false);
 
             if (e != null) {
                 if (e.error.error == 'validation-error') {
                     template.errors.set(e.error.details);
-                    console.log(template.errors.get());
                 } else {
                     alert('SERVER ERROR')
                 }

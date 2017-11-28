@@ -52,14 +52,11 @@ body.md-skin[type='InsertForm'] {
 				border-bottom   : 1px solid #ddd;
 				background-color: #fff;
 
-				.text-input {
-
-					input {
-						width  : 100%;
-						border : 0;
-						outline: 0;
-						padding: 10px 0 10px 15px;
-					}
+				.text-input input {
+					width  : 100%;
+					border : 0;
+					outline: 0;
+					padding: 10px 0 10px 15px;
 				}
 			}
 
@@ -67,6 +64,38 @@ body.md-skin[type='InsertForm'] {
 				border     : 0;
 				outline    : 0;
 				margin-left: 15px;
+			}
+
+			.section-error {
+				display: none;
+			}
+		}
+
+		.section.has-error {
+			.section-header {
+				color: #f44336;
+			}
+
+			.section-content {
+				border-top   : 0.5px solid #f44336;
+				border-bottom: 0.5px solid #f44336;
+			}
+
+			input {
+				background-color: lighten(#f44336, 35%);
+
+				&::placeholder {
+					color: lighten(#f44336, 20%);
+				}
+			}
+
+			.section-error {
+				display: block;
+
+				p {
+					color  : #f44336;
+					padding: 5px 0 5px 15px;
+				}
 			}
 		}
 	}

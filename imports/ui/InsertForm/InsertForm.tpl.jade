@@ -12,15 +12,12 @@
 
 form.form-horizontal
 	each field in getFields
-		.section
-			.section-header {{getEntityTranslation field.key}}
-			.section-content
-				if isText field
-					with field
-						+InsertFormTextInput data=getInputData
-				else if isDate field
-					with field
-						+InsertFormDateInput data=getInputData
-				else if isDropdown field
-					with field
-						+InsertFormDropdownInput data=getInputData
+		if isText field
+			with field
+				+InsertFormTextInput data=getInputData
+		else if isDate field
+			with field
+				+InsertFormDateInput data=getInputData
+		else if isDropdown field
+			with field
+				+InsertFormDropdownInput data=getInputData

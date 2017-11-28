@@ -10,6 +10,31 @@ Template.InsertFormTextInput.helpers({
     },
     'getKey': () => {
         return Template.instance().key;
+    },
+    'getValue': () => {
+        const data = Template.currentData().data;
+
+        if (data.value != null) {
+            return data.value;
+        }
+
+        return '';
+    },
+    'getErrorClass': () => {
+        const data = Template.currentData().data;
+
+        if (data.error != null) {
+            return 'has-error';
+        }
+
+        return '';
+    },
+    'hasError': () => {
+        const data = Template.currentData().data;
+        return data.error == 'required';
+    },
+    'getEntityErrorTranslation': () => {
+        return 'Vessel name is required';
     }
 });
 
