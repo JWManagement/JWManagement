@@ -30,6 +30,7 @@ navigation:
     version: Version
     new: New
     back: Back
+    save: Save
 welcome:
     links:
         home: Home

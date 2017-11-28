@@ -6,10 +6,20 @@ import '/imports/ui/vessels/server/vessel.search.coffee'
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
-
+    'vessel.insert': (entity) => {
+        try {
+            var persistenceManager = new PersistenceManager(Vessels);
+            persistenceManager.insert(entity);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    },
     'vessel.update': (entityId, key, value) => {
-        var persistenceManager = new PersistenceManager(Vessels);
-
-        persistenceManager.update(entityId, key, value);
+        try {
+            var persistenceManager = new PersistenceManager(Vessels);
+            persistenceManager.update(entityId, key, value);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
     }
 })

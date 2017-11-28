@@ -29,6 +29,9 @@ Template.InsertForm.helpers({
             key: Template.currentData().key,
             parentInstance: Template.instance()
         };
+    },
+    'isSaving': () => {
+        return Template.instance().isSaving.get();
     }
 });
 
@@ -38,10 +41,11 @@ Template.InsertForm.onCreated(() => {
 
     template.db = data.db;
     template.fields = data.fields;
+    template.entity = {};
+    template.isSaving = new ReactiveVar(false);
 
     template.setFieldValue = (key, value) => {
-        console.log(key);
-        console.log(value);
+        template.entity[key] = value;
     }
 });
 
@@ -55,4 +59,27 @@ Template.InsertForm.onDestroyed(() => {
     $('body').removeClass('md-skin');
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
+});
+
+Template.InsertForm.events({
+    'click .navbar-save': (e) => {
+        e.preventDefault();
+
+        const template = Template.instance();
+
+        template.isSaving.set(true);
+
+        Meteor.call(FlowRouter.getRouteName(), template.entity, (e) => {
+            //template.isSaving.set(false);
+
+            if (e != null) {
+                if (e.error.error == 'validation-error') {
+                    template.errors.set(e.error.details);
+                    console.log(template.errors.get());
+                } else {
+                    alert('SERVER ERROR')
+                }
+            }
+        });
+    }
 });

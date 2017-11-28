@@ -11,8 +11,6 @@ Template.InsertFormDropdownInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    console.log('ssdf');
-
     template.value = data.value;
     template.updateEntity = data.updateEntity;
 });

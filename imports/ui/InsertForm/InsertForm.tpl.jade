@@ -4,6 +4,11 @@
 			i.fa.fa-angle-left.m-r-xs
 			| {{_ 'navigation.back'}}
 		.navbar-title {{getTitle}}
+		if isSaving
+			.navbar-save
+				i.fa.fa-circle-o-notch.fa-spin
+		else
+			a.navbar-save(href) {{_ 'navigation.save'}}
 
 form.form-horizontal
 	each field in getFields

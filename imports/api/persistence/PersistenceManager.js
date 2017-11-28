@@ -20,7 +20,7 @@ module.exports = class PersistenceManager {
         }
     }
 
-    create(entity) {
+    insert(entity) {
         this.validate(entity);
         this.db.insert(entity);
     }
