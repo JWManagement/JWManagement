@@ -1,10 +1,10 @@
 import './UpdateFormTextInput.tpl.jade';
 
 Template.UpdateFormTextInput.helpers({
-    'getKeyTranslation': () => {
+    getKeyTranslation() {
         return TAPi18n.__(FlowRouter.getRouteName().replace('update', 'entity.') + FlowRouter.getParam('key'));
     },
-    'getValue': () => {
+    getValue() {
         return Template.instance().value;
     }
 });

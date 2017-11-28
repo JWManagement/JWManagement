@@ -7,7 +7,7 @@ import './vessel.details.tpl.jade';
 import '/imports/ui/DetailsForm/DetailsForm.js';
 
 Template['vessel.details'].helpers({
-    data: () => {
+    data() {
         return {
             db: Vessels,
             sections: [

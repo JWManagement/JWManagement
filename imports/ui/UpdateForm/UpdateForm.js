@@ -6,23 +6,23 @@ import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
-    'getBackLink': () => {
+    getBackLink() {
         return FlowRouter.path(FlowRouter.getRouteName().replace('update', 'details'), {
             language: FlowRouter.getParam('language'),
             projectId: FlowRouter.getParam('projectId'),
             itemId: FlowRouter.getParam('itemId')
         });
     },
-    'isText': () => {
+    isText() {
         return Template.instance().inputType.get() == 'text';
     },
-    'isDate': () => {
+    isDate() {
         return Template.instance().inputType.get() == 'date';
     },
-    'isDropdown': () => {
+    isDropdown() {
         return Template.instance().inputType.get() == 'dropdown';
     },
-    'textInputData': () => {
+    textInputData() {
         const template = Template.instance();
 
         return {
@@ -36,7 +36,7 @@ Template.UpdateForm.helpers({
             }
         }
     },
-    'dateInputData': () => {
+    dateInputData() {
         const template = Template.instance();
 
         return {

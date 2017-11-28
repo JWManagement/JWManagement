@@ -2,25 +2,25 @@ import './DetailsForm.tpl.jade';
 import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({
-    'getBackLink': () => {
+    getBackLink() {
         return FlowRouter.path(FlowRouter.getRouteName().replace('details', 'search'), {
             language: FlowRouter.getParam('language'),
             projectId: FlowRouter.getParam('projectId')
         });
     },
-    'getTranslation': (key) => {
+    getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
-    'getActionPath': (action) => {
+    getActionPath(action) {
         return FlowRouter.current().path + '/' + action.path;
     },
-    'isButton': (action) => {
+    isButton(action) {
         return action.type == 'link';
     },
-    'isArray': (content) => {
+    isArray(content) {
         return typeof(content.type) == 'object';
     },
-    'getArrayElements': (content) => {
+    getArrayElements(content) {
         const template = Template.instance();
 
         if (template.item.get()[content.key] != null) {
@@ -29,7 +29,7 @@ Template.DetailsForm.helpers({
 
         return [];
     },
-    'getArrayTranslation': (array, key) => {
+    getArrayTranslation(array, key) {
         return TAPi18n.__([
             FlowRouter.getRouteName().split('.')[0],
             'entity',
@@ -37,16 +37,16 @@ Template.DetailsForm.helpers({
             'noElements'
         ].join('.'));
     },
-    'isLoading': () => {
+    isLoading() {
         return Template.instance().isLoading.get();
     },
-    'noResult': () => {
+    noResult() {
         return Template.instance().noResult.get();
     },
-    'sections': () => {
+    sections() {
         return Template.instance().sections;
     },
-    'getValue': (content) => {
+    getValue(content) {
         const template = Template.instance();
         const key = content.key;
 

@@ -1,10 +1,10 @@
 import './InsertFormTextInput.tpl.jade';
 
 Template.InsertFormTextInput.helpers({
-    'getKey': () => {
+    getKey() {
         return Template.instance().key;
     },
-    'getValue': () => {
+    getValue() {
         const data = Template.currentData().data;
 
         if (data.value != null) {
@@ -13,7 +13,7 @@ Template.InsertFormTextInput.helpers({
 
         return '';
     },
-    'getErrorClass': () => {
+    getErrorClass() {
         const data = Template.currentData().data;
 
         if (data.error != null) {
@@ -22,11 +22,11 @@ Template.InsertFormTextInput.helpers({
 
         return '';
     },
-    'hasError': () => {
+    hasError() {
         const data = Template.currentData().data;
         return ['required', 'unique'].includes(data.error);
     },
-    'getEntityErrorTranslation': () => {
+    getEntityErrorTranslation() {
         const data = Template.currentData().data;
         if (data.error == 'required') {
             return 'This field is required'; // TODO: translation

@@ -5,19 +5,19 @@ import './InsertFormTextInput.js';
 import './InsertFormDropdownInput.js';
 
 Template.InsertForm.helpers({
-    'getBackLink': () => {
+    getBackLink() {
         return FlowRouter.path(FlowRouter.getRouteName().replace('insert', 'search'), {
             language: FlowRouter.getParam('language'),
             projectId: FlowRouter.getParam('projectId')
         });
     },
-    'getFields': () => {
+    getFields() {
         return Template.instance().fields;
     },
-    'isDropdown': (field) => {
+    isDropdown(field) {
         return 'dropdown' in field;
     },
-    'getInputData': () => {
+    getInputData() {
         const template = Template.instance();
         const currentData = Template.currentData();
         const errors = template.errors.get();
@@ -41,7 +41,7 @@ Template.InsertForm.helpers({
 
         return inputData;
     },
-    'isSaving': () => {
+    isSaving() {
         return Template.instance().isSaving.get();
     }
 });

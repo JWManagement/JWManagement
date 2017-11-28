@@ -6,29 +6,29 @@ import './SearchForm.tpl.jade';
 import './SearchForm.scss'
 
 Template.SearchForm.helpers({
-    'getBackLink': () => {
+    getBackLink() {
         return FlowRouter.path('admin', {
             language: FlowRouter.getParam('language'),
             projectId: FlowRouter.getParam('projectId')
         });
     },
-    'getTranslation': (key) => {
+    getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
-    'valueOrDash': (value) => {
+    valueOrDash(value) {
         return (value != '' ? value : '-');
     },
-    'isLoading': () => {
+    isLoading() {
         return Template.instance().isLoading.get();
     },
-    'hasSearchString': () => {
+    hasSearchString() {
         return Template.instance().searchString.get() != '';
     },
-    'noResults': () => {
+    noResults() {
         const template = Template.instance();
         return template.noResults.get() && !template.isLoading.get();
     },
-    'resultsMobile': () => {
+    resultsMobile() {
         const template = Template.instance();
 
         if (!template.noResults.get() && !template.isLoading.get()) {
@@ -73,7 +73,7 @@ Template.SearchForm.helpers({
 
         return false;
     },
-    'moreResultsAvailable': () => {
+    moreResultsAvailable() {
         const template = Template.instance();
         const searchCriteria = template.searchCriteria(template.regEx.get());
 
@@ -81,7 +81,7 @@ Template.SearchForm.helpers({
             .find(searchCriteria.selector, searchCriteria.options)
             .fetch().length == template.maxResultsShown;
     },
-    'totalFound': () => {
+    totalFound() {
         const counters = Counts.find(FlowRouter.getRouteName(), {
             fields: {
                 count: 1
@@ -93,7 +93,7 @@ Template.SearchForm.helpers({
         }
         return '';
     },
-    'maxResultsShown': () => {
+    maxResultsShown() {
         return Template.instance().maxResultsShown;
     }
 });

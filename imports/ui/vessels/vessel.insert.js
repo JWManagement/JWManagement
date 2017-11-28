@@ -7,7 +7,7 @@ import './vessel.insert.tpl.jade';
 import '/imports/ui/InsertForm/InsertForm.js';
 
 Template['vessel.insert'].helpers({
-    data: () => {
+    data() {
         return {
             db: Vessels,
             fields: [

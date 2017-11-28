@@ -2,7 +2,7 @@ import './UpdateFormDropdownInput.tpl.jade';
 import './UpdateFormDropdownInputHeader.tpl.jade';
 
 Template.UpdateFormDropdownInput.helpers({
-    'items': () => {
+    items() {
         return [];
     }
 });

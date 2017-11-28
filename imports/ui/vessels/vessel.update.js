@@ -7,7 +7,7 @@ import './vessel.update.tpl.jade';
 import '/imports/ui/UpdateForm/UpdateForm.js';
 
 Template['vessel.update'].helpers({
-    data: () => {
+    data() {
         return {
             db: Vessels,
             fields: [

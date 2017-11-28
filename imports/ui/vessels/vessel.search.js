@@ -7,7 +7,7 @@ import './vessel.search.tpl.jade';
 import '/imports/ui/SearchForm/SearchForm.js';
 
 Template['vessel.search'].helpers({
-    data: () => {
+    data() {
         return {
             db: Vessels,
             getColumns: [{
