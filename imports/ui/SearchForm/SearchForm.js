@@ -270,11 +270,12 @@ function getRows(template) {
     .fetch()
     .map((item) => {
         for (var i = 0; i < template.getColumns.length; i++) {
-            if (template.getColumns[i].dropdown != null) {
+            const column = template.getColumns[i];
+            if (column.dropdown != null && column.name in item) {
                 const keys = [
                     'dropdowns',
-                    template.getColumns[i].dropdown,
-                    item[template.getColumns[i].name].toLowerCase()
+                    column.dropdown,
+                    item[column.name].toLowerCase()
                 ];
 
                 item[template.getColumns[i].name] = TAPi18n.__(keys.join('.'));
