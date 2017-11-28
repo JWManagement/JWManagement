@@ -42,7 +42,7 @@ Template.InsertFormDropdownInput.onCreated(() => {
 
     template.key = data.key;
     template.value = data.value;
-    template.updateEntity = data.updateEntity;
+    template.insertForm = data.parentInstance;
     template.allowedValues = data.allowedValues;
 });
 
@@ -57,10 +57,10 @@ Template.InsertFormDropdownInput.onRendered(() => {
 Template.InsertFormDropdownInput.onDestroyed(() => {});
 
 Template.InsertFormDropdownInput.events({
-    'change input': () => {
+    'change select': () => {
         const template = Template.instance();
-        const value = $('input').val().trim();
+        const value = $('select[name=' + template.key + ']').val();
 
-        template.updateEntity(value);
+        template.insertForm.setFieldValue(template.key, value);
     }
 });
