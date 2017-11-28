@@ -2,7 +2,6 @@ import './UpdateForm.tpl.jade';
 import './UpdateForm.scss';
 
 import './UpdateFormTextInput.js';
-import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
