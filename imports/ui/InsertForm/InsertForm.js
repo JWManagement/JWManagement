@@ -41,8 +41,9 @@ Template.InsertForm.helpers({
             }
         }
 
-        if (template.entity[inputData.key] != null && template.entity[inputData.key] != '') {
-            inputData.value = template.entity[input];
+        if (template.entity[inputData.key] != null &&
+            template.entity[inputData.key] != '') {
+            inputData.value = template.entity[inputData.key];
         }
 
         return inputData;
@@ -90,7 +91,7 @@ Template.InsertForm.events({
 
         template.isSaving.set(true);
 
-        Meteor.call(FlowRouter.getRouteName(), template.entity, (e) => {
+        Meteor.call(FlowRouter.getRouteName(), template.entity, (e, entityId) => {
             template.isSaving.set(false);
 
             if (e != null) {
@@ -99,6 +100,21 @@ Template.InsertForm.events({
                 } else {
                     alert('SERVER ERROR')
                 }
+            } else {
+                Session.set([
+                    FlowRouter.getRouteName().split('.')[0],
+                    'search',
+                    'searchString'
+                ].join('.'), template.entity.callsign);
+
+                FlowRouter.go([
+                    FlowRouter.getRouteName().split('.')[0],
+                    'details'
+                ].join('.'), {
+                    language: FlowRouter.getParam('language'),
+                    projectId: FlowRouter.getParam('projectId'),
+                    itemId: entityId
+                });
             }
         });
     }

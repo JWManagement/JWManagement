@@ -24,9 +24,9 @@ Vessels.schema = new SimpleSchema
 	flag:
 		type: String
 		optional: true
-	type:
-		type: String
-		allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
+	#type:
+	#	type: String
+	#	allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
 	callsign:
 		type: String
 		optional: true
@@ -41,6 +41,7 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	visits:
 		type: Array
+		autoValue: -> []
 	'visits.$': new SimpleSchema
 		userId:
 			type: String
@@ -57,5 +58,12 @@ Vessels.schema = new SimpleSchema
 		languages:
 			type: String
 			optional: true
+
+Vessels.uniqueKeys = [
+	'callsign',
+	'eni',
+	'imo',
+	'mmsi'
+]
 
 Vessels.attachSchema = Vessels.schema

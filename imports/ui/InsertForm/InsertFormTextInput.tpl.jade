@@ -1,9 +1,8 @@
 .section(class='{{getErrorClass}}')
 	.section-header {{getEntityTranslation getKey}}
 	.section-content
-		.section-content
-			.text-input
-				input(type='text' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
+		.text-input
+			input(type='text' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
 	if hasError
 		.section-error
 			p {{getEntityErrorTranslation}}

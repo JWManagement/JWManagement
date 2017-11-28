@@ -12,7 +12,8 @@ Template['vessel.insert'].helpers({
             db: Vessels,
             fields: [
                 {
-                    key: 'name'
+                    key: 'name',
+                    required: true
                 }, {
                     key: 'flag'
                 }, {

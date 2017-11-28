@@ -1,13 +1,6 @@
 import './InsertFormTextInput.tpl.jade';
 
 Template.InsertFormTextInput.helpers({
-    'getEntityTranslation': (key) => {
-        return TAPi18n.__([
-            FlowRouter.getRouteName().split('.')[0],
-            'entity',
-            key
-        ].join('.'));
-    },
     'getKey': () => {
         return Template.instance().key;
     },
@@ -31,10 +24,15 @@ Template.InsertFormTextInput.helpers({
     },
     'hasError': () => {
         const data = Template.currentData().data;
-        return data.error == 'required';
+        return ['required', 'unique'].includes(data.error);
     },
     'getEntityErrorTranslation': () => {
-        return 'Vessel name is required';
+        const data = Template.currentData().data;
+        if (data.error == 'required') {
+            return 'This field is required'; // TODO: translation
+        } else {
+            return 'There already is a record with this value'; // TODO: translation
+        }
     }
 });
 
@@ -51,9 +49,9 @@ Template.InsertFormTextInput.onRendered(() => {});
 Template.InsertFormTextInput.onDestroyed(() => {});
 
 Template.InsertFormTextInput.events({
-    'change input': () => {
+    'change input': (e) => {
         const template = Template.instance();
-        const value = $('input').val().trim();
+        const value = $(e.target).val().trim();
 
         template.insertForm.setFieldValue(template.key, value);
     }

@@ -1,23 +1,16 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
 module.exports = class PersistenceManager {
-    constructor(
-        db
-    ) {
+    constructor(db) {
         this.db = db;
     }
 
     validate(entity) {
         this.db.schema.clean(entity, { mutate: true });
+
         this.db.schema.validate(entity);
 
-        var errors = [];
-
-        // TODO: check for unique
-
-        if (errors.length > 0) {
-            throw new ValidationError(errors);
-        }
+        this.checkUniqueFields(entity);
     }
 
     insert(entity) {
@@ -37,4 +30,36 @@ module.exports = class PersistenceManager {
     }
 
     delete(entity) {}
+
+    checkUniqueFields(entity) {
+        var errors = [];
+
+        for (var i = 0; i < this.db.uniqueKeys.length; i++) {
+            var key = this.db.uniqueKeys[i];
+
+            if (key in entity) {
+                const alreadyExistingEntitiesCount = this.db.find({
+                    _id: {
+                        $ne: entity._id
+                    },
+                    [key]: entity[key]
+                }, {
+                    fields: {
+                        _id: 1
+                    }
+                }).count();
+
+                if (alreadyExistingEntitiesCount > 0) {
+                    errors.push({
+                        name: key,
+                        type: 'unique'
+                    });
+                }
+            }
+        }
+
+        if (errors.length > 0) {
+            throw new ValidationError(errors);
+        }
+    }
 }

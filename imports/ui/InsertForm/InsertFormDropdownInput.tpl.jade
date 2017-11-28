@@ -1,9 +1,12 @@
-table.results-mobile
-	each item in items
-		a(href)
-			tr
-				th.left
-				td.item
-					span {{item}}
-				td.link
-					i.fa.fa-check
+.section(class='{{getErrorClass}}')
+	.section-header {{getEntityTranslation getKey}}
+	.section-content
+		table.results-mobile
+			each item in items
+				a(href)
+					tr
+						th.left
+						td.item
+							span {{item}}
+						td.link
+							i.fa.fa-check

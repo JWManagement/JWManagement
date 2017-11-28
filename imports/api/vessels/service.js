@@ -10,6 +10,7 @@ Meteor.methods({
         try {
             var persistenceManager = new PersistenceManager(Vessels);
             persistenceManager.insert(entity);
+            return entity._id;
         } catch(e) {
             throw new Meteor.Error(e);
         }

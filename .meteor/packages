@@ -49,7 +49,8 @@ kevbuk:moment-range
 kevohagan:sweetalert # remove in future
 lookback:emails
 mdg:seo
-mdg:validated-method
+mdg:validated-method # remove in future
+mdg:validation-error
 meteorhacks:aggregate
 meteorhacks:subs-manager # remove in future
 mizzao:user-status
