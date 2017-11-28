@@ -71,6 +71,17 @@ body.md-skin[type='UpdateForm'] {
 			}
 		}
 
+		.section-loading {
+			padding         : 10px 15px;
+			border-top      : 1px solid #ddd;
+			border-bottom   : 1px solid #ddd;
+			background-color: #fff;
+
+			i.fa {
+				line-height: 21px;
+			}
+		}
+
 		.date-input input {
 			border     : 0;
 			outline    : 0;

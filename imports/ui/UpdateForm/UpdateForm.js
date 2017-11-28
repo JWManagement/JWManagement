@@ -13,41 +13,21 @@ Template.UpdateForm.helpers({
             itemId: FlowRouter.getParam('itemId')
         });
     },
-    isText() {
-        return Template.instance().inputType.get() == 'text';
+    isReady() {
+        return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
     },
-    isDate() {
-        return Template.instance().inputType.get() == 'date';
+    isText() {
+        return Template.instance().inputType == 'text';
     },
     isDropdown() {
-        return Template.instance().inputType.get() == 'dropdown';
+        return Template.instance().inputType == 'dropdown';
     },
-    textInputData() {
+    getInputData() {
         const template = Template.instance();
 
         return {
-            value: template.value.get(),
-            updateEntity: (value) => {
-                Meteor.call(
-                    FlowRouter.getRouteName(),
-                    FlowRouter.getParam('itemId'),
-                    FlowRouter.getParam('key'),
-                    value);
-            }
-        }
-    },
-    dateInputData() {
-        const template = Template.instance();
-
-        return {
-            value: template.value.get(),
-            updateEntity: (value) => {
-                Meteor.call(
-                    FlowRouter.getRouteName(),
-                    FlowRouter.getParam('itemId'),
-                    FlowRouter.getParam('key'),
-                    value);
-            }
+            value: template.value,
+            parentInstance: template
         }
     }
 });
@@ -58,12 +38,29 @@ Template.UpdateForm.onCreated(() => {
 
     template.db = data.db;
     template.fields = data.fields;
-    template.isLoading = new ReactiveVar(true); // TODO: add helper for this
-    template.noResult = new ReactiveVar(true); // TODO: add helper for this
+    template.isLoading = new ReactiveVar(true);
+    template.noResult = new ReactiveVar(true);
     template.handle = null;
     template.itemId = '';
-    template.value = new ReactiveVar('');
-    template.inputType = new ReactiveVar('');
+    template.value = '';
+    template.inputType = '';
+
+    template.updateEntity = (value) => {
+        const routeName = FlowRouter.getRouteName();
+        const itemId = FlowRouter.getParam('itemId');
+        const key = FlowRouter.getParam('key');
+
+        Meteor.call(routeName, itemId, key, value, (e) => {
+            console.log(e);
+            if (e != null) {
+                if (e.error.error == 'validation-error') {
+                    template.errors.set(e.error.details);
+                } else {
+                    alert('SERVER ERROR')
+                }
+            }
+        });
+    }
 });
 
 Template.UpdateForm.onRendered(() => {
@@ -76,7 +73,7 @@ Template.UpdateForm.onRendered(() => {
     const key = FlowRouter.getParam('key');
     template.itemId = FlowRouter.getParam('itemId');
     template.isLoading.set(true);
-    template.noResult.set(false);
+    template.noResult.set(true);
 
     template.handle = Meteor.subscribe(FlowRouter.getRouteName().split('.')[0], template.itemId, projectId);
 
@@ -85,10 +82,10 @@ Template.UpdateForm.onRendered(() => {
     }).observe({
         added: (newValue) => {
             template.noResult.set(false);
-            template.value.set(newValue[key]);
+            template.value = newValue[key];
         },
         changed: (oldValue, newValue) => {
-            template.value.set(newValue[key]);
+            template.value = newValue[key]; // TODO: shouldn't work anyway
         }
     });
 
@@ -102,11 +99,11 @@ Template.UpdateForm.onRendered(() => {
     template.fields.some((field) => {
         if (field.key == FlowRouter.getParam('key')) {
             if (field.type == 'dropdown') {
-                template.inputType.set('dropdown');
+                template.inputType = 'dropdown';
             } else if (field.type == Date) {
-                template.inputType.set('date');
+                template.inputType = 'date';
             } else {
-                template.inputType.set('text');
+                template.inputType = 'text';
             }
             return true;
         }

@@ -2,7 +2,11 @@ import './UpdateFormTextInput.tpl.jade';
 
 Template.UpdateFormTextInput.helpers({
     getKeyTranslation() {
-        return TAPi18n.__(FlowRouter.getRouteName().replace('update', 'entity.') + FlowRouter.getParam('key'));
+        return TAPi18n.__([
+            FlowRouter.getRouteName().split('.')[0],
+            'entity',
+            FlowRouter.getParam('key')
+        ].join('.'));
     },
     getValue() {
         return Template.instance().value;
@@ -14,7 +18,7 @@ Template.UpdateFormTextInput.onCreated(() => {
     const data = Template.currentData().data;
 
     template.value = data.value;
-    template.updateEntity = data.updateEntity;
+    template.updateForm = data.parentInstance;
 });
 
 Template.UpdateFormTextInput.onRendered(() => {});
@@ -26,6 +30,6 @@ Template.UpdateFormTextInput.events({
         const template = Template.instance();
         const value = $('input').val().trim();
 
-        template.updateEntity(value);
+        template.updateForm.updateEntity(value);
     }
 });
