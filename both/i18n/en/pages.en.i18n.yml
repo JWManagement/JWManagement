@@ -361,6 +361,19 @@ vessel:
         name: Vessel name
         flag: Flag
         type: Type
+        typeValues:
+            c: Container ship
+            cr: Cruise ship
+            mf: Cargo
+            mt: Tanker
+            p: Passenger ship
+            pt: Pushtow
+            rc: River cruise ship
+            f: Ferry
+            ro: Ro-Ro
+            t: Tug
+            unknown: Unknown
+            placeholder: Select a type
         callsign: Call sign
         eni: ENI
         imo: IMO

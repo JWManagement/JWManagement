@@ -38,6 +38,15 @@ Template.InsertForm.helpers({
             inputData.value = template.entity[inputData.key];
         }
 
+        template.fields.some((field) => {
+            if (field.key == inputData.key) {
+                if ('allowedValues' in field) {
+                    inputData.allowedValues = field.allowedValues;
+                }
+                return true;
+            }
+        });
+
         return inputData;
     },
     isSaving() {

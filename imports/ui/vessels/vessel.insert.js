@@ -18,7 +18,8 @@ Template['vessel.insert'].helpers({
                     key: 'flag'
                 }, {
                     key: 'type',
-                    dropdown: 'vesselType'
+                    dropdown: 'vesselType',
+                    allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
                 }, {
                     key: 'callsign'
                 }, {

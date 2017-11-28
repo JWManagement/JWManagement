@@ -1,12 +1,13 @@
 .section(class='{{getErrorClass}}')
 	.section-header {{getEntityTranslation getKey}}
 	.section-content
-		table.results-mobile
+		select(name='{{getKey}}')
+			with 'placeholder'
+				option(value) {{getEntityTranslation getItemKey}}
 			each item in items
-				a(href)
-					tr
-						th.left
-						td.item
-							span {{item}}
-						td.link
-							i.fa.fa-check
+				option(value='{{item}}')
+					with item
+						| {{getEntityTranslation getItemKey}}
+	if hasError
+		.section-error
+			p {{getEntityErrorTranslation}}

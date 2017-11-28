@@ -66,6 +66,11 @@ body.md-skin[type='InsertForm'] {
 				margin-left: 15px;
 			}
 
+			select {
+				width  : 100%;
+				outline: none;
+			}
+
 			.section-error {
 				display: none;
 			}
