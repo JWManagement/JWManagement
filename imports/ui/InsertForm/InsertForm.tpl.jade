@@ -12,12 +12,9 @@
 
 form.form-horizontal
 	each field in getFields
-		if isText field
-			with field
-				+InsertFormTextInput data=getInputData
-		else if isDate field
-			with field
-				+InsertFormDateInput data=getInputData
-		else if isDropdown field
+		if isDropdown field
 			with field
 				+InsertFormDropdownInput data=getInputData
+		else
+			with field
+				+InsertFormTextInput data=getInputData
