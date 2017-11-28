@@ -8,7 +8,7 @@ const PersistenceManager = require('/imports/api/persistence/PersistenceManager.
 Meteor.methods({
     'vessel.insert': (entity) => {
         try {
-            var persistenceManager = new PersistenceManager(Vessels);
+            const persistenceManager = new PersistenceManager(Vessels);
             persistenceManager.insert(entity);
             return entity._id;
         } catch(e) {
@@ -17,7 +17,7 @@ Meteor.methods({
     },
     'vessel.update': (entityId, key, value) => {
         try {
-            var persistenceManager = new PersistenceManager(Vessels);
+            const persistenceManager = new PersistenceManager(Vessels);
             persistenceManager.update(entityId, key, value);
         } catch(e) {
             throw new Meteor.Error(e);

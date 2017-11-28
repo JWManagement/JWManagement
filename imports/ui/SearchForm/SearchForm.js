@@ -135,7 +135,7 @@ Template.SearchForm.onRendered(() => {
     template.language = '';
 
     template.autorun(() => {
-        var tempLanguage = FlowRouter.getParam('language');
+        let tempLanguage = FlowRouter.getParam('language');
 
         if (template.language !== tempLanguage) {
             template.language = tempLanguage;
@@ -269,7 +269,7 @@ function getRows(template) {
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
     .map((item) => {
-        for (var i = 0; i < template.getColumns.length; i++) {
+        for (let i = 0; i < template.getColumns.length; i++) {
             const column = template.getColumns[i];
             if (column.dropdown != null && column.name in item) {
                 const keys = [

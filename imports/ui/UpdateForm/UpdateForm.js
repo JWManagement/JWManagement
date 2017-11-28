@@ -99,8 +99,8 @@ Template.UpdateForm.onRendered(() => {
         }
     });
 
-    for (var i = 0; i < template.fields.length; i++) {
-        var field = template.fields[i];
+    for (let i = 0; i < template.fields.length; i++) {
+        let field = template.fields[i];
 
         if (field.key == FlowRouter.getParam('key')) {
             if ('dropdown' in field) {
@@ -120,7 +120,7 @@ Template.UpdateForm.onDestroyed(() => {
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
 
-    var template = Template.instance();
+    const template = Template.instance();
 
     if (template.handle !== null) {
         template.handle.stop();

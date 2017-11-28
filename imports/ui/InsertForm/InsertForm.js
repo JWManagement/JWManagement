@@ -26,8 +26,8 @@ Template.InsertForm.helpers({
             parentInstance: Template.instance()
         };
 
-        for (var i = 0; i < errors.length; i++) {
-            var error = errors[i];
+        for (let i = 0; i < errors.length; i++) {
+            let error = errors[i];
 
             if (error.name == inputData.key) {
                 inputData.error = error.type;

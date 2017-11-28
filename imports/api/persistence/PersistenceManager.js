@@ -20,7 +20,7 @@ module.exports = class PersistenceManager {
 
     update(entityId, key, value) {
         try {
-            var entity = this.db.findOne(entityId);
+            const entity = this.db.findOne(entityId);
             entity[key] = value;
             this.validate(entity);
             this.db.update(entity._id, entity);
@@ -32,10 +32,10 @@ module.exports = class PersistenceManager {
     delete(entity) {}
 
     checkUniqueFields(entity) {
-        var errors = [];
+        const errors = [];
 
-        for (var i = 0; i < this.db.uniqueKeys.length; i++) {
-            var key = this.db.uniqueKeys[i];
+        for (let i = 0; i < this.db.uniqueKeys.length; i++) {
+            let key = this.db.uniqueKeys[i];
 
             if (key in entity) {
                 const alreadyExistingEntitiesCount = this.db.find({
