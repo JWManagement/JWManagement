@@ -15,6 +15,8 @@ navigation:
         details: Vessel details
         update: Edit vessel
         insert: New vessel
+        visit:
+            insert: New visit
     notes: Notes
     login: Login
     logout: Logout
@@ -378,11 +380,13 @@ vessel:
         eni: ENI
         imo: IMO
         mmsi: MMSI
-        visits:
+        visit:
             new: Note a new visit
             noElements: This ship has not been visited yet
-            lastVisit: Date
-            nextVisit: Next visit not before
+            user: Publisher
+            isUserVisible: Make your contact data visible for other publishers?
+            date: Date
+            dateNext: Next visit not before
             harborGroup: Harbor group
             languages: Language(s) on board
     search:
