@@ -35,7 +35,7 @@ Template['vessel.details'].helpers({
                     header: 'visitSection',
                     contents: [
                         {
-                            key: 'visits',
+                            key: 'visit',
                             type: [
                                 {
                                     key: 'visit',
@@ -64,9 +64,9 @@ Template['vessel.details'].helpers({
                     ],
                     actions: [
                         {
-                            key: 'visits.new',
+                            key: 'visit.new',
                             type: 'link',
-                            path: 'visits/new'
+                            path: 'visit/new'
                         }
                     ]
                 }

@@ -33,8 +33,8 @@ Template.DetailsForm.helpers({
         return TAPi18n.__([
             FlowRouter.getRouteName().split('.')[0],
             'entity',
-            'visits',
-            'noElements'
+            array,
+            key
         ].join('.'));
     },
     isLoading() {
@@ -139,6 +139,6 @@ Template.DetailsForm.onDestroyed(() => {
 Template.DetailsForm.events({
     'click .input': (e) => {
         const key = $(e.target).closest('.input').attr('key');
-        FlowRouter.go(FlowRouter.current().path + '/' + key);
+        FlowRouter.go(FlowRouter.current().path + '/' + key); // TODO: improve
     }
 });

@@ -57,9 +57,9 @@ Template.InsertFormDropdownInput.onRendered(() => {
 Template.InsertFormDropdownInput.onDestroyed(() => {});
 
 Template.InsertFormDropdownInput.events({
-    'change select': () => {
+    'change select': (e) => {
         const template = Template.instance();
-        const value = $('select[name=' + template.key + ']').val();
+        const value = $(e.target).val();
 
         template.insertForm.setFieldValue(template.key, value);
     }
