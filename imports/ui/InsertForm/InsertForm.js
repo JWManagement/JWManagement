@@ -7,10 +7,7 @@ import './InsertFormCheckboxInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('insert', 'search'), {
-            language: FlowRouter.getParam('language'),
-            projectId: FlowRouter.getParam('projectId')
-        });
+        return FlowRouter.path(FlowRouter.getRouteName().replace('insert', 'search'), FlowRouter.current().params);
     },
     getFields() {
         return Template.instance().fields;
@@ -106,16 +103,14 @@ Template.InsertForm.events({
                     alert('SERVER ERROR')
                 }
             } else {
-                Session.set([
-                    FlowRouter.getRouteName().split('.')[0],
-                    'search',
-                    'searchString'
-                ].join('.'), template.entity.callsign);
+                const routeNameParts = FlowRouter.getRouteName().split('.');
+                routeNameParts.pop();
 
-                FlowRouter.go([
-                    FlowRouter.getRouteName().split('.')[0],
-                    'details'
-                ].join('.'), {
+                Session.set(routeNameParts.concat(['search', 'searchString']).join('.'), template.entity.callsign); // TODO: generalize
+
+                routeNameParts.splice(1, 0, 'details');
+
+                FlowRouter.go(routeNameParts.join('.'), {
                     language: FlowRouter.getParam('language'),
                     projectId: FlowRouter.getParam('projectId'),
                     itemId: entityId

@@ -3,13 +3,13 @@ Template.registerHelper('getEntityTranslation', (key) => {
         key = FlowRouter.getParam('key');
     }
 
-    return TAPi18n.__([
-        FlowRouter.getRouteName().split('.')[0],
-        'entity',
-        key
-    ].join('.'));
-})
+    const routeNameParts = FlowRouter.getRouteName().split('.');
+    routeNameParts.pop();
+    routeNameParts.splice(1, 0, 'entity');
+
+    return TAPi18n.__(routeNameParts.concat([key]).join('.'));
+});
 
 Template.registerHelper('getTitle', (key) => {
     return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
-})
+});
