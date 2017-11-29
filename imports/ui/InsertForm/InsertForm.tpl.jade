@@ -15,6 +15,9 @@ form.form-horizontal
 		if isDropdown field
 			with field
 				+InsertFormDropdownInput data=getInputData
+		else if isCheckbox field
+			with field
+				+InsertFormCheckboxInput data=getInputData
 		else
 			with field
 				+InsertFormTextInput data=getInputData

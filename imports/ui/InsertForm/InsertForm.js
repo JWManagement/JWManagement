@@ -3,6 +3,7 @@ import './InsertForm.scss';
 
 import './InsertFormTextInput.js';
 import './InsertFormDropdownInput.js';
+import './InsertFormCheckboxInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
@@ -16,6 +17,9 @@ Template.InsertForm.helpers({
     },
     isDropdown(field) {
         return 'dropdown' in field;
+    },
+    isCheckbox(field) {
+        return field.type == 'checkbox';
     },
     getInputData() {
         const template = Template.instance();
