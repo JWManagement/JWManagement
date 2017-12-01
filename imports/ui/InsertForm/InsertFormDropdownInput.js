@@ -9,30 +9,6 @@ Template.InsertFormDropdownInput.helpers({
         const template = Template.instance();
         const item = Template.currentData();
         return template.key + 'Values.' + item;
-    },
-    getKey() { // TODO: register global helper
-        return Template.instance().key;
-    },
-    getErrorClass() { // TODO: register global helper
-        const data = Template.currentData().data;
-
-        if (data.error != null) {
-            return 'has-error';
-        }
-
-        return '';
-    },
-    hasError() { // TODO: register global helper
-        const data = Template.currentData().data;
-        return ['required', 'unique'].includes(data.error);
-    },
-    getEntityErrorTranslation() { // TODO: register global helper
-        const data = Template.currentData().data;
-        if (data.error == 'required') {
-            return TAPi18n.__('validation.required');
-        } else if (data.error == 'unique') {
-            return TAPi18n.__('validation.unique');
-        }
     }
 });
 

@@ -10,25 +10,6 @@ Template.UpdateFormTextInput.helpers({
     },
     getValue() {
         return Template.instance().value;
-    },
-    getErrorClass() {
-        const data = Template.currentData().data;
-        if (data.error != null) {
-            return 'has-error';
-        }
-        return '';
-    },
-    hasError() {
-        const data = Template.currentData().data;
-        return ['required', 'unique'].includes(data.error);
-    },
-    getEntityErrorTranslation() {
-        const data = Template.currentData().data;
-        if (data.error == 'required') {
-            return TAPi18n.__('validation.required');
-        } else if (data.error == 'unique') {
-            return TAPi18n.__('validation.unique');
-        }
     }
 });
 
