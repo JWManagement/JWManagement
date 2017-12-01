@@ -130,3 +130,9 @@ Template.UpdateForm.onDestroyed(() => {
         template.changeObserver.stop();
     }
 });
+
+Template.UpdateForm.events({
+    'submit form': (e) => {
+        e.preventDefault();
+    }
+});
