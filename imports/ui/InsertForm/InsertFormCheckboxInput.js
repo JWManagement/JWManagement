@@ -41,7 +41,7 @@ Template.InsertFormCheckboxInput.onDestroyed(() => {});
 Template.InsertFormCheckboxInput.events({
     'change input': (e) => {
         const template = Template.instance();
-        const value = $(e.target).val();
+        const value = $(e.target).is(':checked');
 
         template.insertForm.setFieldValue(template.key, value);
     }
