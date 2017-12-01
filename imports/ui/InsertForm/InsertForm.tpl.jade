@@ -18,6 +18,9 @@ form.form-horizontal
 		else if isCheckbox field
 			with field
 				+InsertFormCheckboxInput data=getInputData
+		else if isDate field
+			with field
+				+InsertFormDateInput data=getInputData
 		else
 			with field
 				+InsertFormTextInput data=getInputData

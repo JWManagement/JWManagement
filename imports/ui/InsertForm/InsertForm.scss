@@ -71,7 +71,7 @@ body.md-skin[type='InsertForm'] {
 				}
 			}
 
-			.date-input input {
+			.section-date input {
 				border     : 0;
 				outline    : 0;
 				margin-left: 15px;
@@ -108,6 +108,18 @@ body.md-skin[type='InsertForm'] {
 					padding: 5px 0 5px 15px;
 				}
 			}
+		}
+	}
+}
+
+html.no-date {
+	body.md-skin[type='InsertForm'] {
+		form .section .section-date {
+			padding         : 10px 0;
+			font-size       : 15px;
+			border-top      : 1px solid #ddd;
+			border-bottom   : 1px solid #ddd;
+			background-color: #fff;
 		}
 	}
 }

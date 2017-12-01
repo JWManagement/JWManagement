@@ -2,6 +2,7 @@ import './InsertForm.tpl.jade';
 import './InsertForm.scss';
 
 import './InsertFormTextInput.js';
+import './InsertFormDateInput.js';
 import './InsertFormDropdownInput.js';
 import './InsertFormCheckboxInput.js';
 
@@ -11,6 +12,9 @@ Template.InsertForm.helpers({
     },
     getFields() {
         return Template.instance().fields;
+    },
+    isDate(field) {
+        return field.type == Date;
     },
     isDropdown(field) {
         return 'dropdown' in field;

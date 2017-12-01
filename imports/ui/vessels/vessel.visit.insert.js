@@ -16,7 +16,8 @@ Template['vessel.visit.insert'].helpers({
                     type: 'checkbox',
                     required: true
                 }, {
-                    key: 'date'
+                    key: 'date',
+                    type: Date
                 }, {
                     key: 'dateNext'
                 }, {
