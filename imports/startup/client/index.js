@@ -12,3 +12,13 @@ SimpleSchemaHelper.init();
 Tracker.autorun(() => {
 	$('body').attr('page', FlowRouter.getRouteName());
 });
+
+window.WithModernizr = (callback) => {
+    if (typeof(Modernizr) == 'undefined') {
+        $.getScript("/lib/modernizr.min.js", () => {
+            callback();
+        });
+    } else {
+        callback();
+    }
+}
