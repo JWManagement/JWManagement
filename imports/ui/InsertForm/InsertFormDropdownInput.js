@@ -29,9 +29,9 @@ Template.InsertFormDropdownInput.helpers({
     getEntityErrorTranslation() { // TODO: register global helper
         const data = Template.currentData().data;
         if (data.error == 'required') {
-            return 'This field is required'; // TODO: translation
-        } else {
-            return 'There already is a record with this value'; // TODO: translation
+            return TAPi18n.__('validation.required');
+        } else if (data.error == 'unique') {
+            return TAPi18n.__('validation.unique');
         }
     }
 });
