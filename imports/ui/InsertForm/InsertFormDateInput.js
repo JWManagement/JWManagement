@@ -15,8 +15,6 @@ Template.InsertFormDateInput.onRendered(() => {
 
     WithModernizr(() => {
         if (!Modernizr.inputtypes.date) {
-            Modernizr.addTest('date', Modernizr.inputtypes.date);
-
             template.datepicker = template.$('#datepicker')
             .datepicker({
                 maxViewMode: 0,
