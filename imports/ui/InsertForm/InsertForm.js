@@ -102,7 +102,19 @@ Template.InsertForm.events({
 
             if (e != null) {
                 if (e.error.error == 'validation-error') {
-                    template.errors.set(e.error.details);
+                    if (e.error.reason != undefined) {
+                        template.errors.set(e.error.reason.map((error) => {
+                            const parts = error.name.split();
+                            error.name = parts[parts.length - 1];
+                            return error;
+                        }));
+                    } else if (e.error.details != undefined) {
+                        template.errors.set(e.error.details.map((error) => {
+                            const parts = error.name.split();
+                            error.name = parts[parts.length - 1];
+                            return error;
+                        }));
+                    }
                 } else {
                     alert('SERVER ERROR')
                 }
