@@ -41,17 +41,16 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	visits:
 		type: Array
-		autoValue: -> []
 	'visits.$': new SimpleSchema
 		userId:
 			type: String
+			autoValue: -> Meteor.userId()
 		isUserVisible:
 			type: Boolean
 		harborGroupId:
 			type: String
 		date:
 			type: Date
-			optional: true
 		dateNext:
 			type: Date
 			optional: true

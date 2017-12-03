@@ -97,7 +97,7 @@ Template.InsertForm.events({
 
         template.isSaving.set(true);
 
-        Meteor.call(FlowRouter.getRouteName(), template.entity, (e, entityId) => {
+        Meteor.call(FlowRouter.getRouteName(), FlowRouter.current().params, template.entity, (e, entityId) => {
             template.isSaving.set(false);
 
             if (e != null) {

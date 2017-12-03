@@ -6,7 +6,8 @@ import '/imports/ui/vessels/server/vessel.search.coffee'
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
-    'vessel.insert': (vessel) => {
+    'vessel.insert': (params, vessel) => {
+        // TODO: verify that user has permissions
         try {
             new PersistenceManager(Vessels).insert(vessel);
             return vessel._id;
@@ -15,6 +16,7 @@ Meteor.methods({
         }
     },
     'vessel.update': (vesselId, key, value) => {
+        // TODO: verify that user has permissions
         try {
             new PersistenceManager(Vessels).update(vesselId, key, value);
         } catch(e) {
