@@ -22,5 +22,24 @@ Meteor.methods({
         } catch(e) {
             throw new Meteor.Error(e);
         }
+    },
+    'vessel.visit.insert': (params, visit) => {
+        // TODO: verify that user has permissions
+
+        visit.date = new Date(visit.date);
+        visit.harborGroupId = params.projectId; // TODO: verify that is vessel project
+        delete visit.userId
+
+        const vessel = Vessels.findOne(params.itemId);
+        let visits = vessel.visits;
+
+        visits.push(visit);
+
+        try {
+            new PersistenceManager(Vessels).update(vessel._id, 'visits', visits);
+            return vessel._id;
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
     }
 })
