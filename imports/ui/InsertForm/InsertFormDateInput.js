@@ -12,19 +12,23 @@ Template.InsertFormDateInput.onCreated(() => {
 
 Template.InsertFormDateInput.onRendered(() => {
     const template = Template.instance();
+    const today = moment(new Date()).format('YYYY-MM-DD');
 
     WithModernizr(() => {
-        if (!Modernizr.inputtypes.date) {
-            template.datepicker = template.$('#datepicker')
-            .datepicker({
+        if (Modernizr.inputtypes.date) {
+            template.$('#datepicker').attr('value', today)
+        } else {
+            template.$('#datepicker').datepicker({
                 maxViewMode: 0,
                 weekStart: 1,
-                format: 'mm/dd/yyyy',
+                format: 'yyyy.mm.dd',
                 language: TAPi18n.getLanguage()
             })
             .datepicker('setDate', new Date());
         }
     });
+
+    template.insertForm.setFieldValue(template.key, today);
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
