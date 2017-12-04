@@ -41,6 +41,7 @@ Vessels.schema = new SimpleSchema
 		optional: true
 	visits:
 		type: Array
+		optional: true
 	'visits.$': new SimpleSchema
 		userId:
 			type: String
