@@ -95,8 +95,8 @@ FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/new', # TODO: ge
 		require('/imports/ui/vessels/vessel.visit.insert.js')
 		BlazeLayout.render 'vessel.visit.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId',
-	name: 'vessel.visit.details'
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId?',
+	name: 'vessel.details.visit'
 	action: -> Helpers.doIfLoggedIn -> wrs ->
 		FlowRouter.go('vessel.details', FlowRouter.current().params)
 
