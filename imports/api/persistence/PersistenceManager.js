@@ -21,7 +21,7 @@ module.exports = class PersistenceManager {
             const entity = this.db.findOne(entityId);
             entity[key] = value;
             this.validate(entity);
-            this.db.update(entity._id, entity);
+            this.db.update(entityId, entity);
         } catch(e) {
             throw new Meteor.Error(e.error, e.details);
         }

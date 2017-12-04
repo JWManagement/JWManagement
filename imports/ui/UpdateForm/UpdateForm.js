@@ -53,16 +53,16 @@ Template.UpdateForm.onCreated(() => {
     template.noResult = new ReactiveVar(true);
     template.error = new ReactiveVar();
     template.handle = null;
-    template.itemId = '';
+    template.entityId = '';
     template.value = '';
     template.inputType = '';
 
     template.updateEntity = (value) => {
         const routeName = FlowRouter.getRouteName();
-        const itemId = FlowRouter.getParam('itemId');
+        const entityId = FlowRouter.getParam('entityId');
         const key = FlowRouter.getParam('key');
 
-        Meteor.call(routeName, itemId, key, value, (e) => {
+        Meteor.call(routeName, entityId, key, value, (e) => {
             if (e != null) {
                 if (e.error.error == 'validation-error' && e.error.reason.length > 0) {
                     template.error.set(e.error.reason[0].type);
@@ -82,14 +82,14 @@ Template.UpdateForm.onRendered(() => {
     const template = Template.instance();
     const projectId = FlowRouter.getParam('projectId');
     const key = FlowRouter.getParam('key');
-    template.itemId = FlowRouter.getParam('itemId');
+    template.entityId = FlowRouter.getParam('entityId');
     template.isLoading.set(true);
     template.noResult.set(true);
 
-    template.handle = Meteor.subscribe(FlowRouter.getRouteName().split('.')[0], template.itemId, projectId);
+    template.handle = Meteor.subscribe(FlowRouter.getRouteName().split('.')[0], template.entityId, projectId);
 
     template.changeObserver = template.db.find({
-        _id: template.itemId
+        _id: template.entityId
     }).observe({
         added: (newValue) => {
             template.noResult.set(false);

@@ -75,7 +75,7 @@ Template.DetailsForm.onCreated(() => {
     template.noResult = new ReactiveVar(true);
     template.language = '';
     template.handle = null;
-    template.itemId = '';
+    template.entityId = '';
     template.item = new ReactiveVar({});
 });
 
@@ -89,14 +89,14 @@ Template.DetailsForm.onRendered(() => {
     template.isLoading.set(true);
     template.noResult.set(false);
 
-    template.itemId = FlowRouter.getParam('itemId');
+    template.entityId = FlowRouter.getParam('entityId');
     const projectId = FlowRouter.getParam('projectId');
     const routeName = FlowRouter.getRouteName().split('.')[0];
 
-    template.handle = Meteor.subscribe(routeName, template.itemId, projectId);
+    template.handle = Meteor.subscribe(routeName, template.entityId, projectId);
 
     template.changeObserver = template.db.find({
-        _id: template.itemId
+        _id: template.entityId
     }).observe({
         added: (newItem) => {
             template.noResult.set(false);

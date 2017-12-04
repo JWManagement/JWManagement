@@ -30,7 +30,7 @@ Meteor.methods({
         visit.harborGroupId = params.projectId; // TODO: verify that is vessel project
         delete visit.userId
 
-        const vessel = Vessels.findOne(params.itemId);
+        const vessel = Vessels.findOne(params.entityId);
         let visits = vessel.visits;
 
         visits.push(visit);

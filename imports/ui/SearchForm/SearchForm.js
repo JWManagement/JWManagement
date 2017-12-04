@@ -56,7 +56,7 @@ Template.SearchForm.helpers({
                         ].join('.'), {
                             language: language,
                             projectId: projectId,
-                            itemId: row._id
+                            entityId: row._id
                         }),
                         columns: columns.map((column) => {
                             return {

@@ -76,31 +76,31 @@ FlowRouter.route '/:language/:projectId/vessels/new',
 		require('/imports/ui/vessels/vessel.insert.js')
 		BlazeLayout.render 'vessel.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:itemId',
+FlowRouter.route '/:language/:projectId/vessels/:entityId',
 	name: 'vessel.details'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.details.js')
 		BlazeLayout.render 'vessel.details'
 
-FlowRouter.route '/:language/:projectId/vessels/:itemId/visits',
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visits',
 	name: 'vessel.visit.search'
 	action: -> Helpers.doIfLoggedIn -> wrs ->
 		FlowRouter.go('vessel.details', FlowRouter.current().params)
 
-FlowRouter.route '/:language/:projectId/vessels/:itemId/visit/new', # TODO: generalize
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/new', # TODO: generalize
 	name: 'vessel.visit.insert'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.visit.insert.js')
 		BlazeLayout.render 'vessel.visit.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:itemId/visit/:visitId',
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId',
 	name: 'vessel.visit.details'
 	action: -> Helpers.doIfLoggedIn -> wrs ->
 		FlowRouter.go('vessel.details', FlowRouter.current().params)
 
-FlowRouter.route '/:language/:projectId/vessels/:itemId/:key',
+FlowRouter.route '/:language/:projectId/vessels/:entityId/:key',
 	name: 'vessel.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->

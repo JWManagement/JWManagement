@@ -128,7 +128,7 @@ Template.InsertForm.events({
                 routeNameParts.splice(1, 0, 'details');
 
                 let params = FlowRouter.current().params
-                params.itemId = entityId;
+                params.entityId = entityId;
 
                 FlowRouter.go(routeNameParts.join('.'), params);
             }
