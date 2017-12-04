@@ -137,7 +137,12 @@ Template.SearchForm.onRendered(() => {
                 $('#table').html('');
 
                 template.table = FooTable.init('#table', {
-                    columns: template.getColumns,
+                    columns: template.getColumns.map((column) => {
+                        let routeParts = FlowRouter.getRouteName().split('.');
+                        routeParts.pop();
+                        column.title = TAPi18n.__(routeParts.concat(['entity', column.name]).join('.'));
+                        return column;
+                    }),
                     rows: getRows(template),
                     empty: '',
                     showToggle: false,
