@@ -123,15 +123,14 @@ Template.InsertForm.events({
                 const routeNameParts = FlowRouter.getRouteName().split('.');
                 routeNameParts.pop();
 
-                Session.set(routeNameParts.concat(['search', 'searchString']).join('.'), template.entity.callsign); // TODO: generalize
+                Session.set(routeNameParts.concat(['search', 'searchString']).join('.'), entityId);
 
                 routeNameParts.splice(1, 0, 'details');
 
-                FlowRouter.go(routeNameParts.join('.'), {
-                    language: FlowRouter.getParam('language'),
-                    projectId: FlowRouter.getParam('projectId'),
-                    itemId: entityId
-                });
+                let params = FlowRouter.current().params
+                params.itemId = entityId;
+
+                FlowRouter.go(routeNameParts.join('.'), params);
             }
         });
     }

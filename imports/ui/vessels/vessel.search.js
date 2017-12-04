@@ -37,6 +37,8 @@ Template['vessel.search'].helpers({
                 return {
                     selector: {
                         $or: [{
+                            _id: search
+                        }, {
                             name: search
                         }, {
                             callsign: search

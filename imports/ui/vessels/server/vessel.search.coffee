@@ -23,6 +23,7 @@ Meteor.publish 'vessel.search', (searchString, projectId, limit) ->
 
 		cursor = Vessels.find({
 			$or: [
+				{ _id: regEx },
 				{ name: regEx },
 				{ callsign: regEx },
 				{ eni: regEx },
