@@ -7,8 +7,9 @@ Template.InsertFormDropdownInput.helpers({
     },
     getItemKey() {
         const template = Template.instance();
-        const item = Template.currentData();
-        return template.key + 'Values.' + item;
+        const data = Template.currentData();
+
+        return template.key + 'Values.' + data;
     }
 });
 
@@ -26,7 +27,7 @@ Template.InsertFormDropdownInput.onRendered(() => {
     const template = Template.instance();
 
     Tracker.afterFlush(() => {
-        $('select[name=' + template.key + ']').val(template.value);
+        template.$('select').val(template.value);
     });
 });
 

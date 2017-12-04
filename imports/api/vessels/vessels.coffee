@@ -52,7 +52,7 @@ Vessels.schema = new SimpleSchema
 		isUserVisible:
 			type: Boolean
 			autoValue: -> true
-		harborGroupId:
+		projectId:
 			type: String
 		date:
 			type: Date

@@ -26,8 +26,8 @@ Meteor.methods({
     'vessel.visit.insert': (params, visit) => {
         // TODO: verify that user has permissions
 
-        visit.date = new Date(visit.date);
-        visit.harborGroupId = params.projectId; // TODO: verify that is vessel project
+        visit.date = moment(visit.date).format();
+        visit.projectId = params.projectId; // TODO: verify that is vessel project
         delete visit.userId
 
         const vessel = Vessels.findOne(params.entityId);
@@ -36,7 +36,7 @@ Meteor.methods({
         visits.push(visit);
 
         try {
-            new PersistenceManager(Vessels).update(vessel._id, 'visits', visits);
+            new PersistenceManager(Vessels).update(vessel._id, 'visits', visits); // TODO: add push method
             return vessel._id;
         } catch(e) {
             throw new Meteor.Error(e);
