@@ -3,10 +3,7 @@ import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('details', 'search'), {
-            language: FlowRouter.getParam('language'),
-            projectId: FlowRouter.getParam('projectId')
-        });
+        return FlowRouter.path(FlowRouter.getRouteName().replace('details', 'search'), FlowRouter.current().params);
     },
     getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
@@ -22,12 +19,10 @@ Template.DetailsForm.helpers({
     },
     getArrayElements(content) {
         const template = Template.instance();
-
         if (template.item.get()[content.key] != null) {
             return template.item.get()[content.key];
         }
-
-        return [];
+        return []; // TODO: fix
     },
     getArrayTranslation(array, key) {
         return TAPi18n.__([

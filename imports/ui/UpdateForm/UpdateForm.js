@@ -6,11 +6,7 @@ import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('update', 'details'), {
-            language: FlowRouter.getParam('language'),
-            projectId: FlowRouter.getParam('projectId'),
-            itemId: FlowRouter.getParam('itemId')
-        });
+        return FlowRouter.path(FlowRouter.getRouteName().replace('update', 'details'), FlowRouter.current().params);
     },
     isReady() {
         return !Template.instance().isLoading.get() && !Template.instance().noResult.get();

@@ -7,10 +7,7 @@ import './SearchForm.scss'
 
 Template.SearchForm.helpers({
     getBackLink() {
-        return FlowRouter.path('admin', {
-            language: FlowRouter.getParam('language'),
-            projectId: FlowRouter.getParam('projectId')
-        });
+        return FlowRouter.path('admin', FlowRouter.current().params);
     },
     getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
