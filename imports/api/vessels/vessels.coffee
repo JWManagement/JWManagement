@@ -43,11 +43,15 @@ Vessels.schema = new SimpleSchema
 		type: Array
 		optional: true
 	'visits.$': new SimpleSchema
-		userId:
+		createdAt:
+			type: Date
+			autoValue: -> new Date
+		createdBy:
 			type: String
 			autoValue: -> Meteor.userId()
 		isUserVisible:
 			type: Boolean
+			autoValue: -> true
 		harborGroupId:
 			type: String
 		date:
