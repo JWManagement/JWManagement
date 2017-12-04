@@ -17,7 +17,7 @@ Template.InsertForm.helpers({
         return field.type == Date;
     },
     isDropdown(field) {
-        return 'dropdown' in field;
+        return field.type == 'dropdown';
     },
     isCheckbox(field) {
         return field.type == 'checkbox';
@@ -90,6 +90,9 @@ Template.InsertForm.events({
     'change input': (e) => {
         $(e.target).closest('.section').removeClass('has-error');
     },
+    'change select': (e) => {
+        $(e.target).closest('.section').removeClass('has-error');
+    },
     'click .navbar-save': (e) => {
         e.preventDefault();
 
@@ -104,14 +107,12 @@ Template.InsertForm.events({
                 if (e.error.error == 'validation-error') {
                     if (e.error.reason != undefined) {
                         template.errors.set(e.error.reason.map((error) => {
-                            const parts = error.name.split();
-                            error.name = parts[parts.length - 1];
+                            error.name = error.name.split().pop();
                             return error;
                         }));
                     } else if (e.error.details != undefined) {
                         template.errors.set(e.error.details.map((error) => {
-                            const parts = error.name.split();
-                            error.name = parts[parts.length - 1];
+                            error.name = error.name.split().pop();
                             return error;
                         }));
                     }

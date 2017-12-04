@@ -20,7 +20,6 @@ module.exports = class PersistenceManager {
         try {
             const entity = this.db.findOne(entityId);
             entity[key] = value;
-            this.db.schema.clean(entity, { mutate: true });
             this.validate(entity);
             this.db.update(entity._id, entity);
         } catch(e) {
