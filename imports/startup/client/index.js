@@ -6,6 +6,8 @@ import './mainRoutes.coffee'
 import './projectRoutes.coffee'
 import './policyRoutes.coffee'
 
+import '/imports/ui/vessels/vessels.html';
+
 import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
 SimpleSchemaHelper.init();
 

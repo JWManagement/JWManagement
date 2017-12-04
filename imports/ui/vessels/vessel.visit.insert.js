@@ -2,8 +2,6 @@ import {
     Vessels
 } from '/imports/api/vessels/vessels.coffee';
 
-import './vessel.visit.insert.tpl.jade';
-
 import '/imports/ui/InsertForm/InsertForm.js';
 
 Template['vessel.visit.insert'].helpers({

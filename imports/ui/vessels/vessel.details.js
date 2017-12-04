@@ -2,8 +2,6 @@ import {
     Vessels
 } from '/imports/api/vessels/vessels.coffee';
 
-import './vessel.details.tpl.jade';
-
 import '/imports/ui/DetailsForm/DetailsForm.js';
 
 Template['vessel.details'].helpers({
