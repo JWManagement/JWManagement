@@ -1,7 +1,7 @@
 .section(class='{{getErrorClass}}')
 	.section-header {{getEntityTranslation getKey}}
 	.section-select
-		input(type='checkbox' value='')
+		input(type='checkbox' checked='true')
 		| {{getEntityTranslation getKey}}
 	if hasError
 		.section-error

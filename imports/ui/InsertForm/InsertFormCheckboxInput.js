@@ -11,7 +11,10 @@ Template.InsertFormCheckboxInput.onCreated(() => {
     template.insertForm = data.parentInstance;
 });
 
-Template.InsertFormCheckboxInput.onRendered(() => {});
+Template.InsertFormCheckboxInput.onRendered(() => {
+    const template = Template.instance();
+    template.insertForm.setFieldValue(template.key, true);
+});
 
 Template.InsertFormCheckboxInput.onDestroyed(() => {});
 
