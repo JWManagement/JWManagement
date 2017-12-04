@@ -46,7 +46,8 @@ body.md-skin[type='InsertForm'] {
 				text-transform: uppercase;
 			}
 
-			.section-content {
+			.section-content,
+			.section-select {
 				font-size       : 15px;
 				border-top      : 1px solid #ddd;
 				border-bottom   : 1px solid #ddd;
@@ -61,12 +62,9 @@ body.md-skin[type='InsertForm'] {
 			}
 
 			.section-select {
-				font-size   : 15px;
-				margin-left : 15px;
-				margin-right: 15px;
+				padding: 10px 15px;
 
 				select {
-					width  : 100%;
 					outline: none;
 				}
 			}

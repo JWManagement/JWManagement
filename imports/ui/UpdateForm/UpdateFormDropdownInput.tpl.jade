@@ -1,9 +1,13 @@
-table.results-mobile
-	each item in items
-		a(href)
-			tr
-				th.left
-				td.item
-					span {{item}}
-				td.link
-					i.fa.fa-check
+.section(class='{{getErrorClass}}')
+	.section-header {{getEntityTranslation}}
+	.section-select
+		select
+			with 'placeholder'
+				option(value) {{getEntityTranslation getItemKey}}
+			each item in items
+				option(value='{{item}}')
+					with item
+						| {{getEntityTranslation getItemKey}}
+	if hasError
+		.section-error
+			p {{getEntityErrorTranslation}}

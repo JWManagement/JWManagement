@@ -58,7 +58,8 @@ body.md-skin[type='UpdateForm'] {
 				text-transform: uppercase;
 			}
 
-			.section-content {
+			.section-content,
+			.section-select {
 				font-size       : 15px;
 				border-top      : 1px solid #ddd;
 				border-bottom   : 1px solid #ddd;
@@ -69,6 +70,14 @@ body.md-skin[type='UpdateForm'] {
 					border : 0;
 					outline: 0;
 					padding: 10px 0 10px 15px;
+				}
+			}
+
+			.section-select {
+				padding: 10px 15px;
+
+				select {
+					outline: none;
 				}
 			}
 

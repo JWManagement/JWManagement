@@ -24,6 +24,7 @@ Template.UpdateForm.helpers({
     getInputData() {
         const template = Template.instance();
         const error = template.error.get();
+        const key = FlowRouter.getParam('key');
         const inputData = {
             value: template.value,
             parentInstance: template
@@ -32,6 +33,15 @@ Template.UpdateForm.helpers({
         if (error != null) {
             inputData.error = error;
         }
+
+        template.fields.some((field) => {
+            if (field.key == key) {
+                if ('allowedValues' in field) {
+                    inputData.allowedValues = field.allowedValues;
+                }
+                return true;
+            }
+        });
 
         return inputData;
     }

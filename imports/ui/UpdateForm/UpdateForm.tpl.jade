@@ -14,6 +14,8 @@ else
 				+UpdateFormTextInput data=getInputData
 			else if isDate
 				+UpdateFormDateInput data=getInputData
+			else if isDropdown
+				+UpdateFormDropdownInput data=getInputData
 		else
 			.section
 				.section-header {{getEntityTranslation}}

@@ -17,7 +17,8 @@ Template['vessel.update'].helpers({
                     key: 'flag'
                 }, {
                     key: 'type',
-                    type: 'dropdown'
+                    type: 'dropdown',
+                    allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
                 }, {
                     key: 'callsign'
                 }, {
