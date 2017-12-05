@@ -383,12 +383,14 @@ vessel:
         visit:
             new: Note a new visit
             noElements: This ship has not been visited yet
-            user: Publisher
+            person: Publisher
             isUserVisible: Make your contact data visible for other publishers?
             date: Date
-            dateNext: Next visit not before
+            dateNext: Next visit preferably after
+            harbor: Harbor
             harborGroup: Harbor group
-            languages: Language(s) on board
+            country: Country
+            languages: Languages on board
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
