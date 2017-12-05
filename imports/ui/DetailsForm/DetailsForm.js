@@ -17,21 +17,6 @@ Template.DetailsForm.helpers({
     isArray(content) {
         return typeof(content.type) == 'object';
     },
-    getArrayElements(content) {
-        const template = Template.instance();
-        if (template.item.get()[content.key] != null) {
-            return template.item.get()[content.key];
-        }
-        return []; // TODO: fix
-    },
-    getArrayTranslation(array, key) {
-        return TAPi18n.__([
-            FlowRouter.getRouteName().split('.')[0],
-            'entity',
-            array,
-            key
-        ].join('.'));
-    },
     isLoading() {
         return Template.instance().isLoading.get();
     },
@@ -59,6 +44,18 @@ Template.DetailsForm.helpers({
                 return moment(value).format('DD.MM.YYYY');
             } else {
                 return value;
+            }
+        }
+    },
+    getArrayValue(array, index, content) {
+        const template = Template.instance();
+        const key = content.key;
+
+        if (array in template.item.get()) {
+            const entity = template.item.get()[key];
+
+            if (key in entity) {
+                return entity[key];
             }
         }
     }

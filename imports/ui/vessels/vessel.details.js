@@ -29,7 +29,7 @@ Template['vessel.details'].helpers({
                     header: 'visitSection',
                     contents: [
                         {
-                            key: 'visit',
+                            key: 'visits',
                             type: [
                                 {
                                     key: 'visit',

@@ -23,23 +23,22 @@ template(name="DetailsForm")
 					.section-content
 						each content in section.contents
 							if isArray content
-								each element in getArrayElements content.type
-									.array(key='{{element.key}}')
-										each item in content.type
-											tr.array-item
-												th.left
-												th
-													each field in item.fields
-														div
-															b {{field.key}}:
-												td.item
-													each field in item.fields
-														div
-															span {{field.key}}
-												td.link
-													i.fa.fa-chevron-right
-								else
-									p {{getArrayTranslation content.key 'noElements'}}
+								.array(key='{{element.key}}')
+									each entity in getValue content
+										tr.array-item
+											th.left
+											th
+												each field in content.type.[0].type
+													div
+														b {{getEntityTranslation content.type.[0].key field.key}}:
+											td.item
+												each field in content.type.[0].type
+													div
+														span {{getValue field.key}}
+											td.link
+												i.fa.fa-chevron-right
+									else
+										p {{getEntityTranslation content.type.[0].key 'noElements'}}
 							else if content.readonly
 								.form-group
 									.key {{getEntityTranslation content.key}}

@@ -2,16 +2,22 @@ Template.registerHelper('getTitle', (key) => {
     return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
 });
 
-Template.registerHelper('getEntityTranslation', (key) => {
+Template.registerHelper('getEntityTranslation', (key, suffix) => {
     if (key == null) {
         key = FlowRouter.getParam('key');
+    }
+
+    const attributeParts = [key];
+
+    if (suffix != null && typeof(suffix) == 'string') {
+        attributeParts.push(suffix);
     }
 
     const routeNameParts = FlowRouter.getRouteName().split('.');
     routeNameParts.pop();
     routeNameParts.splice(1, 0, 'entity');
 
-    return TAPi18n.__(routeNameParts.concat([key]).join('.'));
+    return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
 });
 
 Template.registerHelper('getKey', (key) => {
