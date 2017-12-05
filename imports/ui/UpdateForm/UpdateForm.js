@@ -1,4 +1,4 @@
-import './UpdateForm.tpl.jade';
+import './UpdateForm.jade';
 import './UpdateForm.scss';
 
 import './UpdateFormTextInput.js';

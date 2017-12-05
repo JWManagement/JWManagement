@@ -1,5 +1,3 @@
-import './UpdateFormTextInput.tpl.jade';
-
 Template.UpdateFormTextInput.helpers({
     getKeyTranslation() {
         return TAPi18n.__([

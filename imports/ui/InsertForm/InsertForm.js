@@ -1,4 +1,4 @@
-import './InsertForm.tpl.jade';
+import './InsertForm.jade';
 import './InsertForm.scss';
 
 import './InsertFormTextInput.js';

@@ -6,7 +6,12 @@ import './mainRoutes.coffee'
 import './projectRoutes.coffee'
 import './policyRoutes.coffee'
 
-import '/imports/ui/vessels/vessels.html';
+import '/imports/ui/DetailsForm/DetailsForm.js';
+import '/imports/ui/InsertForm/InsertForm.js';
+import '/imports/ui/SearchForm/SearchForm.js';
+import '/imports/ui/UpdateForm/UpdateForm.js';
+
+import '/imports/ui/vessels/vessels.jade';
 
 import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
 SimpleSchemaHelper.init();

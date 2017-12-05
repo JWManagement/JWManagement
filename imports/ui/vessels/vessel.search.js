@@ -1,8 +1,4 @@
-import {
-    Vessels
-} from '/imports/api/vessels/vessels.coffee';
-
-import '/imports/ui/SearchForm/SearchForm.js';
+import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
 Template['vessel.search'].helpers({
     data() {

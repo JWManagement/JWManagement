@@ -1,5 +1,3 @@
-import './InsertFormDateInput.tpl.jade';
-
 Template.InsertFormDateInput.helpers({});
 
 Template.InsertFormDateInput.onCreated(() => {

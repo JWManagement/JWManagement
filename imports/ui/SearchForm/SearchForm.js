@@ -1,8 +1,6 @@
-import {
-    Counts
-} from '/imports/api/counts/counts.coffee';
+import { Counts } from '/imports/api/counts/counts.coffee';
 
-import './SearchForm.tpl.jade';
+import './SearchForm.jade';
 import './SearchForm.scss'
 
 Template.SearchForm.helpers({

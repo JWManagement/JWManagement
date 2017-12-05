@@ -1,0 +1,49 @@
+template(name="UpdateForm")
+	.navigation-wrapper
+		nav.navbar.navbar-fixed-top
+			a.navbar-back(href="{{getBackLink}}")
+				i.fa.fa-angle-left.m-r-xs
+				| {{_ 'navigation.back'}}
+			.navbar-title {{getTitle}}
+
+	if isDropdown
+		+UpdateFormDropdownInput
+	else
+		form.form-horizontal
+			if isReady
+				if isText
+					+UpdateFormTextInput data=getInputData
+				else if isDate
+					+UpdateFormDateInput data=getInputData
+				else if isDropdown
+					+UpdateFormDropdownInput data=getInputData
+			else
+				.section
+					.section-header {{getEntityTranslation}}
+					.section-loading
+						i.fa.fa-circle-o-notch.fa-spin
+
+template(name="UpdateFormTextInput")
+	.section(class='{{getErrorClass}}')
+		.section-header {{getEntityTranslation}}
+		.section-content
+			.text-input
+				input(type='text' placeholder='{{getKeyTranslation}}' value='{{getValue}}' autofocus)
+		if hasError
+			.section-error
+				p {{getEntityErrorTranslation}}
+
+template(name="UpdateFormDropdownInput")
+	.section(class='{{getErrorClass}}')
+		.section-header {{getEntityTranslation}}
+		.section-select
+			select
+				with 'placeholder'
+					option(value) {{getEntityTranslation getItemKey}}
+				each item in items
+					option(value='{{item}}')
+						with item
+							| {{getEntityTranslation getItemKey}}
+		if hasError
+			.section-error
+				p {{getEntityErrorTranslation}}

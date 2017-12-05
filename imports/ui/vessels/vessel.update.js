@@ -1,8 +1,4 @@
-import {
-    Vessels
-} from '/imports/api/vessels/vessels.coffee';
-
-import '/imports/ui/UpdateForm/UpdateForm.js';
+import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
 Template['vessel.update'].helpers({
     data() {

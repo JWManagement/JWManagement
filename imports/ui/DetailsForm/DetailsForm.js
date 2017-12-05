@@ -1,4 +1,4 @@
-import './DetailsForm.tpl.jade';
+import './DetailsForm.jade';
 import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({

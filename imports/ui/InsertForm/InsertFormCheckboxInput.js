@@ -1,5 +1,3 @@
-import './InsertFormCheckboxInput.tpl.jade';
-
 Template.InsertFormCheckboxInput.helpers({});
 
 Template.InsertFormCheckboxInput.onCreated(() => {

@@ -1,5 +1,3 @@
-import './InsertFormTextInput.tpl.jade';
-
 Template.InsertFormTextInput.helpers({
     getValue() {
         const data = Template.currentData().data;

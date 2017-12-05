@@ -1,5 +1,3 @@
-import './InsertFormDropdownInput.tpl.jade';
-
 Template.InsertFormDropdownInput.helpers({
     items() {
         const template = Template.instance();

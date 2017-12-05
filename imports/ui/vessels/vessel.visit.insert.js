@@ -1,8 +1,4 @@
-import {
-    Vessels
-} from '/imports/api/vessels/vessels.coffee';
-
-import '/imports/ui/InsertForm/InsertForm.js';
+import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
 Template['vessel.visit.insert'].helpers({
     data() {
