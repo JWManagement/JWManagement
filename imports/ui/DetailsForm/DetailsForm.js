@@ -47,16 +47,9 @@ Template.DetailsForm.helpers({
             }
         }
     },
-    getArrayValue(array, index, content) {
-        const template = Template.instance();
-        const key = content.key;
-
-        if (array in template.item.get()) {
-            const entity = template.item.get()[key];
-
-            if (key in entity) {
-                return entity[key];
-            }
+    getProperty(entity, key) {
+        if (key in entity) {
+            return entity[key];
         }
     }
 });

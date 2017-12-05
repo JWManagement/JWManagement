@@ -34,7 +34,7 @@ template(name="DetailsForm")
 											td.item
 												each field in content.type.[0].type
 													div
-														span {{getValue field.key}}
+														span {{getProperty entity field.key}}
 											td.link
 												i.fa.fa-chevron-right
 									else
