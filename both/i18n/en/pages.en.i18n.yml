@@ -384,6 +384,8 @@ vessel:
             new: Note a new visit
             noElements: This ship has not been visited yet
             person: Publisher
+            email: Publisher email address
+            phone: Publisher phone number
             isUserVisible: Make your contact data visible for other publishers?
             date: Date
             dateNext: Next visit preferably after

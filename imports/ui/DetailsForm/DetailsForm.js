@@ -14,6 +14,12 @@ Template.DetailsForm.helpers({
     isButton(action) {
         return action.type == 'link';
     },
+    isTel(field) {
+        return field.type == 'tel';
+    },
+    isEmail(field) {
+        return field.type == 'email';
+    },
     isArray(content) {
         return typeof(content.type) == 'object';
     },

@@ -45,6 +45,12 @@ Template['vessel.details'].helpers({
                                         }, {
                                             key: 'person'
                                         }, {
+                                            key: 'email',
+                                            type: 'email'
+                                        }, {
+                                            key: 'phone',
+                                            type: 'tel'
+                                        }, {
                                             key: 'harbor'
                                         }, {
                                             key: 'harborGroup'
