@@ -81,11 +81,10 @@ Template.DetailsForm.onRendered(() => {
 
     template.entityId = FlowRouter.getParam('entityId');
     const projectId = FlowRouter.getParam('projectId');
-    const routeName = FlowRouter.getRouteName().split('.')[0];
 
-    template.handle = Meteor.subscribe(routeName, template.entityId, projectId);
+    template.handle = Meteor.subscribe(FlowRouter.getRouteName(), template.entityId, projectId);
 
-    template.changeObserver = template.db.find({
+    template.observeHandle = template.db.find({
         _id: template.entityId
     }).observe({
         added: (newItem) => {
@@ -116,8 +115,8 @@ Template.DetailsForm.onDestroyed(() => {
         template.handle.stop();
     }
 
-    if (template.changeObserver !== null) {
-        template.changeObserver.stop();
+    if (template.observeHandle !== null) {
+        template.observeHandle.stop();
     }
 });
 

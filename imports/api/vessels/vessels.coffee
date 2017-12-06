@@ -54,6 +54,8 @@ Vessels.schema = new SimpleSchema
 			autoValue: -> true
 		projectId:
 			type: String
+		harborId:
+			type: String
 		date:
 			type: Date
 		dateNext:
