@@ -54,40 +54,33 @@ body.md-skin[type='DetailsForm'] {
 				border-bottom   : 1px solid #ddd;
 				background-color: #fff;
 
-				> p {
-					color     : #333;
-					margin    : 10px 15px;
-					font-style: italic;
-				}
-
 				.array {
 					width  : 100%;
 					color  : inherit;
 					display: inline-block;
 
+					p.noElements {
+						color     : #333;
+						margin    : 10px 15px;
+						font-style: italic;
+					}
+
 					tr.array-item {
-						td,
-						th {
+						td.item,
+						th.left {
 							cursor       : pointer;
 							padding      : 10px 15px 10px 0;
 							font-size    : 15px;
 							text-align   : left;
 							border-bottom: 1px solid #eee;
 
-							b,
-							span {
-								margin     : 3px 0;
-								display    : block;
-								line-height: 1;
-								white-space: nowrap;
-
-								&:empty {
-									content: " ";
-								}
+							th.key {
+								margin: 3px 0;
 							}
 						}
 
-						th.left {
+						th.left,
+						th.middle {
 							width        : 15px;
 							border-bottom: 0;
 						}
@@ -97,9 +90,12 @@ body.md-skin[type='DetailsForm'] {
 						}
 
 						td.link {
-							color         : #ccc;
 							font-size     : 20px;
 							vertical-align: middle;
+
+							i {
+								margin-right: 15px;
+							}
 						}
 					}
 
