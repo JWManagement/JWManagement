@@ -14,7 +14,7 @@ Template.InsertForm.helpers({
         return Template.instance().fields;
     },
     isDate(field) {
-        return field.type == Date;
+        return field.type == 'date';
     },
     isDropdown(field) {
         return field.type == 'dropdown';

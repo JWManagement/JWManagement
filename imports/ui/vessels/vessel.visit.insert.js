@@ -11,7 +11,7 @@ Template['vessel.visit.insert'].helpers({
                     required: true
                 }, {
                     key: 'date',
-                    type: Date
+                    type: 'date'
                 }, {
                     key: 'dateNext'
                 }, {

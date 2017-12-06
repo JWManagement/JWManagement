@@ -46,16 +46,21 @@ Template.DetailsForm.helpers({
                     key + 'Values',
                     value.toLowerCase()
                 ].join('.'));
-            } else if (content.type == Date) {
-                return moment(value).format('DD.MM.YYYY');
+            } else if (content.type == 'date') {
+                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
+                return moment(value, 'YYYYMMDD').format(dateFormat);
             } else {
                 return value;
             }
         }
     },
-    getProperty(entity, key) {
-        if (key in entity) {
-            return entity[key];
+    getProperty(entity, field) {
+        if (field.key in entity) {
+            if (field.type == 'date') {
+                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
+                return moment(entity[field.key], 'YYYYMMDD').format(dateFormat);
+            }
+            return entity[field.key];
         }
     }
 });

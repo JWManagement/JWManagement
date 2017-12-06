@@ -57,9 +57,9 @@ Vessels.schema = new SimpleSchema
 		harborId:
 			type: String
 		date:
-			type: Date
+			type: Number
 		dateNext:
-			type: Date
+			type: Number
 			optional: true
 		languages:
 			type: String

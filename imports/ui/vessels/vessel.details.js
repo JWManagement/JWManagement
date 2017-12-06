@@ -36,10 +36,10 @@ Template['vessel.details'].helpers({
                                     type: [
                                         {
                                             key: 'date',
-                                            type: Date
+                                            type: 'date'
                                         }, {
                                             key: 'dateNext',
-                                            type: Date
+                                            type: 'date'
                                         }, {
                                             key: 'languages'
                                         }, {
