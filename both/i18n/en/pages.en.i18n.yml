@@ -393,6 +393,9 @@ vessel:
             harborGroup: Harbor group
             country: Country
             languages: Languages on board
+            harbor: Harbor
+            harborValues:
+                placeholder: Select a harbor
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
