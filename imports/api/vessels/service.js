@@ -7,7 +7,7 @@ import './publish/vessel.search.coffee'
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
-    'vessel.insert': (params, vessel) => {
+    'vessel.insert': ({}, vessel) => {
         // TODO: verify that user has permissions
         try {
             new PersistenceManager(Vessels).insert(vessel);
@@ -24,13 +24,13 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'vessel.visit.insert': (params, visit) => {
+    'vessel.visit.insert': ({ projectId, entityId }, visit) => {
         // TODO: verify that user has permissions
 
-        visit.projectId = params.projectId; // TODO: verify that is vessel project
+        visit.projectId = projectId; // TODO: verify that is vessel project
         delete visit.userId
 
-        const vessel = Vessels.findOne(params.entityId);
+        const vessel = Vessels.findOne(entityId);
         let visits = vessel.visits;
 
         visits.push(visit);
@@ -53,10 +53,10 @@ Meteor.methods({
         });
 
         if (project != null && project.vesselModule) {
-            return project.harbors.map((harbor) => {
+            return project.harbors.map(({ _id, name}) => {
                 return {
-                    key: harbor._id,
-                    value: harbor.name
+                    key: _id,
+                    value: name
                 }
             });
         }
