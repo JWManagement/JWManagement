@@ -93,11 +93,13 @@ body.md-skin[type='InsertForm'] {
 				color: #f44336;
 			}
 
-			.section-content {
+			.section-content,
+			.section-date {
 				border-top   : 0.5px solid #f44336;
 				border-bottom: 0.5px solid #f44336;
 			}
 
+			.section-date,
 			input {
 				background-color: lighten(#f44336, 35%);
 

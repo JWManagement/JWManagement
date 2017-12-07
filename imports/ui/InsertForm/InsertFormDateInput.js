@@ -38,7 +38,9 @@ Template.InsertFormDateInput.onRendered(() => {
         }
     });
 
-    template.insertForm.setFieldValue(template.key, parseInt(moment(new Date()).format('YYYYMMDD')));
+    if (template.defaultValue != null) {
+        template.$('.datepicker').change();
+    }
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
