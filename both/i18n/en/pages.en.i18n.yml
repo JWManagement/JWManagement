@@ -389,6 +389,7 @@ vessel:
             isUserVisible: Make your contact data visible for other publishers?
             date: Date
             dateNext: Next visit preferably after
+            harbor: Harbor
             harborId: Harbor
             harborIdValues:
                 placeholder: Select a harbor
