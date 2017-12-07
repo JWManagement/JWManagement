@@ -389,13 +389,12 @@ vessel:
             isUserVisible: Make your contact data visible for other publishers?
             date: Date
             dateNext: Next visit preferably after
-            harbor: Harbor
+            harborId: Harbor
+            harborIdValues:
+                placeholder: Select a harbor
             harborGroup: Harbor group
             country: Country
             languages: Languages on board
-            harbor: Harbor
-            harborValues:
-                placeholder: Select a harbor
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:

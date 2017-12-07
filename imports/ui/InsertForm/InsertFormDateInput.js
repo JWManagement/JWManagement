@@ -10,6 +10,8 @@ Template.InsertFormDateInput.onCreated(() => {
     if (data.defaultValue != null) {
         if (data.defaultValue == 'today') {
             template.defaultValue = moment(new Date()).format('YYYY-MM-DD');
+        } else {
+            template.defaultValue = data.defaultValue;
         }
     }
 });

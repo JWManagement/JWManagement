@@ -14,7 +14,7 @@ Template['vessel.visit.insert'].helpers({
                     type: 'date',
                     default: 'today'
                 }, {
-                    key: 'harbor',
+                    key: 'harborId',
                     type: 'dropdown',
                     allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
                 }, {

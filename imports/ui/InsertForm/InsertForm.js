@@ -111,19 +111,20 @@ Template.InsertForm.events({
 
             if (e != null) {
                 if (e.error.error == 'validation-error') {
-                    if (e.error.reason != undefined) {
-                        template.errors.set(e.error.reason.map((error) => {
-                            error.name = error.name.split().pop();
-                            return error;
-                        }));
-                    } else if (e.error.details != undefined) {
-                        template.errors.set(e.error.details.map((error) => {
-                            error.name = error.name.split().pop();
-                            return error;
-                        }));
+                    let errors = [];
+
+                    if (e.error.reason != null) {
+                        errors = errors.concat(e.error.reason);
+                    } else if (e.error.details != null) {
+                        errors = errors.concat(e.error.details);
                     }
+
+                    template.errors.set(errors.map((error) => {
+                        error.name = error.name.split('.').pop();
+                        return error;
+                    }));
                 } else {
-                    alert('SERVER ERROR')
+                    alert('SERVER ERROR');
                 }
             } else {
                 const routeNameParts = FlowRouter.getRouteName().split('.');
@@ -133,7 +134,7 @@ Template.InsertForm.events({
 
                 routeNameParts.splice(1, 0, 'details');
 
-                let params = FlowRouter.current().params
+                let params = FlowRouter.current().params;
                 params.entityId = entityId;
 
                 FlowRouter.go(routeNameParts.join('.'), params);

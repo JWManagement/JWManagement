@@ -62,7 +62,7 @@ body.md-skin[type='InsertForm'] {
 			}
 
 			.section-select {
-				padding: 10px 15px;
+				padding: 8px 15px 10px;
 
 				select {
 					outline: none;
@@ -70,16 +70,16 @@ body.md-skin[type='InsertForm'] {
 			}
 
 			.section-date {
-				padding         : 10px 0;
+				padding         : 9px 0 9px 15px;
 				font-size       : 15px;
 				border-top      : 1px solid #ddd;
 				border-bottom   : 1px solid #ddd;
 				background-color: #fff;
 
 				input {
-					border     : 0;
-					outline    : 0;
-					margin-left: 15px;
+					border : 0;
+					outline: 0;
+					padding: 0;
 				}
 			}
 
