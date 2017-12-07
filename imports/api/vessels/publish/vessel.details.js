@@ -68,8 +68,8 @@ function getExtendedVessel(vesselId) {
                     vessel.visits[0].phone = author.profile.telefon;
                 } else {
                     vessel.visits[0].person = 'Not visible';
-                    vessel.visits[0].email = '-';
-                    vessel.visits[0].phone = '-';
+                    vessel.visits[0].email = '';
+                    vessel.visits[0].phone = '';
                 }
 
                 const project = Projects.findOne(vessel.visits[0].projectId, {
