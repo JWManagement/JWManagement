@@ -27,7 +27,6 @@ Meteor.methods({
     'vessel.visit.insert': (params, visit) => {
         // TODO: verify that user has permissions
 
-        visit.date = moment(visit.date).format();
         visit.projectId = params.projectId; // TODO: verify that is vessel project
         delete visit.userId
 

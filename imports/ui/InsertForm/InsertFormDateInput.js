@@ -6,27 +6,37 @@ Template.InsertFormDateInput.onCreated(() => {
 
     template.key = data.key;
     template.insertForm = data.parentInstance;
+
+    if (data.defaultValue != null) {
+        if (data.defaultValue == 'today') {
+            template.defaultValue = moment(new Date()).format('YYYY-MM-DD');
+        }
+    }
 });
 
 Template.InsertFormDateInput.onRendered(() => {
     const template = Template.instance();
-    const today = moment(new Date()).format('YYYY-MM-DD');
 
     WithModernizr(() => {
         if (Modernizr.inputtypes.date) {
-            template.$('#datepicker').attr('value', today)
+            if (template.defaultValue != null) {
+                template.$('.datepicker').attr('value', template.defaultValue)
+            }
         } else {
-            template.$('#datepicker').datepicker({
+            const datepicker = template.$('.datepicker').datepicker({
                 maxViewMode: 0,
                 weekStart: 1,
                 format: 'yyyy.mm.dd',
                 language: TAPi18n.getLanguage()
-            })
-            .datepicker('setDate', new Date());
+            });
+
+            if (template.defaultValue != null) {
+                datepicker.datepicker('setDate', new Date());
+            }
         }
     });
 
-    template.insertForm.setFieldValue(template.key, today);
+    template.insertForm.setFieldValue(template.key, parseInt(moment(new Date()).format('YYYYMMDD')));
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
@@ -34,7 +44,7 @@ Template.InsertFormDateInput.onDestroyed(() => {});
 Template.InsertFormDateInput.events({
     'change input': (e) => {
         const template = Template.instance();
-        const value = $(e.target).val().trim();
+        const value = parseInt(moment($(e.target).val().trim(), 'YYYY-MM-DD').format('YYYYMMDD'));
 
         template.insertForm.setFieldValue(template.key, value);
     }

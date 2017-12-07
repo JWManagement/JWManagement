@@ -46,7 +46,10 @@ function getExtendedVessel(vesselId) {
     if (vessel != undefined) {
         if ('visits' in vessel) {
             if (vessel.visits.length > 1) {
-                vessel.visits = [vessel.visits.pop()]; // TODO: sort after date
+                vessel.visits.sort((a, b) => {
+                    a.date - b.date
+                });
+                vessel.visits = [vessel.visits.pop()];
             }
 
             if (vessel.visits.length > 0) {

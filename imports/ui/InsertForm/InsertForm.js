@@ -45,6 +45,9 @@ Template.InsertForm.helpers({
 
         template.fields.some((field) => {
             if (field.key == inputData.key) {
+                if ('default' in field) {
+                    inputData.defaultValue = field.default;
+                }
                 if ('allowedValues' in field) {
                     inputData.allowedValues = field.allowedValues;
                 }
