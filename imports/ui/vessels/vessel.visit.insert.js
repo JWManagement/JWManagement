@@ -1,7 +1,5 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
-const harborIds = ['1234', 'a', 'b']
-
 Template['vessel.visit.insert'].helpers({
     data() {
         return {
@@ -18,7 +16,7 @@ Template['vessel.visit.insert'].helpers({
                 }, {
                     key: 'harbor',
                     type: 'dropdown',
-                    allowedValues: harborIds
+                    allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
                 }, {
                     key: 'languages'
                 }, {

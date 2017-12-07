@@ -1,7 +1,19 @@
 Template.InsertFormDropdownInput.helpers({
-    items() {
+    isAllowedValues() {
+        const template = Template.instance();
+        return template.allowedValues != null;
+    },
+    isAllowedKeyValues() {
+        const template = Template.instance();
+        return template.allowedKeyValuesMethod != null;
+    },
+    getItems() {
         const template = Template.instance();
         return template.allowedValues;
+    },
+    getKeyValues() {
+        const template = Template.instance();
+        return template.allowedKeyValues.get();
     },
     getItemKey() {
         const template = Template.instance();
@@ -19,6 +31,17 @@ Template.InsertFormDropdownInput.onCreated(() => {
     template.value = data.value;
     template.insertForm = data.parentInstance;
     template.allowedValues = data.allowedValues;
+    template.allowedKeyValuesMethod = data.allowedKeyValuesMethod;
+
+    if (template.allowedKeyValuesMethod != null) {
+        template.allowedKeyValues = new ReactiveVar([]);
+
+        Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
+            if (e == null) {
+                template.allowedKeyValues.set(keyValues);
+            }
+        });
+    }
 });
 
 Template.InsertFormDropdownInput.onRendered(() => {

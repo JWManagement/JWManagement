@@ -41,5 +41,26 @@ Meteor.methods({
         } catch(e) {
             throw new Meteor.Error(e);
         }
+    },
+    'vessel.visit.getAvailableHarbors': ({ projectId }) => {
+        // TODO: verify that user has permissions
+
+        const project = Projects.findOne(projectId, {
+            fields: {
+                vesselModule: 1,
+                harbors: 1
+            }
+        });
+
+        if (project != null && project.vesselModule) {
+            return project.harbors.map((harbor) => {
+                return {
+                    key: harbor._id,
+                    value: harbor.name
+                }
+            });
+        }
+
+        return [];
     }
 })
