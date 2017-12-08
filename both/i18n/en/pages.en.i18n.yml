@@ -16,7 +16,9 @@ navigation:
         update: Edit vessel
         insert: New vessel
         visit:
+            details: Visit details
             insert: New visit
+            update: Edit visit
     notes: Notes
     login: Login
     logout: Logout
@@ -396,6 +398,8 @@ vessel:
             harborGroup: Harbor group
             country: Country
             languages: Languages on board
+            details:
+                mainSection: Visit data
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:

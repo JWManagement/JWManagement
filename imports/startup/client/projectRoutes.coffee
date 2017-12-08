@@ -95,14 +95,23 @@ FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/new', # TODO: ge
 		require('/imports/ui/vessels/vessel.visit.insert.js')
 		BlazeLayout.render 'vessel.visit.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId?',
-	name: 'vessel.details.visit'
-	action: -> Helpers.doIfLoggedIn -> wrs ->
-		FlowRouter.go('vessel.details', FlowRouter.current().params)
-
 FlowRouter.route '/:language/:projectId/vessels/:entityId/:key',
 	name: 'vessel.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.update.js')
 		BlazeLayout.render 'vessel.update'
+
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId',
+	name: 'vessel.visit.details'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.details.js')
+		BlazeLayout.render 'vessel.visit.details'
+
+FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId/:key',
+	name: 'vessel.visit.update'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.update.js')
+		BlazeLayout.render 'vessel.visit.update'

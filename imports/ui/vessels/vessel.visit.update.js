@@ -1,6 +1,6 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
-Template['vessel.visit.insert'].helpers({
+Template['vessel.visit.update'].helpers({
     data() {
         return {
             db: Vessels,
@@ -12,12 +12,12 @@ Template['vessel.visit.insert'].helpers({
                 }, {
                     key: 'date',
                     type: 'date',
-                    default: 'today',
                     required: true
                 }, {
                     key: 'harborId',
                     type: 'dropdown',
-                    allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
+                    allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors',
+                    required: true
                 }, {
                     key: 'languages'
                 }, {
