@@ -33,6 +33,7 @@ Template['vessel.details'].helpers({
                             type: [
                                 {
                                     key: 'visit',
+                                    link: 'vessel.visit.details',
                                     type: [
                                         {
                                             key: 'date',

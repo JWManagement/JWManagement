@@ -135,5 +135,15 @@ Template.DetailsForm.events({
     'click .input': (e) => {
         const key = $(e.target).closest('.input').attr('key');
         FlowRouter.go(FlowRouter.current().path + '/' + key); // TODO: improve
+    },
+    'click tr': (e) => {
+        const $tr = $(e.target).closest('tr.array-item');
+        const entityKey = $tr.attr('entityKey');
+        const entityId = $tr.attr('entityId');
+        const entityLink = $tr.attr('entityLink');
+        const params = FlowRouter.current().params;
+        params[entityKey] = entityId;
+
+        FlowRouter.go(FlowRouter.path(entityLink, params));
     }
 });

@@ -25,7 +25,7 @@ template(name="DetailsForm")
 							if isArray content
 								.array(key='{{element.key}}')
 									each entity in getValue content
-										tr.array-item
+										tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
 											th.left
 											td.item
 												each field in content.type.[0].type
