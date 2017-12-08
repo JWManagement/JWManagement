@@ -43,6 +43,9 @@ Vessels.schema = new SimpleSchema
 		type: Array
 		optional: true
 	'visits.$': new SimpleSchema
+		_id:
+			type: String
+			autoValue: -> Random.id() unless @isSet
 		createdAt:
 			type: Date
 			autoValue: -> new Date
@@ -51,7 +54,7 @@ Vessels.schema = new SimpleSchema
 			autoValue: -> Meteor.userId()
 		isUserVisible:
 			type: Boolean
-			autoValue: -> true
+			autoValue: -> true unless @isSet
 		projectId:
 			type: String
 		harborId:
