@@ -62,5 +62,60 @@ Meteor.methods({
         }
 
         return [];
+    },
+    'vessel.visit.get': ({ vesselId, visitId }) => {
+        const projectIds = GetGroupsForUser(Meteor.userId(), Permissions.member);
+        let returnVisit = {};
+
+        // TODO: only for admin
+        return [];
+
+        Projects.find({
+            _id: {
+                $in: projectIds
+            }
+        }, {
+            fields: {
+                vesselModule: 1,
+                harbors: 1
+            }
+        })
+        .fetch()
+        .some((project) => {
+            if (project.vesselModule) {
+                returnVisit = Vessels.find(vesselId, {
+                    fields: {
+                        visits: 1
+                    }
+                })
+                .fetch()
+                .map((vessel) => {
+                    if (vessel.visits != null) {
+                        return vessel.visits;
+                    } else {
+                        return [];
+                    }
+                })
+                .reduce((acc, vessel) => acc.concat(vessel.visits))
+                .filter((visit) => visit._id == visitId)
+                .reduce((acc, visit) => visit);
+
+                return true;
+            }
+        });
+
+        return returnVisit;
+    },
+    'vessel.visit.getLast': ({ vesselId }) => {
+        return Projects.find({
+            _id: { $in: GetGroupsForUser(Meteor.userId(), Permissions.member) }
+        }, {
+            fields: { vesselModule: 1, harbors: 1 }
+        })
+        .fetch()
+        .filter((project) => project.vesselModule)
+        .reduce(() => Vessels.findOne(vesselId, { fields: { visits: 1 }}).visits, [])
+        .sort((visitA, visitB) => visitA.date - visitB.date)
+        .pop();
     }
-})
+});
