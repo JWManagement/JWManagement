@@ -3,7 +3,8 @@ import { Vessels } from '/imports/api/vessels/vessels.coffee';
 Template['vessel.visit.details'].helpers({
     data() {
         return {
-            db: Vessels,
+            getMethod: 'vessel.visit.getLast',
+            backLink: 'vessel.details',
             sections: [
                 {
                     header: 'mainSection',

@@ -3,7 +3,7 @@ import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('details', 'search'), FlowRouter.current().params);
+        return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
@@ -35,10 +35,10 @@ Template.DetailsForm.helpers({
     getValue(content) {
         const template = Template.instance();
         const key = content.key;
+        const item = template.item.get();
 
-        if (key in template.item.get()) {
-            const value = template.item.get()[key];
-
+        if (key in item) {
+            const value = item[key];
             if (content.type == 'dropdown') {
                 return TAPi18n.__([
                     FlowRouter.getRouteName().split('.')[0],
@@ -68,14 +68,10 @@ Template.DetailsForm.helpers({
 Template.DetailsForm.onCreated(() => {
     const template = Template.instance();
 
-    template.db = {};
     template.sections = [];
-
+    template.backLink = new ReactiveVar('');
     template.isLoading = new ReactiveVar(true);
-    template.noResult = new ReactiveVar(false);
-    template.language = '';
-    template.handle = null;
-    template.entityId = '';
+    template.noResult = new ReactiveVar(false); // TODO: is this working?
     template.item = new ReactiveVar({});
 });
 
@@ -87,37 +83,17 @@ Template.DetailsForm.onRendered(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    template.db = data.db;
     template.sections = data.sections;
-
+    template.backLink.set(data.backLink);
     template.isLoading.set(true);
     template.noResult.set(false);
-    template.language = '';
-    template.handle = null;
-    template.entityId = '';
     template.item.set({});
 
-    template.entityId = FlowRouter.getParam('entityId');
-    const projectId = FlowRouter.getParam('projectId');
-
-    template.handle = Meteor.subscribe(FlowRouter.getRouteName(), template.entityId, projectId);
-
-    template.observeHandle = template.db.find({
-        _id: template.entityId
-    }).observe({
-        added: (newItem) => {
+    Meteor.call(data.getMethod, FlowRouter.current().params, (e, entity) => {
+        if (e == null) {
+            template.item.set(entity);
             template.noResult.set(false);
-            template.item.set(newItem);
-        },
-        changed: (oldItem, newItem) => {
-            template.item.set(newItem);
-        }
-    });
-
-    Tracker.autorun((tracker) => {
-        if (template.handle.ready()) {
             template.isLoading.set(false);
-            tracker.stop();
         }
     });
 });
@@ -128,14 +104,6 @@ Template.DetailsForm.onDestroyed(() => {
     $('body').attr('type', '');
 
     const template = Template.instance();
-
-    if (template.handle !== null) {
-        template.handle.stop();
-    }
-
-    if (template.observeHandle !== null) {
-        template.observeHandle.stop();
-    }
 });
 
 Template.DetailsForm.events({

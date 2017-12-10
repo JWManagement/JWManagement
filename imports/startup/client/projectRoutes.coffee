@@ -76,40 +76,35 @@ FlowRouter.route '/:language/:projectId/vessels/new',
 		require('/imports/ui/vessels/vessel.insert.js')
 		BlazeLayout.render 'vessel.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId',
+FlowRouter.route '/:language/:projectId/vessels/:vesselId',
 	name: 'vessel.details'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.details.js')
 		BlazeLayout.render 'vessel.details'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visits',
-	name: 'vessel.visit.search'
-	action: -> Helpers.doIfLoggedIn -> wrs ->
-		FlowRouter.go('vessel.details', FlowRouter.current().params)
-
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/new', # TODO: generalize
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/new', # TODO: generalize
 	name: 'vessel.visit.insert'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.visit.insert.js')
 		BlazeLayout.render 'vessel.visit.insert'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/:key',
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/:key',
 	name: 'vessel.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.update.js')
 		BlazeLayout.render 'vessel.update'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId',
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId',
 	name: 'vessel.visit.details'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.visit.details.js')
 		BlazeLayout.render 'vessel.visit.details'
 
-FlowRouter.route '/:language/:projectId/vessels/:entityId/visit/:visitId/:key',
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/:key',
 	name: 'vessel.visit.update'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->

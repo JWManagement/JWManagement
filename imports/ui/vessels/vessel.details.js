@@ -3,7 +3,8 @@ import { Vessels } from '/imports/api/vessels/vessels.coffee';
 Template['vessel.details'].helpers({
     data() {
         return {
-            db: Vessels,
+            getMethod: 'vessel.get',
+            backLink: 'vessel.search',
             sections: [
                 {
                     header: 'identificationSection',
