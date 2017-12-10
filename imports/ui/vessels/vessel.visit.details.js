@@ -1,6 +1,6 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee';
 
-Template['vessel.details'].helpers({
+Template['vessel.visit.details'].helpers({
     data() {
         return {
             db: Vessels,

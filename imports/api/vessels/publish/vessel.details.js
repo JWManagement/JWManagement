@@ -1,6 +1,11 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish('vessel.details', function(vesselId, projectId) {
+Meteor.publish('vessel.details', vesselPublish);
+Meteor.publish('vessel.visit.details', vesselPublish);
+
+// TODO: replace with methods to only get back the data we need
+
+function vesselPublish(vesselId, projectId) {
 
     if (typeof(vesselId) != 'string' || vesselId == '') {
         return [];
@@ -38,7 +43,7 @@ Meteor.publish('vessel.details', function(vesselId, projectId) {
     this.onStop(() => {
         handle.stop();
     });
-});
+}
 
 function getExtendedVessel(vesselId) {
     let vessel = Vessels.findOne(vesselId);

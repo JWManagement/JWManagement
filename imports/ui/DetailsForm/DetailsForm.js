@@ -67,13 +67,12 @@ Template.DetailsForm.helpers({
 
 Template.DetailsForm.onCreated(() => {
     const template = Template.instance();
-    const data = Template.currentData().data;
 
-    template.db = data.db;
-    template.sections = data.sections;
+    template.db = {};
+    template.sections = [];
 
     template.isLoading = new ReactiveVar(true);
-    template.noResult = new ReactiveVar(true);
+    template.noResult = new ReactiveVar(false);
     template.language = '';
     template.handle = null;
     template.entityId = '';
@@ -86,9 +85,17 @@ Template.DetailsForm.onRendered(() => {
     $('body').attr('type', 'DetailsForm');
 
     const template = Template.instance();
+    const data = Template.currentData().data;
+
+    template.db = data.db;
+    template.sections = data.sections;
 
     template.isLoading.set(true);
     template.noResult.set(false);
+    template.language = '';
+    template.handle = null;
+    template.entityId = '';
+    template.item.set({});
 
     template.entityId = FlowRouter.getParam('entityId');
     const projectId = FlowRouter.getParam('projectId');
