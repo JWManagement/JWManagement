@@ -35,10 +35,10 @@ Template.UpdateForm.onCreated(() => {
 
     template.updateEntity = (value) => {
         const routeName = FlowRouter.getRouteName();
-        const entityId = FlowRouter.getParam('entityId');
+        const params = FlowRouter.current().params;
         const key = FlowRouter.getParam('key');
 
-        Meteor.call(routeName, entityId, key, value, (e) => {
+        Meteor.call(routeName, params, key, value, (e) => {
             if (e != null) {
                 if (e.error.error == 'validation-error' && e.error.reason.length > 0) {
                     template.error.set(e.error.reason[0].type);
@@ -62,7 +62,7 @@ Template.UpdateForm.onRendered(() => {
     template.isLoading.set(true);
     template.noResult.set(true);
     template.error.set({});
-    template.inputData.set({});
+    template.inputData.set({ parentInstance: template });
 
     Meteor.call(data.getMethod, FlowRouter.current().params, (e, value) => {
         if (e == null) {
