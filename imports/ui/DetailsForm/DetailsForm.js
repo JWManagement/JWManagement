@@ -94,6 +94,8 @@ Template.DetailsForm.onRendered(() => {
             template.item.set(entity);
             template.noResult.set(false);
             template.isLoading.set(false);
+        } else {
+            alert('SERVER ERROR')
         }
     });
 });

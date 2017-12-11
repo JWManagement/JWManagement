@@ -65,13 +65,14 @@ Template.UpdateForm.onRendered(() => {
     template.inputData.set({});
 
     Meteor.call(data.getMethod, FlowRouter.current().params, (e, value) => {
-        // TODO: error handling?
         if (e == null) {
             const inputData = template.inputData.get();
             inputData.value = value;
             template.inputData.set(inputData);
             template.noResult.set(false);
             template.isLoading.set(false);
+        } else {
+            alert('SERVER ERROR')
         }
     });
 
