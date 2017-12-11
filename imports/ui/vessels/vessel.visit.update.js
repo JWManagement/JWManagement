@@ -7,17 +7,14 @@ Template['vessel.visit.update'].helpers({
             fields: [
                 {
                     key: 'isUserVisible',
-                    type: 'checkbox',
-                    required: true
+                    type: 'checkbox'
                 }, {
                     key: 'date',
-                    type: 'date',
-                    required: true
+                    type: 'date'
                 }, {
                     key: 'harborId',
                     type: 'dropdown',
-                    allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors',
-                    required: true
+                    allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
                 }, {
                     key: 'languages'
                 }, {

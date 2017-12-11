@@ -7,13 +7,11 @@ Template['vessel.visit.insert'].helpers({
             fields: [
                 {
                     key: 'isUserVisible',
-                    type: 'checkbox',
-                    required: true
+                    type: 'checkbox'
                 }, {
                     key: 'date',
                     type: 'date',
-                    default: 'today',
-                    required: true
+                    default: 'today'
                 }, {
                     key: 'harborId',
                     type: 'dropdown',
