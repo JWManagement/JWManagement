@@ -6,32 +6,25 @@ import './publish/vessel.search.coffee'
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
-    'vessel.get': ({ vesselId }) => {
-        return Projects.find({
-            _id: { $in: GetGroupsForUser(Meteor.userId(), Permissions.member) }
-        }, {
-            fields: { vesselModule: 1, harbors: 1 }
+    'vessel.get': ({ projectId, vesselId }) => {
+        return Projects.find(projectId, {
+            fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId), {});
     },
-    'vessel.getField': ({ vesselId, key }) => {
-        return Projects.find({
-            _id: { $in: GetGroupsForUser(Meteor.userId(), Permissions.member) }
-        }, {
-            fields: { vesselModule: 1, harbors: 1 }
+    'vessel.getField': ({ projectId, vesselId, key }) => {
+        return Projects.find(projectId, {
+            fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId), {})[key];
     },
-    'vessel.insert': ({}, vessel) => {
+    'vessel.insert': ({ projectId }, vessel) => {
         const project = Projects.findOne(projectId, {
-            fields: {
-                vesselModule: 1,
-                harbors: 1
-            }
+            fields: { vesselModule: 1 }
         });
 
         if (project != null && project.vesselModule) {
@@ -43,12 +36,9 @@ Meteor.methods({
             }
         }
     },
-    'vessel.update': (vesselId, key, value) => {
+    'vessel.update': ({ projectId, vesselId }, key, value) => {
         const project = Projects.findOne(projectId, {
-            fields: {
-                vesselModule: 1,
-                harbors: 1
-            }
+            fields: { vesselModule: 1 }
         });
 
         if (project != null && project.vesselModule) {
@@ -61,10 +51,7 @@ Meteor.methods({
     },
     'vessel.visit.insert': ({ projectId, vesselId }, visit) => {
         const project = Projects.findOne(projectId, {
-            fields: {
-                vesselModule: 1,
-                harbors: 1
-            }
+            fields: { vesselModule: 1 }
         });
 
         if (project != null && project.vesselModule) {
@@ -84,21 +71,16 @@ Meteor.methods({
     },
     'vessel.visit.getAvailableHarbors': ({ projectId }) => {
         return Projects.find(projectId, {
-            fields: {
-                vesselModule: 1,
-                harbors: 1
-            }
+            fields: { vesselModule: 1, harbors: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce((acc, project) => acc.concat(project.harbors), [])
         .map(({_id, name}) => { return { key: _id, value: name } });
     },
-    'vessel.visit.getLast': ({ vesselId }) => {
-        return Projects.find({
-            _id: { $in: GetGroupsForUser(Meteor.userId(), Permissions.member) }
-        }, {
-            fields: { vesselModule: 1, harbors: 1 }
+    'vessel.visit.getLast': ({ projectId, vesselId }) => {
+        return Projects.find(projectId, {
+            fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
