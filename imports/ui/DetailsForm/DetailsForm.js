@@ -9,7 +9,7 @@ Template.DetailsForm.helpers({
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },
     getActionPath(action) {
-        return FlowRouter.current().path + '/' + action.path;
+        return FlowRouter.path(action.route, FlowRouter.current().params);
     },
     isButton(action) {
         return action.type == 'link';

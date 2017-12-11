@@ -68,7 +68,7 @@ Template['vessel.details'].helpers({
                         {
                             key: 'visit.new',
                             type: 'link',
-                            path: 'visit/new'
+                            route: 'vessel.visit.insert'
                         }
                     ]
                 }
