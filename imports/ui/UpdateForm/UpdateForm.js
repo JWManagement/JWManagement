@@ -6,40 +6,19 @@ import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('update', 'details'), FlowRouter.current().params);
+        return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     isReady() {
         return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
     },
     isText() {
-        return Template.instance().inputType == 'text';
+        return Template.instance().inputData.get().type == 'text';
     },
     isDropdown() {
-        return Template.instance().inputType == 'dropdown';
+        return Template.instance().inputData.get().type == 'dropdown';
     },
     getInputData() {
-        const template = Template.instance();
-        const error = template.error.get();
-        const key = FlowRouter.getParam('key');
-        const inputData = {
-            value: template.value,
-            parentInstance: template
-        };
-
-        if (error != null) {
-            inputData.error = error;
-        }
-
-        template.fields.some((field) => {
-            if (field.key == key) {
-                if ('allowedValues' in field) {
-                    inputData.allowedValues = field.allowedValues;
-                }
-                return true;
-            }
-        });
-
-        return inputData;
+        return Template.instance().inputData.get();
     }
 });
 
@@ -47,15 +26,12 @@ Template.UpdateForm.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    template.db = data.db;
-    template.fields = data.fields;
+    template.backLink = new ReactiveVar('');
     template.isLoading = new ReactiveVar(true);
     template.noResult = new ReactiveVar(true);
-    template.error = new ReactiveVar();
-    template.handle = null;
-    template.entityId = '';
-    template.value = '';
-    template.inputType = '';
+    template.error = new ReactiveVar({});
+    template.inputData = new ReactiveVar({});
+    template.inputType = new ReactiveVar('');
 
     template.updateEntity = (value) => {
         const routeName = FlowRouter.getRouteName();
@@ -80,42 +56,43 @@ Template.UpdateForm.onRendered(() => {
     $('body').attr('type', 'UpdateForm');
 
     const template = Template.instance();
-    const projectId = FlowRouter.getParam('projectId');
-    const key = FlowRouter.getParam('key');
-    template.entityId = FlowRouter.getParam('entityId');
+    const data = Template.currentData().data;
+
+    template.backLink.set(data.backLink);
     template.isLoading.set(true);
     template.noResult.set(true);
+    template.error.set({});
+    template.inputData.set({});
 
-    template.handle = Meteor.subscribe(FlowRouter.getRouteName().split('.')[0], template.entityId, projectId);
-
-    template.changeObserver = template.db.find({
-        _id: template.entityId
-    }).observe({
-        added: (newValue) => {
+    Meteor.call(data.getMethod, FlowRouter.current().params, (e, value) => {
+        // TODO: error handling?
+        if (e == null) {
+            const inputData = template.inputData.get();
+            inputData.value = value;
+            template.inputData.set(inputData);
             template.noResult.set(false);
-            template.value = newValue[key];
-        },
-        changed: (oldValue, newValue) => {
-            template.value = newValue[key]; // TODO: shouldn't work anyway
-        }
-    });
-
-    Tracker.autorun((tracker) => {
-        if (template.handle.ready()) {
             template.isLoading.set(false);
-            tracker.stop();
         }
     });
 
-    template.fields.some((field) => {
+    data.fields.some((field) => {
         if (field.key == FlowRouter.getParam('key')) {
+            const inputData = template.inputData.get();
+            inputData.type = 'text';
+
             if (field.type == 'dropdown') {
-                template.inputType = 'dropdown';
+                inputData.type = 'dropdown';
+
+                if ('allowedValues' in field) {
+                    inputData.allowedValues = field.allowedValues;
+                } else if ('allowedKeyValues' in field) {
+                    inputData.allowedKeyValues = field.allowedKeyValues;
+                }
             } else if (field.type == 'date') {
-                template.inputType = 'date';
-            } else {
-                template.inputType = 'text';
+                inputData.type = 'date';
             }
+
+            template.inputData.set(inputData);
             return true;
         }
     });
@@ -125,16 +102,6 @@ Template.UpdateForm.onDestroyed(() => {
     $('body').removeClass('md-skin');
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
-
-    const template = Template.instance();
-
-    if (template.handle !== null) {
-        template.handle.stop();
-    }
-
-    if (template.changeObserver !== null) {
-        template.changeObserver.stop();
-    }
 });
 
 Template.UpdateForm.events({

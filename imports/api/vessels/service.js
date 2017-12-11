@@ -16,6 +16,16 @@ Meteor.methods({
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId), {});
     },
+    'vessel.getField': ({ vesselId, key }) => {
+        return Projects.find({
+            _id: { $in: GetGroupsForUser(Meteor.userId(), Permissions.member) }
+        }, {
+            fields: { vesselModule: 1, harbors: 1 }
+        })
+        .fetch()
+        .filter((project) => project.vesselModule)
+        .reduce(() => getExtendedVessel(vesselId), {})[key];
+    },
     'vessel.insert': ({}, vessel) => {
         // TODO: verify that user has permissions
         try {
