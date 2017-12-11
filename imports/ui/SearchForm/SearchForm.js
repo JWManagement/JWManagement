@@ -5,7 +5,7 @@ import './SearchForm.scss'
 
 Template.SearchForm.helpers({
     getBackLink() {
-        return FlowRouter.path('admin', FlowRouter.current().params);
+        return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params);
     },
     getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
@@ -45,25 +45,21 @@ Template.SearchForm.helpers({
             const language = FlowRouter.getParam('language');
             const projectId = FlowRouter.getParam('projectId');
 
-            return getRows(template)
-                .map((row) => {
-                    return {
-                        link: FlowRouter.path([
-                            FlowRouter.getRouteName().split('.')[0],
-                            'details'
-                        ].join('.'), {
-                            language: language,
-                            projectId: projectId,
-                            entityId: row._id
-                        }),
-                        columns: columns.map((column) => {
-                            return {
-                                th: column.translation,
-                                td: row[column.name]
-                            };
-                        })
-                    };
-                });
+            return getRows(template).map((row) => {
+                return {
+                    link: FlowRouter.path(template.entityLink, {
+                        language: language,
+                        projectId: projectId,
+                        [template.entityId]: row._id
+                    }),
+                    columns: columns.map((column) => {
+                        return {
+                            th: column.translation,
+                            td: row[column.name]
+                        };
+                    })
+                };
+            });
         }
 
         return false;
@@ -101,6 +97,9 @@ Template.SearchForm.onCreated(() => {
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
     template.getColumns = data.getColumns;
+    template.entityId = data.entityId;
+    template.entityLink = data.entityLink;
+    template.backLink = data.backLink;
 
     template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '');
     template.isLoading = new ReactiveVar(false);
@@ -222,7 +221,11 @@ Template.SearchForm.events({
         });
     },
     'click .results-desktop tbody tr:not(.footable-empty)': (e) => {
-        FlowRouter.go(FlowRouter.current().path + '/' + $(e.target).closest('tr').find('td').first().html());
+        const template = Template.instance();
+        const entityId = $(e.target).closest('tr').find('td').first().html();
+        const params = FlowRouter.current().params;
+        params[template.entityId] = entityId;
+        FlowRouter.go(FlowRouter.path(template.entityLink, params));
     },
     'keyup #search': (e) => {
         updateSearch(Template.instance(), e.target.value);
