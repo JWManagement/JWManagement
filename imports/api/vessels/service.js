@@ -86,6 +86,15 @@ Meteor.methods({
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId).visits, [])
         .pop();
+    },
+    'vessel.visit.getField': ({ projectId, vesselId, visitId, key }) => {
+        return Projects.find(projectId, {
+            fields: { vesselModule: 1 }
+        })
+        .fetch()
+        .filter((project) => project.vesselModule)
+        .reduce(() => getExtendedVessel(vesselId).visits, [])
+        .pop()[key];
     }
 });
 
