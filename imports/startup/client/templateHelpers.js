@@ -26,7 +26,7 @@ Template.registerHelper('getKey', (key) => {
 
 Template.registerHelper('hasError', (key) => {
     const data = Template.currentData().data;
-    return ['required', 'unique'].includes(data.error);
+    return ['required', 'unique', 'expectedType'].includes(data.error);
 });
 
 Template.registerHelper('getErrorClass', (key) => {
@@ -40,6 +40,8 @@ Template.registerHelper('getErrorClass', (key) => {
 Template.registerHelper('getEntityErrorTranslation', (key) => {
     const data = Template.currentData().data;
     if (data.error == 'required') {
+        return TAPi18n.__('validation.required');
+    } else if (data.error == 'expectedType') {
         return TAPi18n.__('validation.required');
     } else if (data.error == 'unique') {
         return TAPi18n.__('validation.unique');
