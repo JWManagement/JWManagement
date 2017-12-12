@@ -104,14 +104,15 @@ Template.DetailsForm.onDestroyed(() => {
     $('body').removeClass('md-skin');
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
-
-    const template = Template.instance();
 });
 
 Template.DetailsForm.events({
     'click .input': (e) => {
-        const key = $(e.target).closest('.input').attr('key');
-        FlowRouter.go(FlowRouter.current().path + '/' + key); // TODO: improve
+        const updateLink = FlowRouter.getRouteName().replace('details', 'update');
+        const params = FlowRouter.current().params;
+        params.key = $(e.target).closest('.input').attr('key');
+
+        FlowRouter.go(FlowRouter.path(updateLink, params));
     },
     'click tr': (e) => {
         const $tr = $(e.target).closest('tr.array-item');
