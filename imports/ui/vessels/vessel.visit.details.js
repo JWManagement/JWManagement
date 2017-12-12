@@ -1,4 +1,5 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee';
+import getLanguages from '/imports/api/util/languages.js';
 
 Template['vessel.visit.details'].helpers({
     data() {
@@ -33,10 +34,30 @@ Template['vessel.visit.details'].helpers({
                             key: 'country',
                             readonly: true
                         }, {
-                            key: 'languages'
-                        }, {
                             key: 'dateNext',
                             type: 'date'
+                        }
+                    ]
+                },
+                {
+                    header: 'languageSection',
+                    contents: [
+                        {
+                            key: 'languageIds',
+                            type: [
+                                {
+                                    key: 'languageId',
+                                    type: 'dropdown',
+                                    allowedValues: getLanguages()
+                                }
+                            ]
+                        }
+                    ],
+                    actions: [
+                        {
+                            key: 'language.new',
+                            type: 'link',
+                            route: 'vessel.visit.language.insert'
                         }
                     ]
                 }

@@ -25,32 +25,38 @@ template(name="DetailsForm")
 							if isArray content
 								.array(key='{{element.key}}')
 									each entity in getValue content
-										tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
-											th.left
-											td.item
-												each field in content.type.[0].type
-													tr.field
-														th.key {{getEntityTranslation content.type.[0].key field.key}}:
-														th.middle
-														td.value
-															if isTel field
-																if getProperty entity field
-																	a(href='tel:{{getProperty entity field}}')
-																		| {{getProperty entity field}}
+										if isArray content.type.[0]
+											tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
+												th.left
+												td.item
+													each field in content.type.[0].type
+														tr.field
+															th.key {{getEntityTranslation content.type.[0].key field.key}}:
+															th.middle
+															td.value
+																if isTel field
+																	if getProperty entity field
+																		a(href='tel:{{getProperty entity field}}')
+																			| {{getProperty entity field}}
+																	else
+																		| -
+																else if isEmail field
+																	if getProperty entity field
+																		a(href='mailto:{{getProperty entity field}}')
+																			| {{getProperty entity field}}
+																	else
+																		| -
+																else if getProperty entity field
+																	| {{getProperty entity field}}
 																else
 																	| -
-															else if isEmail field
-																if getProperty entity field
-																	a(href='mailto:{{getProperty entity field}}')
-																		| {{getProperty entity field}}
-																else
-																	| -
-															else if getProperty entity field
-																| {{getProperty entity field}}
-															else
-																| -
 											td.link(rowspan='{{content.type.[0].type.count}}')
 												i.fa.fa-angle-right
+										else if isDropdown content.type.[0]
+											.input.form-group(key='{{getLinkedKey content.type.[0]}}')
+												.key {{getProperty entity content.type.[0]}}
+												.value
+													i.fa.fa-trash.icon
 									else
 										p.noElements {{getEntityTranslation content.type.[0].key 'noElements'}}
 							else if content.readonly

@@ -26,8 +26,11 @@ Template.DetailsForm.helpers({
     isEmail(field) {
         return field.type == 'email';
     },
+    isDropdown(field) {
+        return field.type == 'dropdown';
+    },
     isArray(content) {
-        return typeof(content.type) == 'object';
+        return typeof(content.type) == 'object' && content.type.length >= 0;
     },
     isLoading() {
         return Template.instance().isLoading.get();
@@ -43,8 +46,11 @@ Template.DetailsForm.helpers({
         const key = content.key;
         const item = template.item.get();
 
+        console.log(item[key]);
+
         if (key in item) {
             const value = item[key];
+
             if (content.type == 'dropdown') {
                 return TAPi18n.__([
                     FlowRouter.getRouteName().split('.')[0],
@@ -65,14 +71,19 @@ Template.DetailsForm.helpers({
         }
     },
     getProperty(entity, field) {
+        if (field.type == 'dropdown') {
+            return TAPi18n.__('language._' + entity.toUpperCase());
+        }
+
         if (field.key in entity) {
+            const value = entity[field.key];
+
             if (field.type == 'date') {
-                if (entity[field.key] != null) {
+                if (value != null) {
                     const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                    return moment(entity[field.key], 'YYYYMMDD').format(dateFormat);
-                } else {
-                    return '';
+                    return moment(value, 'YYYYMMDD').format(dateFormat);
                 }
+                return '';
             }
             return entity[field.key];
         }

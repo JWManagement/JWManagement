@@ -397,6 +397,8 @@ vessel:
                 placeholder: Select a harbor
             harborGroup: Harbor group
             country: Country
+            language:
+                new: Add a language
             languages: Languages on board
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
@@ -407,6 +409,7 @@ vessel:
     visit:
         details:
             mainSection: Visit data
+            languageSection: Language data
             dateFormat: MM/DD/YYYY
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
