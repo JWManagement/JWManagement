@@ -165,9 +165,12 @@ function getExtendedVessel(vesselId) {
                 vessel.visits[0].country = project.country;
                 vessel.visits[0].harborGroup = project.harborGroup;
 
-                vessel.visits[0].harbor = project.harbors.filter((harbor) => {
+                const harbor = project.harbors.filter((harbor) => {
                     return harbor._id == vessel.visits[0].harborId;
-                })[0].name;
+                })[0];
+
+                vessel.visits[0].harborId = harbor._id;
+                vessel.visits[0].harbor = harbor.name;
             }
         } else {
             vessel.visits = [];

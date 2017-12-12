@@ -27,16 +27,31 @@ Template.UpdateFormDropdownInput.onCreated(() => {
     const data = Template.currentData().data;
 
     template.value = data.value;
-    template.allowedValues = data.allowedValues;
-    template.allowedKeyValues = data.allowedKeyValues;
     template.updateForm = data.parentInstance;
+    template.allowedValues = data.allowedValues;
+    template.allowedKeyValuesMethod = data.allowedKeyValuesMethod;
+    template.allowedKeyValues = new ReactiveVar([]);
+
+    if (template.allowedKeyValuesMethod != null) {
+        Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
+            if (e == null) {
+                template.allowedKeyValues.set(keyValues);
+            } else {
+                alert('SERVER ERROR');
+            }
+        });
+    }
 });
 
 Template.UpdateFormDropdownInput.onRendered(() => {
     const template = Template.instance();
 
-    Tracker.afterFlush(() => {
-        template.$('select').val(template.value);
+    template.autorun(() => {
+        template.allowedKeyValues.get();
+
+        Tracker.afterFlush(() => {
+            template.$('select').val(template.value);
+        });
     });
 });
 

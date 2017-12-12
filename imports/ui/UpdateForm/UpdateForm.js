@@ -90,8 +90,8 @@ Template.UpdateForm.onRendered(() => {
 
                 if ('allowedValues' in field) {
                     inputData.allowedValues = field.allowedValues;
-                } else if ('allowedKeyValues' in field) {
-                    inputData.allowedKeyValues = field.allowedKeyValues;
+                } else if ('allowedKeyValuesMethod' in field) {
+                    inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }
             } else if (field.type == 'date') {
                 inputData.type = 'date';
