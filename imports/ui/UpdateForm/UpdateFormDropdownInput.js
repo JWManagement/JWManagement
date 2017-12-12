@@ -1,7 +1,19 @@
 Template.UpdateFormDropdownInput.helpers({
-    items() {
+    isAllowedValues() {
+        const template = Template.instance();
+        return template.allowedValues != null;
+    },
+    isAllowedKeyValues() {
+        const template = Template.instance();
+        return template.allowedKeyValuesMethod != null;
+    },
+    getItems() {
         const template = Template.instance();
         return template.allowedValues;
+    },
+    getKeyValues() {
+        const template = Template.instance();
+        return template.allowedKeyValues.get();
     },
     getItemKey() {
         const template = Template.instance();
@@ -16,6 +28,7 @@ Template.UpdateFormDropdownInput.onCreated(() => {
 
     template.value = data.value;
     template.allowedValues = data.allowedValues;
+    template.allowedKeyValues = data.allowedKeyValues;
     template.updateForm = data.parentInstance;
 });
 

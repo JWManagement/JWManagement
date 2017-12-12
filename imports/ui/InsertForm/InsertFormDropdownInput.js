@@ -18,7 +18,6 @@ Template.InsertFormDropdownInput.helpers({
     getItemKey() {
         const template = Template.instance();
         const data = Template.currentData();
-
         return template.key + 'Values.' + data;
     }
 });

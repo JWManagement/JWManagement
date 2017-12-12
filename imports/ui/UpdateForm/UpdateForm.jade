@@ -6,22 +6,19 @@ template(name="UpdateForm")
 				| {{_ 'navigation.back'}}
 			.navbar-title {{getTitle}}
 
-	if isDropdown
-		+UpdateFormDropdownInput
-	else
-		form.form-horizontal
-			if isReady
-				if isText
-					+UpdateFormTextInput data=getInputData
-				else if isDate
-					+UpdateFormDateInput data=getInputData
-				else if isDropdown
-					+UpdateFormDropdownInput data=getInputData
-			else
-				.section
-					.section-header {{getEntityTranslation}}
-					.section-loading
-						i.fa.fa-circle-o-notch.fa-spin
+	form.form-horizontal
+		if isReady
+			if isText
+				+UpdateFormTextInput data=getInputData
+			else if isDate
+				+UpdateFormDateInput data=getInputData
+			else if isDropdown
+				+UpdateFormDropdownInput data=getInputData
+		else
+			.section
+				.section-header {{getEntityTranslation}}
+				.section-loading
+					i.fa.fa-circle-o-notch.fa-spin
 
 template(name="UpdateFormTextInput")
 	.section(class='{{getErrorClass}}')
@@ -40,10 +37,12 @@ template(name="UpdateFormDropdownInput")
 			select
 				with 'placeholder'
 					option(value) {{getEntityTranslation getItemKey}}
-				each item in items
-					option(value='{{item}}')
-						with item
-							| {{getEntityTranslation getItemKey}}
+					if isAllowedValues
+						each getItems
+							option(value='{{this}}') {{getEntityTranslation getItemKey}}
+					else if isAllowedKeyValues
+						each keyValue in getKeyValues
+							option(value='{{keyValue.key}}') {{keyValue.value}}
 		if hasError
 			.section-error
 				p {{getEntityErrorTranslation}}

@@ -29,7 +29,6 @@ Template.UpdateForm.onCreated(() => {
     template.backLink = new ReactiveVar('');
     template.isLoading = new ReactiveVar(true);
     template.noResult = new ReactiveVar(true);
-    template.error = new ReactiveVar({});
     template.inputData = new ReactiveVar({});
     template.inputType = new ReactiveVar('');
 
@@ -41,7 +40,9 @@ Template.UpdateForm.onCreated(() => {
         Meteor.call(routeName, params, key, value, (e) => {
             if (e != null) {
                 if (e.error.error == 'validation-error' && e.error.reason.length > 0) {
-                    template.error.set(e.error.reason[0].type);
+                    let inputData = template.inputData.get();
+                    inputData.error = e.error.reason[0].type;
+                    template.inputData.set(inputData);
                 } else {
                     alert('SERVER ERROR')
                 }
@@ -61,12 +62,11 @@ Template.UpdateForm.onRendered(() => {
     template.backLink.set(data.backLink);
     template.isLoading.set(true);
     template.noResult.set(true);
-    template.error.set({});
     template.inputData.set({ parentInstance: template });
 
     Meteor.call(data.getMethod, FlowRouter.current().params, (e, value) => {
         if (e == null) {
-            const inputData = template.inputData.get();
+            let inputData = template.inputData.get();
             inputData.value = value;
             template.inputData.set(inputData);
             template.noResult.set(false);
@@ -78,7 +78,7 @@ Template.UpdateForm.onRendered(() => {
 
     data.fields.some((field) => {
         if (field.key == FlowRouter.getParam('key')) {
-            const inputData = template.inputData.get();
+            let inputData = template.inputData.get();
             inputData.type = 'text';
 
             if (field.type == 'dropdown') {

@@ -7,7 +7,7 @@ const PersistenceManager = require('/imports/api/persistence/PersistenceManager.
 
 Meteor.methods({
     'vessel.get': ({ projectId, vesselId }) => {
-        return Projects.find(projectId, {
+        return Projects.find(projectId, { // TODO: write a function for this check
             fields: { vesselModule: 1 }
         })
         .fetch()
