@@ -61,8 +61,12 @@ Template.DetailsForm.helpers({
     getProperty(entity, field) {
         if (field.key in entity) {
             if (field.type == 'date') {
-                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                return moment(entity[field.key], 'YYYYMMDD').format(dateFormat);
+                if (entity[field.key] != null) {
+                    const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
+                    return moment(entity[field.key], 'YYYYMMDD').format(dateFormat);
+                } else {
+                    return '';
+                }
             }
             return entity[field.key];
         }

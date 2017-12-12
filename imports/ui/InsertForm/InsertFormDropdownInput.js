@@ -38,6 +38,8 @@ Template.InsertFormDropdownInput.onCreated(() => {
         Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
             if (e == null) {
                 template.allowedKeyValues.set(keyValues);
+            } else {
+                alert('SERVER ERROR');
             }
         });
     }
