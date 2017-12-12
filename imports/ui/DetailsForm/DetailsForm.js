@@ -5,6 +5,12 @@ Template.DetailsForm.helpers({
     getBackLink() {
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
+    getLinkedKey(content) {
+        if (content.linkedKey != null) {
+            return content.linkedKey;
+        }
+        return content.key;
+    },
     getTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
     },

@@ -58,7 +58,7 @@ template(name="DetailsForm")
 									.key {{getEntityTranslation content.key}}
 									.value {{getValue content}}
 							else
-								.input.form-group(key='{{content.key}}')
+								.input.form-group(key='{{getLinkedKey content}}')
 									.key {{getEntityTranslation content.key}}
 									.value
 										| {{getValue content}}

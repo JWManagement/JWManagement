@@ -24,7 +24,8 @@ Template['vessel.visit.details'].helpers({
                             type: 'tel',
                             readonly: true
                         }, {
-                            key: 'harbor'
+                            key: 'harbor',
+                            linkedKey: 'harborId'
                         }, {
                             key: 'harborGroup',
                             readonly: true
