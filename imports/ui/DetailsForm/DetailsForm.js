@@ -115,6 +115,7 @@ Template.DetailsForm.events({
         FlowRouter.go(FlowRouter.path(updateLink, params));
     },
     'click tr': (e) => {
+        e.stopPropagation();
         const $tr = $(e.target).closest('tr.array-item');
         const entityKey = $tr.attr('entityKey');
         const entityId = $tr.attr('entityId');
