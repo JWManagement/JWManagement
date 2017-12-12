@@ -102,6 +102,8 @@ Meteor.methods({
         if (project != null && project.vesselModule) {
             const lastVisitId = getExtendedVessel(vesselId).visits[0]._id;
 
+            // TODO: prevent entering a date before the last
+
             if (visitId == lastVisitId) {
                 const visits = Vessels.findOne(vesselId).visits.map((visit) => {
                     if (visit._id == visitId) {

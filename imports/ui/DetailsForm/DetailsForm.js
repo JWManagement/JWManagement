@@ -47,8 +47,12 @@ Template.DetailsForm.helpers({
                     value.toLowerCase()
                 ].join('.'));
             } else if (content.type == 'date') {
-                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                return moment(value, 'YYYYMMDD').format(dateFormat);
+                if (value != null) {
+                    const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
+                    return moment(value, 'YYYYMMDD').format(dateFormat);
+                } else {
+                    return '';
+                }
             } else {
                 return value;
             }

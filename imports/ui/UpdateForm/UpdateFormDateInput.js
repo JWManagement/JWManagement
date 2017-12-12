@@ -50,7 +50,11 @@ Template.UpdateFormDateInput.events({
 
         if (!template.initializing) {
             const value = $('input').val().trim();
-            const valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format('YYYYMMDD'));
+            let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format('YYYYMMDD'));
+
+            if (value == '') {
+                valueRaw = null;
+            }
 
             if (valueRaw != template.valueRaw) {
                 template.valueRaw = valueRaw;
