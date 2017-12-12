@@ -13,19 +13,24 @@ Template['vessel.visit.details'].helpers({
                             key: 'date',
                             type: 'date'
                         }, {
-                            key: 'person'
+                            key: 'person',
+                            readonly: true
                         }, {
                             key: 'email',
-                            type: 'email'
+                            type: 'email',
+                            readonly: true
                         }, {
                             key: 'phone',
-                            type: 'tel'
+                            type: 'tel',
+                            readonly: true
                         }, {
                             key: 'harbor'
                         }, {
-                            key: 'harborGroup'
+                            key: 'harborGroup',
+                            readonly: true
                         }, {
-                            key: 'country'
+                            key: 'country',
+                            readonly: true
                         }, {
                             key: 'languages'
                         }, {

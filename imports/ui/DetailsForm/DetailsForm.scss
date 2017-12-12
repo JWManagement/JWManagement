@@ -110,13 +110,17 @@ body.md-skin[type='DetailsForm'] {
 			}
 
 			div.form-group {
-				&:last-of-type {
-					border-bottom: 0;
-				}
-				cursor       : pointer;
 				margin       : 0 0 0 15px;
 				padding      : 0;
 				border-bottom: 1px solid #ddd;
+
+				&:last-of-type {
+					border-bottom: 0;
+				}
+
+				&.input {
+					cursor: pointer;
+				}
 
 				.key {
 					float  : left;
