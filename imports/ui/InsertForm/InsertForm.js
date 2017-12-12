@@ -8,7 +8,7 @@ import './InsertFormCheckboxInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
-        return FlowRouter.path(FlowRouter.getRouteName().replace('insert', 'search'), FlowRouter.current().params);
+        return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getFields() {
         return Template.instance().fields;
@@ -71,6 +71,7 @@ Template.InsertForm.onCreated(() => {
 
     template.db = data.db;
     template.fields = data.fields;
+    template.backLink = new ReactiveVar(data.backLink);
     template.entity = {};
     template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);

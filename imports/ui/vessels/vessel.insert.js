@@ -3,7 +3,7 @@ import { Vessels } from '/imports/api/vessels/vessels.coffee';
 Template['vessel.insert'].helpers({
     data() {
         return {
-            db: Vessels,
+            backLink: 'vessel.search',
             fields: [
                 {
                     key: 'name'

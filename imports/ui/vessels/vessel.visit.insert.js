@@ -3,7 +3,7 @@ import { Vessels } from '/imports/api/vessels/vessels.coffee';
 Template['vessel.visit.insert'].helpers({
     data() {
         return {
-            db: Vessels,
+            backLink: 'vessel.details',
             fields: [
                 {
                     key: 'isUserVisible',
