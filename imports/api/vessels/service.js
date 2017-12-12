@@ -1,6 +1,5 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-import './publish/vessel.coffee'
 import './publish/vessel.search.coffee'
 
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');

@@ -1,5 +1,7 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
+# TODO: see 3cc1487 (use methods instead of publishes for DetailsForm)
+
 Meteor.publish 'vessel.search', (searchString, projectId, limit) ->
 
 	if typeof searchString != 'string' || searchString == ''
