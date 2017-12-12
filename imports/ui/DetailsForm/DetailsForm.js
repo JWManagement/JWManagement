@@ -66,7 +66,7 @@ Template.DetailsForm.helpers({
 });
 
 Template.DetailsForm.onCreated(() => {
-    const template = Template.instance();
+    const template = Template.instance(); // TODO: when changing profile email, also change visits
 
     template.sections = [];
     template.backLink = new ReactiveVar('');

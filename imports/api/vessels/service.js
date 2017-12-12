@@ -95,6 +95,28 @@ Meteor.methods({
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId).visits, [])
         .pop()[key];
+    },
+    'vessel.visit.update': ({ projectId, vesselId, visitId }, key, value) => {
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+
+        if (project != null && project.vesselModule) {
+            const lastVisitId = getExtendedVessel(vesselId).visits[0]._id;
+
+            if (visitId == lastVisitId) {
+                const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                    if (visit._id == visitId) {
+                        visit[key] = value;
+                    }
+                    return visit;
+                });
+
+                try {
+                    new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                } catch(e) {
+                    throw new Meteor.Error(e);
+                }
+            }
+        }
     }
 });
 
