@@ -1,27 +1,28 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
+import getLanguages from '/imports/api/util/languages.js'
 
 import './publish/vessel.search.coffee'
 
 const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
-    'vessel.get': ({ projectId, vesselId }) => {
+    'vessel.get': ({ language, projectId, vesselId }) => {
         return Projects.find(projectId, { // TODO: write a function for this check
             fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId), {});
+        .reduce(() => getExtendedVessel(vesselId, language), {});
     },
-    'vessel.getField': ({ projectId, vesselId, key }) => {
+    'vessel.getField': ({ language, projectId, vesselId, key }) => {
         return Projects.find(projectId, {
             fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId), {})[key];
+        .reduce(() => getExtendedVessel(vesselId, language), {})[key];
     },
-    'vessel.insert': ({ projectId }, vessel) => {
+    'vessel.insert': ({ language, projectId }, vessel) => {
         const project = Projects.findOne(projectId, {
             fields: { vesselModule: 1 }
         });
@@ -35,7 +36,7 @@ Meteor.methods({
             }
         }
     },
-    'vessel.update': ({ projectId, vesselId }, key, value) => {
+    'vessel.update': ({ language, projectId, vesselId }, key, value) => {
         const project = Projects.findOne(projectId, {
             fields: { vesselModule: 1 }
         });
@@ -77,29 +78,29 @@ Meteor.methods({
         .reduce((acc, project) => acc.concat(project.harbors), [])
         .map(({_id, name}) => { return { key: _id, value: name } });
     },
-    'vessel.visit.getLast': ({ projectId, vesselId }) => {
+    'vessel.visit.getLast': ({ language, projectId, vesselId }) => {
         return Projects.find(projectId, {
             fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId).visits, [])
+        .reduce(() => getExtendedVessel(vesselId, language).visits, [])
         .pop();
     },
-    'vessel.visit.getField': ({ projectId, vesselId, visitId, key }) => {
+    'vessel.visit.getField': ({ language, projectId, vesselId, visitId, key }) => {
         return Projects.find(projectId, {
             fields: { vesselModule: 1 }
         })
         .fetch()
         .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId).visits, [])
+        .reduce(() => getExtendedVessel(vesselId, language).visits, [])
         .pop()[key];
     },
-    'vessel.visit.update': ({ projectId, vesselId, visitId }, key, value) => {
+    'vessel.visit.update': ({ language, projectId, vesselId, visitId }, key, value) => {
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const lastVisitId = getExtendedVessel(vesselId).visits[0]._id;
+            const lastVisitId = getExtendedVessel(vesselId, language).visits[0]._id;
 
             // TODO: prevent entering a date before the last
 
@@ -121,7 +122,7 @@ Meteor.methods({
     }
 });
 
-function getExtendedVessel(vesselId) {
+function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
     let vessel = Vessels.findOne(vesselId);
 
     if (vessel != undefined) {
@@ -168,13 +169,19 @@ function getExtendedVessel(vesselId) {
                     return harbor._id == vessel.visits[0].harborId;
                 })[0];
 
-                vessel.visits[0].harborId = harbor._id;
                 vessel.visits[0].harbor = harbor.name;
+
+                const allLanguages = getLanguages();
+                const languages = vessel.visits[0].languageIds
+                .filter((language) => allLanguages.indexOf(language) > -1)
+                .map((language) => TAPi18n.__('language._' + language, {}, interfaceLanguage));
+
+                vessel.visits[0].languages = languages.join(', ');
             }
         } else {
             vessel.visits = [];
         }
-}
+    }
 
     return vessel;
 }
