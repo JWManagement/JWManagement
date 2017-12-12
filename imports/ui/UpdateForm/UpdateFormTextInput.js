@@ -1,11 +1,4 @@
 Template.UpdateFormTextInput.helpers({
-    getKeyTranslation() {
-        return TAPi18n.__([
-            FlowRouter.getRouteName().split('.')[0],
-            'entity',
-            FlowRouter.getParam('key')
-        ].join('.'));
-    },
     getValue() {
         return Template.instance().value;
     }

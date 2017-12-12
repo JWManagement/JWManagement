@@ -25,7 +25,16 @@ template(name="UpdateFormTextInput")
 		.section-header {{getEntityTranslation}}
 		.section-content
 			.text-input
-				input(type='text' placeholder='{{getKeyTranslation}}' value='{{getValue}}' autofocus)
+				input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
+		if hasError
+			.section-error
+				p {{getEntityErrorTranslation}}
+
+template(name="UpdateFormDateInput")
+	.section(class='{{getErrorClass}}')
+		.section-header {{getEntityTranslation}}
+		.section-date
+			input.datepicker(type='date' placeholder='{{getEntityTranslation}}')
 		if hasError
 			.section-error
 				p {{getEntityErrorTranslation}}

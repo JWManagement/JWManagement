@@ -2,6 +2,7 @@ import './UpdateForm.jade';
 import './UpdateForm.scss';
 
 import './UpdateFormTextInput.js';
+import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
 
 Template.UpdateForm.helpers({
@@ -13,6 +14,9 @@ Template.UpdateForm.helpers({
     },
     isText() {
         return Template.instance().inputData.get().type == 'text';
+    },
+    isDate() {
+        return Template.instance().inputData.get().type == 'date';
     },
     isDropdown() {
         return Template.instance().inputData.get().type == 'dropdown';
