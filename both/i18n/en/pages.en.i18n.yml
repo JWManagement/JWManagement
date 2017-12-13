@@ -399,6 +399,8 @@ vessel:
                 placeholder: Select a harbor
             harborGroup: Harbor group
             country: Country
+            languageId:
+                noElements: No languages noted yet
             language:
                 new: Add a language
                 languageId: Language

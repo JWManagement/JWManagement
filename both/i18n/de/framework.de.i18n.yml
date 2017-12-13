@@ -10,3 +10,6 @@ searchForm:
     createNew: Erstelle einen neuen Eintrag
     showAll: Zeige alle %s
     or: – ODER –
+validation:
+    required: Das ist ein Pflichtfeld
+    unique: Es gibt bereits einen Eintrag mit diesem Wert

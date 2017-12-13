@@ -13,6 +13,13 @@ navigation:
         search: Schiffe
         details: Schiffsdaten
         update: Schiff bearbeiten
+        insert: Neues Schiff erfassen
+        visit:
+            details: Besuchsdaten
+            insert: Neuer Besuch
+            update: Besuch bearbeiten
+            language:
+                insert: Sprache hinzufügen
     notes: Notizen
     login: Anmelden
     logout: Abmelden
@@ -27,6 +34,7 @@ navigation:
     version: Version
     new: Neu
     back: Zurück
+    save: Speichern
 welcome:
     links:
         home: Start
@@ -357,22 +365,57 @@ vessel:
         name: Schiffsname
         flag: Flagge
         type: Typ
+        typeValues:
+            c: Containerschiff
+            cr: Kreuzfahrtschiff
+            mf: Frachter
+            mt: Tanker
+            p: Passagierschiff
+            pt: Schubboot
+            rc: Flusskreuzfahrtschiff
+            f: Fähre
+            ro: Ro-Ro
+            t: Schlepper
+            unknown: Unbekannt
+            placeholder: Wähle einen Typ
         callsign: Rufzeichen
         eni: ENI
         imo: IMO
         mmsi: MMSI
-        visits:
+        visit:
             new: Neuen Besuch erfassen
             noElements: Dieses Schiff wurde noch nicht besucht
-            lastVisit: Datum
-            nextVisit: Nächster Besuch frühestens
+            person: Verkündiger
+            email: Verkündiger E-Mail
+            phone: Verkündiger Telefon
+            isUserVisible: Deine Kontaktdaten für andere Verkündiger sichtbar machen?
+            date: Datum
+            dateNext: Nächster Besuch frühestens
+            harbor: Hafen
+            harborId: Hafen
+            harborIdValues:
+                placeholder: Wähle einen Hafen
             harborGroup: Hafengruppe
-            languages: Sprache(n) an Bord
+            country: Land
+            languageId:
+                noElements: Noch keine Sprachen hinzugefügt
+            language:
+                new: Eine Sprache hinzufügen
+                languageId: Sprache
+                languageIdValues:
+                    placeholder: Wähle eine Sprache
+            languages: Sprachen an Board
     search:
         placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
     details:
         identificationSection: Identifikationsdaten
         visitSection: Besuchsdaten
+        dateFormat: DD.MM.YYYY
+    visit:
+        details:
+            mainSection: Besuchsdaten
+            languageSection: Sprachen an Board
+            dateFormat: DD.MM.YYYY
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen
