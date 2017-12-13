@@ -177,6 +177,10 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
 
                 vessel.visits[0].harbor = harbor.name;
 
+                if (vessel.visits[0].languageIds == null) {
+                    vessel.visits[0].languageIds = [];
+                }
+
                 const allLanguages = getLanguages();
                 const languages = vessel.visits[0].languageIds
                 .filter((language) => allLanguages.indexOf(language) > -1)
