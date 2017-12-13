@@ -45,15 +45,19 @@ Meteor.methods({
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const visits = Vessels.findOne(vesselId).visits;
+            let visits = Vessels.findOne(vesselId).visits;
+
+            if(visits == null) {
+                visits = [];
+            }
 
             visit.projectId = projectId;
             delete visit.userId
             visits.push(visit);
 
             try {
-                new PersistenceManager(Vessels).update(vessel._id, 'visits', visits);
-                return vessel._id;
+                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                return vesselId;
             } catch(e) {
                 throw new Meteor.Error(e);
             }
@@ -112,6 +116,9 @@ Meteor.methods({
 
             if (visitId == lastVisitId) {
                 const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                    if(visit.languageIds == null) {
+                        visit.languageIds = [];
+                    }
                     if (visit._id == visitId) {
                         visit.languageIds.push(languageId);
                     }
