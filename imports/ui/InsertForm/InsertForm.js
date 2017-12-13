@@ -51,6 +51,9 @@ Template.InsertForm.helpers({
                 if ('allowedValues' in field) {
                     inputData.allowedValues = field.allowedValues;
                 }
+                if ('allowedKeyValues' in field) {
+                    inputData.allowedKeyValues = field.allowedKeyValues;
+                }
                 if ('allowedKeyValuesMethod' in field) {
                     inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }

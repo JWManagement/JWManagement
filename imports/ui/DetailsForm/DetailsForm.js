@@ -46,8 +46,6 @@ Template.DetailsForm.helpers({
         const key = content.key;
         const item = template.item.get();
 
-        console.log(item[key]);
-
         if (key in item) {
             const value = item[key];
 

@@ -5,7 +5,7 @@ Template.InsertFormDropdownInput.helpers({
     },
     isAllowedKeyValues() {
         const template = Template.instance();
-        return template.allowedKeyValuesMethod != null;
+        return template.allowedKeyValues != null;
     },
     getItems() {
         const template = Template.instance();
@@ -31,10 +31,9 @@ Template.InsertFormDropdownInput.onCreated(() => {
     template.insertForm = data.parentInstance;
     template.allowedValues = data.allowedValues;
     template.allowedKeyValuesMethod = data.allowedKeyValuesMethod;
+    template.allowedKeyValues = new ReactiveVar(data.allowedKeyValues || []);
 
     if (template.allowedKeyValuesMethod != null) {
-        template.allowedKeyValues = new ReactiveVar([]);
-
         Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
             if (e == null) {
                 template.allowedKeyValues.set(keyValues);
