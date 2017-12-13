@@ -110,3 +110,10 @@ FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/:key',
 	action: -> Helpers.doIfLoggedIn ->
 		require('/imports/ui/vessels/vessel.visit.update.js')
 		BlazeLayout.render 'vessel.visit.update'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/languages/new',
+	name: 'vessel.visit.language.insert'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.language.insert.js')
+		BlazeLayout.render 'vessel.visit.language.insert'

@@ -19,6 +19,8 @@ navigation:
             details: Visit details
             insert: New visit
             update: Edit visit
+            language:
+                insert: Add a language
     notes: Notes
     login: Login
     logout: Logout
@@ -399,6 +401,9 @@ vessel:
             country: Country
             language:
                 new: Add a language
+                languageId: Language
+                languageIdValues:
+                    placeholder: Select a language
             languages: Languages on board
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
