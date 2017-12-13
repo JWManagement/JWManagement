@@ -104,6 +104,13 @@ FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId',
 		require('/imports/ui/vessels/vessel.visit.details.js')
 		BlazeLayout.render 'vessel.visit.details'
 
+# TODO: create custom route option for insert form save button hit
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/language',
+	name: 'vessel.details.visit.language'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn -> wrs ->
+		FlowRouter.go('vessel.visit.details', FlowRouter.current().params)
+
 FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/:key',
 	name: 'vessel.visit.update'
 	triggersEnter: [ Helpers.checkLanguage ]

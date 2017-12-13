@@ -64,9 +64,11 @@ Vessels.schema = new SimpleSchema
 		dateNext:
 			type: Number
 			optional: true
-		languages:
-			type: String
+		languageIds:
+			type: Array
 			optional: true
+		'languageIds.$':
+			type: String
 
 Vessels.uniqueKeys = [
 	'callsign',

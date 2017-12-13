@@ -7,25 +7,19 @@ const PersistenceManager = require('/imports/api/persistence/PersistenceManager.
 
 Meteor.methods({
     'vessel.get': ({ language, projectId, vesselId }) => {
-        return Projects.find(projectId, { // TODO: write a function for this check
-            fields: { vesselModule: 1 }
-        })
+        return Projects.find(projectId, { fields: { vesselModule: 1 } }) // TODO: write a function for this check
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId, language), {});
     },
     'vessel.getField': ({ language, projectId, vesselId, key }) => {
-        return Projects.find(projectId, {
-            fields: { vesselModule: 1 }
-        })
+        return Projects.find(projectId, { fields: { vesselModule: 1 } })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId, language), {})[key];
     },
     'vessel.insert': ({ language, projectId }, vessel) => {
-        const project = Projects.findOne(projectId, {
-            fields: { vesselModule: 1 }
-        });
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
             try {
@@ -37,9 +31,7 @@ Meteor.methods({
         }
     },
     'vessel.update': ({ language, projectId, vesselId }, key, value) => {
-        const project = Projects.findOne(projectId, {
-            fields: { vesselModule: 1 }
-        });
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
             try {
@@ -50,9 +42,7 @@ Meteor.methods({
         }
     },
     'vessel.visit.insert': ({ projectId, vesselId }, visit) => {
-        const project = Projects.findOne(projectId, {
-            fields: { vesselModule: 1 }
-        });
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
             const visits = Vessels.findOne(vesselId).visits;
@@ -70,27 +60,21 @@ Meteor.methods({
         }
     },
     'vessel.visit.getAvailableHarbors': ({ projectId }) => {
-        return Projects.find(projectId, {
-            fields: { vesselModule: 1, harbors: 1 }
-        })
+        return Projects.find(projectId, { fields: { vesselModule: 1, harbors: 1 } })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce((acc, project) => acc.concat(project.harbors), [])
         .map(({_id, name}) => { return { key: _id, value: name } });
     },
     'vessel.visit.getLast': ({ language, projectId, vesselId }) => {
-        return Projects.find(projectId, {
-            fields: { vesselModule: 1 }
-        })
+        return Projects.find(projectId, { fields: { vesselModule: 1 } })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId, language).visits, [])
         .pop();
     },
     'vessel.visit.getField': ({ language, projectId, vesselId, visitId, key }) => {
-        return Projects.find(projectId, {
-            fields: { vesselModule: 1 }
-        })
+        return Projects.find(projectId, { fields: { vesselModule: 1 } })
         .fetch()
         .filter((project) => project.vesselModule)
         .reduce(() => getExtendedVessel(vesselId, language).visits, [])
@@ -108,6 +92,28 @@ Meteor.methods({
                 const visits = Vessels.findOne(vesselId).visits.map((visit) => {
                     if (visit._id == visitId) {
                         visit[key] = value;
+                    }
+                    return visit;
+                });
+
+                try {
+                    new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                } catch(e) {
+                    throw new Meteor.Error(e);
+                }
+            }
+        }
+    },
+    'vessel.visit.language.insert': ({ language, projectId, vesselId, visitId }, { languageId }) => {
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+
+        if (project != null && project.vesselModule) {
+            const lastVisitId = getExtendedVessel(vesselId, language).visits[0]._id;
+
+            if (visitId == lastVisitId) {
+                const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                    if (visit._id == visitId) {
+                        visit.languageIds.push(languageId);
                     }
                     return visit;
                 });
