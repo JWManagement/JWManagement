@@ -14,7 +14,7 @@ template(name="DetailsForm")
 			.center-align
 				h2 Oops!
 				p We couldn't find anything.
-				button#back.btn.btn-primary Go back
+				button#back.btn.btn-primary {{_ 'navigation.back'}}
 		else
 			each section in sections
 				.section
@@ -50,8 +50,8 @@ template(name="DetailsForm")
 																	| {{getProperty entity field}}
 																else
 																	| -
-											td.link(rowspan='{{content.type.[0].type.count}}')
-												i.fa.fa-angle-right
+												td.link(rowspan='{{content.type.[0].type.count}}')
+													i.fa.fa-angle-right
 										else if isDropdown content.type.[0]
 											.input.form-group(key='{{getLinkedKey content.type.[0]}}')
 												.key {{getProperty entity content.type.[0]}}
