@@ -133,15 +133,9 @@ Template.InsertForm.events({
             } else {
                 const routeNameParts = FlowRouter.getRouteName().split('.');
                 routeNameParts.pop();
-
                 Session.set(routeNameParts.concat(['search', 'searchString']).join('.'), entityId);
 
-                routeNameParts.splice(1, 0, 'details');
-
-                let params = FlowRouter.current().params;
-                params.entityId = entityId;
-
-                FlowRouter.go(routeNameParts.join('.'), params);
+                FlowRouter.go(FlowRouter.path(template.backLink.get(), FlowRouter.current().params));
             }
         });
     }
