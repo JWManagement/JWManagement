@@ -62,7 +62,21 @@ template(name="DetailsForm")
 							else if content.readonly
 								.form-group
 									.key {{getEntityTranslation content.key}}
-									.value {{getValue content}}
+									.value
+										if isTel content
+											if getValue content
+												a(href='tel:{{getValue content}}')
+													{{getValue content}}
+											else
+												| -
+										else if isEmail content
+											if getValue content
+												a(href='mailto:{{getValue content}}')
+													| {{getValue content}}
+											else
+												| -
+										else
+											| {{getValue content}}
 							else
 								.input.form-group(key='{{getLinkedKey content}}')
 									.key {{getEntityTranslation content.key}}
