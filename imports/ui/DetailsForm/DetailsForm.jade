@@ -57,10 +57,8 @@ template(name="DetailsForm")
 													.value
 														i.fa.fa-trash.icon
 											else
-												.input.form-group(key='{{getLinkedKey content.type.[0]}}' keyValue='{{getValue content.type.[0]}}' keyProperty='{{getProperty content.type.[0]}}')
+												.form-group
 													.key {{getProperty entity content.type.[0]}}
-													.value
-														i.fa.fa-trash.icon
 									else
 										p.noElements {{getEntityTranslation content.type.[0].key 'noElements'}}
 							else if content.readonly

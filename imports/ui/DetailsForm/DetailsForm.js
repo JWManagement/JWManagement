@@ -39,7 +39,41 @@ Template.DetailsForm.helpers({
         return Template.instance().noResult.get();
     },
     sections() {
-        return Template.instance().sections;
+        const template = Template.instance();
+        const item = template.item.get();
+
+        if (item != null) {
+            return template.sections.map((section) => {
+                section.contents = section.contents.map((content) => {
+                    if ('canUpdate' in content) {
+                        if (content.canUpdate == 'author') {
+                            content.readonly = item.createdBy != Meteor.userId();
+                        }
+                    }
+                    if (typeof(content.type) == 'object' && content.type.length > 0) {
+                        if ('click' in content.type[0] && 'canDo' in content.type[0].click) {
+                            if (content.type[0].click.canDo == 'author' && item.createdBy != Meteor.userId()) {
+                                delete content.type[0].click;
+                            }
+                        }
+                    }
+                    return content;
+                });
+                if (section.actions != null) {
+                    section.actions = section.actions.filter((action) => {
+                        if ('canSee' in action && action.canSee == 'author') {
+                            if (item.createdBy != Meteor.userId()) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    });
+                }
+                return section;
+            });
+        } else {
+            return template.sections;
+        }
     },
     getValue(content) {
         const template = Template.instance();

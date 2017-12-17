@@ -12,10 +12,12 @@ Template['vessel.visit.details'].helpers({
                     contents: [
                         {
                             key: 'date',
-                            type: 'date'
+                            type: 'date',
+                            canUpdate: 'author'
                         }, {
                             key: 'person',
-                            linkedKey: 'isUserVisible'
+                            linkedKey: 'isUserVisible',
+                            canUpdate: 'author'
                         }, {
                             key: 'email',
                             type: 'email',
@@ -26,7 +28,8 @@ Template['vessel.visit.details'].helpers({
                             readonly: true
                         }, {
                             key: 'harbor',
-                            linkedKey: 'harborId'
+                            linkedKey: 'harborId',
+                            canUpdate: 'author'
                         }, {
                             key: 'harborGroup',
                             readonly: true
@@ -35,7 +38,8 @@ Template['vessel.visit.details'].helpers({
                             readonly: true
                         }, {
                             key: 'dateNext',
-                            type: 'date'
+                            type: 'date',
+                            canUpdate: 'author'
                         }
                     ]
                 },
@@ -51,7 +55,8 @@ Template['vessel.visit.details'].helpers({
                                     allowedValues: getLanguages(),
                                     click: {
                                         type: 'delete',
-                                        method: 'vessel.visit.language.delete'
+                                        method: 'vessel.visit.language.delete',
+                                        canDo: 'author'
                                     }
                                 }
                             ]
@@ -61,7 +66,8 @@ Template['vessel.visit.details'].helpers({
                         {
                             key: 'language.new',
                             type: 'link',
-                            route: 'vessel.visit.language.insert'
+                            route: 'vessel.visit.language.insert',
+                            canSee: 'author'
                         }
                     ]
                 }
