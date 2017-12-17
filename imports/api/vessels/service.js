@@ -32,6 +32,12 @@ Meteor.methods({
     },
     'vessel.update': ({ language, projectId, vesselId }, key, value) => {
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        const vessel = Vessels.findOne(vesselId, {fields: { createdBy: 1 } });
+
+        // only author can update vessel
+        if (vessel == null || vessel.createdBy != Meteor.userId()) {
+            return;
+        }
 
         if (project != null && project.vesselModule) {
             try {
@@ -89,13 +95,20 @@ Meteor.methods({
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const lastVisit = getExtendedVessel(vesselId, language).visits[0];
+            const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            if (visitId != lastVisit._id) {
+            // only author can update visit
+            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
                 return;
             }
 
-            if (key == 'date' && value <= lastVisit[key]) {
+            // only last visit can be update
+            if (visitId != extendedVisits[0]._id) {
+                return;
+            }
+
+            // date cannot be before last visit's date
+            if (key == 'date' && value <= visits[0][key]) {
                 return;
             }
 
@@ -117,24 +130,32 @@ Meteor.methods({
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const lastVisitId = getExtendedVessel(vesselId, language).visits[0]._id;
+            const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            if (visitId == lastVisitId) {
-                const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                    if(visit.languageIds == null) {
-                        visit.languageIds = [];
-                    }
-                    if (visit._id == visitId) {
-                        visit.languageIds.push(languageId);
-                    }
-                    return visit;
-                });
+            // only author can update visit
+            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+                return;
+            }
 
-                try {
-                    new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
-                } catch(e) {
-                    throw new Meteor.Error(e);
+            // only last visit can be update
+            if (visitId != extendedVisits[0]._id) {
+                return;
+            }
+
+            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                if(visit.languageIds == null) {
+                    visit.languageIds = [];
                 }
+                if (visit._id == visitId) {
+                    visit.languageIds.push(languageId);
+                }
+                return visit;
+            });
+
+            try {
+                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+            } catch(e) {
+                throw new Meteor.Error(e);
             }
         }
     },
@@ -142,21 +163,29 @@ Meteor.methods({
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const lastVisitId = getExtendedVessel(vesselId, language).visits[0]._id;
+            const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            if (visitId == lastVisitId) {
-                const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                    if (visit._id == visitId) {
-                        visit.languageIds = visit.languageIds.filter((langId) => langId != languageId);
-                    }
-                    return visit;
-                });
+            // only author can update visit
+            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+                return;
+            }
 
-                try {
-                    new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
-                } catch(e) {
-                    throw new Meteor.Error(e);
+            // only last visit can be update
+            if (visitId != extendedVisits[0]._id) {
+                return;
+            }
+
+            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                if (visit._id == visitId) {
+                    visit.languageIds = visit.languageIds.filter((langId) => langId != languageId);
                 }
+                return visit;
+            });
+
+            try {
+                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+            } catch(e) {
+                throw new Meteor.Error(e);
             }
         }
     }
