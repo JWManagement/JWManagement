@@ -399,6 +399,7 @@ vessel:
             country: Land
             languageId:
                 noElements: Noch keine Sprachen hinzugefügt
+                deleteConfirmation: Do really want to delete this language?
             language:
                 new: Eine Sprache hinzufügen
                 languageId: Sprache

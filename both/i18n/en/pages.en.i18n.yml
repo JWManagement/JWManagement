@@ -401,6 +401,7 @@ vessel:
             country: Country
             languageId:
                 noElements: No languages noted yet
+                deleteConfirmation: Do really want to delete this language?
             language:
                 new: Add a language
                 languageId: Language

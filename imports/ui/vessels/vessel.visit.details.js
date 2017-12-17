@@ -15,7 +15,7 @@ Template['vessel.visit.details'].helpers({
                             type: 'date'
                         }, {
                             key: 'person',
-                            readonly: true
+                            linkedKey: 'isUserVisible'
                         }, {
                             key: 'email',
                             type: 'email',
@@ -48,7 +48,11 @@ Template['vessel.visit.details'].helpers({
                                 {
                                     key: 'languageId',
                                     type: 'dropdown',
-                                    allowedValues: getLanguages()
+                                    allowedValues: getLanguages(),
+                                    click: {
+                                        type: 'delete',
+                                        method: 'vessel.visit.language.delete'
+                                    }
                                 }
                             ]
                         }
