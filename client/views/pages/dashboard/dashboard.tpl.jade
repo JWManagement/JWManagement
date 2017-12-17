@@ -61,9 +61,9 @@ if queryParam 'showShiftReport'
 													i.fa.fa-gear
 													p.project-link-caption {{_ 'admin.nameShort'}}
 											else if vesselModule
-												a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessels' projectId=_id language=langTag}}")
+												a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessel.search' projectId=_id language=langTag}}")
 													i.fa.fa-ship
-													p.project-link-caption {{_ 'vessels.nameShort'}}
+													p.project-link-caption {{_ 'vessel.nameShort'}}
 									if getUnderstaffedShifts
 										ul.list-group
 											each getUnderstaffedShifts

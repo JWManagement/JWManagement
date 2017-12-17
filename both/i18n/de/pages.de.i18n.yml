@@ -361,6 +361,7 @@ settings:
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
 vessel:
+    nameShort: Schiffe
     entity:
         name: Schiffsname
         flag: Flagge

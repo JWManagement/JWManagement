@@ -363,6 +363,7 @@ settings:
         add: Add a new meeting point
         remove: Remove this meeting point
 vessel:
+    nameShort: Vessels
     entity:
         name: Vessel name
         flag: Flag
