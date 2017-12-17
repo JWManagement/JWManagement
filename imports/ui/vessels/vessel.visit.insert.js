@@ -4,6 +4,8 @@ Template['vessel.visit.insert'].helpers({
     data() {
         return {
             backLink: 'vessel.details',
+            saveLink: 'vessel.visit.details',
+            entityKey: 'visitId',
             fields: [
                 {
                     key: 'isUserVisible',
@@ -16,8 +18,6 @@ Template['vessel.visit.insert'].helpers({
                     key: 'harborId',
                     type: 'dropdown',
                     allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
-                }, {
-                    key: 'languages'
                 }, {
                     key: 'dateNext',
                     type: 'date'

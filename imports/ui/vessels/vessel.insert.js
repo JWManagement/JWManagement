@@ -4,6 +4,8 @@ Template['vessel.insert'].helpers({
     data() {
         return {
             backLink: 'vessel.search',
+            saveLink: 'vessel.details',
+            entityKey: 'vesselId',
             fields: [
                 {
                     key: 'name'
