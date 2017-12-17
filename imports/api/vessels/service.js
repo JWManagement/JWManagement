@@ -51,13 +51,14 @@ Meteor.methods({
                 visits = [];
             }
 
+            visit._id = Random.id();
             visit.projectId = projectId;
             delete visit.userId
             visits.push(visit);
 
             try {
                 new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
-                return vesselId;
+                return visit._id;
             } catch(e) {
                 throw new Meteor.Error(e);
             }
