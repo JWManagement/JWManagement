@@ -102,7 +102,7 @@ Meteor.methods({
                 return;
             }
 
-            // only last visit can be update
+            // only last visit can be updated
             if (visitId != extendedVisits[0]._id) {
                 return;
             }
@@ -113,6 +113,31 @@ Meteor.methods({
                 }
                 return visit;
             });
+
+            try {
+                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+            } catch(e) {
+                throw new Meteor.Error(e);
+            }
+        }
+    },
+    'vessel.visit.delete': ({ language, projectId, vesselId, visitId }) => {
+        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+
+        if (project != null && project.vesselModule) {
+            const extendedVisits = getExtendedVessel(vesselId, language).visits;
+
+            // only author can delete visit
+            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+                return;
+            }
+
+            // only last visit can be deleted
+            if (visitId != extendedVisits[0]._id) {
+                return;
+            }
+
+            const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id != visitId);
 
             try {
                 new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
@@ -132,7 +157,7 @@ Meteor.methods({
                 return;
             }
 
-            // only last visit can be update
+            // only last visit can be updated
             if (visitId != extendedVisits[0]._id) {
                 return;
             }
@@ -165,7 +190,7 @@ Meteor.methods({
                 return;
             }
 
-            // only last visit can be update
+            // only last visit can be updated
             if (visitId != extendedVisits[0]._id) {
                 return;
             }

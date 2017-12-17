@@ -20,6 +20,9 @@ Template.DetailsForm.helpers({
     isButton(action) {
         return action.type == 'link';
     },
+    isConfirm(action) {
+        return action.type == 'confirm';
+    },
     isTel(field) {
         return field.type == 'tel';
     },
@@ -44,21 +47,23 @@ Template.DetailsForm.helpers({
 
         if (item != null) {
             return template.sections.map((section) => {
-                section.contents = section.contents.map((content) => {
-                    if ('canUpdate' in content) {
-                        if (content.canUpdate == 'author') {
-                            content.readonly = item.createdBy != Meteor.userId();
-                        }
-                    }
-                    if (typeof(content.type) == 'object' && content.type.length > 0) {
-                        if ('click' in content.type[0] && 'canDo' in content.type[0].click) {
-                            if (content.type[0].click.canDo == 'author' && item.createdBy != Meteor.userId()) {
-                                delete content.type[0].click;
+                if (section.contents != null) {
+                    section.contents = section.contents.map((content) => {
+                        if ('canUpdate' in content) {
+                            if (content.canUpdate == 'author') {
+                                content.readonly = item.createdBy != Meteor.userId();
                             }
                         }
-                    }
-                    return content;
-                });
+                        if (typeof(content.type) == 'object' && content.type.length > 0) {
+                            if ('click' in content.type[0] && 'canDo' in content.type[0].click) {
+                                if (content.type[0].click.canDo == 'author' && item.createdBy != Meteor.userId()) {
+                                    delete content.type[0].click;
+                                }
+                            }
+                        }
+                        return content;
+                    });
+                }
                 if (section.actions != null) {
                     section.actions = section.actions.filter((action) => {
                         if ('canSee' in action && action.canSee == 'author') {
@@ -70,7 +75,8 @@ Template.DetailsForm.helpers({
                     });
                 }
                 return section;
-            });
+            })
+            .filter((section) => ('contents' in section && section.contents.length > 0) || ('actions' in section && section.actions.length > 0));
         } else {
             return template.sections;
         }
@@ -169,25 +175,23 @@ Template.DetailsForm.events({
         const clickType = $(e.target).attr('clickType');
         const clickMethod = $(e.target).attr('clickMethod');
         const entityId = $(e.target).attr('entityId');
-        const key = $(e.target).attr('key');
+        const entityKey = $(e.target).attr('key');
 
-        if (clickType == 'delete') {
-            e.stopPropagation();
+        e.stopPropagation();
 
-            let messagePathParts = FlowRouter.getRouteName().split('.');
-            messagePathParts.pop();
-            messagePathParts.splice(1, 0, 'entity');
-            messagePathParts = messagePathParts.concat([key, 'deleteConfirmation']);
+        let messagePathParts = FlowRouter.getRouteName().split('.');
+        messagePathParts.pop();
+        messagePathParts.splice(1, 0, 'entity');
+        messagePathParts = messagePathParts.concat([entityKey, clickType + 'Confirmation']);
 
-            if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
-                Meteor.call(clickMethod, FlowRouter.current().params, entityId, (e, r) => {
-                    if (e == null) {
-                        loadData(template);
-                    } else {
-                        alert('SERVER ERROR');
-                    }
-                });
-            }
+        if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
+            Meteor.call(clickMethod, FlowRouter.current().params, entityId, (e, r) => {
+                if (e == null) {
+                    loadData(template);
+                } else {
+                    alert('SERVER ERROR');
+                }
+            });
         }
     },
     'click tr.array-item': (e) => {
@@ -200,6 +204,26 @@ Template.DetailsForm.events({
         params[entityKey] = entityId;
 
         FlowRouter.go(FlowRouter.path(entityLink, params));
+    },
+    'click .confirm-button': (e) => {
+        const key = $(e.target).attr('key');
+        const method = $(e.target).attr('method');
+        const route = $(e.target).attr('route');
+
+        let messagePathParts = FlowRouter.getRouteName().split('.');
+        messagePathParts.pop();
+        messagePathParts.splice(1, 0, 'entity');
+        messagePathParts.push(key + 'Confirmation');
+
+        if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
+            Meteor.call(method, FlowRouter.current().params, (e, r) => {
+                if (e == null) {
+                    FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params));
+                } else {
+                    alert('SERVER ERROR');
+                }
+            });
+        }
     }
 });
 
@@ -210,7 +234,7 @@ function loadData(template) {
             template.noResult.set(false);
             template.isLoading.set(false);
         } else {
-            alert('SERVER ERROR')
+            alert('SERVER ERROR');
         }
     });
 }

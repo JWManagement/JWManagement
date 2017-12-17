@@ -386,6 +386,8 @@ vessel:
         visit:
             new: Neuen Besuch erfassen
             noElements: Dieses Schiff wurde noch nicht besucht
+            delete: Diesen Besuch löschen
+            deleteConfirmation: Möchtest du wirklich diesen Besuch löschen?
             person: Verkündiger
             email: Verkündiger E-Mail
             phone: Verkündiger Telefon
@@ -400,7 +402,7 @@ vessel:
             country: Land
             languageId:
                 noElements: Noch keine Sprachen hinzugefügt
-                deleteConfirmation: Do really want to delete this language?
+                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
             language:
                 new: Eine Sprache hinzufügen
                 languageId: Sprache
@@ -417,6 +419,7 @@ vessel:
         details:
             mainSection: Besuchsdaten
             languageSection: Sprachen an Board
+            optionSection: Optionen
             dateFormat: DD.MM.YYYY
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.

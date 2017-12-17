@@ -66,7 +66,21 @@ Template['vessel.visit.details'].helpers({
                         {
                             key: 'language.new',
                             type: 'link',
+                            style: 'primary',
                             route: 'vessel.visit.language.insert',
+                            canSee: 'author'
+                        }
+                    ]
+                },
+                {
+                    header: 'optionSection',
+                    actions: [
+                        {
+                            key: 'delete',
+                            type: 'confirm',
+                            style: 'danger',
+                            method: 'vessel.visit.delete',
+                            route: 'vessel.details',
                             canSee: 'author'
                         }
                     ]

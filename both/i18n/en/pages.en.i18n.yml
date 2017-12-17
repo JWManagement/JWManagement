@@ -388,6 +388,8 @@ vessel:
         visit:
             new: Note a new visit
             noElements: This ship has not been visited yet
+            delete: Delete this visit
+            deleteConfirmation: Do you really want to delete this visit?
             person: Publisher
             email: Publisher email address
             phone: Publisher phone number
@@ -402,7 +404,7 @@ vessel:
             country: Country
             languageId:
                 noElements: No languages noted yet
-                deleteConfirmation: Do really want to delete this language?
+                deleteConfirmation: Do you really want to delete this language?
             language:
                 new: Add a language
                 languageId: Language
@@ -419,6 +421,7 @@ vessel:
         details:
             mainSection: Visit data
             languageSection: Language data
+            optionSection: Options
             dateFormat: MM/DD/YYYY
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
