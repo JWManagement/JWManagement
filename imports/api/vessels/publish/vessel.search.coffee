@@ -1,6 +1,8 @@
 import { Vessels } from '/imports/api/vessels/vessels.coffee'
 
-Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) ->
+# TODO: see 3cc1487 (use methods instead of publishes for DetailsForm)
+
+Meteor.publish 'vessel.search', (searchString, projectId, limit) ->
 
 	if typeof searchString != 'string' || searchString == ''
 		return @ready()
@@ -16,25 +18,34 @@ Meteor.publish 'vessels', (searchString, projectId, retrieveAllResults = false) 
 
 	try
 		regEx = new RegExp(searchString, 'i')
-		limit = 20
-		limit = 0 if retrieveAllResults
+
 		self = this
 		initialLoadDone = false
 		publishedItemsCount = 0
 
 		cursor = Vessels.find({
 			$or: [
+				{ _id: regEx },
 				{ name: regEx },
 				{ callsign: regEx },
 				{ eni: regEx },
 				{ imo: regEx },
 				{ mmsi: regEx }
 			]}, {
+				fields: {
+					'name': 1,
+					'flag': 1,
+					'type': 1,
+					'callsign': 1,
+					'eni': 1,
+					'imo': 1,
+					'mmsi': 1
+				},
 				sort: { name: 1 },
 				limit: limit
 			})
 
-		@added('counts', 'vessels', { count: cursor.count() })
+		@added('counts', 'vessel.search', { count: cursor.count() })
 
 		cursorCount = cursor.count()
 

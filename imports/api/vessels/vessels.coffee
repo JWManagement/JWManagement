@@ -1,9 +1,6 @@
 import SimpleSchema from 'simpl-schema'
 import { Mongo } from 'meteor/mongo'
 
-import { Methods } from './methods.coffee'
-import { Helpers } from './helpers.coffee'
-
 export Vessels = new Mongo.Collection 'vessels'
 
 Vessels.deny
@@ -42,22 +39,42 @@ Vessels.schema = new SimpleSchema
 	mmsi:
 		type: String
 		optional: true
-	lastVisit:
-		type: String
+	visits:
+		type: Array
 		optional: true
-	harborGroup:
-		type: String
-	nextVisit:
-		type: String
-		optional: true
-	languages:
-		type: String
-		optional: true
-	comments:
-		type: String
-		optional: true
+	'visits.$': new SimpleSchema
+		_id:
+			type: String
+			autoValue: -> Random.id() unless @isSet
+		createdAt:
+			type: Date
+			autoValue: -> new Date
+		createdBy:
+			type: String
+			autoValue: -> Meteor.userId()
+		isUserVisible:
+			type: Boolean
+			autoValue: -> true unless @isSet
+		projectId:
+			type: String
+		harborId:
+			type: String
+		date:
+			type: Number
+		dateNext:
+			type: Number
+			optional: true
+		languageIds:
+			type: Array
+			optional: true
+		'languageIds.$':
+			type: String
+
+Vessels.uniqueKeys = [
+	'callsign',
+	'eni',
+	'imo',
+	'mmsi'
+]
 
 Vessels.attachSchema = Vessels.schema
-
-Vessels.methods = Methods
-Vessels.helpers = Helpers

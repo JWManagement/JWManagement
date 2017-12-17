@@ -6,3 +6,10 @@ searchForm:
     showingTheFirstX: Showing the first %s
     showingAll: ''
     showingAll_plural: Showing all
+    typeToSearch: Search for something (type * for everything)
+    createNew: Create a new entry
+    showAll: Show all %s
+    or: – OR –
+validation:
+    required: This field is required
+    unique: There already is a record with this value

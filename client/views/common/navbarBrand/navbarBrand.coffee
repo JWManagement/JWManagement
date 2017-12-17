@@ -2,8 +2,6 @@ Template.navbarBrand.helpers
 
 	name: -> TAPi18n.__('navigation.' + FlowRouter.getRouteName())
 
-	getCustomName: -> TAPi18n.__(FlowRouter.getRouteName() + '.back')
-
 	target: ->
 		parent = Session.get('parent')
 

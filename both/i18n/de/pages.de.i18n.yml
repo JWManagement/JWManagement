@@ -9,7 +9,17 @@ navigation:
     users: Benutzer
     reports: Berichte
     store: Depot
-    vessels: Schiffe
+    vessel:
+        search: Schiffe
+        details: Schiffsdaten
+        update: Schiff bearbeiten
+        insert: Neues Schiff erfassen
+        visit:
+            details: Besuchsdaten
+            insert: Neuer Besuch
+            update: Besuch bearbeiten
+            language:
+                insert: Sprache hinzufügen
     notes: Notizen
     login: Anmelden
     logout: Abmelden
@@ -23,6 +33,8 @@ navigation:
     donate: Spenden
     version: Version
     new: Neu
+    back: Zurück
+    save: Speichern
 welcome:
     links:
         home: Start
@@ -351,40 +363,67 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
-vessels:
-    title: Schiffe
+vessel:
     nameShort: Schiffe
-    search: Schiff suchen
-    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
-    addNewVessel: Neues Schiff erfassen
-    name: Schiffsname
-    flag: Flagge
-    type: Typ
-    types:
-        c: Containerschiff
-        cr: Kreuzfahrtschiff
-        mf: Frachter
-        mt: Tanker
-        p: Passagierschiff
-        pt: Schubboot
-        rc: Flusskreuzfahrtschiff
-        f: Fähre
-        ro: Ro-Ro
-        t: Schlepper
-        unknown: Unbekannt
-    callsign: Rufzeichen
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    lastVisit: Letzter Besuch
-    harborGroup: Hafengruppe
-    nextVisit: Nächster Besuch frühestens
-    languages: Sprache(n) an Bord
-    languagesPlaceholder: Keine personenbezogenen Daten!
-    comments: Bemerkungen
-    commentsPlaceholder: Keine personenbezogenen Daten!
-    noResults: Keine Ergebnisse
-    moreResultsAvailable: Wir haben %s Ergebnisse gefunden. Die ersten 20 werden gezeigt.
+    entity:
+        name: Schiffsname
+        flag: Flagge
+        type: Typ
+        typeValues:
+            c: Containerschiff
+            cr: Kreuzfahrtschiff
+            mf: Frachter
+            mt: Tanker
+            p: Passagierschiff
+            pt: Schubboot
+            rc: Flusskreuzfahrtschiff
+            f: Fähre
+            ro: Ro-Ro
+            t: Schlepper
+            unknown: Unbekannt
+            placeholder: Wähle einen Typ
+        callsign: Rufzeichen
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        visit:
+            new: Neuen Besuch erfassen
+            noElements: Dieses Schiff wurde noch nicht besucht
+            delete: Diesen Besuch löschen
+            deleteConfirmation: Möchtest du wirklich diesen Besuch löschen?
+            person: Verkündiger
+            email: Verkündiger E-Mail
+            phone: Verkündiger Telefon
+            isUserVisible: Deine Kontaktdaten für andere Verkündiger sichtbar machen?
+            date: Datum
+            dateNext: Nächster Besuch frühestens
+            harbor: Hafen
+            harborId: Hafen
+            harborIdValues:
+                placeholder: Wähle einen Hafen
+            harborGroup: Hafengruppe
+            country: Land
+            languageId:
+                noElements: Noch keine Sprachen hinzugefügt
+                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
+            language:
+                new: Eine Sprache hinzufügen
+                languageId: Sprache
+                languageIdValues:
+                    placeholder: Wähle eine Sprache
+            languages: Sprachen an Board
+    search:
+        placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    details:
+        identificationSection: Identifikationsdaten
+        visitSection: Besuchsdaten
+        dateFormat: DD.MM.YYYY
+    visit:
+        details:
+            mainSection: Besuchsdaten
+            languageSection: Sprachen an Board
+            optionSection: Optionen
+            dateFormat: DD.MM.YYYY
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
     createNote: Notiz erstellen

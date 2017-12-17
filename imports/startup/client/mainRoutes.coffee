@@ -6,6 +6,8 @@ FlowRouter.route '/support',
 	name: 'support'
 	action: -> Helpers.doIfLoggedIn ->
 		Session.set 'parent', 'home'
+
+		require('/imports/ui/pages/support/support.coffee')
 		BlazeLayout.render 'mainLayout', content: 'support'
 
 ## ---------------- ##

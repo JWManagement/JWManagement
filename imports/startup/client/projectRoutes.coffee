@@ -19,8 +19,11 @@ FlowRouter.route '/:language/:projectId/admin',
 	name: 'admin'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		Session.set 'parent', 'home'
-		BlazeLayout.render 'invertedLayout', content: 'admin'
+		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
+			Session.set 'parent', 'home'
+			BlazeLayout.render 'invertedLayout', content: 'admin'
+		else
+			wrs -> FlowRouter.go 'home'
 
 FlowRouter.route '/:language/:projectId/settings',
 	name: 'settings'
@@ -57,13 +60,67 @@ FlowRouter.route '/:language/:projectId/notes',
 		Session.set 'parent', 'admin'
 		BlazeLayout.render 'mainLayout', content: 'notes'
 
+# VESSELS
+
 FlowRouter.route '/:language/:projectId/vessels',
-	name: 'vessels'
+	name: 'vessel.search'
 	triggersEnter: [ Helpers.checkLanguage ]
 	action: -> Helpers.doIfLoggedIn ->
-		if Roles.userIsInRole Meteor.userId(), Permissions.storeAdmin, FlowRouter.getParam('projectId')
-			Session.set 'parent', 'admin'
-		else
-			Session.set 'parent', 'home'
+		require('/imports/ui/vessels/vessel.search.js')
+		BlazeLayout.render 'vessel.search'
 
-		BlazeLayout.render 'mainLayout', content: 'vessels'
+FlowRouter.route '/:language/:projectId/vessels/new',
+	name: 'vessel.insert'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.insert.js')
+		BlazeLayout.render 'vessel.insert'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId',
+	name: 'vessel.details'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.details.js')
+		BlazeLayout.render 'vessel.details'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/new', # TODO: generalize
+	name: 'vessel.visit.insert'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.insert.js')
+		BlazeLayout.render 'vessel.visit.insert'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/:key',
+	name: 'vessel.update'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.update.js')
+		BlazeLayout.render 'vessel.update'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId',
+	name: 'vessel.visit.details'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.details.js')
+		BlazeLayout.render 'vessel.visit.details'
+
+# TODO: create custom route option for insert form save button hit
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/language',
+	name: 'vessel.details.visit.language'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn -> wrs ->
+		FlowRouter.go('vessel.visit.details', FlowRouter.current().params)
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/:key',
+	name: 'vessel.visit.update'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.update.js')
+		BlazeLayout.render 'vessel.visit.update'
+
+FlowRouter.route '/:language/:projectId/vessels/:vesselId/visits/:visitId/languages/new',
+	name: 'vessel.visit.language.insert'
+	triggersEnter: [ Helpers.checkLanguage ]
+	action: -> Helpers.doIfLoggedIn ->
+		require('/imports/ui/vessels/vessel.visit.language.insert.js')
+		BlazeLayout.render 'vessel.visit.language.insert'
