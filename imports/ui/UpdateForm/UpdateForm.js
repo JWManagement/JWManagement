@@ -4,6 +4,7 @@ import './UpdateForm.scss';
 import './UpdateFormTextInput.js';
 import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
+import './UpdateFormCheckboxInput.js';
 
 Template.UpdateForm.helpers({
     getBackLink() {
@@ -20,6 +21,9 @@ Template.UpdateForm.helpers({
     },
     isDropdown() {
         return Template.instance().inputData.get().type == 'dropdown';
+    },
+    isCheckbox() {
+        return Template.instance().inputData.get().type == 'checkbox';
     },
     getInputData() {
         return Template.instance().inputData.get();
@@ -75,7 +79,7 @@ Template.UpdateForm.onRendered(() => {
             template.inputData.set(inputData);
             template.noResult.set(false);
             template.isLoading.set(false);
-        } else {
+        } else {console.log(e);
             alert('SERVER ERROR')
         }
     });
@@ -85,16 +89,16 @@ Template.UpdateForm.onRendered(() => {
             let inputData = template.inputData.get();
             inputData.type = 'text';
 
-            if (field.type == 'dropdown') {
-                inputData.type = 'dropdown';
+            if (['date', 'checkbox', 'dropdown'].indexOf(field.type) > -1) {
+                inputData.type = field.type;
+            }
 
+            if (inputData.type == 'dropdown') {
                 if ('allowedValues' in field) {
                     inputData.allowedValues = field.allowedValues;
                 } else if ('allowedKeyValuesMethod' in field) {
                     inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }
-            } else if (field.type == 'date') {
-                inputData.type = 'date';
             }
 
             template.inputData.set(inputData);

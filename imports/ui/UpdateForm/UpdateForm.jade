@@ -14,6 +14,8 @@ template(name="UpdateForm")
 				+UpdateFormDateInput data=getInputData
 			else if isDropdown
 				+UpdateFormDropdownInput data=getInputData
+			else if isCheckbox
+				+UpdateFormCheckboxInput data=getInputData
 		else
 			.section
 				.section-header {{getEntityTranslation}}
@@ -52,6 +54,16 @@ template(name="UpdateFormDropdownInput")
 				else if isAllowedKeyValues
 					each keyValue in getKeyValues
 						option(value='{{keyValue.key}}') {{keyValue.value}}
+		if hasError
+			.section-error
+				p {{getEntityErrorTranslation}}
+
+template(name="UpdateFormCheckboxInput")
+	.section(class='{{getErrorClass}}')
+		.section-header {{getEntityTranslation}}
+		.section-select
+			input(type='checkbox' checked='{{getValue}}')
+			| {{getEntityTranslation getKey}}
 		if hasError
 			.section-error
 				p {{getEntityErrorTranslation}}
