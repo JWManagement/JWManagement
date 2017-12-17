@@ -89,23 +89,27 @@ Meteor.methods({
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
         if (project != null && project.vesselModule) {
-            const lastVisitId = getExtendedVessel(vesselId, language).visits[0]._id;
+            const lastVisit = getExtendedVessel(vesselId, language).visits[0];
 
-            // TODO: prevent entering a date before the last
+            if (visitId != lastVisit._id) {
+                return;
+            }
 
-            if (visitId == lastVisitId) {
-                const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                    if (visit._id == visitId) {
-                        visit[key] = value;
-                    }
-                    return visit;
-                });
+            if (key == 'date' && value <= lastVisit[key]) {
+                return;
+            }
 
-                try {
-                    new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
-                } catch(e) {
-                    throw new Meteor.Error(e);
+            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+                if (visit._id == visitId) {
+                    visit[key] = value;
                 }
+                return visit;
+            });
+
+            try {
+                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+            } catch(e) {
+                throw new Meteor.Error(e);
             }
         }
     },
