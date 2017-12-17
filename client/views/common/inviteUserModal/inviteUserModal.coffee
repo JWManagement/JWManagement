@@ -3,11 +3,10 @@ Template.inviteUserModal.helpers
 	getUsers: ->
 		projectId = FlowRouter.getParam('projectId')
 		users = Roles.getUsersInRole Permissions.member, projectId
+		collator = new Intl.Collator(TAPi18n.getLanguage())
 		users.fetch().sort (u1, u2) ->
-			if u1.profile.lastname != u2.profile.lastname
-				u1.profile.lastname > u2.profile.lastname
-			else
-				u1.profile.firstname > u2.profile.firstname
+			collator.compare(u1.profile.lastname, u2.profile.lastname) ||
+				collator.compare(u1.profile.firstname, u2.profile.firstname)
 
 	getState: ->
 		if @state == 'invited'
