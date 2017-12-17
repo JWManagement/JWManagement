@@ -107,11 +107,6 @@ Meteor.methods({
                 return;
             }
 
-            // date cannot be before last visit's date
-            if (key == 'date' && value <= visits[0][key]) {
-                return;
-            }
-
             const visits = Vessels.findOne(vesselId).visits.map((visit) => {
                 if (visit._id == visitId) {
                     visit[key] = value;
@@ -198,7 +193,7 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
         if ('visits' in vessel) {
             if (vessel.visits.length > 1) {
                 vessel.visits.sort((a, b) => {
-                    return a.date - b.date;
+                    return a.createdAt - b.createdAt;
                 });
                 vessel.visits = [vessel.visits.pop()];
             }

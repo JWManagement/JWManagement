@@ -79,7 +79,7 @@ Template.UpdateForm.onRendered(() => {
             template.inputData.set(inputData);
             template.noResult.set(false);
             template.isLoading.set(false);
-        } else {console.log(e);
+        } else {
             alert('SERVER ERROR')
         }
     });
