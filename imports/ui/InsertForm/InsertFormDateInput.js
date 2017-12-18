@@ -22,7 +22,7 @@ Template.InsertFormDateInput.onRendered(() => {
     WithModernizr(() => {
         if (Modernizr.inputtypes.date) {
             if (template.defaultValue != null) {
-                template.$('.datepicker').attr('value', template.defaultValue)
+                template.$('.datepicker').attr('value', template.defaultValue).change();
             }
         } else {
             const datepicker = template.$('.datepicker').datepicker({
@@ -33,14 +33,10 @@ Template.InsertFormDateInput.onRendered(() => {
             });
 
             if (template.defaultValue != null) {
-                datepicker.datepicker('setDate', new Date());
+                datepicker.datepicker('setDate', new Date()).change();
             }
         }
     });
-
-    if (template.defaultValue != null) {
-        template.$('.datepicker').change();
-    }
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
