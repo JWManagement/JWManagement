@@ -210,8 +210,7 @@ Template.SearchForm.onDestroyed(() => {
 });
 
 Template.SearchForm.events({
-    'click #more': (e) => {
-        const template = Template.instance();
+    'click #more': (e, template) => {
         template.isLoading.set(true);
         doSubscribe(template, true);
     },
@@ -220,18 +219,17 @@ Template.SearchForm.events({
             FlowRouter.go(FlowRouter.current().path + '/new');
         });
     },
-    'click .results-desktop tbody tr:not(.footable-empty)': (e) => {
-        const template = Template.instance();
+    'click .results-desktop tbody tr:not(.footable-empty)': (e, template) => {
         const entityId = $(e.target).closest('tr').find('td').first().html();
         const params = FlowRouter.current().params;
         params[template.entityId] = entityId;
         FlowRouter.go(FlowRouter.path(template.entityLink, params));
     },
-    'keyup #search': (e) => {
-        updateSearch(Template.instance(), e.target.value);
+    'keyup #search': (e, template) => {
+        updateSearch(template, e.target.value);
     },
-    'change #search': (e) => {
-        updateSearch(Template.instance(), e.target.value);
+    'change #search': (e, template) => {
+        updateSearch(template, e.target.value);
     }
 });
 

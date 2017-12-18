@@ -42,8 +42,7 @@ Template.InsertFormDateInput.onRendered(() => {
 Template.InsertFormDateInput.onDestroyed(() => {});
 
 Template.InsertFormDateInput.events({
-    'change input': (e) => {
-        const template = Template.instance();
+    'change input': (e, template) => {
         const value = parseInt(moment($(e.target).val().trim(), 'YYYY-MM-DD').format('YYYYMMDD'));
 
         template.insertForm.setFieldValue(template.key, value);

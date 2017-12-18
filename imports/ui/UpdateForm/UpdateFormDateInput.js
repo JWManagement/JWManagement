@@ -45,11 +45,9 @@ Template.UpdateFormDateInput.onRendered(() => {
 Template.UpdateFormDateInput.onDestroyed(() => {});
 
 Template.UpdateFormDateInput.events({
-    'change input': () => {
-        const template = Template.instance();
-
+    'change input': (e, template) => {
         if (!template.initializing) {
-            const value = $('input').val().trim();
+            const value = $(e.target).val().trim();
             let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format('YYYYMMDD'));
 
             if (value == '') {

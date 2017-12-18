@@ -21,8 +21,7 @@ Template.InsertFormTextInput.onRendered(() => {});
 Template.InsertFormTextInput.onDestroyed(() => {});
 
 Template.InsertFormTextInput.events({
-    'change input': (e) => {
-        const template = Template.instance();
+    'change input': (e, template) => {
         const value = $(e.target).val().trim();
 
         template.insertForm.setFieldValue(template.key, value);

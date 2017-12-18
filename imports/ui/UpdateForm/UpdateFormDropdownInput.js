@@ -58,9 +58,8 @@ Template.UpdateFormDropdownInput.onRendered(() => {
 Template.UpdateFormDropdownInput.onDestroyed(() => {});
 
 Template.UpdateFormDropdownInput.events({
-    'change select': (e) => {
-        const template = Template.instance();
-        const value = template.$('select').val();
+    'change select': (e, template) => {
+        const value = template.$(e.target).val();
 
         template.updateForm.updateEntity(value);
 

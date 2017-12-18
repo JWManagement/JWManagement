@@ -17,8 +17,7 @@ Template.UpdateFormCheckboxInput.onRendered(() => {});
 Template.UpdateFormCheckboxInput.onDestroyed(() => {});
 
 Template.UpdateFormCheckboxInput.events({
-    'change input': (e) => {
-        const template = Template.instance();
+    'change input': (e, template) => {
         const value = $(e.target).is(':checked');
 
         template.updateForm.updateEntity(value);

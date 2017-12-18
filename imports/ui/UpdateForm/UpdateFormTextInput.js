@@ -17,10 +17,8 @@ Template.UpdateFormTextInput.onRendered(() => {});
 Template.UpdateFormTextInput.onDestroyed(() => {});
 
 Template.UpdateFormTextInput.events({
-    'change input': () => {
-        const template = Template.instance();
-        const value = $('input').val().trim();
-
+    'change input': (e, template) => {
+        const value = $(e.target).val().trim();
         template.updateForm.updateEntity(value);
     }
 });
