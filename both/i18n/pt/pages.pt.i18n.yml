@@ -67,7 +67,6 @@ welcome:
         toGithub: Visite o GitHub
         toForgotPassword: Trocar a senha
         required: Necessário
-        about: Sobre este site
         terms: Termos de uso
         privacy: Política de Privacidade
 login:

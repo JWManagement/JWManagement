@@ -54,10 +54,6 @@ Template.admin.helpers
 		route: 'tools'
 		icon: 'briefcase'
 		comingSoon: true
-	,
-		route: 'donate'
-		icon: 'heart'
-		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
 	]
 
 Template.admin.onCreated ->
