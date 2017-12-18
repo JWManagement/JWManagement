@@ -30,9 +30,8 @@ Template.admin.helpers
 		icon: 'cubes'
 		role: 'admin,storeAdmin'
 	,
-		route: 'vessels'
+		route: 'vessel.search'
 		icon: 'ship'
-		role: 'support'
 		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin,member'
 		dependency: 'vesselModule'
 	,
