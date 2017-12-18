@@ -32,12 +32,6 @@ Meteor.methods({
     },
     'vessel.update': ({ language, projectId, vesselId }, key, value) => {
         const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
-        const vessel = Vessels.findOne(vesselId, {fields: { createdBy: 1 } });
-
-        // only author can update vessel
-        if (vessel == null || vessel.createdBy != Meteor.userId()) {
-            return;
-        }
 
         if (project != null && project.vesselModule) {
             try {
