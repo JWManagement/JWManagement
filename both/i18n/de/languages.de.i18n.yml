@@ -16,6 +16,7 @@ language:
     _CB: Kambodschanisch
     _CH: Chinesisch
     _CHS: Chinesisch (vereinfacht)
+    _CV: Cebuano
     _DAR: Dari
     _DGS: Deutsche Gebärdensprache
     _E: Englisch
@@ -27,8 +28,10 @@ language:
     _GE: Georgisch
     _H: Ungarisch
     _HI: Hindi
+    _HV: Hiligaynon
     _I: Italienisch
     _IB: Igbo
+    _IL: Iloko
     _IN: Indonesisch
     _J: Japanisch
     _K: Ukrainisch
@@ -59,6 +62,7 @@ language:
     _ST: Estnisch
     _SV: Slowenisch
     _T: Portugiesisch
+    _TG: Tagalog
     _TI: Tigrinja
     _TK: Türkisch
     _TL: Tamil

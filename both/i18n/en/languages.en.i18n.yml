@@ -16,6 +16,7 @@ language:
     _CB: Cambodian
     _CH: Chinese Mandarin (Traditional)
     _CHS: Chinese Mandarin (Simplified)
+    _CV: Cebuano
     _DAR: Dari
     _DGS: German Sign Language
     _E: English
@@ -27,8 +28,10 @@ language:
     _GE: Georgian
     _H: Hungarian
     _HI: Hindi
+    _HV: Hiligaynon
     _I: Italian
     _IB: Igbo
+    _IL: Iloko
     _IN: Indonesian
     _J: Japanese
     _K: Ukrainian
@@ -59,6 +62,7 @@ language:
     _ST: Estonian
     _SV: Slovenian
     _T: Portugese
+    _TG: Tagalog
     _TI: Tigrinya
     _TK: Turkish
     _TL: Tamil
