@@ -11,7 +11,7 @@ function getLanguages() {
         'I', 'IB', 'IN',
         'J',
         'K', 'KO', 'KRI',
-        'LT', 'LV',
+        'L', 'LT',
         'M', 'MC',
         'O', 'OA',
         'P', 'PH', 'PJ', 'PL', 'PR',
