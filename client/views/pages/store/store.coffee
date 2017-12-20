@@ -63,9 +63,17 @@ Template.store.helpers
 			,
 				short: 'ol'
 			,
+				short: 'pc'
+			,
+				short: 'ph'
+			,
 				short: 'rj'
 			,
 				short: 'rk'
+			,
+				short: 'sgd'
+			,
+				short: 'we'
 			,
 				short: 'yc'
 			,
@@ -102,6 +110,8 @@ Template.store.helpers
 		,
 			type: 'misc'
 			items: [
+				short: 'dv'
+			,
 				short: 'CO-inv17'
 			,
 				short: 'CO-inv18'
