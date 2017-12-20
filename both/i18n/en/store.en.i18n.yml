@@ -31,34 +31,40 @@ store:
         _tracts: Tracts
         _misc: Miscellaneous
     publication:
+        _CO-inv17: 2017 Regional Convention Invitation
+        _CO-inv18: 2018 Regional Convention Invitation
+        _CO-inv19: 2019 Regional Convention Invitation
+        _CO-inv20: 2020 Regional Convention Invitation
         _bh: What Does the Bible Really Teach?
         _bhs: What Can the Bible Teach Us?
         _bi12: New World Translation of the Holy Scriptures (1984 Edition)
-        _nwt: New World Translation of the Holy Scriptures (2013 Revision)
+        _bm: The Bible — What Is Its Message?
         _ct: Is There a Creator Who Cares About You?
+        _fg: Good News From God!
         _fy: The Secret of Family Happiness
         _gt: The Greatest Man Who Ever Lived
-        _lr: Learn From the Great Teacher
-        _my: My Book of Bible Stories
-        _yp1: Questions Young People Ask — Answers That Work, Volume 1
-        _yp2: Questions Young People Ask — Answers That Work, Volume 2
-        _ypq: Answers to 10 Questions Young People Ask
-        _bm: The Bible — What Is Its Message?
-        _fg: Good News From God!
         _gu: The Guidance of God — Our Way to Paradise
         _hf: Your Family Can Be Happy
+        _inv: Invitation to congregation meetings
+        _jwcd: Contact card for jw.org
+        _kt: Would You Like to Know the Truth?
         _lc: Was Life Created?
         _ld: Listen to God
         _lf: The Origin of Life — Five Questions Worth Asking
-        _lmn: "Look! I Am Making All Things New"
         _ll: Listen to God and Live Forever
+        _lmn: "Look! I Am Making All Things New"
+        _lr: Learn From the Great Teacher
         _mb: My Bible Lessons
+        _mi16: 2016 Memorial Invitation
+        _mi17: 2017 Memorial Invitation
+        _mi18: 2018 Memorial Invitation
+        _mi19: 2019 Memorial Invitation
+        _mi20: 2020 Memorial Invitation
+        _my: My Book of Bible Stories
+        _nwt: New World Translation of the Holy Scriptures (2013 Revision)
         _ol: The Road to Everlasting Life — Have You Found It?
         _rj: Return to Jehovah
         _rk: Real Faith — Your Key to a Happy Life
-        _yc: Teach Your Children
-        _wp/g: Watchtower / Awake
-        _kt: Would You Like to Know the Truth?
         _rp: How to Find the Road to Paradise
         _t-30: How Do You View the Bible?
         _t-31: How Do You View the Future?
@@ -68,14 +74,8 @@ store:
         _t-35: Can the Dead Really Live Again?
         _t-36: What Is the Kingdom of God?
         _t-37: Where Can We Find Answers to Life's Big Questions?
-        _CO-inv17: 2017 Regional Convention Invitation
-        _CO-inv18: 2018 Regional Convention Invitation
-        _CO-inv19: 2019 Regional Convention Invitation
-        _CO-inv20: 2020 Regional Convention Invitation
-        _inv: Invitation to congregation meetings
-        _jwcd: Contact card for jw.org
-        _mi16: 2016 Memorial Invitation
-        _mi17: 2017 Memorial Invitation
-        _mi18: 2018 Memorial Invitation
-        _mi19: 2019 Memorial Invitation
-        _mi20: 2020 Memorial Invitation
+        _wp/g: Watchtower / Awake
+        _yc: Teach Your Children
+        _yp1: Questions Young People Ask — Answers That Work, Volume 1
+        _yp2: Questions Young People Ask — Answers That Work, Volume 2
+        _ypq: Answers to 10 Questions Young People Ask
