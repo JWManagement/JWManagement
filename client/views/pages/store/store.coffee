@@ -55,6 +55,8 @@ Template.store.helpers
 			,
 				short: 'lf'
 			,
+				short: 'lgw'
+			,
 				short: 'lmn'
 			,
 				short: 'll'
