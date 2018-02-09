@@ -24,6 +24,10 @@ Template.store.helpers
 			,
 				short: 'nwt'
 			,
+				short: 'jw'
+			,
+				short: 'lfb'
+			,
 				short: 'ct'
 			,
 				short: 'fy'
@@ -48,6 +52,8 @@ Template.store.helpers
 				short: 'gu'
 			,
 				short: 'hf'
+			,
+				short: 'la'
 			,
 				short: 'lc'
 			,
