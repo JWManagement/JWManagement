@@ -25,7 +25,13 @@ Meteor.methods
 
 				tmpShifts.push shift for shift in shifts.fetch()
 				tmpShifts.push _id: shiftId, start: start
-				tmpShifts.sort (a, b) -> a.start - b.start
+				tmpShifts.sort (a, b) ->
+					if a.start != b.start
+						a.start - b.start
+					else if a.tagId < b.tagId
+						-1
+					else
+						1
 				newShifts.push shift._id for shift in tmpShifts
 
 				newDay.shifts = newShifts
