@@ -17,14 +17,14 @@ if queryParam 'showShiftReport'
 							.project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
 								if multipleTags
 									.tags-popup.row
-										.team-link.col-xs-6.col-sm-4.m-b-md.center-align
+										.team-link.col-xs-6.col-sm-6.col-md-4.m-b-md.center-align
 											a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
 												.m-t-xs.m-b-sm
 													i.fa.fa-calendar-check-o.fa-3x
 												p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
 										each tag in tags
 											if isTagParticipant tag._id _id
-												.team-link.col-xs-6.col-sm-4.m-b-md.center-align
+												.team-link.col-xs-6.col-sm-6.col-md-4.m-b-md.center-align
 													a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
 														if tag.img
 															img(src='/img/{{tag.img}}.png')
