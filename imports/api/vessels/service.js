@@ -4,200 +4,180 @@ import './publish/vessel.search.coffee'
 
 Meteor.methods({
     'vessel.get': ({ language, projectId, vesselId }) => {
-        return Projects.find(projectId, { fields: { vesselModule: 1 } }) // TODO: write a function for this check
-        .fetch()
-        .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId, language), {});
+        checkVesselModule(projectId);
+
+        return getExtendedVessel(vesselId, language);
     },
     'vessel.getField': ({ language, projectId, vesselId, key }) => {
-        return Projects.find(projectId, { fields: { vesselModule: 1 } })
-        .fetch()
-        .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId, language), {})[key];
+        checkVesselModule(projectId);
+
+        return getExtendedVessel(vesselId, language)[key];
     },
     'vessel.insert': ({ language, projectId }, vessel) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            try {
-                Vessels.persistence.insert(vessel);
-                return vessel._id;
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.insert(vessel);
+            return vessel._id;
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.update': ({ language, projectId, vesselId }, key, value) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            try {
-                Vessels.persistence.update(vesselId, key, value);
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, key, value);
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.visit.insert': ({ projectId, vesselId }, visit) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            let visits = Vessels.findOne(vesselId).visits;
+        let visits = Vessels.findOne(vesselId).visits;
 
-            if(visits == null) {
-                visits = [];
-            }
+        if(visits == null) {
+            visits = [];
+        }
 
-            visit._id = Random.id();
-            visit.projectId = projectId;
-            delete visit.userId
-            visits.push(visit);
+        visit._id = Random.id();
+        visit.projectId = projectId;
+        delete visit.userId
+        visits.push(visit);
 
-            try {
-                Vessels.persistence.update(vesselId, 'visits', visits);
-                return visit._id;
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, 'visits', visits);
+            return visit._id;
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.visit.getAvailableHarbors': ({ projectId }) => {
-        return Projects.find(projectId, { fields: { vesselModule: 1, harbors: 1 } })
-        .fetch()
-        .filter((project) => project.vesselModule)
-        .reduce((acc, project) => acc.concat(project.harbors), [])
-        .map(({_id, name}) => { return { key: _id, value: name } });
+        checkVesselModule(projectId);
+
+        const project = Projects.findOne(projectId, { fields: { harbors: 1 } })
+
+        return project.harbors.map(({_id, name}) => { return { key: _id, value: name } });
     },
     'vessel.visit.getLast': ({ language, projectId, vesselId }) => {
-        return Projects.find(projectId, { fields: { vesselModule: 1 } })
-        .fetch()
-        .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId, language).visits, [])
-        .pop();
+        checkVesselModule(projectId);
+
+        return getExtendedVessel(vesselId, language).visits.pop();
     },
     'vessel.visit.getField': ({ language, projectId, vesselId, visitId, key }) => {
-        return Projects.find(projectId, { fields: { vesselModule: 1 } })
-        .fetch()
-        .filter((project) => project.vesselModule)
-        .reduce(() => getExtendedVessel(vesselId, language).visits, [])
-        .pop()[key];
+        checkVesselModule(projectId);
+
+        getExtendedVessel(vesselId, language).visits.pop()[key];
     },
     'vessel.visit.update': ({ language, projectId, vesselId, visitId }, key, value) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            const extendedVisits = getExtendedVessel(vesselId, language).visits;
+        const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            // only author can update visit
-            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
-                return;
+        // only author can update visit
+        if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+            return;
+        }
+
+        // only last visit can be updated
+        if (visitId != extendedVisits[0]._id) {
+            return;
+        }
+
+        const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+            if (visit._id == visitId) {
+                visit[key] = value;
             }
+            return visit;
+        });
 
-            // only last visit can be updated
-            if (visitId != extendedVisits[0]._id) {
-                return;
-            }
-
-            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                if (visit._id == visitId) {
-                    visit[key] = value;
-                }
-                return visit;
-            });
-
-            try {
-                Vessels.persistence.update(vesselId, 'visits', visits);
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, 'visits', visits);
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.visit.delete': ({ language, projectId, vesselId, visitId }) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            const extendedVisits = getExtendedVessel(vesselId, language).visits;
+        const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            // only author can delete visit
-            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
-                return;
-            }
+        // only author can delete visit
+        if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+            return;
+        }
 
-            // only last visit can be deleted
-            if (visitId != extendedVisits[0]._id) {
-                return;
-            }
+        // only last visit can be deleted
+        if (visitId != extendedVisits[0]._id) {
+            return;
+        }
 
-            const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id != visitId);
+        const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id != visitId);
 
-            try {
-                Vessels.persistence.update(vesselId, 'visits', visits);
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, 'visits', visits);
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.visit.language.insert': ({ language, projectId, vesselId, visitId }, { languageId }) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            const extendedVisits = getExtendedVessel(vesselId, language).visits;
+        const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            // only author can update visit
-            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
-                return;
+        // only author can update visit
+        if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+            return;
+        }
+
+        // only last visit can be updated
+        if (visitId != extendedVisits[0]._id) {
+            return;
+        }
+
+        const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+            if(visit.languageIds == null) {
+                visit.languageIds = [];
             }
-
-            // only last visit can be updated
-            if (visitId != extendedVisits[0]._id) {
-                return;
+            if (visit._id == visitId) {
+                visit.languageIds.push(languageId);
             }
+            return visit;
+        });
 
-            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                if(visit.languageIds == null) {
-                    visit.languageIds = [];
-                }
-                if (visit._id == visitId) {
-                    visit.languageIds.push(languageId);
-                }
-                return visit;
-            });
-
-            try {
-                Vessels.persistence.update(vesselId, 'visits', visits);
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, 'visits', visits);
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     },
     'vessel.visit.language.delete': ({ language, projectId, vesselId, visitId }, languageId) => {
-        const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
+        checkVesselModule(projectId);
 
-        if (project != null && project.vesselModule) {
-            const extendedVisits = getExtendedVessel(vesselId, language).visits;
+        const extendedVisits = getExtendedVessel(vesselId, language).visits;
 
-            // only author can update visit
-            if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
-                return;
+        // only author can update visit
+        if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+            return;
+        }
+
+        // only last visit can be updated
+        if (visitId != extendedVisits[0]._id) {
+            return;
+        }
+
+        const visits = Vessels.findOne(vesselId).visits.map((visit) => {
+            if (visit._id == visitId) {
+                visit.languageIds = visit.languageIds.filter((langId) => langId != languageId);
             }
+            return visit;
+        });
 
-            // only last visit can be updated
-            if (visitId != extendedVisits[0]._id) {
-                return;
-            }
-
-            const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-                if (visit._id == visitId) {
-                    visit.languageIds = visit.languageIds.filter((langId) => langId != languageId);
-                }
-                return visit;
-            });
-
-            try {
-                Vessels.persistence.update(vesselId, 'visits', visits);
-            } catch(e) {
-                throw new Meteor.Error(e);
-            }
+        try {
+            Vessels.persistence.update(vesselId, 'visits', visits);
+        } catch(e) {
+            throw new Meteor.Error(e);
         }
     }
 });
@@ -268,4 +248,16 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
     }
 
     return vessel;
+}
+
+function checkVesselModule(projectId) {
+    const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } })
+
+    if (project == null || project.vesselModule != true) {
+        throw new Meteor.Error('projectNotFound');
+    }
+
+    if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, projectId)) {
+        throw new Meteor.Error('userNotProjectMember');
+    }
 }

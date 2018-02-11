@@ -14,7 +14,7 @@ Vessels.deny({
 Vessels.schema = new SimpleSchema({
     _id: {
         type: String,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return Random.id();
             }
@@ -22,7 +22,7 @@ Vessels.schema = new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return new Date();
             }
@@ -30,7 +30,7 @@ Vessels.schema = new SimpleSchema({
     },
     createdBy: {
         type: String,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return Meteor.userId();
             }
@@ -76,7 +76,7 @@ Vessels.schema = new SimpleSchema({
     'visits.$': new SimpleSchema({
         _id: {
             type: String,
-            autoValue: () => {
+            autoValue: function() {
                 if (!this.isSet) {
                     return Random.id();
                 }
@@ -96,7 +96,7 @@ Vessels.schema = new SimpleSchema({
         },
         isUserVisible: {
             type: Boolean,
-            autoValue: () => {
+            autoValue: function() {
                 if (!this.isSet) {
                     return true;
                 }
