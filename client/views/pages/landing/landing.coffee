@@ -22,7 +22,7 @@ Template.landing.onRendered ->
 			new WOW().init()
 			$('.navbar').singlePageNav offset: 70
 
-			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) ->
+			HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases', (e, a) -> if a?.data?
 				Session.set 'latestReleases',
 					a.data.map (data, index) -> if index < 3
 						body: data.body.replace(/- /g, '').split('\n')
