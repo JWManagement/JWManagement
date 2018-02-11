@@ -1,10 +1,10 @@
-import '/imports/api/projects/projects.coffee'
+import '/imports/api/projects/projects.js'
 
-import './templateHelpers.js'
+import '/imports/api/util/templateHelpers.js'
 
-import './mainRoutes.coffee'
-import './projectRoutes.coffee'
-import './policyRoutes.coffee'
+import '/imports/api/routes/mainRoutes.js'
+import '/imports/api/routes/projectRoutes.js'
+import '/imports/api/routes/policyRoutes.js'
 
 import '/imports/ui/DetailsForm/DetailsForm.js';
 import '/imports/ui/InsertForm/InsertForm.js';
@@ -13,7 +13,7 @@ import '/imports/ui/UpdateForm/UpdateForm.js';
 
 import '/imports/ui/vessels/vessels.jade';
 
-import { SimpleSchemaHelper } from '/imports/api/util/simpleSchema.coffee'
+import SimpleSchemaHelper from '/imports/api/util/simpleSchema.js';
 SimpleSchemaHelper.init();
 
 Tracker.autorun(() => {

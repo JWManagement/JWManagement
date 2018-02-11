@@ -1,5 +1,3 @@
-import { Vessels } from '/imports/api/vessels/vessels.coffee'
-
 module.exports = class PersistenceManager {
     constructor(db) {
         this.db = db;

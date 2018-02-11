@@ -1,9 +1,6 @@
-import { Vessels } from '/imports/api/vessels/vessels.coffee'
+import { Vessels } from '/imports/api/vessels/vessels.js'
 import getLanguages from '/imports/api/util/languages.js'
-
 import './publish/vessel.search.coffee'
-
-const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 Meteor.methods({
     'vessel.get': ({ language, projectId, vesselId }) => {
@@ -23,7 +20,7 @@ Meteor.methods({
 
         if (project != null && project.vesselModule) {
             try {
-                new PersistenceManager(Vessels).insert(vessel);
+                Vessels.persistence.insert(vessel);
                 return vessel._id;
             } catch(e) {
                 throw new Meteor.Error(e);
@@ -35,7 +32,7 @@ Meteor.methods({
 
         if (project != null && project.vesselModule) {
             try {
-                new PersistenceManager(Vessels).update(vesselId, key, value);
+                Vessels.persistence.update(vesselId, key, value);
             } catch(e) {
                 throw new Meteor.Error(e);
             }
@@ -57,7 +54,7 @@ Meteor.methods({
             visits.push(visit);
 
             try {
-                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                Vessels.persistence.update(vesselId, 'visits', visits);
                 return visit._id;
             } catch(e) {
                 throw new Meteor.Error(e);
@@ -109,7 +106,7 @@ Meteor.methods({
             });
 
             try {
-                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                Vessels.persistence.update(vesselId, 'visits', visits);
             } catch(e) {
                 throw new Meteor.Error(e);
             }
@@ -134,7 +131,7 @@ Meteor.methods({
             const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id != visitId);
 
             try {
-                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                Vessels.persistence.update(vesselId, 'visits', visits);
             } catch(e) {
                 throw new Meteor.Error(e);
             }
@@ -167,7 +164,7 @@ Meteor.methods({
             });
 
             try {
-                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                Vessels.persistence.update(vesselId, 'visits', visits);
             } catch(e) {
                 throw new Meteor.Error(e);
             }
@@ -197,7 +194,7 @@ Meteor.methods({
             });
 
             try {
-                new PersistenceManager(Vessels).update(vesselId, 'visits', visits);
+                Vessels.persistence.update(vesselId, 'visits', visits);
             } catch(e) {
                 throw new Meteor.Error(e);
             }

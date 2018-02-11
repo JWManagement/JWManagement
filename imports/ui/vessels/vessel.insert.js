@@ -1,4 +1,4 @@
-import { Vessels } from '/imports/api/vessels/vessels.coffee';
+import { Vessels } from '/imports/api/vessels/vessels.js';
 
 Template['vessel.insert'].helpers({
     data() {
