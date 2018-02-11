@@ -1,4 +1,4 @@
-import { Vessels } from '/imports/api/vessels/vessels.js'
+import Vessels from '/imports/api/vessels/vessels.js'
 
 # TODO: see 3cc1487 (use methods instead of publishes for DetailsForm)
 

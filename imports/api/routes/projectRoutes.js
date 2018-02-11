@@ -32,7 +32,7 @@ FlowRouter.route('/:language/:projectId/admin', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            const project = FlowRouter.getParam('projectId');
+            const projectId = FlowRouter.getParam('projectId');
 
             if (Roles.userIsInRole(Meteor.userId(), Permissions.storeAdmin, projectId)) {
                 Session.set('parent', 'home');

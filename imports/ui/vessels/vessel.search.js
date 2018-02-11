@@ -1,4 +1,4 @@
-import { Vessels } from '/imports/api/vessels/vessels.js';
+import Vessels from '/imports/api/vessels/vessels.js';
 
 Template['vessel.search'].helpers({
     data() {

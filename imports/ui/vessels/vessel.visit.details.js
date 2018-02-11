@@ -1,4 +1,4 @@
-import { Vessels } from '/imports/api/vessels/vessels.js';
+import Vessels from '/imports/api/vessels/vessels.js';
 import getLanguages from '/imports/api/util/languages.js';
 
 Template['vessel.visit.details'].helpers({
