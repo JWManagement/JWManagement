@@ -7,6 +7,8 @@ navigation:
     admin: Administration
     settings: Einstellungen
     users: Benutzer
+    user:
+        search: Benutzer NEU
     reports: Berichte
     store: Depot
     vessel:

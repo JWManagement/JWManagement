@@ -7,6 +7,8 @@ navigation:
     admin: Administration
     settings: Settings
     users: Users
+    user:
+        search: Users NEW
     reports: Reports
     store: Store Room
     vessels: Vessels

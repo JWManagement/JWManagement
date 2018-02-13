@@ -39,21 +39,9 @@ Template.admin.helpers
 		icon: 'pencil'
 		role: 'admin,shiftScheduler,shiftAdmin,storeAdmin'
 	,
-		route: 'assemblies'
-		icon: 'home'
-		comingSoon: true
-	,
-		route: 'mails'
-		icon: 'envelope'
-		comingSoon: true
-	,
-		route: 'statistics'
-		icon: 'area-chart'
-		comingSoon: true
-	,
-		route: 'tools'
-		icon: 'briefcase'
-		comingSoon: true
+		route: 'user.search'
+		icon: 'users'
+		role: 'admin'
 	]
 
 Template.admin.onCreated ->
