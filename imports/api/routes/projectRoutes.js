@@ -68,6 +68,18 @@ FlowRouter.route('/:language/:projectId/users', {
     }
 });
 
+FlowRouter.route('/:language/:projectId/new/users', {
+    name: 'user.search',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            require('/imports/ui/users/user.search.js');
+            Session.set('parent', 'admin');
+            BlazeLayout.render('user.search');
+        });
+    }
+});
+
 FlowRouter.route('/:language/:projectId/reports', {
     name: 'reports',
     triggersEnter: [ Helpers.checkLanguage ],
