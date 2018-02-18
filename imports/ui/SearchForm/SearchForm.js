@@ -66,7 +66,8 @@ Template.SearchForm.helpers({
     },
     moreResultsAvailable() {
         const template = Template.instance();
-        const searchCriteria = template.searchCriteria(template.regEx.get());
+        const projectId = FlowRouter.getParam('projectId');
+        const searchCriteria = template.searchCriteria(template.regEx.get(), projectId);
 
         return template.db
             .find(searchCriteria.selector, searchCriteria.options)
@@ -238,7 +239,9 @@ function getRowCount(template) {
         return 0;
     }
 
-    const items = template.db.find(template.searchCriteria(template.regEx.get()).selector, {
+    const projectId = FlowRouter.getParam('projectId');
+
+    const items = template.db.find(template.searchCriteria(template.regEx.get(), projectId).selector, {
         fields: {
             _id: 1
         }
@@ -258,7 +261,8 @@ function getRows(template) {
         return [];
     }
 
-    const searchCriteria = template.searchCriteria(template.regEx.get());
+    const projectId = FlowRouter.getParam('projectId');
+    const searchCriteria = template.searchCriteria(template.regEx.get(), projectId);
 
     return template.db.find(searchCriteria.selector, searchCriteria.options)
     .fetch()
@@ -273,6 +277,16 @@ function getRows(template) {
                 ];
 
                 item[column.name] = TAPi18n.__(keys.join('.'));
+            }
+
+            if (column.name.indexOf('_') > 0) {
+                let value = item;
+
+                for (property of column.name.split('_')) {
+                    value = value[property];
+                }
+
+                item[column.name] = value;
             }
         });
 

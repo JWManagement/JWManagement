@@ -266,6 +266,16 @@ users:
     sendToAll: E-Mail an alle
     sendToAllInTag: E-Mail an alle im Tag %s
     export: Export als csv
+user:
+    nameShort: Users NEW
+    entity:
+        profile_firstname: First name
+        profile_lastname: Last name
+        profile_email: E-mail
+        profile_telefon: Phone
+        username: Username
+    search:
+        placeholder: User first name, last name, email, phone or username
 reports:
     placements: Abgaben
     bibles: Bibeln

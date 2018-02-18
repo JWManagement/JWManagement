@@ -1,4 +1,4 @@
-import { Users } from '/imports/api/users/users.js';
+import Users from '/imports/api/users/users.js';
 
 Template['user.search'].helpers({
     data() {
@@ -12,32 +12,45 @@ Template['user.search'].helpers({
                     name: '_id',
                     visible: false
                 }, {
-                    name: 'firstname',
+                    name: 'profile_firstname',
                     mobile: true
                 }, {
-                    name: 'lastname',
+                    name: 'profile_lastname',
                     mobile: true
                 }, {
-                    name: 'email',
+                    name: 'profile_email',
+                    mobile: true
+                }, {
+                    name: 'profile_telefon',
+                    mobile: true
+                }, {
+                    name: 'username',
                     mobile: true
                 }
             ],
-            searchCriteria: (search) => {
+            searchCriteria: (search, projectId) => {
                 return {
                     selector: {
-                        $or: [
+                        $and: [
                             {
-                                _id: search
-                            }, {
-                                'profile.lastname': search
-                            }, {
-                                'profile.firstname': search
-                            }, {
-                                'profile.email': search
-                            }, {
-                                telefon: search
-                            }, {
-                                username: search
+                                $or: [
+                                    { _id: search },
+                                    { 'profile.lastname': search },
+                                    { 'profile.firstname': search },
+                                    { 'profile.email': search },
+                                    { 'profile.telefon': search },
+                                    { username: search }
+                                ],
+                            },
+                            {
+                                ['roles.' + projectId]: {
+                                    $in: Permissions.member
+                                }
+                            },
+                            {
+                                username: {
+                                    $ne: 'adm'
+                                }
                             }
                         ]
                     },
