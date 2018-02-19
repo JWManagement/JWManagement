@@ -1,0 +1,449 @@
+navigation:
+    welcome: Добро пожаловать
+    home: Обзор
+    profile: Мой профиль
+    shifts: Смены
+    wiki: Информация
+    admin: Управление
+    settings: Настройки
+    users: Пользователи
+    reports: Отчёты
+    store: Депо/склад
+    vessel:
+        search: Корабли
+        details: Данные корабля
+        update: Обработать данные корабля
+        insert: Создать новый корабль
+        visit:
+            details: Данные посещения
+            insert: Новый визит
+            update: Редактировать визит
+            language:
+                insert: Добавить язык
+    notes: Заметки
+    login: Войти
+    logout: Выйти
+    loggingOut: Выход...
+    firstLogin: Первоначальный вход
+    forgotPassword: Я забыл пароль
+    resetPassword: Сброс пароля
+    terms: Условия использования
+    privacy: Политика конфиденциальности
+    version: Версия
+    new: Новое
+    back: Назад
+    save: Сохранить
+welcome:
+    links:
+        home: Старт
+        features: Функции
+        contact: Контакт
+        login: Войти
+        dashboard: Информационная панель
+    header:
+        title: Schichtverwaltung für theokratische Projekte
+        description: JW Management ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
+    divider:
+        first:
+            title: Verschiedene Tags
+            description: Ordne Schichten verschiedenen Tags zu und bestimme an der Tags, welcher Verkündiger welche Schichten sehen darf bzw. sich darauf bewerben darf. Bestimmte ebenso, wer in diesen Schichten als Teamleiter dienen darf.
+        second:
+            title: Schicht Teams
+            description: Lege in jeder Schicht ein oder mehrere Teams an. Jedes Team hat seinen eigenen Teamleiter. Stelle überdies weitere Informationen bezüglich der Teams oder Treffpunkte bereit, wie z.B. Bilder mit Routen, Web-Links und Beschreibungen.
+        third:
+            title: Depot
+            description: Verwalte dein Depot über JW Management. Basierend auf den Teamberichten aktualisiert das System automatisch die Anzahl der Exemplare per Publikation und Sprache. Werde benachrichtigt, wenn von einer Publikation nur noch wenige Exemplare auf Lager sind.
+        fourth:
+            title: Benachrichtigungen
+            description: Dank der mächtigen Benachrichtigungsfunktion wirst du über deine Zu- und Absagen, sowie über jegliche Änderungen deiner Schicht benachrichtigt oder kannst selbst Rundmails an ausgewählte Verkündiger schreiben.
+    feature1:
+        title: Multifunktionswerkzeug
+        description: <p>JW Management ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
+    feature2:
+        title: Letzte Änderungen
+        more: Mehr zeigen
+    feature3:
+        title: Kostenlos & Open-Source
+        description: <p>Besuche unser Repository und schaue dir an, wie JW Management programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>
+        free: Völlig kostenlos
+        repo: GitHub Repository
+    contact:
+        title: Связаться с нами
+        description: <p>Хочешь проверить систему?</p><p>В контактной форме выбери "подать заявку на проект", и мы создадим для тебя новый проект.</p><p>У тебя есть другой вопрос или идея?</p><p>Выберите в форме соответствующую опцию и дай нам знать.</p>
+        name: Имя и Фамилия
+        email: E-Mail
+        projectName: Название проекта
+        enquiry: Подать заявку на проект
+        login: Проблема с Логином
+        problem: Сообщить об ошибке
+        suggestion: Предложить улучшение
+        question: Общий вопрос
+        message: Сообщение
+        whatFor: Для чего ты хочешь использовать эту систему?
+        send: Отправить
+        sendEnquiry: Отправить
+        fillOutCompletely: Заполни все поля!
+        enquirySuccessful: Запрос отправлен!
+        issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
+        loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
+        toGithub: GitHub besuchen
+        toForgotPassword: Я забыл пароль
+        required: Необходимые сведения
+        terms: УСЛОВИЯ ИСПОЛЬЗОВАНИЯ
+        privacy: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
+login:
+    name: Войти
+    welcome: Добро пожаловать на JW Management
+    text: Пожалуйста, введи твои данные, чтобы войти в систему
+    forgot: Я забыл пароль
+    create: Создать учетную запись
+    back: Вернуться на главную страницу
+forgotPassword:
+    name: Я не могу войти в систему
+    text: Пожалуйста, введи адрес твоей электронной почты, и мы вышлем тебе ссылку для сброса пароля.
+    button: Послать ссылку для сброса пароля
+    back: Вернуться на главную страницу
+    noUserForThisEmail: Не удалось найти пользователя с этим адресом электронной почты
+    multipleAccountsForThisEmail: Существует несколько пользователей с этим адресом электронной почты. Пожалуйста, выбери правильного.
+    emailMissing: Пожалуйста, введи адрес твоей электронной почты
+    mailSent: Теперь вы должны получить электронное письмо. Это включает в себя ссылку, с помощью которой вы можете сбросить пароль.
+resetPassword:
+    name: Сброс пароля
+    text: Введи новый пароль для %s %s.
+    noUserFound: <p>Действительность этой ссылки истекла</p><p>Пожалуйста, запроси прислать тебе новую ссылку.</p>
+    button: Изменить пароль
+    back: Вернуться на главную страницу
+profile:
+    name: Мой профиль
+    personalData: Мои данные
+    changePicture: Изменить мою фотку...
+    options:
+        title: Дополнительные возможности
+        helpText:
+            mergeAccounts: В JW Management тебе нужна всего лишь одна учетная запись, даже чтобы участвовать в разных проектах.  Если у тебя есть несколько учетных записей, нажми "передать разрешения" и введите учетные данные твоего второго аккаунта. Разрешения этой учетной записи затем передаются в указанную учетную запись.
+    availability:
+        title: Доступность
+        helpText: Пожалуйста, отметь часы, когда ты обычно доступный для служения.
+        shortTermCalls: В указанное время я могу поддержать служение экспромтом
+        shortTermCallsAlways: Я могу поддержать служение экспромтом даже если не указал выше время.
+    speaks: Говорит по
+    telefon: Телефон
+    congregation: Собрание
+    languages: Владею иностранными языками:
+    gender: Пол
+    _gender:
+        brother: Брат
+        sister: Сестра
+    birthday: День рождения
+    publisher: Возвещатель
+    privilegeOfService: НАЗНАЧЕНИЯ
+    _privilegeOfService:
+        auxiliaryPioneer: Подсобный пионер
+        pioneer: Пионер
+        specialPioneer: Специальный пионер
+        circuitOverseer: Районный надзиратель
+        bethelite: Вефилец
+        fulltimeConstructionServant: Стр-Служитель в LDC
+    ministryPrivilege: Обязанность/Назначениe в собрании
+    _ministryPrivilege:
+        ministerialServant: Служебный помощник
+        elder: Старейшина
+        coordinator: КСС
+        secretary: Секр.
+        serviceOverseer: СН
+    placeholder:
+        telefon: (например: +49 177 1234567)
+        congregation: например Berlin-Süd
+        languages: например Deutsch, Französisch, Englisch, Russisch
+    changePassword: Изменить пароль
+    deleteAccount: Удалить мой аккаунт (безвозвратно!)
+    mergeAccounts: Перенести права участника/аккаунта. Объединить аккаунты
+    vacation:
+        title: Отпуск
+        helpText: Внеси данные когда ты не доступен для участия.
+    until: до
+    addVacation: Добавить отпуск
+    deleteVacation: Удалить данные отпуска
+    usernameTaken: Этот Логин уже используется, придумай другой.
+dashboard:
+    loadingProjects: Загрузка проектов...
+    projects: Мои проекты
+    noProjects: Ты не участвуешь ни в каком проекте.
+    loadingShifts: Загрузка смен...
+    shifts: Мои смены
+    noShifts: У тебя ещё нет смен
+    news: Новости/Объявления
+    noNews: Новостей/Объявлений нет
+    newsFrom: Последнее редактирование:
+    editNews: Обработать Новости/Объявления
+    changeNews: Сохранить изменения
+    cancelNews: Сбросить изменения
+    understaffed: Нехватка участников
+    understaffedMore: Показать смены с нехваткой участников
+    missing: Отсутствующий отчёт
+    missing_plural: Отсутствующие отчёты!
+    approved: Подтверждённое заявление
+    approved_plural: Подтверждённые заявления
+    pending: Заявка на смену
+    pending_plural: Заявки на смены
+    declined: Отказ заявки
+    declined_plural: Отказы заявок
+    marked: Нехватка участников
+    marked_plural: Нехватка участников
+    participant: Участник смены
+    participant_plural: Участники смены
+    showOlder: Прошлые смены
+    showAll: Все смены
+wiki:
+    name: Сведения
+    nameShort: Инфо
+    files: Файлы
+    addQuestion: Добавить Вопрос/Тему/Заголовок
+    edit: Обработать
+    delete: Удалить
+    noFiles: Нет доступных файлов
+    addTab: Добавить новую вкладку
+    editQuestion: Обработать заголовок
+    removeFaq: Удалить заголовок
+    editFaq: Обработать ответ
+    changeFaq: Сохранить изменения
+    cancelFaq: Удалить изменения
+shifts:
+    name: Смены
+    route: Маршрут
+    addShift: Добавить новую смену
+    addWeek: Добавить новую неделю
+    requests: Заявки
+    openRequests: Заявки на смены
+    automation: Автоматизм
+    template: Шаблон
+    noVisibleShifts: Нет смен этого Тега на этой неделе
+    start: Начало
+    end: Конец
+    visibility: Видимость:
+    helpText:
+        start: Это будет первая неделя, которую создаст система.
+        end: Это будет последняя неделя, которую создаст система.
+        visibility: Этим ты определяешь, сколько недель вперёд, братья могут подаватъ заявки. Система создает для этого необходимые смены с учетом начальной и конечной недели.
+    weeks: Недели
+    sendWeek: Отправить назначения
+    hideNames: Скрыть участников смены
+    showNames: Показать участников смены
+    editShifts: Обработать смены
+    prevWeek: Перейти к предыдущей недели
+    nextWeek: Перейти к следующей недели
+    sendWeek: Отправить назначения этой недели по E-Mail
+    shownTag: Показываются смены этого Тега
+    hiddenTag: Смены этого Тега скрыты.
+    shift:
+        tag: Тег
+        schedule: Назначение
+        teamleader: Руководитель группы
+        teams: Группы
+        noTeams: Групп нет
+        participants: Участники
+        start: Начало
+        end: Конец
+        requests: Заявка
+        requests_plural: Заявки
+        requestsOf: Заявка от
+        requestsOf_plural: Заявки от
+        teamleaders: РГ
+        noPermission: Обрабатывать смены может только админ или планировщик смен
+day:
+    removeAll: Удалить все
+admin:
+    name: Управление
+    nameShort: Управление
+users:
+    title: Список участников
+    search: Поиск...
+    inviteUser: Пригласить добавленного участника
+    addNewUser: Добавить нового участника
+    deleted: Удалён!
+    sendToAll: E-Mail всем
+    sendToAllInTag: E-Mail всем в Теге %s
+    export: Экспорт в csv
+reports:
+    placements: Публикации
+    bibles: Библии
+    books: Книги
+    magazines: Журналы
+    brochures: Брошюры
+    tracts: Буклеты
+    invitations: Пригласительные
+    videos: Показы видео
+    talks: Разговоры
+    achievements: Что было достигнуто
+    hours: Часы служения
+    texts: Зачитанные тексты Писания
+    website: Показы сайта jw.org
+    shifts: Состоявшиеся смены
+    missing: Отсутствующие отчёты
+    participants: Участники
+    fulltime: Полновременные служители
+    publishers: Возвещатели
+    allParticipants: Всего участников
+    experiences: Случаи из служения / Примечания
+    route: По поводу маршрута
+    good: Хорошие случаи
+    problems: Проблемы / Трудности
+    show: Показать
+    prevMonth: Предыдущий месяц
+    nextMonth: Следующий месяц
+    meetingStart: Встреча в начале
+    meetingEnd: Встреча в конце
+    place: Место
+settings:
+    main:
+        title: Общие Настройки
+        id: ID
+        name:
+            text: Название
+            placeholder: Название проекта
+            helpText: В большинстве случаев название проекта это название собрания. В крупных проектах он описывает название города, в котором проводится проект. Если проект не имеет прямого отношения к службе со стендами, тип службы можно включить в название проекта.
+        email:
+            text: E-Mail
+            placeholder: E-Mail проекта
+            helpText: В сообщениях о подтверждённых заявках, обновления в сменах и т. д. этот E-Mail адрес будет внесён как replyTo адрес. Ответы посылаемие на эти сообщения, будут пересылаться на этот E-Mail. Кроме того, на этот адрес будет посылаться сообщение в случае краткосрочного отказа от участия.
+        language:
+            text: Язык проекта
+            helpText: Все уведомления которые будет отправлять система, будут на том языке, который тут указан.
+        deleteProject: Удалить проект
+    tags:
+        title: Теги
+        helpText: <p>Теги отображают различные виды служения (например переносные стенды, информационная стойка, служба распорядителей, служба парковки и т.д.)</p><p>Особенно если смены пересекаются по времени, то деление служения на Теги может особенно подходить. Все смены группируются на основе Тега. Для каждого Тега возможно создать целый ряд различных шаблонов по которым позднее возможно будет создавать недели со сменами (на данное время от руки, но вскоре даже автоматически). Каждый участник должен сначала получить право/роль для этого Тега чтобы видеть и подавать заявки на смены этого Тега.</p>
+        id: ID
+        name: Название
+        img:
+            name: Значок/Картинка
+            helpText: Это изображение для Тега будет видно в обзоре при нажатии на 'Смены'. Оно должно показывать служение, для чего предназначены смены этого Тега. Если ты хочешь добавить собственное изображение, пожалуйста, отправь нам письмо support@jwmanagement.org с твоим предложением.
+        templates: Шаблоны
+        showTemplate: Обработать смены
+        editTemplate: Обработать
+        removeTemplate: Удалить
+        addTemplate: Создать новый шаблон
+        action: Процесс
+        none: Теги еще не созданы
+        add: Создать новый Тег
+        remove: Удалить этот Тег
+    teams:
+        title: Группы
+        helpText:
+            main: В одной смене может быть одна или несколько групп. К каждой группе относится один маршрут. Участник подаёт заявку на участие в группе. Если в соответствующей смене разрешено, то он может подать заявку на участие в определённой группе, а не только на всю смену.
+            picture: Этот значок / эту картинку можно будет просмотреть. В ней должны быть ясно видны задания для группы.  Например, ты мог бы создать маршрут служения со стендами на 'Google Мои карты', сделать скриншот и загрузить его сюда.
+            link: Эта ссылка на которую будет перенаправлен пользователь когда он нажмёт на значок/картинку. Например, ты можешь создать маршрут для служения со стендами на 'Google Мои карты' и указать здесь ссылку на неё.
+            description: Здесь можно указать дополнительные указания для участников этой группы. Например, можно объяснить некоторые особенности этого маршрута.
+        id: ID
+        name: Название
+        icon: Значок
+        picture: Картинка
+        editPicture: Загрузить значок/картинку для этой группы
+        noPicture: Значок/Картинка ещё не загружена
+        link: Ссылка
+        description: Описание
+        action: Процесс
+        none: Группы еще не созданы
+        add: Создать новую группу
+        remove: Удалить эту группу
+    meetings:
+        title: Место встречи/ВПС
+        helpText:
+            main: Каждой группе можно указать место встречи/место для ВПС. Таким образом, каждая группа может встречаться отдельно от других групп одной смены. Это может быть полезно, если маршруты групп находятся так далеко друг от друга, что общее место встречи не удобно для всей смены. Места встречи определяются адресом/координатами.
+            picture: Этот значок / эту картинку можно будет просмотреть. Например, ты мог бы пометить место встречи на 'Google карты', сделать скриншот и загрузить его сюда.
+        id: ID
+        name: Название
+        picture: Значок/Картинка
+        editPicture: Загрузить значок/картинку для места встречи/ВПС
+        noPicture: Значок/Картинка ещё не загружена
+        action: Процесс
+        none: Место встреч/ВПС еще не создано
+        add: Создать место встречи/ВПС
+        remove: Удалить место встречи/ВПС
+vessel:
+    nameShort: Корабли/судна
+    entity:
+        name: Название корабля/судна
+        flag: Флаг
+        type: Тип
+        typeValues:
+            c: Контейнеровоз
+            cr: Круизный
+            mf: Грузоперевозчик
+            mt: Танкер
+            p: Пассажирский корабль
+            pt: Катер
+            rc: Корабль круиза по реки
+            f: Паром
+            ro: Ролкер
+            t: Буксир
+            unknown: Неизвестный
+            placeholder: Выбери тип судна
+        callsign: Позывной
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        visit:
+            new: Neuen Besuch erfassen
+            noElements: Dieses Schiff wurde noch nicht besucht
+            delete: Diesen Besuch löschen
+            deleteConfirmation: Möchtest du wirklich diesen Besuch löschen?
+            person: Verkündiger
+            email: Verkündiger E-Mail
+            phone: Verkündiger Telefon
+            isUserVisible: Deine Kontaktdaten für andere Verkündiger sichtbar machen?
+            date: Datum
+            dateNext: Nächster Besuch frühestens
+            harbor: Hafen
+            harborId: Hafen
+            harborIdValues:
+                placeholder: Wähle einen Hafen
+            harborGroup: Hafengruppe
+            country: Land
+            languageId:
+                noElements: Noch keine Sprachen hinzugefügt
+                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
+            language:
+                new: Eine Sprache hinzufügen
+                languageId: Sprache
+                languageIdValues:
+                    placeholder: Wähle eine Sprache
+            languages: Sprachen an Board
+    search:
+        placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    details:
+        identificationSection: Identifikationsdaten
+        visitSection: Besuchsdaten
+        dateFormat: DD.MM.YYYY
+    visit:
+        details:
+            mainSection: Besuchsdaten
+            languageSection: Sprachen an Board
+            optionSection: Optionen
+            dateFormat: DD.MM.YYYY
+notes:
+    description: Здесь можно создавать простые заметки. Любой администратор, планировщик смен и служитель литературы этого проекта может видеть эти заметки. Таким образом, вы вместе как команда можете держать эти заметки в виду.
+    createNote: Создать заметку
+    title: Название
+    text: Текст
+    deleteNote: Удалить заметку
+firstLogin:
+    name: Добро пожаловать
+    text: <p>Мы рады поприветствовать тебя на JW Management.</p><p>Пожалуйста, создай для твоего аккаунта Логин и Пароль. С этими данными в будущем ты будешь входить в систему.</p><p>После этого можно уже будет начать!</p><p>Мы желаем тебе много радости!</p>
+    agreeTerms: Я согласен с<a href="/de/terms" target="blank">условиями использования</a> и <a href="/de/privacy" target="blank">политикой конфиденциальности</a>
+    button: Начать!
+    tokenError: Устаревшая ссылка. Эта ссылка больше не действительна. Пожалуйста, попроси отправить тебе новое приглашение или попытайся сбросить пароль.
+    tokenMissing: Ссылка недействительная. Пожалуйста, перейди по ссылке из E-Mail.
+    usernameExists: Логин уже используется. Пожалуйста, придумай другой.
+    usernameMissing: Пожалуйста, введи Логин.
+    agreeTermsMissing: Пожалуйста, прими условия использования и политику конфиденциальности.
+    buttonCreateAccount: Я хочу создать новый аккаунт
+    buttonHaveAccount: У меня уже есть аккаунт
+terms:
+    title: Условия использования
+    text: <h2>1. Haftungsbeschränkung</h2><p>Die Inhalte des Internetauftritts wurden mit größtmöglicher Sorgfalt und nach bestem Gewissen erstellt. Dennoch übernimmt der Anbieter dieser Webseite keine Gewähr für die Aktualität, Vollständigkeit und Richtigkeit der bereitgestellten Seiten und Inhalte.</p><p>Als Diensteanbieter ist der Anbieter dieser Webseite gemäß § 7 Abs. 1 TMG für eigene Inhalte und bereitgestellte Informationen auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich; nach den §§ 8 bis 10 TMG jedoch nicht verpflichtet, die übermittelten oder gespeicherten fremden Informationen zu überwachen. Eine Entfernung oder Sperrung dieser Inhalte erfolgt umgehend ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung. Eine Haftung ist erst ab dem Zeitpunkt der Kenntniserlangung möglich.</p><h2>2. Externe Links</h2><p>Die Webseite enthält sog. „externe Links“ (Verlinkungen) zu anderen Webseiten, auf deren Inhalt der Anbieter der Webseite keinen Einfluss hat. Aus diesem Grund kann der Anbieter für diese Inhalte auch keine Gewähr übernehmen.</p><p>Für die Inhalte und Richtigkeit der bereitgestellten Informationen ist der jeweilige Anbieter der verlinkten Webseite verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden einer solchen Rechtsverletzung wird der Link umgehend entfernen.</p><h2>3. Urheberrecht/Leistungsschutzrecht</h2><p>Die auf dieser Webseite veröffentlichten Inhalte, Werke und bereitgestellten Informationen unterliegen dem deutschen Urheberrecht und Leistungsschutzrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung, Einspeicherung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers. Das unerlaubte Kopieren/Speichern der bereitgestellten Informationen auf diesen Webseiten ist nicht gestattet und strafbar.</p><h2>4. Datenschutz</h2><p>Durch den Besuch des Internetauftritts können Informationen (Datum, Uhrzeit, aufgerufene Seite) über den Zugriff auf dem Server gespeichert werden. Es werden keine personenbezogenenen (z. B. Name, Anschrift oder E-Mail-Adresse) Daten, gespeichert.</p><p>Sofern personenbezogene Daten erhoben werden, erfolgt dies, sofern möglich, nur mit dem vorherigen Einverständnis des Nutzers der Webseite. Eine Weitergabe der Daten an Dritte findet ohne ausdrückliche Zustimmung des Nutzers nicht statt.</p><p>Der Anbieter weist darauf hin, dass die Übertragung von Daten im Internet (z. B. per E-Mail) Sicherheitslücken aufweisen und ein lückenloser Schutz der Daten vor dem Zugriff Dritter nicht gewährleistet werden kann. Der Anbieter übernimmt keine Haftung für die durch solche Sicherheitslücken entstandenen Schäden.</p><p>Der Verwendung der Kontaktdaten durch Dritte zur gewerblichen Nutzung wird ausdrücklich widersprochen. Es sei denn, der Anbieter hat zuvor seine schriftliche Einwilligung erteilt.</p><p>Der Anbieter behält sich rechtliche Schritte für den Fall der unverlangten Zusendung von Werbeinformationen, z. B. durch Spam-Mails, vor.</p><p>Quelle: mustervorlage.net</p>
+    back: На главную страницу
+privacy:
+    title: Политика конфиденциальности
+    text: <h2>Datenschutz</h2><p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns nur gemäß den Bestimmungen des deutschen Datenschutzrechts verarbeitet. Daten sind dann personenbezogen, wenn sie eindeutig einer bestimmten natürlichen Person zugeordnet werden können. Die rechtlichen Grundlagen des Datenschutzes finden Sie im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG). Nachstehende Regelungen informieren Sie insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen Daten durch den Anbieter.</p><p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz vor Zugriffen durch Dritte somit unmöglich ist.</p><h2>Cookies</h2><p>Wir verwenden auf unserer Seite sog. Cookies zum Wiedererkennen mehrfacher Nutzung unseres Angebots, durch denselben Nutzer/Internetanschlussinhaber. Cookies sind kleine Textdateien, die Ihr Internet-Browser auf Ihrem Rechner ablegt und speichert. Sie dienen dazu, unseren Internetauftritt und unsere Angebote zu optimieren. Es handelt sich dabei zumeist um sog. "Session-Cookies", die nach dem Ende Ihres Besuches wieder gelöscht werden.</p><p>Teilweise geben diese Cookies jedoch Informationen ab, um Sie automatisch wieder zu erkennen. Diese Wiedererkennung erfolgt aufgrund der in den Cookies gespeicherten IP-Adresse. Die so erlangten Informationen dienen dazu, unsere Angebote zu optimieren und Ihnen einen leichteren Zugang auf unsere Seite zu ermöglichen.</p><p>Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihres Browsers verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><h2>Serverdaten</h2><p>Aus technischen Gründen werden u.a. folgende Daten, die Ihr Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt, erfasst (sogenannte Serverlogfiles): </p><ul><li>Browsertyp und -version</li><li>verwendetes Betriebssystem</li><li>Webseite, von der aus Sie uns besuchen (Referrer URL)</li><li>Webseite, die Sie besuchen</li><li>Datum und Uhrzeit Ihres Zugriffs</li><li>Ihre Internet Protokoll (IP)-Adresse.</li></ul><p>Diese anonymen Daten werden getrennt von Ihren eventuell angegebenen personenbezogenen Daten gespeichert und lassen so keine Rückschlüsse auf eine bestimmte Person zu. Sie werden zu statistischen Zwecken ausgewertet, um unseren Internetauftritt und unsere Angebote optimieren zu können.</p><h2>Registrierungsfunktion</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, sich dort zu registrieren. Die im Zuge dieser Registrierung eingegebenen Daten, die aus der Eingabemaske des Registrierungsformular ersichtlich sind, werden ausschließlich für die Verwendung unseres Angebots erhoben und gespeichert. Mit Ihrer Registrierung auf unserer Seite werden wir zudem Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Registrierung speichern. Dies dient in dem Fall, dass ein Dritter Ihre Daten missbraucht und sich mit diesen Daten ohne Ihr Wissen auf unserer Seite registriert, als Absicherung unsererseits.  Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><h2>Newsletter</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, unseren Newsletter zu abonnieren. Mit diesem Newsletter informieren wir in regelmäßigen Abständen über unsere Angebote. Um unseren Newsletter empfangen zu können, benötigen Sie eine gültige E-Mailadresse. Die von Ihnen eingetragene E-Mail-Adresse werden wir dahingehend überprüfen, ob Sie tatsächlich der Inhaber der angegebenen E-Mail-Adresse sind bzw. deren Inhaber den Empfang des Newsletters autorisiert ist. Mit Ihrer Anmeldung zu unserem Newsletter werden wir Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Anmeldung speichern. Dies dient in dem Fall, dass ein Dritter Ihre E-Mail-Adresse missbraucht und ohne Ihr Wissen unseren Newsletter abonniert, als Absicherung unsererseits. Weitere Daten werden unsererseits nicht erhoben. Die so erhobenen Daten werden ausschließlich für den Bezug unseres Newsletters verwendet. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht. Das Abonnement dieses Newsletters können Sie jederzeit kündigen. Einzelheiten hierzu können Sie der Bestätigungsmail sowie jedem einzelnen Newsletter entnehmen.</p><h2>Kontaktmöglichkeit</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, mit uns per E-Mail und/oder über ein Kontaktformular in Verbindung zu treten. In diesem Fall werden die vom Nutzer gemachten Angaben zum Zwecke der Bearbeitung seiner Kontaktaufnahme gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><p>Einsatz von Google-Analytics mit Anonymisierungsfunktion</p><p>Wir setzen auf unserer Seite Google-Analytics, einen Webanalysedienst der Firma Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA, nachfolgend „Google“ ein. Google-Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und hierdurch eine Analyse der Benutzung der Website durch Sie ermöglichen.</p><p>Die durch diese Cookies erzeugten Informationen, beispielsweise Zeit, Ort und Häufigkeit Ihres Webseiten-Besuchs einschließlich Ihrer IP-Adresse, werden an Google in den USA übertragen und dort gespeichert.</p><p>Wir verwenden auf unserer Website Google-Analytics mit dem Zusatz "_gat._anonymizeIp". Ihre IP-Adresse wird in diesem Fall von Google schon innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt und dadurch anonymisiert.</p><p>Google wird diese Informationen benutzen, um Ihre Nutzung unserer Seite auszuwerten, um Reports über die Websiteaktivitäten für uns zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. </p><p>Google wird, nach eigenen Angaben, in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><p>Des Weiteren bietet Google für die gängigsten Browser ein Deaktivierungs-Add-on an, welches Ihnen mehr Kontrolle darüber gibt, welche Daten von Google zu der von Ihnen aufgerufenen Websites erfasst werden. Das Add-on teilt dem JavaScript (ga.js) von Google Analytics mit, dass keine Informationen zum Website-Besuch an Google Analytics übermittelt werden sollen. Das Deaktivierungs-Add-on für Browser von Google Analytics verhindert aber nicht, dass Informationen an uns oder an andere von uns gegebenenfalls eingesetzte Webanalyse-Services übermittelt werden. Weitere Informationen zur Installation des Browser Add-on erhalten Sie über nachfolgenden Link: https://tools.google.com/dlpage/gaoptout?hl=de</p><h2>Auskunft/Widerruf/Löschung</h2><p>Sie können sich aufgrund des Bundesdatenschutzgesetzes bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten und deren Berichtigung, Sperrung, Löschung oder einem Widerruf einer erteilten Einwilligung unentgeltlich an uns wenden. Wir weisen darauf hin, dass Ihnen ein Recht auf Berichtigung falscher Daten oder Löschung personenbezogener Daten zusteht, sollte diesem Anspruch keine gesetzliche Aufbewahrungspflicht entgegenstehen.</p>
+    back: На главную страницу
