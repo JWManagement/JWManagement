@@ -3,6 +3,7 @@ import '/imports/api/messages/messages.coffee';
 import '/imports/api/reports/reports.coffee';
 
 import '/imports/api/vessels/service.js';
+import '/imports/api/users/service.js';
 
 import '/imports/ui/components/allUsers/server/support.users.coffee';
 import '/imports/ui/components/allProjects/server/support.projects.coffee';
