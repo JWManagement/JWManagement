@@ -34,7 +34,7 @@ FlowRouter.route('/:language/:projectId/admin', {
         Helpers.doIfLoggedIn(() => {
             const projectId = FlowRouter.getParam('projectId');
 
-            if (Roles.userIsInRole(Meteor.userId(), Permissions.storeAdmin, projectId)) {
+            if (Roles.userIsInRole(Meteor.userId(), Permissions.shiftAndStoreAdmin, projectId)) {
                 Session.set('parent', 'home');
                 BlazeLayout.render('invertedLayout', { content: 'admin' });
             } else {
