@@ -1,163 +1,163 @@
 if queryParam 'showShiftReport'
-	+shiftReport
+    +shiftReport
 .wrapper-content.animated.fadeInUp
-	.container
-		.row.m-b-lg.animated.fadeInUp
-			if loading
-				h1.center-align {{_ 'dashboard.loadingProjects'}}
-			else if hasProjects
-				h1.center-align {{_ 'dashboard.projects'}}
-			else
-				h1.center-align {{_ 'dashboard.noProjects'}}
-		#projects.row.animated.fadeInUp
-			unless loading
-				each getProjects
-					.row.m-n
-						each projects
-							.project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
-								if multipleTags
-									.tags-popup.row
-										.team-link.col-xs-6.col-sm-6.col-md-4.m-b-md.center-align
-											a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
-												.m-t-xs.m-b-sm
-													i.fa.fa-calendar-check-o.fa-3x
-												p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
-										each tag in tags
-											if isTagParticipant tag._id _id
-												.team-link.col-xs-6.col-sm-6.col-md-4.m-b-md.center-align
-													a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
-														if tag.img
-															img(src='/img/{{tag.img}}.png')
-														else
-															i.fa.fa-users.fa-4x
-														p.project-link-caption {{tag.name}}
-								.ibox
-									.ibox-content
-										h1.m-b-md {{name}}
-										.news-wrapper.clearfix
-											.news-content
-												if isInRole 'admin' _id
-													button#editNews.btn.btn-primary.btn-sm.btn-circle.fa.fa-pencil.pull-right(title="{{_ 'dashboard.editNews'}}")
-												if newsThere
-													p.news {{{news.text}}}
-													p.news-date.inline {{_ 'dashboard.newsFrom'}} {{format news.date '' 'DD.MM.YYYY HH:mm'}}
-												else
-													| {{_ 'dashboard.noNews'}}
-											if isInRole 'admin' _id
-												.news-editor.hidden
-													textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
-													button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
-													button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
-													.chars-left 500/500
-										.project-link-wrapper
-											a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
-												i.fa.fa-book
-												p.project-link-caption {{_ 'wiki.nameShort'}}
-											a#toShifts.btn.btn-primary.project-link(href="{{pathFor 'shifts' projectId=_id language=langTag}}")
-												i.fa.fa-calendar-check-o
-												p.project-link-caption {{_ 'shifts.name'}}
-											if isProjectShiftOrStoreAdmin _id
-												a.btn.btn-primary.project-link(href="{{pathFor 'admin' projectId=_id language=langTag}}")
-													i.fa.fa-gear
-													p.project-link-caption {{_ 'admin.nameShort'}}
-											else if vesselModule
-												a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessel.search' projectId=_id language=langTag}}")
-													i.fa.fa-ship
-													p.project-link-caption {{_ 'vessel.nameShort'}}
-									if getUnderstaffedShifts
-										ul.list-group
-											each getUnderstaffedShifts
-												a.shift-link(href="{{pathFor 'shifts' projectId=projectId language=langTag}}")
-													li.list-group-item
-														span.float-right
-															span.label.label-primary.m-r-sm {{_ 'dashboard.understaffed'}}
-															i.fa.fa-angle-double-right
-														span.uss-date {{format date 'YYYYDDDD' 'dddd, DD.MM.YYYY'}}
-														span.uss-time
-															| {{format start 'Hmm' 'HH:mm'}}
-															| {{_ 'time.to'}}
-															| {{format end 'Hmm' 'HH:mm'}}
-															| {{_ 'time.suffix'}}
-			else
-				each getFakeProjects
-					.project-wrapper.fake-project-wrapper.col-lg-6(class="{{centerFakeProject}}")
-						.ibox
-							.ibox-content
-								h1.fake-header.m-b-md
-								.news-wrapper.clearfix
-									.news-content.fake-news
-								.project-link-wrapper
-									a.btn.btn-primary.project-link
-										.fake-icon
-										p.fake-icon-title
-									a.btn.btn-primary.project-link
-										.fake-icon
-										p.fake-icon-title
-									if isProjectShiftOrStoreAdmin this
-										a.btn.btn-primary.project-link
-											.fake-icon
-											p.fake-icon-title
-		.row.m-t-lg.m-b-lg.animated.fadeInUp
-			if loading
-				h1#myShifts.center-align {{_ 'dashboard.loadingShifts'}}
-			else if getShifts.count
-				h1#myShifts.center-align {{_ 'dashboard.shifts'}}
-			else
-				h1#myShifts.center-align {{_ 'dashboard.noShifts'}}
-		.row.animated.fadeInUp
-			#personalShiftsContainer.col-xs-12
-				if getShifts.count
-					#vertical-timeline.vertical-container.light-timeline.center-orientation
-						each getShifts
-							if showShift
-								.vertical-timeline-block.shift(class="{{shiftRelation}}")
-									.vertical-timeline-icon
-										if isRelation 'missing'
-											i.fa.fa-envelope
-										else if isRelation 'approved'
-											i.fa.fa-thumbs-o-up
-										else if isRelation 'pending'
-											i.fa.fa-question
-										else if isRelation 'declined'
-											i.fa.fa-thumbs-o-down
-									a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
-										if isRelation 'missing'
-											h2  {{_ "dashboard.missing"}}
-										else if isRelation 'approved'
-											h2  {{_ "dashboard.approved"}}
-										else if isRelation 'pending'
-											h2  {{_ "dashboard.pending"}}
-										else if isRelation 'declined'
-											h2  {{_ "dashboard.declined"}}
-										.tag
-											if multipleProjects
-												| {{getProjectName}},
-											| {{tag}}
-										span.vertical-date
-											| {{formatToNow date start}}
-											br
-											small {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}
-											br
-											small {{formatTimeComparison start end}}
-										if teams
-											.shift-teams.clearfix
-												each teams
-													div.shift-team(class="{{teamRelation}}")
-														.shift-team-header
-															i.fa.fa-fw(class='{{getIcon icon}}')
-															| {{name}}
-														if participants
-															.shift-team-participants
-																each participants
-																	if thisTeamleader
-																		u {{name}}
-																		br
-																each participants
-																	unless thisTeamleader
-																		| {{name}}
-																		br
-					unless showOlder
-						.center-align
-							#showOlder.btn.btn-primary
-								.fa.fa-chevron-down.fa-fw
-								| {{_ "dashboard.showOlder"}}
+    .container
+        .row.m-b-lg.animated.fadeInUp
+            if loading
+                h1.center-align {{_ 'dashboard.loadingProjects'}}
+            else if hasProjects
+                h1.center-align {{_ 'dashboard.projects'}}
+            else
+                h1.center-align {{_ 'dashboard.noProjects'}}
+        #projects.row.animated.fadeInUp
+            unless loading
+                each getProjects
+                    .row.m-n
+                        each projects
+                            .project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
+                                if multipleTags
+                                    .tags-popup.row
+                                        .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                            a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
+                                                .m-t-xs.m-b-sm
+                                                    i.fa.fa-calendar-check-o.fa-3x
+                                                p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
+                                        each tag in tags
+                                            if isTagParticipant tag._id _id
+                                                .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                                    a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
+                                                        if tag.img
+                                                            img(src='/img/{{tag.img}}.png')
+                                                        else
+                                                            i.fa.fa-users.fa-4x
+                                                        p.project-link-caption {{tag.name}}
+                                .ibox
+                                    .ibox-content
+                                        h1.m-b-md {{name}}
+                                        .news-wrapper.clearfix
+                                            .news-content
+                                                if isInRole 'admin' _id
+                                                    button#editNews.btn.btn-primary.btn-sm.btn-circle.fa.fa-pencil.pull-right(title="{{_ 'dashboard.editNews'}}")
+                                                if newsThere
+                                                    p.news {{{news.text}}}
+                                                    p.news-date.inline {{_ 'dashboard.newsFrom'}} {{format news.date '' 'DD.MM.YYYY HH:mm'}}
+                                                else
+                                                    | {{_ 'dashboard.noNews'}}
+                                            if isInRole 'admin' _id
+                                                .news-editor.hidden
+                                                    textarea#news-textarea(rows="4" maxlength="500") {{{html2win news.text}}}
+                                                    button#changeNews.btn.btn-success.btn-sm.btn-circle.fa.fa-check.pull-right(title="{{_ 'dashboard.changeNews'}}")
+                                                    button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
+                                                    .chars-left 500/500
+                                        .project-link-wrapper
+                                            a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
+                                                i.fa.fa-book
+                                                p.project-link-caption {{_ 'wiki.nameShort'}}
+                                            a#toShifts.btn.btn-primary.project-link(href="{{pathFor 'shifts' projectId=_id language=langTag}}")
+                                                i.fa.fa-calendar-check-o
+                                                p.project-link-caption {{_ 'shifts.name'}}
+                                            if isProjectShiftOrStoreAdmin _id
+                                                a.btn.btn-primary.project-link(href="{{pathFor 'admin' projectId=_id language=langTag}}")
+                                                    i.fa.fa-gear
+                                                    p.project-link-caption {{_ 'admin.nameShort'}}
+                                            else if vesselModule
+                                                a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessel.search' projectId=_id language=langTag}}")
+                                                    i.fa.fa-ship
+                                                    p.project-link-caption {{_ 'vessel.nameShort'}}
+                                    if getUnderstaffedShifts
+                                        ul.list-group
+                                            each getUnderstaffedShifts
+                                                a.shift-link(href="{{pathFor 'shifts' projectId=projectId language=langTag}}")
+                                                    li.list-group-item
+                                                        span.float-right
+                                                            span.label.label-primary.m-r-sm {{_ 'dashboard.understaffed'}}
+                                                            i.fa.fa-angle-double-right
+                                                        span.uss-date {{format date 'YYYYDDDD' 'dddd, DD.MM.YYYY'}}
+                                                        span.uss-time
+                                                            | {{format start 'Hmm' 'HH:mm'}}
+                                                            | {{_ 'time.to'}}
+                                                            | {{format end 'Hmm' 'HH:mm'}}
+                                                            | {{_ 'time.suffix'}}
+            else
+                each getFakeProjects
+                    .project-wrapper.fake-project-wrapper.col-lg-6(class="{{centerFakeProject}}")
+                        .ibox
+                            .ibox-content
+                                h1.fake-header.m-b-md
+                                .news-wrapper.clearfix
+                                    .news-content.fake-news
+                                .project-link-wrapper
+                                    a.btn.btn-primary.project-link
+                                        .fake-icon
+                                        p.fake-icon-title
+                                    a.btn.btn-primary.project-link
+                                        .fake-icon
+                                        p.fake-icon-title
+                                    if isProjectShiftOrStoreAdmin this
+                                        a.btn.btn-primary.project-link
+                                            .fake-icon
+                                            p.fake-icon-title
+        .row.m-t-lg.m-b-lg.animated.fadeInUp
+            if loading
+                h1#myShifts.center-align {{_ 'dashboard.loadingShifts'}}
+            else if getShifts.count
+                h1#myShifts.center-align {{_ 'dashboard.shifts'}}
+            else
+                h1#myShifts.center-align {{_ 'dashboard.noShifts'}}
+        .row.animated.fadeInUp
+            #personalShiftsContainer.col-xs-12
+                if getShifts.count
+                    #vertical-timeline.vertical-container.light-timeline.center-orientation
+                        each getShifts
+                            if showShift
+                                .vertical-timeline-block.shift(class="{{shiftRelation}}")
+                                    .vertical-timeline-icon
+                                        if isRelation 'missing'
+                                            i.fa.fa-envelope
+                                        else if isRelation 'approved'
+                                            i.fa.fa-thumbs-o-up
+                                        else if isRelation 'pending'
+                                            i.fa.fa-question
+                                        else if isRelation 'declined'
+                                            i.fa.fa-thumbs-o-down
+                                    a.vertical-timeline-content(href="{{pathForShift}}" data-type="{{shiftRelation}}")
+                                        if isRelation 'missing'
+                                            h2  {{_ "dashboard.missing"}}
+                                        else if isRelation 'approved'
+                                            h2  {{_ "dashboard.approved"}}
+                                        else if isRelation 'pending'
+                                            h2  {{_ "dashboard.pending"}}
+                                        else if isRelation 'declined'
+                                            h2  {{_ "dashboard.declined"}}
+                                        .tag
+                                            if multipleProjects
+                                                | {{getProjectName}},
+                                            | {{tag}}
+                                        span.vertical-date
+                                            | {{formatToNow date start}}
+                                            br
+                                            small {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}
+                                            br
+                                            small {{formatTimeComparison start end}}
+                                        if teams
+                                            .shift-teams.clearfix
+                                                each teams
+                                                    div.shift-team(class="{{teamRelation}}")
+                                                        .shift-team-header
+                                                            i.fa.fa-fw(class='{{getIcon icon}}')
+                                                            | {{name}}
+                                                        if participants
+                                                            .shift-team-participants
+                                                                each participants
+                                                                    if thisTeamleader
+                                                                        u {{name}}
+                                                                        br
+                                                                each participants
+                                                                    unless thisTeamleader
+                                                                        | {{name}}
+                                                                        br
+                    unless showOlder
+                        .center-align
+                            #showOlder.btn.btn-primary
+                                .fa.fa-chevron-down.fa-fw
+                                | {{_ "dashboard.showOlder"}}
