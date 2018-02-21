@@ -41,7 +41,7 @@ Template.admin.helpers
 	,
 		route: 'user.search'
 		icon: 'users'
-		role: 'admin'
+		role: 'support'
 	]
 
 Template.admin.onCreated ->
