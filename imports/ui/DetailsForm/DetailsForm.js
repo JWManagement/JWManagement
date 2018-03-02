@@ -85,27 +85,40 @@ Template.DetailsForm.helpers({
         const template = Template.instance();
         const key = content.key;
         const item = template.item.get();
+        const value = '';
 
-        if (key in item) {
-            const value = item[key];
+        if (key.indexOf('_') > 0) {
+            value = item;
 
-            if (content.type == 'dropdown') {
-                return TAPi18n.__([
-                    FlowRouter.getRouteName().split('.')[0],
-                    'entity',
-                    key + 'Values',
-                    value.toLowerCase()
-                ].join('.'));
-            } else if (content.type == 'date') {
-                if (value != null) {
-                    const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                    return moment(value, 'YYYYMMDD').format(dateFormat);
+            for (property of key.split('_')) {
+                if (property in value) {
+                    value = value[property];
                 } else {
                     return '';
                 }
-            } else {
-                return value;
             }
+
+            value;
+        } else {
+            value = item[key];
+        }
+
+        if (content.type == 'dropdown') {
+            return TAPi18n.__([
+                FlowRouter.getRouteName().split('.')[0],
+                'entity',
+                key + 'Values',
+                value.toLowerCase()
+            ].join('.'));
+        } else if (content.type == 'date') {
+            if (value != null) {
+                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
+                return moment(value, 'YYYYMMDD').format(dateFormat);
+            } else {
+                return '';
+            }
+        } else {
+            return value;
         }
     },
     getProperty(entity, field) {

@@ -1,3 +1,5 @@
+import Helpers from './routeHelpers.js';
+
 // search
 FlowRouter.route('/:language/:projectId/vessels', {
     name: 'vessel.search',

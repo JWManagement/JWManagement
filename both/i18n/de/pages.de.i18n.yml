@@ -8,7 +8,8 @@ navigation:
     settings: Einstellungen
     users: Benutzer
     user:
-        search: Benutzer NEU
+        search: Verkündiger
+        details: Verkündigerdaten
     reports: Berichte
     store: Depot
     vessel:
@@ -267,15 +268,42 @@ users:
     sendToAllInTag: E-Mail an alle im Tag %s
     export: Export als csv
 user:
-    nameShort: Users NEW
+    nameShort: Verkündiger
     entity:
-        profile_firstname: First name
-        profile_lastname: Last name
-        profile_email: E-mail
-        profile_telefon: Phone
-        username: Username
+        username: Benutzername
+        profile_firstname: Vorname
+        profile_lastname: Nachname
+        profile_email: E-Mail
+        profile_telefon: Telefon
+        profile_gender: Geschlecht
+        profile_genderValues:
+            m: Bruder
+            w: Schwester
+        profile_pioneer: Dienstvorrecht
+        profile_pioneerValues:
+            publisher: Verkündiger
+            auxiliaryPioneer: Hilfspionier
+            pioneer: Pionier
+            specialPioneer: Sonderpionier
+            circuitOverseer: Kreisaufseher
+            bethelite: Bethelit
+            fulltimeConstructionServant: LDC Baudiener
+        profile_privilege: Dienstamt
+        profile_privilegeValues:
+            publisher: Verkündiger
+            ministerialServant: Dienstamtgehilfe
+            elder: Ältester
+            coordinator: Koordinator
+            secretary: Sekretär
+            serviceOverseer: Dienstaufseher
+        profile_bdate: Geburtsdatum
+        profile_languages: Fremdsprachen
+        passwordChange: Passwort ändern
+        userDelete: Verkündiger aus diesem Projekt entfernen
     search:
-        placeholder: User first name, last name, email, phone or username
+        placeholder: Vorname, Nachname, E-Mail, Telefon oder Benutzername
+    details:
+        identificationSection: Identifikationsdaten
 reports:
     placements: Abgaben
     bibles: Bibeln

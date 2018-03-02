@@ -1,3 +1,5 @@
+import Helpers from './routeHelpers.js';
+
 // search
 
 // details

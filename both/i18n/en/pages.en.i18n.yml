@@ -8,7 +8,8 @@ navigation:
     settings: Settings
     users: Users
     user:
-        search: Users NEW
+        search: Users
+        details: User details
     reports: Reports
     store: Store Room
     vessels: Vessels
@@ -269,15 +270,42 @@ users:
     sendToAllInTag: Email to all in tag %s
     export: Export as csv
 user:
-    nameShort: Users NEW
+    nameShort: Users
     entity:
+        username: Username
         profile_firstname: First name
         profile_lastname: Last name
         profile_email: E-mail
         profile_telefon: Phone
-        username: Username
+        profile_gender: Gender
+        profile_genderValues:
+            m: Brother
+            w: Sister
+        profile_pioneer: Privilege of service
+        profile_pioneerValues:
+            publisher: Publisher
+            auxiliaryPioneer: Auxiliary pioneer
+            pioneer: Regular pioneer
+            specialPioneer: Special pioneer
+            circuitOverseer: Circuit overseer
+            bethelite: Bethelite
+            fulltimeConstructionServant: Construction servant
+        profile_privilege: Congregation assignment
+        profile_privilegeValues:
+            publisher: Publisher
+            ministerialServant: Ministerial servant
+            elder: Elder
+            coordinator: Coordinator of the Body of Elders
+            secretary: Secretary
+            serviceOverseer: Service overseer
+        profile_bdate: Birth date
+        profile_languages: Languages
+        passwordChange: Change password
+        userDelete: Revoke this user's access to the project
     search:
         placeholder: User first name, last name, email, phone or username
+    details:
+        identificationSection: Identification data
 reports:
     placements: Placements
     bibles: Bibles

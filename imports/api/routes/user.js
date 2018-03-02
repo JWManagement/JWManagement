@@ -1,3 +1,5 @@
+import Helpers from './routeHelpers.js';
+
 // search
 FlowRouter.route('/:language/:projectId/new/users', {
     name: 'user.search',
@@ -11,6 +13,16 @@ FlowRouter.route('/:language/:projectId/new/users', {
 });
 
 // details
+FlowRouter.route('/:language/:projectId/new/users/:userId', {
+    name: 'user.details',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            require('/imports/ui/users/user.details.js');
+            BlazeLayout.render('user.details');
+        });
+    }
+});
 
 // insert
 
