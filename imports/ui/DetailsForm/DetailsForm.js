@@ -166,6 +166,8 @@ Template.DetailsForm.onRendered(() => {
     template.item.set({});
 
     loadData(template);
+
+    window.scrollTo(0, 0);
 });
 
 Template.DetailsForm.onDestroyed(() => {

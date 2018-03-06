@@ -105,6 +105,8 @@ Template.UpdateForm.onRendered(() => {
             return true;
         }
     });
+
+    window.scrollTo(0, 0);
 });
 
 Template.UpdateForm.onDestroyed(() => {
