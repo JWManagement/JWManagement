@@ -1,4 +1,5 @@
 import Vessels from '/imports/api/vessels/vessels.js';
+import VesselType from '/imports/api/dropdowns/vesselType.js';
 
 Template['vessel.update'].helpers({
     data() {
@@ -13,7 +14,7 @@ Template['vessel.update'].helpers({
                 }, {
                     key: 'type',
                     type: 'dropdown',
-                    allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
+                    allowedValues: VesselType.allowedValues
                 }, {
                     key: 'callsign'
                 }, {
