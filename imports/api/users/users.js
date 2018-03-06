@@ -72,7 +72,7 @@ Users.schema = new SimpleSchema({
         allowedValues: Gender.allowedValues
     },
     'profile.bdate': {
-        type: String,
+        type: Number,
         optional: true
     },
     'profile.language': {

@@ -310,6 +310,7 @@ user:
         placeholder: User first name, last name, email, phone or username
     details:
         identificationSection: Identification data
+        dateFormat: MM/DD/YYYY
 reports:
     placements: Placements
     bibles: Bibles

@@ -23,7 +23,8 @@ Template['user.details'].helpers({
                             key: 'profile_gender',
                             type: 'dropdown'
                         }, {
-                            key: 'profile_bdate'
+                            key: 'profile_bdate',
+                            type: 'date'
                         }, {
                             key: 'profile_pioneer',
                             type: 'dropdown'

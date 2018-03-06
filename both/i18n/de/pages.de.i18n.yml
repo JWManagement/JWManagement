@@ -308,6 +308,7 @@ user:
         placeholder: Vorname, Nachname, E-Mail, Telefon oder Benutzername
     details:
         identificationSection: Identifikationsdaten
+        dateFormat: DD.MM.YYYY
 reports:
     placements: Abgaben
     bibles: Bibeln
