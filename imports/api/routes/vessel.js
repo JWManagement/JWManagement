@@ -12,18 +12,6 @@ FlowRouter.route('/:language/:projectId/vessels', {
     }
 });
 
-// details
-FlowRouter.route('/:language/:projectId/vessels/:vesselId', {
-    name: 'vessel.details',
-    triggersEnter: [ Helpers.checkLanguage ],
-    action: () => {
-        Helpers.doIfLoggedIn(() => {
-            require('/imports/ui/vessels/vessel.details.js');
-            BlazeLayout.render('vessel.details');
-        });
-    }
-});
-
 // insert
 FlowRouter.route('/:language/:projectId/vessels/new', {
     name: 'vessel.insert',
@@ -32,6 +20,18 @@ FlowRouter.route('/:language/:projectId/vessels/new', {
         Helpers.doIfLoggedIn(() => {
             require('/imports/ui/vessels/vessel.insert.js');
             BlazeLayout.render('vessel.insert');
+        });
+    }
+});
+
+// details
+FlowRouter.route('/:language/:projectId/vessels/:vesselId', {
+    name: 'vessel.details',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            require('/imports/ui/vessels/vessel.details.js');
+            BlazeLayout.render('vessel.details');
         });
     }
 });

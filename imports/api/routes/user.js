@@ -12,6 +12,8 @@ FlowRouter.route('/:language/:projectId/new/users', {
     }
 });
 
+// insert
+
 // details
 FlowRouter.route('/:language/:projectId/new/users/:userId', {
     name: 'user.details',
@@ -24,6 +26,14 @@ FlowRouter.route('/:language/:projectId/new/users/:userId', {
     }
 });
 
-// insert
-
 //update
+FlowRouter.route('/:language/:projectId/new/users/:userId/:key', {
+    name: 'user.update',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            require('/imports/ui/users/user.update.js');
+            BlazeLayout.render('user.update');
+        });
+    }
+});
