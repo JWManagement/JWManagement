@@ -1,5 +1,11 @@
 import SimpleSchema from 'simpl-schema';
+import Gender from '/imports/api/dropdowns/gender.js';
+import Pioneer from '/imports/api/dropdowns/pioneer.js';
+import Privilege from '/imports/api/dropdowns/privilege.js';
+import SystemLanguages from '/imports/api/dropdowns/systemLanguages.js';
 import { Mongo } from 'meteor/mongo';
+
+const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
 
 let Users = Meteor.users;
 
@@ -8,11 +14,11 @@ Users.deny({
     update: () => { return true; },
     remove: () => { return true; }
 });
-/*
+
 Users.schema = new SimpleSchema({
     _id: {
         type: String,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return Random.id();
             }
@@ -20,7 +26,7 @@ Users.schema = new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return new Date;
             }
@@ -28,7 +34,7 @@ Users.schema = new SimpleSchema({
     },
     createdBy: {
         type: String,
-        autoValue: () => {
+        autoValue: function() {
             if (!this.isSet) {
                 return Meteor.userId();
             }
@@ -36,95 +42,99 @@ Users.schema = new SimpleSchema({
     },
     lastChangeBy: {
         type: String,
-        autoValue: () => {
+        autoValue: function() {
             return Meteor.userId();
         }
     },
-    name: {
+    username: {
         type: String
     },
-    flag: {
+    status: {
+        type: Object,
+        blackbox: true,
+        optional: true
+    },
+    profile: {
+        type: Object
+    },
+    'profile.firstname': {
+        type: String
+    },
+    'profile.lastname': {
+        type: String
+    },
+    'profile.email': {
+        type: String,
+        regEx: SimpleSchema.RegEx.Email
+    },
+    'profile.gender': {
+        type: String,
+        allowedValues: Gender.allowedValues
+    },
+    'profile.bdate': {
         type: String,
         optional: true
     },
-    type: {
+    'profile.language': {
         type: String,
-        allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
+        defaultValue: 'en',
+        allowedValues: SystemLanguages.allowedValues
     },
-    callsign: {
-        type: String,
-        optional: true
-    },
-    eni: {
+    'profile.languages': {
         type: String,
         optional: true
     },
-    imo: {
+    'profile.pioneer': {
+        type: String,
+        allowedValues: Pioneer.allowedValues
+    },
+    'profile.privilege': {
+        type: String,
+        allowedValues: Privilege.allowedValues
+    },
+    'profile.telefon': {
         type: String,
         optional: true
     },
-    mmsi: {
+    'profile.congregation': {
         type: String,
         optional: true
     },
-    visits: {
+    'profile.available': {
+        type: Object,
+        blackbox: true,
+        optional: true
+    },
+    'profile.vacations': {
         type: Array,
+        blackbox: true,
         optional: true
     },
-    'visits.$': new SimpleSchema({
-        _id: {
-            type: String,
-            autoValue: () => {
-                if (!this.isSet) {
-                    return Random.id();
-                }
-            }
-        },
-        createdAt: {
-            type: Date,
-            autoValue: () => {
-                return new Date;
-            }
-        },
-        createdBy: {
-            type: String,
-            autoValue: () => {
-                return Meteor.userId();
-            }
-        },
-        isUserVisible: {
-            type: Boolean,
-            autoValue: () => {
-                if (!this.isSet) {
-                    return true;
-                }
-            }
-        },
-        projectId: {
-            type: String
-        },
-        harborId: {
-            type: String
-        },
-        date: {
-            type: Number
-        },
-        dateNext: {
-            type: Number,
-            optional: true
-        },
-        languageIds: {
-            type: Array,
-            optional: true
-        },
-        'languageIds.$': {
-            type: String
-        }
-    })
+    'profile.shortTermCalls': {
+        type: Boolean,
+        defaultValue: false
+    },
+    'profile.shortTermCallsAlways': {
+        type: Boolean,
+        defaultValue: false
+    },
+    state: {
+        type: String
+    },
+    services: {
+        type: Object,
+        blackbox: true
+    },
+    roles: {
+        type: Object,
+        blackbox: true
+    }
 });
 
-Users.uniqueKeys = ['callsign', 'eni', 'imo', 'mmsi'];
+Users.uniqueKeys = ['username'];
 
 Users.attachSchema = Users.schema;
-*/
+
+Users.persistence = new PersistenceManager(Users);
+
 export default Users;

@@ -10,6 +10,7 @@ navigation:
     user:
         search: Verkündiger
         details: Verkündigerdaten
+        update: Verkündiger bearbeiten
     reports: Berichte
     store: Depot
     vessel:
@@ -279,23 +280,26 @@ user:
         profile_genderValues:
             m: Bruder
             w: Schwester
+            placeholder: Wähle ein Geschlecht
         profile_pioneer: Dienstvorrecht
         profile_pioneerValues:
             publisher: Verkündiger
-            auxiliaryPioneer: Hilfspionier
-            pioneer: Pionier
-            specialPioneer: Sonderpionier
-            circuitOverseer: Kreisaufseher
+            auxiliary: Hilfspionier
+            regular: Pionier
+            special: Sonderpionier
+            circuit: Kreisaufseher
             bethelite: Bethelit
-            fulltimeConstructionServant: LDC Baudiener
+            ldc: LDC Baudiener
+            placeholder: Wähle ein Dienstvorrecht
         profile_privilege: Dienstamt
         profile_privilegeValues:
             publisher: Verkündiger
-            ministerialServant: Dienstamtgehilfe
+            servant: Dienstamtgehilfe
             elder: Ältester
             coordinator: Koordinator
             secretary: Sekretär
             serviceOverseer: Dienstaufseher
+            placeholder: Wähle ein Dienstamt
         profile_bdate: Geburtsdatum
         profile_languages: Fremdsprachen
         passwordChange: Passwort ändern
