@@ -102,7 +102,7 @@ Template.SearchForm.onCreated(() => {
     template.entityLink = data.entityLink;
     template.backLink = data.backLink;
 
-    template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '');
+    template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '*');
     template.isLoading = new ReactiveVar(false);
     template.noResults = new ReactiveVar(true);
     template.itemCount = new ReactiveVar(0);
