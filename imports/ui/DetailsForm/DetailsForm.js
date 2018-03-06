@@ -97,8 +97,6 @@ Template.DetailsForm.helpers({
                     return '';
                 }
             }
-
-            value;
         } else {
             value = item[key];
         }

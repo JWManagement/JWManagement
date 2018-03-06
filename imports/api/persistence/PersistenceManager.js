@@ -16,8 +16,8 @@ module.exports = class PersistenceManager {
 
     update(entityId, key, value) {
         try {
-            const entity = this.db.findOne(entityId);
-            entity[key] = value;
+            let entity = this.db.findOne(entityId);
+            entity = getUpdatedEntity(key.split('.'), entity, value);
             this.validate(entity);
             this.db.update(entityId, entity);
         } catch(e) {
@@ -56,4 +56,16 @@ module.exports = class PersistenceManager {
             throw new ValidationError(errors);
         }
     }
+}
+
+function getUpdatedEntity(keys, entity, value) {
+    const firstKey = keys.shift();
+
+    if (keys.length > 0) {
+        entity[firstKey] = getUpdatedEntity(keys, entity[firstKey], value);
+        return entity;
+    }
+
+    entity[firstKey] = value;
+    return entity;
 }
