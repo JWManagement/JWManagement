@@ -48,18 +48,15 @@ Meteor.methods({
 });
 
 function getExtendedUser(userId, projectId) {
-    let rolesObject = {}
-    rolesObject['roles.' + projectId] = {
-        $in: Permissions.member
-    }
-
     let user = Users.findOne({
         $and: [
             {
                 _id: userId
-            },
-            rolesObject,
-            {
+            }, {
+                ['roles.' + projectId]: {
+                    $in: Permissions.member
+                }
+            }, {
                 username: {
                     $ne: 'adm'
                 }
