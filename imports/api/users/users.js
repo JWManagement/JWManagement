@@ -47,7 +47,12 @@ Users.schema = new SimpleSchema({
         }
     },
     username: {
-        type: String
+        type: String,
+        autoValue: function () {
+            if (this.isSet && typeof this.value === "string") {
+                return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '');
+            }
+          }
     },
     status: {
         type: Object,
