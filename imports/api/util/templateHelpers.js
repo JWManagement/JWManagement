@@ -26,12 +26,12 @@ Template.registerHelper('getKey', (key) => {
 
 Template.registerHelper('hasError', (key) => {
     const data = Template.currentData().data;
-    return ['required', 'unique'].includes(data.error);
+    return isHandledError(data.error);
 });
 
 Template.registerHelper('getErrorClass', (key) => {
     const data = Template.currentData().data;
-    if (data.error != null) {
+    if (isHandledError(data.error)) {
         return 'has-error';
     }
     return '';
@@ -39,9 +39,12 @@ Template.registerHelper('getErrorClass', (key) => {
 
 Template.registerHelper('getEntityErrorTranslation', (key) => {
     const data = Template.currentData().data;
-    if (data.error == 'required') {
-        return TAPi18n.__('validation.required');
-    } else if (data.error == 'unique') {
-        return TAPi18n.__('validation.unique');
+    if (isHandledError(data.error)) {
+        return TAPi18n.__('validation.' + data.error);
     }
+    return '';
 });
+
+function isHandledError(error) {
+    return ['required', 'unique', 'minString8', 'passwordMismatch'].indexOf(error) > -1;
+}
