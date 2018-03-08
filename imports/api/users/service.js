@@ -1,5 +1,7 @@
 import Users from '/imports/api/users/users.js'
+import PasswordsSchema from '/imports/api/users/passwords.js'
 import RoleManager from '/imports/api/roles/RoleManager.js'
+import { Accounts } from 'meteor/accounts-base'
 import './publish/user.search.coffee'
 
 Meteor.methods({
@@ -43,6 +45,23 @@ Meteor.methods({
         try {
             Users.persistence.update(userId, key.replace('_', '.'), value);
         } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    },
+    'user.password.change': ({ projectId, userId }, passwords) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            PasswordsSchema.validate(passwords);
+
+            Accounts.setPassword(userId, passwords.password);
+        } catch(e) {
+            for(let detail of e.details) {
+                if (detail.type == 'minString') {
+                    detail.type = 'minString8';
+                }
+            }
+
             throw new Meteor.Error(e);
         }
     },

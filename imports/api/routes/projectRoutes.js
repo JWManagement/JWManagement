@@ -1,6 +1,7 @@
 import Helpers from './routeHelpers.js';
 
 import './user.js'
+import './user.password.js'
 import './vessel.js'
 import './vessel.visit.js'
 import './vessel.visit.language.js'

@@ -11,6 +11,8 @@ navigation:
         search: Users
         details: User details
         update: Edit user
+        password:
+            change: Change user's password
     reports: Reports
     store: Store Room
     vessels: Vessels
@@ -304,7 +306,10 @@ user:
             placeholder: Select a congregation assignment
         profile_bdate: Birth date
         profile_languages: Languages
-        passwordChange: Change password
+        password:
+            change: Change password
+            password: Enter the new password
+            passwordRepeat: Re-enter the new password
         delete: Revoke this user's access to the project
         deleteConfirmation: Do you really want to revoke this user's access to the project?
     search:

@@ -37,10 +37,10 @@ Template['user.details'].helpers({
                     ],
                     actions: [
                         {
-                            key: 'passwordChange',
+                            key: 'password.change',
                             type: 'link',
                             style: 'primary',
-                            route: 'password.change'
+                            route: 'user.password.change'
                         }, {
                             key: 'delete',
                             type: 'confirm',

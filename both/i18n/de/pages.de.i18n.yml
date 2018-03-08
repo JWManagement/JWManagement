@@ -11,6 +11,8 @@ navigation:
         search: Verkündiger
         details: Verkündigerdaten
         update: Verkündiger bearbeiten
+        password:
+            change: Passwort des Verkündigers ändern
     reports: Berichte
     store: Depot
     vessel:
@@ -302,7 +304,10 @@ user:
             placeholder: Wähle ein Dienstamt
         profile_bdate: Geburtsdatum
         profile_languages: Fremdsprachen
-        passwordChange: Passwort ändern
+        password:
+            change: Passwort ändern
+            password: Neues Passwort eingeben
+            passwordRepeat: Neues Passwort wiederholen
         delete: Verkündiger aus diesem Projekt entfernen
         deleteConfirmation: Möchtest du diesen Verkündiger wirklich aus diesem Projekt entfernen?
     search:
