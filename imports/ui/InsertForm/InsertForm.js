@@ -99,11 +99,31 @@ Template.InsertForm.onDestroyed(() => {
 });
 
 Template.InsertForm.events({
-    'change input': (e) => {
-        $(e.target).closest('.section').removeClass('has-error');
+    'change input': function(e) {
+        const template = Template.instance();
+        const key = this.data.key;
+        const errors = template.errors.get();
+        let newErrors = [];
+
+        for (let error in errors) {
+            if (error.name != key) {
+                newErrors.push(error);
+            }
+        }
+        template.errors.set(newErrors);
     },
-    'change select': (e) => {
-        $(e.target).closest('.section').removeClass('has-error');
+    'change select': function(e) {
+        const template = Template.instance();
+        const key = this.data.key;
+        const errors = template.errors.get();
+        let newErrors = [];
+
+        for (let error in errors) {
+            if (error.name != key) {
+                newErrors.push(error);
+            }
+        }
+        template.errors.set(newErrors);
     },
     'click .navbar-save': (e) => {
         e.preventDefault();
@@ -119,7 +139,7 @@ Template.InsertForm.events({
                 if (e.error.error == 'validation-error') {
                     let errors = [];
 
-                    if (e.error.reason != null) {
+                    if (e.error.reason != null && typeof e.error.reason == 'object') {
                         errors = errors.concat(e.error.reason);
                     } else if (e.error.details != null) {
                         errors = errors.concat(e.error.details);
