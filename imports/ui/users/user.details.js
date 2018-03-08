@@ -41,12 +41,12 @@ Template['user.details'].helpers({
                             type: 'link',
                             style: 'primary',
                             route: 'password.change'
-                        },
-                        {
-                            key: 'userDelete',
-                            type: 'link',
+                        }, {
+                            key: 'delete',
+                            type: 'confirm',
                             style: 'danger',
-                            route: 'user.removeFromProject'
+                            method: 'user.removeFromProject',
+                            route: 'user.search'
                         }
                     ]
                 }

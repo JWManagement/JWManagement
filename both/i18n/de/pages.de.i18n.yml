@@ -303,7 +303,8 @@ user:
         profile_bdate: Geburtsdatum
         profile_languages: Fremdsprachen
         passwordChange: Passwort ändern
-        userDelete: Verkündiger aus diesem Projekt entfernen
+        delete: Verkündiger aus diesem Projekt entfernen
+        deleteConfirmation: Möchtest du diesen Verkündiger wirklich aus diesem Projekt entfernen?
     search:
         placeholder: Vorname, Nachname, E-Mail, Telefon oder Benutzername
     details:

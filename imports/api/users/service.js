@@ -1,4 +1,5 @@
 import Users from '/imports/api/users/users.js'
+import RoleManager from '/imports/api/roles/RoleManager.js'
 import './publish/user.search.coffee'
 
 Meteor.methods({
@@ -45,6 +46,34 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
+    'user.removeFromProject': ({ projectId, userId }) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            RoleManager.removeProjectPermission(projectId, userId);
+
+            const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 }});
+
+            if ((typeof project !== "undefined" && project !== null) && project.tags) {
+                for (let tag of project.tags) {
+                    RoleManager.removeTagPermission(tag._id, userId);
+                }
+
+                for (let group of Roles.getGroupsForUser(userId)) {
+                    if (RoleManager.hasPermission(userId, projectId, Permissions.member.concat(Permissions.participant))) {
+                        return;
+                    }
+                }
+
+            }
+
+            if (!RoleManager.hasPermissions(userId)) {
+                Users.remove(userId);
+            }
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    }
 });
 
 function getExtendedUser(userId, projectId) {

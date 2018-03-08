@@ -305,7 +305,8 @@ user:
         profile_bdate: Birth date
         profile_languages: Languages
         passwordChange: Change password
-        userDelete: Revoke this user's access to the project
+        delete: Revoke this user's access to the project
+        deleteConfirmation: Do you really want to revoke this user's access to the project?
     search:
         placeholder: User first name, last name, email, phone or username
     details:
