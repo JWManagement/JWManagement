@@ -4,7 +4,8 @@ navigation:
     profile: Mein Profil
     shifts: Schichten
     wiki: Informationen
-    admin: Administration
+    admin:
+        details: Verwaltung
     settings: Einstellungen
     users: Benutzer
     user:
@@ -259,8 +260,17 @@ shifts:
 day:
     removeAll: Alle löschen
 admin:
-    name: Verwaltung
     nameShort: Verwaltung
+    entity:
+        settings: Einstellungen
+        users: Benutzer
+        usersNew: Verkündiger
+        reports: Berichte
+        store: Depot
+        vessels: Schiffe
+        notes: Notizen
+    details:
+        administrationSection: Verwaltung
 users:
     title: Teilnehmerliste
     search: Suchen...

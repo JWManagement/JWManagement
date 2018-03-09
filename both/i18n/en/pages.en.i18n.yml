@@ -4,7 +4,8 @@ navigation:
     profile: My Profile
     shifts: Shifts
     wiki: Information Center
-    admin: Administration
+    admin:
+        details: Administration
     settings: Settings
     users: Users
     user:
@@ -261,8 +262,17 @@ shifts:
 day:
     removeAll: Remove all
 admin:
-    name: Administration
     nameShort: Admin
+    entity:
+        settings: Settings
+        users: Users
+        usersNew: Publishers
+        reports: Reports
+        store: Store
+        vessels: Vessels
+        notes: Notes
+    details:
+        administrationSection: Administration
 users:
     title: Userlist
     search: Search...
