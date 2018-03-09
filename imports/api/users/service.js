@@ -79,7 +79,7 @@ Meteor.methods({
                 }
 
                 for (let group of Roles.getGroupsForUser(userId)) {
-                    if (RoleManager.hasPermission(userId, projectId, Permissions.member.concat(Permissions.participant))) {
+                    if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
                         return;
                     }
                 }

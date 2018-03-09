@@ -1,3 +1,4 @@
+import RoleManager from '/imports/api/roles/RoleManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 
@@ -40,6 +41,14 @@ Template.DetailsForm.helpers({
     },
     noResult() {
         return Template.instance().noResult.get();
+    },
+    hasPermissionToSee(content) {
+        if (content.canSee != null) {
+            const projectId = FlowRouter.getParam('projectId');
+            return RoleManager.hasPermission(projectId, content.canSee);
+        } else {
+            return true;
+        }
     },
     sections() {
         const template = Template.instance();

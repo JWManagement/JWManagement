@@ -78,7 +78,7 @@ template(name="DetailsForm")
                                                     | -
                                             else
                                                 | {{getValue content}}
-                                else
+                                else if hasPermissionToSee content
                                     .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
                                         .key {{getEntityTranslation content.key}}
                                         .value

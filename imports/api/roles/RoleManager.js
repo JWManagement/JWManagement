@@ -28,7 +28,7 @@ export default RoleManager = {
         Roles.removeUsersFromRoles(userId, Permissions.participant, tagId);
     },
 
-    hasPermission: (userId, projectId, permissions) => {
+    hasPermission: (projectId, permissions, userId = Meteor.userId()) => {
         return Roles.userIsInRole(userId, permissions, projectId);
     },
 
