@@ -1,0 +1,21 @@
+navigation:
+    welcome: Bem Vindo
+    home: Painel de Controlo
+    profile: Meu Perfil
+    shifts: Turnos
+    wiki: Centro de Informação
+    admin:
+        details: Administração
+    settings: Configurações
+    users: Usuários
+    user:
+        search: Usuários
+    reports: Relatórios
+    store: Sala de armazenamento
+    notes: Notas
+    login: Entrar
+    logout: Sair
+    loggingOut: Saindo...
+    firstLogin: Primeira Entrada
+    forgotPassword: Esqueci a palavra-passe
+    resetPassword: Restabelecer a palavra-passe
