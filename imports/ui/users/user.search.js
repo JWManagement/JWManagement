@@ -6,7 +6,7 @@ Template['user.search'].helpers({
             db: Users,
             entityId: 'userId',
             entityLink: 'user.details',
-            backLink: 'admin',
+            backLink: 'admin.details',
             getColumns: [
                 {
                     name: '_id',
