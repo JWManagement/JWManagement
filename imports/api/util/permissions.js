@@ -1,4 +1,15 @@
 const Permissions = {
+    all: [
+        'support',
+        'admin',
+        'shiftScheduler',
+        'shiftAdmin',
+        'storeAdmin',
+        'member',
+        'teamleader',
+        'substituteTeamleader',
+        'participant'
+    ],
     admin: [
         'admin'
     ],
@@ -36,6 +47,9 @@ const Permissions = {
         'teamleader',
         'substituteTeamleader',
         'participant'
+    ],
+    support: [
+        'support'
     ]
 }
 

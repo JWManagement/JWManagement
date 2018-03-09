@@ -34,25 +34,6 @@ FlowRouter.route('/:language/:projectId/shifts', {
     }
 });
 
-FlowRouter.route('/:language/:projectId/admin', {
-    name: 'admin',
-    triggersEnter: [ Helpers.checkLanguage ],
-    action: () => {
-        Helpers.doIfLoggedIn(() => {
-            const projectId = FlowRouter.getParam('projectId');
-
-            if (Roles.userIsInRole(Meteor.userId(), Permissions.shiftAndStoreAdmin, projectId)) {
-                Session.set('parent', 'home');
-                BlazeLayout.render('invertedLayout', { content: 'admin' });
-            } else {
-                wrs(() => {
-                    FlowRouter.go('home');
-                });
-            }
-        });
-    }
-});
-
 FlowRouter.route('/:language/:projectId/settings', {
     name: 'settings',
     triggersEnter: [ Helpers.checkLanguage ],

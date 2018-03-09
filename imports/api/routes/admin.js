@@ -5,7 +5,7 @@ import Helpers from './routeHelpers.js';
 // insert
 
 // details
-FlowRouter.route('/:language/:projectId/new/admin', {
+FlowRouter.route('/:language/:projectId/admin', {
     name: 'admin.details',
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {

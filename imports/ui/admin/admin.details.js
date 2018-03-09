@@ -18,6 +18,10 @@ Template['admin.details'].helpers({
                             link: 'users',
                             canSee: Permissions.admin
                         }, {
+                            key: 'usersNew',
+                            link: 'user.search',
+                            canSee: Permissions.support
+                        }, {
                             key: 'reports',
                             link: 'reports',
                             canSee: Permissions.shiftAndStoreAdmin

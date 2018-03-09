@@ -57,7 +57,7 @@ if queryParam 'showShiftReport'
                                                 i.fa.fa-calendar-check-o
                                                 p.project-link-caption {{_ 'shifts.name'}}
                                             if isProjectShiftOrStoreAdmin _id
-                                                a.btn.btn-primary.project-link(href="{{pathFor 'admin' projectId=_id language=langTag}}")
+                                                a.btn.btn-primary.project-link(href="{{pathFor 'admin.details' projectId=_id language=langTag}}")
                                                     i.fa.fa-gear
                                                     p.project-link-caption {{_ 'admin.nameShort'}}
                                             else if vesselModule

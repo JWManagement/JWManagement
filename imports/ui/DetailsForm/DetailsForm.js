@@ -196,9 +196,9 @@ Template.DetailsForm.onDestroyed(() => {
 
 Template.DetailsForm.events({
     'click .input:not(.clickable-content)': (e) => {
-        const $e = $(e.target);
+        const $e = $(e.target).closest('.input');
         const params = FlowRouter.current().params;
-        params.key = $e.closest('.input').attr('key');
+        params.key = $e.attr('key');
 
         if ($e.attr('link') != null) {
             FlowRouter.go(FlowRouter.path($e.attr('link'), params));
@@ -267,8 +267,6 @@ Template.DetailsForm.events({
 function loadData(template) {
     if (template.getMethod != null) {
         Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
-            console.log(e);
-            console.log(entity);
             if (e == null) {
                 template.item.set(entity);
                 template.noResult.set(false);
