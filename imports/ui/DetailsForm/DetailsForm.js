@@ -178,11 +178,17 @@ Template.DetailsForm.onDestroyed(() => {
 
 Template.DetailsForm.events({
     'click .input:not(.clickable-content)': (e) => {
-        const updateLink = FlowRouter.getRouteName().replace('details', 'update');
+        const $e = $(e.target);
         const params = FlowRouter.current().params;
-        params.key = $(e.target).closest('.input').attr('key');
+        params.key = $e.closest('.input').attr('key');
 
-        FlowRouter.go(FlowRouter.path(updateLink, params));
+        if ($e.attr('link') != null) {
+            FlowRouter.go(FlowRouter.path($e.attr('link'), params));
+        } else {
+            const updateLink = FlowRouter.getRouteName().replace('details', 'update');
+
+            FlowRouter.go(FlowRouter.path(updateLink, params));
+        }
     },
     'click .input.clickable-content': (e, template) => {
         const clickType = $(e.target).attr('clickType');
@@ -241,13 +247,19 @@ Template.DetailsForm.events({
 });
 
 function loadData(template) {
-    Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
-        if (e == null) {
-            template.item.set(entity);
-            template.noResult.set(false);
-            template.isLoading.set(false);
-        } else {
-            alert('SERVER ERROR');
-        }
-    });
+    if (template.getMethod != null) {
+        Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
+            if (e == null) {
+                template.item.set(entity);
+                template.noResult.set(false);
+                template.isLoading.set(false);
+            } else {
+                alert('SERVER ERROR');
+            }
+        });
+    } else {
+        template.item.set({});
+        template.noResult.set(false);
+        template.isLoading.set(false);
+    }
 }
