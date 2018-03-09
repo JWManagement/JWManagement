@@ -11,8 +11,9 @@ import '/imports/ui/InsertForm/InsertForm.js';
 import '/imports/ui/SearchForm/SearchForm.js';
 import '/imports/ui/UpdateForm/UpdateForm.js';
 
-import '/imports/ui/vessels/vessels.jade';
+import '/imports/ui/admin/admin.jade';
 import '/imports/ui/users/users.jade';
+import '/imports/ui/vessels/vessels.jade';
 
 import SimpleSchemaHelper from '/imports/api/util/simpleSchema.js';
 SimpleSchemaHelper.init();
