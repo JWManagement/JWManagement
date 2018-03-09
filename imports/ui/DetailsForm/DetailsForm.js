@@ -43,12 +43,21 @@ Template.DetailsForm.helpers({
         return Template.instance().noResult.get();
     },
     hasPermissionToSee(content) {
+        const hasRole = true;
+        const customFulfilled = true;
+
         if (content.canSee != null) {
             const projectId = FlowRouter.getParam('projectId');
-            return RoleManager.hasPermission(projectId, content.canSee);
-        } else {
-            return true;
+            hasRole = RoleManager.hasPermission(projectId, content.canSee);
         }
+
+        if (content.custom != null) {
+            const template = Template.instance();
+            const item = template.item.get();
+            customFulfilled = content.custom(item);
+        }
+
+        return hasRole && customFulfilled;
     },
     sections() {
         const template = Template.instance();
@@ -258,6 +267,8 @@ Template.DetailsForm.events({
 function loadData(template) {
     if (template.getMethod != null) {
         Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
+            console.log(e);
+            console.log(entity);
             if (e == null) {
                 template.item.set(entity);
                 template.noResult.set(false);
