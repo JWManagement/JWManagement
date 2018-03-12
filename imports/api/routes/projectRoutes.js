@@ -6,6 +6,7 @@ import './user.password.js'
 import './vessel.js'
 import './vessel.visit.js'
 import './vessel.visit.language.js'
+import './notes.js'
 
 FlowRouter.route('/:language/:projectId/kb', {
     name: 'wiki',
