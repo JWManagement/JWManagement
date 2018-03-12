@@ -5,6 +5,7 @@ import '/imports/api/reports/reports.coffee';
 import '/imports/api/admin/service.js';
 import '/imports/api/users/service.js';
 import '/imports/api/vessels/service.js';
+import '/imports/api/notes/service.js';
 
 import '/imports/ui/components/allUsers/server/support.users.coffee';
 import '/imports/ui/components/allProjects/server/support.projects.coffee';
