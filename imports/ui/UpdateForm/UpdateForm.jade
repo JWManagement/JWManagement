@@ -1,69 +1,69 @@
 template(name="UpdateForm")
-	.navigation-wrapper
-		nav.navbar.navbar-fixed-top
-			a.navbar-back(href="{{getBackLink}}")
-				i.fa.fa-angle-left.m-r-xs
-				| {{_ 'navigation.back'}}
-			.navbar-title {{getTitle}}
+    .navigation-wrapper
+        nav.navbar.navbar-fixed-top
+            a.navbar-back(href="{{getBackLink}}")
+                i.fa.fa-angle-left.m-r-xs
+                | {{_ 'navigation.back'}}
+            .navbar-title {{getTitle}}
 
-	form.form-horizontal
-		if isReady
-			if isText
-				+UpdateFormTextInput data=getInputData
-			else if isDate
-				+UpdateFormDateInput data=getInputData
-			else if isDropdown
-				+UpdateFormDropdownInput data=getInputData
-			else if isCheckbox
-				+UpdateFormCheckboxInput data=getInputData
-		else
-			.section
-				.section-header {{getEntityTranslation}}
-				.section-loading
-					i.fa.fa-circle-o-notch.fa-spin
+    form.form-horizontal
+        if isReady
+            if isText
+                +UpdateFormTextInput data=getInputData
+            else if isDate
+                +UpdateFormDateInput data=getInputData
+            else if isDropdown
+                +UpdateFormDropdownInput data=getInputData
+            else if isCheckbox
+                +UpdateFormCheckboxInput data=getInputData
+        else
+            .section
+                .section-header {{getEntityTranslation}}
+                .section-loading
+                    i.fa.fa-circle-o-notch.fa-spin
 
 template(name="UpdateFormTextInput")
-	.section(class='{{getErrorClass}}')
-		.section-header {{getEntityTranslation}}
-		.section-content
-			.text-input
-				input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
-		if hasError
-			.section-error
-				p {{getEntityErrorTranslation}}
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation}}
+        .section-content
+            .text-input
+                input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormDateInput")
-	.section(class='{{getErrorClass}}')
-		.section-header {{getEntityTranslation}}
-		.section-date
-			input.datepicker(type='date' placeholder='{{getEntityTranslation}}')
-		if hasError
-			.section-error
-				p {{getEntityErrorTranslation}}
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation}}
+        .section-date
+            input.datepicker(type='date' placeholder='{{getEntityTranslation}}')
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormDropdownInput")
-	.section(class='{{getErrorClass}}')
-		.section-header {{getEntityTranslation}}
-		.section-select
-			select
-				with 'placeholder'
-					option(value) {{getEntityTranslation getItemKey}}
-				if isAllowedValues
-					each getItems
-						option(value='{{this}}') {{getEntityTranslation getItemKey}}
-				else if isAllowedKeyValues
-					each keyValue in getKeyValues
-						option(value='{{keyValue.key}}') {{keyValue.value}}
-		if hasError
-			.section-error
-				p {{getEntityErrorTranslation}}
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation}}
+        .section-select
+            select
+                with 'placeholder'
+                    option(value) {{getEntityTranslation getItemKey}}
+                if isAllowedValues
+                    each getItems
+                        option(value='{{this}}') {{getEntityTranslation getItemKey}}
+                else if isAllowedKeyValues
+                    each keyValue in getKeyValues
+                        option(value='{{keyValue.key}}') {{keyValue.value}}
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormCheckboxInput")
-	.section(class='{{getErrorClass}}')
-		.section-header {{getEntityTranslation}}
-		.section-select
-			input(type='checkbox' checked='{{getValue}}')
-			| {{getEntityTranslation getKey}}
-		if hasError
-			.section-error
-				p {{getEntityErrorTranslation}}
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation}}
+        .section-select
+            input(type='checkbox' checked='{{getValue}}')
+            | {{getEntityTranslation getKey}}
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}

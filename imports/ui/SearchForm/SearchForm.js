@@ -21,48 +21,12 @@ Template.SearchForm.helpers({
     },
     noResults() {
         const template = Template.instance();
-        return template.noResults.get() && !template.isLoading.get();
+        return !template.isLoading.get() && template.items.get().length == 0;
     },
     resultsMobile() {
+        console.log('resultsMobile');
         const template = Template.instance();
-
-        if (!template.noResults.get() && !template.isLoading.get()) {
-            const columns = template.getColumns
-                .filter((column) => {
-                    return column.mobile == true;
-                })
-                .map((column) => {
-                    return {
-                        name: column.name,
-                        translation: TAPi18n.__([
-                            FlowRouter.getRouteName().split('.')[0],
-                            'entity',
-                            column.name
-                        ].join('.'))
-                    };
-                });
-
-            const language = FlowRouter.getParam('language');
-            const projectId = FlowRouter.getParam('projectId');
-
-            return getRows(template).map((row) => {
-                return {
-                    link: FlowRouter.path(template.entityLink, {
-                        language: language,
-                        projectId: projectId,
-                        [template.entityId]: row._id
-                    }),
-                    columns: columns.map((column) => {
-                        return {
-                            th: column.translation,
-                            td: row[column.name]
-                        };
-                    })
-                };
-            });
-        }
-
-        return false;
+        return template.mobileRows;
     },
     moreResultsAvailable() {
         const template = Template.instance();
@@ -74,16 +38,8 @@ Template.SearchForm.helpers({
             .fetch().length == template.maxResultsShown;
     },
     totalFound() {
-        const counters = Counts.find(FlowRouter.getRouteName(), {
-            fields: {
-                count: 1
-            }
-        });
-
-        if (counters.count() > 0) {
-            return counters.fetch()[0].count;
-        }
-        return '';
+        const template = Template.instance();
+        return template.itemCount.get();
     },
     maxResultsShown() {
         return Template.instance().maxResultsShown;
@@ -97,21 +53,22 @@ Template.SearchForm.onCreated(() => {
     template.db = data.db;
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
-    template.getColumns = data.getColumns;
+    template.columnDefinitions = data.columns;
     template.entityId = data.entityId;
     template.entityLink = data.entityLink;
     template.backLink = data.backLink;
 
     template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '*');
     template.isLoading = new ReactiveVar(false);
-    template.noResults = new ReactiveVar(true);
     template.itemCount = new ReactiveVar(0);
-    template.awaitedCount = new ReactiveVar(-1);
+    template.items = new ReactiveVar([]);
     template.regEx = new ReactiveVar(new RegExp(''));
     template.table = null;
     template.language = '';
-    template.handle = null;
     template.maxResultsShown = 20;
+
+    template.rows = [];
+    template.mobileRows = [];
 });
 
 Template.SearchForm.onRendered(() => {
@@ -122,75 +79,50 @@ Template.SearchForm.onRendered(() => {
     const template = Template.instance();
     template.language = '';
 
+    const columns = template.columnDefinitions.map((column) => {
+        let routeParts = FlowRouter.getRouteName().split('.');
+        routeParts.pop();
+        const translationString = routeParts.concat(['entity', column.name]).join('.');
+
+        column.title = TAPi18n.__(translationString);
+        return column;
+    });
+
     template.autorun(() => {
+        console.log('onRendered autorun');
+        let rows = template.items.get();
         let tempLanguage = FlowRouter.getParam('language');
 
         if (template.language !== tempLanguage) {
             template.language = tempLanguage;
-
-            Tracker.afterFlush(() => {
-                $('#table').html('');
-
-                template.table = FooTable.init('#table', {
-                    columns: template.getColumns.map((column) => {
-                        let routeParts = FlowRouter.getRouteName().split('.');
-                        routeParts.pop();
-                        column.title = TAPi18n.__(routeParts.concat(['entity', column.name]).join('.'));
-                        return column;
-                    }),
-                    rows: getRows(template),
-                    empty: '',
-                    showToggle: false,
-                    paging: {
-                        enabled: true,
-                        size: template.maxResultsShown
-                    },
-                    sorting: {
-                        enabled: true
-                    }
-                });
-            });
         }
-    });
 
-    template.autorun(() => {
-        const template = Template.instance();
-        const ready = template.handle !== null && template.handle.ready();
-        const search = template.searchString.get();
+        Tracker.afterFlush(() => {
+            $('#table').html('');
 
-        if (template.isLoading.get()) {
-            const rowCount = getRowCount(template);
-            const awaited = template.awaitedCount.get()
-
-            if (awaited == 0 || search.length == 0 || ready) {
-                if (rowCount == awaited) {
-                    template.itemCount.set(rowCount);
-                    template.table.loadRows(getRows(template));
-                    template.isLoading.set(false);
+            template.table = FooTable.init('#table', {
+                columns: columns,
+                rows: template.rows,
+                empty: '',
+                showToggle: false,
+                paging: {
+                    enabled: true,
+                    size: template.maxResultsShown
+                },
+                sorting: {
+                    enabled: true
                 }
-            }
-        }
+            });
+        });
     });
 
-    template.changeObserver = template.db.find().observeChanges({
-        added: () => {
-            reloadRowsIfIsUpdate(template)
-        },
-        changed: () => {
-            if (!template.isLoading.get()) {
-                template.table.loadRows(getRows(template));
-            }
-        },
-        removed: () => {
-            reloadRowsIfIsUpdate(template)
-        }
-    });
+    const searchString = $('#search').val();
 
-    if ($('#search').val() == '' && $('#search').val() != template.searchString.get()) {
-        const search = template.searchString.get();
-        $('#search').val(search);
+    if (searchString == '' && searchString != template.searchString.get()) {
+        searchString = template.searchString.get();
+        $('#search').val(searchString);
         template.searchString.set('');
-        updateSearch(template, search);
+        updateSearch(template, searchString);
     }
 });
 
@@ -198,22 +130,11 @@ Template.SearchForm.onDestroyed(() => {
     $('body').removeClass('md-skin');
     $('body').removeClass('top-navigation');
     $('body').attr('type', '');
-
-    const template = Template.instance();
-
-    if (template.handle !== null) {
-        template.handle.stop();
-    }
-
-    if (template.changeObserver !== null) {
-        template.changeObserver.stop();
-    }
 });
 
 Template.SearchForm.events({
     'click #more': (e, template) => {
-        template.isLoading.set(true);
-        doSubscribe(template, true);
+        doSearch(template, true);
     },
     'click #createNew': () => {
         wrs(() => {
@@ -227,85 +148,90 @@ Template.SearchForm.events({
         FlowRouter.go(FlowRouter.path(template.entityLink, params));
     },
     'keyup #search': (e, template) => {
+        console.log('searching via keyup for ... ' + e.target.value);
         updateSearch(template, e.target.value);
     },
     'change #search': (e, template) => {
+        console.log('searching via change for ... ' + e.target.value);
         updateSearch(template, e.target.value);
     }
 });
 
-function getRowCount(template) {
-    if (template.regEx.get() == '') {
-        return 0;
-    }
+function generateRows(template) {
+    console.log('generateRows');
 
+    const language = FlowRouter.getParam('language');
     const projectId = FlowRouter.getParam('projectId');
 
-    const items = template.db.find(template.searchCriteria(template.regEx.get(), projectId).selector, {
-        fields: {
-            _id: 1
-        }
-    }).fetch();
+    template.rows = template.items.get().map((item) => {
+        const row = {};
 
-    if (items.length == 0) {
-        template.noResults.set(true);
-    } else {
-        template.noResults.set(false);
-    }
+        template.columnDefinitions.forEach((column) => {
+            let value = item[column.name];
 
-    return items.length;
-}
+            if (column.name in item) {
+                if (column.type == 'dropdown') {
+                    const keys = [
+                        FlowRouter.getRouteName().split('.')[0],
+                        'entity',
+                        column.name + 'Values',
+                        item[column.name].toLowerCase()
+                    ];
 
-function getRows(template) {
-    if (template.regEx.get() == '') {
-        return [];
-    }
-
-    const projectId = FlowRouter.getParam('projectId');
-    const searchCriteria = template.searchCriteria(template.regEx.get(), projectId);
-
-    return template.db.find(searchCriteria.selector, searchCriteria.options)
-    .fetch()
-    .map((item) => {
-        template.getColumns.forEach((column) => {
-            if (column.type == 'dropdown' && column.name in item) {
-                const keys = [
-                    FlowRouter.getRouteName().split('.')[0],
-                    'entity',
-                    column.name + 'Values',
-                    item[column.name].toLowerCase()
-                ];
-
-                item[column.name] = TAPi18n.__(keys.join('.'));
-            }
-
-            if (column.name.indexOf('_') > 0) {
-                let value = item;
-
-                for (property of column.name.split('_')) {
-                    value = value[property];
+                    value = TAPi18n.__(keys.join('.'));
                 }
 
-                item[column.name] = value;
+                if (column.name.indexOf('_') > 0) {
+                    let tmp = row;
+
+                    for (property of column.name.split('_')) {
+                        tmp = tmp[property];
+                    }
+
+                    value = tmp;
+                }
+
+                row[column.name] = value;
             }
         });
 
-        return item;
+        return row;
+    });
+
+    const mobileColumns = template.columnDefinitions
+        .filter((column) => {
+            return column.mobile == true;
+        })
+        .map((column) => {
+            return {
+                name: column.name,
+                translation: TAPi18n.__([
+                    FlowRouter.getRouteName().split('.')[0],
+                    'entity',
+                    column.name
+                ].join('.'))
+            };
+        });
+
+    template.mobileRows = template.rows.map((row) => {
+        return {
+            link: FlowRouter.path(template.entityLink, {
+                language: language,
+                projectId: projectId,
+                [template.entityId]: row._id
+            }),
+            columns: mobileColumns.map((column) => {
+                return {
+                    th: column.translation,
+                    td: row[column.name]
+                };
+            })
+        };
     });
 }
 
-function reloadRowsIfIsUpdate(template) {
-    if (!template.isLoading.get() && template.table != undefined) {
-        const rowCount = getRowCount(template);
-
-        if (template.itemCount.get() != rowCount) {
-            template.itemCount.set(rowCount);
-            template.table.loadRows(getRows(template));
-        }
-    }
-}
-
 function updateSearch(template, search) {
+    console.log('updateSearch');
     if (template.searchString.get() !== search) {
         template.searchString.set(search);
         Session.set(FlowRouter.getRouteName() + '.searchString', search);
@@ -317,40 +243,37 @@ function updateSearch(template, search) {
             } else {
                 template.regEx.set(new RegExp(search, 'i'));
             }
-            doSubscribe(template);
+            doSearch(template);
         } else {
-            template.awaitedCount.set(0)
-            template.noResults.set(true);
             template.regEx.set('');
+            template.items.set([]);
+            template.itemCount.set(0);
+            template.rows = [];
+            template.mobileRows = [];
         }
-
-        template.isLoading.set(true);
     }
 }
 
-function doSubscribe(template, retrieveAllResults = false) {
-    if (template.handle !== null) {
-        template.handle.stop();
-    }
+function doSearch(template, retrieveAllResults = false) {
+    console.log('doSearch');
+    template.isLoading.set(false);
 
-    const search = template.searchString.get();
-    const projectId = FlowRouter.getParam('projectId');
-    const limit = retrieveAllResults ? 0 : template.maxResultsShown;
     const routeName = FlowRouter.getRouteName();
+    let params = FlowRouter.current().params;
+    params.searchString = template.searchString.get();
+    params.limit = retrieveAllResults ? 0 : template.maxResultsShown;
 
-    template.handle = Meteor.subscribe(routeName, search, projectId, limit);
-
-    Counts.find(routeName, {
-        fields: {
-            count: 1
+    Meteor.call(routeName, params, (e, r) => {
+        if (e != null) {
+            alert(e); return;
         }
-    }).observeChanges({
-        added: (id, fields) => {
-            if (retrieveAllResults) {
-                template.awaitedCount.set(fields.count)
-            } else {
-                template.awaitedCount.set(Math.min(template.maxResultsShown, fields.count));
-            }
+
+        if (r != null) {
+            template.items.set(r.items);
+            template.itemCount.set(r.total);
+            template.isLoading.set(false);
+
+            generateRows(template);
         }
     });
 }

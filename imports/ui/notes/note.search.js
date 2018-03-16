@@ -7,7 +7,7 @@ Template['note.search'].helpers({
             entityId: 'noteId',
             entityLink: 'note.details',
             backLink: 'note.details',
-            getColumns: [{
+            columns: [{
                 name: '_id',
                 visible: false
             }, {
