@@ -3,6 +3,50 @@ import getLanguages from '/imports/api/util/languages.js'
 import './publish/vessel.search.coffee'
 
 Meteor.methods({
+    'vessel.search': ({ language, projectId, vesselId, searchString, limit }) => {
+        checkVesselModule(projectId);
+
+        const result = {
+            total: 0,
+            items: []
+        };
+
+        if (typeof searchString != 'string' || searchString == '') {
+            return result;
+        }
+
+        const regEx = new RegExp(searchString, 'i');
+
+        const cursor = Vessels.find({
+            $or: [
+                { _id: searchString },
+                { name: regEx },
+                { callsign: regEx },
+                { eni: regEx },
+                { imo: regEx },
+                { mmsi: regEx }
+            ]
+        }, {
+            fields: {
+                'name': 1,
+                'flag': 1,
+                'type': 1,
+                'callsign': 1,
+                'eni': 1,
+                'imo': 1,
+                'mmsi': 1
+            },
+            sort: {
+                name: 1
+            },
+            limit: limit
+        });
+
+        result.total = cursor.count();
+        result.items = cursor.fetch();
+
+        return result;
+    },
     'vessel.get': ({ language, projectId, vesselId }) => {
         checkVesselModule(projectId);
 
