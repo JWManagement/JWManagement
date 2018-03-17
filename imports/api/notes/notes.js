@@ -64,7 +64,7 @@ Notes.schema = new SimpleSchema({
 
 Notes.name = 'notes';
 
-Notes.uniqueKeys = ['_id'];
+Notes.uniqueKeys = [];
 
 Notes.attachSchema = Notes.schema;
 
