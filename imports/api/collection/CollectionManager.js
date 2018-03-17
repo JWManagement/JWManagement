@@ -4,15 +4,15 @@ module.exports = class CollectionManager {
         this.db = db;
     }
 
-    validate(entity) {
+    validate(parentId, entity) {
         this.collection.schema.clean(entity, { mutate: true });
         this.collection.schema.validate(entity);
-        this.checkUniqueFields(entity);
+        this.checkUniqueFields(parentId, entity);
     }
 
     insert(parentId, entity) {
         try {
-            this.validate(entity);
+            this.validate(parentId, entity);
             this.db.update({
                 _id: parentId
             }, {
@@ -55,7 +55,7 @@ module.exports = class CollectionManager {
                     .filter((collectionEntity) => {
                         return collectionEntity[key] == entity[key];
                     })
-                    .count();
+                    .length;
 
                 if (existingEntitiesCount > 0) {
                     errors.push({
