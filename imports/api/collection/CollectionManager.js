@@ -27,9 +27,17 @@ module.exports = class CollectionManager {
 
     update(parentId, entityId, key, value) {
         try {
-            let entity = this.db.findOne(entityId);
+            const entities = this.db.findOne(parentId)[this.collection.name];
+            let entity = null;
+
+            for (let e of entities) {
+                if (e._id == entityId) {
+                    entity = e;
+                }
+            }
+
             entity = getUpdatedEntity(key.split('.'), entity, value);
-            this.validate(entity);
+            this.validate(parentId, entity);
             this.db.update({
                 _id: parentId,
                 [this.collection.name + '._id']: entityId
@@ -53,7 +61,7 @@ module.exports = class CollectionManager {
                 const existingEntitiesCount = this.db
                     .findOne(parentId)[this.collection.name]
                     .filter((collectionEntity) => {
-                        return collectionEntity[key] == entity[key];
+                        return collectionEntity._id != entity._id && collectionEntity[key] == entity[key];
                     })
                     .length;
 
