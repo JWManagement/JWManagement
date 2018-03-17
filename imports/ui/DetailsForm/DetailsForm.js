@@ -1,4 +1,4 @@
-import RoleManager from '/imports/api/roles/RoleManager.js';
+import RoleManager from '/imports/api/managers/RoleManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 

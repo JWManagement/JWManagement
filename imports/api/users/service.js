@@ -1,6 +1,6 @@
 import Users from '/imports/api/users/users.js'
 import PasswordsSchema from '/imports/api/users/passwords.js'
-import RoleManager from '/imports/api/roles/RoleManager.js'
+import RoleManager from '/imports/api/managers/RoleManager.js'
 import { Accounts } from 'meteor/accounts-base'
 
 Meteor.methods({
