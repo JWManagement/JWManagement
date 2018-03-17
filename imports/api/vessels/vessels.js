@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
 
-const PersistenceManager = require('/imports/api/persistence/PersistenceManager.js');
+const PersistenceManager = require('/imports/api/managers/PersistenceManager.js');
 
 let Vessels = new Mongo.Collection('vessels');
 
