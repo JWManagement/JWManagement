@@ -17,11 +17,11 @@ Template['note.details'].helpers({
                     header: 'metaSection',
                     contents: [
                         {
-                            key: 'author'
+                            key: 'author',
+                            readonly: true
                         }, {
-                            key: 'date'
-                        }, {
-                            key: 'time'
+                            key: 'datetime',
+                            readonly: true
                         }
                     ]
                 }

@@ -80,7 +80,7 @@ Meteor.methods({
         checkPermissions(projectId);
 
         try {
-            Notes.persistence.update(noteId, key, value);
+            Notes.persistence.update(projectId, noteId, key, value);
         } catch(e) {
             throw new Meteor.Error(e);
         }
@@ -103,7 +103,24 @@ function getExtendedNote(projectId, noteId) {
     }
 
     if (note != null) {
-        // do stuff here
+        const user = Users.findOne(note.lastChangeBy, {
+            fields: {
+                'profile.firstname': 1,
+                'profile.lastname': 1
+            }
+        });
+
+        if (user != undefined) {
+            const username = user.profile.firstname + ' ' + user.profile.lastname;
+            const dateformat = TAPi18n.__('note.search.dateFormat');
+            const datetime = moment(note.lastChangeAt).format(dateformat);
+
+            note.author = username;
+            note.datetime = datetime;
+        } else {
+            // legacy support
+            note.datetime = moment(note.date, 'YYYYMMDD').format('YYYY-MM-DD');
+        }
     }
 
     return note;

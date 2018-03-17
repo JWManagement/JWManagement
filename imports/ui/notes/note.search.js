@@ -14,9 +14,11 @@ Template['note.search'].helpers({
                 name: 'title',
                 mobile: true
             }, {
-                name: 'text'
+                name: 'text',
+                mobile: true
             }, {
-                name: 'lastChange'
+                name: 'lastChange',
+                mobile: true
             }],
             searchCriteria: (search, projectId) => {
                 return {
