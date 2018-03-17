@@ -24,18 +24,12 @@ Template.SearchForm.helpers({
         return !template.isLoading.get() && template.items.get().length == 0;
     },
     resultsMobile() {
-        console.log('resultsMobile');
         const template = Template.instance();
         return template.mobileRows;
     },
     moreResultsAvailable() {
         const template = Template.instance();
-        const projectId = FlowRouter.getParam('projectId');
-        const searchCriteria = template.searchCriteria(template.regEx.get(), projectId);
-
-        return template.db
-            .find(searchCriteria.selector, searchCriteria.options)
-            .fetch().length == template.maxResultsShown;
+        return template.itemCount.get() > template.maxResultsShown;
     },
     totalFound() {
         const template = Template.instance();
@@ -89,7 +83,6 @@ Template.SearchForm.onRendered(() => {
     });
 
     template.autorun(() => {
-        console.log('onRendered autorun');
         let rows = template.items.get();
         let tempLanguage = FlowRouter.getParam('language');
 
@@ -148,18 +141,14 @@ Template.SearchForm.events({
         FlowRouter.go(FlowRouter.path(template.entityLink, params));
     },
     'keyup #search': (e, template) => {
-        console.log('searching via keyup for ... ' + e.target.value);
         updateSearch(template, e.target.value);
     },
     'change #search': (e, template) => {
-        console.log('searching via change for ... ' + e.target.value);
         updateSearch(template, e.target.value);
     }
 });
 
 function generateRows(template) {
-    console.log('generateRows');
-
     const language = FlowRouter.getParam('language');
     const projectId = FlowRouter.getParam('projectId');
 
@@ -167,32 +156,32 @@ function generateRows(template) {
         const row = {};
 
         template.columnDefinitions.forEach((column) => {
-            let value = item[column.name];
+            let value = null;
 
-            if (column.name in item) {
-                if (column.type == 'dropdown') {
-                    const keys = [
-                        FlowRouter.getRouteName().split('.')[0],
-                        'entity',
-                        column.name + 'Values',
-                        item[column.name].toLowerCase()
-                    ];
+            if (column.name.indexOf('_') > 0) {
+                let tmp = item;
 
-                    value = TAPi18n.__(keys.join('.'));
+                for (property of column.name.split('_')) {
+                    tmp = tmp[property];
                 }
 
-                if (column.name.indexOf('_') > 0) {
-                    let tmp = row;
-
-                    for (property of column.name.split('_')) {
-                        tmp = tmp[property];
-                    }
-
-                    value = tmp;
-                }
-
-                row[column.name] = value;
+                value = tmp;
+            } else {
+                value = item[column.name];
             }
+
+            if (column.type == 'dropdown') {
+                const keys = [
+                    FlowRouter.getRouteName().split('.')[0],
+                    'entity',
+                    column.name + 'Values',
+                    item[column.name].toLowerCase()
+                ];
+
+                value = TAPi18n.__(keys.join('.'));
+            }
+
+            row[column.name] = value;
         });
 
         return row;
@@ -231,7 +220,6 @@ function generateRows(template) {
 }
 
 function updateSearch(template, search) {
-    console.log('updateSearch');
     if (template.searchString.get() !== search) {
         template.searchString.set(search);
         Session.set(FlowRouter.getRouteName() + '.searchString', search);
@@ -255,7 +243,6 @@ function updateSearch(template, search) {
 }
 
 function doSearch(template, retrieveAllResults = false) {
-    console.log('doSearch');
     template.isLoading.set(false);
 
     const routeName = FlowRouter.getRouteName();
