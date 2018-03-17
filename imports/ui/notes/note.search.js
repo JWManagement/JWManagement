@@ -6,7 +6,7 @@ Template['note.search'].helpers({
             db: Notes,
             entityId: 'noteId',
             entityLink: 'note.details',
-            backLink: 'note.details',
+            backLink: 'admin.details',
             columns: [{
                 name: '_id',
                 visible: false
@@ -14,14 +14,9 @@ Template['note.search'].helpers({
                 name: 'title',
                 mobile: true
             }, {
-                name: 'text',
-                visible: false
+                name: 'text'
             }, {
-                name: 'author'
-            }, {
-                name: 'date'
-            }, {
-                name: 'time'
+                name: 'lastChange'
             }],
             searchCriteria: (search, projectId) => {
                 return {
