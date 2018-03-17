@@ -1,9 +1,8 @@
 import Vessels from '/imports/api/vessels/vessels.js'
 import getLanguages from '/imports/api/util/languages.js'
-import './publish/vessel.search.coffee'
 
 Meteor.methods({
-    'vessel.search': ({ language, projectId, vesselId, searchString, limit }) => {
+    'vessel.search': ({ language, projectId, searchString, limit }) => {
         checkVesselModule(projectId);
 
         const result = {

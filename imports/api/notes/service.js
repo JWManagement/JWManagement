@@ -1,7 +1,61 @@
-import Notes from '/imports/api/notes/notes.js'
-import './publish/note.search.coffee'
+import Notes from '/imports/api/notes/notes.js';
+import Users from '/imports/api/users/users.js';
 
 Meteor.methods({
+    'note.search': ({ language, projectId, searchString, limit }) => {
+        checkPermissions(projectId);
+
+        const result = {
+            total: 0,
+            items: []
+        };
+
+        if (typeof searchString != 'string' || searchString == '') {
+            return result;
+        }
+
+        const regEx = new RegExp(searchString, 'i');
+        const rolesObject = {}
+
+        const notes = Projects.findOne(projectId, {
+            fields: {
+                notes: 1
+            }
+        }).notes;
+
+        for (let note of notes) {
+            const user = Users.findOne(note.lastChangeBy, {
+                fields: {
+                    'profile.firstname': 1,
+                    'profile.lastname': 1
+                }
+            });
+
+            if (user != undefined) {
+                const username = user.profile.firstname + ' ' + user.profile.lastname;
+                const dateformat = TAPi18n.__('note.search.dateFormat');
+                const datetime = moment(note.lastChangeAt).format(dateformat);
+
+                note.lastChange = username + ' (' + datetime + ')';
+            } else {
+                // legacy support
+                const datetime = moment(note.date, 'YYYYMMDD').format('YYYY-MM-DD');
+
+                note.lastChange = note.author + ' (' + datetime + ')';
+            }
+
+            if (note.text == undefined) {
+                note.text = '';
+            } else if (note.text.length > 25) {
+                note.text = note.text.substring(0, 25) + ' ...';
+            }
+        }
+
+        result.total = notes.length;
+        result.items = notes;
+
+        return result;
+    },
     'note.get': ({ projectId, noteId }) => {
         checkPermissions(projectId);
 
@@ -16,7 +70,7 @@ Meteor.methods({
         checkPermissions(projectId);
 
         try {
-            Notes.persistence.insert(note);
+            Notes.persistence.insert(projectId, note);
             return note._id;
         } catch(e) {
             throw new Meteor.Error(e);
@@ -34,8 +88,6 @@ Meteor.methods({
 });
 
 function getExtendedNote(projectId, noteId) {
-    //let note = Notes.findOne(noteId);
-
     const notes = Projects.findOne(projectId, {
         fields: {
             notes: 1
@@ -60,7 +112,7 @@ function getExtendedNote(projectId, noteId) {
 function checkPermissions(projectId) {
     const project = Projects.findOne(projectId, { fields: { noteModule: 1 } })
 
-    if (project == null || project.noteModule != true) {
+    if (project == null) {
         throw new Meteor.Error('projectNotFound');
     }
 

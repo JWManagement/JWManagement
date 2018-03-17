@@ -2,9 +2,68 @@ import Users from '/imports/api/users/users.js'
 import PasswordsSchema from '/imports/api/users/passwords.js'
 import RoleManager from '/imports/api/roles/RoleManager.js'
 import { Accounts } from 'meteor/accounts-base'
-import './publish/user.search.coffee'
 
 Meteor.methods({
+    'user.search': ({ language, projectId, searchString, limit }) => {
+        checkPermissions(projectId);
+
+        const result = {
+            total: 0,
+            items: []
+        };
+
+        if (typeof searchString != 'string' || searchString == '') {
+            return result;
+        }
+
+        const regEx = new RegExp(searchString, 'i');
+        const rolesObject = {}
+
+        rolesObject['roles.' + projectId] = {
+            $in: Permissions.member
+        }
+
+        const cursor = Users.find({
+            $and: [
+                {
+                    $or: [
+                        { _id: regEx },
+                        { 'profile.lastname': regEx },
+                        { 'profile.firstname': regEx },
+                        { 'profile.email': regEx },
+                        { 'profile.telefon': regEx },
+                        { username: regEx }
+                    ]
+                },
+                rolesObject,
+                {
+                    username: {
+                        $ne: 'adm'
+                    }
+                }
+            ]
+        }, {
+            fields: {
+                'profile.lastname': 1,
+                'profile.firstname': 1,
+                'profile.email': 1,
+                'profile.telefon': 1,
+                username: 1,
+                roles: 1
+            },
+            sort: {
+                'profile.lastname': 1,
+                'profile.firstname': 1,
+                username: 1
+            },
+            limit: limit
+        });
+
+        result.total = cursor.count();
+        result.items = cursor.fetch();
+
+        return result;
+    },
     'user.get': ({ projectId, userId }) => {
         checkPermissions(projectId, userId);
 
