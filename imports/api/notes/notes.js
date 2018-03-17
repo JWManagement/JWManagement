@@ -1,7 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
 
-const CollectionManager = require('/imports/api/collection/CollectionManager.js');
+const CollectionManager = require('/imports/api/managers/CollectionManager.js');
 
 let Notes = {};
 
