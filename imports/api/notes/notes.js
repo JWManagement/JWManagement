@@ -48,28 +48,16 @@ Notes.schema = new SimpleSchema({
     text: {
         type: String
     },
-    authorId: {
-        type: String,
-        autoValue: function() {
-            if (!this.isSet) {
-                return Meteor.userId();
-            }
-        }
-    },
     date: {
         type: String,
         autoValue: function() {
-            if (!this.isSet) {
-                return new Date();
-            }
+            return 'legacy';
         }
     },
     time: {
         type: String,
         autoValue: function() {
-            if (!this.isSet) {
-                return new Date(); // TODO: get time
-            }
+            return 'legacy';
         }
     }
 });
