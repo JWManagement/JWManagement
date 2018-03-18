@@ -4,7 +4,6 @@ Template['user.password.insert'].helpers({
     data() {
         return {
             backLink: 'user.details',
-            saveLink: 'user.details',
             entityKey: 'userId',
             fields: [
                 {

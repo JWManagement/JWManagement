@@ -4,7 +4,6 @@ Template['vessel.visit.insert'].helpers({
     data() {
         return {
             backLink: 'vessel.details',
-            saveLink: 'vessel.visit.details',
             entityKey: 'visitId',
             fields: [
                 {

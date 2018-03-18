@@ -5,7 +5,6 @@ Template['vessel.visit.language.insert'].helpers({
     data() {
         return {
             backLink: 'vessel.visit.details',
-            saveLink: 'vessel.visit.details',
             fields: [
                 {
                     key: 'languageId',

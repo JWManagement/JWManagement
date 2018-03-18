@@ -5,7 +5,6 @@ Template['note.search'].helpers({
         return {
             db: Notes,
             entityId: 'noteId',
-            entityLink: 'note.details',
             backLink: 'admin.details',
             columns: [{
                 name: '_id',
