@@ -90,6 +90,8 @@ Template.InsertForm.onRendered(() => {
     $('body').addClass('md-skin');
     $('body').addClass('top-navigation');
     $('body').attr('type', 'InsertForm');
+
+    window.scrollTo(0, 0);
 });
 
 Template.InsertForm.onDestroyed(() => {
