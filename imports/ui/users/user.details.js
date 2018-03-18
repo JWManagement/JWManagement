@@ -40,7 +40,7 @@ Template['user.details'].helpers({
                             key: 'password.change',
                             type: 'link',
                             style: 'primary',
-                            route: 'user.password.change'
+                            route: 'user.password.insert'
                         }, {
                             key: 'delete',
                             type: 'confirm',

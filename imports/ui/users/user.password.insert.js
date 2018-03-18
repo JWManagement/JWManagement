@@ -1,6 +1,6 @@
 import Users from '/imports/api/users/users.js';
 
-Template['user.password.change'].helpers({
+Template['user.password.insert'].helpers({
     data() {
         return {
             backLink: 'user.details',

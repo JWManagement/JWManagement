@@ -107,7 +107,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.password.change': ({ projectId, userId }, passwords) => {
+    'user.password.insert': ({ projectId, userId }, passwords) => {
         checkPermissions(projectId, userId);
 
         try {

@@ -1,12 +1,43 @@
 import Helpers from './routeHelpers.js';
+import RouteManager from '/imports/api/managers/RouteManager.js';
 
-import './admin.js'
-import './user.js'
-import './user.password.js'
-import './vessel.js'
-import './vessel.visit.js'
-import './vessel.visit.language.js'
-import './notes.js'
+RouteManager.registerEntity('admin', {
+    details: 'admin'
+});
+RouteManager.registerEntity('user.password', {
+    insert: 'new/users/:userId/password'
+});
+RouteManager.registerEntity('user', {
+    search: 'new/users',
+//  insert: 'new/users/new',
+    details: 'new/users/:userId',
+    update: 'new/users/:userId/:key'
+});
+RouteManager.registerEntity('vessel', {
+    search: 'vessels',
+    insert: 'vessels/new',
+    details: 'vessels/:vesselId',
+    update: 'vessels/:vesselId/:key'
+});
+RouteManager.registerEntity('vessel.visit', {
+    insert: 'vessels/:vesselId/visits/new',
+    details: 'vessels/:vesselId/visits/:visitId',
+    update: 'vessels/:vesselId/visits/:visitId/:key'
+});
+RouteManager.registerEntity('vessel.visit.language', {
+    insert: 'vessels/:vesselId/visits/:visitId/languages/new',
+    forwarding: {
+        route: 'vessels/:vesselId/visits/:visitId/language',
+        name: 'vessel.details.visit.language', // TODO: really?!
+        link: 'vessel.visit.details'
+    }
+});
+RouteManager.registerEntity('note', {
+    search: 'new/notes',
+    insert: 'new/notes/new',
+    details: 'new/notes/:noteId',
+    update: 'new/notes/:noteId/:key'
+});
 
 FlowRouter.route('/:language/:projectId/kb', {
     name: 'wiki',
