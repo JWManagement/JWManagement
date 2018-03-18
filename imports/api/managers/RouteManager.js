@@ -65,6 +65,48 @@ export default RouteManager = {
             });
         }
 
+    },
+
+    navigateTo: function(form, params) {
+        const routeName = this.getLink(form);
+
+        FlowRouter.go(routeName, params);
+    },
+
+    navigateToUpdate: function(key) {
+        const params = this.getParams('key', key);
+
+        this.navigateTo('update', params);
+    },
+
+    navigateToDetails: function(entityKey, entityId, saveToSession = false) {
+        const params = this.getParams(entityKey, entityId);
+
+        if (saveToSession) {
+            Session.set(this.getLink('search') + '.searchString', entityId);
+        }
+
+        this.navigateTo('details', params);
+    },
+
+    navigateToInsert: function() {
+        const params = FlowRouter.current().params;
+
+        this.navigateTo('insert', params);
+    },
+
+    getLink: function(form) {
+        let routeName = FlowRouter.getRouteName();
+        let routeNameParts = routeName.split('.');
+        routeNameParts.pop();
+        routeNameParts = routeNameParts.concat([form]);
+        return routeNameParts.join('.');
+    },
+
+    getParams: function(entityKey, entityId) {
+        const params = FlowRouter.current().params;
+        params[entityKey] = entityId;
+        return params;
     }
 
 }
