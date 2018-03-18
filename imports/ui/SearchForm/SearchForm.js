@@ -1,4 +1,4 @@
-import { Counts } from '/imports/api/counts/counts.coffee';
+import RouteManager from '/imports/api/managers/RouteManager.js';
 
 import './SearchForm.jade';
 import './SearchForm.scss'
@@ -49,7 +49,6 @@ Template.SearchForm.onCreated(() => {
     template.searchCriteria = data.searchCriteria;
     template.columnDefinitions = data.columns;
     template.entityId = data.entityId;
-    template.entityLink = data.entityLink;
     template.backLink = data.backLink;
 
     template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '*');
@@ -131,14 +130,13 @@ Template.SearchForm.events({
     },
     'click #createNew': () => {
         wrs(() => {
-            FlowRouter.go(FlowRouter.current().path + '/new');
+            RouteManager.navigateToInsert();
         });
     },
     'click .results-desktop tbody tr:not(.footable-empty)': (e, template) => {
         const entityId = $(e.target).closest('tr').find('td').first().html();
-        const params = FlowRouter.current().params;
-        params[template.entityId] = entityId;
-        FlowRouter.go(FlowRouter.path(template.entityLink, params));
+
+        RouteManager.navigateToDetails(template.entityId, entityId);
     },
     'keyup #search': (e, template) => {
         updateSearch(template, e.target.value);
@@ -204,11 +202,9 @@ function generateRows(template) {
 
     template.mobileRows = template.rows.map((row) => {
         return {
-            link: FlowRouter.path(template.entityLink, {
-                language: language,
-                projectId: projectId,
-                [template.entityId]: row._id
-            }),
+            link: FlowRouter.path(
+                RouteManager.getLink('details'),
+                RouteManager.getParams(template.entityId, row._id)),
             columns: mobileColumns.map((column) => {
                 return {
                     th: column.translation,

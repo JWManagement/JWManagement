@@ -75,7 +75,6 @@ Template.InsertForm.onCreated(() => {
     template.db = data.db;
     template.fields = data.fields;
     template.backLink = new ReactiveVar(data.backLink);
-    template.saveLink = new ReactiveVar(data.saveLink);
     template.entityKey = new ReactiveVar(data.entityKey);
     template.entity = {};
     template.errors = new ReactiveVar([]);
@@ -155,17 +154,9 @@ Template.InsertForm.events({
                     alert('SERVER ERROR');
                 }
             } else {
-                let entityKey = template.entityKey.get();
-                let params = FlowRouter.current().params;
-                let routeNameParts = FlowRouter.getRouteName().split('.');
-                routeNameParts.pop();
-                Session.set(routeNameParts.concat(['search', 'searchString']).join('.'), entityId);
+                const entityKey = template.entityKey.get();
 
-                if (entityKey != null) {
-                    params[entityKey] = entityId;
-                }
-
-                FlowRouter.go(FlowRouter.path(template.saveLink.get(), params));
+                RouteManager.navigateToDetails(entityKey, entityId, true);
             }
         });
     }

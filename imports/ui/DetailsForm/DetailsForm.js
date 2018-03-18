@@ -1,4 +1,5 @@
 import RoleManager from '/imports/api/managers/RoleManager.js';
+import RouteManager from '/imports/api/managers/RouteManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 
@@ -197,15 +198,15 @@ Template.DetailsForm.onDestroyed(() => {
 Template.DetailsForm.events({
     'click .input:not(.clickable-content)': (e) => {
         const $e = $(e.target).closest('.input');
-        const params = FlowRouter.current().params;
-        params.key = $e.attr('key');
+        const key = $e.attr('key');
+        const link = $e.attr('link');
 
-        if ($e.attr('link') != null) {
-            FlowRouter.go(FlowRouter.path($e.attr('link'), params));
+        if (link != null) {
+            const params = FlowRouter.current().params;
+
+            FlowRouter.go(FlowRouter.path(link, params));
         } else {
-            const updateLink = FlowRouter.getRouteName().replace('details', 'update');
-
-            FlowRouter.go(FlowRouter.path(updateLink, params));
+            RouteManager.navigateToUpdate(key);
         }
     },
     'click .input.clickable-content': (e, template) => {
