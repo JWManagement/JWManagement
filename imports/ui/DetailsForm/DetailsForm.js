@@ -34,6 +34,9 @@ Template.DetailsForm.helpers({
     isDropdown(field) {
         return field.type == 'dropdown';
     },
+    isTextbox(field) {
+        return field.type == 'textbox';
+    },
     isArray(content) {
         return typeof(content.type) == 'object' && content.type.length >= 0;
     },
@@ -134,6 +137,8 @@ Template.DetailsForm.helpers({
             } else {
                 return '';
             }
+        } else if (content.type == 'textbox') {
+            return value.replace(/\r?\n|\r/g, '<br>', );
         } else {
             return value;
         }

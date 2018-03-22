@@ -78,6 +78,13 @@ template(name="DetailsForm")
                                                     | -
                                             else
                                                 | {{getValue content}}
+                                else if isTextbox content
+                                    .input.form-group(key='{{getLinkedKey content}}')
+                                        tr
+                                            td.value
+                                                | {{{getValue content}}}
+                                            td.link(rowspan='{{content.type.[0].type.count}}')
+                                                i.fa.fa-angle-right
                                 else if hasPermissionToSee content
                                     .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
                                         .key {{getEntityTranslation content.key}}

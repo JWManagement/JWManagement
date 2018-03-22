@@ -16,6 +16,8 @@ template(name="UpdateForm")
                 +UpdateFormDropdownInput data=getInputData
             else if isCheckbox
                 +UpdateFormCheckboxInput data=getInputData
+            else if isTextbox
+                +UpdateFormTextboxInput data=getInputData
         else
             .section
                 .section-header {{getEntityTranslation}}
@@ -64,6 +66,16 @@ template(name="UpdateFormCheckboxInput")
         .section-select
             input(type='checkbox' checked='{{getValue}}')
             | {{getEntityTranslation getKey}}
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
+
+template(name="UpdateFormTextboxInput")
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation}}
+        .section-content
+            .text-input
+                textarea(placeholder='{{getEntityTranslation}}' autofocus) {{getValue}}
         if hasError
             .section-error
                 p {{getEntityErrorTranslation}}

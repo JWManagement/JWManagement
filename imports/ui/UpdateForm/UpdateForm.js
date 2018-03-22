@@ -5,6 +5,7 @@ import './UpdateFormTextInput.js';
 import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
 import './UpdateFormCheckboxInput.js';
+import './UpdateFormTextboxInput.js';
 
 Template.UpdateForm.helpers({
     getBackLink() {
@@ -25,6 +26,9 @@ Template.UpdateForm.helpers({
     isCheckbox() {
         return Template.instance().inputData.get().type == 'checkbox';
     },
+    isTextbox() {
+        return Template.instance().inputData.get().type == 'textbox';
+    },
     getInputData() {
         return Template.instance().inputData.get();
     }
@@ -32,7 +36,6 @@ Template.UpdateForm.helpers({
 
 Template.UpdateForm.onCreated(() => {
     const template = Template.instance();
-    const data = Template.currentData().data;
 
     template.backLink = new ReactiveVar('');
     template.isLoading = new ReactiveVar(true);
@@ -89,7 +92,7 @@ Template.UpdateForm.onRendered(() => {
             let inputData = template.inputData.get();
             inputData.type = 'text';
 
-            if (['date', 'checkbox', 'dropdown'].indexOf(field.type) > -1) {
+            if (['date', 'checkbox', 'dropdown', 'textbox'].indexOf(field.type) > -1) {
                 inputData.type = field.type;
             }
 

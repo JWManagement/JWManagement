@@ -1,145 +1,166 @@
 body.md-skin[type='DetailsForm'] {
-	background-color: #eee !important;
-	padding-top     : 50px;
+    background-color: #eee !important;
+    padding-top     : 50px;
 
-	.navbar {
-		width: 100%;
+    .navbar {
+        width: 100%;
 
-		.navbar-back {
-			position   : absolute;
-			font-weight: 300;
-		}
+        .navbar-back {
+            position   : absolute;
+            font-weight: 300;
+        }
 
-		.navbar-back,
-		.navbar-title {
-			color      : #fff;
-			height     : 50px;
-			padding    : 15px;
-			font-size  : 18px;
-			text-align : center;
-			line-height: 20px;
-		}
+        .navbar-back,
+        .navbar-title {
+            color      : #fff;
+            height     : 50px;
+            padding    : 15px;
+            font-size  : 18px;
+            text-align : center;
+            line-height: 20px;
+        }
 
-		.navbar-title {
-			font-weight: 400;
-		}
-	}
+        .navbar-title {
+            font-weight: 400;
+        }
+    }
 
-	form.form-horizontal {
-		padding-bottom: 30px;
+    form.form-horizontal {
+        padding-bottom: 30px;
 
-		.loading {
-			margin-top: 100px;
-			text-align: center;
+        .loading {
+            margin-top: 100px;
+            text-align: center;
 
-			i.fa {
-				color: #3f51b5;
-			}
-		}
+            i.fa {
+                color: #3f51b5;
+            }
+        }
 
-		.section {
-			margin-top: 15px;
+        .section {
+            margin-top: 15px;
 
-			.section-header {
-				color         : #3f51b5;
-				padding       : 7px 0 7px 15px;
-				font-size     : 13px;
-				letter-spacing: 0.3px;
-				text-transform: uppercase;
-			}
+            .section-header {
+                color         : #3f51b5;
+                padding       : 7px 0 7px 15px;
+                font-size     : 13px;
+                letter-spacing: 0.3px;
+                text-transform: uppercase;
+            }
 
-			.section-content {
-				font-size       : 15px;
-				border-top      : 1px solid #ddd;
-				border-bottom   : 1px solid #ddd;
-				background-color: #fff;
+            .section-content {
+                font-size       : 15px;
+                border-top      : 1px solid #ddd;
+                border-bottom   : 1px solid #ddd;
+                background-color: #fff;
 
-				.array {
-					width: 100%;
-					color: inherit;
+                .array {
+                    width: 100%;
+                    color: inherit;
 
-					p.noElements {
-						color     : #333;
-						margin    : 10px 15px;
-						font-style: italic;
-					}
+                    p.noElements {
+                        color     : #333;
+                        margin    : 10px 15px;
+                        font-style: italic;
+                    }
 
-					tr.array-item {
-						td.item,
-						th.left {
-							cursor       : pointer;
-							padding      : 10px 15px 10px 0;
-							font-size    : 15px;
-							text-align   : left;
-							border-bottom: 1px solid #eee;
+                    tr.array-item {
+                        td.item,
+                        th.left {
+                            cursor       : pointer;
+                            padding      : 10px 15px 10px 0;
+                            font-size    : 15px;
+                            text-align   : left;
+                            border-bottom: 1px solid #eee;
 
-							th.key {
-								margin: 3px 0;
-							}
-						}
+                            th.key {
+                                margin: 3px 0;
+                            }
+                        }
 
-						th.left,
-						th.middle {
-							width        : 15px;
-							border-bottom: 0;
-						}
+                        th.left,
+                        th.middle {
+                            width        : 15px;
+                            border-bottom: 0;
+                        }
 
-						td.item {
-							width: 100%;
-						}
+                        td.item {
+                            width: 100%;
+                        }
 
-						td.link {
-							color         : #777;
-							font-size     : 20px;
-							vertical-align: middle;
+                        td.link {
+                            color         : #777;
+                            font-size     : 20px;
+                            vertical-align: middle;
 
-							i {
-								margin-right: 15px;
-							}
-						}
-					}
+                            i {
+                                margin-right: 15px;
+                            }
+                        }
+                    }
 
-					tr.array-item:last-of-type {
-						td,
-						th {
-							border-bottom: 0;
-						}
-					}
-				}
-			}
+                    tr.array-item:last-of-type {
+                        td,
+                        th {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+            }
 
-			div.form-group {
-				margin       : 0 0 0 15px;
-				padding      : 0;
-				border-bottom: 1px solid #ddd;
+            div.form-group {
+                margin       : 0 0 0 15px;
+                padding      : 0;
+                border-bottom: 1px solid #ddd;
 
-				&:last-of-type {
-					border-bottom: 0;
-				}
+                &:last-of-type {
+                    border-bottom: 0;
+                }
 
-				&.input {
-					cursor: pointer;
-				}
+                &.input {
+                    cursor: pointer;
+                }
 
-				.key {
-					float  : left;
-					padding: 9px 0;
-				}
+                .key {
+                    float  : left;
+                    padding: 9px 0;
+                }
 
-				.value {
-					color     : #777;
-					float     : right;
-					padding   : 8px;
-					text-align: right;
+                div.value {
+                    color     : #777;
+                    float     : right;
+                    padding   : 8px;
+                    text-align: right;
 
-					.icon {
-						font-size    : 18px;
-						padding-top  : 2px;
-						padding-left : 7px;
-						padding-right: 3px;
-					}
-				}
-			}
-		}
-	}
+                    .icon {
+                        font-size    : 18px;
+                        padding-top  : 2px;
+                        padding-left : 7px;
+                        padding-right: 3px;
+                    }
+                }
+
+                tr {
+                    margin: 8px;
+                    cursor: pointer;
+
+                    td.value {
+                        width  : 100%;
+                        color  : #777;
+                        padding: 8px 0;
+                    }
+
+                    td.link {
+                        color         : #777;
+                        font-size     : 20px;
+                        vertical-align: middle;
+
+                        i {
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
