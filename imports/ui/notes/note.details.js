@@ -9,8 +9,14 @@ Template['note.details'].helpers({
                     contents: [
                         {
                             key: 'title'
-                        }, {
-                            key: 'text'
+                        }
+                    ]
+                }, {
+                    header: 'text',
+                    contents: [
+                        {
+                            key: 'text',
+                            type: 'textbox'
                         }
                     ]
                 }, {
