@@ -7,7 +7,7 @@ Template['admin.details'].helpers({
             backLink: 'home',
             sections: [
                 {
-                    header: 'administrationSection',
+                    header: 'administration',
                     contents: [
                         {
                             key: 'settings',

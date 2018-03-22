@@ -7,7 +7,7 @@ Template['vessel.details'].helpers({
             backLink: 'vessel.search',
             sections: [
                 {
-                    header: 'identificationSection',
+                    header: 'identification',
                     contents: [
                         {
                             key: 'name'
@@ -27,7 +27,7 @@ Template['vessel.details'].helpers({
                         }
                     ]
                 }, {
-                    header: 'visitSection',
+                    header: 'visit',
                     contents: [
                         {
                             key: 'visits',

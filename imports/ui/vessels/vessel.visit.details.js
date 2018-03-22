@@ -8,7 +8,7 @@ Template['vessel.visit.details'].helpers({
             backLink: 'vessel.details',
             sections: [
                 {
-                    header: 'mainSection',
+                    header: 'main',
                     contents: [
                         {
                             key: 'date',
@@ -44,7 +44,7 @@ Template['vessel.visit.details'].helpers({
                     ]
                 },
                 {
-                    header: 'languageSection',
+                    header: 'language',
                     contents: [
                         {
                             key: 'languageIds',
@@ -73,7 +73,7 @@ Template['vessel.visit.details'].helpers({
                     ]
                 },
                 {
-                    header: 'optionSection',
+                    header: 'option',
                     actions: [
                         {
                             key: 'delete',

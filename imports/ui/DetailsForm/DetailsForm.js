@@ -13,8 +13,8 @@ Template.DetailsForm.helpers({
         }
         return content.key;
     },
-    getTranslation(key) {
-        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
+    getSectionTranslation(key) {
+        return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key);
     },
     getActionPath(action) {
         return FlowRouter.path(action.route, FlowRouter.current().params);

@@ -377,14 +377,16 @@ vessel:
     search:
         placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
     details:
-        identificationSection: Identifikationsdaten
-        visitSection: Besuchsdaten
+        sections:
+            identification: Identifikationsdaten
+            visit: Besuchsdaten
         dateFormat: DD.MM.YYYY
     visit:
         details:
-            mainSection: Besuchsdaten
-            languageSection: Sprachen an Board
-            optionSection: Optionen
+            sections:
+                main: Besuchsdaten
+                language: Sprachen an Board
+                option: Optionen
             dateFormat: DD.MM.YYYY
 notes:
     description: Здесь можно создавать простые заметки. Любой администратор, планировщик смен и служитель литературы этого проекта может видеть эти заметки. Таким образом, вы вместе как команда можете держать эти заметки в виду.

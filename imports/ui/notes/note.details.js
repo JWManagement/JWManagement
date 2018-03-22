@@ -5,7 +5,7 @@ Template['note.details'].helpers({
             backLink: 'note.search',
             sections: [
                 {
-                    header: 'contentSection',
+                    header: 'title',
                     contents: [
                         {
                             key: 'title'
@@ -14,7 +14,7 @@ Template['note.details'].helpers({
                         }
                     ]
                 }, {
-                    header: 'metaSection',
+                    header: 'meta',
                     contents: [
                         {
                             key: 'author',

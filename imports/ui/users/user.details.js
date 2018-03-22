@@ -7,7 +7,7 @@ Template['user.details'].helpers({
             backLink: 'user.search',
             sections: [
                 {
-                    header: 'identificationSection',
+                    header: 'identification',
                     contents: [
                         {
                             key: 'profile_firstname'

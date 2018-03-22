@@ -19,7 +19,7 @@ template(name="DetailsForm")
             each section in sections
                 .section
                     if section.header
-                        .section-header {{getTranslation section.header}}
+                        .section-header {{getSectionTranslation section.header}}
                     if section.contents
                         .section-content
                             each content in section.contents

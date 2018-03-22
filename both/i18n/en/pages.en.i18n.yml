@@ -228,7 +228,8 @@ admin:
         vessels: Vessels
         notes: Notes
     details:
-        administrationSection: Administration
+        sections:
+            administration: Administration
 users:
     title: Userlist
     search: Search...
@@ -281,7 +282,8 @@ user:
     search:
         placeholder: User first name, last name, email, phone or username
     details:
-        identificationSection: Identification data
+        sections:
+            identification: Identification data
         dateFormat: MM/DD/YYYY
 reports:
     placements: Placements
@@ -431,14 +433,16 @@ vessel:
     search:
         placeholder: Vessel name, call sign, ENI, IMO or MMSI
     details:
-        identificationSection: Identification data
-        visitSection: Visit data
+        sections:
+            identification: Identification data
+            visit: Visit data
         dateFormat: MM/DD/YYYY
     visit:
         details:
-            mainSection: Visit data
-            languageSection: Language data
-            optionSection: Options
+            sections:
+                main: Visit data
+                language: Language data
+                option: Options
             dateFormat: MM/DD/YYYY
 notes:
     description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.

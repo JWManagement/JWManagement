@@ -228,7 +228,8 @@ admin:
         vessels: Schiffe
         notes: Notizen
     details:
-        administrationSection: Verwaltung
+        sections:
+            administration: Verwaltung
 users:
     title: Teilnehmerliste
     search: Suchen...
@@ -281,7 +282,8 @@ user:
     search:
         placeholder: Vorname, Nachname, E-Mail, Telefon oder Benutzername
     details:
-        identificationSection: Identifikationsdaten
+        sections:
+            identification: Identifikationsdaten
         dateFormat: DD.MM.YYYY
 reports:
     placements: Abgaben
@@ -431,14 +433,16 @@ vessel:
     search:
         placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
     details:
-        identificationSection: Identifikationsdaten
-        visitSection: Besuchsdaten
+        sections:
+            identification: Identifikationsdaten
+            visit: Besuchsdaten
         dateFormat: DD.MM.YYYY
     visit:
         details:
-            mainSection: Besuchsdaten
-            languageSection: Sprachen an Board
-            optionSection: Optionen
+            sections:
+                main: Besuchsdaten
+                language: Sprachen an Board
+                option: Optionen
             dateFormat: DD.MM.YYYY
 notes:
     description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
