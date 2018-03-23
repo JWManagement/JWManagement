@@ -13,7 +13,7 @@ navigation:
         details: User details
         update: Edit user
         password:
-            change: Change user's password
+            insert: Change user's password
     reports: Reports
     store: Store Room
     vessels: Vessels

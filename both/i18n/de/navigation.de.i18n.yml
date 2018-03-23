@@ -13,7 +13,7 @@ navigation:
         details: Verkündigerdaten
         update: Verkündiger bearbeiten
         password:
-            change: Passwort des Verkündigers ändern
+            insert: Passwort des Verkündigers ändern
     reports: Berichte
     store: Depot
     vessel:
