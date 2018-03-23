@@ -28,6 +28,11 @@ navigation:
             language:
                 insert: Sprache hinzufügen
     notes: Notizen
+    note:
+        search: Notizen
+        details: Notizdaten
+        update: Notiz bearbeiten
+        insert: Neue Notiz erfassen
     login: Anmelden
     logout: Abmelden
     loggingOut: Abmelden...

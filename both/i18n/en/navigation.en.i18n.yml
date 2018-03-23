@@ -29,6 +29,11 @@ navigation:
             language:
                 insert: Add a language
     notes: Notes
+    note:
+        search: Notes
+        details: Note details
+        update: Edit note
+        insert: Add note
     login: Login
     logout: Logout
     loggingOut: Logging out...
