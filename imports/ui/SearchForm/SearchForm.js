@@ -37,6 +37,12 @@ Template.SearchForm.helpers({
     },
     maxResultsShown() {
         return Template.instance().maxResultsShown;
+    },
+    allowCreate() {
+        return Template.instance().allowCreate;
+    },
+    isCreating() {
+        return Template.instance().isCreating.get();
     }
 });
 
@@ -50,9 +56,11 @@ Template.SearchForm.onCreated(() => {
     template.columnDefinitions = data.columns;
     template.entityId = data.entityId;
     template.backLink = data.backLink;
+    template.allowCreate = data.allowCreate;
 
     template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '*');
     template.isLoading = new ReactiveVar(false);
+    template.isCreating = new ReactiveVar(false);
     template.itemCount = new ReactiveVar(0);
     template.items = new ReactiveVar([]);
     template.regEx = new ReactiveVar(new RegExp(''));
@@ -128,15 +136,13 @@ Template.SearchForm.events({
     'click #more': (e, template) => {
         doSearch(template, true);
     },
-    'click #createNew': () => {
-        wrs(() => {
-            RouteManager.navigateToInsert();
-        });
-    },
     'click .results-desktop tbody tr:not(.footable-empty)': (e, template) => {
         const entityId = $(e.target).closest('tr').find('td').first().html();
 
         RouteManager.navigateToDetails(template.entityId, entityId);
+    },
+    'click .navbar-create': () => {
+        RouteManager.navigateToInsert();
     },
     'keyup #search': (e, template) => {
         updateSearch(template, e.target.value);

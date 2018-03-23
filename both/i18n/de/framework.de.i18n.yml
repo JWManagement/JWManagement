@@ -7,9 +7,7 @@ searchForm:
     showingAll: ''
     showingAll_plural: Zeige alle
     typeToSearch: Tippe um zu suchen (* um alles zu sehen)
-    createNew: Erstelle einen neuen Eintrag
     showAll: Zeige alle %s
-    or: – ODER –
 validation:
     required: Das ist ein Pflichtfeld
     unique: Es gibt bereits einen Eintrag mit diesem Wert

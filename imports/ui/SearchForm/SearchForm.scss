@@ -1,127 +1,134 @@
 body.md-skin[type='SearchForm'] {
-	background-color: #fff !important;
-	padding-top     : 126px;
-	margin-bottom   : 30px;
+    background-color: #fff !important;
+    padding-top     : 126px;
+    margin-bottom   : 30px;
 
-	.navbar {
-		width     : 100%;
-		box-shadow: none;
+    .navbar {
+        width     : 100%;
+        box-shadow: none;
 
-		.navbar-back {
-			position   : absolute;
-			font-weight: 300;
-		}
+        .navbar-back,
+        .navbar-create {
+            position   : absolute;
+            font-weight: 300;
+        }
 
-		.navbar-back,
-		.navbar-title {
-			color      : #fff;
-			height     : 50px;
-			padding    : 15px;
-			font-size  : 18px;
-			text-align : center;
-			line-height: 20px;
-		}
+        .navbar-back,
+        .navbar-create,
+        .navbar-title {
+            color      : #fff;
+            height     : 50px;
+            padding    : 15px;
+            font-size  : 18px;
+            text-align : center;
+            line-height: 20px;
+        }
 
-		.navbar-title {
-			font-weight: 400;
-		}
-	}
+        .navbar-title {
+            font-weight: 400;
+        }
 
-	.search.input-group {
-		margin: 0 9px 10px 10px; // why 9? see .input > margin-left
+        .navbar-create {
+            top  : 0;
+            right: 0;
+        }
+    }
 
-		.input-group-addon {
-			color                    : #8e8e8e;
-			padding                  : 6px 6px 6px 12px;
-			font-family              : FontAwesome;
-			border                   : none !important;
-			border-top-left-radius   : 5px;
-			border-bottom-left-radius: 5px;
-		}
+    .search.input-group {
+        margin: 0 9px 10px 10px; // why 9? see .input > margin-left
 
-		input {
-			border                    : none;
-			border-top-right-radius   : 5px;
-			border-bottom-right-radius: 5px;
-			margin-left               : -1px;
-			padding-left              : 5px;
-		}
-	}
+        .input-group-addon {
+            color                    : #8e8e8e;
+            padding                  : 6px 6px 6px 12px;
+            font-family              : FontAwesome;
+            border                   : none !important;
+            border-top-left-radius   : 5px;
+            border-bottom-left-radius: 5px;
+        }
 
-	.search-title {
-		color           : #777;
-		height          : 32px;
-		padding         : 6px 10px;
-		font-size       : 14px;
-		background-color: #e8e8e8;
-	}
+        input {
+            border                    : none;
+            border-top-right-radius   : 5px;
+            border-bottom-right-radius: 5px;
+            margin-left               : -1px;
+            padding-left              : 5px;
+        }
+    }
 
-	.results-desktop {
-		@media(max-width: 759px) {
-			display: none !important;
-		}
+    .search-title {
+        color           : #777;
+        height          : 32px;
+        padding         : 6px 10px;
+        font-size       : 14px;
+        background-color: #e8e8e8;
+    }
 
-		tr {
-			cursor: pointer;
-		}
-	}
+    .results-desktop {
+        @media(max-width: 759px) {
+            display: none !important;
+        }
 
-	.results-mobile {
-		width: 100%;
-		@media(min-width: 760px) {
-			display: none;
-		}
+        tr {
+            cursor: pointer;
+        }
+    }
 
-		a {
-			width  : 100%;
-			color  : inherit;
-			display: inline-block;
+    .results-mobile {
+        width: 100%;
+        @media(min-width: 760px) {
+            display: none;
+        }
 
-			tr {
-				td,
-				th {
-					cursor       : pointer;
-					padding      : 10px 15px 10px 0;
-					font-size    : 15px;
-					text-align   : left;
-					border-bottom: 1px solid #eee;
+        a {
+            width  : 100%;
+            color  : inherit;
+            display: inline-block;
 
-					b,
-					span {
-						margin     : 3px 0;
-						display    : block;
-						line-height: 1;
-						white-space: nowrap;
+            tr {
+                td,
+                th {
+                    cursor       : pointer;
+                    padding      : 10px 15px 10px 0;
+                    font-size    : 15px;
+                    text-align   : left;
+                    border-bottom: 1px solid #eee;
 
-						&:empty {
-							content: " ";
-						}
-					}
-				}
+                    b,
+                    span {
+                        margin     : 3px 0;
+                        display    : block;
+                        line-height: 1;
+                        white-space: nowrap;
 
-				th.left {
-					width        : 15px;
-					border-bottom: 0;
-				}
+                        &:empty {
+                            content: " ";
+                        }
+                    }
+                }
 
-				td.item {
-					width: 100%;
-				}
+                th.left {
+                    width        : 15px;
+                    border-bottom: 0;
+                }
 
-				td.link {
-					color         : #ccc;
-					font-size     : 20px;
-					vertical-align: middle;
-				}
-			}
-		}
-	}
+                td.item {
+                    width: 100%;
+                }
 
-	.noResultsOr {
-		color: #777;
-	}
+                td.link {
+                    color         : #ccc;
+                    font-size     : 20px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
 
-	.p-b-lg {
-		padding-bottom: 20px;
-	}
+    .noResultsOr {
+        color: #777;
+    }
+
+    .p-b-lg {
+        padding-bottom: 20px;
+    }
 }
