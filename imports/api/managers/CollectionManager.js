@@ -51,7 +51,21 @@ module.exports = class CollectionManager {
         }
     }
 
-    delete(entity) {}
+    delete(parentId, entityId) {
+        try {
+            this.db.update({
+                _id: parentId
+            }, {
+                $pull: {
+                    [this.collection.name]: {
+                        _id: entityId
+                    }
+                }
+            });
+        } catch(e) {
+            throw new Meteor.Error(e.error, e.details);
+        }
+    }
 
     checkUniqueFields(parentId, entity) {
         const errors = [];
