@@ -7,7 +7,8 @@ Template['note.insert'].helpers({
                 {
                     key: 'title'
                 }, {
-                    key: 'text'
+                    key: 'text',
+                    type: 'textbox'
                 }
             ]
         }
