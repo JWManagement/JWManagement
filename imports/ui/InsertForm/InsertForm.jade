@@ -22,6 +22,9 @@ template(name="InsertForm")
             else if isDate field
                 with field
                     +InsertFormDateInput data=getInputData
+            else if isTextbox field
+                with field
+                    +InsertFormTextboxInput data=getInputData
             else
                 with field
                     +InsertFormTextInput data=getInputData
@@ -68,6 +71,16 @@ template(name="InsertFormCheckboxInput")
         .section-select
             input(type='checkbox' checked='true')
             | {{getEntityTranslation getKey}}
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
+
+template(name="InsertFormTextboxInput")
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation getKey}}
+        .section-content
+            .text-input
+                textarea(placeholder='{{getEntityTranslation getKey}}') {{getValue}}
         if hasError
             .section-error
                 p {{getEntityErrorTranslation}}

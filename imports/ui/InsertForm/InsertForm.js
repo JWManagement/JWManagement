@@ -5,6 +5,7 @@ import './InsertFormTextInput.js';
 import './InsertFormDateInput.js';
 import './InsertFormDropdownInput.js';
 import './InsertFormCheckboxInput.js';
+import './InsertFormTextboxInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
@@ -21,6 +22,9 @@ Template.InsertForm.helpers({
     },
     isCheckbox(field) {
         return field.type == 'checkbox';
+    },
+    isTextbox(field) {
+        return field.type == 'textbox';
     },
     getInputData() {
         const template = Template.instance();
