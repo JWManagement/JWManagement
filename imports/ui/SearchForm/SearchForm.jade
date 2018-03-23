@@ -27,7 +27,7 @@ template(name="SearchForm")
                 .search-title.clearfix
                     .pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
                     if moreResultsAvailable
-                        .pull-right {{_ 'searchForm.showingTheFirstX' maxResultsShown}}
+                        .pull-right {{_ 'searchForm.showingTheFirstX' resultsShown}}
                     else
                         .pull-right {{_ 'searchForm.showingAll' count=totalFound}}
 

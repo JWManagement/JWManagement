@@ -29,14 +29,15 @@ Template.SearchForm.helpers({
     },
     moreResultsAvailable() {
         const template = Template.instance();
-        return template.itemCount.get() > template.maxResultsShown;
+        const resultsShown = template.resultsShown.get();
+        return template.itemCount.get() > resultsShown && resultsShown > 0;
     },
     totalFound() {
         const template = Template.instance();
         return template.itemCount.get();
     },
-    maxResultsShown() {
-        return Template.instance().maxResultsShown;
+    resultsShown() {
+        return Template.instance().resultsShown.get();
     },
     allowCreate() {
         return Template.instance().allowCreate;
@@ -66,7 +67,8 @@ Template.SearchForm.onCreated(() => {
     template.regEx = new ReactiveVar(new RegExp(''));
     template.table = null;
     template.language = '';
-    template.maxResultsShown = 20;
+    template.defaultResultsPerPage = 20;
+    template.resultsShown = new ReactiveVar(template.defaultResultsPerPage);
 
     template.rows = [];
     template.mobileRows = [];
@@ -107,7 +109,7 @@ Template.SearchForm.onRendered(() => {
                 showToggle: false,
                 paging: {
                     enabled: true,
-                    size: template.maxResultsShown
+                    size: template.defaultResultsPerPage
                 },
                 sorting: {
                     enabled: true
@@ -250,7 +252,8 @@ function doSearch(template, retrieveAllResults = false) {
     const routeName = FlowRouter.getRouteName();
     let params = FlowRouter.current().params;
     params.searchString = template.searchString.get();
-    params.limit = retrieveAllResults ? 0 : template.maxResultsShown;
+    params.limit = retrieveAllResults ? 0 : template.defaultResultsPerPage;
+    template.resultsShown.set(params.limit);
 
     Meteor.call(routeName, params, (e, r) => {
         if (e != null) {
