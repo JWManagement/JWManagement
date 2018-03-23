@@ -84,6 +84,15 @@ Meteor.methods({
         } catch(e) {
             throw new Meteor.Error(e);
         }
+    },
+    'note.delete': ({ projectId, noteId }) => {
+        checkPermissions(projectId);
+
+        try {
+            Notes.persistence.delete(projectId, noteId);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
     }
 });
 

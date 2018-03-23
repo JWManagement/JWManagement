@@ -30,6 +30,17 @@ Template['note.details'].helpers({
                             readonly: true
                         }
                     ]
+                }, {
+                    header: 'option',
+                    actions: [
+                        {
+                            key: 'delete',
+                            type: 'confirm',
+                            style: 'danger',
+                            method: 'note.delete',
+                            route: 'note.search'
+                        }
+                    ]
                 }
             ]
         }
