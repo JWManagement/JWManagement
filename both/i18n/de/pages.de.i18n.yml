@@ -444,17 +444,13 @@ vessel:
                 language: Sprachen an Board
                 option: Optionen
             dateFormat: DD.MM.YYYY
-notes:
-    description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
-    createNote: Notiz erstellen
 note:
     search:
         dateFormat: DD.MM.YYYY HH:mm Uhr
         placeholder: Titel oder Text
     entity:
-    title: Titel
-    text: Text
-    deleteNote: Notiz löschen
+        title: Titel
+        text: Text
         lastChange: Letzte Änderung
         author: Autor
         datetime: Datum

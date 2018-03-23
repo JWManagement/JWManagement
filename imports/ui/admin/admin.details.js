@@ -38,10 +38,6 @@ Template['admin.details'].helpers({
                             }
                         }, {
                             key: 'notes',
-                            link: 'notes',
-                            canSee: Permissions.shiftAndStoreAdmin
-                        }, {
-                            key: 'notesNew',
                             link: 'note.details',
                             canSee: Permissions.shiftAndStoreAdmin
                         }

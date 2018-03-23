@@ -28,7 +28,6 @@ navigation:
             update: Edit visit
             language:
                 insert: Add a language
-    notes: Notes
     note:
         search: Notes
         details: Note details

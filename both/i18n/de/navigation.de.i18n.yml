@@ -27,7 +27,6 @@ navigation:
             update: Besuch bearbeiten
             language:
                 insert: Sprache hinzufügen
-    notes: Notizen
     note:
         search: Notizen
         details: Notizdaten

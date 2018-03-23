@@ -33,10 +33,10 @@ RouteManager.registerEntity('vessel.visit.language', {
     }
 });
 RouteManager.registerEntity('note', {
-    search: 'new/notes',
-    insert: 'new/notes/new',
-    details: 'new/notes/:noteId',
-    update: 'new/notes/:noteId/:key'
+    search: 'notes',
+    insert: 'notes/new',
+    details: 'notes/:noteId',
+    update: 'notes/:noteId/:key'
 });
 
 FlowRouter.route('/:language/:projectId/kb', {
@@ -106,17 +106,6 @@ FlowRouter.route('/:language/:projectId/store', {
         Helpers.doIfLoggedIn(() => {
             Session.set('parent', 'admin');
             BlazeLayout.render('mainLayout', { content: 'store' });
-        });
-    }
-});
-
-FlowRouter.route('/:language/:projectId/notes', {
-    name: 'notes',
-    triggersEnter: [ Helpers.checkLanguage ],
-    action: () => {
-        Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'admin');
-            BlazeLayout.render('mainLayout', { content: 'notes' });
         });
     }
 });

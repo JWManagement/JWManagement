@@ -444,17 +444,13 @@ vessel:
                 language: Language data
                 option: Options
             dateFormat: MM/DD/YYYY
-notes:
-    description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
-    createNote: Create note
 note:
     search:
         dateFormat: MM/DD/YYYY hh:mm a
         placeholder: Title oder text
     entity:
-    title: Title
-    text: Text
-    deleteNote: Delete this note
+        title: Title
+        text: Text
         lastChange: Last change
         author: Author
         datetime: Date
