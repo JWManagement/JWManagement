@@ -47,18 +47,6 @@ Notes.schema = new SimpleSchema({
     },
     text: {
         type: String
-    },
-    date: {
-        type: String,
-        autoValue: function() {
-            return 'legacy';
-        }
-    },
-    time: {
-        type: String,
-        autoValue: function() {
-            return 'legacy';
-        }
     }
 });
 
