@@ -36,6 +36,12 @@ Template['user.update'].helpers({
                     allowedValues: Privilege.allowedValues
                 }, {
                     key: 'profile_languages'
+                }, {
+                    key: 'profile_shortTermCalls',
+                    type: 'checkbox'
+                }, {
+                    key: 'profile_shortTermCallsAlways',
+                    type: 'checkbox'
                 }
             ]
         }
