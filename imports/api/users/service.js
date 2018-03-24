@@ -180,15 +180,53 @@ function getExtendedUser(userId, projectId) {
             'profile.bdate': 1,
             'profile.pioneer': 1,
             'profile.privilege': 1,
-            'profile.languages': 1
+            'profile.languages': 1,
+            'profile.available': 1,
+            'profile.shortTermCalls': 1,
+            'profile.shortTermCallsAlways': 1
         }
     });
 
     if (user != undefined) {
-        // do stuff
+        user.profile.availability = {
+            mondays: convertTimeSlots(user.profile.available.mo),
+            tuesdays: convertTimeSlots(user.profile.available.tu),
+            wednesdays: convertTimeSlots(user.profile.available.we),
+            thursdays: convertTimeSlots(user.profile.available.th),
+            fridays: convertTimeSlots(user.profile.available.fr),
+            saturdays: convertTimeSlots(user.profile.available.sa),
+            sundays: convertTimeSlots(user.profile.available.so)
+        }
     }
 
     return user;
+}
+
+function convertTimeSlots(timeslots) {
+    if (typeof timeslots == 'object' && timeslots.length > 0) {
+        let timePeriods = [];
+
+        timeslots.sort((a, b) => {
+            return a - b;
+        });
+
+        let periodBegin = 0;
+        let lastValue = 0;
+
+        for (let timeslot of timeslots) {
+            if (timeslot != lastValue + 100) {
+                timePeriods.push(periodBegin + ' - ' + (timeslot + 100));
+
+                periodBegin = timeslot;
+            }
+
+            lastValue = timeslot;
+        }
+
+        return timePeriods.join(', ');
+    }
+
+    return '';
 }
 
 function checkPermissions(projectId, userId = null) {
