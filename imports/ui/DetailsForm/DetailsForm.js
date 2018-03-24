@@ -139,6 +139,8 @@ Template.DetailsForm.helpers({
             }
         } else if (content.type == 'textbox') {
             return value.replace(/\r?\n|\r/g, '<br>', );
+        } else if (content.type == 'checkbox') {
+            return value ? TAPi18n.__('detailsForm.yes') : TAPi18n.__('detailsForm.no');
         } else {
             return value;
         }
