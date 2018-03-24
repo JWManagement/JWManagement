@@ -151,6 +151,15 @@ Meteor.methods({
         } catch(e) {
             throw new Meteor.Error(e);
         }
+    },
+    'user.availability.get': ({ projectId, userId, key }) => {
+        checkPermissions(projectId, userId);
+
+        return {
+            availability: [{
+                timeslot: '14 - 16 Uhr'
+            }]
+        };
     }
 });
 
