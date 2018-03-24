@@ -272,7 +272,16 @@ user:
             serviceOverseer: Service overseer
             placeholder: Select a congregation assignment
         profile_bdate: Birth date
-        profile_languages: Languages
+        profile_languages: Foreign languages
+        profile_availability_mondays: Mondays
+        profile_availability_tuesdays: Tuesdays
+        profile_availability_wednesdays: Wednesdays
+        profile_availability_thursdays: Thursdays
+        profile_availability_fridays: Fridays
+        profile_availability_saturdays: Saturdays
+        profile_availability_sundays: Sundays
+        profile_shortTermCalls: Receive understaffed mails
+        profile_shortTermCallsAlways: Available in short term
         password:
             change: Change password
             password: Enter the new password

@@ -273,6 +273,15 @@ user:
             placeholder: Wähle ein Dienstamt
         profile_bdate: Geburtsdatum
         profile_languages: Fremdsprachen
+        profile_availability_mondays: Montags
+        profile_availability_tuesdays: Dienstags
+        profile_availability_wednesdays: Mittwochs
+        profile_availability_thursdays: Donnerstags
+        profile_availability_fridays: Freitags
+        profile_availability_saturdays: Samstags
+        profile_availability_sundays: Sonntags
+        profile_shortTermCalls: Unterbesetzt-Mails erhalten
+        profile_shortTermCallsAlways: Kurzfristig anfragbar
         password:
             change: Passwort ändern
             password: Neues Passwort eingeben
