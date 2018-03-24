@@ -209,7 +209,11 @@ Template.DetailsForm.events({
         const link = $e.attr('link');
 
         if (link != null) {
-            const params = FlowRouter.current().params;
+            let params = FlowRouter.current().params;
+
+            if (key != null) {
+                params.key = key;
+            }
 
             FlowRouter.go(FlowRouter.path(link, params));
         } else {

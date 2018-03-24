@@ -24,7 +24,7 @@ template(name="DetailsForm")
                         .section-content
                             each content in section.contents
                                 if isArray content
-                                    .array(key='{{element.key}}')
+                                    .array(key='{{content.key}}')
                                         each entity in getValue content
                                             if isArray content.type.[0]
                                                 tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
@@ -49,6 +49,8 @@ template(name="DetailsForm")
                                                                         | {{getProperty entity field}}
                                                                     else
                                                                         | -
+                                                        else
+                                                            | Hello
                                                     td.link(rowspan='{{content.type.[0].type.count}}')
                                                         i.fa.fa-angle-right
                                             else if isDropdown content.type.[0]
@@ -60,6 +62,11 @@ template(name="DetailsForm")
                                                 else
                                                     .form-group
                                                         .key {{getProperty entity content.type.[0]}}
+                                            else
+                                                .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity}}')
+                                                    .key {{getProperty entity content.type.[0]}}
+                                                    .value
+                                                        i.fa.fa-angle-right.icon
                                         else
                                             p.noElements {{getEntityTranslation content.type.[0].key 'noElements'}}
                                 else if content.readonly
@@ -83,7 +90,7 @@ template(name="DetailsForm")
                                         tr
                                             td.value
                                                 | {{{getValue content}}}
-                                            td.link(rowspan='{{content.type.[0].type.count}}')
+                                            td.link
                                                 i.fa.fa-angle-right
                                 else if hasPermissionToSee content
                                     .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
