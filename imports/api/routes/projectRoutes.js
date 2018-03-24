@@ -8,10 +8,10 @@ RouteManager.registerEntity('user.password', {
     insert: 'new/users/:userId/password'
 });
 RouteManager.registerEntity('user', {
-    search: 'new/users',
-//  insert: 'new/users/new',
-    details: 'new/users/:userId',
-    update: 'new/users/:userId/:key'
+    search: 'publishers',
+    insert: 'publishers/new',
+    details: 'publishers/:userId',
+    update: 'publishers/:userId/:key'
 });
 RouteManager.registerEntity('vessel', {
     search: 'vessels',

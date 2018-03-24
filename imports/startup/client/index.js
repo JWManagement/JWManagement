@@ -18,7 +18,7 @@ import '/imports/ui/users/users.jade';
 import '/imports/ui/users/user.search.js';
 import '/imports/ui/users/user.details.js';
 import '/imports/ui/users/user.update.js';
-//import '/imports/ui/users/user.insert.js';
+import '/imports/ui/users/user.insert.js';
 import '/imports/ui/users/user.password.insert.js';
 
 import '/imports/ui/vessels/vessels.jade';
