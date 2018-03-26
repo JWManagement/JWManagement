@@ -10,8 +10,19 @@ Template['user.availability.details'].helpers({
                 contents: [{
                     key: 'availability',
                     type: [{
-                        key: 'timeslot'
+                        key: 'timeslot',
+                        type: 'delete',
+                        click: {
+                            type: 'delete',
+                            method: 'user.availability.delete'
+                        }
                     }]
+                }],
+                actions: [{
+                    key: 'timeslot.new',
+                    type: 'link',
+                    style: 'primary',
+                    route: 'user.availability.insert'
                 }]
             }]
         }

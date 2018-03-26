@@ -52,6 +52,11 @@ user:
         profile_availability_sundays: Sonntags
         profile_shortTermCalls: Unterbesetzt-Mails erhalten
         profile_shortTermCallsAlways: Kurzfristig anfragbar
+        availability:
+            timeslot:
+                new: Neue Verfügbarkeit eintragen
+                noElements: Keine Verfügbarkeiten angegeben
+                deleteConfirmation: Möchtest du diese Verfügbarkeit wirklich löschen?
         password:
             change: Passwort ändern
             password: Neues Passwort eingeben

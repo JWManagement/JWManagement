@@ -152,13 +152,19 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.availability.get': ({ projectId, userId, key }) => {
+    'user.availability.get': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
 
+        const user = getExtendedUser(userId, projectId, language);
+        const day = key.split('_').pop();
+        const timeslots = user.profile.availability[day].split(', ').map((timeslot) => {
+            return {
+                timeslot: timeslot
+            };
+        });
+
         return {
-            availability: [{
-                timeslot: '14 - 16 Uhr'
-            }]
+            availability: timeslots
         };
     }
 });

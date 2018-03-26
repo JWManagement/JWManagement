@@ -52,6 +52,11 @@ user:
         profile_availability_sundays: Sundays
         profile_shortTermCalls: Receive understaffed mails
         profile_shortTermCallsAlways: Available in short term
+        availability:
+            timeslot:
+                new: Add new timeslot
+                noElements: No timeslot(s) entered
+                deleteConfirmation: Do you really want to delete this timeslot?
         password:
             change: Change password
             password: Enter the new password
