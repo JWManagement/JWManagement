@@ -326,24 +326,6 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
-note:
-    search:
-        dateFormat: DD.MM.YYYY HH:mm Uhr
-        placeholder: Titel oder Text
-    entity:
-        title: Titel
-        text: Text
-        lastChange: Letzte Änderung
-        author: Autor
-        datetime: Datum
-        delete: Notiz löschen
-        deleteConfirmation: Möchtest du diese Notiz wirklich löschen?
-    details:
-        sections:
-            title: Titel
-            text: Text
-            meta: Letzte Änderung
-            option: Optionen
 firstLogin:
     name: Herzlich Willkommen
     text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>

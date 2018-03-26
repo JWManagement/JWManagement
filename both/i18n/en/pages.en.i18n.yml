@@ -326,24 +326,6 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
-note:
-    search:
-        dateFormat: MM/DD/YYYY hh:mm a
-        placeholder: Title oder text
-    entity:
-        title: Title
-        text: Text
-        lastChange: Last change
-        author: Author
-        datetime: Date
-        delete: Delete this note
-        deleteConfirmation: Do you really want to delete this note?
-    details:
-        sections:
-            title: Title
-            text: Text
-            meta: Last change
-            option: Options
 firstLogin:
     name: Welcome
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
