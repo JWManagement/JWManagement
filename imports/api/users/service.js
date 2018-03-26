@@ -198,39 +198,51 @@ function getExtendedUser(userId, projectId) {
 
     if (user != undefined) {
         user.profile.availability = {
-            mondays: convertTimeSlots(user.profile.available.mo),
-            tuesdays: convertTimeSlots(user.profile.available.tu),
-            wednesdays: convertTimeSlots(user.profile.available.we),
-            thursdays: convertTimeSlots(user.profile.available.th),
-            fridays: convertTimeSlots(user.profile.available.fr),
-            saturdays: convertTimeSlots(user.profile.available.sa),
-            sundays: convertTimeSlots(user.profile.available.so)
-        }
+            mondays: convertTimeslotToString(user.profile.available.mo),
+            tuesdays: convertTimeslotToString(user.profile.available.tu),
+            wednesdays: convertTimeslotToString(user.profile.available.we),
+            thursdays: convertTimeslotToString(user.profile.available.th),
+            fridays: convertTimeslotToString(user.profile.available.fr),
+            saturdays: convertTimeslotToString(user.profile.available.sa),
+            sundays: convertTimeslotToString(user.profile.available.su)
+        };
     }
 
     return user;
 }
 
-function convertTimeSlots(timeslots) {
+function convertTimeslotToString(timeslots) {
     if (typeof timeslots == 'object' && timeslots.length > 0) {
+        const dateFormatStart = TAPi18n.__('user.entity.profile_availability_dateFormatStart');
+        const dateFormatEnd = TAPi18n.__('user.entity.profile_availability_dateFormatEnd');
         let timePeriods = [];
 
         timeslots.sort((a, b) => {
             return a - b;
         });
 
-        let periodBegin = 0;
+        let periodBegin = -1;
         let lastValue = 0;
 
         for (let timeslot of timeslots) {
-            if (timeslot != lastValue + 100) {
-                timePeriods.push(periodBegin + ' - ' + (timeslot + 100));
+            if (periodBegin < 0) {
+                periodBegin = timeslot;
+            } else if (timeslot != lastValue + 100) {
+                const timeslotStart = moment(periodBegin, 'Hmm');
+                const timeslotEnd = moment(lastValue + 100, 'Hmm');
+
+                timePeriods.push(timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd));
 
                 periodBegin = timeslot;
             }
 
             lastValue = timeslot;
         }
+
+        const timeslotStart = moment(periodBegin, 'Hmm');
+        const timeslotEnd = moment(lastValue + 100, 'Hmm');
+
+        timePeriods.push(timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd));
 
         return timePeriods.join(', ');
     }
