@@ -217,19 +217,6 @@ shifts:
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:
     removeAll: Remove all
-admin:
-    nameShort: Admin
-    entity:
-        settings: Settings
-        users: Users
-        usersNew: Publishers
-        reports: Reports
-        store: Store
-        vessels: Vessels
-        notes: Notes
-    details:
-        sections:
-            administration: Administration
 reports:
     placements: Placements
     bibles: Bibles
