@@ -64,16 +64,16 @@ Meteor.methods({
 
         return result;
     },
-    'user.get': ({ projectId, userId }) => {
+    'user.get': ({ language, projectId, userId }) => {
         checkPermissions(projectId, userId);
 
-        return getExtendedUser(userId, projectId);
+        return getExtendedUser(userId, projectId, language);
     },
     'user.getField': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
 
         if (key.indexOf('_') > -1) {
-            var user = getExtendedUser(userId, projectId);
+            var user = getExtendedUser(userId, projectId, language);
 
             for (property of key.split('_')) {
                 if (property in user) {
@@ -85,7 +85,7 @@ Meteor.methods({
 
             return user;
         } else {
-            return getExtendedUser(userId, projectId)[key];
+            return getExtendedUser(userId, projectId, language)[key];
         }
     },
     'user.insert': ({ language, projectId }, user) => {
@@ -163,7 +163,7 @@ Meteor.methods({
     }
 });
 
-function getExtendedUser(userId, projectId) {
+function getExtendedUser(userId, projectId, language) {
     let user = Users.findOne({
         $and: [
             {
@@ -198,23 +198,23 @@ function getExtendedUser(userId, projectId) {
 
     if (user != undefined) {
         user.profile.availability = {
-            mondays: convertTimeslotToString(user.profile.available.mo),
-            tuesdays: convertTimeslotToString(user.profile.available.tu),
-            wednesdays: convertTimeslotToString(user.profile.available.we),
-            thursdays: convertTimeslotToString(user.profile.available.th),
-            fridays: convertTimeslotToString(user.profile.available.fr),
-            saturdays: convertTimeslotToString(user.profile.available.sa),
-            sundays: convertTimeslotToString(user.profile.available.su)
+            mondays: convertTimeslotToString(user.profile.available.mo, language),
+            tuesdays: convertTimeslotToString(user.profile.available.tu, language),
+            wednesdays: convertTimeslotToString(user.profile.available.we, language),
+            thursdays: convertTimeslotToString(user.profile.available.th, language),
+            fridays: convertTimeslotToString(user.profile.available.fr, language),
+            saturdays: convertTimeslotToString(user.profile.available.sa, language),
+            sundays: convertTimeslotToString(user.profile.available.su, language)
         };
     }
 
     return user;
 }
 
-function convertTimeslotToString(timeslots) {
+function convertTimeslotToString(timeslots, language) {
     if (typeof timeslots == 'object' && timeslots.length > 0) {
-        const dateFormatStart = TAPi18n.__('user.entity.profile_availability_dateFormatStart');
-        const dateFormatEnd = TAPi18n.__('user.entity.profile_availability_dateFormatEnd');
+        const dateFormatStart = TAPi18n.__('user.entity.profile_availability_dateFormatStart', {}, language);
+        const dateFormatEnd = TAPi18n.__('user.entity.profile_availability_dateFormatEnd', {}, language);
         let timePeriods = [];
 
         timeslots.sort((a, b) => {

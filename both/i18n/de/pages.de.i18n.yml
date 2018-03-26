@@ -273,6 +273,8 @@ user:
             placeholder: Wähle ein Dienstamt
         profile_bdate: Geburtsdatum
         profile_languages: Fremdsprachen
+        profile_availability_dateFormatStart: H -
+        profile_availability_dateFormatEnd: H [Uhr]
         profile_availability_mondays: Montags
         profile_availability_tuesdays: Dienstags
         profile_availability_wednesdays: Mittwochs

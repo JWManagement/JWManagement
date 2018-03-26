@@ -273,6 +273,8 @@ user:
             placeholder: Select a congregation assignment
         profile_bdate: Birth date
         profile_languages: Foreign languages
+        profile_availability_dateFormatStart: H a -
+        profile_availability_dateFormatEnd: H a
         profile_availability_mondays: Mondays
         profile_availability_tuesdays: Tuesdays
         profile_availability_wednesdays: Wednesdays
