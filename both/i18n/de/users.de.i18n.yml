@@ -66,3 +66,13 @@ user:
             availability: Verfügbarkeit
             options: Optionen
         dateFormat: DD.MM.YYYY
+    availability:
+        details:
+            sections:
+                mondays: Verfügbarkeit Montags
+                tuesdays: Verfügbarkeit Dienstags
+                wednesdays: Verfügbarkeit Mittwochs
+                thursdays: Verfügbarkeit Donnerstags
+                fridays: Verfügbarkeit Freitags
+                saturdays: Verfügbarkeit Samstags
+                sundays: Verfügbarkeit Sonntags

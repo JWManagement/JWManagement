@@ -66,3 +66,13 @@ user:
             availability: Availability
             options: Options
         dateFormat: MM/DD/YYYY
+    availability:
+        details:
+            sections:
+                mondays: Availability on mondays
+                tuesdays: Availability on tuesdays
+                wednesdays: Availability on wednesdays
+                thursdays: Availability on thursdays
+                fridays: Availability on fridays
+                saturdays: Availability on saturdays
+                sundays: Availability on sundays

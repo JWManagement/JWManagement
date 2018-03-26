@@ -14,6 +14,8 @@ navigation:
         update: Edit user
         password:
             insert: Change user's password
+        availability:
+            details: Availability
     reports: Reports
     store: Store Room
     vessels: Vessels

@@ -14,6 +14,8 @@ navigation:
         update: Verkündiger bearbeiten
         password:
             insert: Passwort des Verkündigers ändern
+        availability:
+            details: Verfügbarkeit
     reports: Berichte
     store: Depot
     vessel:
