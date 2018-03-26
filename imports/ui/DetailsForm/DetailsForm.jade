@@ -49,10 +49,11 @@ template(name="DetailsForm")
                                                                         | {{getProperty entity field}}
                                                                     else
                                                                         | -
-                                                        else
-                                                            | Hello
                                                     td.link(rowspan='{{content.type.[0].type.count}}')
-                                                        i.fa.fa-angle-right
+                                                        if isDelete content.type.[0]
+                                                            i.fa.fa-trash.icon
+                                                        else
+                                                            i.fa.fa-angle-right
                                             else if isDropdown content.type.[0]
                                                 if content.type.[0].click
                                                     .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity}}')
@@ -66,7 +67,10 @@ template(name="DetailsForm")
                                                 .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity}}')
                                                     .key {{getProperty entity content.type.[0]}}
                                                     .value
-                                                        i.fa.fa-angle-right.icon
+                                                        if isDelete content.type.[0]
+                                                            i.fa.fa-trash.icon
+                                                        else
+                                                            i.fa.fa-angle-right.icon
                                         else
                                             p.noElements {{getEntityTranslation content.type.[0].key 'noElements'}}
                                 else if content.readonly

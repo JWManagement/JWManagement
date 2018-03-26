@@ -37,6 +37,9 @@ Template.DetailsForm.helpers({
     isTextbox(field) {
         return field.type == 'textbox';
     },
+    isDelete(field) {
+        return field.type == 'delete';
+    },
     isArray(content) {
         return typeof(content.type) == 'object' && content.type.length >= 0;
     },
