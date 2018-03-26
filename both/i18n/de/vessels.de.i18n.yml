@@ -1,0 +1,63 @@
+vessel:
+    nameShort: Schiffe
+    entity:
+        name: Schiffsname
+        flag: Flagge
+        type: Typ
+        typeValues:
+            c: Containerschiff
+            cr: Kreuzfahrtschiff
+            mf: Frachter
+            mt: Tanker
+            p: Passagierschiff
+            pt: Schubboot
+            rc: Flusskreuzfahrtschiff
+            f: Fähre
+            ro: Ro-Ro
+            t: Schlepper
+            unknown: Unbekannt
+            placeholder: Wähle einen Typ
+        callsign: Rufzeichen
+        eni: ENI
+        imo: IMO
+        mmsi: MMSI
+        visit:
+            new: Neuen Besuch erfassen
+            noElements: Dieses Schiff wurde noch nicht besucht
+            delete: Diesen Besuch löschen
+            deleteConfirmation: Möchtest du wirklich diesen Besuch löschen?
+            person: Verkündiger
+            email: Verkündiger E-Mail
+            phone: Verkündiger Telefon
+            isUserVisible: Deine Kontaktdaten für andere Verkündiger sichtbar machen?
+            date: Datum
+            dateNext: Nächster Besuch frühestens
+            harbor: Hafen
+            harborId: Hafen
+            harborIdValues:
+                placeholder: Wähle einen Hafen
+            harborGroup: Hafengruppe
+            country: Land
+            languageId:
+                noElements: Noch keine Sprachen hinzugefügt
+                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
+            language:
+                new: Eine Sprache hinzufügen
+                languageId: Sprache
+                languageIdValues:
+                    placeholder: Wähle eine Sprache
+            languages: Sprachen an Board
+    search:
+        placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
+    details:
+        sections:
+            identification: Identifikationsdaten
+            visit: Besuchsdaten
+        dateFormat: DD.MM.YYYY
+    visit:
+        details:
+            sections:
+                main: Besuchsdaten
+                language: Sprachen an Board
+                option: Optionen
+            dateFormat: DD.MM.YYYY
