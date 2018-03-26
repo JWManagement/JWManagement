@@ -295,6 +295,8 @@ user:
     details:
         sections:
             identification: Identification data
+            availability: Availability
+            options: Options
         dateFormat: MM/DD/YYYY
 reports:
     placements: Placements

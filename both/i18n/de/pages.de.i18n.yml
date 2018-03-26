@@ -295,6 +295,8 @@ user:
     details:
         sections:
             identification: Identifikationsdaten
+            availability: Verfügbarkeit
+            options: Optionen
         dateFormat: DD.MM.YYYY
 reports:
     placements: Abgaben
