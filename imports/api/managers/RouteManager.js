@@ -54,12 +54,9 @@ export default RouteManager = {
         if ('forwarding' in routes) {
             FlowRouter.route('/:language/:projectId/' + routes.forwarding.route, {
                 name: routes.forwarding.name,
-                triggersEnter: [ Helpers.checkLanguage ],
                 action: () => {
-                    Helpers.doIfLoggedIn(() => {
-                        wrs(() => {
-                            FlowRouter.go(routes.forwarding.link, FlowRouter.current().params);
-                        });
+                    wrs(() => {
+                        FlowRouter.go(routes.forwarding.link, FlowRouter.current().params);
                     });
                 }
             });

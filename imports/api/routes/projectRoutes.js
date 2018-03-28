@@ -30,8 +30,8 @@ RouteManager.registerEntity('vessel.visit', {
 RouteManager.registerEntity('vessel.visit.language', {
     insert: 'vessels/:vesselId/visits/:visitId/languages/new',
     forwarding: {
-        route: 'vessels/:vesselId/visits/:visitId/language',
-        name: 'vessel.details.visit.language', // TODO: really?!
+        route: 'vessels/:vesselId/visits/:visitId/language/forwarding',
+        name: 'vessel.visit.language.details',
         link: 'vessel.visit.details'
     }
 });

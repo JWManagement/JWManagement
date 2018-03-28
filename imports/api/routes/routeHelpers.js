@@ -8,7 +8,7 @@ const Helpers = {
             TAPi18n.setLanguage(language);
             moment.locale(language);
 
-            if (Meteor.user()) {
+            if (Meteor.user() && Meteor.user().profile.language != language) {
                 Delay(() => {
                     Meteor.call('updateProfile', 'language', language);
                 });
