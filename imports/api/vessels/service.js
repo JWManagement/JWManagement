@@ -183,7 +183,7 @@ Meteor.methods({
             if(visit.languageIds == null) {
                 visit.languageIds = [];
             }
-            if (visit._id == visitId) {
+            if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageId }).length == 0) {
                 visit.languageIds.push(languageId);
             }
             return visit;
@@ -277,11 +277,19 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
                 if (vessel.visits[0].languageIds == null) {
                     vessel.visits[0].languageIds = [];
                 }
+                else
+                {
+                    vessel.visits[0].languageIds = vessel.visits[0].languageIds.map((languageId) => {
+                        return {
+                            _id: languageId
+                        };
+                    });
+                }
 
                 const allLanguages = getLanguages();
                 const languages = vessel.visits[0].languageIds
-                .filter((language) => allLanguages.indexOf(language) > -1)
-                .map((language) => TAPi18n.__('language._' + language, {}, interfaceLanguage));
+                .filter((language) => allLanguages.indexOf(language._id) > -1)
+                .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage));
 
                 vessel.visits[0].languages = languages.join(', ');
             }
