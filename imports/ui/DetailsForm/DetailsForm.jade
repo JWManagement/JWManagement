@@ -56,7 +56,7 @@ template(name="DetailsForm")
                                                             i.fa.fa-angle-right
                                             else if isDropdown content.type.[0]
                                                 if content.type.[0].click
-                                                    .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity}}')
+                                                    .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
                                                         .key {{getProperty entity content.type.[0]}}
                                                         .value
                                                             i.fa.fa-trash.icon
@@ -64,7 +64,7 @@ template(name="DetailsForm")
                                                     .form-group
                                                         .key {{getProperty entity content.type.[0]}}
                                             else
-                                                .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity}}')
+                                                .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
                                                     .key {{getProperty entity content.type.[0]}}
                                                     .value
                                                         if isDelete content.type.[0]

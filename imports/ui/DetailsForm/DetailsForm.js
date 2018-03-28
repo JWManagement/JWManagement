@@ -150,7 +150,7 @@ Template.DetailsForm.helpers({
     },
     getProperty(entity, field) {
         if (field.type == 'dropdown') {
-            return TAPi18n.__('language._' + entity.toUpperCase());
+            return TAPi18n.__('language._' + entity._id.toUpperCase());
         }
 
         if (field.key in entity) {

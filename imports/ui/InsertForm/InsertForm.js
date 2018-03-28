@@ -76,7 +76,6 @@ Template.InsertForm.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    template.db = data.db;
     template.fields = data.fields;
     template.backLink = new ReactiveVar(data.backLink);
     template.entityKey = new ReactiveVar(data.entityKey);
