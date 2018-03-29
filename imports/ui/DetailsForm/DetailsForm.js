@@ -224,20 +224,22 @@ Template.DetailsForm.events({
         }
     },
     'click .input.clickable-content': (e, template) => {
+        e.stopPropagation();
         const clickType = $(e.target).attr('clickType');
         const clickMethod = $(e.target).attr('clickMethod');
         const entityId = $(e.target).attr('entityId');
         const entityKey = $(e.target).attr('key');
-
-        e.stopPropagation();
 
         let messagePathParts = FlowRouter.getRouteName().split('.');
         messagePathParts.pop();
         messagePathParts.splice(1, 0, 'entity');
         messagePathParts = messagePathParts.concat([entityKey, clickType + 'Confirmation']);
 
+        let params = FlowRouter.current().params;
+        params[entityKey]= entityId;
+
         if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
-            Meteor.call(clickMethod, FlowRouter.current().params, entityId, (e, r) => {
+            Meteor.call(clickMethod, params, entityId, (e, r) => {
                 if (e == null) {
                     loadData(template);
                 } else {

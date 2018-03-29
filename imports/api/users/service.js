@@ -67,7 +67,21 @@ Meteor.methods({
     'user.get': ({ language, projectId, userId }) => {
         checkPermissions(projectId, userId);
 
-        return getExtendedUser(userId, projectId, language);
+        const user = getExtendedUser(userId, projectId, language);
+
+        if (user != undefined) {
+            user.profile.availability = {
+                mondays: user.profile.availability.mondays.map((x) => { return x.timeslot; }).join(', '),
+                tuesdays: user.profile.availability.tuesdays.map((x) => { return x.timeslot; }).join(', '),
+                wednesdays: user.profile.availability.wednesdays.map((x) => { return x.timeslot; }).join(', '),
+                thursdays: user.profile.availability.thursdays.map((x) => { return x.timeslot; }).join(', '),
+                fridays: user.profile.availability.fridays.map((x) => { return x.timeslot; }).join(', '),
+                saturdays: user.profile.availability.saturdays.map((x) => { return x.timeslot; }).join(', '),
+                sundays: user.profile.availability.sundays.map((x) => { return x.timeslot; }).join(', ')
+            };
+        }
+
+        return user;
     },
     'user.getField': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
@@ -156,16 +170,42 @@ Meteor.methods({
         checkPermissions(projectId, userId);
 
         const user = getExtendedUser(userId, projectId, language);
-        const day = key.split('_').pop();
-        const timeslots = user.profile.availability[day].split(', ').map((timeslot) => {
+        const timeslots = user.profile.availability[key.split('_').pop()].map((obj) => {
             return {
-                timeslot: timeslot
+                _id: obj.numbers.join(','),
+                timeslot: obj.timeslot
             };
         });
 
         return {
             availability: timeslots
         };
+    },
+    'user.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
+        checkPermissions(projectId, userId);
+
+        const user = Users.findOne(userId);
+        const day = key.split('_').pop().substring(0, 2);
+        let newTimeslots = [];
+
+        for (let userDay of Object.keys(user.profile.available)) {
+            if (userDay == day) {
+                const oldTimeslots = user.profile.available[userDay];
+                const delTimeslots = timeslot.split(',');
+
+                for (let oldTimeslot of oldTimeslots) {
+                    if (delTimeslots.indexOf('' + oldTimeslot) == -1) {
+                        newTimeslots.push(oldTimeslot);
+                    }
+                }
+            }
+        }
+
+        try {
+            Users.persistence.update(userId, 'profile.available.' + day, newTimeslots);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
     }
 });
 
@@ -204,20 +244,20 @@ function getExtendedUser(userId, projectId, language) {
 
     if (user != undefined) {
         user.profile.availability = {
-            mondays: convertTimeslotToString(user.profile.available.mo, language),
-            tuesdays: convertTimeslotToString(user.profile.available.tu, language),
-            wednesdays: convertTimeslotToString(user.profile.available.we, language),
-            thursdays: convertTimeslotToString(user.profile.available.th, language),
-            fridays: convertTimeslotToString(user.profile.available.fr, language),
-            saturdays: convertTimeslotToString(user.profile.available.sa, language),
-            sundays: convertTimeslotToString(user.profile.available.su, language)
+            mondays: convertTimeslotToAvailability(user.profile.available.mo, language),
+            tuesdays: convertTimeslotToAvailability(user.profile.available.tu, language),
+            wednesdays: convertTimeslotToAvailability(user.profile.available.we, language),
+            thursdays: convertTimeslotToAvailability(user.profile.available.th, language),
+            fridays: convertTimeslotToAvailability(user.profile.available.fr, language),
+            saturdays: convertTimeslotToAvailability(user.profile.available.sa, language),
+            sundays: convertTimeslotToAvailability(user.profile.available.su, language)
         };
     }
 
     return user;
 }
 
-function convertTimeslotToString(timeslots, language) {
+function convertTimeslotToAvailability(timeslots, language) {
     if (typeof timeslots == 'object' && timeslots.length > 0) {
         const dateFormatStart = TAPi18n.__('user.entity.profile_availability_dateFormatStart', {}, language);
         const dateFormatEnd = TAPi18n.__('user.entity.profile_availability_dateFormatEnd', {}, language);
@@ -229,6 +269,7 @@ function convertTimeslotToString(timeslots, language) {
 
         let periodBegin = -1;
         let lastValue = 0;
+        let numbers = [];
 
         for (let timeslot of timeslots) {
             if (periodBegin < 0) {
@@ -237,23 +278,31 @@ function convertTimeslotToString(timeslots, language) {
                 const timeslotStart = moment(periodBegin, 'Hmm');
                 const timeslotEnd = moment(lastValue + 100, 'Hmm');
 
-                timePeriods.push(timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd));
+                timePeriods.push({
+                    numbers: numbers,
+                    timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
+                });
 
                 periodBegin = timeslot;
+                numbers = [];
             }
 
             lastValue = timeslot;
+            numbers.push(timeslot);
         }
 
         const timeslotStart = moment(periodBegin, 'Hmm');
         const timeslotEnd = moment(lastValue + 100, 'Hmm');
 
-        timePeriods.push(timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd));
+        timePeriods.push({
+            numbers: numbers,
+            timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
+        });
 
-        return timePeriods.join(', ');
+        return timePeriods;
     }
 
-    return '';
+    return [];
 }
 
 function checkPermissions(projectId, userId = null) {
