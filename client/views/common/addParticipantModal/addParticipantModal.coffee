@@ -41,23 +41,28 @@ Template.addParticipantModal.helpers
 								for time in numbers when time not in user.profile.available[day]
 									available = false
 
-							if available && user.profile.vacations?
-								for vacation in user.profile.vacations
-									now = parseInt shift.date
-									start = parseInt vacation.start
-									end = parseInt vacation.end
+						if user.profile.vacations?
+							for vacation in user.profile.vacations
+								now = parseInt shift.date
+								start = parseInt vacation.start
+								end = parseInt vacation.end
 
-									if now >= start && now <= end
-										available = false
+								if now >= start && now <= end
+									isVacation = true
 
 					_id: user._id
 					available: available
+					isVacation: isVacation
 					shortTerm: user.profile.shortTermCalls || user.profile.shortTermCallsAlways
 					firstname: user.profile.firstname
 					lastname: user.profile.lastname
 
 				users.sort (a, b) ->
-					if !a.available && b.available
+					if a.isVacation && !b.isVacation
+						1
+					else if !a.isVacation && b.isVacation
+						-1
+					else if !a.available && b.available
 						1
 					else if a.available && !b.available
 						-1
