@@ -53,6 +53,8 @@ user:
         profile_shortTermCalls: Unterbesetzt-Mails erhalten
         profile_shortTermCallsAlways: Kurzfristig anfragbar
         availability:
+            start: Beginn
+            end: Ende
             timeslot:
                 new: Neue Verfügbarkeit eintragen
                 noElements: Keine Verfügbarkeiten angegeben

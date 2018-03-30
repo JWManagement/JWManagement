@@ -53,6 +53,8 @@ user:
         profile_shortTermCalls: Receive understaffed mails
         profile_shortTermCallsAlways: Available in short term
         availability:
+            start: Start
+            end: End
             timeslot:
                 new: Add new timeslot
                 noElements: No timeslot(s) entered

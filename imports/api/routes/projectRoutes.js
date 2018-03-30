@@ -8,6 +8,7 @@ RouteManager.registerEntity('user.password', {
     insert: 'new/users/:userId/password'
 });
 RouteManager.registerEntity('user.availability', {
+    insert: 'publishers/:userId/availability/:key/new',
     details: 'publishers/:userId/availability/:key'
 });
 RouteManager.registerEntity('user', {

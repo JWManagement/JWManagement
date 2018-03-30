@@ -15,6 +15,7 @@ navigation:
         password:
             insert: Passwort des Verkündigers ändern
         availability:
+            insert: Neue Verfügbarkeit erfassen
             details: Verfügbarkeit
     reports: Berichte
     store: Depot
