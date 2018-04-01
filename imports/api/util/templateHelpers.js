@@ -46,5 +46,5 @@ Template.registerHelper('getEntityErrorTranslation', (key) => {
 });
 
 function isHandledError(error) {
-    return ['required', 'unique', 'minString8', 'passwordMismatch'].indexOf(error) > -1;
+    return ['required', 'unique', 'minString8', 'passwordMismatch', 'hasToBeBigger'].indexOf(error) > -1;
 }

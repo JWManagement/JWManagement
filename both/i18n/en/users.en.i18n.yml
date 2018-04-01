@@ -54,7 +54,60 @@ user:
         profile_shortTermCallsAlways: Available in short term
         availability:
             start: Start
+            startValues:
+                placeholder: Select a start time
+                0: 12 am
+                1: 1 am
+                2: 2 am
+                3: 3 am
+                4: 4 am
+                5: 5 am
+                6: 6 am
+                7: 7 am
+                8: 8 am
+                9: 9 am
+                10: 10 am
+                11: 11 am
+                12: 12 pm
+                13: 1 pm
+                14: 2 pm
+                15: 3 pm
+                16: 4 pm
+                17: 5 pm
+                18: 6 pm
+                19: 7 pm
+                20: 8 pm
+                21: 9 pm
+                22: 10 pm
+                23: 11 pm
             end: End
+            endValues:
+                placeholder: Select an end time
+                0: 1 am
+                1: 2 am
+                2: 3 am
+                3: 4 am
+                4: 5 am
+                5: 6 am
+                6: 7 am
+                7: 8 am
+                8: 9 am
+                9: 10 am
+                10: 11 am
+                11: 12 pm
+                12: 1 pm
+                13: 2 pm
+                14: 3 pm
+                15: 4 pm
+                16: 5 pm
+                17: 6 pm
+                18: 7 pm
+                19: 8 pm
+                20: 9 pm
+                21: 10 pm
+                22: 11 pm
+                23: 12 am
+            wholeDay: Whole day
             timeslot:
                 new: Add new timeslot
                 noElements: No timeslot(s) entered

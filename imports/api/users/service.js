@@ -156,12 +156,52 @@ Meteor.methods({
                         return;
                     }
                 }
-
             }
 
             if (!RoleManager.hasPermissions(userId)) {
                 Users.remove(userId);
             }
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    },
+    'user.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            const user = Users.findOne(userId);
+            const day = key.split('_').pop().substring(0, 2);
+            const timeslotStart = parseInt(timeslot.start) * 100;
+            const timeslotEnd = parseInt(timeslot.end) * 100;
+            let newTimeslots = [];
+            let mergedTimeslots = [];
+            let time = timeslotStart;
+
+            if (timeslotEnd < timeslotStart) {
+                throw new ValidationError([{
+                    name: 'end',
+                    type: 'hasToBeBigger'
+                }]);
+            }
+
+            while (time <= timeslotEnd) {
+                newTimeslots.push(time);
+                time += 100;
+            }
+
+            for (let userDay of Object.keys(user.profile.available)) {
+                if (userDay == day) {
+                    mergedTimeslots = user.profile.available[userDay];
+
+                    for (let newTimeslot of newTimeslots) {
+                        if (mergedTimeslots.indexOf(newTimeslot) == -1) {
+                            mergedTimeslots.push(newTimeslot);
+                        }
+                    }
+                }
+            }
+
+            Users.persistence.update(userId, 'profile.available.' + day, mergedTimeslots);
         } catch(e) {
             throw new Meteor.Error(e);
         }
@@ -211,19 +251,17 @@ Meteor.methods({
 
 function getExtendedUser(userId, projectId, language) {
     let user = Users.findOne({
-        $and: [
-            {
-                _id: userId
-            }, {
-                ['roles.' + projectId]: {
-                    $in: Permissions.member
-                }
-            }, {
-                username: {
-                    $ne: 'adm'
-                }
+        $and: [{
+            _id: userId
+        }, {
+            ['roles.' + projectId]: {
+                $in: Permissions.member
             }
-        ]
+        }, {
+            username: {
+                $ne: 'adm'
+            }
+        }]
     }, {
         fields: {
             username: 1,
@@ -272,18 +310,31 @@ function convertTimeslotToAvailability(timeslots, language) {
         let numbers = [];
 
         for (let timeslot of timeslots) {
+            let timeslotHmm = timeslot;
+
+            if (timeslotHmm == 0) {
+                timeslotHmm = 2400;
+            }
+
             if (periodBegin < 0) {
-                periodBegin = timeslot;
+                periodBegin = timeslotHmm;
             } else if (timeslot != lastValue + 100) {
                 const timeslotStart = moment(periodBegin, 'Hmm');
                 const timeslotEnd = moment(lastValue + 100, 'Hmm');
 
-                timePeriods.push({
-                    numbers: numbers,
-                    timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-                });
+                if (periodBegin == 2400 && lastValue == 2300) {
+                    timePeriods.push({
+                        numbers: numbers,
+                        timeslot: TAPi18n.__('user.entity.availability.wholeDay', {}, language)
+                    });
+                } else {
+                    timePeriods.push({
+                        numbers: numbers,
+                        timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
+                    });
+                }
 
-                periodBegin = timeslot;
+                periodBegin = timeslotHmm;
                 numbers = [];
             }
 
@@ -294,10 +345,17 @@ function convertTimeslotToAvailability(timeslots, language) {
         const timeslotStart = moment(periodBegin, 'Hmm');
         const timeslotEnd = moment(lastValue + 100, 'Hmm');
 
-        timePeriods.push({
-            numbers: numbers,
-            timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-        });
+        if (periodBegin == 2400 && lastValue == 2300) {
+            timePeriods.push({
+                numbers: numbers,
+                timeslot: TAPi18n.__('user.entity.availability.wholeDay', {}, language)
+            });
+        } else {
+            timePeriods.push({
+                numbers: numbers,
+                timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
+            });
+        }
 
         return timePeriods;
     }

@@ -13,6 +13,7 @@ validation:
     unique: There already is a record with this value
     minString8: The password has to be at least 8 characters long
     passwordMismatch: The passwords do not match
+    hasToBeBigger: This value has to be bigger
 detailsForm:
     yes: Yes
     no: No
