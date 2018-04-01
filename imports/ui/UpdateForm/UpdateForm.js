@@ -7,6 +7,8 @@ import './UpdateFormDropdownInput.js';
 import './UpdateFormCheckboxInput.js';
 import './UpdateFormTextboxInput.js';
 
+const possibleUpdateTypes = ['date', 'checkbox', 'dropdown', 'textbox'];
+
 Template.UpdateForm.helpers({
     getBackLink() {
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
@@ -92,7 +94,7 @@ Template.UpdateForm.onRendered(() => {
             let inputData = template.inputData.get();
             inputData.type = 'text';
 
-            if (['date', 'checkbox', 'dropdown', 'textbox'].indexOf(field.type) > -1) {
+            if (possibleUpdateTypes.indexOf(field.type) > -1) {
                 inputData.type = field.type;
             }
 
