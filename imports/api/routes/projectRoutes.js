@@ -11,6 +11,14 @@ RouteManager.registerEntity('user.availability', {
     insert: 'publishers/:userId/availability/:key/new',
     details: 'publishers/:userId/availability/:key'
 });
+RouteManager.registerEntity('user.vacation', {
+    insert: 'publishers/:userId/vacation/new',
+    forwarding: {
+        route: 'publishers/:userId/vacation/forwarding',
+        name: 'user.vacation.details',
+        link: 'user.details'
+    }
+});
 RouteManager.registerEntity('user', {
     search: 'publishers',
     insert: 'publishers/new',

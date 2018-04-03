@@ -246,6 +246,36 @@ Meteor.methods({
         } catch(e) {
             throw new Meteor.Error(e);
         }
+    },
+    'user.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            const user = getExtendedUser(userId, projectId, language);
+            let vacations = user.profile.vacations;
+
+            // support legacy format
+            for (let vacation of vacations) {
+                if (typeof vacation.start == 'number') {
+                    vacation.start = new Date(vacation.start, 'YYYYDDD');
+                }
+                if (typeof vacation.end == 'number') {
+                    vacation.end = new Date(vacation.end, 'YYYYDDD');
+                }
+            }
+
+            vacations.push({
+                start: newVacation.start,
+                end: newVacation.end
+            });
+
+            Users.persistence.update(userId, 'profile.vacations', vacations);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    },
+    'user.vacation.delete': ({ language, projectId, userId, key, vacation }) => {
+        // TODO: implement
     }
 });
 
@@ -276,7 +306,8 @@ function getExtendedUser(userId, projectId, language) {
             'profile.languages': 1,
             'profile.available': 1,
             'profile.shortTermCalls': 1,
-            'profile.shortTermCallsAlways': 1
+            'profile.shortTermCallsAlways': 1,
+            'profile.vacations': 1
         }
     });
 
@@ -290,6 +321,23 @@ function getExtendedUser(userId, projectId, language) {
             saturdays: convertTimeslotToAvailability(user.profile.available.sa, language),
             sundays: convertTimeslotToAvailability(user.profile.available.su, language)
         };
+
+        for (let vacation of user.profile.vacations) {
+            const dateFormatStart = TAPi18n.__('user.entity.profile_vacation_dateFormatStart', {}, language);
+            const dateFormatEnd = TAPi18n.__('user.entity.profile_vacation_dateFormatEnd', {}, language);
+
+            if (typeof vacation.start == 'number') {
+                vacation.display = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);
+            } else {
+                vacation.display = moment(vacation.start).format(dateFormatStart);
+            }
+
+            if (typeof vacation.end == 'number') {
+                vacation.display = moment(vacation.end, 'YYYYDDD').format(dateFormatEnd);
+            } else {
+                vacation.display = moment(vacation.end).format(dateFormatEnd);
+            }
+        }
     }
 
     return user;

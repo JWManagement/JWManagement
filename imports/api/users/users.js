@@ -115,6 +115,22 @@ Users.schema = new SimpleSchema({
         blackbox: true,
         optional: true
     },
+    'profile.vacations.$': new SimpleSchema({
+        _id: {
+            type: String,
+            autoValue: function() {
+                if (!this.isSet) {
+                    return Random.id();
+                }
+            }
+        },
+        start: {
+            type: Date
+        },
+        end: {
+            type: Date
+        }
+    }),
     'profile.shortTermCalls': {
         type: Boolean,
         defaultValue: false

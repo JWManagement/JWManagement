@@ -69,6 +69,25 @@ Template['user.details'].helpers({
                     type: 'checkbox'
                 }]
             }, {
+                header: 'vacations',
+                contents: [{
+                    key: 'profile_vacations',
+                    type: [{
+                        key: 'display',
+                        type: 'delete',
+                        click: {
+                            type: 'delete',
+                            method: 'user.vacation.delete'
+                        }
+                    }]
+                }],
+                actions: [{
+                    key: 'vacation.new',
+                    type: 'link',
+                    style: 'primary',
+                    route: 'user.vacation.insert'
+                }]
+            }, {
                 header: 'options',
                 contents: [],
                 actions: [{
