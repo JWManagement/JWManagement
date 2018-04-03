@@ -176,12 +176,31 @@ Meteor.methods({
             let newTimeslots = [];
             let mergedTimeslots = [];
             let time = timeslotStart;
+            const validationErrors = [];
+
+            if (isNaN(timeslotStart)) {
+                validationErrors.push({
+                    name: 'start',
+                    type: 'required'
+                });
+            }
+
+            if (isNaN(timeslotEnd)) {
+                validationErrors.push({
+                    name: 'end',
+                    type: 'required'
+                });
+            }
 
             if (timeslotEnd < timeslotStart) {
-                throw new ValidationError([{
+                validationErrors.push({
                     name: 'end',
                     type: 'hasToBeBigger'
-                }]);
+                });
+            }
+
+            if (validationErrors.length > 0) {
+                throw new ValidationError(validationErrors);
             }
 
             while (time <= timeslotEnd) {
@@ -324,8 +343,6 @@ function getExtendedUser(userId, projectId, language) {
             const dateFormatStart = TAPi18n.__('user.entity.profile.vacations.startDateFormat', {}, language);
             const dateFormatEnd = TAPi18n.__('user.entity.profile.vacations.endDateFormat', {}, language);
 
-            console.log(vacation.start);
-            console.log(moment(vacation.start));
             // support legacy number format
             if (vacation.createdAt == null) {
                 const startDisplay = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);

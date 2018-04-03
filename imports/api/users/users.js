@@ -106,9 +106,63 @@ Users.schema = new SimpleSchema({
         optional: true
     },
     'profile.available': {
-        type: Object,
-        blackbox: true,
-        optional: true
+        type: Object
+    },
+    'profile.available.mo': {
+        type: Array
+    },
+    'profile.available.mo.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.tu': {
+        type: Array
+    },
+    'profile.available.tu.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.we': {
+        type: Array
+    },
+    'profile.available.we.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.th': {
+        type: Array
+    },
+    'profile.available.th.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.fr': {
+        type: Array
+    },
+    'profile.available.fr.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.sa': {
+        type: Array
+    },
+    'profile.available.sa.$': {
+        type: Number,
+        min: 0,
+        max: 2300
+    },
+    'profile.available.su': {
+        type: Array
+    },
+    'profile.available.su.$': {
+        type: Number,
+        min: 0,
+        max: 2300
     },
     'profile.vacations': {
         type: Array
