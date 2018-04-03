@@ -42,25 +42,25 @@ Template['user.details'].helpers({
                 header: 'availability',
                 contents: [{
                     key: 'profile_availability_mondays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_tuesdays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_wednesdays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_thursdays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_fridays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_saturdays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_availability_sundays',
-                    link: 'user.availability.details'
+                    link: 'user.profile.availability.details'
                 }, {
                     key: 'profile_shortTermCalls',
                     type: 'checkbox'
@@ -77,15 +77,15 @@ Template['user.details'].helpers({
                         type: 'delete',
                         click: {
                             type: 'delete',
-                            method: 'user.vacation.delete'
+                            method: 'user.profile.vacation.delete'
                         }
                     }]
                 }],
                 actions: [{
-                    key: 'vacation.new',
+                    key: 'profile.vacation.new',
                     type: 'link',
                     style: 'primary',
-                    route: 'user.vacation.insert'
+                    route: 'user.profile.vacation.insert'
                 }]
             }, {
                 header: 'options',

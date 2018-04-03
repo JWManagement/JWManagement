@@ -1,9 +1,9 @@
-Template['user.availability.details'].helpers({
+Template['user.profile.availability.details'].helpers({
     data() {
         const params = FlowRouter.current().params;
 
         return {
-            getMethod: 'user.availability.get',
+            getMethod: 'user.profile.availability.get',
             backLink: 'user.details',
             sections: [{
                 header: params.key.split('_').pop(),
@@ -14,15 +14,15 @@ Template['user.availability.details'].helpers({
                         type: 'delete',
                         click: {
                             type: 'delete',
-                            method: 'user.availability.delete'
+                            method: 'user.profile.availability.delete'
                         }
                     }]
                 }],
                 actions: [{
-                    key: 'timeslot.new',
+                    key: 'new',
                     type: 'link',
                     style: 'primary',
-                    route: 'user.availability.insert'
+                    route: 'user.profile.availability.insert'
                 }]
             }]
         }

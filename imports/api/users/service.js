@@ -116,7 +116,7 @@ Meteor.methods({
         checkPermissions(projectId, userId);
 
         try {
-            Users.persistence.update(userId, key.replace('_', '.'), value);
+            Users.persistence.update(userId, key.replace(/_/g, '.'), value);
         } catch(e) {
             throw new Meteor.Error(e);
         }
@@ -165,7 +165,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
+    'user.profile.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -225,7 +225,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.availability.get': ({ language, projectId, userId, key }) => {
+    'user.profile.availability.get': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
 
         const user = getExtendedUser(userId, projectId, language);
@@ -240,7 +240,7 @@ Meteor.methods({
             availability: timeslots
         };
     },
-    'user.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
+    'user.profile.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
         checkPermissions(projectId, userId);
 
         const user = Users.findOne(userId);
@@ -266,7 +266,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
+    'user.profile.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -340,8 +340,8 @@ function getExtendedUser(userId, projectId, language) {
         };
 
         for (let vacation of user.profile.vacations) {
-            const dateFormatStart = TAPi18n.__('user.entity.profile.vacations.startDateFormat', {}, language);
-            const dateFormatEnd = TAPi18n.__('user.entity.profile.vacations.endDateFormat', {}, language);
+            const dateFormatStart = TAPi18n.__('user.entity.profile.vacation.startDateFormat', {}, language);
+            const dateFormatEnd = TAPi18n.__('user.entity.profile.vacation.endDateFormat', {}, language);
 
             // support legacy number format
             if (vacation.createdAt == null) {

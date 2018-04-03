@@ -7,11 +7,11 @@ RouteManager.registerEntity('admin', {
 RouteManager.registerEntity('user.password', {
     insert: 'new/users/:userId/password'
 });
-RouteManager.registerEntity('user.availability', {
+RouteManager.registerEntity('user.profile.availability', {
     insert: 'publishers/:userId/availability/:key/new',
     details: 'publishers/:userId/availability/:key'
 });
-RouteManager.registerEntity('user.vacation', {
+RouteManager.registerEntity('user.profile.vacation', {
     insert: 'publishers/:userId/vacation/new',
     forwarding: {
         route: 'publishers/:userId/vacation/forwarding',

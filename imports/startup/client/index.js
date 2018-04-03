@@ -20,9 +20,9 @@ import '/imports/ui/users/user.details.js';
 import '/imports/ui/users/user.update.js';
 import '/imports/ui/users/user.insert.js';
 import '/imports/ui/users/user.password.insert.js';
-import '/imports/ui/users/user.availability.details.js';
-import '/imports/ui/users/user.availability.insert.js';
-import '/imports/ui/users/user.vacation.insert.js';
+import '/imports/ui/users/user.profile.availability.details.js';
+import '/imports/ui/users/user.profile.availability.insert.js';
+import '/imports/ui/users/user.profile.vacation.insert.js';
 
 import '/imports/ui/vessels/vessels.jade';
 import '/imports/ui/vessels/vessel.search.js';

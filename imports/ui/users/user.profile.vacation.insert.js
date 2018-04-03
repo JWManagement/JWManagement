@@ -1,4 +1,4 @@
-Template['user.vacation.insert'].helpers({
+Template['user.profile.vacation.insert'].helpers({
     data() {
         return {
             backLink: 'user.details',
