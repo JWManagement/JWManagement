@@ -22,7 +22,8 @@ Template['user.details'].helpers({
                     type: 'dropdown'
                 }, {
                     key: 'profile_bdate',
-                    type: 'date'
+                    type: 'date',
+                    readonly: true
                 }, {
                     key: 'profile_pioneer',
                     type: 'dropdown'
