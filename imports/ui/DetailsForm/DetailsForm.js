@@ -14,7 +14,7 @@ Template.DetailsForm.helpers({
         return content.key;
     },
     getSectionTranslation(key) {
-        return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key);
+        return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'));
     },
     getActionPath(action) {
         return FlowRouter.path(action.route, FlowRouter.current().params);
@@ -132,7 +132,7 @@ Template.DetailsForm.helpers({
                 'entity',
                 key + 'Values',
                 value.toLowerCase()
-            ].join('.'));
+            ].join('.').replace(/_/g, '.'));
         } else if (content.type == 'date') {
             if (value != null) {
                 const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
@@ -230,15 +230,15 @@ Template.DetailsForm.events({
         const entityId = $(e.target).attr('entityId');
         const entityKey = $(e.target).attr('key');
 
-        let messagePathParts = FlowRouter.getRouteName().split('.');
+        let messagePathParts = clickMethod.split('.');
         messagePathParts.pop();
         messagePathParts.splice(1, 0, 'entity');
-        messagePathParts = messagePathParts.concat([entityKey, clickType + 'Confirmation']);
+        messagePathParts.push(clickType + 'Confirmation');
 
         let params = FlowRouter.current().params;
         params[entityKey]= entityId;
 
-        if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
+        if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
             Meteor.call(clickMethod, params, entityId, (e, r) => {
                 if (e == null) {
                     loadData(template);
@@ -269,7 +269,7 @@ Template.DetailsForm.events({
         messagePathParts.splice(1, 0, 'entity');
         messagePathParts.push(key + 'Confirmation');
 
-        if (confirm(TAPi18n.__(messagePathParts.join('.')))) {
+        if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
             Meteor.call(method, FlowRouter.current().params, (e, r) => {
                 if (e == null) {
                     FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params));

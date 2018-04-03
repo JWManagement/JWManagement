@@ -17,7 +17,16 @@ Template.registerHelper('getEntityTranslation', (key, suffix) => {
     routeNameParts.pop();
     routeNameParts.splice(1, 0, 'entity');
 
-    return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
+    return TAPi18n.__(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'));
+});
+
+Template.registerHelper('getNoElementsTranslation', (obj) => {
+    const translationString = obj.click.method.split('.');
+    translationString.pop();
+    translationString.splice(1, 0, 'entity');
+    translationString.push('noElements');
+
+    return TAPi18n.__(translationString.join('.').replace(/_/g, '.'));
 });
 
 Template.registerHelper('getKey', (key) => {

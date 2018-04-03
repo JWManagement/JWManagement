@@ -8,7 +8,7 @@ Template.SearchForm.helpers({
         return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params);
     },
     getTranslation(key) {
-        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key);
+        return TAPi18n.__(FlowRouter.getRouteName() + '.' + key.replace(/_/g, '.'));
     },
     valueOrDash(value) {
         return (value != '' ? value : '-');
@@ -85,7 +85,7 @@ Template.SearchForm.onRendered(() => {
     const columns = template.columnDefinitions.map((column) => {
         let routeParts = FlowRouter.getRouteName().split('.');
         routeParts.pop();
-        const translationString = routeParts.concat(['entity', column.name]).join('.');
+        const translationString = routeParts.concat(['entity', column.name]).join('.').replace(/_/g, '.');
 
         column.title = TAPi18n.__(translationString);
         return column;
@@ -184,7 +184,7 @@ function generateRows(template) {
                     item[column.name].toLowerCase()
                 ];
 
-                value = TAPi18n.__(keys.join('.'));
+                value = TAPi18n.__(keys.join('.').replace(/_/g, '.'));
             }
 
             row[column.name] = value;
@@ -204,7 +204,7 @@ function generateRows(template) {
                     FlowRouter.getRouteName().split('.')[0],
                     'entity',
                     column.name
-                ].join('.'))
+                ].join('.').replace(/_/g, '.'))
             };
         });
 

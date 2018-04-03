@@ -72,7 +72,7 @@ template(name="DetailsForm")
                                                         else
                                                             i.fa.fa-angle-right.icon
                                         else
-                                            p.noElements {{getEntityTranslation content.type.[0].key 'noElements'}}
+                                            p.noElements {{getNoElementsTranslation content.type.[0]}}
                                 else if content.readonly
                                     .form-group
                                         .key {{getEntityTranslation content.key}}
