@@ -12,11 +12,14 @@ navigation:
         search: Verkündiger
         details: Verkündigerdaten
         update: Verkündiger bearbeiten
+        profile:
+            vacation:
+                insert: Urlaub erfassen
+            availability:
+                insert: Neue Verfügbarkeit erfassen
+                details: Verfügbarkeit
         password:
             insert: Passwort des Verkündigers ändern
-        availability:
-            insert: Neue Verfügbarkeit erfassen
-            details: Verfügbarkeit
     reports: Berichte
     store: Depot
     vessel:

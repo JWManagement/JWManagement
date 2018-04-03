@@ -9,17 +9,19 @@ navigation:
     settings: Settings
     users: Users
     user:
-        search: Users
-        details: User details
-        update: Edit user
+        search: Publishers
+        details: Publisher details
+        update: Edit publisher
+        profile:
+            vacation:
+                insert: Add new vacation
+            availability:
+                insert: Add new timeslot
+                details: Availability
         password:
-            insert: Change user's password
-        availability:
-            insert: Add new timeslot
-            details: Availability
+            insert: Change password
     reports: Reports
     store: Store Room
-    vessels: Vessels
     vessel:
         search: Vessels
         details: Vessel details

@@ -11,107 +11,115 @@ user:
     nameShort: Verkündiger
     entity:
         username: Benutzername
-        profile_firstname: Vorname
-        profile_lastname: Nachname
-        profile_email: E-Mail
-        profile_telefon: Telefon
-        profile_gender: Geschlecht
-        profile_genderValues:
-            m: Bruder
-            w: Schwester
-            placeholder: Wähle ein Geschlecht
-        profile_pioneer: Dienstvorrecht
-        profile_pioneerValues:
-            publisher: Verkündiger
-            auxiliary: Hilfspionier
-            regular: Pionier
-            special: Sonderpionier
-            circuit: Kreisaufseher
-            bethelite: Bethelit
-            ldc: LDC Baudiener
-            placeholder: Wähle ein Dienstvorrecht
-        profile_privilege: Dienstamt
-        profile_privilegeValues:
-            publisher: Verkündiger
-            servant: Dienstamtgehilfe
-            elder: Ältester
-            coordinator: Koordinator
-            secretary: Sekretär
-            serviceOverseer: Dienstaufseher
-            placeholder: Wähle ein Dienstamt
-        profile_bdate: Geburtsdatum
-        profile_languages: Fremdsprachen
-        profile_availability_dateFormatStart: H -
-        profile_availability_dateFormatEnd: H [Uhr]
-        profile_availability_mondays: Montags
-        profile_availability_tuesdays: Dienstags
-        profile_availability_wednesdays: Mittwochs
-        profile_availability_thursdays: Donnerstags
-        profile_availability_fridays: Freitags
-        profile_availability_saturdays: Samstags
-        profile_availability_sundays: Sonntags
-        profile_shortTermCalls: Unterbesetzt-Mails erhalten
-        profile_shortTermCallsAlways: Kurzfristig anfragbar
-        availability:
-            start: Beginn
-            startValues:
-                placeholder: Startzeit wählen
-                0: 0:00 Uhr
-                1: 1:00 Uhr
-                2: 2:00 Uhr
-                3: 3:00 Uhr
-                4: 4:00 Uhr
-                5: 5:00 Uhr
-                6: 6:00 Uhr
-                7: 7:00 Uhr
-                8: 8:00 Uhr
-                9: 9:00 Uhr
-                10: 10:00 Uhr
-                11: 11:00 Uhr
-                12: 12:00 Uhr
-                13: 13:00 Uhr
-                14: 14:00 Uhr
-                15: 15:00 Uhr
-                16: 16:00 Uhr
-                17: 17:00 Uhr
-                18: 18:00 Uhr
-                19: 19:00 Uhr
-                20: 20:00 Uhr
-                21: 21:00 Uhr
-                22: 22:00 Uhr
-                23: 23:00 Uhr
-            end: Ende
-            endValues:
-                placeholder: Endzeit wählen
-                0: 1:00 Uhr
-                1: 2:00 Uhr
-                2: 3:00 Uhr
-                3: 4:00 Uhr
-                4: 5:00 Uhr
-                5: 6:00 Uhr
-                6: 7:00 Uhr
-                7: 8:00 Uhr
-                8: 9:00 Uhr
-                9: 10:00 Uhr
-                10: 11:00 Uhr
-                11: 12:00 Uhr
-                12: 13:00 Uhr
-                13: 14:00 Uhr
-                14: 15:00 Uhr
-                15: 16:00 Uhr
-                16: 17:00 Uhr
-                17: 18:00 Uhr
-                18: 19:00 Uhr
-                19: 20:00 Uhr
-                20: 21:00 Uhr
-                21: 22:00 Uhr
-                22: 23:00 Uhr
-                23: 0:00 Uhr
-            wholeDay: Ganzer Tag
-            timeslot:
+        profile:
+            firstname: Vorname
+            lastname: Nachname
+            email: E-Mail
+            telefon: Telefon
+            gender: Geschlecht
+            genderValues:
+                m: Bruder
+                w: Schwester
+                placeholder: Wähle ein Geschlecht
+            pioneer: Dienstvorrecht
+            pioneerValues:
+                publisher: Verkündiger
+                auxiliary: Hilfspionier
+                regular: Pionier
+                special: Sonderpionier
+                circuit: Kreisaufseher
+                bethelite: Bethelit
+                ldc: LDC Baudiener
+                placeholder: Wähle ein Dienstvorrecht
+            privilege: Dienstamt
+            privilegeValues:
+                publisher: Verkündiger
+                servant: Dienstamtgehilfe
+                elder: Ältester
+                coordinator: Koordinator
+                secretary: Sekretär
+                serviceOverseer: Dienstaufseher
+                placeholder: Wähle ein Dienstamt
+            bdate: Geburtsdatum
+            languages: Fremdsprachen
+            shortTermCalls: Unterbesetzt-Mails erhalten
+            shortTermCallsAlways: Kurzfristig anfragbar
+            availability:
                 new: Neue Verfügbarkeit eintragen
                 noElements: Keine Verfügbarkeiten angegeben
                 deleteConfirmation: Möchtest du diese Verfügbarkeit wirklich löschen?
+                mondays: Montags
+                tuesdays: Dienstags
+                wednesdays: Mittwochs
+                thursdays: Donnerstags
+                fridays: Freitags
+                saturdays: Samstags
+                sundays: Sonntags
+                start: Beginn
+                startDateFormat: H -
+                startValues:
+                    placeholder: Startzeit wählen
+                    0: 0:00 Uhr
+                    1: 1:00 Uhr
+                    2: 2:00 Uhr
+                    3: 3:00 Uhr
+                    4: 4:00 Uhr
+                    5: 5:00 Uhr
+                    6: 6:00 Uhr
+                    7: 7:00 Uhr
+                    8: 8:00 Uhr
+                    9: 9:00 Uhr
+                    10: 10:00 Uhr
+                    11: 11:00 Uhr
+                    12: 12:00 Uhr
+                    13: 13:00 Uhr
+                    14: 14:00 Uhr
+                    15: 15:00 Uhr
+                    16: 16:00 Uhr
+                    17: 17:00 Uhr
+                    18: 18:00 Uhr
+                    19: 19:00 Uhr
+                    20: 20:00 Uhr
+                    21: 21:00 Uhr
+                    22: 22:00 Uhr
+                    23: 23:00 Uhr
+                end: Ende
+                endDateFormat: H [Uhr]
+                endValues:
+                    placeholder: Endzeit wählen
+                    0: 1:00 Uhr
+                    1: 2:00 Uhr
+                    2: 3:00 Uhr
+                    3: 4:00 Uhr
+                    4: 5:00 Uhr
+                    5: 6:00 Uhr
+                    6: 7:00 Uhr
+                    7: 8:00 Uhr
+                    8: 9:00 Uhr
+                    9: 10:00 Uhr
+                    10: 11:00 Uhr
+                    11: 12:00 Uhr
+                    12: 13:00 Uhr
+                    13: 14:00 Uhr
+                    14: 15:00 Uhr
+                    15: 16:00 Uhr
+                    16: 17:00 Uhr
+                    17: 18:00 Uhr
+                    18: 19:00 Uhr
+                    19: 20:00 Uhr
+                    20: 21:00 Uhr
+                    21: 22:00 Uhr
+                    22: 23:00 Uhr
+                    23: 0:00 Uhr
+                wholeDay: Ganzer Tag
+            vacation:
+                start: Beginn
+                end: Ende
+                new: Neuen Urlaub eintragen
+                noElements: Kein Urlaub eingetragen
+                deleteConfirmation: Möchtest du diesen Urlaub wirklich löschen?
+                startDateFormat: DD.MM.YYYY [bis]
+                endDateFormat: DD.MM.YYYY
         password:
             change: Passwort ändern
             password: Neues Passwort eingeben
@@ -124,15 +132,17 @@ user:
         sections:
             identification: Identifikationsdaten
             availability: Verfügbarkeit
+            vacations: Urlaub
             options: Optionen
         dateFormat: DD.MM.YYYY
-    availability:
-        details:
-            sections:
-                mondays: Verfügbarkeit Montags
-                tuesdays: Verfügbarkeit Dienstags
-                wednesdays: Verfügbarkeit Mittwochs
-                thursdays: Verfügbarkeit Donnerstags
-                fridays: Verfügbarkeit Freitags
-                saturdays: Verfügbarkeit Samstags
-                sundays: Verfügbarkeit Sonntags
+    profile:
+        availability:
+            details:
+                sections:
+                    mondays: Verfügbarkeit Montags
+                    tuesdays: Verfügbarkeit Dienstags
+                    wednesdays: Verfügbarkeit Mittwochs
+                    thursdays: Verfügbarkeit Donnerstags
+                    fridays: Verfügbarkeit Freitags
+                    saturdays: Verfügbarkeit Samstags
+                    sundays: Verfügbarkeit Sonntags

@@ -15,7 +15,7 @@ RouteManager.registerEntity('user.profile.vacation', {
     insert: 'publishers/:userId/vacation/new',
     forwarding: {
         route: 'publishers/:userId/vacation/forwarding',
-        name: 'user.vacation.details',
+        name: 'user.profile.vacation.details',
         link: 'user.details'
     }
 });

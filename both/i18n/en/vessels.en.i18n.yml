@@ -38,11 +38,10 @@ vessel:
                 placeholder: Select a harbor
             harborGroup: Harbor group
             country: Country
-            languageId:
-                noElements: No languages noted yet
-                deleteConfirmation: Do you really want to delete this language?
             language:
                 new: Add a language
+                noElements: No languages noted yet
+                deleteConfirmation: Do you really want to delete this language?
                 languageId: Language
                 languageIdValues:
                     placeholder: Select a language

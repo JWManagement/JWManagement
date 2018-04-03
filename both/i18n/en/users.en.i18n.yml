@@ -11,107 +11,115 @@ user:
     nameShort: Users
     entity:
         username: Username
-        profile_firstname: First name
-        profile_lastname: Last name
-        profile_email: E-mail
-        profile_telefon: Phone
-        profile_gender: Gender
-        profile_genderValues:
-            m: Brother
-            w: Sister
-            placeholder: Select a gender
-        profile_pioneer: Privilege of service
-        profile_pioneerValues:
-            publisher: Publisher
-            auxiliary: Auxiliary pioneer
-            regular: Regular pioneer
-            special: Special pioneer
-            circuit: Circuit overseer
-            bethelite: Bethelite
-            ldc: Construction servant
-            placeholder: Select a privilege of service
-        profile_privilege: Congregation assignment
-        profile_privilegeValues:
-            publisher: Publisher
-            servant: Ministerial servant
-            elder: Elder
-            coordinator: Coordinator of the Body of Elders
-            secretary: Secretary
-            serviceOverseer: Service overseer
-            placeholder: Select a congregation assignment
-        profile_bdate: Birth date
-        profile_languages: Foreign languages
-        profile_availability_dateFormatStart: H a -
-        profile_availability_dateFormatEnd: H a
-        profile_availability_mondays: Mondays
-        profile_availability_tuesdays: Tuesdays
-        profile_availability_wednesdays: Wednesdays
-        profile_availability_thursdays: Thursdays
-        profile_availability_fridays: Fridays
-        profile_availability_saturdays: Saturdays
-        profile_availability_sundays: Sundays
-        profile_shortTermCalls: Receive understaffed mails
-        profile_shortTermCallsAlways: Available in short term
-        availability:
-            start: Start
-            startValues:
-                placeholder: Select a start time
-                0: 12 am
-                1: 1 am
-                2: 2 am
-                3: 3 am
-                4: 4 am
-                5: 5 am
-                6: 6 am
-                7: 7 am
-                8: 8 am
-                9: 9 am
-                10: 10 am
-                11: 11 am
-                12: 12 pm
-                13: 1 pm
-                14: 2 pm
-                15: 3 pm
-                16: 4 pm
-                17: 5 pm
-                18: 6 pm
-                19: 7 pm
-                20: 8 pm
-                21: 9 pm
-                22: 10 pm
-                23: 11 pm
-            end: End
-            endValues:
-                placeholder: Select an end time
-                0: 1 am
-                1: 2 am
-                2: 3 am
-                3: 4 am
-                4: 5 am
-                5: 6 am
-                6: 7 am
-                7: 8 am
-                8: 9 am
-                9: 10 am
-                10: 11 am
-                11: 12 pm
-                12: 1 pm
-                13: 2 pm
-                14: 3 pm
-                15: 4 pm
-                16: 5 pm
-                17: 6 pm
-                18: 7 pm
-                19: 8 pm
-                20: 9 pm
-                21: 10 pm
-                22: 11 pm
-                23: 12 am
-            wholeDay: Whole day
-            timeslot:
+        profile:
+            firstname: First name
+            lastname: Last name
+            email: E-mail
+            telefon: Phone
+            gender: Gender
+            genderValues:
+                m: Brother
+                w: Sister
+                placeholder: Select a gender
+            pioneer: Privilege of service
+            pioneerValues:
+                publisher: Publisher
+                auxiliary: Auxiliary pioneer
+                regular: Regular pioneer
+                special: Special pioneer
+                circuit: Circuit overseer
+                bethelite: Bethelite
+                ldc: Construction servant
+                placeholder: Select a privilege of service
+            privilege: Congregation assignment
+            privilegeValues:
+                publisher: Publisher
+                servant: Ministerial servant
+                elder: Elder
+                coordinator: Coordinator of the Body of Elders
+                secretary: Secretary
+                serviceOverseer: Service overseer
+                placeholder: Select a congregation assignment
+            bdate: Birth date
+            languages: Foreign languages
+            shortTermCalls: Receive understaffed mails
+            shortTermCallsAlways: Available in short term
+            availability:
                 new: Add new timeslot
                 noElements: No timeslot(s) entered
                 deleteConfirmation: Do you really want to delete this timeslot?
+                mondays: Mondays
+                tuesdays: Tuesdays
+                wednesdays: Wednesdays
+                thursdays: Thursdays
+                fridays: Fridays
+                saturdays: Saturdays
+                sundays: Sundays
+                start: Start
+                startDateFormat: h a -
+                startValues:
+                    placeholder: Select a start time
+                    0: 12 am
+                    1: 1 am
+                    2: 2 am
+                    3: 3 am
+                    4: 4 am
+                    5: 5 am
+                    6: 6 am
+                    7: 7 am
+                    8: 8 am
+                    9: 9 am
+                    10: 10 am
+                    11: 11 am
+                    12: 12 pm
+                    13: 1 pm
+                    14: 2 pm
+                    15: 3 pm
+                    16: 4 pm
+                    17: 5 pm
+                    18: 6 pm
+                    19: 7 pm
+                    20: 8 pm
+                    21: 9 pm
+                    22: 10 pm
+                    23: 11 pm
+                end: End
+                endDateFormat: h a
+                endValues:
+                    placeholder: Select an end time
+                    0: 1 am
+                    1: 2 am
+                    2: 3 am
+                    3: 4 am
+                    4: 5 am
+                    5: 6 am
+                    6: 7 am
+                    7: 8 am
+                    8: 9 am
+                    9: 10 am
+                    10: 11 am
+                    11: 12 pm
+                    12: 1 pm
+                    13: 2 pm
+                    14: 3 pm
+                    15: 4 pm
+                    16: 5 pm
+                    17: 6 pm
+                    18: 7 pm
+                    19: 8 pm
+                    20: 9 pm
+                    21: 10 pm
+                    22: 11 pm
+                    23: 12 am
+                wholeDay: Whole day
+            vacation:
+                start: Start
+                end: End
+                new: Add new vacation
+                noElements: No vacations added
+                deleteConfirmation: Do you really want to delete this vacation?
+                startDateFormat: MM/DD/YYYY [until]
+                endDateFormat: MM/DD/YYYY
         password:
             change: Change password
             password: Enter the new password
@@ -124,15 +132,17 @@ user:
         sections:
             identification: Identification data
             availability: Availability
+            vacations: Vacations
             options: Options
         dateFormat: MM/DD/YYYY
-    availability:
-        details:
-            sections:
-                mondays: Availability on mondays
-                tuesdays: Availability on tuesdays
-                wednesdays: Availability on wednesdays
-                thursdays: Availability on thursdays
-                fridays: Availability on fridays
-                saturdays: Availability on saturdays
-                sundays: Availability on sundays
+    profile:
+        availability:
+            details:
+                sections:
+                    mondays: Availability on mondays
+                    tuesdays: Availability on tuesdays
+                    wednesdays: Availability on wednesdays
+                    thursdays: Availability on thursdays
+                    fridays: Availability on fridays
+                    saturdays: Availability on saturdays
+                    sundays: Availability on sundays

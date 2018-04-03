@@ -38,11 +38,10 @@ vessel:
                 placeholder: Wähle einen Hafen
             harborGroup: Hafengruppe
             country: Land
-            languageId:
-                noElements: Noch keine Sprachen hinzugefügt
-                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
             language:
                 new: Eine Sprache hinzufügen
+                noElements: Noch keine Sprachen hinzugefügt
+                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
                 languageId: Sprache
                 languageIdValues:
                     placeholder: Wähle eine Sprache
