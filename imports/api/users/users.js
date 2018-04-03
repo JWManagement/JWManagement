@@ -111,9 +111,7 @@ Users.schema = new SimpleSchema({
         optional: true
     },
     'profile.vacations': {
-        type: Array,
-        blackbox: true,
-        optional: true
+        type: Array
     },
     'profile.vacations.$': new SimpleSchema({
         _id: {
@@ -124,11 +122,31 @@ Users.schema = new SimpleSchema({
                 }
             }
         },
+        createdAt: {
+            type: Date,
+            autoValue: function() {
+                if (!this.isSet) {
+                    return new Date;
+                }
+            }
+        },
+        createdBy: {
+            type: String,
+            autoValue: function() {
+                if (!this.isSet) {
+                    return Meteor.userId();
+                }
+            }
+        },
         start: {
-            type: Date
+            type: Number,
+            min: 20180000,
+            max: 20250000
         },
         end: {
-            type: Date
+            type: Number,
+            min: 20180000,
+            max: 20250000
         }
     }),
     'profile.shortTermCalls': {

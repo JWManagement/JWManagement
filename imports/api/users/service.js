@@ -256,11 +256,9 @@ Meteor.methods({
 
             // support legacy format
             for (let vacation of vacations) {
-                if (typeof vacation.start == 'number') {
-                    vacation.start = new Date(vacation.start, 'YYYYDDD');
-                }
-                if (typeof vacation.end == 'number') {
-                    vacation.end = new Date(vacation.end, 'YYYYDDD');
+                if (vacation.createdAt == null) {
+                    vacation.start = parseInt(moment(vacation.start, 'YYYYDDD').format('YYYYMMDD'));
+                    vacation.end = parseInt(moment(vacation.end, 'YYYYDDD').format('YYYYMMDD'));
                 }
             }
 
@@ -323,19 +321,20 @@ function getExtendedUser(userId, projectId, language) {
         };
 
         for (let vacation of user.profile.vacations) {
-            const dateFormatStart = TAPi18n.__('user.entity.profile_vacation_dateFormatStart', {}, language);
-            const dateFormatEnd = TAPi18n.__('user.entity.profile_vacation_dateFormatEnd', {}, language);
+            const dateFormatStart = TAPi18n.__('user.entity.profile.vacations.startDateFormat', {}, language);
+            const dateFormatEnd = TAPi18n.__('user.entity.profile.vacations.endDateFormat', {}, language);
 
-            if (typeof vacation.start == 'number') {
-                vacation.display = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);
+            console.log(vacation.start);
+            console.log(moment(vacation.start));
+            // support legacy number format
+            if (vacation.createdAt == null) {
+                const startDisplay = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);
+                const endDisplay = moment(vacation.end, 'YYYYDDD').format(dateFormatEnd);
+                vacation.display = startDisplay + ' ' + endDisplay;
             } else {
-                vacation.display = moment(vacation.start).format(dateFormatStart);
-            }
-
-            if (typeof vacation.end == 'number') {
-                vacation.display = moment(vacation.end, 'YYYYDDD').format(dateFormatEnd);
-            } else {
-                vacation.display = moment(vacation.end).format(dateFormatEnd);
+                const startDisplay = moment(vacation.start, 'YYYYMMDD').format(dateFormatStart);
+                const endDisplay = moment(vacation.end, 'YYYYMMDD').format(dateFormatEnd);
+                vacation.display = startDisplay + ' ' + endDisplay;
             }
         }
     }
@@ -345,8 +344,8 @@ function getExtendedUser(userId, projectId, language) {
 
 function convertTimeslotToAvailability(timeslots, language) {
     if (typeof timeslots == 'object' && timeslots.length > 0) {
-        const dateFormatStart = TAPi18n.__('user.entity.profile_availability_dateFormatStart', {}, language);
-        const dateFormatEnd = TAPi18n.__('user.entity.profile_availability_dateFormatEnd', {}, language);
+        const dateFormatStart = TAPi18n.__('user.entity.profile.availability.startDateFormat', {}, language);
+        const dateFormatEnd = TAPi18n.__('user.entity.profile.availability.endDateFormat', {}, language);
         let timePeriods = [];
 
         timeslots.sort((a, b) => {
@@ -373,7 +372,7 @@ function convertTimeslotToAvailability(timeslots, language) {
                 if (periodBegin == 2400 && lastValue == 2300) {
                     timePeriods.push({
                         numbers: numbers,
-                        timeslot: TAPi18n.__('user.entity.availability.wholeDay', {}, language)
+                        timeslot: TAPi18n.__('user.entity.profile.availability.wholeDay', {}, language)
                     });
                 } else {
                     timePeriods.push({
@@ -396,7 +395,7 @@ function convertTimeslotToAvailability(timeslots, language) {
         if (periodBegin == 2400 && lastValue == 2300) {
             timePeriods.push({
                 numbers: numbers,
-                timeslot: TAPi18n.__('user.entity.availability.wholeDay', {}, language)
+                timeslot: TAPi18n.__('user.entity.profile.availability.wholeDay', {}, language)
             });
         } else {
             timePeriods.push({
