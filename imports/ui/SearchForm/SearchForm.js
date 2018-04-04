@@ -25,7 +25,7 @@ Template.SearchForm.helpers({
     },
     resultsMobile() {
         const template = Template.instance();
-        return template.mobileRows;
+        return template.mobileRows.get();
     },
     moreResultsAvailable() {
         const template = Template.instance();
@@ -71,7 +71,7 @@ Template.SearchForm.onCreated(() => {
     template.resultsShown = new ReactiveVar(template.defaultResultsPerPage);
 
     template.rows = [];
-    template.mobileRows = [];
+    template.mobileRows = new ReactiveVar([]);
 });
 
 Template.SearchForm.onRendered(() => {
@@ -208,7 +208,7 @@ function generateRows(template) {
             };
         });
 
-    template.mobileRows = template.rows.map((row) => {
+    template.mobileRows.set(template.rows.map((row) => {
         return {
             link: FlowRouter.path(
                 RouteManager.getLink('details'),
@@ -220,7 +220,7 @@ function generateRows(template) {
                 };
             })
         };
-    });
+    }));
 }
 
 function updateSearch(template, search) {
@@ -241,7 +241,7 @@ function updateSearch(template, search) {
             template.items.set([]);
             template.itemCount.set(0);
             template.rows = [];
-            template.mobileRows = [];
+            template.mobileRows.set([]);
         }
     }
 }
