@@ -20,8 +20,15 @@ Template.registerHelper('getEntityTranslation', (key, suffix) => {
     return TAPi18n.__(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'));
 });
 
-Template.registerHelper('getNoElementsTranslation', (obj) => {
-    const translationString = obj.click.method.split('.');
+Template.registerHelper('getNoElementsTranslation', ({click, link}) => {
+    let translationString;
+
+    if (click != null) {
+        translationString = click.method.split('.');
+    } else {
+        translationString = link.split('.');
+    }
+
     translationString.pop();
     translationString.splice(1, 0, 'entity');
     translationString.push('noElements');
