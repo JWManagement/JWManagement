@@ -20,7 +20,7 @@ Template['admin.details'].helpers({
                         }, {
                             key: 'publishers',
                             link: 'user.search',
-                            canSee: Permissions.support
+                            canSee: Permissions.admin
                         }, {
                             key: 'reports',
                             link: 'reports',
