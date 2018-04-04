@@ -3,7 +3,7 @@ admin:
     entity:
         settings: Settings
         users: Users
-        usersNew: Publishers
+        publishers: Publishers (BETA)
         reports: Reports
         store: Store
         vessels: Vessels

@@ -8,7 +8,6 @@ users:
     sendToAllInTag: E-Mail an alle im Tag %s
     export: Export als csv
 user:
-    nameShort: Verkündiger
     entity:
         username: Benutzername
         profile:

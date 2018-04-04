@@ -18,7 +18,7 @@ Template['admin.details'].helpers({
                             link: 'users',
                             canSee: Permissions.admin
                         }, {
-                            key: 'usersNew',
+                            key: 'publishers',
                             link: 'user.search',
                             canSee: Permissions.support
                         }, {

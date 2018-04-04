@@ -8,7 +8,6 @@ users:
     sendToAllInTag: Email to all in tag %s
     export: Export as csv
 user:
-    nameShort: Users
     entity:
         username: Username
         profile:
@@ -127,7 +126,7 @@ user:
         delete: Revoke this user's access to the project
         deleteConfirmation: Do you really want to revoke this user's access to the project?
     search:
-        placeholder: User first name, last name, email, phone or username
+        placeholder: First name, Last name, E-mail, Phone or Username
     details:
         sections:
             identification: Identification data
