@@ -270,8 +270,7 @@ Meteor.methods({
         checkPermissions(projectId, userId);
 
         try {
-            const user = getExtendedUser(userId, projectId, language);
-            let vacations = user.profile.vacations;
+            let vacations = getExtendedUser(userId, projectId, language).profile.vacations;
 
             // support legacy format
             for (let vacation of vacations) {
@@ -291,8 +290,23 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.vacation.delete': ({ language, projectId, userId, key, vacation }) => {
-        // TODO: implement
+    'user.profile.vacation.delete': ({ language, projectId, userId, display }) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            const vacations = getExtendedUser(userId, projectId, language).profile.vacations;
+            let newVacations = [];
+
+            for (let vacation of vacations) {
+                if (vacation._id != display) {
+                    newVacations.push(vacation);
+                }
+            }
+
+            Users.persistence.update(userId, 'profile.vacations', newVacations);
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
     }
 });
 
