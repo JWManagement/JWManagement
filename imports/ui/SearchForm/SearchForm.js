@@ -16,9 +16,6 @@ Template.SearchForm.helpers({
     isLoading() {
         return Template.instance().isLoading.get();
     },
-    hasSearchString() {
-        return Template.instance().searchString.get() != '';
-    },
     noResults() {
         const template = Template.instance();
         return !template.isLoading.get() && template.items.get().length == 0;
@@ -59,7 +56,7 @@ Template.SearchForm.onCreated(() => {
     template.backLink = data.backLink;
     template.allowCreate = data.allowCreate;
 
-    template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '*');
+    template.searchString = new ReactiveVar(Session.get(FlowRouter.getRouteName() + '.searchString') || '');
     template.isLoading = new ReactiveVar(false);
     template.isCreating = new ReactiveVar(false);
     template.itemCount = new ReactiveVar(0);
@@ -118,14 +115,11 @@ Template.SearchForm.onRendered(() => {
         });
     });
 
-    const searchString = $('#search').val();
+    const searchString = template.searchString.get();
+    $('#search').val(searchString);
+    template.searchString.set(null);
 
-    if (searchString == '' && searchString != template.searchString.get()) {
-        searchString = template.searchString.get();
-        $('#search').val(searchString);
-        template.searchString.set('');
-        updateSearch(template, searchString);
-    }
+    updateSearch(template, searchString);
 });
 
 Template.SearchForm.onDestroyed(() => {
@@ -228,21 +222,14 @@ function updateSearch(template, search) {
         template.searchString.set(search);
         Session.set(FlowRouter.getRouteName() + '.searchString', search);
 
-        if (search.length > 0) {
-            if (search.length == 1 && (search == '*' || search == '?' || search == '%')) {
-                template.searchString.set('.');
-                template.regEx.set(new RegExp('.', 'i'));
-            } else {
-                template.regEx.set(new RegExp(search, 'i'));
-            }
-            doSearch(template);
+        if (search == '' || search == '*' || search == '?' || search == '%') {
+            template.searchString.set('.');
+            template.regEx.set(new RegExp('.', 'i'));
         } else {
-            template.regEx.set('');
-            template.items.set([]);
-            template.itemCount.set(0);
-            template.rows = [];
-            template.mobileRows.set([]);
+            template.regEx.set(new RegExp(search, 'i'));
         }
+
+        doSearch(template);
     }
 }
 

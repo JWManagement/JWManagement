@@ -19,10 +19,7 @@ template(name="SearchForm")
                     i.fa.fa-circle-o-notch.fa-spin
                     | {{_ 'searchForm.loading'}}...
             else if noResults
-                if hasSearchString
-                    .search-title {{_ 'searchForm.noResults'}}
-                else
-                    .search-title {{_ 'searchForm.typeToSearch'}}
+                .search-title {{_ 'searchForm.noResults'}}
             else
                 .search-title.clearfix
                     .pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}

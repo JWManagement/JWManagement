@@ -6,7 +6,6 @@ searchForm:
     showingTheFirstX: Showing the first %s
     showingAll: ''
     showingAll_plural: Showing all
-    typeToSearch: Search for something (type * for everything)
     showAll: Show all %s
 validation:
     required: This field is required

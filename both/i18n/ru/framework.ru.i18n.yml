@@ -6,7 +6,6 @@ searchForm:
     showingTheFirstX: Показать первые %s
     showingAll: ''
     showingAll_plural: Показать все
-    typeToSearch: Нажми для поиска (* чтобы увидеть все)
     createNew: Создать новую запись
     showAll: Показать все %s
     or: – ИЛИ –
