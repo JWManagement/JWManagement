@@ -1,6 +1,7 @@
 import Users from '/imports/api/users/users.js'
 import PasswordsSchema from '/imports/api/users/passwords.js'
 import RoleManager from '/imports/api/managers/RoleManager.js'
+import State from '/imports/api/dropdowns/state.js'
 import { Accounts } from 'meteor/accounts-base'
 
 Meteor.methods({
@@ -135,6 +136,130 @@ Meteor.methods({
                 }
             }
 
+            throw new Meteor.Error(e);
+        }
+    },
+    'user.password.reset': ({ language, projectId, userId }) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            const user = Users.findOne(userId, {
+                fields: {
+                    'profile.email': 1
+                }
+            });
+            const email = user.profile.email;
+
+            if (email == '') {
+                throw new Meteor.Error('userHasNoEmail');
+            }
+
+            Meteor.users.update(userId, {
+                $set: {
+                    'services.password.reset': {
+                        token: Random.id(43)
+                    }
+                }
+            });
+
+            const data = {
+                recipient: obj.email,
+                sender: 'JW Management',
+                from: 'support@jwmanagement.org',
+                subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language),
+                template: 'resetPassword',
+                language: user.profile.language,
+                data: {
+                    token: token,
+                    language: user.profile.language,
+                    content: getMailTexts 'resetPassword', user.profile.language
+                }
+            };
+
+            data.data.global = {
+                footer: TAPi18n.__('mail.footer', '', data.language),
+                link: TAPi18n.__('mail.link', '', data.language)
+            }
+
+            Mailer.send({
+                to: data.recipient,
+                from: data.sender + ' <no-reply@jwmanagement.org>',
+                replyTo: data.sender + '<' + data.from + '>',
+                subject: data.subject,
+                template: data.template,
+                data: data.data
+            });
+        } catch(e) {
+            throw new Meteor.Error(e);
+        }
+    },
+    'user.invite': ({ language, projectId, userId }) => {
+        checkPermissions(projectId, userId);
+
+        try {
+            const token = Random.id(43);
+            const project = Projects.findOne(projectId, {
+                fields: {
+                    name: 1
+                },
+                email: 1
+            });
+            const user = Users.findOne(userId, {
+                fields: {
+                    'profile.email': 1
+                    'profile.firstname': 1
+                    'profile.lastname': 1
+                    'profile.language': 1
+                    state: 1
+                }
+            });
+
+            Users.update(userId, {
+                $set: {
+                    'services.password.reset': {
+                        token: token
+                    }
+                }
+            });
+
+            const data = {
+                recipient: user.profile.email,
+                sender: project.name,
+                from: project.email,
+                subject: TAPi18n.__('mail.accountCreated.subject', '', user.profile.language),
+                template: 'accountCreated',
+                language: user.profile.language,
+                data: {
+                    token: token,
+                    project: project.name,
+                    name: user.profile.firstname + ' ' + user.profile.lastname,
+                    language: user.profile.language,
+                    content: getMailTexts 'accountCreated', user.profile.language
+                }
+            }
+
+            data.data.global = {
+                footer: TAPi18n.__('mail.footer', '', data.language),
+                link: TAPi18n.__('mail.link', '', data.language)
+            }
+
+            Mailer.send({
+                to: data.recipient,
+                from: data.sender + ' <no-reply@jwmanagement.org>',
+                replyTo: data.sender + '<' + data.from + '>',
+                subject: data.subject,
+                template: data.template,
+                data: data.data
+            });
+
+            if (user.state == 'created') {
+                Users.update(userId, {
+                    $set: {
+                        state: State.INVITED
+                    }
+                });
+            }
+        } catch(e) {
             throw new Meteor.Error(e);
         }
     },
