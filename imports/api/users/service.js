@@ -145,12 +145,12 @@ Meteor.methods({
         try {
             const user = Users.findOne(userId, {
                 fields: {
-                    'profile.email': 1
+                    'profile.email': 1,
+                    'profile.language': 1
                 }
             });
-            const email = user.profile.email;
 
-            if (email == '') {
+            if (user.profile.email == '') {
                 throw new Meteor.Error('userHasNoEmail');
             }
 
@@ -163,7 +163,7 @@ Meteor.methods({
             });
 
             const data = {
-                recipient: obj.email,
+                recipient: user.profile.email,
                 sender: 'JW Management',
                 from: 'support@jwmanagement.org',
                 subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language),
@@ -172,7 +172,7 @@ Meteor.methods({
                 data: {
                     token: token,
                     language: user.profile.language,
-                    content: getMailTexts 'resetPassword', user.profile.language
+                    content: getMailTexts('resetPassword', user.profile.language)
                 }
             };
 
@@ -206,10 +206,10 @@ Meteor.methods({
             });
             const user = Users.findOne(userId, {
                 fields: {
-                    'profile.email': 1
-                    'profile.firstname': 1
-                    'profile.lastname': 1
-                    'profile.language': 1
+                    'profile.email': 1,
+                    'profile.firstname': 1,
+                    'profile.lastname': 1,
+                    'profile.language': 1,
                     state: 1
                 }
             });
@@ -234,7 +234,7 @@ Meteor.methods({
                     project: project.name,
                     name: user.profile.firstname + ' ' + user.profile.lastname,
                     language: user.profile.language,
-                    content: getMailTexts 'accountCreated', user.profile.language
+                    content: getMailTexts('accountCreated', user.profile.language)
                 }
             }
 
@@ -580,4 +580,15 @@ function checkPermissions(projectId, userId = null) {
     if (userId != null && !Roles.userIsInRole(userId, Permissions.member, projectId)) {
         throw new Meteor.Error('userIsNotProjectMember');
     }
+}
+
+function getMailTexts(mail, language) {
+	let values = {};
+	values.headline = TAPi18n.__('mail.' + mail + '.headline', '', language);
+	values.hello = TAPi18n.__('mail.' + mail + '.hello', '', language);
+	values.text1 = TAPi18n.__('mail.' + mail + '.text1', '', language);
+	values.text2 = TAPi18n.__('mail.' + mail + '.text2', '', language);
+	values.changed = TAPi18n.__('mail.' + mail + '._changed', '', language);
+	values.button = TAPi18n.__('mail.' + mail + '.button', '', language);
+	return values;
 }
