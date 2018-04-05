@@ -32,12 +32,6 @@ Template['user.details'].helpers({
                     type: 'dropdown'
                 }, {
                     key: 'profile_languages'
-                }],
-                actions: [{
-                    key: 'password.change',
-                    type: 'link',
-                    style: 'primary',
-                    route: 'user.password.insert'
                 }]
             }, {
                 header: 'availability',
@@ -89,9 +83,28 @@ Template['user.details'].helpers({
                     route: 'user.profile.vacation.insert'
                 }]
             }, {
+                header: 'password',
+                contents: [],
+                actions: [{
+                    key: 'password.change',
+                    type: 'link',
+                    style: 'primary',
+                    route: 'user.password.insert'
+                }, {
+                    key: 'password.reset',
+                    type: 'confirm',
+                    style: 'primary',
+                    method: 'user.password.reset'
+                }]
+            }, {
                 header: 'options',
                 contents: [],
                 actions: [{
+                    key: 'invite',
+                    type: 'confirm',
+                    style: 'primary',
+                    method: 'user.invite'
+                }, {
                     key: 'delete',
                     type: 'confirm',
                     style: 'danger',

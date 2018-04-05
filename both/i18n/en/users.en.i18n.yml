@@ -121,8 +121,12 @@ user:
                 endDateFormat: MM/DD/YYYY
         password:
             change: Change password
+            reset: Send password reset mail
+            resetConfirmation: Do you really want to send a reset password mail to the user? Caution: The user's current login credentials will be invalid until he/she visits the link in the mail and resets the password.
             password: Enter the new password
             passwordRepeat: Re-enter the new password
+        invite: Send project invitation
+        inviteConfirmation: Do you really want to send a project invitation mail to the user?
         delete: Revoke this user's access to the project
         deleteConfirmation: Do you really want to revoke this user's access to the project?
     search:
@@ -132,6 +136,7 @@ user:
             identification: Identification data
             availability: Availability
             vacations: Vacations
+            password: Password
             options: Options
         dateFormat: MM/DD/YYYY
     profile:
