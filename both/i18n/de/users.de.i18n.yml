@@ -121,8 +121,8 @@ user:
                 endDateFormat: DD.MM.YYYY
         password:
             change: Passwort ändern
-            reset: \"Passwort zurücksetzen\"-Mail senden
-            resetConfirmation: Möchtest du diesem Verkündiger wirklich eine \"Passwort zurücksetzen\"-Mail senden? Achtung: Die aktuellen Anmeldedaten des Verkündigers werden solange ungültig sein bis er/sie den Link aus der Mail besucht.
+            reset: Passwort-Zurücksetz-Mail senden
+            resetConfirmation: Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden? Achtung: Die aktuellen Anmeldedaten des Verkündigers werden solange ungültig sein bis er/sie den Link aus der Mail besucht.
             password: Neues Passwort eingeben
             passwordRepeat: Neues Passwort wiederholen
         invite: Einladungsmail senden
