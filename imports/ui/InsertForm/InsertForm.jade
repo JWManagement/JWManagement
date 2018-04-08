@@ -25,6 +25,9 @@ template(name="InsertForm")
             else if isTextbox field
                 with field
                     +InsertFormTextboxInput data=getInputData
+            else if isPassword field
+                with field
+                    +InsertFormPasswordInput data=getInputData
             else
                 with field
                     +InsertFormTextInput data=getInputData
@@ -35,6 +38,16 @@ template(name="InsertFormTextInput")
         .section-content
             .text-input
                 input(type='text' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
+
+template(name="InsertFormPasswordInput")
+    .section(class='{{getErrorClass}}')
+        .section-header {{getEntityTranslation getKey}}
+        .section-content
+            .text-input
+                input(type='password' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
         if hasError
             .section-error
                 p {{getEntityErrorTranslation}}

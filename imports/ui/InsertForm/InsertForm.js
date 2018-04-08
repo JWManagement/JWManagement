@@ -6,6 +6,7 @@ import './InsertFormDateInput.js';
 import './InsertFormDropdownInput.js';
 import './InsertFormCheckboxInput.js';
 import './InsertFormTextboxInput.js';
+import './InsertFormPasswordInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
@@ -25,6 +26,9 @@ Template.InsertForm.helpers({
     },
     isTextbox(field) {
         return field.type == 'textbox';
+    },
+    isPassword(field) {
+        return field.type == 'password';
     },
     getInputData() {
         const template = Template.instance();

@@ -7,9 +7,11 @@ Template['user.password.insert'].helpers({
             entityKey: 'userId',
             fields: [
                 {
-                    key: 'password'
+                    key: 'password',
+                    type: 'password'
                 }, {
-                    key: 'passwordRepeat'
+                    key: 'passwordRepeat',
+                    type: 'password'
                 }
             ]
         }
