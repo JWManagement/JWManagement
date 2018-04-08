@@ -1,6 +1,7 @@
 import Users from '/imports/api/users/users.js'
 import PasswordsSchema from '/imports/api/users/passwords.js'
 import RoleManager from '/imports/api/managers/RoleManager.js'
+import MailManager from '/imports/api/managers/MailManager.js'
 import State from '/imports/api/dropdowns/state.js'
 import { Accounts } from 'meteor/accounts-base'
 
@@ -8,7 +9,8 @@ Meteor.methods({
     'user.search': ({ language, projectId, searchString, limit }) => {
         checkPermissions(projectId);
 
-        const result = {
+        let rolesObject = {}
+        let result = {
             total: 0,
             items: []
         };
@@ -18,7 +20,6 @@ Meteor.methods({
         }
 
         const regEx = new RegExp(searchString, 'i');
-        const rolesObject = {}
 
         rolesObject['roles.' + projectId] = {
             $in: Permissions.member
@@ -143,6 +144,7 @@ Meteor.methods({
         checkPermissions(projectId, userId);
 
         try {
+            const token = Random.id(43);
             const user = Users.findOne(userId, {
                 fields: {
                     'profile.email': 1,
@@ -157,7 +159,7 @@ Meteor.methods({
             Meteor.users.update(userId, {
                 $set: {
                     'services.password.reset': {
-                        token: Random.id(43)
+                        token: token
                     }
                 }
             });
@@ -190,6 +192,7 @@ Meteor.methods({
                 data: data.data
             });
         } catch(e) {
+            console.log(e);
             throw new Meteor.Error(e);
         }
     },
@@ -222,7 +225,7 @@ Meteor.methods({
                 }
             });
 
-            const data = {
+            MailManager.sendMail({
                 recipient: user.profile.email,
                 sender: project.name,
                 from: project.email,
@@ -236,20 +239,6 @@ Meteor.methods({
                     language: user.profile.language,
                     content: getMailTexts('accountCreated', user.profile.language)
                 }
-            }
-
-            data.data.global = {
-                footer: TAPi18n.__('mail.footer', '', data.language),
-                link: TAPi18n.__('mail.link', '', data.language)
-            }
-
-            Mailer.send({
-                to: data.recipient,
-                from: data.sender + ' <no-reply@jwmanagement.org>',
-                replyTo: data.sender + '<' + data.from + '>',
-                subject: data.subject,
-                template: data.template,
-                data: data.data
             });
 
             if (user.state == 'created') {
