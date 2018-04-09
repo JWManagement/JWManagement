@@ -1,10 +1,10 @@
-import '/imports/api/projects/projects.js'
+import '/imports/api/projects/projects.js';
 
-import '/imports/api/util/templateHelpers.js'
+import '/imports/api/util/templateHelpers.js';
 
-import '/imports/api/routes/mainRoutes.js'
-import '/imports/api/routes/projectRoutes.js'
-import '/imports/api/routes/policyRoutes.js'
+import '/imports/ui/routes/mainRoutes.js';
+import '/imports/ui/routes/projectRoutes.js';
+import '/imports/ui/routes/policyRoutes.js';
 
 import '/imports/ui/DetailsForm/DetailsForm.js';
 import '/imports/ui/InsertForm/InsertForm.js';

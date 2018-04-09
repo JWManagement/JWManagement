@@ -1,4 +1,4 @@
-import Helpers from '/imports/api/routes/routeHelpers.js';
+import Helpers from '/imports/ui/routes/routeHelpers.js';
 
 export default RouteManager = {
 
