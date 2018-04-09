@@ -1,4 +1,4 @@
-import Helpers from './routeHelpers.js';
+import Helpers from '/imports/ui/routes/Helpers.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
 
 RouteManager.registerEntity('admin', {

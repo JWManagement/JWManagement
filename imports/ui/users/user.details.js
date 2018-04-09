@@ -1,4 +1,4 @@
-import Users from '/imports/api/users/users.js';
+import Users from '/imports/api/users/Users.js';
 
 Template['user.details'].helpers({
     data() {

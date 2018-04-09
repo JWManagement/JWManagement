@@ -1,4 +1,4 @@
-import Permissions from '/imports/api/util/permissions.js'
+import Permissions from '/imports/api/util/Permissions.js'
 
 Meteor.methods({
     'admin.get': ({ projectId }) => {

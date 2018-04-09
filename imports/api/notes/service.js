@@ -1,5 +1,5 @@
-import Notes from '/imports/api/notes/notes.js';
-import Users from '/imports/api/users/users.js';
+import Notes from '/imports/api/notes/Notes.js';
+import Users from '/imports/api/users/Users.js';
 
 Meteor.methods({
     'note.search': ({ language, projectId, searchString, limit }) => {

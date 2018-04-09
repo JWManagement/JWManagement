@@ -1,4 +1,4 @@
-import Notes from '/imports/api/notes/notes.js';
+import Notes from '/imports/api/notes/Notes.js';
 
 Template['note.search'].helpers({
     data() {

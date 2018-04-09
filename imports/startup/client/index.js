@@ -40,7 +40,7 @@ import '/imports/ui/notes/note.details.js';
 import '/imports/ui/notes/note.update.js';
 import '/imports/ui/notes/note.insert.js';
 
-import SimpleSchemaHelper from '/imports/api/util/simpleSchema.js';
+import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
 Tracker.autorun(() => {

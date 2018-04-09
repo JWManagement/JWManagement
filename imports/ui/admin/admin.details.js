@@ -1,4 +1,4 @@
-import Permissions from '/imports/api/util/permissions.js';
+import Permissions from '/imports/api/util/Permissions.js';
 
 Template['admin.details'].helpers({
     data() {

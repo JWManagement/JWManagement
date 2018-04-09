@@ -1,5 +1,5 @@
-import Vessels from '/imports/api/vessels/vessels.js';
-import VesselType from '/imports/api/dropdowns/vesselType.js';
+import Vessels from '/imports/api/vessels/Vessels.js';
+import VesselType from '/imports/api/dropdowns/VesselType.js';
 
 Template['vessel.insert'].helpers({
     data() {

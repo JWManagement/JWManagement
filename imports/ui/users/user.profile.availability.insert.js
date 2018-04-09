@@ -1,4 +1,4 @@
-import Hour from '/imports/api/dropdowns/hour.js';
+import Hour from '/imports/api/dropdowns/Hour.js';
 
 Template['user.profile.availability.insert'].helpers({
     data() {

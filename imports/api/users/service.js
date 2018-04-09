@@ -1,8 +1,8 @@
-import Users from '/imports/api/users/users.js'
-import PasswordsSchema from '/imports/api/users/passwords.js'
+import Users from '/imports/api/users/Users.js'
+import PasswordsSchema from '/imports/api/users/PasswordsSchema.js'
 import RoleManager from '/imports/api/managers/RoleManager.js'
 import MailManager from '/imports/api/managers/MailManager.js'
-import State from '/imports/api/dropdowns/state.js'
+import State from '/imports/api/dropdowns/State.js'
 import { Accounts } from 'meteor/accounts-base'
 
 Meteor.methods({

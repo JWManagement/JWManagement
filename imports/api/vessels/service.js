@@ -1,5 +1,5 @@
-import Vessels from '/imports/api/vessels/vessels.js'
-import getLanguages from '/imports/api/util/languages.js'
+import Vessels from '/imports/api/vessels/Vessels.js'
+import GetLanguages from '/imports/api/util/GetLanguages.js'
 
 Meteor.methods({
     'vessel.search': ({ language, projectId, searchString, limit }) => {
@@ -286,7 +286,7 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
                     });
                 }
 
-                const allLanguages = getLanguages();
+                const allLanguages = GetLanguages();
                 const languages = vessel.visits[0].languageIds
                 .filter((language) => allLanguages.indexOf(language._id) > -1)
                 .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage));

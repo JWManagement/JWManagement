@@ -1,4 +1,4 @@
-function getLanguages() {
+function GetLanguages() {
 	return [
         'A', 'AL', 'AR', 'AM',
         'B', 'BEL', 'BL', 'BSN',
@@ -26,4 +26,4 @@ function getLanguages() {
     ];
 }
 
-export default getLanguages;
+export default GetLanguages;

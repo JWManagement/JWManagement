@@ -1,7 +1,7 @@
-import Users from '/imports/api/users/users.js';
-import Gender from '/imports/api/dropdowns/gender.js';
-import Pioneer from '/imports/api/dropdowns/pioneer.js';
-import Privilege from '/imports/api/dropdowns/privilege.js';
+import Users from '/imports/api/users/Users.js';
+import Gender from '/imports/api/dropdowns/Gender.js';
+import Pioneer from '/imports/api/dropdowns/Pioneer.js';
+import Privilege from '/imports/api/dropdowns/Privilege.js';
 
 Template['user.update'].helpers({
     data() {
