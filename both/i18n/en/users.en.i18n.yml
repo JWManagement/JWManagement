@@ -122,7 +122,7 @@ user:
         password:
             change: Change password
             reset: Send password reset mail
-            resetConfirmation: Do you really want to send a reset password mail to the user? Caution: The user's current login credentials will be invalid until he/she visits the link in the mail and resets the password.
+            resetConfirmation: Do you really want to send a reset password mail to the user?
             password: Enter the new password
             passwordRepeat: Re-enter the new password
         invite: Send project invitation

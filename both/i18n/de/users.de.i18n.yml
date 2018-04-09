@@ -122,7 +122,7 @@ user:
         password:
             change: Passwort ändern
             reset: Passwort-Zurücksetz-Mail senden
-            resetConfirmation: Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden? Achtung: Die aktuellen Anmeldedaten des Verkündigers werden solange ungültig sein bis er/sie den Link aus der Mail besucht.
+            resetConfirmation: Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden?
             password: Neues Passwort eingeben
             passwordRepeat: Neues Passwort wiederholen
         invite: Einladungsmail senden
