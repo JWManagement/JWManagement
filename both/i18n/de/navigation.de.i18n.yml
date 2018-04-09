@@ -12,6 +12,7 @@ navigation:
         search: Verkündiger
         details: Verkündigerdaten
         update: Verkündiger bearbeiten
+        insert: Verkündiger anlegen
         profile:
             vacation:
                 insert: Urlaub erfassen

@@ -12,6 +12,7 @@ navigation:
         search: Publishers
         details: Publisher details
         update: Edit publisher
+        insert: Add new publisher
         profile:
             vacation:
                 insert: Add new vacation
