@@ -12,7 +12,7 @@ export Methods =
 				message: type: String
 				language:
 					type: String
-					allowedValues: ['de', 'en', 'hu', 'pt', 'pl', 'ru']
+					allowedValues: ['de', 'en', 'fr', 'hu', 'it', 'pt', 'pl', 'ru']
 			.validator()
 		run: (args) -> if Meteor.isServer
 			newDoc =

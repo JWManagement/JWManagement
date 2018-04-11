@@ -1,8 +1,10 @@
 export default SystemLanguages = {
     allowedValues: [
-        'en',
         'de',
+        'en',
+        'fr',
         'hu',
+        'it',
         'pl',
         'pt',
         'ru'
