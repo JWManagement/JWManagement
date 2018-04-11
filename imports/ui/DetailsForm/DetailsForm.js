@@ -134,9 +134,10 @@ Template.DetailsForm.helpers({
                 value.toLowerCase()
             ].join('.').replace(/_/g, '.'));
         } else if (content.type == 'date') {
-            if (value != null) {
+            if (value != null && value != '') {
                 const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                return moment(value, 'YYYYMMDD').format(dateFormat);
+                const dbFormat = content.format || 'YYYYMMDD';
+                return moment(value, dbFormat).format(dateFormat);
             } else {
                 return '';
             }

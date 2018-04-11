@@ -16,3 +16,5 @@ validation:
 detailsForm:
     yes: Yes
     no: No
+dateFormat:
+    default: MM/DD/YYYY

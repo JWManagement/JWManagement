@@ -3,13 +3,15 @@ Template.InsertFormDateInput.helpers({});
 Template.InsertFormDateInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
+    const dateFormat = TAPi18n.__('dateFormat.default');
 
     template.key = data.key;
+    template.format = data.format || 'YYYYMMDD';
     template.insertForm = data.parentInstance;
 
     if (data.defaultValue != null) {
         if (data.defaultValue == 'today') {
-            template.defaultValue = moment(new Date()).format('YYYY-MM-DD');
+            template.defaultValue = moment(new Date()).format(dateFormat);
         } else {
             template.defaultValue = data.defaultValue;
         }
@@ -18,7 +20,18 @@ Template.InsertFormDateInput.onCreated(() => {
 
 Template.InsertFormDateInput.onRendered(() => {
     const template = Template.instance();
+    const dateFormat = TAPi18n.__('dateFormat.default');
+    const $weekPicker = $('#datepicker-week');
 
+    $weekPicker.datepicker({
+        calendarWeeks: true,
+        maxViewMode: 0,
+        weekStart: 1,
+        language: TAPi18n.getLanguage()
+    })
+    .datepicker('setDate', nextWeek);
+
+    /*
     WithModernizr(() => {
         if (Modernizr.inputtypes.date) {
             if (template.defaultValue != null) {
@@ -28,7 +41,7 @@ Template.InsertFormDateInput.onRendered(() => {
             const datepicker = template.$('.datepicker').datepicker({
                 maxViewMode: 0,
                 weekStart: 1,
-                format: 'yyyy.mm.dd',
+                format: dateFormat,
                 language: TAPi18n.getLanguage()
             });
 
@@ -37,13 +50,17 @@ Template.InsertFormDateInput.onRendered(() => {
             }
         }
     });
+    */
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
 
 Template.InsertFormDateInput.events({
     'change input': (e, template) => {
-        const value = parseInt(moment($(e.target).val().trim(), 'YYYY-MM-DD').format('YYYYMMDD'));
+        const dateFormat = TAPi18n.__('dateFormat.default');
+        const value = parseInt(moment($(e.target).val().trim(), dateFormat).format(template.format));
+
+        console.log(value);
 
         template.insertForm.setFieldValue(template.key, value);
     }

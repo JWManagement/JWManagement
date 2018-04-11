@@ -1,7 +1,7 @@
 import RouteManager from '/imports/api/managers/RouteManager.js';
 
 import './SearchForm.jade';
-import './SearchForm.scss'
+import './SearchForm.scss';
 
 Template.SearchForm.helpers({
     getBackLink() {

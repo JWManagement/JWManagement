@@ -19,7 +19,8 @@ Template['user.insert'].helpers({
                     type: 'dropdown'
                 }, {
                     key: 'profile_bdate',
-                    type: 'date'
+                    type: 'date',
+                    format: 'DD.MM.YYYY'
                 }, {
                     key: 'profile_pioneer',
                     type: 'dropdown'
