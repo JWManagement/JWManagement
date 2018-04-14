@@ -5,15 +5,13 @@ Template['vessel.visit.language.insert'].helpers({
     data() {
         return {
             backLink: 'vessel.visit.details',
-            fields: [
-                {
-                    key: 'languageId',
-                    type: 'dropdown',
-                    allowedKeyValues: GetLanguages().map((lang) => {
-                        return { key: lang, value: TAPi18n.__('language._' + lang) }
-                    })
-                }
-            ]
+            fields: [{
+                key: 'languageId',
+                type: 'dropdown',
+                allowedKeyValues: GetLanguages().map((lang) => {
+                    return { key: lang, value: TAPi18n.__('language._' + lang) }
+                })
+            }]
         }
     }
 });
