@@ -27,7 +27,7 @@ Template.InsertFormDateInput.onRendered(() => {
     })
     .datepicker('setDate', template.defaultValue)
     .on('changeDate', (e) => {
-        const valueRaw = $('.datepicker').datepicker('getDate');
+        const valueRaw = template.$('.datepicker').datepicker('getDate');
         const value = parseInt(moment(valueRaw, 'YYYY-MM-DD').format(template.format));
 
         template.insertForm.setFieldValue(template.key, value);
