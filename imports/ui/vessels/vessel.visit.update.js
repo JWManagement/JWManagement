@@ -11,6 +11,7 @@ Template['vessel.visit.update'].helpers({
             }, {
                 key: 'date',
                 type: 'date',
+                format: 'YYYYMMDD'
             }, {
                 key: 'harborId',
                 type: 'dropdown',
@@ -20,6 +21,7 @@ Template['vessel.visit.update'].helpers({
             }, {
                 key: 'dateNext',
                 type: 'date',
+                format: 'YYYYMMDD'
             }]
         }
     }

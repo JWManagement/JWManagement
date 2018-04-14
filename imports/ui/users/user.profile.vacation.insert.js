@@ -5,10 +5,12 @@ Template['user.profile.vacation.insert'].helpers({
             entityKey: 'vacationId',
             fields: [{
                 key: 'start',
-                type: 'date'
+                type: 'date',
+                format: 'YYYYMMDD'
             }, {
                 key: 'end',
-                type: 'date'
+                type: 'date',
+                format: 'YYYYMMDD'
             }]
         }
     }
