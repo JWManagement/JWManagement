@@ -32,10 +32,14 @@ Template['vessel.details'].helpers({
                         link: 'vessel.visit.details',
                         type: [{
                             key: 'date',
-                            type: 'date'
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
                         }, {
                             key: 'dateNext',
-                            type: 'date'
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
                         }, {
                             key: 'languages'
                         }, {

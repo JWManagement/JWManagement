@@ -11,6 +11,8 @@ Template['vessel.visit.details'].helpers({
                 contents: [{
                     key: 'date',
                     type: 'date',
+                    dbFormat: 'YYYYMMDD',
+                    uiFormat: 'date',
                     canUpdate: 'author'
                 }, {
                     key: 'person',
@@ -37,6 +39,8 @@ Template['vessel.visit.details'].helpers({
                 }, {
                     key: 'dateNext',
                     type: 'date',
+                    dbFormat: 'YYYYMMDD',
+                    uiFormat: 'date',
                     canUpdate: 'author'
                 }]
             }, {
