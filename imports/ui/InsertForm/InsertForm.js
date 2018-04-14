@@ -65,6 +65,9 @@ Template.InsertForm.helpers({
                 if ('allowedKeyValuesMethod' in field) {
                     inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }
+                if (field.type == 'date') {
+                    inputData.format = field.format;
+                }
                 return true;
             }
         });

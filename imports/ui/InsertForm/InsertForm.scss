@@ -81,16 +81,19 @@ body.md-skin[type='InsertForm'] {
             }
 
             .section-date {
-                padding         : 9px 0 9px 15px;
+                padding         : 9px 15px;
                 font-size       : 15px;
                 border-top      : 1px solid #ddd;
                 border-bottom   : 1px solid #ddd;
                 background-color: #fff;
 
-                input {
-                    border : 0;
-                    outline: 0;
-                    padding: 0;
+                .datepicker {
+                    width: auto;
+
+                    table {
+                        width    : 100%;
+                        max-width: 350px;
+                    }
                 }
             }
 
