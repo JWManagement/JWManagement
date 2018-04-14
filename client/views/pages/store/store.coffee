@@ -24,9 +24,13 @@ Template.store.helpers
 			,
 				short: 'nwt'
 			,
+				short: 'jr'
+			,
 				short: 'jw'
 			,
 				short: 'lfb'
+			,
+				short: 'cf'
 			,
 				short: 'ct'
 			,
