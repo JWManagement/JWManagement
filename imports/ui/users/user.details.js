@@ -23,7 +23,7 @@ Template['user.details'].helpers({
                 }, {
                     key: 'profile_bdate',
                     type: 'date',
-                    readonly: true
+                    format: 'YYYYDDD'
                 }, {
                     key: 'profile_pioneer',
                     type: 'dropdown'

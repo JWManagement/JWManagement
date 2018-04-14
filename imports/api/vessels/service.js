@@ -111,7 +111,7 @@ Meteor.methods({
     'vessel.visit.getField': ({ language, projectId, vesselId, visitId, key }) => {
         checkVesselModule(projectId);
 
-        getExtendedVessel(vesselId, language).visits.pop()[key];
+        return getExtendedVessel(vesselId, language).visits.pop()[key];
     },
     'vessel.visit.update': ({ language, projectId, vesselId, visitId }, key, value) => {
         checkVesselModule(projectId);

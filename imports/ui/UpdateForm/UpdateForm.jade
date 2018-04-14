@@ -38,7 +38,7 @@ template(name="UpdateFormDateInput")
     .section(class='{{getErrorClass}}')
         .section-header {{getEntityTranslation}}
         .section-date
-            input.datepicker(type='date' placeholder='{{getEntityTranslation}}')
+            .datepicker
         if hasError
             .section-error
                 p {{getEntityErrorTranslation}}

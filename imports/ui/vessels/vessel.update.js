@@ -6,25 +6,23 @@ Template['vessel.update'].helpers({
         return {
             getMethod: 'vessel.getField',
             backLink: 'vessel.details',
-            fields: [
-                {
-                    key: 'name'
-                }, {
-                    key: 'flag'
-                }, {
-                    key: 'type',
-                    type: 'dropdown',
-                    allowedValues: VesselType.allowedValues
-                }, {
-                    key: 'callsign'
-                }, {
-                    key: 'eni'
-                }, {
-                    key: 'imo'
-                }, {
-                    key: 'mmsi'
-                }
-            ]
+            fields: [{
+                key: 'name'
+            }, {
+                key: 'flag'
+            }, {
+                key: 'type',
+                type: 'dropdown',
+                allowedValues: VesselType.allowedValues
+            }, {
+                key: 'callsign'
+            }, {
+                key: 'eni'
+            }, {
+                key: 'imo'
+            }, {
+                key: 'mmsi'
+            }]
         }
     }
 });

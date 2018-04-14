@@ -25,7 +25,8 @@ Template['user.update'].helpers({
                     allowedValues: Gender.allowedValues
                 }, {
                     key: 'profile_bdate',
-                    type: 'date'
+                    type: 'date',
+                    format: 'YYYYDDD'
                 }, {
                     key: 'profile_pioneer',
                     type: 'dropdown',
