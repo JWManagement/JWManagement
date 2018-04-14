@@ -1,6 +1,5 @@
 note:
     search:
-        dateFormat: MM/DD/YYYY hh:mm a
         placeholder: Title oder text
     entity:
         title: Title

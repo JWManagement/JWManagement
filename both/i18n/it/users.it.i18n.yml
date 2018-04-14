@@ -138,7 +138,6 @@ user:
             vacations: Assenze
             password: Password
             options: Opzioni
-        dateFormat: DD/MM/YYYY
     profile:
         availability:
             details:
