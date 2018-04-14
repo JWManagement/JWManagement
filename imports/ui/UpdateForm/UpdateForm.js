@@ -57,7 +57,7 @@ Template.UpdateForm.onCreated(() => {
                     inputData.error = e.error.reason[0].type;
                     template.inputData.set(inputData);
                 } else {
-                    alert('SERVER ERROR')
+                    alert('SERVER ERROR');
                 }
             }
         });
@@ -85,7 +85,7 @@ Template.UpdateForm.onRendered(() => {
             template.noResult.set(false);
             template.isLoading.set(false);
         } else {
-            alert('SERVER ERROR')
+            alert('SERVER ERROR');
         }
     });
 
@@ -96,6 +96,10 @@ Template.UpdateForm.onRendered(() => {
 
             if (possibleUpdateTypes.indexOf(field.type) > -1) {
                 inputData.type = field.type;
+            }
+
+            if (inputData.type == 'date') {
+                inputData.dbFormat = field.dbFormat;
             }
 
             if (inputData.type == 'dropdown') {
