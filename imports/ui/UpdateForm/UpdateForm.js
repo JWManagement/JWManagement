@@ -99,7 +99,7 @@ Template.UpdateForm.onRendered(() => {
             }
 
             if (inputData.type == 'date') {
-                inputData.dbFormat = field.dbFormat;
+                inputData.format = field.format;
             }
 
             if (inputData.type == 'dropdown') {

@@ -136,8 +136,8 @@ Template.DetailsForm.helpers({
         } else if (content.type == 'date') {
             if (value != null && value != '') {
                 const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                const dbFormat = content.format || 'YYYYMMDD';
-                return moment(value, dbFormat).format(dateFormat);
+                const format = content.format || 'YYYYMMDD';
+                return moment(value, format).format(dateFormat);
             } else {
                 return '';
             }

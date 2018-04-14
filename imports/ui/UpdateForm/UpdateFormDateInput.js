@@ -5,11 +5,11 @@ Template.UpdateFormDateInput.onCreated(() => {
     const data = Template.currentData().data;
 
     template.valueRaw = data.value;
-    template.dbFormat = data.dbFormat;
+    template.format = data.format;
     template.updateForm = data.parentInstance;
 
     if (template.valueRaw != null && template.valueRaw == 'today') {
-        template.valueRaw = moment(new Date()).format(template.dbFormat);
+        template.valueRaw = moment(new Date()).format(template.format);
     }
 });
 
@@ -22,10 +22,10 @@ Template.UpdateFormDateInput.onRendered(() => {
         weekStart: 1,
         language: TAPi18n.getLanguage()
     })
-    .datepicker('setDate', moment(template.valueRaw, template.dbFormat).toDate())
+    .datepicker('setDate', moment(template.valueRaw, template.format).toDate())
     .on('changeDate', (e) => {
         const value = $('.datepicker').datepicker('getDate');
-        let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.dbFormat));
+        let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format));
 
         if (value == '') {
             valueRaw = null;
