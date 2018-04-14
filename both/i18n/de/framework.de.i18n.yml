@@ -16,3 +16,6 @@ validation:
 detailsForm:
     yes: Ja
     no: Nein
+dateFormat:
+    date: DD.MM.YYYY
+    dateAndTime: DD.MM.YYYY HH:mm [Uhr]

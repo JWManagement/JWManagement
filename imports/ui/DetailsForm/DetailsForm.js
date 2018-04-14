@@ -135,9 +135,10 @@ Template.DetailsForm.helpers({
             ].join('.').replace(/_/g, '.'));
         } else if (content.type == 'date') {
             if (value != null && value != '') {
-                const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                const format = content.format || 'YYYYMMDD';
-                return moment(value, format).format(dateFormat);
+                const uiFormat = TAPi18n.__('dateFormat.' + content.uiFormat);
+                const dbFormat = content.dbFormat;
+
+                return moment(value, dbFormat).format(uiFormat);
             } else {
                 return '';
             }
@@ -159,8 +160,10 @@ Template.DetailsForm.helpers({
 
             if (field.type == 'date') {
                 if (value != null) {
-                    const dateFormat = TAPi18n.__(FlowRouter.getRouteName() + '.dateFormat');
-                    return moment(value, 'YYYYMMDD').format(dateFormat);
+                    const uiFormat = TAPi18n.__('dateFormat.' + field.uiFormat);
+                    const dbFormat = field.dbFormat;
+
+                    return moment(value, dbFormat).format(uiFormat);
                 }
                 return '';
             }
