@@ -3,7 +3,7 @@ admin:
     entity:
         settings: Einstellungen
         users: Benutzer
-        publishers: Verkündiger (BETA)
+        publishers: Verkündiger
         reports: Berichte
         store: Depot
         vessels: Schiffe
