@@ -21,7 +21,7 @@ Template['user.update'].helpers({
                     key: 'username'
                 }, {
                     key: 'profile_gender',
-                    type: 'dropdown',
+                    type: 'picker',
                     allowedValues: Gender.allowedValues
                 }, {
                     key: 'profile_bdate',
