@@ -20,8 +20,8 @@ Template.UpdateFormPickerInput.helpers({
         return FlowRouter.getParam('key') + 'Values.' + item;
     },
     isChecked(keyValue) {
-        const data = Template.currentData().data;
-        return keyValue == data.value;
+        const template = Template.instance();
+        return keyValue == template.value.get();
     },
     getSearchEnabledClass() {
         const data = Template.currentData().data;
@@ -38,7 +38,7 @@ Template.UpdateFormPickerInput.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    template.value = data.value;
+    template.value = new ReactiveVar(data.value);
     template.updateForm = data.parentInstance;
     template.allowedValues = data.allowedValues;
     template.allowedKeyValuesMethod = data.allowedKeyValuesMethod;
@@ -55,17 +55,7 @@ Template.UpdateFormPickerInput.onCreated(() => {
     }
 });
 
-Template.UpdateFormPickerInput.onRendered(() => {
-    const template = Template.instance();
-
-    template.autorun(() => {
-        template.allowedKeyValues.get();
-
-        Tracker.afterFlush(() => {
-            template.$('select').val(template.value);
-        });
-    });
-});
+Template.UpdateFormPickerInput.onRendered(() => {});
 
 Template.UpdateFormPickerInput.onDestroyed(() => {});
 
@@ -73,5 +63,6 @@ Template.UpdateFormPickerInput.events({
     'click .form-group': (e, template) => {
         const value = $(e.target).closest('.form-group').attr('key');
         template.updateForm.updateEntity(value);
+        template.value.set(value);
     }
 });
