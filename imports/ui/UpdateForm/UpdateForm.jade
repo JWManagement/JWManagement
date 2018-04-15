@@ -70,16 +70,16 @@ template(name="UpdateFormPickerInput")
     .section-picker(class='{{getSearchEnabledClass}}')
         if isAllowedValues
             each item in getItems
-                .form-group
+                .form-group(key='{{item}}')
                     +with item
-                        .key(key='{{this}}') {{getEntityTranslation getItemKey}}
+                        .key {{getEntityTranslation getItemKey}}
                     if isChecked item
                         .value
                             i.icon.fa.fa-check
         else if isAllowedKeyValues
             each keyValue in getKeyValues
-                .form-group
-                    .key(key='{{keyValue.key}}') {{keyValue.value}}
+                .form-group(key='{{keyValue.key}}')
+                    .key {{keyValue.value}}
                     if isChecked keyValue.key
                         .value
                             i.icon.fa.fa-check

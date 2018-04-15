@@ -70,9 +70,8 @@ Template.UpdateFormPickerInput.onRendered(() => {
 Template.UpdateFormPickerInput.onDestroyed(() => {});
 
 Template.UpdateFormPickerInput.events({
-    'click .item': (e, template) => {
-        const value = template.$(e.target).val();
-
+    'click .form-group': (e, template) => {
+        const value = $(e.target).closest('.form-group').attr('key');
         template.updateForm.updateEntity(value);
     }
 });
