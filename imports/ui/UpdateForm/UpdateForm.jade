@@ -69,11 +69,20 @@ template(name="UpdateFormDropdownInput")
 template(name="UpdateFormPickerInput")
     .section-picker(class='{{getSearchEnabledClass}}')
         if isAllowedValues
-            each getItems
-                .item(key='{{this}}') {{getEntityTranslation getItemKey}}
+            each item in getItems
+                .form-group
+                    +with item
+                        .key(key='{{this}}') {{getEntityTranslation getItemKey}}
+                    if isChecked item
+                        .value
+                            i.icon.fa.fa-check
         else if isAllowedKeyValues
             each keyValue in getKeyValues
-                .item(key='{{keyValue.key}}') {{keyValue.value}}
+                .form-group
+                    .key(key='{{keyValue.key}}') {{keyValue.value}}
+                    if isChecked keyValue.key
+                        .value
+                            i.icon.fa.fa-check
 
 template(name="UpdateFormCheckboxInput")
     .section(class='{{getErrorClass}}')

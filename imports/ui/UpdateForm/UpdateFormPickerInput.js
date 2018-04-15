@@ -16,9 +16,12 @@ Template.UpdateFormPickerInput.helpers({
         return template.allowedKeyValues.get();
     },
     getItemKey() {
-        const template = Template.instance();
         const item = Template.currentData();
         return FlowRouter.getParam('key') + 'Values.' + item;
+    },
+    isChecked(keyValue) {
+        const data = Template.currentData().data;
+        return keyValue == data.value;
     },
     getSearchEnabledClass() {
         const data = Template.currentData().data;
@@ -71,7 +74,5 @@ Template.UpdateFormPickerInput.events({
         const value = template.$(e.target).val();
 
         template.updateForm.updateEntity(value);
-
-        $(e.target).closest('.section').removeClass('has-error');
     }
 });
