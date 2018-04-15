@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Bruder
                 w: Schwester
-                placeholder: Wähle ein Geschlecht
             pioneer: Dienstvorrecht
             pioneerValues:
                 publisher: Verkündiger

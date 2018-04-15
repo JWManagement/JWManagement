@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Brother
                 w: Sister
-                placeholder: Select a gender
             pioneer: Privilege of service
             pioneerValues:
                 publisher: Publisher
