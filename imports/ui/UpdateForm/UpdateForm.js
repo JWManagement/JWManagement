@@ -4,14 +4,27 @@ import './UpdateForm.scss';
 import './UpdateFormTextInput.js';
 import './UpdateFormDateInput.js';
 import './UpdateFormDropdownInput.js';
+import './UpdateFormPickerInput.js';
 import './UpdateFormCheckboxInput.js';
 import './UpdateFormTextboxInput.js';
 
-const possibleUpdateTypes = ['date', 'checkbox', 'dropdown', 'textbox'];
+const possibleUpdateTypes = ['date', 'checkbox', 'dropdown', 'picker', 'textbox'];
 
 Template.UpdateForm.helpers({
     getBackLink() {
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
+    },
+    getSearchTranslation() {
+        const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values';
+
+        let routeNameParts = FlowRouter.getRouteName().split('.');
+        routeNameParts.pop();
+        routeNameParts.splice(1, 0, 'entity');
+
+        let attributeParts = [key];
+        attributeParts.push('placeholder');
+
+        return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
     },
     isReady() {
         return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
@@ -25,11 +38,17 @@ Template.UpdateForm.helpers({
     isDropdown() {
         return Template.instance().inputData.get().type == 'dropdown';
     },
+    isPicker() {
+        return Template.instance().inputData.get().type == 'picker';
+    },
     isCheckbox() {
         return Template.instance().inputData.get().type == 'checkbox';
     },
     isTextbox() {
         return Template.instance().inputData.get().type == 'textbox';
+    },
+    isSearchEnabled() {
+        return Template.instance().inputData.get().search == true;
     },
     getInputData() {
         return Template.instance().inputData.get();
@@ -102,12 +121,14 @@ Template.UpdateForm.onRendered(() => {
                 inputData.format = field.format;
             }
 
-            if (inputData.type == 'dropdown') {
+            if (['dropdown', 'picker'].indexOf(inputData.type) > -1) {
                 if ('allowedValues' in field) {
                     inputData.allowedValues = field.allowedValues;
                 } else if ('allowedKeyValuesMethod' in field) {
                     inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }
+
+                inputData.search = field.search || false;
             }
 
             template.inputData.set(inputData);

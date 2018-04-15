@@ -133,6 +133,27 @@ body.md-skin[type='UpdateForm'] {
             }
         }
 
+        .section-picker {
+            font-size       : 15px;
+            border-top      : 1px solid #ddd;
+            border-bottom   : 1px solid #ddd;
+            background-color: #fff;
+
+            &.search-disabled {
+                margin-top: 25px;
+            }
+
+            div.item {
+                padding      : 9px 15px 9px 0;
+                margin-left  : 15px;
+                border-bottom: 1px solid #ddd;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+            }
+        }
+
         .section.has-error {
             .section-header {
                 color: #f44336;
