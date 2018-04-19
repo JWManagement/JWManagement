@@ -153,24 +153,24 @@ body.md-skin[type='UpdateForm'] {
                     border-bottom: none;
                 }
 
-                .key {
-                    float  : left;
-                    padding: 9px 0;
-                }
-
-                div.value {
+                .checkmark {
+                    width     : 25px;
                     color     : #777;
-                    float     : right;
-                    padding   : 8px;
+                    padding   : 8px 8px 8px 0;
+                    display   : inline-block;
                     text-align: right;
 
                     .icon {
                         color        : #3f51b5;
                         font-size    : 18px;
                         padding-top  : 2px;
-                        padding-left : 7px;
                         padding-right: 3px;
                     }
+                }
+
+                .key {
+                    padding: 9px 0;
+                    display: inline-block;
                 }
             }
         }

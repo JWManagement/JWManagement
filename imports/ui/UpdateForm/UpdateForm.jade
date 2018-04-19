@@ -71,18 +71,18 @@ template(name="UpdateFormPickerInput")
         if isAllowedValues
             each item in getItems
                 .form-group(key='{{item}}')
+                    .checkmark
+                        if isChecked item
+                            i.icon.fa.fa-check
                     +with item
                         .key {{getEntityTranslation getItemKey}}
-                    if isChecked item
-                        .value
-                            i.icon.fa.fa-check
         else if isAllowedKeyValues
             each keyValue in getKeyValues
                 .form-group(key='{{keyValue.key}}')
-                    .key {{keyValue.value}}
-                    if isChecked keyValue.key
-                        .value
+                    .checkmark
+                        if isChecked keyValue.key
                             i.icon.fa.fa-check
+                    .key {{keyValue.value}}
 
 template(name="UpdateFormCheckboxInput")
     .section(class='{{getErrorClass}}')
