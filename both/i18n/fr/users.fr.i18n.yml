@@ -19,6 +19,7 @@ user:
             genderValues:
                 m: Frère
                 w: Soeur
+                placeholder: Sélectionne le genre
             pioneer: Privilège de service
             pioneerValues:
                 publisher: Proclamateur
