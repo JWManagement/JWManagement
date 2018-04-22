@@ -15,7 +15,9 @@ Template['user.insert'].helpers({
                 key: 'username'
             }, {
                 key: 'profile_gender',
-                type: 'dropdown'
+                type: 'picker',
+                allowedValues: Gender.allowedValues,
+                defaultValue: 'm'
             }, {
                 key: 'profile_bdate',
                 type: 'date',
