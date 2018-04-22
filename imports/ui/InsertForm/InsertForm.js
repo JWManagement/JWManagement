@@ -1,12 +1,14 @@
 import './InsertForm.jade';
 import './InsertForm.scss';
 
-import './InsertFormTextInput.js';
+import './InsertFormCheckboxInput.js';
 import './InsertFormDateInput.js';
 import './InsertFormDropdownInput.js';
-import './InsertFormCheckboxInput.js';
-import './InsertFormTextboxInput.js';
+import './InsertFormLink.js';
 import './InsertFormPasswordInput.js';
+import './InsertFormPickerInput.js';
+import './InsertFormTextboxInput.js';
+import './InsertFormTextInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
@@ -14,6 +16,19 @@ Template.InsertForm.helpers({
     },
     getFields() {
         return Template.instance().fields;
+    },
+    activeField() {
+        const template = Template.instance();
+
+        for (let field of template.fields) {
+            if (field.key == template.activeField.get()) {
+                return field;
+            }
+        }
+        return {};
+    },
+    isPicker(field) {
+        return field.type == 'picker';
     },
     isDate(field) {
         return field.type == 'date';
@@ -68,6 +83,11 @@ Template.InsertForm.helpers({
                 if (field.type == 'date') {
                     inputData.format = field.format;
                 }
+                if (template.entity[field.key] != null) {
+                    inputData.value = template.entity[field.key];
+                }  else if (field.defaultValue != null) {
+                    inputData.value = field.defaultValue;
+                }
                 return true;
             }
         });
@@ -89,6 +109,7 @@ Template.InsertForm.onCreated(() => {
     template.entity = {};
     template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);
+    template.activeField = new ReactiveVar({});
 
     template.setFieldValue = (key, value) => {
         template.entity[key] = value;
@@ -110,6 +131,16 @@ Template.InsertForm.onDestroyed(() => {
 });
 
 Template.InsertForm.events({
+    'click .navbar-back': function(e) {
+        const template = Template.instance();
+
+        if (template.activeField.get() != {}) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            template.activeField.set({});
+        }
+    },
     'change input': function(e) {
         const template = Template.instance();
         const key = this.data.key;

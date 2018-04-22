@@ -12,25 +12,32 @@ template(name="InsertForm")
                 a.navbar-save(href) {{_ 'navigation.save'}}
 
     form.form-horizontal
-        each field in getFields
-            if isDropdown field
-                with field
-                    +InsertFormDropdownInput data=getInputData
-            else if isCheckbox field
-                with field
-                    +InsertFormCheckboxInput data=getInputData
-            else if isDate field
-                with field
-                    +InsertFormDateInput data=getInputData
-            else if isTextbox field
-                with field
-                    +InsertFormTextboxInput data=getInputData
-            else if isPassword field
-                with field
-                    +InsertFormPasswordInput data=getInputData
-            else
-                with field
-                    +InsertFormTextInput data=getInputData
+        if isPicker activeField
+            with activeField
+                +InsertFormPickerInput data=getInputData
+        else
+            each field in getFields
+                if isDropdown field
+                    with field
+                        +InsertFormDropdownInput data=getInputData
+                else if isCheckbox field
+                    with field
+                        +InsertFormCheckboxInput data=getInputData
+                else if isDate field
+                    with field
+                        +InsertFormDateInput data=getInputData
+                else if isTextbox field
+                    with field
+                        +InsertFormTextboxInput data=getInputData
+                else if isPassword field
+                    with field
+                        +InsertFormPasswordInput data=getInputData
+                else if isPicker field
+                    with field
+                        +InsertFormLink data=getInputData
+                else
+                    with field
+                        +InsertFormTextInput data=getInputData
 
 template(name="InsertFormTextInput")
     .section(class='{{getErrorClass}}')
@@ -78,6 +85,25 @@ template(name="InsertFormDropdownInput")
             .section-error
                 p {{getEntityErrorTranslation}}
 
+template(name="InsertFormPickerInput")
+    .section(key='{{getKey}}')
+        .section-picker
+            if isAllowedValues
+                each item in getItems
+                    .form-group(key='{{item}}')
+                        .checkmark
+                            if isChecked item
+                                i.icon.fa.fa-check
+                        +with item
+                            .key {{getEntityTranslation getItemKey}}
+            else if isAllowedKeyValues
+                each keyValue in getKeyValues
+                    .form-group(key='{{keyValue.key}}')
+                        .checkmark
+                            if isChecked keyValue.key
+                                i.icon.fa.fa-check
+                        .key {{keyValue.value}}
+
 template(name="InsertFormCheckboxInput")
     .section(class='{{getErrorClass}}')
         .section-header {{getEntityTranslation getKey}}
@@ -97,3 +123,12 @@ template(name="InsertFormTextboxInput")
         if hasError
             .section-error
                 p {{getEntityErrorTranslation}}
+
+template(name="InsertFormLink")
+    .section
+        .section-header {{getEntityTranslation getKey}}
+        .section-content
+            .link.clearfix
+                .key {{getValue}}
+                .value
+                    i.icon.fa.fa-angle-right
