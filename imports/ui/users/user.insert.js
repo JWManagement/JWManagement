@@ -1,3 +1,7 @@
+import Gender from '/imports/api/dropdowns/Gender.js';
+import Pioneer from '/imports/api/dropdowns/Pioneer.js';
+import Privilege from '/imports/api/dropdowns/Privilege.js';
+
 Template['user.insert'].helpers({
     data() {
         return {
@@ -15,17 +19,20 @@ Template['user.insert'].helpers({
                 key: 'username'
             }, {
                 key: 'profile_gender',
-                type: 'dropdown'
+                type: 'dropdown',
+                allowedValues: Gender.allowedValues
             }, {
                 key: 'profile_bdate',
                 type: 'date',
                 format: 'YYYYDDD'
             }, {
                 key: 'profile_pioneer',
-                type: 'dropdown'
+                type: 'dropdown',
+                allowedValues: Pioneer.allowedValues
             }, {
                 key: 'profile_privilege',
-                type: 'dropdown'
+                type: 'dropdown',
+                allowedValues: Privilege.allowedValues
             }, {
                 key: 'profile_languages'
             }]
