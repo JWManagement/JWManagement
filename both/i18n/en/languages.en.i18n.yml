@@ -19,6 +19,7 @@ language:
     _CB: Cambodian
     _CH: Chinese Mandarin (Traditional)
     _CHS: Chinese Mandarin (Simplified)
+    _CS: Czech
     _CV: Cebuano
     _DAR: Dari
     _DGS: German Sign Language
@@ -38,11 +39,12 @@ language:
     _IN: Indonesian
     _J: Japanese
     _K: Ukrainian
+    _KEA: Kabuverdianu
     _KO: Korean
     _KRI: Krio
     _L: Lithuanian
-    _LT: Letvian
-    _LV: Letvian # legacy for not-updated depots
+    _LT: Latvian
+    _LV: Latvian # legacy for not-updated depots
     _M: Romanian
     _MC: Macedonian
     _O: Dutch
