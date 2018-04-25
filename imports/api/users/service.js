@@ -4,6 +4,7 @@ import RoleManager from '/imports/api/managers/RoleManager.js'
 import MailManager from '/imports/api/managers/MailManager.js'
 import State from '/imports/api/dropdowns/State.js'
 import { Accounts } from 'meteor/accounts-base'
+import objectAssignDeep from 'object-assign-deep';
 
 Meteor.methods({
     'user.search': ({ language, projectId, searchString, limit }) => {
@@ -107,8 +108,20 @@ Meteor.methods({
     'user.insert': ({ language, projectId }, user) => {
         checkPermissions(projectId);
 
+        let userObj = {};
+
+        for (let property in user) {
+            let propertyObj = user[property];
+
+            for (let [index, part] of property.split('_').reverse().entries()) {
+                propertyObj = {[part]: propertyObj};
+            }
+
+            userObj = objectAssignDeep(userObj, propertyObj);
+        }
+
         try {
-            Users.persistence.insert(user);
+            Users.persistence.insert(userObj);
             return user._id;
         } catch(e) {
             throw new Meteor.Error(e);
