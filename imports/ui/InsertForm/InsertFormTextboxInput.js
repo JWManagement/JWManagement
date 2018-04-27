@@ -7,6 +7,13 @@ Template.InsertFormTextboxInput.helpers({
             return data.value;
         }
         return '';
+    },
+    isRequired() {
+        const data = Template.currentData().data;
+        if (data.required != null) {
+            return data.required;
+        }
+        return false;
     }
 });
 

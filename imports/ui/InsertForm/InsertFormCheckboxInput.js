@@ -1,4 +1,12 @@
-Template.InsertFormCheckboxInput.helpers({});
+Template.InsertFormCheckboxInput.helpers({
+    isRequired() {
+        const data = Template.currentData().data;
+        if (data.required != null) {
+            return data.required;
+        }
+        return false;
+    }
+});
 
 Template.InsertFormCheckboxInput.onCreated(() => {
     const template = Template.instance();

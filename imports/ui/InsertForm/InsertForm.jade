@@ -34,7 +34,10 @@ template(name="InsertForm")
 
 template(name="InsertFormTextInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-content
             .text-input
                 input(type='text' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
@@ -44,7 +47,10 @@ template(name="InsertFormTextInput")
 
 template(name="InsertFormPasswordInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-content
             .text-input
                 input(type='password' placeholder='{{getEntityTranslation getKey}}' value='{{getValue}}')
@@ -54,7 +60,10 @@ template(name="InsertFormPasswordInput")
 
 template(name="InsertFormDateInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-date
             .datepicker
         if hasError
@@ -63,7 +72,10 @@ template(name="InsertFormDateInput")
 
 template(name="InsertFormDropdownInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-select
             select(name='{{getKey}}')
                 with 'placeholder'
@@ -80,7 +92,10 @@ template(name="InsertFormDropdownInput")
 
 template(name="InsertFormCheckboxInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-select
             input(type='checkbox' checked='true')
             | {{getEntityTranslation getKey}}
@@ -90,7 +105,10 @@ template(name="InsertFormCheckboxInput")
 
 template(name="InsertFormTextboxInput")
     .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-content
             .text-input
                 textarea(placeholder='{{getEntityTranslation getKey}}') {{getValue}}
