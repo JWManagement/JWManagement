@@ -157,7 +157,7 @@ Template.InsertForm.events({
                     }
 
                     template.errors.set(errors.map((error) => {
-                        error.name = error.name.split('.').pop();
+                        error.name = error.name.replace(/\./g, '_');
                         return error;
                     }));
                 } else {
