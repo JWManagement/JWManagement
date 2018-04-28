@@ -12,11 +12,13 @@ Template['vessel.visit.insert'].helpers({
                 key: 'date',
                 type: 'date',
                 default: 'today',
-                format: 'YYYYMMDD'
+                format: 'YYYYMMDD',
+                required: true
             }, {
                 key: 'harborId',
                 type: 'dropdown',
-                allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
+                allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors',
+                required: true
             }, {
                 key: 'dateNext',
                 type: 'date',

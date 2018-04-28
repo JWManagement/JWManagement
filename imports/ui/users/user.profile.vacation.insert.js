@@ -6,11 +6,13 @@ Template['user.profile.vacation.insert'].helpers({
             fields: [{
                 key: 'start',
                 type: 'date',
-                format: 'YYYYMMDD'
+                format: 'YYYYMMDD',
+                required: true
             }, {
                 key: 'end',
                 type: 'date',
-                format: 'YYYYMMDD'
+                format: 'YYYYMMDD',
+                required: true
             }]
         }
     }

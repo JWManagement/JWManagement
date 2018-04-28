@@ -8,11 +8,13 @@ Template['user.profile.availability.insert'].helpers({
             fields: [{
                 key: 'start',
                 type: 'dropdown',
-                allowedValues: Hour.allowedValues
+                allowedValues: Hour.allowedValues,
+                required: true
             }, {
                 key: 'end',
                 type: 'dropdown',
-                allowedValues: Hour.allowedValues
+                allowedValues: Hour.allowedValues,
+                required: true
             }]
         }
     }

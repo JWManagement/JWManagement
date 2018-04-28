@@ -8,19 +8,24 @@ Template['user.insert'].helpers({
             backLink: 'user.search',
             entityKey: 'userId',
             fields: [{
-                key: 'profile_firstname'
+                key: 'profile_firstname',
+                required: true
             }, {
-                key: 'profile_lastname'
+                key: 'profile_lastname',
+                required: true
             }, {
-                key: 'profile_email'
+                key: 'profile_email',
+                required: true
             }, {
                 key: 'profile_telefon'
             }, {
-                key: 'username'
+                key: 'username',
+                required: true
             }, {
                 key: 'profile_gender',
                 type: 'dropdown',
-                allowedValues: Gender.allowedValues
+                allowedValues: Gender.allowedValues,
+                required: true
             }, {
                 key: 'profile_bdate',
                 type: 'date',
@@ -28,11 +33,13 @@ Template['user.insert'].helpers({
             }, {
                 key: 'profile_pioneer',
                 type: 'dropdown',
-                allowedValues: Pioneer.allowedValues
+                allowedValues: Pioneer.allowedValues,
+                required: true
             }, {
                 key: 'profile_privilege',
                 type: 'dropdown',
-                allowedValues: Privilege.allowedValues
+                allowedValues: Privilege.allowedValues,
+                required: true
             }, {
                 key: 'profile_languages'
             }]

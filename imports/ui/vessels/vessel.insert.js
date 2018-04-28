@@ -7,13 +7,15 @@ Template['vessel.insert'].helpers({
             backLink: 'vessel.search',
             entityKey: 'vesselId',
             fields: [{
-                key: 'name'
+                key: 'name',
+                required: true
             }, {
                 key: 'flag'
             }, {
                 key: 'type',
                 type: 'dropdown',
-                allowedValues: VesselType.allowedValues
+                allowedValues: VesselType.allowedValues,
+                required: true
             }, {
                 key: 'callsign'
             }, {
