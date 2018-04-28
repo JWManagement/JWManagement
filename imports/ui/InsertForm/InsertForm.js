@@ -119,7 +119,7 @@ Template.InsertForm.events({
         const errors = template.errors.get();
         let newErrors = [];
 
-        for (let error in errors) {
+        for (let error of errors) {
             if (error.name != key) {
                 newErrors.push(error);
             }
@@ -132,7 +132,7 @@ Template.InsertForm.events({
         const errors = template.errors.get();
         let newErrors = [];
 
-        for (let error in errors) {
+        for (let error of errors) {
             if (error.name != key) {
                 newErrors.push(error);
             }
