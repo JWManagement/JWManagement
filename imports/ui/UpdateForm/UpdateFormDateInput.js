@@ -15,9 +15,9 @@ Template.UpdateFormDateInput.onCreated(() => {
 
 Template.UpdateFormDateInput.onRendered(() => {
     const template = Template.instance();
-    const $weekPicker = $('.datepicker');
+    const $datePicker = $('.datepicker');
 
-    $weekPicker.datepicker({
+    $datePicker.datepicker({
         maxViewMode: 0,
         weekStart: 1,
         language: TAPi18n.getLanguage()
@@ -37,10 +37,10 @@ Template.UpdateFormDateInput.onRendered(() => {
     });
 
     if (template.valueRaw != '') {
-        $weekPicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
+        $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
     }
 
-    $weekPicker.find('.table-condensed').removeClass('table-condensed');
+    $datePicker.find('.table-condensed').removeClass('table-condensed');
 });
 
 Template.UpdateFormDateInput.onDestroyed(() => {});
