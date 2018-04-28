@@ -27,19 +27,23 @@ Template.InsertFormDateInput.onCreated(() => {
 
 Template.InsertFormDateInput.onRendered(() => {
     const template = Template.instance();
+    const $datePicker = template.$('.datepicker');
 
-    template.$('.datepicker').datepicker({
+    $datePicker.datepicker({
         maxViewMode: 0,
         weekStart: 1,
         language: TAPi18n.getLanguage()
     })
-    .datepicker('setDate', template.defaultValue)
     .on('changeDate', (e) => {
         const valueRaw = template.$('.datepicker').datepicker('getDate');
         const value = parseInt(moment(valueRaw, 'YYYY-MM-DD').format(template.format));
 
         template.insertForm.setFieldValue(template.key, value);
     });
+
+    if (template.defaultValue != null) {
+        $datePicker.datepicker('setDate', template.defaultValue);
+    }
 });
 
 Template.InsertFormDateInput.onDestroyed(() => {});
