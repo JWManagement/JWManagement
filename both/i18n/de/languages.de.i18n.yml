@@ -1,9 +1,12 @@
 language:
     _de: Deutsch
     _en: Englisch
-    _pt: Portugiesisch
+    _fr: Französisch (teilweise)
     _hu: Ungarisch
+    _it: Italienisch (teilweise)
     _pl: Polnisch
+    _pt: Portugiesisch
+    _ru: Russisch
     _A: Arabisch
     _AL: Albanisch
     _AR: Bambaro
@@ -16,6 +19,8 @@ language:
     _CB: Kambodschanisch
     _CH: Chinesisch
     _CHS: Chinesisch (vereinfacht)
+    _CS: Tschechisch
+    _CV: Cebuano
     _DAR: Dari
     _DGS: Deutsche Gebärdensprache
     _E: Englisch
@@ -27,15 +32,18 @@ language:
     _GE: Georgisch
     _H: Ungarisch
     _HI: Hindi
+    _HV: Hiligaynon
     _I: Italienisch
     _IB: Igbo
+    _IL: Iloko
     _IN: Indonesisch
     _J: Japanisch
     _K: Ukrainisch
     _KO: Koreanisch
+    _KEA: Kapverdisches Kreol
     _KRI: Krio
-    _LT: Litauisch
-    _LV: Lettisch
+    _L: Litauisch
+    _LT: Lettisch
     _M: Rumänisch
     _MC: Makedonisch
     _O: Niederländisch
@@ -59,6 +67,7 @@ language:
     _ST: Estnisch
     _SV: Slowenisch
     _T: Portugiesisch
+    _TG: Tagalog
     _TI: Tigrinja
     _TK: Türkisch
     _TL: Tamil

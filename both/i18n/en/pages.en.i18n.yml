@@ -1,88 +1,3 @@
-navigation:
-    welcome: Welcome
-    home: Dashboard
-    profile: My Profile
-    shifts: Shifts
-    wiki: Information Center
-    admin: Administration
-    settings: Settings
-    users: Users
-    reports: Reports
-    store: Store Room
-    vessels: Vessels
-    notes: Notes
-    login: Login
-    logout: Logout
-    loggingOut: Logging out...
-    firstLogin: First Login
-    forgotPassword: Forgot Password
-    resetPassword: Reset Password
-    about: About this Website
-    terms: Terms of Usage
-    privacy: Data Privacy Policy
-    donate: Donate
-    support: Support
-    version: Version
-    new: New
-welcome:
-    links:
-        home: Home
-        features: Features
-        contact: Contact
-        login: Login
-        dashboard: Open Dashboard
-    header:
-        title: Advanced shift management
-        description: JW Management is a highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing and construction projects.
-    divider:
-        first:
-            title: Multiple Tags
-            description: Easily separate different shifts with tags; assign publishers to the tags where shifts can be requested. Also define which publishers receive permission to serve as team leaders.
-        second:
-            title: Shift Teams
-            description: Define one or more teams in a shift. Each will have its own team-leader. Provide further information for every team, such as a description, a picture with a route, meeting points and more.
-        third:
-            title: Store Room
-            description: Manage your store room via JW Management. After each shift a team leader can report what has been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is low on stock.
-        fourth:
-            title: Notifications
-            description: Through the powerful notification system, you can be notified of your requests, confirmations or refusals, as well as changes to your shifts, with the ability to reply.
-    feature1:
-        title: Multifunctional Tool
-        description: <p>Although JW Management is optimized for public witnessing projects, the main focus is on being a shift management system.</p><p>You could also manage your assembly's stewards, a Bible exhibition, a construction project or something else.</p><p>Where possible, we are willing to optimize the system for your needs too.</p>
-    feature2:
-        title: Latest Changes
-        more: Show more
-    feature3:
-        title: Free & Open-Source
-        description: <p>Visit the Repository and see how we develop JW Management. You can suggest features, report bugs or directly propose a 'Pull Request' with your code changes.</p><p>If you would like to translate the system into another language, send us the translation files as 'Pull Request' or via email.</p>
-        free: Completely free
-        repo: GitHub Repository
-    contact:
-        title: Contact Us
-        description: <p>Want to test the system?</p><p>Choose "Project Enquiry" in the form on the right and we'll create a project for you.</p><p>Have another question or suggestion?</p><p>Select the matching option in the form on the right and let us know.</p>
-        name: Firstname and Lastname
-        email: Email Address
-        projectName: Project name
-        enquiry: Project Enquiry
-        login: Login Problem
-        problem: General Problem
-        suggestion: Feature Request
-        question: General Question
-        message: Message
-        whatFor: What do you want to organize?
-        send: Send
-        sendEnquiry: Send Enquiry
-        fillOutCompletely: Please fill out all required fields
-        enquirySuccessful: Enquiry successfully sent!
-        issueTip: Tip: You can directly tell us about the bugs you found or the ideas you have via our ticket system (GitHub). Then you can exactly see what we do and when your proposed changes will go live.
-        loginTip: Tip: If you forgot your password, you can just reset it using the button beneath. If you have done this and it still doesn't work, consider talking to your elders.
-        toGithub: Visit GitHub
-        toForgotPassword: Reset Password
-        required: Required
-        about: About this website
-        terms: Terms of usage
-        privacy: Privacy policy
 login:
     name: Login
     welcome: Welcome to JW Management
@@ -244,18 +159,6 @@ shifts:
         noPermission: Only a project manager or shift manager is allowed to edit or schedule shifts.
 day:
     removeAll: Remove all
-admin:
-    name: Administration
-    nameShort: Admin
-users:
-    title: Userlist
-    search: Search...
-    inviteUser: Invite added users
-    addNewUser: Add new user
-    deleted: Deleted!
-    sendToAll: Email to all
-    sendToAllInTag: Email to all in tag %s
-    export: Export as csv
 reports:
     placements: Placements
     bibles: Bibles
@@ -352,46 +255,6 @@ settings:
         none: No meeting points have been added yet
         add: Add a new meeting point
         remove: Remove this meeting point
-vessels:
-    title: Vessels
-    nameShort: Vessels
-    search: Search
-    placeholder: Vessel name, call sign, ENI, IMO or MMSI
-    addNewVessel: Add new vessel
-    name: Vessel name
-    flag: Flag
-    type: Type
-    types:
-        c: Container ship
-        cr: Cruise ship
-        mf: Cargo
-        mt: Tanker
-        p: Passenger ship
-        pt: Pushtow
-        rc: River cruise ship
-        f: Ferry
-        ro: Ro-Ro
-        t: Tug
-        unknown: Unknown
-    callsign: Call sign
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    lastVisit: Last visit
-    harborGroup: Harbor group
-    nextVisit: Next visit after
-    languages: Language(s) on board
-    languagesPlaceholder: No person-specific information!
-    comments: Comments
-    commentsPlaceholder: No person-specific information!
-    noResults: No results
-    moreResultsAvailable: We found %s results. The first 20 are shown.
-notes:
-    description: Here you can create simple notes. Every Project manager, Shift manager and Store manager can see these notes. So you can keep things in mind together as a team.
-    createNote: Create note
-    title: Title
-    text: Text
-    deleteNote: Delete this note
 firstLogin:
     name: Welcome
     text: <p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>
@@ -404,13 +267,6 @@ firstLogin:
     agreeTermsMissing: Please agree the terms of usage and the privacy policy.
     buttonCreateAccount: I need to create an account
     buttonHaveAccount: I already have an account
-about:
-    title: Legal Disclosure
-    information: Information in accordance with section 5 TMG
-    contact: Contact
-    telephone: Telephone
-    email: E-Mail
-    back: Back to Home Page
 terms:
     title: Terms of Usage
     text: <h2>Limitation of liability for internal content</h2><p>The content of our website has been compiled with meticulous care and to the best of our knowledge. However, we cannot assume any liability for the up-to-dateness, completeness or accuracy of any of the pages.</p><p>Pursuant to section 7, para. 1 of the TMG (Telemediengesetz – Tele Media Act by German law), we as service providers are liable for our own content on these pages in accordance with general laws. However, pursuant to sections 8 to 10 of the TMG, we as service providers are not under obligation to monitor external information provided or stored on our website. Once we have become aware of a specific infringement of the law, we will immediately remove the content in question. Any liability concerning this matter can only be assumed from the point in time at which the infringement becomes known to us.</p><h2>Limitation of liability for external links</h2><p>Our website contains links to the websites of third parties (“external links”). As the content of these websites is not under our control, we cannot assume any liability for such external content. In all cases, the provider of information of the linked websites is liable for the content and accuracy of the information provided. At the point in time when the links were placed, no infringements of the law were recognisable to us. As soon as an infringement of the law becomes known to us, we will immediately remove the link in question.</p><h2>Copyright</h2><p>The content and works published on this website are governed by the copyright laws of Germany. Any duplication, processing, distribution or any form of utilisation beyond the scope of copyright law shall require the prior written consent of the author or authors in question.</p><h2>Data protection</h2><p>A visit to our website can result in the storage on our server of information about the access (date, time, page accessed). This does not represent any analysis of personal data (e.g., name, address or e-mail address). If personal data are collected, this only occurs – to the extent possible – with the prior consent of the user of the website. Any forwarding of the data to third parties without the express consent of the user shall not take place.</p><p>We would like to expressly point out that the transmission of data via the Internet (e.g., by e-mail) can offer security vulnerabilities. It is therefore impossible to safeguard the data completely against access by third parties. We cannot assume any liability for damages arising as a result of such security vulnerabilities.</p><p>The use by third parties of all published contact details for the purpose of advertising is expressly excluded. We reserve the right to take legal steps in the case of the unsolicited sending of advertising information; e.g., by means of spam mail.</p><p>Source: Mustervorlage.net</p>
@@ -419,6 +275,3 @@ privacy:
     title: Data Privacy Policy
     text: <h2>Data Privacy</h2><p>Our website may be used without entering personal information. Different rules may apply to certain services on our site, however, and are explained separately below. We collect personal information from you (e.g. name, address, email address, telephone number, etc.) in accordance with the provisions of German data protection statutes. Information is considered personal if it can be associated exclusively to a specific natural person. The legal framework for data protection may be found in the German Federal Data Protection Act (BDSG) and the Telemedia Act (TMG). The provisions below serve to provide information as to the manner, extent and purpose for collecting, using and processing personal information by the provider.</p><p>Please be aware that data transfer via the internet is subject to security risks and, therefore, complete protection against third-party access to transferred data cannot be ensured.</p><h2>Cookies</h2><p>Our website makes use of so-called cookies in order to recognize repeat use of our website by the same user/internet connection subscriber. Cookies are small text files that your internet browser downloads and stores on your computer. They are used to improve our website and services. In most cases these are so-called "session cookies" that are deleted once you leave our website.</p><p>To an extent, however, these cookies also pass along information used to automatically recognize you. Recognition occurs through an IP address saved to the cookies. The information thereby obtained is used to improve our services and to expedite your access to the website.</p><p>You can prevent cookies from being installed by adjusting the settings on your browser software accordingly. You should be aware, however, that by doing so you may not be able to make full use of all the functions of our website.</p><h2>Server Data</h2><p>For technical reasons, data such as the following, which your internet browser transmits to us or to our web space provider (so called server log files), is collected:</p><ul><li>type and version of the browser you use</li><li>operating system</li><li>websites that linked you to our site (referrer URL)</li><li>websites that you visit</li><li>date and time of your visit</li><li>your Internet Protocol (IP) address.</li></ul><p>This anonymous data is stored separately from any personal information you may have provided, thereby making it impossible to connect it to any particular person. The data is used for statistical purposes in order to improve our website and services.</p><h2>Purpose of Registering</h2><p>We offer you the opportunity to sign up for our website. The information entered when signing up, as shown in the registration form, is collected and stored solely for use by our website. When signing up for our website, we also store your IP address and the date and time you registered. This serves to protect us in the event a third party improperly and without your knowledge makes use of your data to sign up for our site. None of this information is transferred to third parties. Nor is any of this information matched to any information that may be collected by other components of our website.</p><h2>Newsletter</h2><p>Our website offers you the opportunity to subscribe to our newsletter. The newsletter provides you periodically with information about our services. To receive our newsletter, we require a valid email address. We will review the email address you provide for the purpose of determining whether you are in fact the owner of the email address provided or whether the actual owner of said address is authorized to receive the newsletter. When subscribing to our newsletter, we will store your IP address as well as the date and time you subscribed. This serves to protect us in the event a third party improperly and without your knowledge makes use of your email address to subscribe to our newsletter. We will not collect any other data. The data thereby collected is used solely for the purpose of receiving our newsletter. No data is transferred to third parties. Nor is any of this information matched to any information that other components of our website may collect. You may cancel your subscription to the newsletter at any time. You will find additional details in the email confirming your subscription as well as in each newsletter.</p><h2>Contacting Us</h2><p>On our website we offer you the opportunity to contact us, either by email and/or by using a contact form. In such event, information provided by the user is stored for the purpose of facilitating communications with the user. No data is transferred to third parties. Nor is any of this information matched to any information that may be collected by other components of our website.</p><h2>Use of Google Analytics with anonymization</h2><p>Our website uses Google Analytics, a web analysis service from Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA, hereinafter referred to as “Google“. Google Analytics employs so-called “cookies“, text files that are stored to your computer in order to facilitate an analysis of your use of the site. The information generated by these cookies, such as time, place and frequency of your visits to our site, including your IP address, is transmitted to Google’s location in the US and stored there. In using Google Analytics our website employs the extension, "_gat._anonymizeIp". In doing so, Google abbreviates and thereby anonymizes your IP address before transferring it from member states of the European Union or signatory states to the Agreement on the European Economic Area. Google uses this information to analyze your use of our site, to compile reports for us on internet activity and to provide other services relating to website and internet use. Google may also transfer this information to third parties where required to do so by law or where such third parties process this data on Google’s behalf.  Google states that it will in never associate your IP address with other data held by Google. You can prevent cookies from being installed by adjusting the settings on your browser software accordingly. You should be aware, however, that by doing so you may not be able to make full use of all the functions of our website. Furthermore, Google offers a deactivation add-on for most current browsers that provides you with more control over what data Google can collect on websites you access. The add-on tells the JavaScript (ga.js) used by Google Analytics not to transmit any information about website visits to Google Analytics. However, the browser deactivation add-on offered by Google Analytics does not prevent information from being transmitted to us or to other web analysis services we may engage. You can find additional information on how to install the browser add-on at the following link: https://tools.google.com/dlpage/gaoptout?hl=de</p><h2>Information/Cancellation/Deletion</h2><p>On the basis of the Federal Data Protection Act, you may contact us at no cost if you have questions relating to the collection, processing or use of your personal information, if you wish to request the correction, blocking or deletion of the same, or if you wish to cancel explicitly granted consent. Please note that you have the right to have incorrect data corrected or to have personal data deleted, where such claim is not barred by any legal obligation to retain this data.</p>
     back: Back to Home Page
-donate:
-    title: Donate
-    text: <p>Thank you for visiting this page!</p><p>If you would like to help us host JW Management we would be very grateful! Thank you so much! <i class="fa fa-heart text-danger"></i></p>

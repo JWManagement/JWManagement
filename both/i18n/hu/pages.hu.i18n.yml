@@ -1,27 +1,3 @@
-navigation:
-    welcome: Üdvözlet
-    home: Müszerfal
-    profile: Saját Profil
-    shifts: Időpontok
-    wiki: Információs központ
-    admin: Adminisztráció
-    settings: Beállítások
-    users: Felhasználók
-    reports: Jelentések
-    store: Készletezés
-    notes: Jegyzet
-    login: Bejelentkezés
-    logout: Kijelentkezés
-    loggingOut: Kijelentkezés folyamatban...
-    firstLogin: Első bejelentkezés
-    forgotPassword: Elfelejtett jelszó
-    resetPassword: Jelszó visszaállítás
-    about: A weboldalról
-    terms: Felhasználási feltételek
-    privacy: Adatkezelési jogok
-    donate: Adományozás
-    version: Verzió
-    new: Új
 welcome:
     links:
         home: Kezdőlap
@@ -74,7 +50,6 @@ welcome:
         toGithub: Látogasson el a GitHub-ra
         toForgotPassword: Jelszó változatás
         required: Kivánt
-        about: A weboldalról
         terms: Felhasználási feltételek
         privacy: Adatvédelmi irányelvek
 login:
@@ -347,19 +322,9 @@ firstLogin:
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Adj meg egy felhasználónevet!
     agreeTermsMissing: Kérünk, fogadd el a használati feltételeket és az adatvédelmi irányelvet.
-about:
-    title: Jogi nyilatkozat
-    information: Tájékoztatás az 5. szakasz szerint TMG-ben
-    contact: Kapcsolat
-    telephone: Telefon
-    email: E-Mail
-    back: Vissza a kezdő oldalra
 terms:
     title: Használási feltételek (angol)
     back: Vissza a kezdő oldalra
 privacy:
     title: Adatvédelmi irányelvek (angol)
     back: Vissza a kezdőoldalra
-donate:
-    title:
-    text:

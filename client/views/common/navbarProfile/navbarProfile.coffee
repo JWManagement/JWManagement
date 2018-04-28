@@ -12,7 +12,7 @@ Template.navbarProfile.onCreated ->
 
 	PictureSubs.subscribe 'profilePicture', Meteor.userId()
 
-	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) ->
+	HTTP.call 'GET', 'https://api.github.com/repos/JWDeveloper/JWManagement/releases/latest', (e, a) -> if a?.data?
 		Session.set 'latestRelease',
 			tag: a.data.tag_name
 			new: moment(new Date).diff(a.data.published_at, 'days') < 3

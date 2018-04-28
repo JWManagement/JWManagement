@@ -1,9 +1,12 @@
 language:
     _de: German
     _en: English
-    _pt: Portuguese
+    _fr: French (partially)
     _hu: Hungarian
+    _it: Italian (partially)
     _pl: Polish
+    _pt: Portuguese
+    _ru: Russian
     _A: Arabic
     _AL: Albanian
     _AR: Bambara
@@ -16,6 +19,8 @@ language:
     _CB: Cambodian
     _CH: Chinese Mandarin (Traditional)
     _CHS: Chinese Mandarin (Simplified)
+    _CS: Czech
+    _CV: Cebuano
     _DAR: Dari
     _DGS: German Sign Language
     _E: English
@@ -27,15 +32,19 @@ language:
     _GE: Georgian
     _H: Hungarian
     _HI: Hindi
+    _HV: Hiligaynon
     _I: Italian
     _IB: Igbo
+    _IL: Iloko
     _IN: Indonesian
     _J: Japanese
     _K: Ukrainian
+    _KEA: Kabuverdianu
     _KO: Korean
     _KRI: Krio
-    _LT: Lithuanian
-    _LV: Letvian
+    _L: Lithuanian
+    _LT: Latvian
+    _LV: Latvian # legacy for not-updated depots
     _M: Romanian
     _MC: Macedonian
     _O: Dutch
@@ -59,6 +68,7 @@ language:
     _ST: Estonian
     _SV: Slovenian
     _T: Portugese
+    _TG: Tagalog
     _TI: Tigrinya
     _TK: Turkish
     _TL: Tamil

@@ -12,7 +12,9 @@
 						each getUsers
 							option(value="{{_id}}")
 								| {{firstname}} {{lastname}}
-								if available
+								if isVacation
+									| ({{_ 'profile.vacation.title'}})
+								else if available
 									| ({{_ 'modal.addParticipant.available'}})
 								else if shortTerm
 									| ({{_ 'modal.addParticipant.callable'}})

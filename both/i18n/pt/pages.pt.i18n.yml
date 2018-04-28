@@ -1,21 +1,3 @@
-navigation:
-    welcome: Bem Vindo
-    home: Painel de Controlo
-    profile: Meu Perfil
-    shifts: Turnos
-    wiki: Centro de Informação
-    admin: Administração
-    settings: Configurações
-    users: Usuários
-    reports: Relatórios
-    store: Sala de armazenamento
-    notes: Notas
-    login: Entrar
-    logout: Sair
-    loggingOut: Saindo...
-    firstLogin: Primeira Entrada
-    forgotPassword: Esqueci a palavra-passe
-    resetPassword: Restabelecer a palavra-passe
 welcome:
     links:
         home: Página Principal
@@ -67,7 +49,6 @@ welcome:
         toGithub: Visite o GitHub
         toForgotPassword: Trocar a senha
         required: Necessário
-        about: Sobre este site
         terms: Termos de uso
         privacy: Política de Privacidade
 login:

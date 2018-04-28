@@ -24,6 +24,14 @@ Template.store.helpers
 			,
 				short: 'nwt'
 			,
+				short: 'jr'
+			,
+				short: 'jw'
+			,
+				short: 'lfb'
+			,
+				short: 'cf'
+			,
 				short: 'ct'
 			,
 				short: 'fy'
@@ -49,11 +57,15 @@ Template.store.helpers
 			,
 				short: 'hf'
 			,
+				short: 'la'
+			,
 				short: 'lc'
 			,
 				short: 'ld'
 			,
 				short: 'lf'
+			,
+				short: 'lgw'
 			,
 				short: 'lmn'
 			,
@@ -63,9 +75,17 @@ Template.store.helpers
 			,
 				short: 'ol'
 			,
+				short: 'pc'
+			,
+				short: 'ph'
+			,
 				short: 'rj'
 			,
 				short: 'rk'
+			,
+				short: 'sgd'
+			,
+				short: 'we'
 			,
 				short: 'yc'
 			,
@@ -102,6 +122,8 @@ Template.store.helpers
 		,
 			type: 'misc'
 			items: [
+				short: 'dv'
+			,
 				short: 'CO-inv17'
 			,
 				short: 'CO-inv18'
@@ -117,22 +139,22 @@ Template.store.helpers
 	getLanguages: -> [
 		'A', 'AL', 'AR', 'AM'
 		'B', 'BEL', 'BL', 'BSN'
-		'C', 'CB', 'CH', 'CHS'
+		'C', 'CB', 'CH', 'CHS', 'CV'
 		'DAR', 'DGS'
 		'E', 'ED', 'EW'
 		'F'
 		'G', 'GE'
-		'H', 'HI'
-		'I', 'IB', 'IN'
+		'H', 'HI', 'HV'
+		'I', 'IB', 'IL', 'IN'
 		'J'
 		'K', 'KO', 'KRI'
-		'LT', 'LV'
+		'L', 'LT'
 		'M', 'MC'
 		'O', 'OA'
 		'P', 'PH', 'PJ', 'PL', 'PR'
 		'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU'
 		'S', 'SB', 'SI', 'SO', 'ST', 'SV'
-		'T', 'TI', 'TK', 'TL', 'TW'
+		'T', 'TG', 'TI', 'TK', 'TL', 'TW'
 		'U', 'UD'
 		'V', 'VT'
 		'WO'

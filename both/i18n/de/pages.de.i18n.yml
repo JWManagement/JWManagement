@@ -1,87 +1,3 @@
-navigation:
-    welcome: Willkommen
-    home: Übersicht
-    profile: Mein Profil
-    shifts: Schichten
-    wiki: Informationen
-    admin: Administration
-    settings: Einstellungen
-    users: Benutzer
-    reports: Berichte
-    store: Depot
-    vessels: Schiffe
-    notes: Notizen
-    login: Anmelden
-    logout: Abmelden
-    loggingOut: Abmelden...
-    firstLogin: Erstanmeldung
-    forgotPassword: Passwort vergessen
-    resetPassword: Passwort zurücksetzen
-    about: Impressum
-    terms: Nutzungsbedingungen
-    privacy: Datenschutzerklärung
-    donate: Spenden
-    version: Version
-    new: Neu
-welcome:
-    links:
-        home: Start
-        features: Funktionen
-        contact: Kontakt
-        login: Login
-        dashboard: Übersicht öffnen
-    header:
-        title: Schichtverwaltung für theokratische Projekte
-        description: JW Management ist ein stark konfigurierbares Schichtverwaltungssystem für Jehovas Zeugen, entwickelt um Projekte wie das öffentliche Zeugnisgeben, Bauprojekte oder ähnliches zu unterstützen.
-    divider:
-        first:
-            title: Verschiedene Tags
-            description: Ordne Schichten verschiedenen Tags zu und bestimme an der Tags, welcher Verkündiger welche Schichten sehen darf bzw. sich darauf bewerben darf. Bestimmte ebenso, wer in diesen Schichten als Teamleiter dienen darf.
-        second:
-            title: Schicht Teams
-            description: Lege in jeder Schicht ein oder mehrere Teams an. Jedes Team hat seinen eigenen Teamleiter. Stelle überdies weitere Informationen bezüglich der Teams oder Treffpunkte bereit, wie z.B. Bilder mit Routen, Web-Links und Beschreibungen.
-        third:
-            title: Depot
-            description: Verwalte dein Depot über JW Management. Basierend auf den Teamberichten aktualisiert das System automatisch die Anzahl der Exemplare per Publikation und Sprache. Werde benachrichtigt, wenn von einer Publikation nur noch wenige Exemplare auf Lager sind.
-        fourth:
-            title: Benachrichtigungen
-            description: Dank der mächtigen Benachrichtigungsfunktion wirst du über deine Zu- und Absagen, sowie über jegliche Änderungen deiner Schicht benachrichtigt oder kannst selbst Rundmails an ausgewählte Verkündiger schreiben.
-    feature1:
-        title: Multifunktionswerkzeug
-        description: <p>JW Management ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
-    feature2:
-        title: Letzte Änderungen
-        more: Mehr zeigen
-    feature3:
-        title: Kostenlos & Open-Source
-        description: <p>Besuche unser Repository und schaue dir an, wie JW Management programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>
-        free: Völlig kostenlos
-        repo: GitHub Repository
-    contact:
-        title: Kontaktiere uns
-        description: <p>Möchtest du das System testen?</p><p>Wähle im Kontaktformular rechts "Projekt beantragen" aus und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wähle im Formular die entsprechende Option aus und lass es uns wissen.</p>
-        name: Vor- und Nachname
-        email: E-Mail Adresse
-        projectName: Projektname
-        enquiry: Projekt beantragen
-        login: Problem beim Login
-        problem: Problem melden
-        suggestion: Verbesserung vorschlagen
-        question: Generelle Frage
-        message: Nachricht
-        whatFor: Was möchtest du mit dem System verwalten?
-        send: Senden
-        sendEnquiry: Anfrage senden
-        fillOutCompletely: Bitte fülle alle Pflichtfelder aus!
-        enquirySuccessful: Anfrage wurde übermittelt!
-        issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
-        loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
-        toGithub: GitHub besuchen
-        toForgotPassword: Password zurücksetzen
-        required: Pflichtfelder
-        about: Impressum
-        terms: Nutzungsbedingungen
-        privacy: Datenschutzerklärung
 login:
     name: Login
     welcome: Willkommen zu JW Management
@@ -243,18 +159,6 @@ shifts:
         noPermission: Nur ein Administrator oder Schichtplaner darf die Schichten bearbeiten.
 day:
     removeAll: Alle löschen
-admin:
-    name: Verwaltung
-    nameShort: Verwaltung
-users:
-    title: Teilnehmerliste
-    search: Suchen...
-    inviteUser: Angelegte Verkündiger einladen
-    addNewUser: Neuen Verkündiger anlegen
-    deleted: Gelöscht!
-    sendToAll: E-Mail an alle
-    sendToAllInTag: E-Mail an alle im Tag %s
-    export: Export als csv
 reports:
     placements: Abgaben
     bibles: Bibeln
@@ -351,46 +255,6 @@ settings:
         none: Es wurden noch keine Treffpunkte angelegt
         add: Neues Treffpunkt erstellen
         remove: Treffpunkt löschen
-vessels:
-    title: Schiffe
-    nameShort: Schiffe
-    search: Schiff suchen
-    placeholder: Schiffsname, Rufzeichen, ENI, IMO oder MMSI
-    addNewVessel: Neues Schiff erfassen
-    name: Schiffsname
-    flag: Flagge
-    type: Typ
-    types:
-        c: Containerschiff
-        cr: Kreuzfahrtschiff
-        mf: Frachter
-        mt: Tanker
-        p: Passagierschiff
-        pt: Schubboot
-        rc: Flusskreuzfahrtschiff
-        f: Fähre
-        ro: Ro-Ro
-        t: Schlepper
-        unknown: Unbekannt
-    callsign: Rufzeichen
-    eni: ENI
-    imo: IMO
-    mmsi: MMSI
-    lastVisit: Letzter Besuch
-    harborGroup: Hafengruppe
-    nextVisit: Nächster Besuch frühestens
-    languages: Sprache(n) an Bord
-    languagesPlaceholder: Keine personenbezogenen Daten!
-    comments: Bemerkungen
-    commentsPlaceholder: Keine personenbezogenen Daten!
-    noResults: Keine Ergebnisse
-    moreResultsAvailable: Wir haben %s Ergebnisse gefunden. Die ersten 20 werden gezeigt.
-notes:
-    description: Hier kannst du einfache Notizen erstellen. Jeder Administrator, Schichtplaner und Literaturdiener dieses Projektes kann die Notizen sehen. So könnt ihr Dinge als Team gemeinsam im Sinn behalten.
-    createNote: Notiz erstellen
-    title: Titel
-    text: Text
-    deleteNote: Notiz löschen
 firstLogin:
     name: Herzlich Willkommen
     text: <p>Wir freuen uns dich bei JW Management begrüßen zu dürfen.</p><p>Bitte setze für dein Profil einen Benutzernamen und ein Passwort. Mit diesen Daten wirst du dich in Zukunft am System anmelden.</p><p>Danach kann es los gehen.</p><p>Wir wünschen dir viel Freude!</p>
@@ -401,13 +265,8 @@ firstLogin:
     usernameExists: Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.
     usernameMissing: Bitte gib einen Benutzernamen an.
     agreeTermsMissing: Bitte akzeptiere die Nutzungsbedingungen und die Datenschutzerklärung.
-about:
-    title: Impressum
-    information: Angaben gemäß § 5 TMG:
-    contact: Kontakt:
-    telephone: Telefon
-    email: E-Mail
-    back: Zur Startseite
+    buttonCreateAccount: Ich möchte einen neuen Account erstellen
+    buttonHaveAccount: Ich habe bereits einen Account
 terms:
     title: Nutzungsbedingungen
     text: <h2>1. Haftungsbeschränkung</h2><p>Die Inhalte des Internetauftritts wurden mit größtmöglicher Sorgfalt und nach bestem Gewissen erstellt. Dennoch übernimmt der Anbieter dieser Webseite keine Gewähr für die Aktualität, Vollständigkeit und Richtigkeit der bereitgestellten Seiten und Inhalte.</p><p>Als Diensteanbieter ist der Anbieter dieser Webseite gemäß § 7 Abs. 1 TMG für eigene Inhalte und bereitgestellte Informationen auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich; nach den §§ 8 bis 10 TMG jedoch nicht verpflichtet, die übermittelten oder gespeicherten fremden Informationen zu überwachen. Eine Entfernung oder Sperrung dieser Inhalte erfolgt umgehend ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung. Eine Haftung ist erst ab dem Zeitpunkt der Kenntniserlangung möglich.</p><h2>2. Externe Links</h2><p>Die Webseite enthält sog. „externe Links“ (Verlinkungen) zu anderen Webseiten, auf deren Inhalt der Anbieter der Webseite keinen Einfluss hat. Aus diesem Grund kann der Anbieter für diese Inhalte auch keine Gewähr übernehmen.</p><p>Für die Inhalte und Richtigkeit der bereitgestellten Informationen ist der jeweilige Anbieter der verlinkten Webseite verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden einer solchen Rechtsverletzung wird der Link umgehend entfernen.</p><h2>3. Urheberrecht/Leistungsschutzrecht</h2><p>Die auf dieser Webseite veröffentlichten Inhalte, Werke und bereitgestellten Informationen unterliegen dem deutschen Urheberrecht und Leistungsschutzrecht. Jede Art der Vervielfältigung, Bearbeitung, Verbreitung, Einspeicherung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers. Das unerlaubte Kopieren/Speichern der bereitgestellten Informationen auf diesen Webseiten ist nicht gestattet und strafbar.</p><h2>4. Datenschutz</h2><p>Durch den Besuch des Internetauftritts können Informationen (Datum, Uhrzeit, aufgerufene Seite) über den Zugriff auf dem Server gespeichert werden. Es werden keine personenbezogenenen (z. B. Name, Anschrift oder E-Mail-Adresse) Daten, gespeichert.</p><p>Sofern personenbezogene Daten erhoben werden, erfolgt dies, sofern möglich, nur mit dem vorherigen Einverständnis des Nutzers der Webseite. Eine Weitergabe der Daten an Dritte findet ohne ausdrückliche Zustimmung des Nutzers nicht statt.</p><p>Der Anbieter weist darauf hin, dass die Übertragung von Daten im Internet (z. B. per E-Mail) Sicherheitslücken aufweisen und ein lückenloser Schutz der Daten vor dem Zugriff Dritter nicht gewährleistet werden kann. Der Anbieter übernimmt keine Haftung für die durch solche Sicherheitslücken entstandenen Schäden.</p><p>Der Verwendung der Kontaktdaten durch Dritte zur gewerblichen Nutzung wird ausdrücklich widersprochen. Es sei denn, der Anbieter hat zuvor seine schriftliche Einwilligung erteilt.</p><p>Der Anbieter behält sich rechtliche Schritte für den Fall der unverlangten Zusendung von Werbeinformationen, z. B. durch Spam-Mails, vor.</p><p>Quelle: mustervorlage.net</p>
@@ -416,6 +275,3 @@ privacy:
     title: Datenschutzerklärung
     text: <h2>Datenschutz</h2><p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns nur gemäß den Bestimmungen des deutschen Datenschutzrechts verarbeitet. Daten sind dann personenbezogen, wenn sie eindeutig einer bestimmten natürlichen Person zugeordnet werden können. Die rechtlichen Grundlagen des Datenschutzes finden Sie im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG). Nachstehende Regelungen informieren Sie insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen Daten durch den Anbieter.</p><p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz vor Zugriffen durch Dritte somit unmöglich ist.</p><h2>Cookies</h2><p>Wir verwenden auf unserer Seite sog. Cookies zum Wiedererkennen mehrfacher Nutzung unseres Angebots, durch denselben Nutzer/Internetanschlussinhaber. Cookies sind kleine Textdateien, die Ihr Internet-Browser auf Ihrem Rechner ablegt und speichert. Sie dienen dazu, unseren Internetauftritt und unsere Angebote zu optimieren. Es handelt sich dabei zumeist um sog. "Session-Cookies", die nach dem Ende Ihres Besuches wieder gelöscht werden.</p><p>Teilweise geben diese Cookies jedoch Informationen ab, um Sie automatisch wieder zu erkennen. Diese Wiedererkennung erfolgt aufgrund der in den Cookies gespeicherten IP-Adresse. Die so erlangten Informationen dienen dazu, unsere Angebote zu optimieren und Ihnen einen leichteren Zugang auf unsere Seite zu ermöglichen.</p><p>Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihres Browsers verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><h2>Serverdaten</h2><p>Aus technischen Gründen werden u.a. folgende Daten, die Ihr Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt, erfasst (sogenannte Serverlogfiles): </p><ul><li>Browsertyp und -version</li><li>verwendetes Betriebssystem</li><li>Webseite, von der aus Sie uns besuchen (Referrer URL)</li><li>Webseite, die Sie besuchen</li><li>Datum und Uhrzeit Ihres Zugriffs</li><li>Ihre Internet Protokoll (IP)-Adresse.</li></ul><p>Diese anonymen Daten werden getrennt von Ihren eventuell angegebenen personenbezogenen Daten gespeichert und lassen so keine Rückschlüsse auf eine bestimmte Person zu. Sie werden zu statistischen Zwecken ausgewertet, um unseren Internetauftritt und unsere Angebote optimieren zu können.</p><h2>Registrierungsfunktion</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, sich dort zu registrieren. Die im Zuge dieser Registrierung eingegebenen Daten, die aus der Eingabemaske des Registrierungsformular ersichtlich sind, werden ausschließlich für die Verwendung unseres Angebots erhoben und gespeichert. Mit Ihrer Registrierung auf unserer Seite werden wir zudem Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Registrierung speichern. Dies dient in dem Fall, dass ein Dritter Ihre Daten missbraucht und sich mit diesen Daten ohne Ihr Wissen auf unserer Seite registriert, als Absicherung unsererseits.  Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><h2>Newsletter</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, unseren Newsletter zu abonnieren. Mit diesem Newsletter informieren wir in regelmäßigen Abständen über unsere Angebote. Um unseren Newsletter empfangen zu können, benötigen Sie eine gültige E-Mailadresse. Die von Ihnen eingetragene E-Mail-Adresse werden wir dahingehend überprüfen, ob Sie tatsächlich der Inhaber der angegebenen E-Mail-Adresse sind bzw. deren Inhaber den Empfang des Newsletters autorisiert ist. Mit Ihrer Anmeldung zu unserem Newsletter werden wir Ihre IP-Adresse und das Datum sowie die Uhrzeit Ihrer Anmeldung speichern. Dies dient in dem Fall, dass ein Dritter Ihre E-Mail-Adresse missbraucht und ohne Ihr Wissen unseren Newsletter abonniert, als Absicherung unsererseits. Weitere Daten werden unsererseits nicht erhoben. Die so erhobenen Daten werden ausschließlich für den Bezug unseres Newsletters verwendet. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht. Das Abonnement dieses Newsletters können Sie jederzeit kündigen. Einzelheiten hierzu können Sie der Bestätigungsmail sowie jedem einzelnen Newsletter entnehmen.</p><h2>Kontaktmöglichkeit</h2><p>Wir bieten Ihnen auf unserer Seite die Möglichkeit, mit uns per E-Mail und/oder über ein Kontaktformular in Verbindung zu treten. In diesem Fall werden die vom Nutzer gemachten Angaben zum Zwecke der Bearbeitung seiner Kontaktaufnahme gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Ein Abgleich der so erhobenen Daten mit Daten, die möglicherweise durch andere Komponenten unserer Seite erhoben werden, erfolgt ebenfalls nicht.</p><p>Einsatz von Google-Analytics mit Anonymisierungsfunktion</p><p>Wir setzen auf unserer Seite Google-Analytics, einen Webanalysedienst der Firma Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043 USA, nachfolgend „Google“ ein. Google-Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und hierdurch eine Analyse der Benutzung der Website durch Sie ermöglichen.</p><p>Die durch diese Cookies erzeugten Informationen, beispielsweise Zeit, Ort und Häufigkeit Ihres Webseiten-Besuchs einschließlich Ihrer IP-Adresse, werden an Google in den USA übertragen und dort gespeichert.</p><p>Wir verwenden auf unserer Website Google-Analytics mit dem Zusatz "_gat._anonymizeIp". Ihre IP-Adresse wird in diesem Fall von Google schon innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt und dadurch anonymisiert.</p><p>Google wird diese Informationen benutzen, um Ihre Nutzung unserer Seite auszuwerten, um Reports über die Websiteaktivitäten für uns zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. </p><p>Google wird, nach eigenen Angaben, in keinem Fall Ihre IP-Adresse mit anderen Daten von Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen unserer Website vollumfänglich nutzen können.</p><p>Des Weiteren bietet Google für die gängigsten Browser ein Deaktivierungs-Add-on an, welches Ihnen mehr Kontrolle darüber gibt, welche Daten von Google zu der von Ihnen aufgerufenen Websites erfasst werden. Das Add-on teilt dem JavaScript (ga.js) von Google Analytics mit, dass keine Informationen zum Website-Besuch an Google Analytics übermittelt werden sollen. Das Deaktivierungs-Add-on für Browser von Google Analytics verhindert aber nicht, dass Informationen an uns oder an andere von uns gegebenenfalls eingesetzte Webanalyse-Services übermittelt werden. Weitere Informationen zur Installation des Browser Add-on erhalten Sie über nachfolgenden Link: https://tools.google.com/dlpage/gaoptout?hl=de</p><h2>Auskunft/Widerruf/Löschung</h2><p>Sie können sich aufgrund des Bundesdatenschutzgesetzes bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten und deren Berichtigung, Sperrung, Löschung oder einem Widerruf einer erteilten Einwilligung unentgeltlich an uns wenden. Wir weisen darauf hin, dass Ihnen ein Recht auf Berichtigung falscher Daten oder Löschung personenbezogener Daten zusteht, sollte diesem Anspruch keine gesetzliche Aufbewahrungspflicht entgegenstehen.</p>
     back: Zur Startseite
-donate:
-    title: Spenden
-    text: <p>Danke, dass du diese Seite besuchst!</p><p>Wenn du uns gerne dabei unterstützen möchtest JW Management zu hosten, freuen wir uns sehr! Vielen Dank! <i class="fa fa-heart text-danger"></i></p>

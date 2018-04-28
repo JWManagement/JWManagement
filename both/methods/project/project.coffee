@@ -6,7 +6,7 @@ Meteor.methods
 
 		if field == 'vesselModule' && Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
 			Projects.update projectId, $set: vesselModule: value
-		else if value.trim() != '' || field.indexOf('news') > -1
+		else if field == 'harbors' || value.trim() != '' || field.indexOf('news') > -1
 			set = {}
 			set[field] = value
 

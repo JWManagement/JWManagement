@@ -1,0 +1,135 @@
+body.md-skin[type='InsertForm'] {
+    background-color: #eee !important;
+    padding-top     : 50px;
+
+    .navbar {
+        width: 100%;
+
+        .navbar-back,
+        .navbar-save {
+            position   : absolute;
+            font-weight: 300;
+        }
+
+        .navbar-back,
+        .navbar-save,
+        .navbar-title {
+            color      : #fff;
+            height     : 50px;
+            padding    : 15px;
+            font-size  : 18px;
+            text-align : center;
+            line-height: 20px;
+        }
+
+        .navbar-title {
+            font-weight: 400;
+        }
+
+        .navbar-save {
+            top  : 0;
+            right: 0;
+        }
+    }
+
+    form.form-horizontal {
+        padding-bottom: 20px;
+
+        .section {
+            margin-top: 15px;
+
+            .section-header {
+                color         : #3f51b5;
+                padding       : 7px 0 7px 15px;
+                font-size     : 13px;
+                letter-spacing: 0.3px;
+                text-transform: uppercase;
+            }
+
+            .section-content,
+            .section-select {
+                font-size       : 15px;
+                border-top      : 1px solid #ddd;
+                border-bottom   : 1px solid #ddd;
+                background-color: #fff;
+
+                .text-input {
+                    input {
+                        width  : 100%;
+                        border : 0;
+                        outline: 0;
+                        padding: 10px 0 10px 15px;
+                    }
+
+                    textarea {
+                        border : none;
+                        width  : 100%;
+                        height : 110px;
+                        resize : vertical;
+                        padding: 8px 8px 8px 15px;
+                        outline: 0;
+                    }
+                }
+            }
+
+            .section-select {
+                padding: 8px 15px 10px;
+
+                select {
+                    outline: none;
+                }
+            }
+
+            .section-date {
+                padding         : 9px 15px;
+                font-size       : 15px;
+                border-top      : 1px solid #ddd;
+                border-bottom   : 1px solid #ddd;
+                background-color: #fff;
+
+                .datepicker {
+                    width: auto;
+
+                    table {
+                        width    : 100%;
+                        max-width: 350px;
+                    }
+                }
+            }
+
+            .section-error {
+                display: none;
+            }
+        }
+
+        .section.has-error {
+            .section-header {
+                color: #f44336;
+            }
+
+            .section-content,
+            .section-date {
+                border-top   : 1px solid #f44336;
+                border-bottom: 1px solid #f44336;
+            }
+
+            .section-date,
+            input {
+                background-color: lighten(#f44336, 35%);
+
+                &::placeholder {
+                    color: lighten(#f44336, 20%);
+                }
+            }
+
+            .section-error {
+                display: block;
+
+                p {
+                    color  : #f44336;
+                    padding: 5px 0 5px 15px;
+                }
+            }
+        }
+    }
+}

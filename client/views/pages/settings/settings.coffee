@@ -18,6 +18,8 @@ Template.settings.helpers
 		a = TAPi18n.getLanguages()[language]
 		_id: language, name: a.name, en: a.en
 
+	json2String: (a) -> JSON.stringify(a)
+
 Template.settings.onCreated ->
 
 	@autorun ->
@@ -26,8 +28,8 @@ Template.settings.onCreated ->
 		handle = ProjectSubs.subscribe 'settings', projectId
 		handle.ready Tracker.afterFlush ->
 			project = Projects.findOne(projectId, fields: teams: 1)
-			if project?
-				for team in project.teams?
+			if project? && project.teams?
+				for team in project.teams
 					if !team.icon?
 						team.icon = 'fa-map-signs'
 
@@ -67,7 +69,11 @@ Template.settings.events
 
 	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
 
+	'change #country': (e) -> Meteor.call 'updateProject', @_id, 'country', e.target.value, handleError
+
 	'change #harborGroup': (e) -> Meteor.call 'updateProject', @_id, 'harborGroup', e.target.value, handleError
+
+	'change #harbors': (e) -> Meteor.call 'updateProject', @_id, 'harbors', JSON.parse(e.target.value), handleError
 
 	'click #deleteProject': ->
 		swalInput
