@@ -1,5 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
+import GetLanguages from '/imports/api/util/GetLanguages.js';
 
 const PersistenceManager = require('/imports/api/managers/PersistenceManager.js');
 
@@ -120,7 +121,13 @@ Vessels.schema = new SimpleSchema({
             optional: true
         },
         'languageIds.$': {
-            type: String
+            type: String,
+            custom: function() {
+                if (GetLanguages().indexOf(this.value) > -1) {
+                    return undefined;
+                }
+                return 'required';
+            }
         }
     })
 });
