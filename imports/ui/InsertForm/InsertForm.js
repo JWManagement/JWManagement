@@ -162,7 +162,7 @@ Template.InsertForm.events({
                     template.errors.set(errors.map((error) => {
                         let parts = error.name.split('.');
 
-                        if (parseInt(parts[parts.length - 1]) != NaN) {
+                        if (!isNaN(parseInt(parts[parts.length - 1]))) {
                             parts.pop();
                         }
 
@@ -171,6 +171,7 @@ Template.InsertForm.events({
                         if (error.name.search(/[0-9]/g) > -1) {
                             error.name = error.name.substring(getRegexLastIndexOf(error.name, /[0-9]/g) + 2);
                         }
+
                         return error;
                     }));
                 } else {
