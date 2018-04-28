@@ -335,6 +335,10 @@ Meteor.methods({
                 time += 100;
             }
 
+            if (Object.keys(user.profile.available).indexOf(day) == -1) {
+                user.profile.available[day] = [];
+            }
+
             for (let userDay of Object.keys(user.profile.available)) {
                 if (userDay == day) {
                     mergedTimeslots = user.profile.available[userDay];
