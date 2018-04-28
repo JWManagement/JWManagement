@@ -93,8 +93,19 @@ Template.InsertForm.onCreated(() => {
     template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);
 
-    template.setFieldValue = (key, value) => {
+    template.setFieldValue = function(key, value) {
+        const errors = this.errors.get();
+        let newErrors = [];
+
         template.entity[key] = value;
+
+        for (let error of errors) {
+            if (error.name != key) {
+                newErrors.push(error);
+            }
+        }
+
+        this.errors.set(newErrors);
     }
 });
 
@@ -113,32 +124,6 @@ Template.InsertForm.onDestroyed(() => {
 });
 
 Template.InsertForm.events({
-    'change input': function(e) {
-        const template = Template.instance();
-        const key = this.data.key;
-        const errors = template.errors.get();
-        let newErrors = [];
-
-        for (let error of errors) {
-            if (error.name != key) {
-                newErrors.push(error);
-            }
-        }
-        template.errors.set(newErrors);
-    },
-    'change select': function(e) {
-        const template = Template.instance();
-        const key = this.data.key;
-        const errors = template.errors.get();
-        let newErrors = [];
-
-        for (let error of errors) {
-            if (error.name != key) {
-                newErrors.push(error);
-            }
-        }
-        template.errors.set(newErrors);
-    },
     'click .navbar-save': (e) => {
         e.preventDefault();
 
