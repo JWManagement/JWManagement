@@ -105,7 +105,7 @@ function getExtendedNote(projectId, noteId, language) {
 
     let note = null;
 
-    for(let n of notes) {
+    for (let n of notes) {
         if (n._id == noteId) {
             note = n;
         }

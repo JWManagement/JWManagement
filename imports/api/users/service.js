@@ -144,7 +144,7 @@ Meteor.methods({
 
             Accounts.setPassword(userId, passwords.password);
         } catch(e) {
-            for(let detail of e.details) {
+            for (let detail of e.details) {
                 if (detail.type == 'minString') {
                     detail.type = 'minString8';
                 }
