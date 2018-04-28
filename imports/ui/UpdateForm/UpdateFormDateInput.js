@@ -22,7 +22,6 @@ Template.UpdateFormDateInput.onRendered(() => {
         weekStart: 1,
         language: TAPi18n.getLanguage()
     })
-    .datepicker('setDate', moment(template.valueRaw, template.format).toDate())
     .on('changeDate', (e) => {
         const value = $('.datepicker').datepicker('getDate');
         let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format));
@@ -36,6 +35,10 @@ Template.UpdateFormDateInput.onRendered(() => {
             template.updateForm.updateEntity(valueRaw);
         }
     });
+
+    if (template.valueRaw != '') {
+        $weekPicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
+    }
 
     $weekPicker.find('.table-condensed').removeClass('table-condensed');
 });
