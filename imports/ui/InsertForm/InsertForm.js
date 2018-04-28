@@ -160,7 +160,17 @@ Template.InsertForm.events({
                     }
 
                     template.errors.set(errors.map((error) => {
-                        error.name = error.name.replace(/\./g, '_');
+                        let parts = error.name.split('.');
+
+                        if (parseInt(parts[parts.length - 1]) != NaN) {
+                            parts.pop();
+                        }
+
+                        error.name = parts.join('_');
+
+                        if (error.name.search(/[0-9]/g) > -1) {
+                            error.name = error.name.substring(getRegexLastIndexOf(error.name, /[0-9]/g) + 2);
+                        }
                         return error;
                     }));
                 } else {
@@ -174,3 +184,21 @@ Template.InsertForm.events({
         });
     }
 });
+
+function getRegexLastIndexOf(string, regex) {
+    regex = (regex.global)
+        ? regex
+        : new RegExp(regex.source, 'g' + (regex.ignoreCase ? 'i' : '') + (regex.multiLine ? 'm' : ''));
+
+    let startpos = string.length;
+    let stringToWorkWith = string.substring(0, startpos + 1);
+    let lastIndexOf = -1;
+    let nextStop = 0;
+
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+
+    return lastIndexOf;
+}
