@@ -1,12 +1,16 @@
-import RoleManager from '/imports/api/managers/RoleManager.js';
-import RouteManager from '/imports/api/managers/RouteManager.js';
-import './calendar.jade';
+import './calendar.tpl.jade';
 import './calendar.scss';
 
-Template.calendar.helpers({});
+Template.calendar.helpers({
+    getShifts() {
+        const template = Template.instance();
+        return template.selectedDateShifts.get();
+    }
+});
 
 Template.calendar.onCreated(() => {
     const template = Template.instance();
+    template.loadShifts = loadShifts;
 });
 
 Template.calendar.onRendered(() => {
@@ -15,17 +19,26 @@ Template.calendar.onRendered(() => {
     $('body').attr('type', 'calendar');
 
     const template = Template.instance();
-    const data = Template.currentData().data;
 
-    template.sections = data.sections;
-    template.backLink.set(data.backLink);
-    template.getMethod = data.getMethod;
+    template.selectedDate = Date();
+    template.selectedDateShifts = new ReactiveVar([]);
 
-    template.isLoading.set(true);
-    template.noResult.set(false);
-    template.item.set({});
+    const $datePicker = $('.datepicker');
 
-    loadData(template);
+    $datePicker.datepicker({
+        maxViewMode: 0,
+        minViewMode: 0,
+        weekStart: 1,
+        templates: {
+            leftArrow: '<i class="fa fa-chevron-left"></i>',
+            rightArrow: '<i class="fa fa-chevron-right"></i>'
+        },
+        language: TAPi18n.getLanguage()
+    })
+    .on('changeDate', function(e) {
+        template.selectedDate = e.date;
+    })
+    .datepicker('setDate', Date());
 
     window.scrollTo(0, 0);
 });
@@ -38,4 +51,11 @@ Template.calendar.onDestroyed(() => {
 
 Template.calendar.events({});
 
-function loadData(template) {}
+function loadShifts() {
+    const template = this;
+
+    Meteor.call('calendar.getShifts', FlowRouter.current().params, (e, entity) => {
+        console.log(e);
+        console.log(entity);
+    });
+}
