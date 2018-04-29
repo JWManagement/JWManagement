@@ -18,7 +18,7 @@ Notes.schema = new SimpleSchema({
         type: Date,
         autoValue: function() {
             if (!this.isSet) {
-                return new Date();
+                return Date();
             }
         }
     },
@@ -39,7 +39,7 @@ Notes.schema = new SimpleSchema({
     lastChangeAt: {
         type: Date,
         autoValue: () => {
-            return new Date();
+            return Date();
         }
     },
     title: {
