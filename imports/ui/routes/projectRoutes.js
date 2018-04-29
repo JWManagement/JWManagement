@@ -51,7 +51,7 @@ RouteManager.registerEntity('note', {
     update: 'notes/:noteId/:key'
 });
 
-FlowRouter.route('/:language/:projectId/calendar', {
+FlowRouter.route('/:language/:projectId/calendar/:year?/:month?/:day?', {
     name: 'calendar',
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
