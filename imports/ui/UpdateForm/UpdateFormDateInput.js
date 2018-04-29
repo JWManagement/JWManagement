@@ -9,7 +9,7 @@ Template.UpdateFormDateInput.onCreated(() => {
     template.updateForm = data.parentInstance;
 
     if (template.valueRaw != null && template.valueRaw == 'today') {
-        template.valueRaw = moment(new Date()).format(template.format);
+        template.valueRaw = moment(Date()).format(template.format);
     }
 });
 

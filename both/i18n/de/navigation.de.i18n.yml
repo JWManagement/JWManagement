@@ -3,6 +3,7 @@ navigation:
     home: Übersicht
     profile: Mein Profil
     shifts: Schichten
+    calendar: Kalender
     wiki: Informationen
     admin:
         details: Verwaltung

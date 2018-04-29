@@ -335,6 +335,12 @@ Meteor.methods({
                 time += 100;
             }
 
+            if (user.profile.available == null) {
+                user.profile.available = {};
+
+                Users.persistence.update(userId, 'profile.available', {});
+            }
+
             if (Object.keys(user.profile.available).indexOf(day) == -1) {
                 user.profile.available[day] = [];
             }
@@ -474,6 +480,10 @@ function getExtendedUser(userId, projectId, language) {
     });
 
     if (user != undefined) {
+        if (user.profile.available == null) {
+            user.profile.available = {};
+        }
+
         user.profile.availability = {
             mondays: convertTimeslotToAvailability(user.profile.available.mo, language),
             tuesdays: convertTimeslotToAvailability(user.profile.available.tu, language),
@@ -483,6 +493,10 @@ function getExtendedUser(userId, projectId, language) {
             saturdays: convertTimeslotToAvailability(user.profile.available.sa, language),
             sundays: convertTimeslotToAvailability(user.profile.available.su, language)
         };
+
+        if (user.profile.vacations == null) {
+            user.profile.vacations = [];
+        }
 
         for (let vacation of user.profile.vacations) {
             const dateFormatStart = TAPi18n.__('user.entity.profile.vacation.startDateFormat', {}, language);

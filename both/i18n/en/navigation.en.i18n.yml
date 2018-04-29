@@ -3,6 +3,7 @@ navigation:
     home: Dashboard
     profile: My Profile
     shifts: Shifts
+    calendar: Calendar
     wiki: Information Center
     admin:
         details: Administration

@@ -74,6 +74,7 @@ Users.schema = new SimpleSchema({
     },
     'profile.gender': {
         type: String,
+        defaultValue: 'm',
         allowedValues: Gender.allowedValues
     },
     'profile.bdate': {
@@ -91,10 +92,12 @@ Users.schema = new SimpleSchema({
     },
     'profile.pioneer': {
         type: String,
+        defaultValue: 'publisher',
         allowedValues: Pioneer.allowedValues
     },
     'profile.privilege': {
         type: String,
+        defaultValue: 'publisher',
         allowedValues: Privilege.allowedValues
     },
     'profile.telefon': {

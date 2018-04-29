@@ -136,7 +136,7 @@ function getExtendedNote(projectId, noteId, language) {
 }
 
 function checkPermissions(projectId) {
-    const project = Projects.findOne(projectId, { fields: { noteModule: 1 } })
+    const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
     if (project == null) {
         throw new Meteor.Error('projectNotFound');

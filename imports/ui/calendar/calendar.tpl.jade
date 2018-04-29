@@ -1,0 +1,6 @@
+#datepicker
+.shifts
+    each getShifts
+        .shift Schicht
+    else
+        .no-shifts {{_ 'calendar.noShifts'}}

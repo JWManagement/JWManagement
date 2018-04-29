@@ -1,0 +1,29 @@
+body.md-skin[type='calendar'] {
+    background-color: #fff !important;
+
+    #datepicker {
+        border-bottom: 1px solid #ddd;
+
+        .datepicker {
+            width: auto;
+        }
+
+        table {
+            width       : 100%;
+            max-width   : 350px;
+            margin-left : auto;
+            margin-right: auto;
+        }
+    }
+
+    .no-shifts {
+        color     : #777;
+        font-size : 20px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .footer {
+        display: none;
+    }
+}
