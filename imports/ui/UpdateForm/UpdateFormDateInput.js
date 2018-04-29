@@ -36,7 +36,7 @@ Template.UpdateFormDateInput.onRendered(() => {
         }
     });
 
-    if (template.valueRaw != '') {
+    if (template.valueRaw != null && template.valueRaw != '') {
         $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
     }
 

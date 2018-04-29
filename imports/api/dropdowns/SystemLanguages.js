@@ -2,6 +2,7 @@ export default SystemLanguages = {
     allowedValues: [
         'de',
         'en',
+        'fi',
         'fr',
         'hu',
         'it',

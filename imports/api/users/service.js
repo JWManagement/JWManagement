@@ -144,7 +144,7 @@ Meteor.methods({
 
             Accounts.setPassword(userId, passwords.password);
         } catch(e) {
-            for(let detail of e.details) {
+            for (let detail of e.details) {
                 if (detail.type == 'minString') {
                     detail.type = 'minString8';
                 }
@@ -339,7 +339,7 @@ Meteor.methods({
                 user.profile.available[day] = [];
             }
 
-            for (let userDay of Object.keys(user.profile.available)) {
+            for (let userDay in user.profile.available) {
                 if (userDay == day) {
                     mergedTimeslots = user.profile.available[userDay];
 
@@ -378,7 +378,7 @@ Meteor.methods({
         const day = key.split('_').pop().substring(0, 2);
         let newTimeslots = [];
 
-        for (let userDay of Object.keys(user.profile.available)) {
+        for (let userDay in user.profile.available) {
             if (userDay == day) {
                 const oldTimeslots = user.profile.available[userDay];
                 const delTimeslots = timeslot.split(',');
