@@ -15,22 +15,26 @@ if queryParam 'showShiftReport'
                     .row.m-n
                         each projects
                             .project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
-                                if multipleTags
-                                    .tags-popup.row
-                                        .team-link.col-xs-6.col-lg-4.m-b-md.center-align
-                                            a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
-                                                .m-t-xs.m-b-sm
-                                                    i.fa.fa-calendar-check-o.fa-3x
-                                                p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
-                                        each tag in tags
-                                            if isTagParticipant tag._id _id
-                                                .team-link.col-xs-6.col-lg-4.m-b-md.center-align
-                                                    a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
-                                                        if tag.img
-                                                            img(src='/img/{{tag.img}}.png')
-                                                        else
-                                                            i.fa.fa-users.fa-4x
-                                                        p.project-link-caption {{tag.name}}
+                                .tags-popup.row
+                                    .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                        a.btn.btn-primary.btn-lg(href="{{pathFor 'calendar' projectId=_id language=langTag}}")
+                                            .m-t-xs.m-b-sm
+                                                i.fa.fa-calendar-check-o.fa-3x
+                                            p.project-link-caption.m-t {{_ 'dashboard.calendar'}}
+                                    .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                        a.btn.btn-primary.btn-lg(href="{{getAllTagsPath tags}}")
+                                            .m-t-xs.m-b-sm
+                                                i.fa.fa-calendar-check-o.fa-3x
+                                            p.project-link-caption.m-t {{_ 'dashboard.showAll'}}
+                                    each tag in tags
+                                        if isTagParticipant tag._id _id
+                                            .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                                a.btn.btn-primary.btn-lg(href="{{getTagPath tag._id}}")
+                                                    if tag.img
+                                                        img(src='/img/{{tag.img}}.png')
+                                                    else
+                                                        i.fa.fa-users.fa-4x
+                                                    p.project-link-caption {{tag.name}}
                                 .ibox
                                     .ibox-content
                                         h1.m-b-md {{name}}
