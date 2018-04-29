@@ -51,6 +51,17 @@ RouteManager.registerEntity('note', {
     update: 'notes/:noteId/:key'
 });
 
+FlowRouter.route('/:language/:projectId/calendar', {
+    name: 'calendar',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            Session.set('parent', 'home');
+            BlazeLayout.render('mainLayout', { content: 'calendar' });
+        });
+    }
+});
+
 FlowRouter.route('/:language/:projectId/kb', {
     name: 'wiki',
     triggersEnter: [ Helpers.checkLanguage ],

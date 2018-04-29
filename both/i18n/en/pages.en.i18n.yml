@@ -101,6 +101,7 @@ dashboard:
     participant_plural: Shift Participants
     showOlder: Show older shifts too
     showAll: Show all
+    calendar: Calendar
 wiki:
     name: Information Center
     nameShort: Info
