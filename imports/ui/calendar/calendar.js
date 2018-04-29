@@ -10,7 +10,11 @@ Template.calendar.helpers({
 
 Template.calendar.onCreated(() => {
     const template = Template.instance();
+
+    template.selectedDate = Date();
+    template.selectedDateShifts = new ReactiveVar([]);
     template.loadShifts = loadShifts;
+    template.setDate = setDate;
 });
 
 Template.calendar.onRendered(() => {
@@ -25,20 +29,10 @@ Template.calendar.onRendered(() => {
     let day = FlowRouter.getParam('day');
 
     if (year == null || month == null || day == null) {
-        const today = moment();
-
-        year = today.format('YYYY');
-        month = today.format('MM');
-        day = today.format('DD');
-
-        FlowRouter.setParams({
-            year: year,
-            month: month,
-            day: day
-        });
+        template.setDate(Date());
+    } else {
+        template.setDate(new Date(year, month, day));
     }
-
-    template.selectedDate = new Date(year, month, day);
 
     $datePicker.datepicker({
         maxViewMode: 0,
@@ -51,7 +45,8 @@ Template.calendar.onRendered(() => {
         language: TAPi18n.getLanguage()
     })
     .on('changeDate', function(e) {
-        template.selectedDate = e.date;
+        template.setDate(e.date);
+        template.loadShifts();
     })
     .datepicker('setDate', template.selectedDate);
 
@@ -68,9 +63,24 @@ Template.calendar.events({});
 
 function loadShifts() {
     const template = this;
+    let params = FlowRouter.current().params;
+    params.date = parseInt(moment(template.selectedDate).format('YYYYDDD'));
 
-    Meteor.call('calendar.getShifts', FlowRouter.current().params, (e, entity) => {
-        console.log(e);
-        console.log(entity);
+    Meteor.call('calendar.getShifts', params, (e, shifts) => {
+        template.selectedDateShifts.set(shifts);
+    });
+}
+
+function setDate(date) {
+    const template = this;
+    template.selectedDate = date;
+    date = moment(date);
+
+    wrs(() => {
+        FlowRouter.setParams({
+            year: date.format('YYYY'),
+            month: date.format('MM'),
+            day: date.format('DD')
+        });
     });
 }
