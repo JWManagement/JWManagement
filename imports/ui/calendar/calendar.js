@@ -19,11 +19,11 @@ Template.calendar.onRendered(() => {
     $('body').attr('type', 'calendar');
 
     const template = Template.instance();
+    const $datePicker = template.$('#datepicker');
 
     template.selectedDate = Date();
     template.selectedDateShifts = new ReactiveVar([]);
 
-    const $datePicker = $('.datepicker');
 
     $datePicker.datepicker({
         maxViewMode: 0,
