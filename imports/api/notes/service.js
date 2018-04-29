@@ -21,7 +21,7 @@ Meteor.methods({
             fields: {
                 notes: 1
             }
-        }).notes;
+        }).notes || [];
 
         for (let note of notes) {
             const user = Users.findOne(note.lastChangeBy, {
