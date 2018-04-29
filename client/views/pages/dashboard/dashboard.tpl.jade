@@ -16,7 +16,7 @@ if queryParam 'showShiftReport'
                         each projects
                             .project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
                                 .tags-popup.row
-                                    .team-link.col-xs-6.col-lg-4.m-b-md.center-align
+                                    //.team-link.col-xs-6.col-lg-4.m-b-md.center-align
                                         a.btn.btn-primary.btn-lg(href="{{pathFor 'calendar' projectId=_id language=langTag}}")
                                             .m-t-xs.m-b-sm
                                                 i.fa.fa-calendar-check-o.fa-3x
