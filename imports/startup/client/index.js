@@ -1,3 +1,13 @@
+import '/imports/api/datepicker/bootstrap-datepicker.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.de.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.fi.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.fr.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.hu.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.it.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.pl.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.pt.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.ru.min.js';
+
 import '/imports/api/projects/projects.js';
 
 import '/imports/api/util/templateHelpers.js';
