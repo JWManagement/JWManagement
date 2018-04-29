@@ -5,10 +5,12 @@ Template['note.insert'].helpers({
             entityKey: 'noteId',
             fields: [
                 {
-                    key: 'title'
+                    key: 'title',
+                    required: true
                 }, {
                     key: 'text',
-                    type: 'textbox'
+                    type: 'textbox',
+                    required: true
                 }
             ]
         }
