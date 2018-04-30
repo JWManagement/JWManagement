@@ -29,7 +29,7 @@ Template.calendar.onRendered(() => {
     if (year == null || month == null || day == null) {
         template.setDate(Date());
     } else {
-        template.setDate(new Date(year, month, day));
+        template.setDate(new Date(year, month - 1, day));
     }
 
     $datePicker.datepicker({
