@@ -37,9 +37,9 @@ permissions:
 time:
     start: Aloitus
     end: Lopetus
-    suffix: tuntia
+    suffix: (klo)
     years: vuotta
-    to: :lle
+    to: --
 scheduling:
     name: Aikataulutus
     direct: Hyväksy automaattisesti
@@ -54,7 +54,7 @@ weekdays:
     _th: Torstai
     _fr: Perjantai
     _sa: Lauantai
-    _su: Sunnutai
+    _su: Sunnuntai
 intervals:
     m: manuaalisesti
     every: Joka viikko

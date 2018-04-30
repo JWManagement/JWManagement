@@ -33,7 +33,7 @@ profile:
         helpText: Merkitse tunnit, jotka olet käytettävissä.
         shortTermCalls: Olen käytettävissä lyhyellä varoitusajalla
         shortTermCallsAlways: Vaikka käytettävissä tietoja ei ole asetettu
-    speaks: Puhuu
+    speaks: Kielet
     telefon: Puhelin
     congregation: Seurakunta
     languages: Vieraat kielet
@@ -66,9 +66,9 @@ profile:
     deleteAccount: Poista käyttäjätili
     mergeAccounts: Yhdistä tilit
     vacation:
-        title: Loma
+        title: Lomalla
         helpText: Merkitse ajanjaksot, jolloin et ole käytettävissä.
-    until: asti
+    until: -
     addVacation: Lisää loma
     deleteVacation: Poista tämä loma
     usernameTaken: Käyttäjänimi on jo varattu. Valitse jokin muu käyttäjänimi.
@@ -134,8 +134,8 @@ shifts:
         visibility: Tämä määrittelee, kuinka monta viikkoa eteenpäin julistajat näkevät vuoroja ja voivat ilmoittautua niihin. Alku- ja loppuviikon määrittelemällä järjestelmä luo automaattisesti tarvittavat vuorot.
     weeks: viikkoa
     sendWeek: Lähetä vahvistukset
-    hideNames: Piilota vuorosta kaikki nimet
-    showNames: Näytä vuoron kaikki nimet
+    hideNames: Piilota vuorojen nimet
+    showNames: Näytä vuorojen nimet
     editShifts: Muokkaa vuoroja
     prevWeek: Siirry edelliselle viikolle
     nextWeek: Siirry seuraavalle viikolle
@@ -153,9 +153,9 @@ shifts:
         end: Lopetus
         requests: Ilmoittautuminen
         requests_plural: Ilmoittautumiset
-        requestsOf: Ilmoittautuminen liittyen
-        requestsOf_plural: ilmoittautumiset liittyen
-        teamleaders: TV:t
+        requestsOf: Ilmoittautuminen, tarvitaan
+        requestsOf_plural: ilmoittautumista, tarvitaan
+        teamleaders: TV:a
         noPermission: Vain projektivastaava tai vuorovastaava voi muokata tai aikatauluttaa vuoroja.
 day:
     removeAll: Poista kaikki
@@ -169,7 +169,7 @@ reports:
     invitations: Kutsut
     videos: Näytetyt videot
     talks: Puheet
-    achievements: Saavutukset
+    achievements: Raportti
     hours: Käytetty aika
     texts: Raamatunkohtien lukeminen
     website: Näytetty jw.org sivustoa
@@ -207,7 +207,7 @@ settings:
         deleteProject: Poista projekti
     tags:
         title: Tunnisteet
-        helpText: <p>Jokaiselle vuorolle pitää asettaa tunniste. Lisäksi jokaiselle käyttäjälle voidaan antaa oikeus nähdä tietyllä tunnuksella merkittyjä vuoroja tai vaihtoehtoisesti estää näkemästä vuoroja, jotka on merkitty tietyllä tunnisteella.</p><p>Tunnisteilla voidaan merkitä tiettyjä aktiviteetteja (esim. Kärrytyö, Infopiste, Katutyö, jne.). Vuorojen erottelu tunnisteita käyttämällä voi olla hyödyllistä esimerkiksi silloin, kun samaan aikaan on useita vuoroja tai jos vain tietyt julistajat on koulutettu johonkin julkisen julistamisen työmuotoon.</p><p>Jokaiseen tunnisteeseen voidaan asettaa etukäteen määriteltyjä malliviikkoja. Järjestelmä voi käyttää näitä malliviikkoja automaattisessa aikataulutuksessa. Tämä säästää projektivastaavan tai vuorovastaanan aikaa aikataulujen tekemisessä.</p>
+        helpText: <p>Jokaiselle vuorolle pitää asettaa tunniste. Lisäksi jokaiselle käyttäjälle voidaan antaa oikeus nähdä tietyllä tunnuksella merkittyjä vuoroja tai vaihtoehtoisesti estää näkemästä vuoroja, jotka on merkitty tietyllä tunnisteella.</p><p>Tunnisteilla voidaan merkitä tiettyjä aktiviteetteja (esim. Kärrytyö, Infopiste, Katutyö, jne.). Vuorojen erottelu tunnisteita käyttämällä voi olla hyödyllistä esimerkiksi silloin, kun samaan aikaan on useita vuoroja tai jos vain tietyt julistajat on koulutettu johonkin julkisen julistamisen työmuotoon.</p><p>Jokaiseen tunnisteeseen voidaan asettaa etukäteen määriteltyjä malliviikkoja. Järjestelmä voi käyttää näitä malliviikkoja automaattisessa aikataulutuksessa. Tämä säästää projektivastaavan tai vuorovastaavan aikaa aikataulujen tekemisessä.</p>
         id: ID
         name: Nimi
         img:
