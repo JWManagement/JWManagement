@@ -18,8 +18,6 @@ Template.calendar.onCreated(() => {
 });
 
 Template.calendar.onRendered(() => {
-    $('body').addClass('md-skin');
-    $('body').addClass('top-navigation');
     $('body').attr('type', 'calendar');
 
     const template = Template.instance();
@@ -54,8 +52,6 @@ Template.calendar.onRendered(() => {
 });
 
 Template.calendar.onDestroyed(() => {
-    $('body').removeClass('md-skin');
-    $('body').removeClass('top-navigation');
     $('body').attr('type', '');
 });
 
