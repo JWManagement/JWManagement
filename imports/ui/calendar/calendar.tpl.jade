@@ -14,10 +14,10 @@ if queryParam 'showShiftReport'
     each getShifts
         .shift
             .time
-                .start 10:00 Uhr
-                .end 12:00 Uhr
+                .start {{getFormattedTime start}}
+                .end {{getFormattedTime end}}
             .content
-                .tag Trolley
+                .tag {{tag}}
             .link
                 i.icon.fa.fa-chevron-right
     else

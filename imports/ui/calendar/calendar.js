@@ -5,6 +5,9 @@ Template.calendar.helpers({
     getShifts() {
         const template = Template.instance();
         return template.selectedDateShifts.get();
+    },
+    getFormattedTime(time) {
+        return moment(time, 'Hmm').format(TAPi18n.__('timeFormat.time'));
     }
 });
 
