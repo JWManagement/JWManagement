@@ -5,7 +5,7 @@ users:
     addNewUser: Lisää uusi käyttäjä
     deleted: Poistettu!
     sendToAll: Lähetä sähköposti kaikille
-    sendToAllInTag: Lähetä sähköpoisti kaikille, joilla on tunniste %s
+    sendToAllInTag: Lähetä sähköposti kaikille, joilla on tunniste: %s
     export: Vie csv tiedostoksi
 user:
     entity:

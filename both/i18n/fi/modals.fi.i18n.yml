@@ -50,7 +50,7 @@ modal:
             teamleader: Tiimivastaava on projektivastaavan tunnisteella merkitsemä ja sen jälkeen vastuussa tiimin raportoinnista kyseisellä tunnisteella.
             substituteTeamleader: Tiimivastaavan apulaisella on samat käyttöoikeudet, kuin tiimivastaavalla.
             participant: Osallistuja näkee vuorot, jotka on luotu tietyillä tunnisteilla (liitetty julistajaan) ja voi ilmoittautua niihin.
-            nothing: \"Ei mitään" käyttöoikeusroolilla käyttäjä ei näe tunnisteilla merkittyjä vuoroja eikä voi ilmoittautua niihin. Häntä ei myöskään voi liittää mihinkään vuoroon.
+            nothing: Ei mitään käyttöoikeusroolilla käyttäjä ei näe tunnisteilla merkittyjä vuoroja eikä voi ilmoittautua niihin. Häntä ei myöskään voi liittää mihinkään vuoroon.
     editProfilePicture:
         title: Vaihda profiilikuva
         text: Kuvan tulisi olla vähintään 256x256 pistettä. Hyväksytyt formaatit ovat JPEG ja PNG.
@@ -64,7 +64,7 @@ modal:
         teams: Tiimin liitetyt vuorot
         helpText:
             tag: Aseta vuoron tunniste. Kaikki käyttäjät, joilla on tämä tunniste, voivat nähdä vuoron.
-            scheduling: \'Hyväksy heti' ilmoittautumiset hyväksytään automaattisesti, kun minimimäärä osallistujia seuraavalle tiimille saavutetaan.
+            scheduling: Hyväksy heti ilmoittautumiset hyväksytään automaattisesti, kun minimimäärä osallistujia seuraavalle tiimille saavutetaan.
         addTeam: Lisää uusi tiimi
         teamMin: Minimi osallistujämäärä:
         teamMax: Maksimi osallistujamäärä:
@@ -232,7 +232,7 @@ modal:
         title: Käyttäjätiedoston lataus
         helpText: Henkilötietojen järjestys (* merkityt kentät ovat pakollisia): <br> Sähköposti*, Etunimi*, Sukunimi*, Sukupuoli(m tai n)*, Puhelinnumero, Syntymäaika (Saksan, Englannin tai ISO 8601 muodossa), Palvelustehtävä ('julistaja', 'osa-aikainen', 'vakituinen', 'erikois', 'kierros', 'beteliläinen' tai 'psr'), Nimitykset ('julistaja', 'avustava', 'vanhin', 'koordinaattori', 'sihteeri' tai 'palvelusvalvoja'), Seurakunta
         helpEncoding: Tiedoton tulee olla UTF-8 koodattua
-        uploadFile: Lataa CSV-tiedsto
+        uploadFile: Lataa CSV-tiedosto
         new: Uudet julistajat
         existing: Julistajat, joilla on JW Management käyttäjätili
         name: Nimi

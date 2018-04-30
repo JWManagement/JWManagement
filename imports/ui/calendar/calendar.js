@@ -5,6 +5,9 @@ Template.calendar.helpers({
     getShifts() {
         const template = Template.instance();
         return template.selectedDateShifts.get();
+    },
+    getFormattedTime(time) {
+        return moment(time, 'Hmm').format(TAPi18n.__('timeFormat.time'));
     }
 });
 
@@ -18,8 +21,6 @@ Template.calendar.onCreated(() => {
 });
 
 Template.calendar.onRendered(() => {
-    $('body').addClass('md-skin');
-    $('body').addClass('top-navigation');
     $('body').attr('type', 'calendar');
 
     const template = Template.instance();
@@ -31,7 +32,7 @@ Template.calendar.onRendered(() => {
     if (year == null || month == null || day == null) {
         template.setDate(Date());
     } else {
-        template.setDate(new Date(year, month, day));
+        template.setDate(new Date(year, month - 1, day));
     }
 
     $datePicker.datepicker({
@@ -54,12 +55,18 @@ Template.calendar.onRendered(() => {
 });
 
 Template.calendar.onDestroyed(() => {
-    $('body').removeClass('md-skin');
-    $('body').removeClass('top-navigation');
     $('body').attr('type', '');
 });
 
-Template.calendar.events({});
+Template.calendar.events({
+    'click .shift': function(e) {
+        wrs(() => {
+            FlowRouter.setQueryParams({
+                showShift: this._id
+            });
+        });
+    }
+});
 
 function loadShifts() {
     const template = this;

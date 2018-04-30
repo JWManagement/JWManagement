@@ -16,6 +16,47 @@ body.md-skin[type='calendar'] {
         }
     }
 
+    .shifts {
+        .shift {
+            cursor       : pointer;
+            padding      : 5px;
+            border-bottom: 1px solid #eee;
+
+            .time {
+                padding      : 5px 15px 5px 5px;
+                display      : table-cell;
+                font-size    : 12px;
+                min-width    : 80px;
+                text-align   : right;
+                border-right : 1px solid #3f51b5; // #f44336;
+                align-content: center;
+
+                .end,
+                .start {
+                    display: block;
+                }
+            }
+
+            .content {
+                width         : 100%;
+                padding       : 5px;
+                display       : table-cell;
+                vertical-align: middle;
+
+                .tag {
+                    padding-left: 10px;
+                }
+            }
+
+            .link {
+                color         : #aaa;
+                padding       : 5px;
+                display       : table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+
     .no-shifts {
         color     : #777;
         font-size : 20px;

@@ -1,6 +1,24 @@
+if queryParam 'showShift'
+    +shiftModal
+if queryParam 'editShift'
+    +editShiftModal
+if queryParam 'cancelTeam'
+    +cancelTeamModal
+if queryParam 'addParticipant'
+    +addParticipantModal
+if queryParam 'showShiftReport'
+    +shiftReport
+
 #datepicker
 .shifts
     each getShifts
-        .shift Schicht
+        .shift
+            .time
+                .start {{getFormattedTime start}}
+                .end {{getFormattedTime end}}
+            .content
+                .tag {{tag}}
+            .link
+                i.icon.fa.fa-chevron-right
     else
         .no-shifts {{_ 'calendar.noShifts'}}
