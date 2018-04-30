@@ -1,3 +1,14 @@
+if queryParam 'showShift'
+    +shiftModal
+if queryParam 'editShift'
+    +editShiftModal
+if queryParam 'cancelTeam'
+    +cancelTeamModal
+if queryParam 'addParticipant'
+    +addParticipantModal
+if queryParam 'showShiftReport'
+    +shiftReport
+
 #datepicker
 .shifts
     each getShifts

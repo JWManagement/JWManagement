@@ -55,7 +55,15 @@ Template.calendar.onDestroyed(() => {
     $('body').attr('type', '');
 });
 
-Template.calendar.events({});
+Template.calendar.events({
+    'click .shift': function(e) {
+        wrs(() => {
+            FlowRouter.setQueryParams({
+                showShift: this._id
+            });
+        });
+    }
+});
 
 function loadShifts() {
     const template = this;
