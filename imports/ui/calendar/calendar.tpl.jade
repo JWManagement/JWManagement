@@ -1,6 +1,13 @@
 #datepicker
 .shifts
     each getShifts
-        .shift Schicht
+        .shift
+            .time
+                .start 10:00 Uhr
+                .end 12:00 Uhr
+            .content
+                .tag Trolley
+            .link
+                i.icon.fa.fa-chevron-right
     else
         .no-shifts {{_ 'calendar.noShifts'}}
