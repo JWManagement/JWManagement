@@ -8,6 +8,9 @@ Template.calendar.helpers({
     },
     getFormattedTime(time) {
         return moment(time, 'Hmm').format(TAPi18n.__('timeFormat.time'));
+    },
+    hasNoRequests() {
+        return this.approvedRequests == 0 && this.pendingRequests == 0;
     }
 });
 

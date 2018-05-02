@@ -17,7 +17,27 @@ if queryParam 'showShiftReport'
                 .start {{getFormattedTime start}}
                 .end {{getFormattedTime end}}
             .content
-                .tag {{tag}}
+                .tag
+                    .label.label-primary {{tag}}
+                each teams
+                    .team(class='{{status}}')
+                        i.fa(class='{{icon}}')
+                        | {{name}}
+                        .stats
+                            i.fa.fa-user
+                            span.colon :
+                            if approvedRequests
+                                span.approved
+                                    | {{approvedRequests}}
+                                    i.fa.fa-check
+                            if pendingRequests
+                                span.pending
+                                    | {{pendingRequests}}
+                                    i.fa.fa-hourglass
+                            if isTlNeeded
+                                span.badge.badge-danger TL needed
+                            if hasNoRequests
+                                span.none 0
             .link
                 i.icon.fa.fa-chevron-right
     else
