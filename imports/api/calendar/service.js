@@ -1,3 +1,4 @@
+import Users from '/imports/api/users/Users.js'
 import Permissions from '/imports/api/util/Permissions.js'
 
 Meteor.methods({
@@ -50,7 +51,7 @@ Meteor.methods({
             })
             .fetch();
 
-            //let allUserIds = [];
+            let userIds = [];
 
             for (let shift of shifts) {
                 for (let tag of project.tags) {
@@ -70,14 +71,57 @@ Meteor.methods({
                     team.approvedRequests = team.participants.length || 0;
                     team.pendingRequests = team.pending.length || 0;
 
-                    delete team.participants;
-                    delete team.pending;
+                    for (let user of team.participants.concat(team.pending)) {
+                        userIds.push(user._id);
+                    }
+                }
+            }
 
-                    team.isTlNeeded = false;
+            const users = Users.find({
+                _id: {
+                    $in: userIds
+                }
+            }, {
+                fields: {
+                    roles: true
+                }
+            }).fetch();
 
-                    //for (let user of team.participants) {
-                    //    allUserIds.push(user._id);
-                    //}
+            const teamleadRoles = ['teamleader', 'substituteTeamleader'];
+
+            for (let shift of shifts) {
+                for (let team of shift.teams) {
+                    if (team.participants.length == 0 && team.pending.length > 0) {
+                        team.isTlNeeded = true;
+
+                        for (let request of team.pending) {
+                            for (let user of users) {
+                                if (user._id == request._id) {
+                                    if (user.roles[Roles.GLOBAL_GROUP] != null && user.roles[Roles.GLOBAL_GROUP].indexOf('teamleader') > -1) {
+                                        team.isTlNeeded = false;
+                                        break;
+                                    }
+
+                                    for (let role in user.roles) {
+                                        if (role == shift.tagId) {
+                                            const isTeamleader = teamleadRoles.indexOf(user.roles[role][0]) > -1;
+
+                                            if (isTeamleader) {
+                                                team.isTlNeeded = false;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    if (!team.isTlNeeded) break;
+                                }
+                            }
+
+                            if (!team.isTlNeeded) break;
+                        }
+                    } else {
+                        team.isTlNeeded = false;
+                    }
                 }
             }
 
