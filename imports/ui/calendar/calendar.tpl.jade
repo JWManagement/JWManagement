@@ -11,34 +11,38 @@ if queryParam 'showShiftReport'
 
 #datepicker
 .shifts
-    each getShifts
-        .shift
-            .time
-                .start {{getFormattedTime start}}
-                .end {{getFormattedTime end}}
-            .content
-                .tag
-                    .label.label-primary {{tag}}
-                each teams
-                    .team(class='{{status}}')
-                        i.fa(class='{{icon}}')
-                        | {{name}}
-                        .stats
-                            i.fa.fa-user
-                            span.colon :
-                            if approvedRequests
-                                span.approved
-                                    | {{approvedRequests}}
-                                    i.fa.fa-check
-                            if pendingRequests
-                                span.pending
-                                    | {{pendingRequests}}
-                                    i.fa.fa-hourglass
-                            if isTlNeeded
-                                span.badge.badge-danger TL needed
-                            if hasNoRequests
-                                span.none 0
-            .link
-                i.icon.fa.fa-chevron-right
+    if isLoading
+        .loading
+            i.fa.fa-circle-o-notch.fa-spin
     else
-        .no-shifts {{_ 'calendar.noShifts'}}
+        each getShifts
+            .shift
+                .time
+                    .start {{getFormattedTime start}}
+                    .end {{getFormattedTime end}}
+                .content
+                    .tag
+                        .label.label-primary {{tag}}
+                    each teams
+                        .team(class='{{status}}')
+                            i.fa(class='{{icon}}')
+                            | {{name}}
+                            .stats
+                                i.fa.fa-user
+                                span.colon :
+                                if approvedRequests
+                                    span.approved
+                                        | {{approvedRequests}}
+                                        i.fa.fa-check
+                                if pendingRequests
+                                    span.pending
+                                        | {{pendingRequests}}
+                                        i.fa.fa-hourglass
+                                if isTlNeeded
+                                    span.badge.badge-danger TL needed
+                                if hasNoRequests
+                                    span.none 0
+                .link
+                    i.icon.fa.fa-chevron-right
+        else
+            .no-shifts {{_ 'calendar.noShifts'}}

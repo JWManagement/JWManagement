@@ -16,6 +16,13 @@ body.md-skin[type='calendar'] {
         }
     }
 
+    .loading {
+        color     : #aaa;
+        font-size : 30px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
     .shifts {
         .shift {
             cursor       : pointer;

@@ -2,6 +2,10 @@ import './calendar.tpl.jade';
 import './calendar.scss';
 
 Template.calendar.helpers({
+    isLoading() {
+        const template = Template.instance();
+        return template.isLoading.get();
+    },
     getShifts() {
         const template = Template.instance();
         return template.selectedDateShifts.get();
@@ -21,6 +25,8 @@ Template.calendar.onCreated(() => {
     template.selectedDateShifts = new ReactiveVar([]);
     template.loadShifts = loadShifts;
     template.setDate = setDate;
+
+    template.isLoading = new ReactiveVar(true);
 });
 
 Template.calendar.onRendered(() => {
@@ -76,8 +82,11 @@ function loadShifts() {
     let params = FlowRouter.current().params;
     params.date = parseInt(moment(template.selectedDate).format('YYYYDDD'));
 
+    template.isLoading.set(true);
+
     Meteor.call('calendar.getShifts', params, (e, shifts) => {
         template.selectedDateShifts.set(shifts);
+        template.isLoading.set(false);
     });
 }
 
