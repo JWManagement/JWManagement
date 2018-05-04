@@ -52,9 +52,14 @@ body.md-skin[type='calendar'] {
                 .tag {
                     margin-left  : 10px;
                     margin-bottom: 5px;
+
+                    .label {
+                        font-size: 14px;
+                    }
                 }
 
                 div.team {
+                    font-size   : 14px;
                     padding-top : 5px;
                     padding-left: 10px;
 
@@ -69,6 +74,7 @@ body.md-skin[type='calendar'] {
                     }
 
                     .stats {
+                        font-size  : 12px;
                         margin-left: 30px;
 
                         .approved,
