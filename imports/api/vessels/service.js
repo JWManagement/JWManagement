@@ -164,7 +164,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'vessel.visit.language.insert': ({ language, projectId, vesselId, visitId }, { languageId }) => {
+    'vessel.visit.language.insert': ({ language, projectId, vesselId, visitId }, { languageIds }) => {
         checkVesselModule(projectId);
 
         const extendedVisits = getExtendedVessel(vesselId, language).visits;
@@ -183,8 +183,8 @@ Meteor.methods({
             if(visit.languageIds == null) {
                 visit.languageIds = [];
             }
-            if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageId }).length == 0) {
-                visit.languageIds.push(languageId);
+            if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageIds }).length == 0) {
+                visit.languageIds.push(languageIds);
             }
             return visit;
         });

@@ -1,4 +1,3 @@
-import Users from '/imports/api/users/Users.js';
 import Gender from '/imports/api/dropdowns/Gender.js';
 import Pioneer from '/imports/api/dropdowns/Pioneer.js';
 import Privilege from '/imports/api/dropdowns/Privilege.js';

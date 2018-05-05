@@ -21,7 +21,7 @@ Meteor.methods({
             fields: {
                 notes: 1
             }
-        }).notes;
+        }).notes || [];
 
         for (let note of notes) {
             const user = Users.findOne(note.lastChangeBy, {
@@ -105,7 +105,7 @@ function getExtendedNote(projectId, noteId, language) {
 
     let note = null;
 
-    for(let n of notes) {
+    for (let n of notes) {
         if (n._id == noteId) {
             note = n;
         }
@@ -136,7 +136,7 @@ function getExtendedNote(projectId, noteId, language) {
 }
 
 function checkPermissions(projectId) {
-    const project = Projects.findOne(projectId, { fields: { noteModule: 1 } })
+    const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
     if (project == null) {
         throw new Meteor.Error('projectNotFound');

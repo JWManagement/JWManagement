@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema'
+import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js';
 
 export Methods =
 
@@ -12,7 +13,7 @@ export Methods =
 				message: type: String
 				language:
 					type: String
-					allowedValues: ['de', 'en', 'fr', 'hu', 'it', 'pt', 'pl', 'ru']
+					allowedValues: SystemLanguages.allowedValues
 			.validator()
 		run: (args) -> if Meteor.isServer
 			newDoc =

@@ -80,6 +80,9 @@ Template.InsertForm.helpers({
                 if ('allowedKeyValuesMethod' in field) {
                     inputData.allowedKeyValuesMethod = field.allowedKeyValuesMethod;
                 }
+                if ('required' in field) {
+                    inputData.required = field.required;
+                }
                 if (field.type == 'date') {
                     inputData.format = field.format;
                 }
@@ -111,8 +114,19 @@ Template.InsertForm.onCreated(() => {
     template.isSaving = new ReactiveVar(false);
     template.activeField = new ReactiveVar({});
 
-    template.setFieldValue = (key, value) => {
+    template.setFieldValue = function(key, value) {
+        const errors = this.errors.get();
+        let newErrors = [];
+
         template.entity[key] = value;
+
+        for (let error of errors) {
+            if (error.name != key) {
+                newErrors.push(error);
+            }
+        }
+
+        this.errors.set(newErrors);
     }
 });
 
@@ -154,19 +168,6 @@ Template.InsertForm.events({
         }
         template.errors.set(newErrors);
     },
-    'change select': function(e) {
-        const template = Template.instance();
-        const key = this.data.key;
-        const errors = template.errors.get();
-        let newErrors = [];
-
-        for (let error in errors) {
-            if (error.name != key) {
-                newErrors.push(error);
-            }
-        }
-        template.errors.set(newErrors);
-    },
     'click .navbar-save': (e) => {
         e.preventDefault();
 
@@ -188,7 +189,18 @@ Template.InsertForm.events({
                     }
 
                     template.errors.set(errors.map((error) => {
-                        error.name = error.name.split('.').pop();
+                        let parts = error.name.split('.');
+
+                        if (!isNaN(parseInt(parts[parts.length - 1]))) {
+                            parts.pop();
+                        }
+
+                        error.name = parts.join('_');
+
+                        if (error.name.search(/[0-9]/g) > -1) {
+                            error.name = error.name.substring(getRegexLastIndexOf(error.name, /[0-9]/g) + 2);
+                        }
+
                         return error;
                     }));
                 } else {
@@ -202,3 +214,21 @@ Template.InsertForm.events({
         });
     }
 });
+
+function getRegexLastIndexOf(string, regex) {
+    regex = (regex.global)
+        ? regex
+        : new RegExp(regex.source, 'g' + (regex.ignoreCase ? 'i' : '') + (regex.multiLine ? 'm' : ''));
+
+    let startpos = string.length;
+    let stringToWorkWith = string.substring(0, startpos + 1);
+    let lastIndexOf = -1;
+    let nextStop = 0;
+
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+
+    return lastIndexOf;
+}

@@ -54,6 +54,8 @@ body.md-skin[type='InsertForm'] {
                 background-color: #fff;
 
                 .text-input {
+                    display: flex;
+
                     input {
                         width  : 100%;
                         border : 0;
@@ -64,7 +66,7 @@ body.md-skin[type='InsertForm'] {
                     textarea {
                         border : none;
                         width  : 100%;
-                        height : 110px;
+                        height : 40px;
                         resize : vertical;
                         padding: 8px 8px 8px 15px;
                         outline: 0;
@@ -173,12 +175,13 @@ body.md-skin[type='InsertForm'] {
 
             .section-content,
             .section-date {
-                border-top   : 0.5px solid #f44336;
-                border-bottom: 0.5px solid #f44336;
+                border-top   : 1px solid #f44336;
+                border-bottom: 1px solid #f44336;
             }
 
             .section-date,
-            input {
+            input,
+            textarea {
                 background-color: lighten(#f44336, 35%);
 
                 &::placeholder {

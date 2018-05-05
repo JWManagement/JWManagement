@@ -1,6 +1,7 @@
 language:
     _de: Deutsch
     _en: Englisch
+    _fi: Finnisch
     _fr: Französisch (teilweise)
     _hu: Ungarisch
     _it: Italienisch (teilweise)
@@ -19,6 +20,7 @@ language:
     _CB: Kambodschanisch
     _CH: Chinesisch
     _CHS: Chinesisch (vereinfacht)
+    _CS: Tschechisch
     _CV: Cebuano
     _DAR: Dari
     _DGS: Deutsche Gebärdensprache
@@ -39,6 +41,7 @@ language:
     _J: Japanisch
     _K: Ukrainisch
     _KO: Koreanisch
+    _KEA: Kapverdisches Kreol
     _KRI: Krio
     _L: Litauisch
     _LT: Lettisch

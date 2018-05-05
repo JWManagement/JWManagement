@@ -4,6 +4,7 @@ import RoleManager from '/imports/api/managers/RoleManager.js'
 import MailManager from '/imports/api/managers/MailManager.js'
 import State from '/imports/api/dropdowns/State.js'
 import { Accounts } from 'meteor/accounts-base'
+import objectAssignDeep from 'object-assign-deep';
 
 Meteor.methods({
     'user.search': ({ language, projectId, searchString, limit }) => {
@@ -107,8 +108,20 @@ Meteor.methods({
     'user.insert': ({ language, projectId }, user) => {
         checkPermissions(projectId);
 
+        let userObj = {};
+
+        for (let property in user) {
+            let propertyObj = user[property];
+
+            for (let [index, part] of property.split('_').reverse().entries()) {
+                propertyObj = {[part]: propertyObj};
+            }
+
+            userObj = objectAssignDeep(userObj, propertyObj);
+        }
+
         try {
-            Users.persistence.insert(user);
+            Users.persistence.insert(userObj);
             return user._id;
         } catch(e) {
             throw new Meteor.Error(e);
@@ -131,7 +144,7 @@ Meteor.methods({
 
             Accounts.setPassword(userId, passwords.password);
         } catch(e) {
-            for(let detail of e.details) {
+            for (let detail of e.details) {
                 if (detail.type == 'minString') {
                     detail.type = 'minString8';
                 }
@@ -322,7 +335,17 @@ Meteor.methods({
                 time += 100;
             }
 
-            for (let userDay of Object.keys(user.profile.available)) {
+            if (user.profile.available == null) {
+                user.profile.available = {};
+
+                Users.persistence.update(userId, 'profile.available', {});
+            }
+
+            if (Object.keys(user.profile.available).indexOf(day) == -1) {
+                user.profile.available[day] = [];
+            }
+
+            for (let userDay in user.profile.available) {
                 if (userDay == day) {
                     mergedTimeslots = user.profile.available[userDay];
 
@@ -361,7 +384,7 @@ Meteor.methods({
         const day = key.split('_').pop().substring(0, 2);
         let newTimeslots = [];
 
-        for (let userDay of Object.keys(user.profile.available)) {
+        for (let userDay in user.profile.available) {
             if (userDay == day) {
                 const oldTimeslots = user.profile.available[userDay];
                 const delTimeslots = timeslot.split(',');
@@ -457,6 +480,10 @@ function getExtendedUser(userId, projectId, language) {
     });
 
     if (user != undefined) {
+        if (user.profile.available == null) {
+            user.profile.available = {};
+        }
+
         user.profile.availability = {
             mondays: convertTimeslotToAvailability(user.profile.available.mo, language),
             tuesdays: convertTimeslotToAvailability(user.profile.available.tu, language),
@@ -466,6 +493,10 @@ function getExtendedUser(userId, projectId, language) {
             saturdays: convertTimeslotToAvailability(user.profile.available.sa, language),
             sundays: convertTimeslotToAvailability(user.profile.available.su, language)
         };
+
+        if (user.profile.vacations == null) {
+            user.profile.vacations = [];
+        }
 
         for (let vacation of user.profile.vacations) {
             const dateFormatStart = TAPi18n.__('user.entity.profile.vacation.startDateFormat', {}, language);

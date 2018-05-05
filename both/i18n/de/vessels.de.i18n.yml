@@ -42,8 +42,8 @@ vessel:
                 new: Eine Sprache hinzufügen
                 noElements: Noch keine Sprachen hinzugefügt
                 deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
-                languageId: Sprache
-                languageIdValues:
+                languageIds: Sprache
+                languageIdsValues:
                     placeholder: Wähle eine Sprache
             languages: Sprachen an Board
     search:

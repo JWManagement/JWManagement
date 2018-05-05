@@ -35,7 +35,7 @@ export default RoleManager = {
     hasPermissions: (userId) => {
         const groups = Roles.getGroupsForUser(userId);
 
-        for(let group of groups) {
+        for (let group of groups) {
             if (Roles.userIsInRole(userId, Permissions.member, group)) {
                 return true;
             }

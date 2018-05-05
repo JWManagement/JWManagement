@@ -131,7 +131,7 @@ Template.DetailsForm.helpers({
                 FlowRouter.getRouteName().split('.')[0],
                 'entity',
                 key + 'Values',
-                value.toLowerCase()
+                value
             ].join('.').replace(/_/g, '.'));
         } else if (content.type == 'date') {
             if (value != null && value != '') {

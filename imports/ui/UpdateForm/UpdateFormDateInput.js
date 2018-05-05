@@ -9,22 +9,21 @@ Template.UpdateFormDateInput.onCreated(() => {
     template.updateForm = data.parentInstance;
 
     if (template.valueRaw != null && template.valueRaw == 'today') {
-        template.valueRaw = moment(new Date()).format(template.format);
+        template.valueRaw = moment(Date()).format(template.format);
     }
 });
 
 Template.UpdateFormDateInput.onRendered(() => {
     const template = Template.instance();
-    const $weekPicker = $('.datepicker');
+    const $datePicker = template.$('.datepicker');
 
-    $weekPicker.datepicker({
+    $datePicker.datepicker({
         maxViewMode: 0,
         weekStart: 1,
         language: TAPi18n.getLanguage()
     })
-    .datepicker('setDate', moment(template.valueRaw, template.format).toDate())
     .on('changeDate', (e) => {
-        const value = $('.datepicker').datepicker('getDate');
+        const value = $datePicker.datepicker('getDate');
         let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format));
 
         if (value == '') {
@@ -37,7 +36,11 @@ Template.UpdateFormDateInput.onRendered(() => {
         }
     });
 
-    $weekPicker.find('.table-condensed').removeClass('table-condensed');
+    if (template.valueRaw != null && template.valueRaw != '') {
+        $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
+    }
+
+    $datePicker.find('.table-condensed').removeClass('table-condensed');
 });
 
 Template.UpdateFormDateInput.onDestroyed(() => {});

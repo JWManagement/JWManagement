@@ -8,10 +8,12 @@ Template['user.password.insert'].helpers({
             fields: [
                 {
                     key: 'password',
-                    type: 'password'
+                    type: 'password',
+                    required: true
                 }, {
                     key: 'passwordRepeat',
-                    type: 'password'
+                    type: 'password',
+                    required: true
                 }
             ]
         }

@@ -74,6 +74,7 @@ Users.schema = new SimpleSchema({
     },
     'profile.gender': {
         type: String,
+        defaultValue: 'm',
         allowedValues: Gender.allowedValues
     },
     'profile.bdate': {
@@ -91,10 +92,12 @@ Users.schema = new SimpleSchema({
     },
     'profile.pioneer': {
         type: String,
+        defaultValue: 'publisher',
         allowedValues: Pioneer.allowedValues
     },
     'profile.privilege': {
         type: String,
+        defaultValue: 'publisher',
         allowedValues: Privilege.allowedValues
     },
     'profile.telefon': {
@@ -106,10 +109,12 @@ Users.schema = new SimpleSchema({
         optional: true
     },
     'profile.available': {
-        type: Object
+        type: Object,
+        optional: true
     },
     'profile.available.mo': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.mo.$': {
         type: Number,
@@ -117,7 +122,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.tu': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.tu.$': {
         type: Number,
@@ -125,7 +131,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.we': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.we.$': {
         type: Number,
@@ -133,7 +140,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.th': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.th.$': {
         type: Number,
@@ -141,7 +149,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.fr': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.fr.$': {
         type: Number,
@@ -149,7 +158,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.sa': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.sa.$': {
         type: Number,
@@ -157,7 +167,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.available.su': {
-        type: Array
+        type: Array,
+        optional: true
     },
     'profile.available.su.$': {
         type: Number,
@@ -165,7 +176,8 @@ Users.schema = new SimpleSchema({
         max: 2300
     },
     'profile.vacations': {
-        type: Array
+        type: Array,
+        defaultValue: []
     },
     'profile.vacations.$': new SimpleSchema({
         _id: {
@@ -212,15 +224,18 @@ Users.schema = new SimpleSchema({
         defaultValue: false
     },
     state: {
-        type: String
+        type: String,
+        optional: true
     },
     services: {
         type: Object,
-        blackbox: true
+        blackbox: true,
+        optional: true
     },
     roles: {
         type: Object,
-        blackbox: true
+        blackbox: true,
+        optional: true
     }
 });
 

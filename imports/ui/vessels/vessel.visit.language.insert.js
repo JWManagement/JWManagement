@@ -6,11 +6,12 @@ Template['vessel.visit.language.insert'].helpers({
         return {
             backLink: 'vessel.visit.details',
             fields: [{
-                key: 'languageId',
+                key: 'languageIds',
                 type: 'dropdown',
                 allowedKeyValues: GetLanguages().map((lang) => {
                     return { key: lang, value: TAPi18n.__('language._' + lang) }
-                })
+                }),
+                required: true
             }]
         }
     }

@@ -1,3 +1,13 @@
+import '/imports/api/datepicker/bootstrap-datepicker.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.de.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.fi.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.fr.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.hu.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.it.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.pl.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.pt.min.js';
+import '/imports/api/datepicker/bootstrap-datepicker.ru.min.js';
+
 import '/imports/api/projects/projects.js';
 
 import '/imports/api/util/templateHelpers.js';
@@ -40,19 +50,11 @@ import '/imports/ui/notes/note.details.js';
 import '/imports/ui/notes/note.update.js';
 import '/imports/ui/notes/note.insert.js';
 
+import '/imports/ui/calendar/calendar.js';
+
 import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
 Tracker.autorun(() => {
 	$('body').attr('page', FlowRouter.getRouteName());
 });
-
-window.WithModernizr = (callback) => {
-    if (typeof(Modernizr) == 'undefined') {
-        $.getScript("/lib/modernizr.min.js", () => {
-            callback();
-        });
-    } else {
-        callback();
-    }
-}
