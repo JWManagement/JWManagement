@@ -5,7 +5,7 @@ Template.InsertFormPickerInput.helpers({
     },
     isAllowedKeyValues() {
         const template = Template.instance();
-        return template.allowedKeyValuesMethod != null;
+        return template.allowedKeyValues.get() != null;
     },
     getItems() {
         const template = Template.instance();
@@ -45,7 +45,7 @@ Template.InsertFormPickerInput.onCreated(() => {
     template.insertForm = data.parentInstance;
     template.allowedValues = data.allowedValues;
     template.allowedKeyValuesMethod = data.allowedKeyValuesMethod;
-    template.allowedKeyValues = new ReactiveVar([]);
+    template.allowedKeyValues = new ReactiveVar(data.allowedKeyValues);
 
     if (template.allowedKeyValuesMethod != null) {
         Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
