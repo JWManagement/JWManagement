@@ -112,7 +112,7 @@ Template.InsertForm.onCreated(() => {
     template.entity = {};
     template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);
-    template.activeField = new ReactiveVar({});
+    template.activeField = new ReactiveVar(null);
 
     template.setFieldValue = function(key, value) {
         const errors = this.errors.get();
@@ -147,12 +147,11 @@ Template.InsertForm.onDestroyed(() => {
 Template.InsertForm.events({
     'click .navbar-back': function(e) {
         const template = Template.instance();
-
-        if (template.activeField.get() != {}) {
+        if (template.activeField.get() != null) {
             e.preventDefault();
             e.stopPropagation();
 
-            template.activeField.set({});
+            template.activeField.set(null);
         }
     },
     'change input': function(e) {
