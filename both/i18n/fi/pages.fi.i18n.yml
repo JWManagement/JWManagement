@@ -41,7 +41,6 @@ profile:
     _gender:
         brother: Veli
         sister: Sisar
-    birthday: Syntymäaika
     publisher: Julistaja
     privilegeOfService: Palvelustehtävät
     _privilegeOfService:

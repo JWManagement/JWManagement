@@ -194,7 +194,6 @@ Template.users.events
 			TAPi18n.__('input.lastname')
 			TAPi18n.__('input.gender')
 			TAPi18n.__('profile.telefon')
-			TAPi18n.__('profile.birthday')
 			TAPi18n.__('profile.privilegeOfService')
 			TAPi18n.__('profile.ministryPrivilege')
 			TAPi18n.__('profile.congregation')
@@ -212,7 +211,6 @@ Template.users.events
 				user.profile.lastname
 				user.profile.gender
 				user.profile.telefon
-				user.profile.bdate
 				user.profile.pioneer
 				user.profile.privilege
 				user.profile.congregation

@@ -36,7 +36,6 @@ user:
                 coordinator: Coordinateur du Collège des Anciens
                 secretary: Secrétaire
                 serviceOverseer: Responsable de prédication
-            bdate: Date de naissance
             languages: Langues
             shortTermCalls: Receive understaffed mails
             shortTermCallsAlways: Disponible bientôt

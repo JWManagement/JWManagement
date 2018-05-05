@@ -99,7 +99,6 @@ profile:
     _gender:
         brother: Brat
         sister: Siostra
-    birthday: Data narodzin
     publisher: Głosiciel
     privilegeOfService: Przywilej służby
     _privilegeOfService:

@@ -36,7 +36,6 @@ user:
                 coordinator: Koordinator
                 secretary: Sekretär
                 serviceOverseer: Dienstaufseher
-            bdate: Geburtsdatum
             languages: Fremdsprachen
             shortTermCalls: Unterbesetzt-Mails erhalten
             shortTermCallsAlways: Kurzfristig anfragbar

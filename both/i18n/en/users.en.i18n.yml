@@ -36,7 +36,6 @@ user:
                 coordinator: Coordinator of the Body of Elders
                 secretary: Secretary
                 serviceOverseer: Service overseer
-            bdate: Birth date
             languages: Foreign languages
             shortTermCalls: Receive understaffed mails
             shortTermCallsAlways: Available in short term

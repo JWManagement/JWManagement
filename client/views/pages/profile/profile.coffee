@@ -29,13 +29,6 @@ Template.profile.onRendered ->
 			language: FlowRouter.getParam('language')
 			ignoreReadonly: true
 
-		$('#bdate-wrapper').datepicker
-			format: 'dd.mm.yyyy'
-			autoclose: true
-			forceParse: false
-			startDate: '1900/01/01'
-			language: FlowRouter.getParam('language')
-
 Template.profile.onDestroyed ->
 
 	$('#mergeAccountsModal').modal('hide')
@@ -76,14 +69,6 @@ Template.profile.events
 	'change #gender': (e) -> Meteor.call 'updateProfile', 'gender', e.target.value, handleSuccess
 
 	'change #languages': (e) -> Meteor.call 'updateProfile', 'languages', e.target.value, handleSuccess
-
-	'change #bdate': (e) ->
-		bdate = e.target.value
-
-		if bdate.indexOf('Invalid') > -1
-			Meteor.call 'updateProfile', 'bdate', ''
-		else
-			Meteor.call 'updateProfile', 'bdate', bdate, handleSuccess
 
 	'change #pioneer': (e) -> Meteor.call 'updateProfile', 'pioneer', e.target.value, handleSuccess
 

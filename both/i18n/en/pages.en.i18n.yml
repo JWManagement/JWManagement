@@ -41,7 +41,6 @@ profile:
     _gender:
         brother: Brother
         sister: Sister
-    birthday: Date of birth
     publisher: Publisher
     privilegeOfService: Privilege of service
     _privilegeOfService:

@@ -41,7 +41,6 @@ profile:
     _gender:
         brother: Bruder
         sister: Schwester
-    birthday: Geburtstag
     publisher: Verkündiger
     privilegeOfService: Dienstvorrecht
     _privilegeOfService:

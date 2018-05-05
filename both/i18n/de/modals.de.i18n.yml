@@ -230,7 +230,7 @@ modal:
         invite: Einladen
     uploadUserFile:
         title: User-Datei hochladen
-        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Geburtstag(Deutsches-, Englisches- oder ISO 8601-Format), Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant', 'elder', 'coordinator', 'secretary' oder 'serviceOverseer'), Versammlung
+        helpText: Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht('publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite' oder 'ldc'), Versammlungsvorrecht('publisher', 'servant', 'elder', 'coordinator', 'secretary' oder 'serviceOverseer'), Versammlung
         helpEncoding: Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!
         uploadFile: CSV-Datei hochladen
         new: Neue Verkündiger

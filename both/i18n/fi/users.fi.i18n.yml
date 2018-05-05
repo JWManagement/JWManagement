@@ -36,7 +36,6 @@ user:
                 coordinator: Vanhimmiston koordinaattori
                 secretary: Sihteeri
                 serviceOverseer: Palvelusvalvoja
-            bdate: Syntymäaika
             languages: Vieraat kielet
             shortTermCalls: Vastaanota tietoja vajaista vuoroista
             shortTermCallsAlways: Käytettävissä nopealla aikataululla

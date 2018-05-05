@@ -23,10 +23,6 @@ Template['user.update'].helpers({
                     type: 'picker',
                     allowedValues: Gender.allowedValues
                 }, {
-                    key: 'profile_bdate',
-                    type: 'date',
-                    format: 'YYYYDDD'
-                }, {
                     key: 'profile_pioneer',
                     type: 'picker',
                     allowedValues: Pioneer.allowedValues

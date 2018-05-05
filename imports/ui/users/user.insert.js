@@ -28,10 +28,6 @@ Template['user.insert'].helpers({
                 defaultValue: Gender.defaultValue,
                 required: true
             }, {
-                key: 'profile_bdate',
-                type: 'date',
-                format: 'YYYYDDD'
-            }, {
                 key: 'profile_pioneer',
                 type: 'picker',
                 allowedValues: Pioneer.allowedValues,

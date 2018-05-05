@@ -94,7 +94,6 @@ profile:
     _gender:
         brother: Irmão
         sister: Irmã
-    birthday: Data de Nascimento
     publisher: Publicador
     privilegeOfService: Privilegio de Serviço
     _privilegeOfService:

@@ -99,7 +99,6 @@ profile:
     _gender:
         brother: Брат
         sister: Сестра
-    birthday: День рождения
     publisher: Возвещатель
     privilegeOfService: НАЗНАЧЕНИЯ
     _privilegeOfService:

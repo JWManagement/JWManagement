@@ -36,7 +36,6 @@ user:
                 coordinator: Coordinatore del Corpo degli Anziani
                 secretary: Segretario
                 serviceOverseer: Sorvegliante del Servizio
-            bdate: Data di nascita
             languages: Lingue parlate
             shortTermCalls: Receive understaffed mails
             shortTermCallsAlways: Disponibile a breve

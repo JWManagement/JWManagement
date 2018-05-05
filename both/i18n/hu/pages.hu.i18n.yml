@@ -94,7 +94,6 @@ profile:
     _gender:
         brother: Testvér
         sister: Testvérnő
-    birthday: Születési dátum
     publisher: Hírnök
     privilegeOfService: Szolgálati kíváltság
     _privilegeOfService:
