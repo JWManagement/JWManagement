@@ -144,9 +144,15 @@ template(name="InsertFormTextboxInput")
 
 template(name="InsertFormLink")
     .section
-        .section-header {{getEntityTranslation getKey}}
+        .section-header
+            | {{getEntityTranslation getKey}}
+            if isRequired
+                | *
         .section-content
             .link.clearfix
                 .key {{getValue}}
                 .value
                     i.icon.fa.fa-angle-right
+        if hasError
+            .section-error
+                p {{getEntityErrorTranslation}}
