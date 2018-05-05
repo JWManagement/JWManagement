@@ -10,6 +10,9 @@ template(name="UpdateForm")
                     span.input-group-addon &#xF002;
                     input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
 
+    if isSearchEnabled
+        .search-splitter
+
     form.form-horizontal
         if isReady
             if isText

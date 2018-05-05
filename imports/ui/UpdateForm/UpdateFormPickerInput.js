@@ -9,11 +9,29 @@ Template.UpdateFormPickerInput.helpers({
     },
     getItems() {
         const template = Template.instance();
-        return template.allowedValues;
+        const searchText = template.updateForm.searchText.get();
+
+        if (searchText != '') {
+            const regEx = new RegExp(searchText, 'gi')
+            return template.allowedValues.filter((value) => {
+                return value.match(regEx);
+            });
+        } else {
+            return template.allowedValues;
+        }
     },
     getKeyValues() {
         const template = Template.instance();
-        return template.allowedKeyValues.get();
+        const searchText = template.updateForm.searchText.get();
+
+        if (searchText != '') {
+            const regEx = new RegExp(searchText, 'gi')
+            return template.allowedKeyValues.get().filter(({ key, value }) => {
+                return key.match(regEx) || value.match(regEx);
+            });
+        } else {
+            return template.allowedKeyValues.get();
+        }
     },
     getItemKey() {
         const item = Template.currentData();

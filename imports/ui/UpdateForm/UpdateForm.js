@@ -15,16 +15,18 @@ Template.UpdateForm.helpers({
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getSearchTranslation() {
-        const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values';
+        if (FlowRouter.getParam('key') != null) {
+            const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values';
 
-        let routeNameParts = FlowRouter.getRouteName().split('.');
-        routeNameParts.pop();
-        routeNameParts.splice(1, 0, 'entity');
+            let routeNameParts = FlowRouter.getRouteName().split('.');
+            routeNameParts.pop();
+            routeNameParts.splice(1, 0, 'entity');
 
-        let attributeParts = [key];
-        attributeParts.push('placeholder');
+            let attributeParts = [key];
+            attributeParts.push('placeholder');
 
-        return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
+            return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
+        }
     },
     isReady() {
         return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
@@ -48,7 +50,7 @@ Template.UpdateForm.helpers({
         return Template.instance().inputData.get().type == 'textbox';
     },
     isSearchEnabled() {
-        return Template.instance().inputData.get().search == true;
+        return Template.instance().inputData.get().search == true && FlowRouter.getParam('key') != null;
     },
     getInputData() {
         return Template.instance().inputData.get();
@@ -63,6 +65,7 @@ Template.UpdateForm.onCreated(() => {
     template.noResult = new ReactiveVar(true);
     template.inputData = new ReactiveVar({});
     template.inputType = new ReactiveVar('');
+    template.searchText = new ReactiveVar('');
 
     template.updateEntity = (value) => {
         const routeName = FlowRouter.getRouteName();
@@ -148,5 +151,10 @@ Template.UpdateForm.onDestroyed(() => {
 Template.UpdateForm.events({
     'submit form': (e) => {
         e.preventDefault();
+    },
+    'keyup #search': () => {
+        const template = Template.instance();
+        const value = $('#search').val();
+        template.searchText.set(value);
     }
 });
