@@ -1,17 +1,23 @@
 Template.InsertFormLink.helpers({
     getValue() {
-        const value = 'placeholder';
-        const data = Template.currentData().data;
-        if (data.value != null) {
-            value = data.value;
+        const template = Template.instance();
+
+        if (template.displayValue != null) {
+            return template.displayValue;
+        } else {
+            const value = 'placeholder';
+            const data = Template.currentData().data;
+            if (data.value != null) {
+                value = data.value;
+            }
+
+            let messagePathParts = FlowRouter.getRouteName().split('.');
+            messagePathParts.pop();
+            messagePathParts.splice(1, 0, 'entity');
+            messagePathParts = messagePathParts.concat(data.key.replace(/_/g, '.'));
+
+            return TAPi18n.__(messagePathParts.join('.') + 'Values.' + value);
         }
-
-        let messagePathParts = FlowRouter.getRouteName().split('.');
-        messagePathParts.pop();
-        messagePathParts.splice(1, 0, 'entity');
-        messagePathParts = messagePathParts.concat(data.key.replace(/_/g, '.'));
-
-        return TAPi18n.__(messagePathParts.join('.') + 'Values.' + value);
     }
 });
 
@@ -21,6 +27,12 @@ Template.InsertFormLink.onCreated(() => {
 
     template.key = data.key;
     template.insertForm = data.parentInstance;
+
+    if (data.allowedKeyValues != null && data.value != null) {
+        template.displayValue = data.allowedKeyValues.filter((keyValue) => {
+            return keyValue.key == data.value;
+        })[0].value;
+    }
 });
 
 Template.InsertFormLink.onRendered(() => {});
