@@ -25,7 +25,7 @@ Vessels.schema = new SimpleSchema({
         type: Date,
         autoValue: function() {
             if (!this.isSet) {
-                return Date();
+                return new Date();
             }
         }
     },
@@ -86,7 +86,7 @@ Vessels.schema = new SimpleSchema({
         createdAt: {
             type: Date,
             autoValue: () => {
-                return Date();
+                return new Date();
             }
         },
         createdBy: {
