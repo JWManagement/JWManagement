@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Brother
                 w: Sister
-                placeholder: Select a gender
             pioneer: Privilege of service
             pioneerValues:
                 publisher: Publisher
@@ -29,7 +28,6 @@ user:
                 circuit: Circuit overseer
                 bethelite: Bethelite
                 ldc: Construction servant
-                placeholder: Select a privilege of service
             privilege: Congregation assignment
             privilegeValues:
                 publisher: Publisher
@@ -38,7 +36,6 @@ user:
                 coordinator: Coordinator of the Body of Elders
                 secretary: Secretary
                 serviceOverseer: Service overseer
-                placeholder: Select a congregation assignment
             bdate: Birth date
             languages: Foreign languages
             shortTermCalls: Receive understaffed mails
@@ -57,7 +54,6 @@ user:
                 start: Start
                 startDateFormat: h a -
                 startValues:
-                    placeholder: Select a start time
                     0: 12 am
                     1: 1 am
                     2: 2 am
@@ -85,7 +81,6 @@ user:
                 end: End
                 endDateFormat: h a
                 endValues:
-                    placeholder: Select an end time
                     0: 1 am
                     1: 2 am
                     2: 3 am

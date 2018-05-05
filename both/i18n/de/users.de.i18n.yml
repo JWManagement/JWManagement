@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Bruder
                 w: Schwester
-                placeholder: Wähle ein Geschlecht
             pioneer: Dienstvorrecht
             pioneerValues:
                 publisher: Verkündiger
@@ -29,7 +28,6 @@ user:
                 circuit: Kreisaufseher
                 bethelite: Bethelit
                 ldc: LDC Baudiener
-                placeholder: Wähle ein Dienstvorrecht
             privilege: Dienstamt
             privilegeValues:
                 publisher: Verkündiger
@@ -38,7 +36,6 @@ user:
                 coordinator: Koordinator
                 secretary: Sekretär
                 serviceOverseer: Dienstaufseher
-                placeholder: Wähle ein Dienstamt
             bdate: Geburtsdatum
             languages: Fremdsprachen
             shortTermCalls: Unterbesetzt-Mails erhalten
@@ -57,7 +54,6 @@ user:
                 start: Beginn
                 startDateFormat: H -
                 startValues:
-                    placeholder: Startzeit wählen
                     0: 0:00 Uhr
                     1: 1:00 Uhr
                     2: 2:00 Uhr
@@ -85,7 +81,6 @@ user:
                 end: Ende
                 endDateFormat: H [Uhr]
                 endValues:
-                    placeholder: Endzeit wählen
                     0: 1:00 Uhr
                     1: 2:00 Uhr
                     2: 3:00 Uhr

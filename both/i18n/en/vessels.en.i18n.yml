@@ -16,7 +16,6 @@ vessel:
             ro: Ro-Ro
             t: Tug
             unknown: Unknown
-            placeholder: Select a type
         callsign: Call sign
         eni: ENI
         imo: IMO

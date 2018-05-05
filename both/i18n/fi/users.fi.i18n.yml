@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Veli
                 w: Sisar
-                placeholder: Valitse sukupuoli
             pioneer: Palvelustehtävät
             pioneerValues:
                 publisher: Julistaja
@@ -29,7 +28,6 @@ user:
                 circuit: Kierrosvalvoja
                 bethelite: Beteliläinen
                 ldc: Rakentamisen vapaaehtoinen
-                placeholder: Valitse palvelustehtävä
             privilege: Seurakunnan palvelustehtävät
             privilegeValues:
                 publisher: Julistaja
@@ -38,7 +36,6 @@ user:
                 coordinator: Vanhimmiston koordinaattori
                 secretary: Sihteeri
                 serviceOverseer: Palvelusvalvoja
-                placeholder: Valitse seurakunnan palvelustehtävä
             bdate: Syntymäaika
             languages: Vieraat kielet
             shortTermCalls: Vastaanota tietoja vajaista vuoroista
@@ -57,7 +54,6 @@ user:
                 start: Aloitusaika
                 startDateFormat: hh:mm -
                 startValues:
-                    placeholder: Valitse aloitusaika
                     0: 00:00
                     1: 01:00
                     2: 02:00
@@ -85,7 +81,6 @@ user:
                 end: Lopetusaika
                 endDateFormat: hh:mm
                 endValues:
-                    placeholder: Valitse lopetusaika
                     0: 01:00
                     1: 02:00
                     2: 03:00

@@ -16,7 +16,6 @@ vessel:
             ro: Ro-Ro
             t: Schlepper
             unknown: Unbekannt
-            placeholder: Wähle einen Typ
         callsign: Rufzeichen
         eni: ENI
         imo: IMO

@@ -19,7 +19,6 @@ user:
             genderValues:
                 m: Fratello
                 w: Sorella
-                placeholder: Selezione un genere
             pioneer: Privilegio di servizio
             pioneerValues:
                 publisher: Proclamatore
@@ -29,7 +28,6 @@ user:
                 circuit: Sorvegliante di circoscrizione
                 bethelite: Betelita
                 ldc: Servitore delle costruzioni
-                placeholder: Seleziona un privilegio di servizio
             privilege: Nomina in congregazione
             privilegeValues:
                 publisher: Proclamatore
@@ -38,7 +36,6 @@ user:
                 coordinator: Coordinatore del Corpo degli Anziani
                 secretary: Segretario
                 serviceOverseer: Sorvegliante del Servizio
-                placeholder: Selezione la nomina in congregazione
             bdate: Data di nascita
             languages: Lingue parlate
             shortTermCalls: Receive understaffed mails
@@ -57,7 +54,6 @@ user:
                 start: Inizio
                 startDateFormat: HH:mm
                 startValues:
-                    placeholder: Seleziona l'ora d'inizio
                     0: 00:00
                     1: 01:00
                     2: 02:00
@@ -85,7 +81,6 @@ user:
                 end: Fine
                 endDateFormat: HH:mm
                 endValues:
-                    placeholder: Seleziona l'ora di fine
                     0: 00:00
                     1: 01:00
                     2: 02:00
