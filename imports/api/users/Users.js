@@ -206,12 +206,12 @@ Users.schema = new SimpleSchema({
         },
         start: {
             type: Number,
-            min: 20180000,
+            min: 20000000,
             max: 20250000
         },
         end: {
             type: Number,
-            min: 20180000,
+            min: 20000000,
             max: 20250000
         }
     }),
