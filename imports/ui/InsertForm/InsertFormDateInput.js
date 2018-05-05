@@ -35,7 +35,7 @@ Template.InsertFormDateInput.onRendered(() => {
         language: TAPi18n.getLanguage()
     })
     .on('changeDate', (e) => {
-        const valueRaw = template.$('.datepicker').datepicker('getDate');
+        const valueRaw = $datePicker.datepicker('getDate');
         const value = parseInt(moment(valueRaw, 'YYYY-MM-DD').format(template.format));
 
         template.insertForm.setFieldValue(template.key, value);

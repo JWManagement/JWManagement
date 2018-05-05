@@ -15,7 +15,7 @@ Template.UpdateFormDateInput.onCreated(() => {
 
 Template.UpdateFormDateInput.onRendered(() => {
     const template = Template.instance();
-    const $datePicker = $('.datepicker');
+    const $datePicker = template.$('.datepicker');
 
     $datePicker.datepicker({
         maxViewMode: 0,
@@ -23,7 +23,7 @@ Template.UpdateFormDateInput.onRendered(() => {
         language: TAPi18n.getLanguage()
     })
     .on('changeDate', (e) => {
-        const value = $('.datepicker').datepicker('getDate');
+        const value = $datePicker.datepicker('getDate');
         let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format));
 
         if (value == '') {
