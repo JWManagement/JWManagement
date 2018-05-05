@@ -9,7 +9,9 @@ Template.InsertFormPickerInput.helpers({
     },
     getItems() {
         const template = Template.instance();
-        return template.allowedValues;
+        return template.allowedValues.map((item) => {
+            return '' + item;
+        });
     },
     getKeyValues() {
         const template = Template.instance();
