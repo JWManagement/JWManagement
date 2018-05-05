@@ -1,5 +1,6 @@
-function GetLanguages() {
-	return [
+export default Languages = {
+    defaultValue: 'E',
+    allowedValues: [
         'A', 'AL', 'AR', 'AM',
         'B', 'BEL', 'BL', 'BSN',
         'C', 'CB', 'CH', 'CHS', 'CV',
@@ -23,7 +24,5 @@ function GetLanguages() {
         'WO',
         'X',
         'YR'
-    ];
+    ]
 }
-
-export default GetLanguages;

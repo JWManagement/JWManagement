@@ -1,5 +1,5 @@
 import Vessels from '/imports/api/vessels/Vessels.js';
-import GetLanguages from '/imports/api/util/GetLanguages.js';
+import Languages from '/imports/api/dropdowns/Languages.js';
 
 Template['vessel.visit.language.insert'].helpers({
     data() {
@@ -8,7 +8,7 @@ Template['vessel.visit.language.insert'].helpers({
             fields: [{
                 key: 'languageIds',
                 type: 'dropdown',
-                allowedKeyValues: GetLanguages().map((lang) => {
+                allowedKeyValues: Languages.allowedValues.map((lang) => {
                     return { key: lang, value: TAPi18n.__('language._' + lang) }
                 }),
                 required: true

@@ -1,5 +1,5 @@
 import Vessels from '/imports/api/vessels/Vessels.js';
-import GetLanguages from '/imports/api/util/GetLanguages.js';
+import Languages from '/imports/api/dropdowns/Languages.js';
 
 Template['vessel.visit.details'].helpers({
     data() {
@@ -50,7 +50,7 @@ Template['vessel.visit.details'].helpers({
                     type: [{
                         key: 'languageId',
                         type: 'dropdown',
-                        allowedValues: GetLanguages(),
+                        allowedValues: Languages.allowedValues,
                         click: {
                             type: 'delete',
                             method: 'vessel.visit.language.delete',
