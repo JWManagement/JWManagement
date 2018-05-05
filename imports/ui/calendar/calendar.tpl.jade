@@ -39,7 +39,7 @@ if queryParam 'showShiftReport'
                                         | {{pendingRequests}}
                                         i.fa.fa-hourglass
                                 if isTlNeeded
-                                    span.badge.badge-danger TL needed
+                                    span.badge.badge-danger {{_ 'calendar.teamleadNeeded'}}
                                 if hasNoRequests
                                     span.none 0
                 .link
