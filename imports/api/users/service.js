@@ -108,19 +108,23 @@ Meteor.methods({
     'user.insert': ({ language, projectId }, user) => {
         checkPermissions(projectId);
 
-        let userObj = {};
+        try {
+            let userObj = {};
 
-        for (let property in user) {
-            let propertyObj = user[property];
+            for (let property in user) {
+                let propertyObj = user[property];
 
-            for (let [index, part] of property.split('_').reverse().entries()) {
-                propertyObj = {[part]: propertyObj};
+                for (let [index, part] of property.split('_').reverse().entries()) {
+                    propertyObj = {[part]: propertyObj};
+                }
+
+                userObj = objectAssignDeep(userObj, propertyObj);
             }
 
-            userObj = objectAssignDeep(userObj, propertyObj);
-        }
+            userObj.roles = {
+                [projectId]: ['member']
+            };
 
-        try {
             Users.persistence.insert(userObj);
             return user._id;
         } catch(e) {
