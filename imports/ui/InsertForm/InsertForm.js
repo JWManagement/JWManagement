@@ -14,6 +14,33 @@ Template.InsertForm.helpers({
     getBackLink() {
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
+    getSearchTranslation() {
+        if (FlowRouter.getParam('key') != null) {
+            const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values';
+
+            let routeNameParts = FlowRouter.getRouteName().split('.');
+            routeNameParts.pop();
+            routeNameParts.splice(1, 0, 'entity');
+
+            let attributeParts = [key];
+            attributeParts.push('placeholder');
+
+            return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
+        }
+    },
+    isSearchEnabled() {
+        const template = Template.instance();
+        const activeFieldKey = template.activeField.get();
+
+        if (activeFieldKey != null) {
+            const activeField = template.fields.filter((field) => {
+                return field.key == activeFieldKey;
+            })[0];
+
+            return activeField.search == true;
+        }
+        return false;
+    },
     getFields() {
         return Template.instance().fields;
     },
@@ -113,6 +140,7 @@ Template.InsertForm.onCreated(() => {
     template.errors = new ReactiveVar([]);
     template.isSaving = new ReactiveVar(false);
     template.activeField = new ReactiveVar(null);
+    template.searchText = new ReactiveVar('');
 
     template.setFieldValue = function(key, value) {
         const errors = this.errors.get();
@@ -153,6 +181,11 @@ Template.InsertForm.events({
 
             template.activeField.set(null);
         }
+    },
+    'keyup #search': () => {
+        const template = Template.instance();
+        const value = $('#search').val();
+        template.searchText.set(value);
     },
     'change input': function(e) {
         const template = Template.instance();

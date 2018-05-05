@@ -10,6 +10,13 @@ template(name="InsertForm")
                     i.fa.fa-circle-o-notch.fa-spin
             else
                 a.navbar-save(href) {{_ 'navigation.save'}}
+            if isSearchEnabled
+                .search.input-group
+                    span.input-group-addon &#xF002;
+                    input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
+
+    if isSearchEnabled
+        .search-splitter
 
     form.form-horizontal
         if isPicker activeField

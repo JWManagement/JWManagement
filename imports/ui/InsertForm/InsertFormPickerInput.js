@@ -9,13 +9,39 @@ Template.InsertFormPickerInput.helpers({
     },
     getItems() {
         const template = Template.instance();
-        return template.allowedValues.map((item) => {
-            return '' + item;
-        });
+        const searchText = template.insertForm.searchText.get();
+
+        if (searchText != '') {
+            const regEx = new RegExp(searchText, 'gi')
+
+            return template.allowedValues
+            .map((item) => {
+                return '' + item;
+            })
+            .filter((item) => {
+                return item.match(regEx);
+            });
+        } else {
+            return template.allowedValues
+            .map((item) => {
+                return '' + item;
+            });
+        }
     },
     getKeyValues() {
         const template = Template.instance();
-        return template.allowedKeyValues.get();
+        const searchText = template.insertForm.searchText.get();
+
+        if (searchText != '') {
+            const regEx = new RegExp(searchText, 'gi')
+
+            return template.allowedKeyValues.get()
+            .filter(({key, value}) => {
+                return key.match(regEx) || value.match(regEx);
+            });
+        } else {
+            return template.allowedKeyValues.get();
+        }
     },
     getItemKey() {
         const template = Template.instance();

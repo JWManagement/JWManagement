@@ -30,6 +30,31 @@ body.md-skin[type='InsertForm'] {
             top  : 0;
             right: 0;
         }
+
+        .search.input-group {
+            margin: 0 9px 10px 10px; // why 9? see .input > margin-left
+
+            .input-group-addon {
+                color                    : #8e8e8e;
+                padding                  : 6px 6px 6px 12px;
+                font-family              : FontAwesome;
+                border                   : none !important;
+                border-top-left-radius   : 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            input {
+                border                    : none;
+                border-top-right-radius   : 5px;
+                border-bottom-right-radius: 5px;
+                margin-left               : -1px;
+                padding-left              : 5px;
+            }
+        }
+    }
+
+    .search-splitter {
+        margin-bottom: 44px;
     }
 
     form.form-horizontal {
