@@ -1,4 +1,5 @@
 export default Privilege = {
+    defaultValue: 'publisher',
     allowedValues: [
         'publisher',
         'servant',

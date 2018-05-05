@@ -1,4 +1,5 @@
 export default SystemLanguages = {
+    defaultValue: 'en',
     allowedValues: [
         'de',
         'en',

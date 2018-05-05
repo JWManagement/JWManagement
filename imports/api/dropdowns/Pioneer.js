@@ -1,4 +1,5 @@
 export default Pioneer = {
+    defaultValue: 'publisher',
     allowedValues: [
         'publisher',
         'auxiliary',

@@ -1,4 +1,5 @@
 export default Hour = {
+    defaultValue: '10',
     allowedValues: [
         0,
         1,

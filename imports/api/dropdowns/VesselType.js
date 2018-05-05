@@ -1,4 +1,5 @@
 export default VesselType = {
+    defaultValue: 'c',
     allowedValues: [
         'c',
         'cr',
