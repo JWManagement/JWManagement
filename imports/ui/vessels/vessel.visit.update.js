@@ -14,7 +14,7 @@ Template['vessel.visit.update'].helpers({
                 format: 'YYYYMMDD'
             }, {
                 key: 'harborId',
-                type: 'dropdown',
+                type: 'picker',
                 allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors'
             }, {
                 key: 'languages'

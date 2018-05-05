@@ -101,7 +101,15 @@ Meteor.methods({
 
         const project = Projects.findOne(projectId, { fields: { harbors: 1 } })
 
-        return project.harbors.map(({_id, name}) => { return { key: _id, value: name } });
+        return project.harbors
+        .map(({ _id, name }) => {
+            return { key: _id, value: name };
+        })
+        .sort((a, b) => {
+            if(a.key < b.key) return -1;
+            if(a.key > b.key) return 1;
+            return 0;
+        });
     },
     'vessel.visit.getLast': ({ language, projectId, vesselId }) => {
         checkVesselModule(projectId);
