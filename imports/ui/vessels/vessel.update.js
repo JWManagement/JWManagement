@@ -12,7 +12,7 @@ Template['vessel.update'].helpers({
                 key: 'flag'
             }, {
                 key: 'type',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: VesselType.allowedValues
             }, {
                 key: 'callsign'

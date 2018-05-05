@@ -23,9 +23,9 @@ Template['user.insert'].helpers({
                 required: true
             }, {
                 key: 'profile_gender',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: Gender.allowedValues,
-                defaultValue: 'm',
+                defaultValue: Gender.defaultValue,
                 required: true
             }, {
                 key: 'profile_bdate',
@@ -33,13 +33,15 @@ Template['user.insert'].helpers({
                 format: 'YYYYDDD'
             }, {
                 key: 'profile_pioneer',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: Pioneer.allowedValues,
+                defaultValue: Pioneer.defaultValue,
                 required: true
             }, {
                 key: 'profile_privilege',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: Privilege.allowedValues,
+                defaultValue: Privilege.defaultValue,
                 required: true
             }, {
                 key: 'profile_languages'

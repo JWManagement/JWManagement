@@ -28,11 +28,11 @@ Template['user.update'].helpers({
                     format: 'YYYYDDD'
                 }, {
                     key: 'profile_pioneer',
-                    type: 'dropdown',
+                    type: 'picker',
                     allowedValues: Pioneer.allowedValues
                 }, {
                     key: 'profile_privilege',
-                    type: 'dropdown',
+                    type: 'picker',
                     allowedValues: Privilege.allowedValues
                 }, {
                     key: 'profile_languages'

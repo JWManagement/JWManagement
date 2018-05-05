@@ -13,8 +13,9 @@ Template['vessel.insert'].helpers({
                 key: 'flag'
             }, {
                 key: 'type',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: VesselType.allowedValues,
+                defaultValue: VesselType.defaultValue,
                 required: true
             }, {
                 key: 'callsign'

@@ -7,13 +7,15 @@ Template['user.profile.availability.insert'].helpers({
             entityKey: 'availabilityId',
             fields: [{
                 key: 'start',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: Hour.allowedValues,
+                defaultValue: Hour.defaultValue,
                 required: true
             }, {
                 key: 'end',
-                type: 'dropdown',
+                type: 'picker',
                 allowedValues: Hour.allowedValues,
+                defaultValue: Hour.defaultValue,
                 required: true
             }]
         }
