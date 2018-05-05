@@ -1,12 +1,4 @@
-Template.InsertFormDateInput.helpers({
-    isRequired() {
-        const data = Template.currentData().data;
-        if (data.required != null) {
-            return data.required;
-        }
-        return false;
-    }
-});
+Template.InsertFormDateInput.helpers({});
 
 Template.InsertFormDateInput.onCreated(() => {
     const template = Template.instance();

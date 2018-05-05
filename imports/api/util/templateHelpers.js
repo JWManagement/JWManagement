@@ -2,6 +2,14 @@ Template.registerHelper('getTitle', (key) => {
     return TAPi18n.__('navigation.' + FlowRouter.getRouteName());
 });
 
+Template.registerHelper('isRequired', function() {
+    const data = Template.currentData().data;
+    if (data.required != null) {
+        return data.required;
+    }
+    return false;
+});
+
 Template.registerHelper('getEntityTranslation', (key, suffix) => {
     if (key == null) {
         key = FlowRouter.getParam('key');

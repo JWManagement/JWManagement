@@ -19,13 +19,6 @@ Template.InsertFormDropdownInput.helpers({
         const template = Template.instance();
         const data = Template.currentData();
         return template.key + 'Values.' + data;
-    },
-    isRequired() {
-        const data = Template.currentData().data;
-        if (data.required != null) {
-            return data.required;
-        }
-        return false;
     }
 });
 
