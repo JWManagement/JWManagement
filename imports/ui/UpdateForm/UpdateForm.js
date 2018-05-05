@@ -28,6 +28,9 @@ Template.UpdateForm.helpers({
             return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'));
         }
     },
+    isSearchEnabled() {
+        return Template.instance().inputData.get().search == true && FlowRouter.getParam('key') != null;
+    },
     isReady() {
         return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
     },
@@ -48,9 +51,6 @@ Template.UpdateForm.helpers({
     },
     isTextbox() {
         return Template.instance().inputData.get().type == 'textbox';
-    },
-    isSearchEnabled() {
-        return Template.instance().inputData.get().search == true && FlowRouter.getParam('key') != null;
     },
     getInputData() {
         return Template.instance().inputData.get();
