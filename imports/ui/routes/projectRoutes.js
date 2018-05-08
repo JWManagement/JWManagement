@@ -5,7 +5,12 @@ RouteManager.registerEntity('admin', {
     details: 'admin'
 });
 RouteManager.registerEntity('user.password', {
-    insert: 'new/users/:userId/password'
+    insert: 'publishers/:userId/password',
+    forwarding: {
+        route: 'publishers/:userId/password/forwarding',
+        name: 'user.password.details',
+        link: 'user.details'
+    }
 });
 RouteManager.registerEntity('user.profile.availability', {
     insert: 'publishers/:userId/availability/:key/new',

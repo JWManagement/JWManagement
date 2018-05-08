@@ -147,6 +147,8 @@ Meteor.methods({
             PasswordsSchema.validate(passwords);
 
             Accounts.setPassword(userId, passwords.password);
+
+            return userId;
         } catch(e) {
             for (let detail of e.details) {
                 if (detail.type == 'minString') {
