@@ -21,6 +21,9 @@ import '/imports/ui/InsertForm/InsertForm.js';
 import '/imports/ui/SearchForm/SearchForm.js';
 import '/imports/ui/UpdateForm/UpdateForm.js';
 
+import '/imports/ui/dashboard/dashboard.jade';
+import '/imports/ui/dashboard/dashboard.details.js';
+
 import '/imports/ui/admin/admin.jade';
 import '/imports/ui/admin/admin.details.js';
 
