@@ -8,7 +8,12 @@ RouteManager.registerEntity('project', {
     details: ''
 });
 RouteManager.registerEntity('publisher.password', {
-    insert: 'new/publishers/:userId/password'
+    insert: 'publishers/:userId/password',
+    forwarding: {
+        route: 'publishers/:userId/password/forwarding',
+        name: 'publisher.password.details',
+        link: 'publisher.details'
+    }
 });
 RouteManager.registerEntity('publisher.profile.availability', {
     insert: 'publishers/:userId/availability/:key/new',
