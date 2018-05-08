@@ -23,6 +23,8 @@ Template['user.update'].helpers({
                     type: 'picker',
                     allowedValues: Gender.allowedValues
                 }, {
+                    key: 'profile_congregation'
+                }, {
                     key: 'profile_pioneer',
                     type: 'picker',
                     allowedValues: Pioneer.allowedValues

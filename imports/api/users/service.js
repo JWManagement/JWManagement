@@ -472,6 +472,7 @@ function getExtendedUser(userId, projectId, language) {
             'profile.email': 1,
             'profile.telefon': 1,
             'profile.gender': 1,
+            'profile.congregation': 1,
             'profile.pioneer': 1,
             'profile.privilege': 1,
             'profile.languages': 1,

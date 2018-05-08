@@ -21,6 +21,8 @@ Template['user.details'].helpers({
                     key: 'profile_gender',
                     type: 'dropdown'
                 }, {
+                    key: 'profile_congregation'
+                }, {
                     key: 'profile_pioneer',
                     type: 'dropdown'
                 }, {
