@@ -1,4 +1,4 @@
-admin:
+project:
     nameShort: Verwaltung
     entity:
         settings: Einstellungen

@@ -181,7 +181,7 @@ shifts:
         noPermission: Apenas um Gerente de Projeto ou Gerente de Turno tem permissão para editar ou reservar turnos.
 day:
     removeAll: Remover todos
-admin:
+project:
     name: Administração
     nameShort: Admin
 users:

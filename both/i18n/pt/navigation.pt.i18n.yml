@@ -4,7 +4,7 @@ navigation:
     profile: Meu Perfil
     shifts: Turnos
     wiki: Centro de Informação
-    admin:
+    project:
         details: Administração
     settings: Configurações
     users: Usuários

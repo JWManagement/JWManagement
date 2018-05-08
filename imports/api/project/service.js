@@ -1,7 +1,7 @@
 import Permissions from '/imports/api/util/Permissions.js'
 
 Meteor.methods({
-    'admin.get': ({ projectId }) => {
+    'project.get': ({ projectId }) => {
         const project = Projects.findOne(projectId, {
             fields: {
                 vesselModule: 1

@@ -4,8 +4,8 @@ import RouteManager from '/imports/api/managers/RouteManager.js';
 RouteManager.registerEntity('dashboard', {
     details: 'dashboard'
 });
-RouteManager.registerEntity('admin', {
-    details: 'admin'
+RouteManager.registerEntity('project', {
+    details: ''
 });
 RouteManager.registerEntity('user.password', {
     insert: 'new/users/:userId/password'
@@ -97,7 +97,7 @@ FlowRouter.route('/:language/:projectId/settings', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'admin');
+            Session.set('parent', 'project');
             BlazeLayout.render('mainLayout', { content: 'settings' });
         });
     }
@@ -108,7 +108,7 @@ FlowRouter.route('/:language/:projectId/users', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'admin');
+            Session.set('parent', 'project');
             BlazeLayout.render('mainLayout', { content: 'users' });
         });
     }
@@ -119,7 +119,7 @@ FlowRouter.route('/:language/:projectId/reports', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'admin');
+            Session.set('parent', 'project');
             BlazeLayout.render('mainLayout', { content: 'reports' });
         });
     }
@@ -130,7 +130,7 @@ FlowRouter.route('/:language/:projectId/store', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'admin');
+            Session.set('parent', 'project');
             BlazeLayout.render('mainLayout', { content: 'store' });
         });
     }

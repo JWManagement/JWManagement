@@ -4,7 +4,7 @@ navigation:
     profile: Mój profil
     shifts: Grafik
     wiki: Centrum informacji
-    admin:
+    project:
         details: Adminitracja
     settings: Ustawienia
     users: Użytkownicy

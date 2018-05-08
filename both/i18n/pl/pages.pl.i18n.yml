@@ -212,7 +212,7 @@ shifts:
         noPermission: Tylko Menadżer projektu lub Menadżer zmian jest uprawniony aby edytować lub usuwać zmiany
 day:
     removeAll: Usuń wszystkie
-admin:
+project:
     name: Administrator
     nameShort: Admin
 users:

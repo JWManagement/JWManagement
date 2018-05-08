@@ -5,7 +5,7 @@ Template['vessel.search'].helpers({
         return {
             db: Vessels,
             entityId: 'vesselId',
-            backLink: 'admin.details',
+            backLink: 'project.details',
             allowCreate: true,
             columns: [{
                 name: '_id',

@@ -216,7 +216,7 @@ shifts:
         noPermission: Обрабатывать смены может только админ или планировщик смен
 day:
     removeAll: Удалить все
-admin:
+project:
     name: Управление
     nameShort: Управление
 users:

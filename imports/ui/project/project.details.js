@@ -1,9 +1,9 @@
 import Permissions from '/imports/api/util/Permissions.js';
 
-Template['admin.details'].helpers({
+Template['project.details'].helpers({
     data() {
         return {
-            getMethod: 'admin.get',
+            getMethod: 'project.get',
             backLink: 'home',
             sections: [
                 {

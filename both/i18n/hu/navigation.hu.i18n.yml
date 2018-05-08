@@ -4,7 +4,7 @@ navigation:
     profile: Saját Profil
     shifts: Időpontok
     wiki: Információs központ
-    admin:
+    project:
         details: Adminisztráció
     settings: Beállítások
     users: Felhasználók

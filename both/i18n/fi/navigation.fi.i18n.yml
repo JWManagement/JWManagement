@@ -4,7 +4,7 @@ navigation:
     profile: Oma profiili
     shifts: Vuorot
     wiki: Tiedotuskeskus
-    admin:
+    project:
         details: Hallinta
     settings: Asetukset
     users: Käyttäjät

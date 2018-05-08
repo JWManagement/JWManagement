@@ -201,7 +201,7 @@ shifts:
         noPermission: A projektmenedzser vagy a szolgálat szervezője csak szolgálati időszakok szerkesztésére vagy ütemezésére jogosult.
 day:
     removeAll: Összes törlése
-admin:
+project:
     name: Adminisztráció
     nameShort: Admin
 users:

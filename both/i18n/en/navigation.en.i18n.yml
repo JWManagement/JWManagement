@@ -5,7 +5,7 @@ navigation:
     shifts: Shifts
     calendar: Calendar
     wiki: Information Center
-    admin:
+    project:
         details: Administration
     settings: Settings
     users: Users
