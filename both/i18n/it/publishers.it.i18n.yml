@@ -1,13 +1,4 @@
-users:
-    title: Lista degli utenti
-    search: Cerca...
-    inviteUser: Invita nuovi utenti
-    addNewUser: Aggiungi utente
-    deleted: Cancella!
-    sendToAll: Email a tutti
-    sendToAllInTag: Email a tutti con il tag %s
-    export: Esporta in csv
-user:
+publisher:
     entity:
         username: Utente
         profile:

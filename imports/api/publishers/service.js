@@ -7,7 +7,7 @@ import { Accounts } from 'meteor/accounts-base'
 import objectAssignDeep from 'object-assign-deep';
 
 Meteor.methods({
-    'user.search': ({ language, projectId, searchString, limit }) => {
+    'publisher.search': ({ language, projectId, searchString, limit }) => {
         checkPermissions(projectId);
 
         let rolesObject = {}
@@ -67,52 +67,52 @@ Meteor.methods({
 
         return result;
     },
-    'user.get': ({ language, projectId, userId }) => {
+    'publisher.get': ({ language, projectId, userId }) => {
         checkPermissions(projectId, userId);
 
-        const user = getExtendedUser(userId, projectId, language);
+        const publisher = getExtendedPublisher(userId, projectId, language);
 
-        if (user != undefined) {
-            user.profile.availability = {
-                mondays: user.profile.availability.mondays.map((x) => { return x.timeslot; }).join(', '),
-                tuesdays: user.profile.availability.tuesdays.map((x) => { return x.timeslot; }).join(', '),
-                wednesdays: user.profile.availability.wednesdays.map((x) => { return x.timeslot; }).join(', '),
-                thursdays: user.profile.availability.thursdays.map((x) => { return x.timeslot; }).join(', '),
-                fridays: user.profile.availability.fridays.map((x) => { return x.timeslot; }).join(', '),
-                saturdays: user.profile.availability.saturdays.map((x) => { return x.timeslot; }).join(', '),
-                sundays: user.profile.availability.sundays.map((x) => { return x.timeslot; }).join(', ')
+        if (publisher != undefined) {
+            publisher.profile.availability = {
+                mondays: publisher.profile.availability.mondays.map((x) => { return x.timeslot; }).join(', '),
+                tuesdays: publisher.profile.availability.tuesdays.map((x) => { return x.timeslot; }).join(', '),
+                wednesdays: publisher.profile.availability.wednesdays.map((x) => { return x.timeslot; }).join(', '),
+                thursdays: publisher.profile.availability.thursdays.map((x) => { return x.timeslot; }).join(', '),
+                fridays: publisher.profile.availability.fridays.map((x) => { return x.timeslot; }).join(', '),
+                saturdays: publisher.profile.availability.saturdays.map((x) => { return x.timeslot; }).join(', '),
+                sundays: publisher.profile.availability.sundays.map((x) => { return x.timeslot; }).join(', ')
             };
         }
 
-        return user;
+        return publisher;
     },
-    'user.getField': ({ language, projectId, userId, key }) => {
+    'publisher.getField': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
 
         if (key.indexOf('_') > -1) {
-            var user = getExtendedUser(userId, projectId, language);
+            var publisher = getExtendedPublisher(userId, projectId, language);
 
             for (property of key.split('_')) {
-                if (property in user) {
-                    user = user[property];
+                if (property in publisher) {
+                    publisher = publisher[property];
                 } else {
                     return '';
                 }
             }
 
-            return user;
+            return publisher;
         } else {
-            return getExtendedUser(userId, projectId, language)[key];
+            return getExtendedPublisher(userId, projectId, language)[key];
         }
     },
-    'user.insert': ({ language, projectId }, user) => {
+    'publisher.insert': ({ language, projectId }, publisher) => {
         checkPermissions(projectId);
 
         try {
             let userObj = {};
 
-            for (let property in user) {
-                let propertyObj = user[property];
+            for (let property in publisher) {
+                let propertyObj = publisher[property];
 
                 for (let [index, part] of property.split('_').reverse().entries()) {
                     propertyObj = {[part]: propertyObj};
@@ -126,12 +126,12 @@ Meteor.methods({
             };
 
             Users.persistence.insert(userObj);
-            return user._id;
+            return publisher._id;
         } catch(e) {
             throw new Meteor.Error(e);
         }
     },
-    'user.update': ({ language, projectId, userId }, key, value) => {
+    'publisher.update': ({ language, projectId, userId }, key, value) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -140,7 +140,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.password.insert': ({ projectId, userId }, passwords) => {
+    'publisher.password.insert': ({ projectId, userId }, passwords) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -157,23 +157,23 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.password.reset': ({ language, projectId, userId }) => {
+    'publisher.password.reset': ({ language, projectId, userId }) => {
         checkPermissions(projectId, userId);
 
         try {
             const token = Random.id(43);
-            const user = Users.findOne(userId, {
+            const publisher = Users.findOne(userId, {
                 fields: {
                     'profile.email': 1,
                     'profile.language': 1
                 }
             });
 
-            if (user.profile.email == '') {
+            if (publisher.profile.email == '') {
                 throw new Meteor.Error('userHasNoEmail');
             }
 
-            Meteor.users.update(userId, {
+            Users.update(userId, {
                 $set: {
                     'services.password.reset': {
                         token: token
@@ -182,16 +182,16 @@ Meteor.methods({
             });
 
             const data = {
-                recipient: user.profile.email,
+                recipient: publisher.profile.email,
                 sender: 'JW Management',
                 from: 'support@jwmanagement.org',
-                subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language),
+                subject: TAPi18n.__('mail.resetPassword.subject', '', publisher.profile.language),
                 template: 'resetPassword',
-                language: user.profile.language,
+                language: publisher.profile.language,
                 data: {
                     token: token,
-                    language: user.profile.language,
-                    content: getMailTexts('resetPassword', user.profile.language)
+                    language: publisher.profile.language,
+                    content: getMailTexts('resetPassword', publisher.profile.language)
                 }
             };
 
@@ -213,7 +213,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.invite': ({ language, projectId, userId }) => {
+    'publisher.invite': ({ language, projectId, userId }) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -224,7 +224,7 @@ Meteor.methods({
                 },
                 email: 1
             });
-            const user = Users.findOne(userId, {
+            const publisher = Users.findOne(userId, {
                 fields: {
                     'profile.email': 1,
                     'profile.firstname': 1,
@@ -243,22 +243,22 @@ Meteor.methods({
             });
 
             MailManager.sendMail({
-                recipient: user.profile.email,
+                recipient: publisher.profile.email,
                 sender: project.name,
                 from: project.email,
-                subject: TAPi18n.__('mail.accountCreated.subject', '', user.profile.language),
+                subject: TAPi18n.__('mail.accountCreated.subject', '', publisher.profile.language),
                 template: 'accountCreated',
-                language: user.profile.language,
+                language: publisher.profile.language,
                 data: {
                     token: token,
                     project: project.name,
-                    name: user.profile.firstname + ' ' + user.profile.lastname,
-                    language: user.profile.language,
-                    content: getMailTexts('accountCreated', user.profile.language)
+                    name: publisher.profile.firstname + ' ' + publisher.profile.lastname,
+                    language: publisher.profile.language,
+                    content: getMailTexts('accountCreated', publisher.profile.language)
                 }
             });
 
-            if (user.state == 'created') {
+            if (publisher.state == 'created') {
                 Users.update(userId, {
                     $set: {
                         state: State.INVITED
@@ -269,7 +269,7 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.removeFromProject': ({ projectId, userId }) => {
+    'publisher.removeFromProject': ({ projectId, userId }) => {
         checkPermissions(projectId, userId);
 
         try {
@@ -296,11 +296,11 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.profile.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
+    'publisher.profile.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
         checkPermissions(projectId, userId);
 
         try {
-            const user = Users.findOne(userId);
+            const publisher = Users.findOne(userId);
             const day = key.split('_').pop().substring(0, 2);
             const timeslotStart = parseInt(timeslot.start) * 100;
             const timeslotEnd = parseInt(timeslot.end) * 100;
@@ -339,19 +339,19 @@ Meteor.methods({
                 time += 100;
             }
 
-            if (user.profile.available == null) {
-                user.profile.available = {};
+            if (publisher.profile.available == null) {
+                publisher.profile.available = {};
 
                 Users.persistence.update(userId, 'profile.available', {});
             }
 
-            if (Object.keys(user.profile.available).indexOf(day) == -1) {
-                user.profile.available[day] = [];
+            if (Object.keys(publisher.profile.available).indexOf(day) == -1) {
+                publisher.profile.available[day] = [];
             }
 
-            for (let userDay in user.profile.available) {
+            for (let userDay in publisher.profile.available) {
                 if (userDay == day) {
-                    mergedTimeslots = user.profile.available[userDay];
+                    mergedTimeslots = publisher.profile.available[userDay];
 
                     for (let newTimeslot of newTimeslots) {
                         if (mergedTimeslots.indexOf(newTimeslot) == -1) {
@@ -366,11 +366,11 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.profile.availability.get': ({ language, projectId, userId, key }) => {
+    'publisher.profile.availability.get': ({ language, projectId, userId, key }) => {
         checkPermissions(projectId, userId);
 
-        const user = getExtendedUser(userId, projectId, language);
-        const timeslots = user.profile.availability[key.split('_').pop()].map((obj) => {
+        const publisher = getExtendedPublisher(userId, projectId, language);
+        const timeslots = publisher.profile.availability[key.split('_').pop()].map((obj) => {
             return {
                 _id: obj.numbers.join(','),
                 timeslot: obj.timeslot
@@ -381,16 +381,16 @@ Meteor.methods({
             availability: timeslots
         };
     },
-    'user.profile.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
+    'publisher.profile.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
         checkPermissions(projectId, userId);
 
-        const user = Users.findOne(userId);
+        const publisher = Users.findOne(userId);
         const day = key.split('_').pop().substring(0, 2);
         let newTimeslots = [];
 
-        for (let userDay in user.profile.available) {
+        for (let userDay in publisher.profile.available) {
             if (userDay == day) {
-                const oldTimeslots = user.profile.available[userDay];
+                const oldTimeslots = publisher.profile.available[userDay];
                 const delTimeslots = timeslot.split(',');
 
                 for (let oldTimeslot of oldTimeslots) {
@@ -407,11 +407,11 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.profile.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
+    'publisher.profile.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
         checkPermissions(projectId, userId);
 
         try {
-            let vacations = getExtendedUser(userId, projectId, language).profile.vacations;
+            let vacations = getExtendedPublisher(userId, projectId, language).profile.vacations;
 
             // support legacy format
             for (let vacation of vacations) {
@@ -431,11 +431,11 @@ Meteor.methods({
             throw new Meteor.Error(e);
         }
     },
-    'user.profile.vacation.delete': ({ language, projectId, userId, display }) => {
+    'publisher.profile.vacation.delete': ({ language, projectId, userId, display }) => {
         checkPermissions(projectId, userId);
 
         try {
-            const vacations = getExtendedUser(userId, projectId, language).profile.vacations;
+            const vacations = getExtendedPublisher(userId, projectId, language).profile.vacations;
             let newVacations = [];
 
             for (let vacation of vacations) {
@@ -451,8 +451,8 @@ Meteor.methods({
     }
 });
 
-function getExtendedUser(userId, projectId, language) {
-    let user = Users.findOne({
+function getExtendedPublisher(userId, projectId, language) {
+    let publisher = Users.findOne({
         $and: [{
             _id: userId
         }, {
@@ -482,28 +482,28 @@ function getExtendedUser(userId, projectId, language) {
         }
     });
 
-    if (user != undefined) {
-        if (user.profile.available == null) {
-            user.profile.available = {};
+    if (publisher != undefined) {
+        if (publisher.profile.available == null) {
+            publisher.profile.available = {};
         }
 
-        user.profile.availability = {
-            mondays: convertTimeslotToAvailability(user.profile.available.mo, language),
-            tuesdays: convertTimeslotToAvailability(user.profile.available.tu, language),
-            wednesdays: convertTimeslotToAvailability(user.profile.available.we, language),
-            thursdays: convertTimeslotToAvailability(user.profile.available.th, language),
-            fridays: convertTimeslotToAvailability(user.profile.available.fr, language),
-            saturdays: convertTimeslotToAvailability(user.profile.available.sa, language),
-            sundays: convertTimeslotToAvailability(user.profile.available.su, language)
+        publisher.profile.availability = {
+            mondays: convertTimeslotToAvailability(publisher.profile.available.mo, language),
+            tuesdays: convertTimeslotToAvailability(publisher.profile.available.tu, language),
+            wednesdays: convertTimeslotToAvailability(publisher.profile.available.we, language),
+            thursdays: convertTimeslotToAvailability(publisher.profile.available.th, language),
+            fridays: convertTimeslotToAvailability(publisher.profile.available.fr, language),
+            saturdays: convertTimeslotToAvailability(publisher.profile.available.sa, language),
+            sundays: convertTimeslotToAvailability(publisher.profile.available.su, language)
         };
 
-        if (user.profile.vacations == null) {
-            user.profile.vacations = [];
+        if (publisher.profile.vacations == null) {
+            publisher.profile.vacations = [];
         }
 
-        for (let vacation of user.profile.vacations) {
-            const dateFormatStart = TAPi18n.__('user.entity.profile.vacation.startDateFormat', {}, language);
-            const dateFormatEnd = TAPi18n.__('user.entity.profile.vacation.endDateFormat', {}, language);
+        for (let vacation of publisher.profile.vacations) {
+            const dateFormatStart = TAPi18n.__('publisher.entity.profile.vacation.startDateFormat', {}, language);
+            const dateFormatEnd = TAPi18n.__('publisher.entity.profile.vacation.endDateFormat', {}, language);
 
             // support legacy number format
             if (vacation.createdAt == null) {
@@ -518,13 +518,13 @@ function getExtendedUser(userId, projectId, language) {
         }
     }
 
-    return user;
+    return publisher;
 }
 
 function convertTimeslotToAvailability(timeslots, language) {
     if (typeof timeslots == 'object' && timeslots.length > 0) {
-        const dateFormatStart = TAPi18n.__('user.entity.profile.availability.startDateFormat', {}, language);
-        const dateFormatEnd = TAPi18n.__('user.entity.profile.availability.endDateFormat', {}, language);
+        const dateFormatStart = TAPi18n.__('publisher.entity.profile.availability.startDateFormat', {}, language);
+        const dateFormatEnd = TAPi18n.__('publisher.entity.profile.availability.endDateFormat', {}, language);
         let timePeriods = [];
 
         timeslots.sort((a, b) => {
@@ -551,7 +551,7 @@ function convertTimeslotToAvailability(timeslots, language) {
                 if (periodBegin == 2400 && lastValue == 2300) {
                     timePeriods.push({
                         numbers: numbers,
-                        timeslot: TAPi18n.__('user.entity.profile.availability.wholeDay', {}, language)
+                        timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
                     });
                 } else {
                     timePeriods.push({
@@ -574,7 +574,7 @@ function convertTimeslotToAvailability(timeslots, language) {
         if (periodBegin == 2400 && lastValue == 2300) {
             timePeriods.push({
                 numbers: numbers,
-                timeslot: TAPi18n.__('user.entity.profile.availability.wholeDay', {}, language)
+                timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
             });
         } else {
             timePeriods.push({

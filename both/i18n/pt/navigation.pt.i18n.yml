@@ -7,8 +7,7 @@ navigation:
     project:
         details: Administração
     settings: Configurações
-    users: Usuários
-    user:
+    publisher:
         search: Usuários
     reports: Relatórios
     store: Sala de armazenamento

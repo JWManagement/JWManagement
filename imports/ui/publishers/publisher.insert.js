@@ -2,10 +2,10 @@ import Gender from '/imports/api/dropdowns/Gender.js';
 import Pioneer from '/imports/api/dropdowns/Pioneer.js';
 import Privilege from '/imports/api/dropdowns/Privilege.js';
 
-Template['user.insert'].helpers({
+Template['publisher.insert'].helpers({
     data() {
         return {
-            backLink: 'user.search',
+            backLink: 'publisher.search',
             entityKey: 'userId',
             fields: [{
                 key: 'profile_firstname',

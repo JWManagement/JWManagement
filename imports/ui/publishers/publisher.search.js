@@ -1,6 +1,6 @@
 import Users from '/imports/api/users/Users.js';
 
-Template['user.search'].helpers({
+Template['publisher.search'].helpers({
     data() {
         return {
             db: Users,

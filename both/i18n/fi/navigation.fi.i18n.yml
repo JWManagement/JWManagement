@@ -7,8 +7,7 @@ navigation:
     project:
         details: Hallinta
     settings: Asetukset
-    users: Käyttäjät
-    user:
+    publisher:
         search: Julistajat
         details: Julistajan tiedot
         update: Muokkaa julistajaa

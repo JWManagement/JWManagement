@@ -1,10 +1,10 @@
 import Users from '/imports/api/users/Users.js';
 
-Template['user.details'].helpers({
+Template['publisher.details'].helpers({
     data() {
         return {
-            getMethod: 'user.get',
-            backLink: 'user.search',
+            getMethod: 'publisher.get',
+            backLink: 'publisher.search',
             sections: [{
                 header: 'identification',
                 contents: [{
@@ -33,25 +33,25 @@ Template['user.details'].helpers({
                 header: 'availability',
                 contents: [{
                     key: 'profile_availability_mondays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_tuesdays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_wednesdays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_thursdays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_fridays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_saturdays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_availability_sundays',
-                    link: 'user.profile.availability.details'
+                    link: 'publisher.profile.availability.details'
                 }, {
                     key: 'profile_shortTermCalls',
                     type: 'checkbox'
@@ -68,7 +68,7 @@ Template['user.details'].helpers({
                         type: 'delete',
                         click: {
                             type: 'delete',
-                            method: 'user.profile.vacation.delete'
+                            method: 'publisher.profile.vacation.delete'
                         }
                     }]
                 }],
@@ -76,7 +76,7 @@ Template['user.details'].helpers({
                     key: 'profile.vacation.new',
                     type: 'link',
                     style: 'primary',
-                    route: 'user.profile.vacation.insert'
+                    route: 'publisher.profile.vacation.insert'
                 }]
             }, {
                 header: 'password',
@@ -85,12 +85,12 @@ Template['user.details'].helpers({
                     key: 'password.change',
                     type: 'link',
                     style: 'primary',
-                    route: 'user.password.insert'
+                    route: 'publisher.password.insert'
                 }, {
                     key: 'password.reset',
                     type: 'confirm',
                     style: 'primary',
-                    method: 'user.password.reset'
+                    method: 'publisher.password.reset'
                 }]
             }, {
                 header: 'options',
@@ -99,13 +99,13 @@ Template['user.details'].helpers({
                     key: 'invite',
                     type: 'confirm',
                     style: 'primary',
-                    method: 'user.invite'
+                    method: 'publisher.invite'
                 }, {
                     key: 'delete',
                     type: 'confirm',
                     style: 'danger',
-                    method: 'user.removeFromProject',
-                    route: 'user.search'
+                    method: 'publisher.removeFromProject',
+                    route: 'publisher.search'
                 }]
             }]
         }

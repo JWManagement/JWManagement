@@ -1,13 +1,4 @@
-users:
-    title: Teilnehmerliste
-    search: Suchen...
-    inviteUser: Angelegte Verkündiger einladen
-    addNewUser: Neuen Verkündiger anlegen
-    deleted: Gelöscht!
-    sendToAll: E-Mail an alle
-    sendToAllInTag: E-Mail an alle im Tag %s
-    export: Export als csv
-user:
+publisher:
     entity:
         username: Benutzername
         profile:

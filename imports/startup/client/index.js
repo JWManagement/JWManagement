@@ -27,15 +27,15 @@ import '/imports/ui/dashboard/dashboard.details.js';
 import '/imports/ui/project/project.jade';
 import '/imports/ui/project/project.details.js';
 
-import '/imports/ui/users/users.jade';
-import '/imports/ui/users/user.search.js';
-import '/imports/ui/users/user.details.js';
-import '/imports/ui/users/user.update.js';
-import '/imports/ui/users/user.insert.js';
-import '/imports/ui/users/user.password.insert.js';
-import '/imports/ui/users/user.profile.availability.details.js';
-import '/imports/ui/users/user.profile.availability.insert.js';
-import '/imports/ui/users/user.profile.vacation.insert.js';
+import '/imports/ui/publishers/publishers.jade';
+import '/imports/ui/publishers/publisher.search.js';
+import '/imports/ui/publishers/publisher.details.js';
+import '/imports/ui/publishers/publisher.update.js';
+import '/imports/ui/publishers/publisher.insert.js';
+import '/imports/ui/publishers/publisher.password.insert.js';
+import '/imports/ui/publishers/publisher.profile.availability.details.js';
+import '/imports/ui/publishers/publisher.profile.availability.insert.js';
+import '/imports/ui/publishers/publisher.profile.vacation.insert.js';
 
 import '/imports/ui/vessels/vessels.jade';
 import '/imports/ui/vessels/vessel.search.js';

@@ -8,8 +8,7 @@ navigation:
     project:
         details: Administration
     settings: Settings
-    users: Users
-    user:
+    publisher:
         search: Publishers
         details: Publisher details
         update: Edit publisher

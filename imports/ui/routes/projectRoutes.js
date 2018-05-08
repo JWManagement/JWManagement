@@ -7,22 +7,22 @@ RouteManager.registerEntity('dashboard', {
 RouteManager.registerEntity('project', {
     details: ''
 });
-RouteManager.registerEntity('user.password', {
-    insert: 'new/users/:userId/password'
+RouteManager.registerEntity('publisher.password', {
+    insert: 'new/publishers/:userId/password'
 });
-RouteManager.registerEntity('user.profile.availability', {
+RouteManager.registerEntity('publisher.profile.availability', {
     insert: 'publishers/:userId/availability/:key/new',
     details: 'publishers/:userId/availability/:key'
 });
-RouteManager.registerEntity('user.profile.vacation', {
+RouteManager.registerEntity('publisher.profile.vacation', {
     insert: 'publishers/:userId/vacation/new',
     forwarding: {
         route: 'publishers/:userId/vacation/forwarding',
-        name: 'user.profile.vacation.details',
-        link: 'user.details'
+        name: 'publisher.profile.vacation.details',
+        link: 'publisher.details'
     }
 });
-RouteManager.registerEntity('user', {
+RouteManager.registerEntity('publisher', {
     search: 'publishers',
     insert: 'publishers/new',
     details: 'publishers/:userId',

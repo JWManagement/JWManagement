@@ -8,8 +8,7 @@ navigation:
     project:
         details: Verwaltung
     settings: Einstellungen
-    users: Benutzer
-    user:
+    publisher:
         search: Verkündiger
         details: Verkündigerdaten
         update: Verkündiger bearbeiten

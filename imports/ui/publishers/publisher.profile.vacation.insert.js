@@ -1,7 +1,7 @@
-Template['user.profile.vacation.insert'].helpers({
+Template['publisher.profile.vacation.insert'].helpers({
     data() {
         return {
-            backLink: 'user.details',
+            backLink: 'publisher.details',
             entityKey: 'vacationId',
             fields: [{
                 key: 'start',

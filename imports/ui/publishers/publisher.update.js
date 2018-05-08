@@ -2,11 +2,11 @@ import Gender from '/imports/api/dropdowns/Gender.js';
 import Pioneer from '/imports/api/dropdowns/Pioneer.js';
 import Privilege from '/imports/api/dropdowns/Privilege.js';
 
-Template['user.update'].helpers({
+Template['publisher.update'].helpers({
     data() {
         return {
-            getMethod: 'user.getField',
-            backLink: 'user.details',
+            getMethod: 'publisher.getField',
+            backLink: 'publisher.details',
             fields: [
                 {
                     key: 'profile_firstname'

@@ -1,9 +1,9 @@
 import Users from '/imports/api/users/Users.js';
 
-Template['user.password.insert'].helpers({
+Template['publisher.password.insert'].helpers({
     data() {
         return {
-            backLink: 'user.details',
+            backLink: 'publisher.details',
             entityKey: 'userId',
             fields: [
                 {

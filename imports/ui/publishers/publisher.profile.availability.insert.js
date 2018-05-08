@@ -1,9 +1,9 @@
 import Hour from '/imports/api/dropdowns/Hour.js';
 
-Template['user.profile.availability.insert'].helpers({
+Template['publisher.profile.availability.insert'].helpers({
     data() {
         return {
-            backLink: 'user.profile.availability.details',
+            backLink: 'publisher.profile.availability.details',
             entityKey: 'availabilityId',
             fields: [{
                 key: 'start',

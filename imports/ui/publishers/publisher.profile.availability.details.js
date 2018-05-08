@@ -1,10 +1,10 @@
-Template['user.profile.availability.details'].helpers({
+Template['publisher.profile.availability.details'].helpers({
     data() {
         const params = FlowRouter.current().params;
 
         return {
-            getMethod: 'user.profile.availability.get',
-            backLink: 'user.details',
+            getMethod: 'publisher.profile.availability.get',
+            backLink: 'publisher.details',
             sections: [{
                 header: params.key.split('_').pop(),
                 contents: [{
@@ -14,7 +14,7 @@ Template['user.profile.availability.details'].helpers({
                         type: 'delete',
                         click: {
                             type: 'delete',
-                            method: 'user.profile.availability.delete'
+                            method: 'publisher.profile.availability.delete'
                         }
                     }]
                 }],
@@ -22,7 +22,7 @@ Template['user.profile.availability.details'].helpers({
                     key: 'new',
                     type: 'link',
                     style: 'primary',
-                    route: 'user.profile.availability.insert'
+                    route: 'publisher.profile.availability.insert'
                 }]
             }]
         }

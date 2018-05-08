@@ -1,13 +1,4 @@
-users:
-    title: Käyttäjäluettelo
-    search: Etsi...
-    inviteUser: Kutsu lisätyt käyttäjät
-    addNewUser: Lisää uusi käyttäjä
-    deleted: Poistettu!
-    sendToAll: Lähetä sähköposti kaikille
-    sendToAllInTag: Lähetä sähköposti kaikille, joilla on tunniste: %s
-    export: Vie csv tiedostoksi
-user:
+publisher:
     entity:
         username: Käyttäjänimi
         profile:

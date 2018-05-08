@@ -1,13 +1,4 @@
-users:
-    title: Userlist
-    search: Search...
-    inviteUser: Invite added users
-    addNewUser: Add new user
-    deleted: Deleted!
-    sendToAll: Email to all
-    sendToAllInTag: Email to all in tag %s
-    export: Export as csv
-user:
+publisher:
     entity:
         username: Username
         profile:

@@ -7,8 +7,7 @@ navigation:
     project:
         details: Adminitracja
     settings: Ustawienia
-    users: Użytkownicy
-    user:
+    publisher:
         search: Użytkownicy
     reports: Sprawozdania
     store: Magazyn
