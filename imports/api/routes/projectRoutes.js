@@ -7,6 +7,10 @@ RouteManager.registerTranslatedPage('dashboard', {
 RouteManager.registerTranslatedPage('project', {
     search: 'projects'
 });
+RouteManager.registerTranslatedPage('user', {
+    search: 'users',
+    details: 'user/:userId'
+});
 RouteManager.registerEntity('project', {
     details: ''
 });
