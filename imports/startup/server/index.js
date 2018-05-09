@@ -5,6 +5,7 @@ import '/imports/api/reports/reports.coffee';
 import '/imports/startup/server/mailer.js';
 import '/imports/startup/server/prerenderio.js';
 
+import '/imports/api/dashboard/service.js';
 import '/imports/api/project/service.js';
 import '/imports/api/publishers/service.js';
 import '/imports/api/vessels/service.js';

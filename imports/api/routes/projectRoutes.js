@@ -1,7 +1,7 @@
 import Helpers from '/imports/api/routes/Helpers.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
 
-RouteManager.registerEntity('dashboard', {
+RouteManager.registerTranslatedPage('dashboard', {
     details: 'dashboard'
 });
 RouteManager.registerEntity('project', {

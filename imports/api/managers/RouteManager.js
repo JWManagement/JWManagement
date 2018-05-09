@@ -2,9 +2,13 @@ import Helpers from '/imports/api/routes/Helpers.js';
 
 export default RouteManager = {
 
-    registerEntity: (entityName, routes) => {
+    registerTranslatedPage(entityName, routes) {
+        this.registerEntity(entityName, routes, '/:language/');
+    },
+
+    registerEntity(entityName, routes, prefix = '/:language/:projectId/') {
         if ('search' in routes) {
-            FlowRouter.route('/:language/:projectId/' + routes.search, {
+            FlowRouter.route(prefix + routes.search, {
                 name: entityName + '.search',
                 triggersEnter: [ Helpers.checkLanguage ],
                 action: () => {
@@ -16,7 +20,7 @@ export default RouteManager = {
         }
 
         if ('insert' in routes) {
-            FlowRouter.route('/:language/:projectId/' + routes.insert, {
+            FlowRouter.route(prefix + routes.insert, {
                 name: entityName + '.insert',
                 triggersEnter: [ Helpers.checkLanguage ],
                 action: () => {
@@ -28,7 +32,7 @@ export default RouteManager = {
         }
 
         if ('details' in routes) {
-            FlowRouter.route('/:language/:projectId/' + routes.details, {
+            FlowRouter.route(prefix + routes.details, {
                 name: entityName + '.details',
                 triggersEnter: [ Helpers.checkLanguage ],
                 action: () => {
@@ -40,7 +44,7 @@ export default RouteManager = {
         }
 
         if ('update' in routes) {
-            FlowRouter.route('/:language/:projectId/' + routes.update, {
+            FlowRouter.route(prefix + routes.update, {
                 name: entityName + '.update',
                 triggersEnter: [ Helpers.checkLanguage ],
                 action: () => {
@@ -52,7 +56,7 @@ export default RouteManager = {
         }
 
         if ('forwarding' in routes) {
-            FlowRouter.route('/:language/:projectId/' + routes.forwarding.route, {
+            FlowRouter.route(prefix + routes.forwarding.route, {
                 name: routes.forwarding.name,
                 action: () => {
                     wrs(() => {
@@ -64,19 +68,19 @@ export default RouteManager = {
 
     },
 
-    navigateTo: function(form, params) {
+    navigateTo(form, params) {
         const routeName = this.getLink(form);
 
         FlowRouter.go(routeName, params);
     },
 
-    navigateToUpdate: function(key) {
+    navigateToUpdate(key) {
         const params = this.getParams('key', key);
 
         this.navigateTo('update', params);
     },
 
-    navigateToDetails: function(entityKey, entityId, saveToSession = false) {
+    navigateToDetails(entityKey, entityId, saveToSession = false) {
         const params = this.getParams(entityKey, entityId);
 
         if (saveToSession) {
@@ -86,13 +90,13 @@ export default RouteManager = {
         this.navigateTo('details', params);
     },
 
-    navigateToInsert: function() {
+    navigateToInsert() {
         const params = FlowRouter.current().params;
 
         this.navigateTo('insert', params);
     },
 
-    getLink: function(form) {
+    getLink(form) {
         let routeName = FlowRouter.getRouteName();
         let routeNameParts = routeName.split('.');
         routeNameParts.pop();
@@ -100,7 +104,7 @@ export default RouteManager = {
         return routeNameParts.join('.');
     },
 
-    getParams: function(entityKey, entityId) {
+    getParams(entityKey, entityId) {
         const params = FlowRouter.current().params;
         params[entityKey] = entityId;
         return params;
