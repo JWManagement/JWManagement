@@ -1,0 +1,28 @@
+dashboard:
+    loadingProjects: Projektek betöltése...
+    projects: Saját projektek
+    noProjects: Te nem veszel részt semmilyen projektben
+    loadingShifts: Szilgálati időszakok betöltése ...
+    shifts: Szolgálati időszakaim
+    noShifts: Jelenleg nics szolgálati időszakod
+    news: Aktuális hírek
+    noNews: Nincs hírek
+    newsFrom: Utolsó változtatás
+    editNews: A hírek szerkesztése
+    changeNews: A hírek módosítása
+    cancelNews: Szerkesztés visszavonása
+    understaffed: Létszámhiány
+    understaffedMore: Mutass több létszáhiányos szolgálati időszakot
+    missing: Hiányzó szolgálati jelentés
+    missing_plural: Hiányzó szolgálati jelentések
+    approved: Jóváhagyott kérés
+    approved_plural: Jóváhagyott kérés
+    pending: Elbírálásra váró kérelem
+    declined: Elutasított kérés
+    declined_plural: Elutasított kérések
+    marked: Létszámhiányos szolgálati időszak
+    marked_plural: Létszámhiányos szolgálati időszakok
+    participant: szolgálati időszak résztvevő
+    participant_plural: szolgálati időszak résztvevői
+    showOlder: Régebbi szolgálati időszakok megjelenítése
+    showAll: Mutastd az összeset

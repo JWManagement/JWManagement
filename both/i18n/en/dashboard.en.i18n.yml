@@ -1,0 +1,36 @@
+dashboard:
+    loadingProjects: Loading Projects...
+    projects: My Projects
+    noProjects: You're not participating in any project
+    loadingShifts: Loading Shifts...
+    shifts: My Shifts
+    noShifts: You currently have no shifts
+    news: Current News
+    noNews: No News
+    newsFrom: Last Change
+    editNews: Edit the news
+    changeNews: Change the news
+    cancelNews: Cancel editing
+    understaffed: Understaffed
+    understaffedMore: Show more understaffed shifts
+    missing: Missing Shift Report
+    missing_plural: Missing Shift Reports
+    approved: Approved Request
+    approved_plural: Approved Request
+    pending: Pending Request
+    pending_plural: Pending Requests
+    declined: Declined Request
+    declined_plural: Declined Requests
+    marked: Understaffed Shift
+    marked_plural: Understaffed Shifts
+    participant: Shift Participant
+    participant_plural: Shift Participants
+    showOlder: Show older shifts too
+    showAll: Show all
+    calendar: Calendar
+    entity:
+        projects: Projects
+        users: Users
+    details:
+        sections:
+            administration: Administration
