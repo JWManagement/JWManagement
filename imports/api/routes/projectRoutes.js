@@ -4,6 +4,9 @@ import RouteManager from '/imports/api/managers/RouteManager.js';
 RouteManager.registerTranslatedPage('dashboard', {
     details: 'dashboard'
 });
+RouteManager.registerTranslatedPage('project', {
+    search: 'projects'
+});
 RouteManager.registerEntity('project', {
     details: ''
 });

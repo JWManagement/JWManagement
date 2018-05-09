@@ -25,6 +25,7 @@ import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details.js';
 
 import '/imports/ui/project/project.jade';
+import '/imports/ui/project/project.search.js';
 import '/imports/ui/project/project.details.js';
 
 import '/imports/ui/publishers/publishers.jade';
