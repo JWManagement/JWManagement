@@ -115,17 +115,6 @@ FlowRouter.route('/:language/:projectId/settings', {
     }
 });
 
-FlowRouter.route('/:language/:projectId/users', {
-    name: 'users',
-    triggersEnter: [ Helpers.checkLanguage ],
-    action: () => {
-        Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'project');
-            BlazeLayout.render('mainLayout', { content: 'users' });
-        });
-    }
-});
-
 FlowRouter.route('/:language/:projectId/reports', {
     name: 'reports',
     triggersEnter: [ Helpers.checkLanguage ],
