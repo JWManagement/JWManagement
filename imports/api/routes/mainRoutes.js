@@ -1,4 +1,4 @@
-import Helpers from '/imports/ui/routes/Helpers.js';
+import Helpers from '/imports/api/routes/Helpers.js';
 
 FlowRouter.notFound = {
     action: () => {
