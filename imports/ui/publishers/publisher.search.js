@@ -3,7 +3,6 @@ import Users from '/imports/api/users/Users.js';
 Template['publisher.search'].helpers({
     data() {
         return {
-            db: Users,
             entityId: 'userId',
             backLink: 'project.details',
             allowCreate: true,

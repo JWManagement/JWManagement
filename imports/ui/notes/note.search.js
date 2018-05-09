@@ -3,7 +3,6 @@ import Notes from '/imports/api/notes/Notes.js';
 Template['note.search'].helpers({
     data() {
         return {
-            db: Notes,
             entityId: 'noteId',
             backLink: 'project.details',
             allowCreate: true,

@@ -48,7 +48,6 @@ Template.SearchForm.onCreated(() => {
     const template = Template.instance();
     const data = Template.currentData().data;
 
-    template.db = data.db;
     template.translatedAttributes = data.translatedAttributes;
     template.searchCriteria = data.searchCriteria;
     template.columnDefinitions = data.columns;

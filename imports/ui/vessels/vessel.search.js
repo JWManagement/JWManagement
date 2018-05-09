@@ -3,7 +3,6 @@ import Vessels from '/imports/api/vessels/Vessels.js';
 Template['vessel.search'].helpers({
     data() {
         return {
-            db: Vessels,
             entityId: 'vesselId',
             backLink: 'project.details',
             allowCreate: true,
