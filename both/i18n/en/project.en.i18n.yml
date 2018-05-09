@@ -1,6 +1,8 @@
 project:
     nameShort: Admin
     entity:
+        _id: ID
+        name: Name
         settings: Settings
         users: Users
         publishers: Publishers
@@ -11,3 +13,5 @@ project:
     details:
         sections:
             administration: Administration
+    search:
+        placeholder: Search for projects

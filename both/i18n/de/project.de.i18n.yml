@@ -1,6 +1,8 @@
 project:
     nameShort: Verwaltung
     entity:
+        _id: ID
+        name: Name
         settings: Einstellungen
         users: Benutzer
         publishers: Verkündiger
@@ -11,3 +13,5 @@ project:
     details:
         sections:
             administration: Verwaltung
+    search:
+        placeholder: Suche nach Projekten

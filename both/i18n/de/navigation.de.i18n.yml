@@ -1,11 +1,14 @@
 navigation:
     welcome: Willkommen
     home: Übersicht
+    dashboard:
+        details: Übersicht
     profile: Mein Profil
     shifts: Schichten
     calendar: Kalender
     wiki: Informationen
     project:
+        search: Projekte
         details: Verwaltung
     settings: Einstellungen
     publisher:

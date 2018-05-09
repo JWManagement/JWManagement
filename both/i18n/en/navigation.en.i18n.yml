@@ -1,11 +1,14 @@
 navigation:
     welcome: Welcome
     home: Dashboard
+    dashboard:
+        details: Dashboard
     profile: My Profile
     shifts: Shifts
     calendar: Calendar
     wiki: Information Center
     project:
+        search: Projects
         details: Administration
     settings: Settings
     publisher:
