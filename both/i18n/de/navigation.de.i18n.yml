@@ -11,6 +11,8 @@ navigation:
         search: Projekte
         details: Verwaltung
     settings: Einstellungen
+    user:
+        search: Benutzer
     publisher:
         search: Verkündiger
         details: Verkündigerdaten

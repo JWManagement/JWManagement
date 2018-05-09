@@ -1,0 +1,9 @@
+user:
+    search:
+        placeholder: Search for users
+    entity:
+        username: Username
+        profile:
+            firstname: Firstname
+            lastname: Lastname
+            email: Email

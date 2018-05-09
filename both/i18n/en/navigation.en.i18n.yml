@@ -11,6 +11,8 @@ navigation:
         search: Projects
         details: Administration
     settings: Settings
+    user:
+        search: Users
     publisher:
         search: Publishers
         details: Publisher details
