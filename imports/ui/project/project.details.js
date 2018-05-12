@@ -4,7 +4,7 @@ Template['project.details'].helpers({
     data() {
         return {
             getMethod: 'project.get',
-            backLink: 'home',
+            backLink: 'dashboard',
             sections: [
                 {
                     header: 'administration',
