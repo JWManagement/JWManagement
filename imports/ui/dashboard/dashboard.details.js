@@ -7,7 +7,16 @@ Template['dashboard.details'].helpers({
             backLink: 'home',
             sections: [{
                 header: 'projects',
-                contents: []
+                contents: [{
+                    key: 'myProjects',
+                    type: [{
+                        key: 'project',
+                        click: {
+                            type: 'link',
+                            link: 'project.details'
+                        }
+                    }]
+                }]
             }, {
                 header: 'shifts',
                 contents: []

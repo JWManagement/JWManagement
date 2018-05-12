@@ -1,5 +1,10 @@
 Meteor.methods({
     'dashboard.get': ({ projectId }) => {
-        return {}
+        return {
+            myProjects: [{
+                _id: 'yeQQzgQrXtAGrcuJt',
+                project: 'Wuppertrolley'
+            }]
+        };
     }
 });
