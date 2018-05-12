@@ -1,9 +1,10 @@
 template(name="DetailsForm")
     .navigation-wrapper
         nav.navbar.navbar-fixed-top
-            a.navbar-back(href="{{getBackLink}}")
-                i.fa.fa-angle-left.m-r-xs
-                | {{_ 'navigation.back'}}
+            if getBackLink
+                a.navbar-back(href="{{getBackLink}}")
+                    i.fa.fa-angle-left.m-r-xs
+                    | {{_ 'navigation.back'}}
             .navbar-title {{getTitle}}
 
     form.form-horizontal

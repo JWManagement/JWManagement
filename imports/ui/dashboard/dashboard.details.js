@@ -4,7 +4,7 @@ Template['dashboard.details'].helpers({
     data() {
         return {
             getMethod: 'dashboard.get',
-            backLink: 'home',
+            backLink: '',
             sections: [{
                 header: 'projects',
                 contents: [{
@@ -19,7 +19,58 @@ Template['dashboard.details'].helpers({
                 }]
             }, {
                 header: 'shifts',
-                contents: []
+                contents: [{
+                    key: 'shifts',
+                    type: [{
+                        key: 'shift',
+                        link: 'shift.details',
+                        type: [{
+                            key: 'tag'
+                        }, {
+                            key: 'date',
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
+                        }, {
+                            key: 'start',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }, {
+                            key: 'end',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }]
+                    }]
+                }]
+            }, {
+                header: 'olderShifts',
+                contents: [{
+                    key: 'shifts',
+                    type: [{
+                        key: 'shift',
+                        link: 'shift.details',
+                        type: [{
+                            key: 'tag'
+                        }, {
+                            key: 'date',
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
+                        }, {
+                            key: 'start',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }, {
+                            key: 'end',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }]
+                    }]
+                }]
             }, {
                 header: 'administration',
                 contents: [{
