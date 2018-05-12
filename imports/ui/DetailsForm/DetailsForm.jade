@@ -65,7 +65,7 @@ template(name="DetailsForm")
                                                     .form-group
                                                         .key {{getProperty entity content.type.[0]}}
                                             else
-                                                .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
+                                                .input.form-group.clickable-content(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
                                                     .key {{getProperty entity content.type.[0]}}
                                                     .value
                                                         if isDelete content.type.[0]

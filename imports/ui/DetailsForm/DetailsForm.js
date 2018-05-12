@@ -231,25 +231,33 @@ Template.DetailsForm.events({
         e.stopPropagation();
         const clickType = $(e.target).attr('clickType');
         const clickMethod = $(e.target).attr('clickMethod');
+        const clickLink = $(e.target).attr('clickLink');
         const entityId = $(e.target).attr('entityId');
-        const entityKey = $(e.target).attr('key');
+        let entityKey = $(e.target).attr('key');
 
-        let messagePathParts = clickMethod.split('.');
-        messagePathParts.pop();
-        messagePathParts.splice(1, 0, 'entity');
-        messagePathParts.push(clickType + 'Confirmation');
+        if (clickType == 'delete') {
+            let messagePathParts = clickMethod.split('.');
+            messagePathParts.pop();
+            messagePathParts.splice(1, 0, 'entity');
+            messagePathParts.push(clickType + 'Confirmation');
 
-        let params = FlowRouter.current().params;
-        params[entityKey]= entityId;
+            let params = FlowRouter.current().params;
+            params[entityKey]= entityId;
 
-        if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
-            Meteor.call(clickMethod, params, entityId, (e, r) => {
-                if (e == null) {
-                    loadData(template);
-                } else {
-                    alert('SERVER ERROR');
-                }
-            });
+            if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
+                Meteor.call(clickMethod, params, entityId, (e, r) => {
+                    if (e == null) {
+                        loadData(template);
+                    } else {
+                        alert('SERVER ERROR');
+                    }
+                });
+            }
+        } else if (clickType == 'link') {
+            let params = FlowRouter.current().params;
+            params[entityKey + 'Id'] = entityId;
+
+            FlowRouter.go(FlowRouter.path(clickLink, params));
         }
     },
     'click tr.array-item': (e) => {
@@ -258,7 +266,7 @@ Template.DetailsForm.events({
         const entityKey = $tr.attr('entityKey');
         const entityId = $tr.attr('entityId');
         const entityLink = $tr.attr('entityLink');
-        const params = FlowRouter.current().params;
+        let params = FlowRouter.current().params;
         params[entityKey] = entityId;
 
         FlowRouter.go(FlowRouter.path(entityLink, params));
