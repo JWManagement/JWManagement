@@ -210,7 +210,7 @@ Template.DetailsForm.onDestroyed(() => {
 });
 
 Template.DetailsForm.events({
-    'click .input:not(.clickable-content)': (e) => {
+    'click .input:not(.array-item)': (e) => {
         const $e = $(e.target).closest('.input');
         const key = $e.attr('key');
         const link = $e.attr('link');
@@ -227,13 +227,14 @@ Template.DetailsForm.events({
             RouteManager.navigateToUpdate(key);
         }
     },
-    'click .input.clickable-content': (e, template) => {
+    'click .input.array-item': (e, template) => {
         e.stopPropagation();
-        const clickType = $(e.target).attr('clickType');
-        const clickMethod = $(e.target).attr('clickMethod');
-        const clickLink = $(e.target).attr('clickLink');
-        const entityId = $(e.target).attr('entityId');
-        let entityKey = $(e.target).attr('key');
+        const $e = $(e.target).closest('.input');
+        const clickType = $e.attr('clickType');
+        const clickMethod = $e.attr('clickMethod');
+        const clickLink = $e.attr('clickLink');
+        const entityId = $e.attr('entityId');
+        let entityKey = $e.attr('key');
 
         if (clickType == 'delete') {
             let messagePathParts = clickMethod.split('.');
