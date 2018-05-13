@@ -6,7 +6,7 @@ Template['dashboard.details'].helpers({
             getMethod: 'dashboard.get',
             backLink: '',
             sections: [{
-                header: 'projects',
+                header: 'myProjects',
                 contents: [{
                     key: 'myProjects',
                     type: [{
@@ -18,9 +18,9 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'shifts',
+                header: 'myShifts',
                 contents: [{
-                    key: 'shifts',
+                    key: 'myShifts',
                     type: [{
                         key: 'shift',
                         link: 'shift.details',
@@ -45,7 +45,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'olderShifts',
+                header: 'myOlderShifts',
                 contents: [{
                     key: 'shifts',
                     type: [{
