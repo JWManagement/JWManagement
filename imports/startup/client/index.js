@@ -24,6 +24,11 @@ import '/imports/ui/UpdateForm/UpdateForm.js';
 import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details.js';
 
+import '/imports/ui/languages/languages.jade';
+import '/imports/ui/languages/language.details.js';
+import '/imports/ui/languages/language.update.js';
+import '/imports/ui/languages/methods.js';
+
 import '/imports/ui/users/users.jade';
 import '/imports/ui/users/user.search.js';
 import '/imports/ui/users/user.details.js';
@@ -60,9 +65,11 @@ import '/imports/ui/notes/note.insert.js';
 
 import '/imports/ui/calendar/calendar.js';
 
+import '/imports/startup/client/language.js';
+
 import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
 Tracker.autorun(() => {
-	$('body').attr('page', FlowRouter.getRouteName());
+    $('body').attr('page', FlowRouter.getRouteName());
 });

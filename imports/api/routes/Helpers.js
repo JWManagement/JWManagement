@@ -1,29 +1,27 @@
+import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js';
+
 const Helpers = {
 
     checkLanguage: (c) => {
-        let language = c.params.language;
-        let languages = Object.keys(TAPi18n.getLanguages());
+        if (Meteor.user() != null) {
+            const language = FlowRouter.current().params.language;
+            const myLanguage = Meteor.user().profile.language;
 
-        if ((language != null) && (languages.indexOf(language) >= 0)) {
-            TAPi18n.setLanguage(language);
-            moment.locale(language);
+            console.log(language);
+            console.log(myLanguage);
 
-            if (Meteor.user() && Meteor.user().profile.language != language) {
-                Delay(() => {
-                    Meteor.call('updateProfile', 'language', language);
+            if (language != myLanguage) {
+                console.log('update url');
+                FlowRouter.withReplaceState(() => {
+                    FlowRouter.setParams({ language: myLanguage });
                 });
             }
-            return language;
-        } else if (navigator.language.indexOf('de') > -1) {
-            wrs(() => {
-                FlowRouter.setParams({ language: 'de' });
-            });
-            return 'de';
-        } else {
-            wrs(() => {
-                FlowRouter.setParams({ language: 'en' });
-            });
-            return 'en';
+
+            if (TAPi18n.getLanguage() != myLanguage) {
+                console.log('set tap language');
+                TAPi18n.setLanguage(myLanguage);
+                moment.locale(myLanguage);
+            }
         }
     },
     logout: () => {

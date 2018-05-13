@@ -74,6 +74,9 @@ Template['dashboard.details'].helpers({
             }, {
                 header: 'administration',
                 contents: [{
+                    key: 'language',
+                    link: 'language.details'
+                }, {
                     key: 'projects',
                     link: 'project.search',
                     canSee: Permissions.support

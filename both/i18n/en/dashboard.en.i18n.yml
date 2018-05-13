@@ -29,8 +29,17 @@ dashboard:
     showAll: Show all
     calendar: Calendar
     entity:
+        language: Language
         projects: Projects
         users: Users
+        shift:
+            tag: Tag
+            date: Date
+            start: Begin
+            end: End
     details:
         sections:
+            myProjects: My Projects
+            myShifts: My Shifts
+            myOlderShifts: My older Shifts
             administration: Administration

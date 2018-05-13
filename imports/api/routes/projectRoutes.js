@@ -11,6 +11,10 @@ RouteManager.registerTranslatedPage('user', {
     search: 'users',
     details: 'user/:userId'
 });
+RouteManager.registerTranslatedPage('language', {
+    details: 'language',
+    update: 'language/:key'
+});
 RouteManager.registerEntity('project', {
     details: ''
 });

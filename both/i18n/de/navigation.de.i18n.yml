@@ -44,6 +44,9 @@ navigation:
         details: Notizdaten
         update: Notiz bearbeiten
         insert: Neue Notiz erfassen
+    language:
+        details: Sprache
+        update: Sprache ändern
     login: Anmelden
     logout: Abmelden
     loggingOut: Abmelden...

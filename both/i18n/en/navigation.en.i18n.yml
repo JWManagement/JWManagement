@@ -44,6 +44,9 @@ navigation:
         details: Note details
         update: Edit note
         insert: Add note
+    language:
+        details: Language
+        update: Edit language
     login: Login
     logout: Logout
     loggingOut: Logging out...

@@ -1,4 +1,19 @@
 language:
+    details:
+        sections:
+            languages: Sprache der Oberfläche
+    entity:
+        language: Sprache
+        languageValues:
+            de: Deutsch
+            en: Englisch
+            fi: Finnisch
+            fr: Französisch (teilweise)
+            hu: Ungarisch
+            it: Italienisch (teilweise)
+            pl: Polnisch
+            pt: Portugiesisch
+            ru: Russisch
     _de: Deutsch
     _en: Englisch
     _fi: Finnisch

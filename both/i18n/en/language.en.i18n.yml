@@ -1,4 +1,19 @@
 language:
+    details:
+        sections:
+            languages: Interface Languages
+    entity:
+        language: Language
+        languageValues:
+            de: German
+            en: English
+            fi: Finnish
+            fr: French (partially)
+            hu: Hungarian
+            it: Italian (partially)
+            pl: Polish
+            pt: Portuguese
+            ru: Russian
     _de: German
     _en: English
     _fi: Finnish
