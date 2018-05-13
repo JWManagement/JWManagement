@@ -109,7 +109,7 @@ FlowRouter.route('/:language/:projectId/settings', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'project');
+            Session.set('parent', 'project.details');
             BlazeLayout.render('mainLayout', { content: 'settings' });
         });
     }
@@ -120,7 +120,7 @@ FlowRouter.route('/:language/:projectId/reports', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'project');
+            Session.set('parent', 'project.details');
             BlazeLayout.render('mainLayout', { content: 'reports' });
         });
     }
@@ -131,7 +131,7 @@ FlowRouter.route('/:language/:projectId/store', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'project');
+            Session.set('parent', 'project.details');
             BlazeLayout.render('mainLayout', { content: 'store' });
         });
     }
