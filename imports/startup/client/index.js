@@ -28,9 +28,9 @@ import '/imports/ui/users/users.jade';
 import '/imports/ui/users/user.search.js';
 import '/imports/ui/users/user.details.js';
 
-import '/imports/ui/project/projects.jade';
-import '/imports/ui/project/project.search.js';
-import '/imports/ui/project/project.details.js';
+import '/imports/ui/projects/projects.jade';
+import '/imports/ui/projects/project.search.js';
+import '/imports/ui/projects/project.details.js';
 
 import '/imports/ui/publishers/publishers.jade';
 import '/imports/ui/publishers/publisher.search.js';

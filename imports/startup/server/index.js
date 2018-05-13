@@ -6,7 +6,7 @@ import '/imports/startup/server/mailer.js';
 import '/imports/startup/server/prerenderio.js';
 
 import '/imports/api/dashboard/service.js';
-import '/imports/api/project/service.js';
+import '/imports/api/projects/service.js';
 import '/imports/api/users/service.js';
 import '/imports/api/publishers/service.js';
 import '/imports/api/vessels/service.js';
