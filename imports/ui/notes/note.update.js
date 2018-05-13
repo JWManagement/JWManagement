@@ -3,14 +3,12 @@ Template['note.update'].helpers({
         return {
             getMethod: 'note.getField',
             backLink: 'note.details',
-            fields: [
-                {
-                    key: 'title'
-                }, {
-                    key: 'text',
-                    type: 'textbox'
-                }
-            ]
+            fields: [{
+                key: 'title'
+            }, {
+                key: 'text',
+                type: 'textbox'
+            }]
         }
     }
 });
