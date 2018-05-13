@@ -5,6 +5,7 @@ import './SearchForm.scss';
 
 Template.SearchForm.helpers({
     getBackLink() {
+        FlowRouter.getParam('language');
         return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params);
     },
     getTranslation(key) {

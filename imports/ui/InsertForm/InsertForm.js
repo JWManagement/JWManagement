@@ -12,6 +12,7 @@ import './InsertFormTextInput.js';
 
 Template.InsertForm.helpers({
     getBackLink() {
+        FlowRouter.getParam('language');
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getSearchTranslation() {

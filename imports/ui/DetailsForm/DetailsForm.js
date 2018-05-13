@@ -5,6 +5,7 @@ import './DetailsForm.scss';
 
 Template.DetailsForm.helpers({
     getBackLink() {
+        FlowRouter.getParam('language');
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getLinkedKey(content) {

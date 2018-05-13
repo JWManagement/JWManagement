@@ -12,6 +12,7 @@ const possibleUpdateTypes = ['date', 'checkbox', 'dropdown', 'picker', 'textbox'
 
 Template.UpdateForm.helpers({
     getBackLink() {
+        FlowRouter.getParam('language');
         return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
     },
     getSearchTranslation() {
