@@ -14,10 +14,6 @@ Template['project.details'].helpers({
                             link: 'settings',
                             canSee: Permissions.shiftAdmin
                         }, {
-                            key: 'users',
-                            link: 'users',
-                            canSee: Permissions.admin
-                        }, {
                             key: 'publishers',
                             link: 'user.search',
                             canSee: Permissions.admin
