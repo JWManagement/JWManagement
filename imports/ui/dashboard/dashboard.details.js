@@ -74,6 +74,9 @@ Template['dashboard.details'].helpers({
             }, {
                 header: 'administration',
                 contents: [{
+                    key: 'profile',
+                    link: 'profile'
+                }, {
                     key: 'language',
                     link: 'language.details'
                 }, {
@@ -84,6 +87,12 @@ Template['dashboard.details'].helpers({
                     key: 'users',
                     link: 'user.search',
                     canSee: Permissions.support
+                }]
+            }, {
+                header: 'account',
+                contents: [{
+                    key: 'logout',
+                    link: 'logout'
                 }]
             }]
         }

@@ -29,6 +29,7 @@ dashboard:
     showAll: Show all
     calendar: Calendar
     entity:
+        profile: Profile
         language: Language
         projects: Projects
         users: Users
@@ -37,9 +38,11 @@ dashboard:
             date: Date
             start: Begin
             end: End
+        logout: Sign out
     details:
         sections:
             myProjects: My Projects
             myShifts: My Shifts
             myOlderShifts: My older Shifts
             administration: Administration
+            account: Account

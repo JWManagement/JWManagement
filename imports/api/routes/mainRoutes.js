@@ -88,8 +88,18 @@ FlowRouter.route('/:language/profile', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'home');
+            Session.set('parent', 'dashboard');
+            Session.set('target', 'dashboard');
             BlazeLayout.render('mainLayout', { content: 'profile' });
         });
+    }
+});
+
+FlowRouter.route('/:language/logout', {
+    name: 'logout',
+    triggersEnter: [ Helpers.checkLanguage ],
+    action: () => {
+        Meteor.logout();
+        FlowRouter.go('welcome', { language: FlowRouter.getParam('language') });
     }
 });
