@@ -40,7 +40,9 @@ Meteor.methods({
     'project.get': ({ projectId }) => {
         const project = Projects.findOne(projectId, {
             fields: {
-                _id: 1
+                name: 1,
+                'news.text': 1,
+                vesselModule: 1
             }
         });
 

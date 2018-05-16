@@ -6,6 +6,38 @@ Template['project.details'].helpers({
             getMethod: 'project.get',
             backLink: 'dashboard',
             sections: [{
+                header: 'project',
+                contents: [{
+                    key: 'name',
+                    readonly: true
+                }, {
+                    key: 'news_text',
+                    type: 'textbox',
+                    readonly: true
+                }]
+            }, {
+                header: 'modules',
+                contents: [{
+                    key: 'calendar',
+                    link: 'calendar',
+                    canSee: Permissions.member
+                }, {
+                    key: 'shifts',
+                    link: 'shifts',
+                    canSee: Permissions.member
+                }, {
+                    key: 'knowledgeBase',
+                    link: 'wiki',
+                    canSee: Permissions.member
+                }, {
+                    key: 'vessels',
+                    link: 'vessel.search',
+                    canSee: Permissions.member,
+                    custom: (project) => {
+                        return project.vesselModule == true;
+                    }
+                }]
+            }, {
                 header: 'administration',
                 contents: [{
                     key: 'settings',
@@ -23,13 +55,6 @@ Template['project.details'].helpers({
                     key: 'store',
                     link: 'store',
                     canSee: Permissions.storeAdmin
-                }, {
-                    key: 'vessels',
-                    link: 'vessel.search',
-                    canSee: Permissions.member,
-                    custom: (project) => {
-                        return project.vesselModule == true;
-                    }
                 }, {
                     key: 'notes',
                     link: 'note.details',

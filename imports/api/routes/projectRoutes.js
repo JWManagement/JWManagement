@@ -75,7 +75,7 @@ FlowRouter.route('/:language/:projectId/calendar/:year?/:month?/:day?', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'home');
+            Session.set('parent', 'project.details');
             BlazeLayout.render('mainLayout', { content: 'calendar' });
         });
     }
@@ -86,7 +86,7 @@ FlowRouter.route('/:language/:projectId/kb', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'home');
+            Session.set('parent', 'project.details');
             BlazeLayout.render('mainLayout', { content: 'wiki' });
         });
     }
@@ -99,8 +99,9 @@ FlowRouter.route('/:language/:projectId/shifts', {
         Helpers.doIfLoggedIn(() => {
             let parent = Session.get('parent');
 
-            if (parent != 'settings' && parent != 'home') {
-                Session.set('parent', 'home');
+            if (parent != 'settings' && parent != 'project.details') {
+                Session.set('parent', 'project.details');
+                Session.set('target', 'project.details');
             }
 
             BlazeLayout.render('mainLayout', { content: 'shifts' });

@@ -3,6 +3,11 @@ project:
     entity:
         _id: ID
         name: Name
+        news:
+            text: Neuigkeiten
+        shifts: Schichten
+        calendar: Kalender
+        knowledgeBase: Informationen
         settings: Einstellungen
         users: Benutzer
         publishers: Verkündiger
@@ -12,6 +17,8 @@ project:
         notes: Notizen
     details:
         sections:
+            project: Projekt
+            modules: Module
             administration: Verwaltung
     search:
         placeholder: Suche nach Projekten

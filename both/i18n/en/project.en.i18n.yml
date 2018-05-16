@@ -3,6 +3,11 @@ project:
     entity:
         _id: ID
         name: Name
+        news:
+            text: News
+        shifts: Shifts
+        calendar: Calendar
+        knowledgeBase: Knowledge Base
         settings: Settings
         users: Users
         publishers: Publishers
@@ -12,6 +17,8 @@ project:
         notes: Notes
     details:
         sections:
+            project: Project
+            modules: Modules
             administration: Administration
     search:
         placeholder: Search for projects
