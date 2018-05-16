@@ -5,6 +5,8 @@ import '/imports/api/reports/reports.coffee';
 import '/imports/startup/server/mailer.js';
 import '/imports/startup/server/prerenderio.js';
 
+import '/imports/api/util/rolesExtensions.js';
+
 import '/imports/api/dashboard/service.js';
 import '/imports/api/languages/service.js';
 import '/imports/api/projects/service.js';

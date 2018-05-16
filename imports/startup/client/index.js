@@ -11,6 +11,7 @@ import '/imports/api/datepicker/bootstrap-datepicker.ru.min.js';
 import '/imports/api/projects/projects.js';
 
 import '/imports/api/util/templateHelpers.js';
+import '/imports/api/util/rolesExtensions.js';
 
 import '/imports/api/routes/mainRoutes.js';
 import '/imports/api/routes/projectRoutes.js';
