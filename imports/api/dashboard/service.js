@@ -30,7 +30,7 @@ Meteor.methods({
 
         const today = parseInt(moment().format('YYYYDDD'));
 
-        const shifts = Shifts.find({
+        const upcomingShifts = Shifts.find({
             projectId: {
                 $in: projectIds
             },
@@ -75,7 +75,7 @@ Meteor.methods({
                 delete project.tags;
                 return project;
             }),
-            myShifts: shifts.map((shift) => {
+            upcomingShifts: upcomingShifts.map((shift) => {
                 delete shift.tagId;
                 return shift;
             })

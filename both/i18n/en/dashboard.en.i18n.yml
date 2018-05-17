@@ -42,7 +42,9 @@ dashboard:
     details:
         sections:
             myProjects: My Projects
-            myShifts: My Shifts
+            missingShiftReports: Missing Shift Reports
+            upcomingShifts: My upcoming Shifts
+            pendingRequests: My pending Shift Requests
             myOlderShifts: My older Shifts
             administration: Administration
             account: Account

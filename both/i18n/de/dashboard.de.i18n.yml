@@ -42,7 +42,9 @@ dashboard:
     details:
         sections:
             myProjects: Meine Projekte
-            myShifts: Meine Schichten
+            missingShiftReports: Fehlende Schichtberichte
+            upcomingShifts: Meine kommenden Schichten
+            pendingRequests: Meine offenen Schichtbewerbungen
             myOlderShifts: Meine vergangenen Schichten
             administration: Verwaltung
             account: Account

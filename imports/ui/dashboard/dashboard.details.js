@@ -18,9 +18,63 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'myShifts',
+                header: 'missingShiftReports',
                 contents: [{
-                    key: 'myShifts',
+                    key: 'missingShiftReports',
+                    type: [{
+                        key: 'shift',
+                        link: 'shift.details',
+                        type: [{
+                            key: 'tag'
+                        }, {
+                            key: 'date',
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
+                        }, {
+                            key: 'start',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }, {
+                            key: 'end',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }]
+                    }]
+                }]
+            }, {
+                header: 'upcomingShifts',
+                contents: [{
+                    key: 'upcomingShifts',
+                    type: [{
+                        key: 'shift',
+                        link: 'shift.details',
+                        type: [{
+                            key: 'tag'
+                        }, {
+                            key: 'date',
+                            type: 'date',
+                            dbFormat: 'YYYYMMDD',
+                            uiFormat: 'date'
+                        }, {
+                            key: 'start',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }, {
+                            key: 'end',
+                            type: 'time',
+                            dbFormat: 'Hmm',
+                            uiFormat: 'time'
+                        }]
+                    }]
+                }]
+            }, {
+                header: 'pendingRequests',
+                contents: [{
+                    key: 'pendingRequests',
                     type: [{
                         key: 'shift',
                         link: 'shift.details',
@@ -47,7 +101,7 @@ Template['dashboard.details'].helpers({
             }, {
                 header: 'myOlderShifts',
                 contents: [{
-                    key: 'shifts',
+                    key: 'myOlderShifts',
                     type: [{
                         key: 'shift',
                         link: 'shift.details',
