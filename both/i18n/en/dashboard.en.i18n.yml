@@ -45,6 +45,6 @@ dashboard:
             missingShiftReports: Missing Shift Reports
             upcomingShifts: My upcoming Shifts
             pendingRequests: My pending Shift Requests
-            myOlderShifts: My older Shifts
+            olderShifts: My older Shifts
             administration: Administration
             account: Account

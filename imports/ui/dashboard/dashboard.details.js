@@ -99,9 +99,9 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'myOlderShifts',
+                header: 'olderShifts',
                 contents: [{
-                    key: 'myOlderShifts',
+                    key: 'olderShifts',
                     type: [{
                         key: 'shift',
                         link: 'shift.details',

@@ -39,12 +39,14 @@ Meteor.methods({
         const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId);
         const upcomingShifts = getUpcomingShifts(projectIds, projects, today, userId);
         const pendingRequests = getPendingRequests(projectIds, projects, today, userId);
+        const olderShifts = getOlderShifts(projectIds, projects, today, userId);
 
         return {
             myProjects: getCleanedProjects(projects),
             missingShiftReports: getCleanedShifts(missingShiftReports),
             upcomingShifts: getCleanedShifts(upcomingShifts),
-            pendingRequests: getCleanedShifts(pendingRequests)
+            pendingRequests: getCleanedShifts(pendingRequests),
+            olderShifts: getCleanedShifts(olderShifts)
         };
     }
 });
@@ -112,6 +114,21 @@ function getPendingRequests(projectIds, projects, date, userId) {
             $gte: date
         },
         'teams.pending._id': userId
+    }, SHIFT_OPTIONS)
+    .fetch();
+
+    return getUpdatedShifts(projects, shifts);
+}
+
+function getOlderShifts(projectIds, projects, date, userId) {
+    const shifts = Shifts.find({
+        projectId: {
+            $in: projectIds
+        },
+        date: {
+            $lt: date
+        },
+        'teams.participants._id': userId
     }, SHIFT_OPTIONS)
     .fetch();
 

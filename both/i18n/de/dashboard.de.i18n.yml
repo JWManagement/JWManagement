@@ -45,6 +45,6 @@ dashboard:
             missingShiftReports: Fehlende Schichtberichte
             upcomingShifts: Meine kommenden Schichten
             pendingRequests: Meine offenen Schicht-Bewerbungen
-            myOlderShifts: Meine vergangenen Schichten
+            olderShifts: Meine vergangenen Schichten
             administration: Verwaltung
             account: Account
