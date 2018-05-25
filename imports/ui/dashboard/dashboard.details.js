@@ -145,6 +145,10 @@ Template['dashboard.details'].helpers({
             }, {
                 header: 'account',
                 contents: [{
+                    key: 'oldDashboard',
+                    link: 'home',
+                    canSee: Permissions.admin
+                }, {
                     key: 'logout',
                     link: 'logout'
                 }]

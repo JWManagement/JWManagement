@@ -39,6 +39,8 @@ dashboard:
             start: Begin
             end: End
         logout: Sign out
+        newDashboard: To the new dashboard
+        oldDashboard: To the old dashboard
     details:
         sections:
             myProjects: My Projects

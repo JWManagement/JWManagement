@@ -39,6 +39,8 @@ dashboard:
             start: Beginn
             end: Ende
         logout: Abmelden
+        newDashboard: Zur neuen Übersicht
+        oldDashboard: Zur alten Übersicht
     details:
         sections:
             myProjects: Meine Projekte

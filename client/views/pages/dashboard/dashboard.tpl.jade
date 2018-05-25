@@ -2,6 +2,10 @@ if queryParam 'showShiftReport'
     +shiftReport
 .wrapper-content.animated.fadeInUp
     .container
+        .text-center.m-b-xl
+            a.btn.btn-warning.btn-lg(href="/en/dashboard")
+                | {{_ 'dashboard.entity.newDashboard'}}
+                i.fa.fa-rocket.fa-fw
         .row.m-b-lg.animated.fadeInUp
             if loading
                 h1.center-align {{_ 'dashboard.loadingProjects'}}
