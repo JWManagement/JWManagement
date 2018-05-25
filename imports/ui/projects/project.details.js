@@ -5,15 +5,16 @@ Template['project.details'].helpers({
         return {
             getMethod: 'project.get',
             backLink: 'dashboard',
+            navbarStyle: 'flat',
+            showTitle: false,
             sections: [{
-                header: 'project',
+                background: 'indigo',
                 contents: [{
                     key: 'name',
-                    readonly: true
+                    type: 'title'
                 }, {
                     key: 'news_text',
-                    type: 'textbox',
-                    readonly: true
+                    type: 'description'
                 }]
             }, {
                 header: 'modules',
