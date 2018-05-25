@@ -109,6 +109,32 @@ FlowRouter.route('/:language/:projectId/shifts', {
     }
 });
 
+FlowRouter.route('/:language/goToShift/:shiftId', {
+    name: 'shift.details',
+    action: () => {
+        Helpers.doIfLoggedIn(() => {
+            Meteor.call('shift.getShiftOverview', {
+                shiftId: FlowRouter.getParam('shiftId')
+            }, (e, shift) => {
+                const momentObj = moment(shift.date, 'YYYYDDD');
+                const year = parseInt(momentObj.format('YYYY'));
+                const month = parseInt(momentObj.format('MM'));
+                const day = parseInt(momentObj.format('DD'));
+
+                FlowRouter.go('calendar', {
+                    language: FlowRouter.getParam('language'),
+                    projectId: shift.projectId,
+                    year: year,
+                    month: month,
+                    day: day
+                }, {
+                    showShift: FlowRouter.getParam('shiftId')
+                });
+            });
+        });
+    }
+});
+
 FlowRouter.route('/:language/:projectId/settings', {
     name: 'settings',
     triggersEnter: [ Helpers.checkLanguage ],
