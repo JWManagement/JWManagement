@@ -145,10 +145,17 @@ function getUpdatedShifts(projects, shifts) {
             return tag._id == shift.tagId;
         })[0];
 
-        shift.tag = tag.name;
-        shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'));
+        if (project != null && tag != null) {
+            shift.tag = tag.name;
+            shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'));
 
-        return shift;
+            return shift;
+        }
+
+        return null;
+    })
+    .filter((shift) => {
+        return shift != null
     });
 }
 
