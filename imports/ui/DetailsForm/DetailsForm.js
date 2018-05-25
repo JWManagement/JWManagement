@@ -20,6 +20,17 @@ Template.DetailsForm.helpers({
     getActionPath(action) {
         return FlowRouter.path(action.route, FlowRouter.current().params);
     },
+    getNavbarStyle() {
+        const template = Template.instance();
+        return (template.data.data.navbarStyle != null ? template.data.data.navbarStyle : '');
+    },
+    showTitle() {
+        const template = Template.instance();
+        return (template.data.data.showTitle != null ? template.data.data.showTitle : true);
+    },
+    getBackgroundColor(section) {
+        return (section.background != null ? section.background : '');
+    },
     isButton(action) {
         return action.type == 'link';
     },
@@ -37,6 +48,12 @@ Template.DetailsForm.helpers({
     },
     isTextbox(field) {
         return field.type == 'textbox';
+    },
+    isTitle(field) {
+        return field.type == 'title';
+    },
+    isDescription(field) {
+        return field.type == 'description';
     },
     isDelete(field) {
         return field.type == 'delete';

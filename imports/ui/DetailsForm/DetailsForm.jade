@@ -1,11 +1,12 @@
 template(name="DetailsForm")
     .navigation-wrapper
-        nav.navbar.navbar-fixed-top
+        nav.navbar.navbar-fixed-top(class='{{getNavbarStyle}}')
             if getBackLink
                 a.navbar-back(href="{{getBackLink}}")
                     i.fa.fa-angle-left.m-r-xs
                     | {{_ 'navigation.back'}}
-            .navbar-title {{getTitle}}
+            if showTitle
+                .navbar-title {{getTitle}}
 
     form.form-horizontal
         if isLoading
@@ -18,11 +19,11 @@ template(name="DetailsForm")
                 button#back.btn.btn-primary {{_ 'navigation.back'}}
         else
             each section in sections
-                .section
+                .section(class='{{getBackgroundColor section}}')
                     if section.header
                         .section-header {{getSectionTranslation section.header}}
                     if section.contents
-                        .section-content
+                        .section-content.clearfix
                             each content in section.contents
                                 if isArray content
                                     .array(key='{{content.key}}')
@@ -97,6 +98,10 @@ template(name="DetailsForm")
                                                 | {{{getValue content}}}
                                             td.link
                                                 i.fa.fa-angle-right
+                                else if isTitle content
+                                    h1.title {{{getValue content}}}
+                                else if isDescription content
+                                    p.description {{{getValue content}}}
                                 else if hasPermissionToSee content
                                     .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
                                         .key {{getEntityTranslation content.key}}
