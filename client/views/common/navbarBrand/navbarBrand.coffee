@@ -10,6 +10,9 @@ Template.navbarBrand.helpers
 
 			if target
 				target
+			else if parent == 'dashboard.details'
+				FlowRouter.path 'dashboard.details',
+					language: TAPi18n.getLanguage()
 			else
 				projectId = FlowRouter.getParam('projectId')
 

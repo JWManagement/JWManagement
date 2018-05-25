@@ -2,7 +2,7 @@ Template['user.search'].helpers({
     data() {
         return {
             entityId: 'userId',
-            backLink: 'dashboard',
+            backLink: 'dashboard.details',
             columns: [{
                 name: '_id',
                 visible: false

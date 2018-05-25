@@ -17,7 +17,7 @@ FlowRouter.route('/support', {
     }
 });
 
-FlowRouter.route('/:language?', {
+FlowRouter.route('/:language?/oldDashboard', {
     name: 'home',
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
@@ -88,8 +88,8 @@ FlowRouter.route('/:language/profile', {
     triggersEnter: [ Helpers.checkLanguage ],
     action: () => {
         Helpers.doIfLoggedIn(() => {
-            Session.set('parent', 'dashboard');
-            Session.set('target', 'dashboard');
+            Session.set('target', null);
+            Session.set('parent', 'dashboard.details');
             BlazeLayout.render('mainLayout', { content: 'profile' });
         });
     }

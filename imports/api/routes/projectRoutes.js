@@ -2,7 +2,7 @@ import Helpers from '/imports/api/routes/Helpers.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
 
 RouteManager.registerTranslatedPage('dashboard', {
-    details: 'dashboard'
+    details: ''
 });
 RouteManager.registerTranslatedPage('project', {
     search: 'projects'
