@@ -169,24 +169,24 @@ body.md-skin[type='DetailsForm'] {
         }
 
         .section.indigo {
-            margin-top: -20px;
+            padding: 20px 15px;
+            margin-top: 0;
+            border-bottom: 1px solid lighten(#3f51b5, 40%);
             background-color: lighten(#3f51b5, 48%);
 
             .section-content {
                 border: none;
-                padding-top: 20px;
-                border-bottom: 1px solid lighten(#3f51b5, 40%);
                 background-color: transparent;
 
                 .title {
                     color: #3f51b5;
-                    margin-left: 15px;
+                    margin: 0;
                 }
 
                 .description {
                     color: #555;
-                    margin-left: 15px;
-                    margin-bottom: 15px;
+                    margin-top: 10px;
+                    margin-bottom: 0;
                 }
             }
         }
