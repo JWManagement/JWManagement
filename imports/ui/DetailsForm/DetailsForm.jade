@@ -65,6 +65,15 @@ template(name="DetailsForm")
                                                 else
                                                     .form-group
                                                         .key {{getProperty entity content.type.[0]}}
+                                            else if isKeyValue content.type.[0]
+                                                .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
+                                                    .key {{entity.key}}
+                                                    .value
+                                                        | {{entity.value}}
+                                                        if isDelete content.type.[0]
+                                                            i.fa.fa-trash.icon
+                                                        else
+                                                            i.fa.fa-angle-right.icon
                                             else
                                                 .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
                                                     .key {{getProperty entity content.type.[0]}}

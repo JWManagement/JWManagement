@@ -79,6 +79,18 @@ Template['publisher.details'].helpers({
                     route: 'publisher.profile.vacation.insert'
                 }]
             }, {
+                header: 'permissions',
+                contents: [{
+                    key: 'permissions_project'
+                }, {
+                    key: 'permissions_tags',
+                    type: [{
+                        key: 'tag',
+                        type: 'keyValue',
+                        link: 'publisher.permission.details'
+                    }]
+                }]
+            }, {
                 header: 'password',
                 contents: [],
                 actions: [{

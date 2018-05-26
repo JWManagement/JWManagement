@@ -84,6 +84,17 @@ Meteor.methods({
             };
         }
 
+        publisher.permissions = {
+            project: 'Member',
+            tags: [{
+                key: 'Trolley',
+                value: 'Teamleader'
+            }, {
+                key: 'Infostand',
+                value: 'Participant'
+            }]
+        };
+
         return publisher;
     },
     'publisher.getField': ({ language, projectId, userId, key }) => {

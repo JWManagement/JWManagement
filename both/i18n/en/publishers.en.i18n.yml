@@ -110,6 +110,10 @@ publisher:
             resetConfirmation: Do you really want to send a reset password mail to the user?
             password: Enter the new password
             passwordRepeat: Re-enter the new password
+        permission:
+            noElements: No tags defined
+        permissions:
+            project: Project role
         invite: Send project invitation
         inviteConfirmation: Do you really want to send a project invitation mail to the user?
         delete: Revoke this user's access to the project
@@ -121,6 +125,7 @@ publisher:
             identification: Identification data
             availability: Availability
             vacations: Vacations
+            permissions: Permissions
             password: Password
             options: Options
     profile:

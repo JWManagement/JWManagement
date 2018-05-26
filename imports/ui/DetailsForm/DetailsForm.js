@@ -46,6 +46,9 @@ Template.DetailsForm.helpers({
     isDropdown(field) {
         return field.type == 'dropdown';
     },
+    isKeyValue(field) {
+        return field.type == 'keyValue';
+    },
     isTextbox(field) {
         return field.type == 'textbox';
     },

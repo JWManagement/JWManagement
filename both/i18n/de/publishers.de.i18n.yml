@@ -110,6 +110,10 @@ publisher:
             resetConfirmation: Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden?
             password: Neues Passwort eingeben
             passwordRepeat: Neues Passwort wiederholen
+        permission:
+            noElements: Keine Tags definiert
+        permissions:
+            project: Projekt Rolle
         invite: Einladungsmail senden
         inviteConfirmation: Möchtest du diesem Verkündiger wirklich eine Einladungsmail senden?
         delete: Verkündiger aus diesem Projekt entfernen
@@ -122,6 +126,7 @@ publisher:
             availability: Verfügbarkeit
             vacations: Urlaub
             password: Passwort
+            permissions: Berechtigungen
             options: Optionen
     profile:
         availability:
