@@ -21,7 +21,7 @@ Template.calendar.helpers({
 Template.calendar.onCreated(() => {
     const template = Template.instance();
 
-    template.selectedDate = Date();
+    template.selectedDate = new Date();
     template.selectedDateShifts = new ReactiveVar([]);
     template.loadShifts = loadShifts;
     template.setDate = setDate;
@@ -39,7 +39,7 @@ Template.calendar.onRendered(() => {
     let day = FlowRouter.getParam('day');
 
     if (year == null || month == null || day == null) {
-        template.setDate(Date());
+        template.setDate(new Date());
     } else {
         template.setDate(new Date(year, month - 1, day));
     }
