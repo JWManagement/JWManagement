@@ -78,31 +78,31 @@ Meteor.methods
 					updateDeclined = false
 					setTeam = {}
 
-					for user in team.participants when user._id == userId
+					for user in team.participants when user? && user._id == userId
 						updateParticipants = true
 						break
-					for user in team.pending when user._id == userId
+					for user in team.pending when user? && user._id == userId
 						updatePending = true
 						break
-					for user in team.declined when user._id == userId
+					for user in team.declined when user? && user._id == userId
 						updateDeclined = true
 						break
 
 					if updateParticipants
 						newParticipants = team.participants
-						for user in newParticipants when user._id == userId
+						for user in newParticipants when user? && user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.participants'] = newParticipants
 					if updatePending
 						newPending = team.pending
-						for user in newPending when user._id == userId
+						for user in newPending when user? && user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.pending'] = newPending
 					if updateDeclined
 						newDeclined = team.declined
-						for user in newDeclined when user._id == userId
+						for user in newDeclined when user? && user._id == userId
 							user[field] = value
 
 						setTeam['teams.$.declined'] = newDeclined
