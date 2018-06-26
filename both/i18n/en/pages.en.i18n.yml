@@ -33,6 +33,7 @@ profile:
         helpText: Please mark the hours in which you are available.
         shortTermCalls: I can be contacted in the short term
         shortTermCallsAlways: Even if no availability is set
+        notifyViaEmail: I prefer to be contacted via Email.
     speaks: Speaks
     telefon: Phone
     congregation: Congregation
