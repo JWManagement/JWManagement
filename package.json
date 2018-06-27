@@ -1,6 +1,6 @@
 {
   "name": "JWManagement",
-  "description": "Shift management for theocratic projects",
+  "description": "A highly configurable shift management system for Jehovah's Witnesses. Built to power projects like the metropolitan witnessing, construction projects and/or similar",
   "license": "SEE LICENSE IN ./LICENSE",
   "repository": {
     "type": "git",
@@ -14,6 +14,9 @@
     "jquery": "^1.12.4",
     "object-assign-deep": "^0.4.0",
     "prerender-node": "^2.7.4",
+    "cordova-plugin-device": "^1.1.4",
+    "jdenticon": "^1.4.0",
+    "meteor-node-stubs": "^0.2.5",
     "simpl-schema": "^0.3.1",
     "underscore": "^1.8.3"
   },

@@ -1,150 +1,154 @@
 if queryParam 'editProfilePicture'
-    +editProfilePictureModal
+	+editProfilePictureModal
 if queryParam 'mergeAccounts'
-    +mergeAccountsModal
+	+mergeAccountsModal
 .wrapper-content
-    .container-fluid
-        with currentUser
-            .row.m-b-lg.m-t-lg
-                .col-md-6
-                    .profile-image-wrapper
-                        with picture
-                            .profile-image
-                                img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
-                                .profile-image-description {{_ 'profile.changePicture'}}
-                        else
-                            .profile-image.svg
-                                p {{{jdenticon hash=_id}}}
-                                .profile-image-description {{_ 'profile.changePicture'}}
-                    .profile-info
-                        div
-                            h2.no-margins {{profile.firstname}} {{profile.lastname}}
-                            if profile.congregation
-                                h4 {{profile.congregation}}
-                            if profile.languages
-                                small
-                                    p {{_ "profile.speaks"}} {{profile.languages}}
-            .row.m-t-lg
-                .col-md-6
-                    .ibox
-                        .ibox-title
-                            h2 {{_ "profile.personalData"}}
-                        .ibox-content
-                            form.form-horizontal
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "input.username"}}
-                                    .col-lg-4
-                                        input#username.form-control(type='text' placeholder='{{_ "input.username"}}' value='{{username}}')
-                                .hr-line-dashed
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "input.firstname"}}
-                                    .col-lg-4
-                                        input#firstname.form-control(type='text' placeholder='{{_ "input.firstname"}}' value='{{profile.firstname}}')
-                                    .col-xs-12.visible-xs
-                                        .hr-line-dashed
-                                    label.col-lg-2.control-label {{_ "input.lastname"}}
-                                    .col-lg-4
-                                        input#lastname.form-control(type='text' placeholder='{{_ "input.lastname"}}' value='{{profile.lastname}}')
-                                .hr-line-dashed
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "input.email"}}
-                                    .col-lg-4
-                                        input#email.form-control(type='text' placeholder='{{_ "input.email"}}' value='{{profile.email}}')
-                                    .col-xs-12.visible-xs
-                                        .hr-line-dashed
-                                    label.col-lg-2.control-label {{_ "profile.telefon"}}
-                                    .col-lg-4
-                                        input#telefon.form-control(type='text' placeholder='{{_ "profile.placeholder.telefon"}}' value='{{profile.telefon}}')
-                                .hr-line-dashed
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "profile.congregation"}}
-                                    .col-lg-4
-                                        input#congregation.form-control(type='text' placeholder='{{_ "profile.placeholder.congregation"}}' value='{{profile.congregation}}')
-                                    .col-xs-12.visible-xs
-                                        .hr-line-dashed
-                                    label.col-lg-2.control-label {{_ "profile.languages"}}
-                                    .col-lg-4
-                                        input#languages.form-control(type='text' placeholder='{{_ "profile.languages"}}' value='{{profile.languages}}')
-                                .hr-line-dashed
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "profile.gender"}}
-                                    .col-lg-4
-                                        select#gender.form-control
-                                            option(value='m' selected="{{isField 'gender' 'm'}}") {{_ "profile._gender.brother"}}
-                                            option(value='w' selected="{{isField 'gender' 'w'}}") {{_ "profile._gender.sister"}}
-                                .hr-line-dashed
-                                .form-group
-                                    label.col-lg-2.control-label {{_ "profile.privilegeOfService"}}
-                                    .col-lg-4
-                                        select#pioneer.form-control
-                                            option(value='publisher' selected="{{isField 'pioneer' 'publisher'}}") {{_ "profile.publisher"}}
-                                            option(value='auxiliary' selected="{{isField 'pioneer' 'auxiliary'}}") {{_ "profile._privilegeOfService.auxiliaryPioneer"}}
-                                            option(value='regular' selected="{{isField 'pioneer' 'regular'}}") {{_ "profile._privilegeOfService.pioneer"}}
-                                            option(value='special' selected="{{isField 'pioneer' 'special'}}") {{_ "profile._privilegeOfService.specialPioneer"}}
-                                            option(value='circuit' selected="{{isField 'pioneer' 'circuit'}}") {{_ "profile._privilegeOfService.circuitOverseer"}}
-                                            option(value='bethelite' selected="{{isField 'pioneer' 'bethelite'}}") {{_ "profile._privilegeOfService.bethelite"}}
-                                            option(value='ldc' selected="{{isField 'pioneer' 'ldc'}}") {{_ "profile._privilegeOfService.fulltimeConstructionServant"}}
-                                    .col-xs-12.visible-xs
-                                        .hr-line-dashed
-                                    label.col-lg-2.control-label {{_ "profile.ministryPrivilege"}}
-                                    .col-lg-4
-                                        select#privilege.form-control
-                                            option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
-                                            option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
-                                            option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}
-                                            option(value='coordinator' selected="{{isField 'privilege' 'coordinator'}}") {{_ "profile._ministryPrivilege.coordinator"}}
-                                            option(value='secretary' selected="{{isField 'privilege' 'secretary'}}") {{_ "profile._ministryPrivilege.secretary"}}
-                                            option(value='serviceOverseer' selected="{{isField 'privilege' 'serviceOverseer'}}") {{_ "profile._ministryPrivilege.serviceOverseer"}}
-                    .ibox
-                        .ibox-title
-                            h2 {{_ 'profile.options.title'}}
-                        .ibox-content
-                            .text-muted.m-t {{_ 'profile.options.helpText.mergeAccounts'}}
-                            #mergeAccounts.btn.btn-rounded.btn-warning.m-t {{_ "profile.mergeAccounts"}}
-                            //hr
-                            //leave project
-                            hr
-                            #changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
-                            #deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}
-                .col-md-6
-                    .ibox
-                        .ibox-title
-                            h2 {{_ 'profile.availability.title'}}
-                            .text-muted.m-t {{_ 'profile.availability.helpText'}}
-                        .ibox-content
-                            .table-responsive
-                                table.table.table-bordered.timetable
-                                    thead
-                                        tr
-                                            td
-                                            each hour in hours
-                                                td {{hour}}
-                                    tbody
-                                        each day in weekdays
-                                            tr(data-day="{{day}}")
-                                                td.day {{_ 'weekdays.' context=day}}
-                                                each hour in hours
-                                                    td(class="{{isAvailable day hour}}" data-hour="{{hour}}")
-                            .checkbox.checkbox-primary.checkbox-inline
-                                input#shortTermCalls(type="checkbox" checked="{{profile.shortTermCalls}}")
-                                label(for="shortTermCalls") {{_ 'profile.availability.shortTermCalls'}}
-                            .checkbox.checkbox-primary.checkbox-inline
-                                input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
-                                label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
-                    .ibox
-                        .ibox-title
-                            h2 {{_ 'profile.vacation.title'}}
-                            .text-muted.m-t {{_ 'profile.vacation.helpText'}}
-                        .ibox-content
-                            each getVacations
-                                .row
-                                    .col-xs-11
-                                        .input-daterange.input-group.full-width(id="{{_id}}")
-                                            input.input-sm.form-control.startDate(type="text" value="{{format start 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
-                                            span.input-group-addon {{_ 'profile.until'}}
-                                            input.input-sm.form-control.endDate(type="text" value="{{format end 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
-                                    .col-xs-1.no-paddings
-                                        button.btn.btn-circle.btn-primary.fa.fa-trash.delVacation(title="{{_ 'profile.deleteVacation'}}")
-                            button#addVacation.btn.btn-rounded.btn-success.center-block
-                                i.fa.fa-plus
-                                |{{_ 'profile.addVacation'}}
+	.container-fluid
+		with currentUser
+			.row.m-b-lg.m-t-lg
+				.col-md-6
+					.profile-image-wrapper
+						with picture
+							.profile-image
+								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
+								.profile-image-description {{_ 'profile.changePicture'}}
+						else
+							.profile-image.svg
+								p {{{jdenticon hash=_id}}}
+								.profile-image-description {{_ 'profile.changePicture'}}
+					.profile-info
+						div
+							h2.no-margins {{profile.firstname}} {{profile.lastname}}
+							if profile.congregation
+								h4 {{profile.congregation}}
+							if profile.languages
+								small
+									p {{_ "profile.speaks"}} {{profile.languages}}
+			.row.m-t-lg
+				.col-md-6
+					.ibox
+						.ibox-title
+							h2 {{_ "profile.personalData"}}
+						.ibox-content
+							form.form-horizontal
+								.form-group
+									label.col-lg-2.control-label {{_ "input.username"}}
+									.col-lg-4
+										input#username.form-control(type='text' placeholder='{{_ "input.username"}}' value='{{username}}')
+								.hr-line-dashed
+								.form-group
+									label.col-lg-2.control-label {{_ "input.firstname"}}
+									.col-lg-4
+										input#firstname.form-control(type='text' placeholder='{{_ "input.firstname"}}' value='{{profile.firstname}}')
+									.col-xs-12.visible-xs
+										.hr-line-dashed
+									label.col-lg-2.control-label {{_ "input.lastname"}}
+									.col-lg-4
+										input#lastname.form-control(type='text' placeholder='{{_ "input.lastname"}}' value='{{profile.lastname}}')
+								.hr-line-dashed
+								.form-group
+									label.col-lg-2.control-label {{_ "input.email"}}
+									.col-lg-4
+										input#email.form-control(type='text' placeholder='{{_ "input.email"}}' value='{{profile.email}}')
+									.col-xs-12.visible-xs
+										.hr-line-dashed
+									label.col-lg-2.control-label {{_ "profile.telefon"}}
+									.col-lg-4
+										input#telefon.form-control(type='text' placeholder='{{_ "profile.placeholder.telefon"}}' value='{{profile.telefon}}')
+								.hr-line-dashed
+								.form-group
+									label.col-lg-2.control-label {{_ "profile.congregation"}}
+									.col-lg-4
+										input#congregation.form-control(type='text' placeholder='{{_ "profile.placeholder.congregation"}}' value='{{profile.congregation}}')
+									.col-xs-12.visible-xs
+										.hr-line-dashed
+									label.col-lg-2.control-label {{_ "profile.languages"}}
+									.col-lg-4
+										input#languages.form-control(type='text' placeholder='{{_ "profile.languages"}}' value='{{profile.languages}}')
+								.hr-line-dashed
+								.form-group
+									label.col-lg-2.control-label {{_ "profile.gender"}}
+									.col-lg-4
+										select#gender.form-control
+											option(value='m' selected="{{isField 'gender' 'm'}}") {{_ "profile._gender.brother"}}
+											option(value='w' selected="{{isField 'gender' 'w'}}") {{_ "profile._gender.sister"}}
+								.hr-line-dashed
+								.form-group
+									label.col-lg-2.control-label {{_ "profile.privilegeOfService"}}
+									.col-lg-4
+										select#pioneer.form-control
+											option(value='publisher' selected="{{isField 'pioneer' 'publisher'}}") {{_ "profile.publisher"}}
+											option(value='auxiliary' selected="{{isField 'pioneer' 'auxiliary'}}") {{_ "profile._privilegeOfService.auxiliaryPioneer"}}
+											option(value='regular' selected="{{isField 'pioneer' 'regular'}}") {{_ "profile._privilegeOfService.pioneer"}}
+											option(value='special' selected="{{isField 'pioneer' 'special'}}") {{_ "profile._privilegeOfService.specialPioneer"}}
+											option(value='circuit' selected="{{isField 'pioneer' 'circuit'}}") {{_ "profile._privilegeOfService.circuitOverseer"}}
+											option(value='bethelite' selected="{{isField 'pioneer' 'bethelite'}}") {{_ "profile._privilegeOfService.bethelite"}}
+											option(value='ldc' selected="{{isField 'pioneer' 'ldc'}}") {{_ "profile._privilegeOfService.fulltimeConstructionServant"}}
+									.col-xs-12.visible-xs
+										.hr-line-dashed
+									label.col-lg-2.control-label {{_ "profile.ministryPrivilege"}}
+									.col-lg-4
+										select#privilege.form-control
+											option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
+											option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
+											option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}
+											option(value='coordinator' selected="{{isField 'privilege' 'coordinator'}}") {{_ "profile._ministryPrivilege.coordinator"}}
+											option(value='secretary' selected="{{isField 'privilege' 'secretary'}}") {{_ "profile._ministryPrivilege.secretary"}}
+											option(value='serviceOverseer' selected="{{isField 'privilege' 'serviceOverseer'}}") {{_ "profile._ministryPrivilege.serviceOverseer"}}
+					.ibox
+						.ibox-title
+							h2 {{_ 'profile.options.title'}}
+						.ibox-content
+							.text-muted.m-t {{_ 'profile.options.helpText.mergeAccounts'}}
+							#mergeAccounts.btn.btn-rounded.btn-warning.m-t {{_ "profile.mergeAccounts"}}
+							//hr
+							//leave project
+							hr
+							#changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
+							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}
+				.col-md-6
+					.ibox
+						.ibox-title
+							h2 {{_ 'profile.availability.title'}}
+							.text-muted.m-t {{_ 'profile.availability.helpText'}}
+						.ibox-content
+							.table-responsive
+								table.table.table-bordered.timetable
+									thead
+										tr
+											td
+											each hour in hours
+												td {{hour}}
+									tbody
+										each day in weekdays
+											tr(data-day="{{day}}")
+												td.day {{_ 'weekdays.' context=day}}
+												each hour in hours
+													td(class="{{isAvailable day hour}}" data-hour="{{hour}}")
+							.checkbox.checkbox-primary.checkbox-inline
+								input#shortTermCalls(type="checkbox" checked="{{profile.shortTermCalls}}")
+								label(for="shortTermCalls") {{_ 'profile.availability.shortTermCalls'}}
+							.checkbox.checkbox-primary.checkbox-inline
+								input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
+								label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
+							.hr-line-dashed
+							.checkbox.checkbox-primary.checkbox-inline
+								input#notifyViaPush(type="checkbox" checked="{{profile.notifyViaEmail}}")
+								label(for="notifyViaEmail") {{_ 'profile.availability.notifyViaEmail'}}
+					.ibox
+						.ibox-title
+							h2 {{_ 'profile.vacation.title'}}
+							.text-muted.m-t {{_ 'profile.vacation.helpText'}}
+						.ibox-content
+							each getVacations
+								.row
+									.col-xs-11
+										.input-daterange.input-group.full-width(id="{{_id}}")
+											input.input-sm.form-control.startDate(type="text" value="{{format start 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+											span.input-group-addon {{_ 'profile.until'}}
+											input.input-sm.form-control.endDate(type="text" value="{{format end 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+									.col-xs-1.no-paddings
+										button.btn.btn-circle.btn-primary.fa.fa-trash.delVacation(title="{{_ 'profile.deleteVacation'}}")
+							button#addVacation.btn.btn-rounded.btn-success.center-block
+								i.fa.fa-plus
+								|{{_ 'profile.addVacation'}}

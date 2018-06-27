@@ -81,6 +81,13 @@ Template.profile.events
 
 	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, handleSuccess
 
+	'change #notifyViaPush': (e) ->
+		Meteor.call 'updateProfile', 'notifyViaPush', e.target.checked, handleSuccess
+		if e.target.checked == false
+			Meteor.call 'updateProfile', 'notifyViaEmail', false
+
+	'change #notifyViaPush': (e) -> Meteor.call 'updateProfile', 'notifyViaEmail', e.target.checked, handleSuccess
+
 	'click #mergeAccounts': ->
 		wrs -> FlowRouter.setQueryParams mergeAccounts: true
 

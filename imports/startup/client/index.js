@@ -68,9 +68,26 @@ import '/imports/ui/calendar/calendar.js';
 
 import '/imports/startup/client/language.js';
 
+import { TimeSync } from 'meteor/mizzao:timesync';
+
 import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
-Tracker.autorun(() => {
-    $('body').attr('page', FlowRouter.getRouteName());
+Meteor.startup(function() {
+    BlazeLayout.setRoot('body');
+
+    TimeSync.loggingEnabled = false;
+});
+
+Tracker.autorun(function() {
+    const routeName = FlowRouter.getRouteName();
+    let title = TAPi18n.__('navigation.' + routeName);
+
+    if (routeName === 'home' && !Meteor.user()) {
+        title = TAPi18n.__('navigation.login');
+    }
+
+    document.title = title + ' | JW Management';
+
+    $('body').attr('page', routeName);
 });
