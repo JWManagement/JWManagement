@@ -62,6 +62,14 @@ body.md-skin[type='DetailsForm'] {
                     width: 100%;
                     color: inherit;
 
+                    .key {
+                        display: flex;
+
+                        i.material-icons {
+                            margin: -2px 10px -2px 0;
+                        }
+                    }
+
                     p.noElements {
                         color     : #333;
                         margin    : 10px 15px;
@@ -82,9 +90,21 @@ body.md-skin[type='DetailsForm'] {
                             }
                         }
 
+                        th.left.with-icon {
+                            position: relative;
+                            padding-right: 54px;
+
+                            i.material-icons {
+                                top: 50%;
+                                position: absolute;
+                                transform: translateY(-50%);
+                                margin-left: 15px;
+                            }
+                        }
+
                         th.left,
                         th.middle {
-                            width        : 15px;
+                            min-width    : 15px;
                             border-bottom: 0;
                         }
 

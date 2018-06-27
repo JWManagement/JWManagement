@@ -30,7 +30,11 @@ template(name="DetailsForm")
                                         each entity in getValue content
                                             if isArray content.type.[0]
                                                 tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
-                                                    th.left
+                                                    if false
+                                                        th.left.with-icon
+                                                            i.material-icons group
+                                                    else
+                                                        th.left
                                                     td.item
                                                         each field in content.type.[0].type
                                                             tr.field
@@ -76,7 +80,10 @@ template(name="DetailsForm")
                                                             i.fa.fa-angle-right.icon
                                             else
                                                 .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
-                                                    .key {{getProperty entity content.type.[0]}}
+                                                    .key
+                                                        if false
+                                                            i.material-icons group
+                                                        | {{getProperty entity content.type.[0]}}
                                                     .value
                                                         if isDelete content.type.[0]
                                                             i.fa.fa-trash.icon
