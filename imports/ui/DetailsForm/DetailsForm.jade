@@ -30,9 +30,9 @@ template(name="DetailsForm")
                                         each entity in getValue content
                                             if isArray content.type.[0]
                                                 tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
-                                                    if false
+                                                    if content.icon
                                                         th.left.with-icon
-                                                            i.material-icons group
+                                                            i.material-icons {{content.icon}}
                                                     else
                                                         th.left
                                                     td.item
@@ -81,8 +81,8 @@ template(name="DetailsForm")
                                             else
                                                 .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
                                                     .key
-                                                        if false
-                                                            i.material-icons group
+                                                        if content.icon
+                                                            i.material-icons {{content.icon}}
                                                         | {{getProperty entity content.type.[0]}}
                                                     .value
                                                         if isDelete content.type.[0]
@@ -122,7 +122,10 @@ template(name="DetailsForm")
                                         p.description {{{getValue content}}}
                                 else if hasPermissionToSee content
                                     .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
-                                        .key {{getEntityTranslation content.key}}
+                                        .key
+                                            if content.icon
+                                                i.material-icons {{content.icon}}
+                                            | {{getEntityTranslation content.key}}
                                         .value
                                             | {{getValue content}}
                                             i.fa.fa-angle-right.icon

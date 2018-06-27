@@ -149,6 +149,11 @@ body.md-skin[type='DetailsForm'] {
                 .key {
                     float  : left;
                     padding: 9px 0;
+                    display: flex;
+
+                    i.material-icons {
+                        margin: -2px 10px -2px 0;
+                    }
                 }
 
                 div.value {
