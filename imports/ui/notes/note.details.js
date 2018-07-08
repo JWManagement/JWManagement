@@ -2,7 +2,9 @@ Template['note.details'].helpers({
     data() {
         return {
             getMethod: 'note.get',
-            backLink: 'note.search',
+            navigation: {
+                backLink: 'note.search'
+            },
             sections: [{
                 header: 'title',
                 contents: [{

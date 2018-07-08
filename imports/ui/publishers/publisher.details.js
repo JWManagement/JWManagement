@@ -4,7 +4,9 @@ Template['publisher.details'].helpers({
     data() {
         return {
             getMethod: 'publisher.get',
-            backLink: 'publisher.search',
+            navigation: {
+                backLink: 'publisher.search'
+            },
             sections: [{
                 header: 'identification',
                 contents: [{

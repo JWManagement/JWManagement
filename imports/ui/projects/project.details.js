@@ -4,9 +4,11 @@ Template['project.details'].helpers({
     data() {
         return {
             getMethod: 'project.get',
-            backLink: 'dashboard.details',
-            navbarStyle: 'flat',
-            showTitle: false,
+            navigation: {
+                backLink: 'dashboard.details',
+                navbarStyle: 'flat',
+                hideTitle: true
+            },
             sections: [{
                 background: 'indigo',
                 contents: [{

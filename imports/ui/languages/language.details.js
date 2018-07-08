@@ -5,7 +5,9 @@ Template['language.details'].helpers({
     data() {
         return {
             getMethod: 'language.get',
-            backLink: 'dashboard.details',
+            navigation: {
+                backLink: 'dashboard.details'
+            },
             sections: [{
                 header: 'languages',
                 contents: [{

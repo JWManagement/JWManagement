@@ -2,12 +2,9 @@ import RoleManager from '/imports/api/managers/RoleManager.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
+import './Navigation/DetailsForm.Navigation.js';
 
 Template.DetailsForm.helpers({
-    getBackLink() {
-        FlowRouter.getParam('language');
-        return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
-    },
     getLinkedKey(content) {
         if (content.linkedKey != null) {
             return content.linkedKey;
@@ -19,14 +16,6 @@ Template.DetailsForm.helpers({
     },
     getActionPath(action) {
         return FlowRouter.path(action.route, FlowRouter.current().params);
-    },
-    getNavbarStyle() {
-        const template = Template.instance();
-        return (template.data.data.navbarStyle != null ? template.data.data.navbarStyle : '');
-    },
-    showTitle() {
-        const template = Template.instance();
-        return (template.data.data.showTitle != null ? template.data.data.showTitle : true);
     },
     getBackgroundColor(section) {
         return (section.background != null ? section.background : '');
@@ -197,7 +186,6 @@ Template.DetailsForm.onCreated(() => {
     const template = Template.instance(); // TODO: when changing profile email, also change visits
 
     template.sections = [];
-    template.backLink = new ReactiveVar('');
     template.isLoading = new ReactiveVar(true);
     template.noResult = new ReactiveVar(false); // TODO: is this working?
     template.item = new ReactiveVar({});
@@ -212,7 +200,6 @@ Template.DetailsForm.onRendered(() => {
     const data = Template.currentData().data;
 
     template.sections = data.sections;
-    template.backLink.set(data.backLink);
     template.getMethod = data.getMethod;
 
     template.isLoading.set(true);

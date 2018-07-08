@@ -4,7 +4,9 @@ Template['vessel.details'].helpers({
     data() {
         return {
             getMethod: 'vessel.get',
-            backLink: 'vessel.search',
+            navigation: {
+                backLink: 'vessel.search'
+            },
             sections: [{
                 header: 'identification',
                 contents: [{
