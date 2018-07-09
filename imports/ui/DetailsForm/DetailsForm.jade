@@ -90,12 +90,7 @@ template(name="DetailsForm")
                                     .form-group
                                         .key {{getEntityTranslation content.key}}
                                         .value
-                                            if isTel content
-                                                if getValue content
-                                                    a(href='tel:{{getValue content}}') {{getValue content}}
-                                                else
-                                                    | -
-                                            else if isEmail content
+                                            if isEmail content
                                                 if getValue content
                                                     a(href='mailto:{{getValue content}}') {{getValue content}}
                                                 else
