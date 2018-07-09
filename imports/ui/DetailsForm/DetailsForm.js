@@ -4,6 +4,7 @@ import './DetailsForm.jade';
 import './DetailsForm.scss';
 import './Actions/DetailsForm.Actions.js';
 import './Navigation/DetailsForm.Navigation.js';
+import './Phone/DetailsForm.Phone.js';
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {
@@ -17,6 +18,13 @@ Template.DetailsForm.helpers({
     },
     getBackgroundColor(section) {
         return (section.background != null ? section.background : '');
+    },
+    isType(field, type) {
+        return field.type == type;
+    },
+    item() {
+        const template = Template.instance();
+        return template.item.get();
     },
     isTel(field) {
         return field.type == 'tel';

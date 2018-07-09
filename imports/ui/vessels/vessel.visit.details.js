@@ -24,7 +24,7 @@ Template['vessel.visit.details'].helpers({
                     readonly: true
                 }, {
                     key: 'phone',
-                    type: 'tel',
+                    type: 'phone',
                     readonly: true
                 }, {
                     key: 'harbor',

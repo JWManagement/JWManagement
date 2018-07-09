@@ -1,0 +1,8 @@
+template(name="DetailsFormPhone")
+    .form-group
+        .key {{getEntityTranslation definition.key}}
+        .value
+            if getValue definition
+                a(href='tel:{{getValue definition}}') {{getValue definition}}
+            else
+                | -

@@ -84,6 +84,8 @@ template(name="DetailsForm")
                                                             i.fa.fa-angle-right.icon
                                         else
                                             p.noElements {{getNoElementsTranslation content.type.[0]}}
+                                else if isType content 'phone'
+                                    +DetailsFormPhone definition=content entity=item
                                 else if content.readonly
                                     .form-group
                                         .key {{getEntityTranslation content.key}}
