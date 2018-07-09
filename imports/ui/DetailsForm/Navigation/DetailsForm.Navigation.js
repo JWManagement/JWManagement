@@ -2,22 +2,30 @@ import './DetailsForm.Navigation.jade';
 
 Template.DetailsFormNavigation.helpers({
     hasBackLink() {
-        return Template.currentData().data.backLink != null;
+        if (Template.currentData().data) {
+            return Template.currentData().data.backLink != null;
+        }
     },
     getBackLink() {
-        FlowRouter.getParam('language');
+        if (Template.currentData().data) {
+            FlowRouter.getParam('language');
 
-        return FlowRouter.path(
-            Template.currentData().data.backLink,
-            FlowRouter.current().params);
+            return FlowRouter.path(
+                Template.currentData().data.backLink,
+                FlowRouter.current().params);
+        }
     },
     getNavbarStyle() {
-        const navbarStyle = Template.currentData().data.navbarStyle;
+        if (Template.currentData().data) {
+            const navbarStyle = Template.currentData().data.navbarStyle;
 
-        return (navbarStyle != null ? navbarStyle : '');
+            return (navbarStyle != null ? navbarStyle : '');
+        }
     },
     showTitle() {
-        return !Template.currentData().data.hideTitle;
+        if (Template.currentData().data) {
+            return !Template.currentData().data.hideTitle;
+        }
     }
 });
 
