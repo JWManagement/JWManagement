@@ -1,0 +1,9 @@
+template(name="DetailsFormDate")
+    .input.form-group(key='{{getKey definition}}' link='{{definition.link}}')
+        .key
+            if definition.icon
+                i.material-icons {{definition.icon}}
+            | {{getEntityTranslation definition.key}}
+        .value
+            | {{getValue definition entity}}
+            i.fa.fa-angle-right.icon

@@ -1,8 +1,11 @@
 import RoleManager from '/imports/api/managers/RoleManager.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
+
 import './DetailsForm.jade';
 import './DetailsForm.scss';
+
 import './Actions/DetailsForm.Actions.js';
+import './Date/DetailsForm.Date.js';
 import './Email/DetailsForm.Email.js';
 import './Navigation/DetailsForm.Navigation.js';
 import './Phone/DetailsForm.Phone.js';
@@ -146,15 +149,6 @@ Template.DetailsForm.helpers({
                 key + 'Values',
                 value
             ].join('.').replace(/_/g, '.'));
-        } else if (content.type == 'date') {
-            if (value != null && value != '') {
-                const uiFormat = TAPi18n.__('dateFormat.' + content.uiFormat);
-                const dbFormat = content.dbFormat;
-
-                return moment(value, dbFormat).format(uiFormat);
-            } else {
-                return '';
-            }
         } else if (content.type == 'checkbox') {
             return value ? TAPi18n.__('detailsForm.yes') : TAPi18n.__('detailsForm.no');
         } else {

@@ -93,6 +93,8 @@ template(name="DetailsForm")
                                         +DetailsFormText definition=content entity=item
                                     else if isType content 'textbox'
                                         +DetailsFormTextbox definition=content entity=item
+                                    else if isType content 'date'
+                                        +DetailsFormDate definition=content entity=item
                                     else if isTitle content
                                         if getValue content
                                             h1.title {{{getValue content}}}
