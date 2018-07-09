@@ -2,19 +2,24 @@ template(name="DetailsForm")
     +DetailsFormNavigation data=data.navigation
 
     form.form-horizontal
+
         if isLoading
             .loading
                 i.fa.fa-circle-o-notch.fa-spin.fa-3x
+
         else if noResult
             .center-align
                 h2 Oops!
                 p We couldn't find anything.
                 button#back.btn.btn-primary {{_ 'navigation.back'}}
+
         else
             each section in sections
                 .section(class='{{getBackgroundColor section}}')
+
                     if section.header
                         .section-header {{getSectionTranslation section.header}}
+
                     if section.contents
                         .section-content.clearfix
                             each content in section.contents
@@ -85,22 +90,30 @@ template(name="DetailsForm")
                                                                 i.fa.fa-angle-right.icon
                                             else
                                                 p.noElements {{getNoElementsTranslation content.type.[0]}}
+
                                     else if isType content 'phone'
                                         +DetailsFormPhone definition=content entity=item
+
                                     else if isType content 'email'
                                         +DetailsFormEmail definition=content entity=item
+
                                     else if isType content 'text'
                                         +DetailsFormText definition=content entity=item
+
                                     else if isType content 'textbox'
                                         +DetailsFormTextbox definition=content entity=item
+
                                     else if isType content 'date'
                                         +DetailsFormDate definition=content entity=item
+
                                     else if isTitle content
                                         if getValue content
                                             h1.title {{{getValue content}}}
+
                                     else if isDescription content
                                         if getValue content
                                             p.description {{{getValue content}}}
+
                                     else
                                         .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
                                             .key
