@@ -5,7 +5,9 @@ Template['vessel.visit.details'].helpers({
     data() {
         return {
             getMethod: 'vessel.visit.getLast',
-            backLink: 'vessel.details',
+            navigation: {
+                backLink: 'vessel.details'
+            },
             sections: [{
                 header: 'main',
                 contents: [{
