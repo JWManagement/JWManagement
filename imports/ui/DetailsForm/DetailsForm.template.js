@@ -27,15 +27,28 @@ Template['DetailsForm.Template'].helpers({
                 header: 'mySection',
 
                 contents: [{
-                    key: 'myKey',
-                    icon: 'group',
+                    // the key
+                    key: 'username',
+
+                    // key if the field has to be referenced a different way internally
+                    linkedKey: 'usernameId',
+
+                    // type of the field
+                    // possible values: text, phone, email
+                    type: 'text',
                     type: [{
                         key: 'project',
                         click: {
                             type: 'link',
                             link: 'project.details'
                         }
-                    }]
+                    }],
+
+                    // OPTIONAL: the icon to be displayed left of the row
+                    icon: 'group',
+
+                    // OPTIONAL: if the row should be readonly
+                    readonly: true,
                 }]
             }]
         }
