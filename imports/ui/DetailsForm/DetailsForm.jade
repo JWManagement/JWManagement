@@ -91,13 +91,8 @@ template(name="DetailsForm")
                                         +DetailsFormEmail definition=content entity=item
                                     else if isType content 'text'
                                         +DetailsFormText definition=content entity=item
-                                    else if isTextbox content
-                                        .input.form-group(key='{{getLinkedKey content}}')
-                                            tr
-                                                td.value
-                                                    | {{{getValue content}}}
-                                                td.link
-                                                    i.fa.fa-angle-right
+                                    else if isType content 'textbox'
+                                        +DetailsFormTextbox definition=content entity=item
                                     else if isTitle content
                                         if getValue content
                                             h1.title {{{getValue content}}}

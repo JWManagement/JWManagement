@@ -7,6 +7,7 @@ import './Email/DetailsForm.Email.js';
 import './Navigation/DetailsForm.Navigation.js';
 import './Phone/DetailsForm.Phone.js';
 import './Text/DetailsForm.Text.js';
+import './Textbox/DetailsForm.Textbox.js';
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {
@@ -154,8 +155,6 @@ Template.DetailsForm.helpers({
             } else {
                 return '';
             }
-        } else if (content.type == 'textbox') {
-            return value.replace(/\r?\n|\r/g, '<br>', );
         } else if (content.type == 'checkbox') {
             return value ? TAPi18n.__('detailsForm.yes') : TAPi18n.__('detailsForm.no');
         } else {
