@@ -1,5 +1,3 @@
-import RoleManager from '/imports/api/managers/RoleManager.js';
-import RouteManager from '/imports/api/managers/RouteManager.js';
 import './DetailsForm.Navigation.jade';
 
 Template.DetailsFormNavigation.helpers({
@@ -23,10 +21,10 @@ Template.DetailsFormNavigation.helpers({
     }
 });
 
-Template.DetailsForm.onCreated(() => {});
+Template.DetailsFormNavigation.onCreated(() => {});
 
-Template.DetailsForm.onRendered(() => {});
+Template.DetailsFormNavigation.onRendered(() => {});
 
-Template.DetailsForm.onDestroyed(() => {});
+Template.DetailsFormNavigation.onDestroyed(() => {});
 
-Template.DetailsForm.events({});
+Template.DetailsFormNavigation.events({});
