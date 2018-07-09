@@ -86,17 +86,12 @@ template(name="DetailsForm")
                                             p.noElements {{getNoElementsTranslation content.type.[0]}}
                                 else if isType content 'phone'
                                     +DetailsFormPhone definition=content entity=item
+                                else if isType content 'email'
+                                    +DetailsFormEmail definition=content entity=item
                                 else if content.readonly
                                     .form-group
                                         .key {{getEntityTranslation content.key}}
-                                        .value
-                                            if isEmail content
-                                                if getValue content
-                                                    a(href='mailto:{{getValue content}}') {{getValue content}}
-                                                else
-                                                    | -
-                                            else
-                                                | {{getValue content}}
+                                        .value {{getValue content}}
                                 else if isTextbox content
                                     .input.form-group(key='{{getLinkedKey content}}')
                                         tr

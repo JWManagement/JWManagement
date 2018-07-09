@@ -1,6 +1,6 @@
-import './DetailsForm.Phone.jade';
+import './DetailsForm.Email.jade';
 
-Template.DetailsFormPhone.helpers({
+Template.DetailsFormEmail.helpers({
     getValue(definition, entity) {
         const key = definition.key;
         let value = entity[key];
@@ -21,10 +21,10 @@ Template.DetailsFormPhone.helpers({
     }
 });
 
-Template.DetailsFormPhone.onCreated(() => {});
+Template.DetailsFormEmail.onCreated(() => {});
 
-Template.DetailsFormPhone.onRendered(() => {});
+Template.DetailsFormEmail.onRendered(() => {});
 
-Template.DetailsFormPhone.onDestroyed(() => {});
+Template.DetailsFormEmail.onDestroyed(() => {});
 
-Template.DetailsFormPhone.events({});
+Template.DetailsFormEmail.events({});

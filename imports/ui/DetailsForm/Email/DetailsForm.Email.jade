@@ -1,10 +1,10 @@
-template(name="DetailsFormPhone")
+template(name="DetailsFormEmail")
     if definition.readonly
         .form-group
             .key {{getEntityTranslation definition.key}}
             .value
                 if getValue definition entity
-                    a(href='tel:{{getValue definition entity}}') {{getValue definition entity}}
+                    a(href='mailto:{{getValue definition entity}}') {{getValue definition entity}}
                 else
                     | -
     else

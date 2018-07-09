@@ -3,6 +3,7 @@ import RouteManager from '/imports/api/managers/RouteManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 import './Actions/DetailsForm.Actions.js';
+import './Email/DetailsForm.Email.js';
 import './Navigation/DetailsForm.Navigation.js';
 import './Phone/DetailsForm.Phone.js';
 
