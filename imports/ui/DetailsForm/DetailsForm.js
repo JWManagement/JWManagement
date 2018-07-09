@@ -6,6 +6,7 @@ import './Actions/DetailsForm.Actions.js';
 import './Email/DetailsForm.Email.js';
 import './Navigation/DetailsForm.Navigation.js';
 import './Phone/DetailsForm.Phone.js';
+import './Text/DetailsForm.Text.js';
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {
@@ -60,19 +61,19 @@ Template.DetailsForm.helpers({
     noResult() {
         return Template.instance().noResult.get();
     },
-    hasPermissionToSee(content) {
+    hasPermissionToSee(definition) {
         const hasRole = true;
         const customFulfilled = true;
 
-        if (content.canSee != null) {
+        if (definition.canSee != null) {
             const projectId = FlowRouter.getParam('projectId');
-            hasRole = RoleManager.hasPermission(projectId, content.canSee);
+            hasRole = RoleManager.hasPermission(projectId, definition.canSee);
         }
 
-        if (content.custom != null) {
+        if (definition.custom != null) {
             const template = Template.instance();
             const item = template.item.get();
-            customFulfilled = content.custom(item);
+            customFulfilled = definition.custom(item);
         }
 
         return hasRole && customFulfilled;

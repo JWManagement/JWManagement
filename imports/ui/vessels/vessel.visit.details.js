@@ -18,6 +18,7 @@ Template['vessel.visit.details'].helpers({
                     canUpdate: 'author'
                 }, {
                     key: 'person',
+                    type: 'text',
                     linkedKey: 'isUserVisible',
                     canUpdate: 'author'
                 }, {
@@ -30,13 +31,16 @@ Template['vessel.visit.details'].helpers({
                     readonly: true
                 }, {
                     key: 'harbor',
+                    type: 'text',
                     linkedKey: 'harborId',
                     canUpdate: 'author'
                 }, {
                     key: 'harborGroup',
+                    type: 'text',
                     readonly: true
                 }, {
                     key: 'country',
+                    type: 'text',
                     readonly: true
                 }, {
                     key: 'dateNext',

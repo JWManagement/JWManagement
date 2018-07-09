@@ -8,7 +8,8 @@ Template['note.details'].helpers({
             sections: [{
                 header: 'title',
                 contents: [{
-                    key: 'title'
+                    key: 'title',
+                    type: 'text'
                 }]
             }, {
                 header: 'text',

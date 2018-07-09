@@ -18,101 +18,100 @@ template(name="DetailsForm")
                     if section.contents
                         .section-content.clearfix
                             each content in section.contents
-                                if isArray content
-                                    .array(key='{{content.key}}')
-                                        each entity in getValue content
-                                            if isArray content.type.[0]
-                                                tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
-                                                    if content.icon
-                                                        th.left.with-icon
-                                                            i.material-icons {{content.icon}}
-                                                    else
-                                                        th.left
-                                                    td.item
-                                                        each field in content.type.[0].type
-                                                            tr.field
-                                                                th.key {{getEntityTranslation content.type.[0].key field.key}}:
-                                                                th.middle
-                                                                td.value
-                                                                    if isTel field
-                                                                        if getProperty entity field
-                                                                            a(href='tel:{{getProperty entity field}}') {{getProperty entity field}}
-                                                                        else
-                                                                            | -
-                                                                    else if isEmail field
-                                                                        if getProperty entity field
-                                                                            a(href='mailto:{{getProperty entity field}}') {{getProperty entity field}}
-                                                                        else
-                                                                            | -
-                                                                    else if getProperty entity field
-                                                                        | {{getProperty entity field}}
-                                                                    else
-                                                                        | -
-                                                    td.link(rowspan='{{content.type.[0].type.count}}')
-                                                        if isDelete content.type.[0]
-                                                            i.fa.fa-trash.icon
-                                                        else
-                                                            i.fa.fa-angle-right
-                                            else if isDropdown content.type.[0]
-                                                if content.type.[0].click
-                                                    .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
-                                                        .key {{getProperty entity content.type.[0]}}
-                                                        .value
-                                                            i.fa.fa-trash.icon
-                                                else
-                                                    .form-group
-                                                        .key {{getProperty entity content.type.[0]}}
-                                            else if isKeyValue content.type.[0]
-                                                .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
-                                                    .key {{entity.key}}
-                                                    .value
-                                                        | {{entity.value}}
-                                                        if isDelete content.type.[0]
-                                                            i.fa.fa-trash.icon
-                                                        else
-                                                            i.fa.fa-angle-right.icon
-                                            else
-                                                .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
-                                                    .key
+                                if hasPermissionToSee content
+                                    if isArray content
+                                        .array(key='{{content.key}}')
+                                            each entity in getValue content
+                                                if isArray content.type.[0]
+                                                    tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
                                                         if content.icon
-                                                            i.material-icons {{content.icon}}
-                                                        | {{getProperty entity content.type.[0]}}
-                                                    .value
-                                                        if isDelete content.type.[0]
-                                                            i.fa.fa-trash.icon
+                                                            th.left.with-icon
+                                                                i.material-icons {{content.icon}}
                                                         else
-                                                            i.fa.fa-angle-right.icon
-                                        else
-                                            p.noElements {{getNoElementsTranslation content.type.[0]}}
-                                else if isType content 'phone'
-                                    +DetailsFormPhone definition=content entity=item
-                                else if isType content 'email'
-                                    +DetailsFormEmail definition=content entity=item
-                                else if content.readonly
-                                    .form-group
-                                        .key {{getEntityTranslation content.key}}
-                                        .value {{getValue content}}
-                                else if isTextbox content
-                                    .input.form-group(key='{{getLinkedKey content}}')
-                                        tr
-                                            td.value
-                                                | {{{getValue content}}}
-                                            td.link
-                                                i.fa.fa-angle-right
-                                else if isTitle content
-                                    if getValue content
-                                        h1.title {{{getValue content}}}
-                                else if isDescription content
-                                    if getValue content
-                                        p.description {{{getValue content}}}
-                                else if hasPermissionToSee content
-                                    .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
-                                        .key
-                                            if content.icon
-                                                i.material-icons {{content.icon}}
-                                            | {{getEntityTranslation content.key}}
-                                        .value
-                                            | {{getValue content}}
-                                            i.fa.fa-angle-right.icon
+                                                            th.left
+                                                        td.item
+                                                            each field in content.type.[0].type
+                                                                tr.field
+                                                                    th.key {{getEntityTranslation content.type.[0].key field.key}}:
+                                                                    th.middle
+                                                                    td.value
+                                                                        if isTel field
+                                                                            if getProperty entity field
+                                                                                a(href='tel:{{getProperty entity field}}') {{getProperty entity field}}
+                                                                            else
+                                                                                | -
+                                                                        else if isEmail field
+                                                                            if getProperty entity field
+                                                                                a(href='mailto:{{getProperty entity field}}') {{getProperty entity field}}
+                                                                            else
+                                                                                | -
+                                                                        else if getProperty entity field
+                                                                            | {{getProperty entity field}}
+                                                                        else
+                                                                            | -
+                                                        td.link(rowspan='{{content.type.[0].type.count}}')
+                                                            if isDelete content.type.[0]
+                                                                i.fa.fa-trash.icon
+                                                            else
+                                                                i.fa.fa-angle-right
+                                                else if isDropdown content.type.[0]
+                                                    if content.type.[0].click
+                                                        .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
+                                                            .key {{getProperty entity content.type.[0]}}
+                                                            .value
+                                                                i.fa.fa-trash.icon
+                                                    else
+                                                        .form-group
+                                                            .key {{getProperty entity content.type.[0]}}
+                                                else if isKeyValue content.type.[0]
+                                                    .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
+                                                        .key {{entity.key}}
+                                                        .value
+                                                            | {{entity.value}}
+                                                            if isDelete content.type.[0]
+                                                                i.fa.fa-trash.icon
+                                                            else
+                                                                i.fa.fa-angle-right.icon
+                                                else
+                                                    .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
+                                                        .key
+                                                            if content.icon
+                                                                i.material-icons {{content.icon}}
+                                                            | {{getProperty entity content.type.[0]}}
+                                                        .value
+                                                            if isDelete content.type.[0]
+                                                                i.fa.fa-trash.icon
+                                                            else
+                                                                i.fa.fa-angle-right.icon
+                                            else
+                                                p.noElements {{getNoElementsTranslation content.type.[0]}}
+                                    else if isType content 'phone'
+                                        +DetailsFormPhone definition=content entity=item
+                                    else if isType content 'email'
+                                        +DetailsFormEmail definition=content entity=item
+                                    else if isType content 'text'
+                                        +DetailsFormText definition=content entity=item
+                                    else if isTextbox content
+                                        .input.form-group(key='{{getLinkedKey content}}')
+                                            tr
+                                                td.value
+                                                    | {{{getValue content}}}
+                                                td.link
+                                                    i.fa.fa-angle-right
+                                    else if isTitle content
+                                        if getValue content
+                                            h1.title {{{getValue content}}}
+                                    else if isDescription content
+                                        if getValue content
+                                            p.description {{{getValue content}}}
+                                    else
+                                        .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
+                                            .key
+                                                if content.icon
+                                                    i.material-icons {{content.icon}}
+                                                | {{getEntityTranslation content.key}}
+                                            .value
+                                                | {{getValue content}}
+                                                i.fa.fa-angle-right.icon
 
                     +DetailsFormActions actions=section.actions

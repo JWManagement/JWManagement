@@ -10,20 +10,26 @@ Template['vessel.details'].helpers({
             sections: [{
                 header: 'identification',
                 contents: [{
-                    key: 'name'
+                    key: 'name',
+                    type: 'text'
                 }, {
-                    key: 'flag'
+                    key: 'flag',
+                    type: 'text'
                 }, {
                     key: 'type',
                     type: 'dropdown'
                 }, {
-                    key: 'callsign'
+                    key: 'callsign',
+                    type: 'text'
                 }, {
-                    key: 'eni'
+                    key: 'eni',
+                    type: 'text'
                 }, {
-                    key: 'imo'
+                    key: 'imo',
+                    type: 'text'
                 }, {
-                    key: 'mmsi'
+                    key: 'mmsi',
+                    type: 'text'
                 }]
             }, {
                 header: 'visit',
@@ -43,9 +49,11 @@ Template['vessel.details'].helpers({
                             dbFormat: 'YYYYMMDD',
                             uiFormat: 'date'
                         }, {
-                            key: 'languages'
+                            key: 'languages',
+                            type: 'text'
                         }, {
-                            key: 'person'
+                            key: 'person',
+                            type: 'text'
                         }, {
                             key: 'email',
                             type: 'email'
@@ -53,11 +61,14 @@ Template['vessel.details'].helpers({
                             key: 'phone',
                             type: 'tel'
                         }, {
-                            key: 'harbor'
+                            key: 'harbor',
+                            type: 'text'
                         }, {
-                            key: 'harborGroup'
+                            key: 'harborGroup',
+                            type: 'text'
                         }, {
-                            key: 'country'
+                            key: 'country',
+                            type: 'text'
                         }]
                     }]
                 }],

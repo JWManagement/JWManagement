@@ -10,15 +10,20 @@ Template['publisher.details'].helpers({
             sections: [{
                 header: 'identification',
                 contents: [{
-                    key: 'profile_firstname'
+                    key: 'profile_firstname',
+                    type: 'text'
                 }, {
-                    key: 'profile_lastname'
+                    key: 'profile_lastname',
+                    type: 'text'
                 }, {
-                    key: 'profile_email'
+                    key: 'profile_email',
+                    type: 'text'
                 }, {
-                    key: 'profile_telefon'
+                    key: 'profile_telefon',
+                    type: 'text'
                 }, {
-                    key: 'username'
+                    key: 'username',
+                    type: 'text'
                 }, {
                     key: 'profile_gender',
                     type: 'dropdown'
@@ -29,7 +34,8 @@ Template['publisher.details'].helpers({
                     key: 'profile_privilege',
                     type: 'dropdown'
                 }, {
-                    key: 'profile_languages'
+                    key: 'profile_languages',
+                    type: 'text'
                 }]
             }, {
                 header: 'availability',
@@ -83,7 +89,8 @@ Template['publisher.details'].helpers({
             }, {
                 header: 'permissions',
                 contents: [{
-                    key: 'permissions_project'
+                    key: 'permissions_project',
+                    type: 'text'
                 }, {
                     key: 'permissions_tags',
                     type: [{

@@ -1,0 +1,14 @@
+template(name="DetailsFormText")
+    if definition.readonly
+        .form-group
+            .key {{getEntityTranslation definition.key}}
+            .value {{getValue definition entity}}
+    else
+        .form-group.input(key='{{getKey definition}}' link='{{definition.link}}')
+            .key
+                if definition.icon
+                    i.material-icons {{definition.icon}}
+                | {{getEntityTranslation definition.key}}
+            .value
+                | {{getValue definition entity}}
+                i.fa.fa-angle-right.icon
