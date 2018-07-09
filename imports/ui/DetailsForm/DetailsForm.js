@@ -2,6 +2,7 @@ import RoleManager from '/imports/api/managers/RoleManager.js';
 import RouteManager from '/imports/api/managers/RouteManager.js';
 import './DetailsForm.jade';
 import './DetailsForm.scss';
+import './Actions/DetailsForm.Actions.js';
 import './Navigation/DetailsForm.Navigation.js';
 
 Template.DetailsForm.helpers({
@@ -14,17 +15,8 @@ Template.DetailsForm.helpers({
     getSectionTranslation(key) {
         return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'));
     },
-    getActionPath(action) {
-        return FlowRouter.path(action.route, FlowRouter.current().params);
-    },
     getBackgroundColor(section) {
         return (section.background != null ? section.background : '');
-    },
-    isButton(action) {
-        return action.type == 'link';
-    },
-    isConfirm(action) {
-        return action.type == 'confirm';
     },
     isTel(field) {
         return field.type == 'tel';

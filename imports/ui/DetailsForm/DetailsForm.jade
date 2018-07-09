@@ -123,11 +123,4 @@ template(name="DetailsForm")
                                             | {{getValue content}}
                                             i.fa.fa-angle-right.icon
 
-                    if section.actions
-                        each action in section.actions
-                            if isButton action
-                                .m-sm
-                                    a.btn.btn-block.p-xs(class='btn-{{action.style}}' href='{{getActionPath action}}') {{getEntityTranslation action.key}}
-                            if isConfirm action
-                                .m-sm
-                                    .confirm-button.btn.btn-block.p-xs(class='btn-{{action.style}}' method='{{action.method}}' route='{{action.route}}' key='{{action.key}}') {{getEntityTranslation action.key}}
+                    +DetailsFormActions actions=section.actions
