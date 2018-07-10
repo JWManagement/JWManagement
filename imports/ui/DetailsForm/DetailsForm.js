@@ -13,7 +13,9 @@ import './Text/DetailsForm.Text';
 import './Textbox/DetailsForm.Textbox';
 import './Header/DetailsForm.Header';
 
-export { getValue };
+export { getValue, getKey };
+
+// time, link, picker, confirm, delete
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {
@@ -338,4 +340,12 @@ function getValue(definition, entity) {
     }
 
     return value;
+}
+
+function getKey(definition) {
+    if (definition.linkedKey != null) {
+        return definition.linkedKey;
+    }
+
+    return definition.key;
 }
