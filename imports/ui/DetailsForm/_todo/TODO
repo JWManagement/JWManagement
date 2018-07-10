@@ -1,0 +1,21 @@
+HOW TO CREATE A DETAILS PAGE
+============================
+
+1. create template.jade and template.details.js files in /imports/ui/template
+
+2. create service.js file in /imports/api/template
+
+3. add route configuration to /imports/api/routes/projectRoutes.js
+
+    RouteManager.registerEntity('template', {
+        details: 'template/:id'
+    });
+
+4. add imports to /imports/startup/client/index.js
+
+    import '/imports/ui/template/template.jade';
+    import '/imports/ui/template/template.details.js';
+
+5. add imports to /imports/startup/server/index.js
+
+    import '/imports/api/template/service.js';
