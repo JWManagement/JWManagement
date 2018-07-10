@@ -10,14 +10,9 @@ Template['project.details'].helpers({
                 hideTitle: true
             },
             sections: [{
-                background: 'indigo',
-                contents: [{
-                    key: 'name',
-                    type: 'title'
-                }, {
-                    key: 'news_text',
-                    type: 'description'
-                }]
+                type: 'header',
+                title: 'name',
+                description: 'news_text'
             }, {
                 title: 'modules',
                 contents: [{

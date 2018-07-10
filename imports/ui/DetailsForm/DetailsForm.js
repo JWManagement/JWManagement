@@ -1,16 +1,19 @@
-import RoleManager from '/imports/api/managers/RoleManager.js';
-import RouteManager from '/imports/api/managers/RouteManager.js';
+import RoleManager from '/imports/api/managers/RoleManager';
+import RouteManager from '/imports/api/managers/RouteManager';
 
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 
-import './Actions/DetailsForm.Actions.js';
-import './Date/DetailsForm.Date.js';
-import './Email/DetailsForm.Email.js';
-import './Navigation/DetailsForm.Navigation.js';
-import './Phone/DetailsForm.Phone.js';
-import './Text/DetailsForm.Text.js';
-import './Textbox/DetailsForm.Textbox.js';
+import './Actions/DetailsForm.Actions';
+import './Date/DetailsForm.Date';
+import './Email/DetailsForm.Email';
+import './Navigation/DetailsForm.Navigation';
+import './Phone/DetailsForm.Phone';
+import './Text/DetailsForm.Text';
+import './Textbox/DetailsForm.Textbox';
+import './Header/DetailsForm.Header';
+
+export { getValue };
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {
@@ -117,7 +120,10 @@ Template.DetailsForm.helpers({
                 }
                 return section;
             })
-            .filter((section) => ('contents' in section && section.contents.length > 0) || ('actions' in section && section.actions.length > 0));
+            .filter((section) =>
+                ('contents' in section && section.contents.length > 0)
+                || ('actions' in section && section.actions.length > 0)
+                || ('type') in section && section.type == 'header');
         } else {
             return template.sections;
         }
@@ -313,4 +319,23 @@ function loadData(template) {
         template.noResult.set(false);
         template.isLoading.set(false);
     }
+}
+
+function getValue(definition, entity) {
+    const key = definition.key;
+    let value = entity[key];
+
+    if (key.indexOf('_') > 0) {
+        value = entity;
+
+        for (property of key.split('_')) {
+            if (property in value) {
+                value = value[property];
+            } else {
+                return '';
+            }
+        }
+    }
+
+    return value;
 }
