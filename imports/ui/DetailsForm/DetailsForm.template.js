@@ -1,54 +1,34 @@
-import Permissions from '/imports/api/util/Permissions.js';
+const data = {
+    // OPTIONAL: the method called to get the data
+    getMethod: 'myEndpoint.get',
 
-Template['DetailsForm.Template'].helpers({
-    data: {
+    // the configuration for the navigation template
+    navigation: {
 
-        // OPTIONAL: the method called to get the data
-        getMethod: 'myEndpoint.get',
+        // OPTIONAL: the template name for the backlink
+        backLink: 'vessel.search',
 
-        // the configuration for the navigation template
-        navigation: {
+        // OPTIONAL: css classes to add to the .navbar
+        navbarStyle: 'flat',
 
-            // OPTIONAL: the template name for the backlink
-            backLink: 'vessel.search',
+        // OPTIONAL: if the title should be hidden
+        hideTitle: true
+    },
 
-            // OPTIONAL: a css class to add to the .navbar
-            navbarStyle: 'flat',
+    // the configuration for the sections
+    sections: [{
 
-            // OPTIONAL: if the title should be hidden
-            hideTitle: true
-        },
+        // OPTIONAL: the title for the section
+        title: 'mySection',
 
-        // the configuration for the sections
-        sections: [{
+        // OPTIONAL: if this section is the header (with blue background)
+        type: 'header',
 
-            // the header for the section
-            header: 'mySection',
+        // the fields
+        contents: [{
 
-            contents: [{
-                // the key
-                key: 'username',
+            // >> look at the individual controls <<
 
-                // key if the field has to be referenced a different way internally
-                linkedKey: 'usernameId',
-
-                // type of the field
-                // possible values: text, phone, email
-                type: 'text',
-                type: [{
-                    key: 'project',
-                    click: {
-                        type: 'link',
-                        link: 'project.details'
-                    }
-                }],
-
-                // OPTIONAL: the icon to be displayed left of the row
-                icon: 'group',
-
-                // OPTIONAL: if the row should be readonly
-                readonly: true,
-            }]
         }]
-    }
-});
+    }]
+};
