@@ -133,34 +133,40 @@ Template['dashboard.details'].helpers({
             title: 'administration',
             contents: [{
                 key: 'profile',
-                icon: 'account_circle',
-                link: 'profile'
+                type: 'link',
+                route: 'profile',
+                icon: 'account_circle'
             }, {
                 key: 'language',
-                icon: 'translate',
-                link: 'language.details'
+                type: 'link',
+                route: 'language.details',
+                icon: 'translate'
             }, {
                 key: 'projects',
+                type: 'link',
+                route: 'project.search',
                 icon: 'view_module',
-                link: 'project.search',
                 canSee: Permissions.support
             }, {
                 key: 'users',
+                type: 'link',
+                route: 'user.search',
                 icon: 'group',
-                link: 'user.search',
                 canSee: Permissions.support
             }]
         }, {
             title: 'account',
             contents: [{
                 key: 'oldDashboard',
+                type: 'link',
+                route: 'home',
                 icon: 'dashboard',
-                link: 'home',
                 canSee: Permissions.admin
             }, {
                 key: 'logout',
-                icon: 'power_settings_new',
-                link: 'logout'
+                type: 'link',
+                route: 'logout',
+                icon: 'power_settings_new'
             }]
         }]
     }

@@ -110,14 +110,10 @@ template(name="DetailsForm")
                                         else if isType content 'date'
                                             +DetailsFormDate definition=content entity=item
 
+                                        else if isType content 'link'
+                                            +DetailsFormLink definition=content entity=item
+
                                         else
-                                            .input.form-group(key='{{getLinkedKey content}}' link='{{content.link}}')
-                                                .key
-                                                    if content.icon
-                                                        i.material-icons {{content.icon}}
-                                                    | {{getEntityTranslation content.key}}
-                                                .value
-                                                    | {{getValue content}}
-                                                    i.fa.fa-angle-right.icon
+                                            h1 Nope
 
                         +DetailsFormActions actions=section.actions

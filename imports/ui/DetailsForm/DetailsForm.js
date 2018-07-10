@@ -7,6 +7,7 @@ import './DetailsForm.scss';
 import './Actions/DetailsForm.Actions';
 import './Date/DetailsForm.Date';
 import './Email/DetailsForm.Email';
+import './Link/DetailsForm.Link';
 import './Navigation/DetailsForm.Navigation';
 import './Phone/DetailsForm.Phone';
 import './Text/DetailsForm.Text';
@@ -15,7 +16,7 @@ import './Header/DetailsForm.Header';
 
 export { getValue, getKey };
 
-// time, link, picker, confirm, delete
+// PICKER, confirm, delete, DROPDOWN, CHECKBOX
 
 Template.DetailsForm.helpers({
     getLinkedKey(content) {

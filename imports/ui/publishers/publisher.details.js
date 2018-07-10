@@ -40,25 +40,32 @@ Template['publisher.details'].helpers({
             title: 'availability',
             contents: [{
                 key: 'profile_availability_mondays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_tuesdays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_wednesdays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_thursdays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_fridays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_saturdays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_availability_sundays',
-                link: 'publisher.profile.availability.details'
+                type: 'link',
+                route: 'publisher.profile.availability.details'
             }, {
                 key: 'profile_shortTermCalls',
                 type: 'checkbox'

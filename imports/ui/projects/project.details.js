@@ -16,19 +16,23 @@ Template['project.details'].helpers({
             title: 'modules',
             contents: [{
                 key: 'calendar',
-                link: 'calendar',
+                type: 'link',
+                route: 'calendar',
                 canSee: Permissions.member
             }, {
                 key: 'shifts',
-                link: 'shifts',
+                type: 'link',
+                route: 'shifts',
                 canSee: Permissions.member
             }, {
                 key: 'knowledgeBase',
-                link: 'wiki',
+                type: 'link',
+                route: 'wiki',
                 canSee: Permissions.member
             }, {
                 key: 'vessels',
-                link: 'vessel.search',
+                type: 'link',
+                route: 'vessel.search',
                 canSee: Permissions.member,
                 custom: (project) => {
                     return project.vesselModule == true;
@@ -38,23 +42,28 @@ Template['project.details'].helpers({
             title: 'administration',
             contents: [{
                 key: 'settings',
-                link: 'settings',
+                type: 'link',
+                route: 'settings',
                 canSee: Permissions.shiftAdmin
             }, {
                 key: 'publishers',
-                link: 'publisher.search',
+                type: 'link',
+                route: 'publisher.search',
                 canSee: Permissions.admin
             }, {
                 key: 'reports',
-                link: 'reports',
+                type: 'link',
+                route: 'reports',
                 canSee: Permissions.shiftAndStoreAdmin
             }, {
                 key: 'store',
-                link: 'store',
+                type: 'link',
+                route: 'store',
                 canSee: Permissions.storeAdmin
             }, {
                 key: 'notes',
-                link: 'note.details',
+                type: 'link',
+                route: 'note.details',
                 canSee: Permissions.shiftAndStoreAdmin
             }]
         }]
