@@ -1,6 +1,3 @@
-import Permissions from '/imports/api/util/Permissions.js';
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js';
-
 Template['language.details'].helpers({
     data: {
         getMethod: 'language.get',
@@ -11,8 +8,7 @@ Template['language.details'].helpers({
             title: 'languages',
             contents: [{
                 key: 'language',
-                type: 'picker',
-                allowedValues: SystemLanguages.allowedValues
+                type: 'dropdown'
             }]
         }]
     }

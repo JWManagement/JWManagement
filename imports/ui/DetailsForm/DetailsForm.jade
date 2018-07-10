@@ -113,6 +113,9 @@ template(name="DetailsForm")
                                         else if isType content 'link'
                                             +DetailsFormLink definition=content entity=item
 
+                                        else if isType content 'dropdown'
+                                            +DetailsFormDropdown definition=content entity=item
+
                                         else
                                             h1 Nope
 
