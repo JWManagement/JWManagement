@@ -20,9 +20,11 @@ Template['note.details'].helpers({
             title: 'meta',
             contents: [{
                 key: 'author',
+                type: 'text',
                 readonly: true
             }, {
                 key: 'datetime',
+                type: 'text',
                 readonly: true
             }]
         }, {

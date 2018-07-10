@@ -3,7 +3,9 @@ template(name="DetailsFormHeader")
         .section-content
 
             if section.title
-                h1.title {{{getValueByKey section.title entity}}}
+                if getValueByKey section.title entity
+                    h1.title {{{getValueByKey section.title entity}}}
 
             if section.description
-                p.description {{{getValueByKey section.description entity}}}
+                if getValueByKey section.description entity
+                    p.description {{{getValueByKey section.description entity}}}
