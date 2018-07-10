@@ -4,7 +4,7 @@ template(name="DetailsFormText")
             .key {{getEntityTranslation definition.key}}
             .value {{getValue definition entity}}
     else
-        .form-group.input(key='{{getKey definition}}' link='{{definition.link}}')
+        .form-group.input(key='{{getKey definition}}')
             .key
                 if definition.icon
                     i.material-icons {{definition.icon}}
