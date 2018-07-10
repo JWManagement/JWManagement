@@ -1,5 +1,7 @@
 import './DetailsForm.Textbox.jade';
 
+import { getValue } from '../DetailsForm';
+
 Template.DetailsFormTextbox.helpers({
     getKey(definition) {
         if (definition.linkedKey != null) {
@@ -9,22 +11,7 @@ Template.DetailsFormTextbox.helpers({
         return definition.key;
     },
     getValue(definition, entity) {
-        const key = definition.key;
-        let value = entity[key];
-
-        if (key.indexOf('_') > 0) {
-            value = entity;
-
-            for (property of key.split('_')) {
-                if (property in value) {
-                    value = value[property];
-                } else {
-                    return '';
-                }
-            }
-        }
-
-        return value.replace(/\r?\n|\r/g, '<br>', );
+        return getValue(definition, entity).replace(/\r?\n|\r/g, '<br>', );
     }
 });
 

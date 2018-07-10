@@ -1,25 +1,8 @@
 import './DetailsForm.Email.jade';
 
-Template.DetailsFormEmail.helpers({
-    getValue(definition, entity) {
-        const key = definition.key;
-        let value = entity[key];
+import { getValue } from '../DetailsForm';
 
-        if (key.indexOf('_') > 0) {
-            value = entity;
-
-            for (property of key.split('_')) {
-                if (property in value) {
-                    value = value[property];
-                } else {
-                    return '';
-                }
-            }
-        }
-
-        return value;
-    }
-});
+Template.DetailsFormEmail.helpers({ getValue });
 
 Template.DetailsFormEmail.onCreated(() => {});
 

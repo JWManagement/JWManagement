@@ -1,5 +1,7 @@
 import './DetailsForm.Date.jade';
 
+import { getValue } from '../DetailsForm';
+
 Template.DetailsFormDate.helpers({
     getKey(definition) {
         if (definition.linkedKey != null) {
@@ -9,20 +11,7 @@ Template.DetailsFormDate.helpers({
         return definition.key;
     },
     getValue(definition, entity) {
-        const key = definition.key;
-        let value = entity[key];
-
-        if (key.indexOf('_') > 0) {
-            value = entity;
-
-            for (property of key.split('_')) {
-                if (property in value) {
-                    value = value[property];
-                } else {
-                    return '';
-                }
-            }
-        }
+        const value = getValue(definition, entity);
 
         if (!value) {
             return '';
