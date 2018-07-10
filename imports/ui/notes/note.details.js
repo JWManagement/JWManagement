@@ -6,19 +6,19 @@ Template['note.details'].helpers({
                 backLink: 'note.search'
             },
             sections: [{
-                header: 'title',
+                title: 'title',
                 contents: [{
                     key: 'title',
                     type: 'text'
                 }]
             }, {
-                header: 'text',
+                title: 'text',
                 contents: [{
                     key: 'text',
                     type: 'textbox'
                 }]
             }, {
-                header: 'meta',
+                title: 'meta',
                 contents: [{
                     key: 'author',
                     readonly: true
@@ -27,7 +27,7 @@ Template['note.details'].helpers({
                     readonly: true
                 }]
             }, {
-                header: 'option',
+                title: 'option',
                 actions: [{
                     key: 'delete',
                     type: 'confirm',

@@ -9,7 +9,7 @@ Template['vessel.visit.details'].helpers({
                 backLink: 'vessel.details'
             },
             sections: [{
-                header: 'main',
+                title: 'main',
                 contents: [{
                     key: 'date',
                     type: 'date',
@@ -50,7 +50,7 @@ Template['vessel.visit.details'].helpers({
                     canUpdate: 'author'
                 }]
             }, {
-                header: 'language',
+                title: 'language',
                 contents: [{
                     key: 'languageIds',
                     type: [{
@@ -72,7 +72,7 @@ Template['vessel.visit.details'].helpers({
                     canSee: 'author'
                 }]
             }, {
-                header: 'option',
+                title: 'option',
                 actions: [{
                     key: 'delete',
                     type: 'confirm',

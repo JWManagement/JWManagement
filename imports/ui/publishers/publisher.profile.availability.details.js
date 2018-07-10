@@ -4,9 +4,11 @@ Template['publisher.profile.availability.details'].helpers({
 
         return {
             getMethod: 'publisher.profile.availability.get',
-            backLink: 'publisher.details',
+            navigation: {
+                backLink: 'publisher.details'
+            },
             sections: [{
-                header: params.key.split('_').pop(),
+                title: params.key.split('_').pop(),
                 contents: [{
                     key: 'availability',
                     type: [{

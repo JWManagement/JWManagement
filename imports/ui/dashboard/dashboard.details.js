@@ -6,7 +6,7 @@ Template['dashboard.details'].helpers({
             getMethod: 'dashboard.get',
             navigation: {},
             sections: [{
-                header: 'myProjects',
+                title: 'myProjects',
                 contents: [{
                     key: 'myProjects',
                     icon: 'group',
@@ -19,7 +19,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'missingShiftReports',
+                title: 'missingShiftReports',
                 contents: [{
                     key: 'missingShiftReports',
                     icon: 'announcement',
@@ -47,7 +47,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'upcomingShifts',
+                title: 'upcomingShifts',
                 contents: [{
                     key: 'upcomingShifts',
                     icon: 'event_available',
@@ -75,7 +75,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'pendingRequests',
+                title: 'pendingRequests',
                 contents: [{
                     key: 'pendingRequests',
                     icon: 'hourglass_empty',
@@ -103,7 +103,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'olderShifts',
+                title: 'olderShifts',
                 contents: [{
                     key: 'olderShifts',
                     icon: 'event_available',
@@ -131,7 +131,7 @@ Template['dashboard.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'administration',
+                title: 'administration',
                 contents: [{
                     key: 'profile',
                     icon: 'account_circle',
@@ -152,7 +152,7 @@ Template['dashboard.details'].helpers({
                     canSee: Permissions.support
                 }]
             }, {
-                header: 'account',
+                title: 'account',
                 contents: [{
                     key: 'oldDashboard',
                     icon: 'dashboard',

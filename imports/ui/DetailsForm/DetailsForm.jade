@@ -17,8 +17,8 @@ template(name="DetailsForm")
             each section in sections
                 .section(class='{{getBackgroundColor section}}')
 
-                    if section.header
-                        .section-header {{getSectionTranslation section.header}}
+                    if section.title
+                        .section-title {{getSectionTranslation section.title}}
 
                     if section.contents
                         .section-content.clearfix

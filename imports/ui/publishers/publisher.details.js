@@ -8,7 +8,7 @@ Template['publisher.details'].helpers({
                 backLink: 'publisher.search'
             },
             sections: [{
-                header: 'identification',
+                title: 'identification',
                 contents: [{
                     key: 'profile_firstname',
                     type: 'text'
@@ -38,7 +38,7 @@ Template['publisher.details'].helpers({
                     type: 'text'
                 }]
             }, {
-                header: 'availability',
+                title: 'availability',
                 contents: [{
                     key: 'profile_availability_mondays',
                     link: 'publisher.profile.availability.details'
@@ -68,7 +68,7 @@ Template['publisher.details'].helpers({
                     type: 'checkbox'
                 }]
             }, {
-                header: 'vacations',
+                title: 'vacations',
                 contents: [{
                     key: 'profile_vacations',
                     type: [{
@@ -87,7 +87,7 @@ Template['publisher.details'].helpers({
                     route: 'publisher.profile.vacation.insert'
                 }]
             }, {
-                header: 'permissions',
+                title: 'permissions',
                 contents: [{
                     key: 'permissions_project',
                     type: 'text'
@@ -100,7 +100,7 @@ Template['publisher.details'].helpers({
                     }]
                 }]
             }, {
-                header: 'password',
+                title: 'password',
                 contents: [],
                 actions: [{
                     key: 'password.change',
@@ -114,7 +114,7 @@ Template['publisher.details'].helpers({
                     method: 'publisher.password.reset'
                 }]
             }, {
-                header: 'options',
+                title: 'options',
                 contents: [],
                 actions: [{
                     key: 'invite',

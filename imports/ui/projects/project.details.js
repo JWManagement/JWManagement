@@ -19,7 +19,7 @@ Template['project.details'].helpers({
                     type: 'description'
                 }]
             }, {
-                header: 'modules',
+                title: 'modules',
                 contents: [{
                     key: 'calendar',
                     link: 'calendar',
@@ -41,7 +41,7 @@ Template['project.details'].helpers({
                     }
                 }]
             }, {
-                header: 'administration',
+                title: 'administration',
                 contents: [{
                     key: 'settings',
                     link: 'settings',

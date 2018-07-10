@@ -9,7 +9,7 @@ Template['language.details'].helpers({
                 backLink: 'dashboard.details'
             },
             sections: [{
-                header: 'languages',
+                title: 'languages',
                 contents: [{
                     key: 'language',
                     type: 'picker',
