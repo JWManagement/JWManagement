@@ -194,37 +194,8 @@ users:
     deleted: Usunięty!
     sendToAll: Wyślij e-mail do wszystkich
     sendToAllInTag: Wyślij e-mail do wszystkich z tagiem %s
-    export: Eksportuj jako CSV
 reports:
-    placements: Publikacje
-    bibles: Biblie
-    books: Książki
-    magazines: Czasopisma
-    brochures: Broszury
-    tracts: Traktaty
-    invitations: Zaproszenia
-    videos: Pokazane filmy
-    talks: Rozmowy
-    achievements: Osiągnięcia
-    hours: Poświęcony czas
-    texts: Przeczytane wersety Biblijne
-    website: Pokazana strona
-    shifts: Odbyte zmiany
-    missing: Brakujących sprawozdań
-    participants: Współpracownicy
-    fulltime: Współpracujący słudzy pełnoczasowi
-    publishers: Współpracujący głosiciele
-    allParticipants: Współpracownicy razem
-    experiences: Doświadczenia
-    route: Droga
-    good: Dobre doświadczenia
-    problems: Problemy / Trudności
-    show: Pokaż
-    prevMonth: Idź do poprzedniego miesiąca
-    nextMonth: Idź do następnego miesiąca
-    meetingStart: Zbiórka start
-    meetingEnd: Zbiórka koniec
-    place: Miejsce
+    export: Eksportuj jako CSV
 settings:
     main:
         title: Główne ustawienia

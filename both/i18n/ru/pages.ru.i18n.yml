@@ -190,45 +190,8 @@ day:
 project:
     name: Управление
     nameShort: Управление
-users:
-    title: Список участников
-    search: Поиск...
-    inviteUser: Пригласить добавленного участника
-    addNewUser: Добавить нового участника
-    deleted: Удалён!
-    sendToAll: E-Mail всем
-    sendToAllInTag: E-Mail всем в Теге %s
-    export: Экспорт в csv
 reports:
-    placements: Публикации
-    bibles: Библии
-    books: Книги
-    magazines: Журналы
-    brochures: Брошюры
-    tracts: Буклеты
-    invitations: Пригласительные
-    videos: Показы видео
-    talks: Разговоры
-    achievements: Что было достигнуто
-    hours: Часы служения
-    texts: Зачитанные тексты Писания
-    website: Показы сайта jw.org
-    shifts: Состоявшиеся смены
-    missing: Отсутствующие отчёты
-    participants: Участники
-    fulltime: Полновременные служители
-    publishers: Возвещатели
-    allParticipants: Всего участников
-    experiences: Случаи из служения / Примечания
-    route: По поводу маршрута
-    good: Хорошие случаи
-    problems: Проблемы / Трудности
-    show: Показать
-    prevMonth: Предыдущий месяц
-    nextMonth: Следующий месяц
-    meetingStart: Встреча в начале
-    meetingEnd: Встреча в конце
-    place: Место
+    export: Экспорт в csv
 settings:
     main:
         title: Общие Настройки

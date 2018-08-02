@@ -176,42 +176,8 @@ day:
 project:
     name: Adminisztráció
     nameShort: Admin
-users:
-    title: Felhasználók névsora
-    search: Keresés...
-    inviteUser: További felhasználók meghívása
-    addNewUser: Új felhasználó hozzáadása
-    deleted: Törölve!
-    sendToAll: E-mail mindenkinek
-    sendToAllInTag: Küldjön e-mailt az összes címkére %s
-    export: Exportálás csv -be.
 reports:
-    placements: Terjesztések
-    bibles: Bibliák
-    books: Könyvek
-    magazines: Folyóiratok
-    brochures: Füzetek
-    tracts: Tájékoztatók
-    videos: Videó lejátszások
-    talks: Beszélgetések
-    achievements: Eredmények
-    hours: Szolgálati idő
-    texts: Felolvasott Bibliaversek
-    shifts: Megvalósult szolgálati időszakok
-    missing: Hiányzó csoport jelentések
-    participants: Résztvevők
-    publishers: Résztvevő hírnökök
-    allParticipants: Az összes resztvevő
-    experiences: Tapasztalatok
-    route: Útvonal
-    good: Jó tapasztalatok
-    problems: Problémák / nehézségek
-    show: Mutat
-    prevMonth: Ugrás az előző hónapra
-    nextMonth: Ugrás az következő hónapra
-    meetingStart: Találkozás kezdete
-    meetingEnd: Találkozás vége
-    place: Helye
+    export: Exportálás csv -be.
 settings:
     main:
         title: Fő beállítások

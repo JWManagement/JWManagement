@@ -131,35 +131,7 @@ shifts:
 day:
     removeAll: Remove all
 reports:
-    placements: Placements
-    bibles: Bibles
-    books: Books
-    magazines: Magazines
-    brochures: Brochures
-    tracts: Tracts
-    invitations: Invitations
-    videos: Videos Shown
-    talks: Talks
-    achievements: Achievements
-    hours: Engaged time
-    texts: Read Bible Texts
-    website: Website shown
-    shifts: Accomplished Shifts
-    missing: Missing Reports
-    participants: Participants
-    fulltime: Participating Fulltime-Servants
-    publishers: Participating Publishers
-    allParticipants: Participants overall
-    experiences: Experiences
-    route: Route
-    good: Good Experiences
-    problems: Problems / Difficulties
-    show: Show
-    prevMonth: Go to the previous month
-    nextMonth: Go to the next month
-    meetingStart: Meeting at start
-    meetingEnd: Meeting at end
-    place: Place
+    export: Export as CSV
 settings:
     main:
         title: Main Settings

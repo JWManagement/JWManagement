@@ -131,35 +131,7 @@ shifts:
 day:
     removeAll: Alle löschen
 reports:
-    placements: Abgaben
-    bibles: Bibeln
-    books: Bücher
-    magazines: Zeitschriften
-    brochures: Broschüren
-    tracts: Traktate
-    invitations: Einladungen
-    videos: Gezeigte Videos
-    talks: Geführte Gespräche
-    achievements: Was erreicht wurde
-    hours: Eingesetzte Stunden
-    texts: Vorgelesene Bibeltexte
-    website: Website gezeigt
-    shifts: Stattgefundene Schichten
-    missing: Fehlende Berichte
-    participants: Teilnehmer
-    fulltime: Teilgenommene Vollzeitdiener
-    publishers: Teilgenommene Verkündiger
-    allParticipants: Teilnehmer insgesamt
-    experiences: Erfahrungen
-    route: Zur Route
-    good: Schöne Erfahrungen
-    problems: Probleme / Schwierigkeiten
-    show: Zeigen
-    prevMonth: Zum nächsten Monat gehen
-    nextMonth: Zum vorherigen Monat gehen
-    meetingStart: Treffpunkt zu Beginn
-    meetingEnd: Treffpunkt am Ende
-    place: Ort
+    export: Export als CSV
 settings:
     main:
         title: Allgemeine Einstellungen
