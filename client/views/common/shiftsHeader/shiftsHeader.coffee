@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.shiftsHeader.helpers
 
 	prevWeekButton: ->

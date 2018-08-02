@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	sendToOrga: (projectId, type, shiftId, teamId) ->

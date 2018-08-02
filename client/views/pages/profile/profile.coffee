@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.profile.helpers
 
 	isField: (field, val) -> 'selected' if @profile? and @profile[field] == val

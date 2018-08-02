@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	sendTeamUpdate: (shiftId, teamId, type) ->

@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.publish 'reports', (projectId, month) ->
 
 	if typeof projectId == 'string' && projectId != '' && typeof month == 'string' && month != ''

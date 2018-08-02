@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import './calendar.tpl.jade';
 import './calendar.scss';
 

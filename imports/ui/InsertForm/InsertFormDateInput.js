@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 Template.InsertFormDateInput.helpers({});
 
 Template.InsertFormDateInput.onCreated(() => {

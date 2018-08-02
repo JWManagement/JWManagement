@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	addShift: (projectId, tagId, tagName, date, start) -> if Meteor.isServer

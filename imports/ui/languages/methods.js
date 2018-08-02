@@ -1,4 +1,4 @@
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js'
+import moment from 'moment';
 
 Meteor.methods({
     'language.update': ({}, {}, language) => {

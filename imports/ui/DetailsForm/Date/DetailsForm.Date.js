@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import './DetailsForm.Date.jade';
 
 import { getValue, getKey } from '../DetailsForm';

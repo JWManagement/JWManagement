@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Permissions from '/imports/api/util/Permissions.js';
 
 const PROJECT_OPTIONS = {

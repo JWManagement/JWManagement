@@ -1,4 +1,5 @@
-import { Reports } from '/imports/api/reports/reports.coffee'
+moment = require('moment')
+{ Reports } = require('/imports/api/reports/reports.coffee')
 
 defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
 

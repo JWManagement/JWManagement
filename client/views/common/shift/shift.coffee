@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.shift.helpers
 
 	view: (a) ->

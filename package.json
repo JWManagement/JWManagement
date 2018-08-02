@@ -15,6 +15,7 @@
     "jdenticon": "^1.4.0",
     "jquery": "^1.12.4",
     "meteor-node-stubs": "^0.2.5",
+    "moment": "^2.22.2",
     "object-assign-deep": "^0.4.0",
     "prerender-node": "^2.7.4",
     "simpl-schema": "^0.3.1",
