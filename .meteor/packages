@@ -3,64 +3,52 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-accounts-base@1.4.0
-accounts-password@1.5.0
+accounts-base@1.4.2
+accounts-password@1.5.1
 blaze-html-templates@1.0.4
-check@1.2.5
-coffeescript@1.11.1_4
-dynamic-import@0.2.0
-ecmascript@0.9.0
+check@1.3.1
+coffeescript
+dynamic-import@0.4.0
+ecmascript@0.11.1
 email@1.2.3
-es5-shim@4.6.15
-http@1.3.0
-meteor-base@1.2.0
+es5-shim@4.8.0
+http@1.4.1
+meteor-base@1.4.0
 mobile-experience@1.0.5
-mongo@1.3.0
-random@1.0.10
+mongo@1.5.0
+random@1.1.0
 reactive-var@1.0.11
 session@1.1.7
-shell-server@0.3.0
-standard-minifier-css@1.3.5
-standard-minifier-js@2.2.0
-tracker@1.1.3
+shell-server@0.3.1
+standard-minifier-css@1.4.1
+standard-minifier-js@2.3.4
+tracker@1.2.0
 underscore@1.0.10
-force-ssl
+force-ssl@1.1.0
 
 alanning:roles
 aldeed:collection2-core
 aldeed:simple-schema
 arillo:flow-router-helpers
-benmgreene:jquery-sparklines # remove in future
-canotto90:swal-forms # remove in future
+canotto90:swal-forms # remove in future (still used in shiftsHeader.coffee & profile.coffee)
 cfs:filesystem
 cfs:s3
 cfs:standard-packages
-chrismbeckett:toastr # remove in future
-chuangbo:cookie # remove in future
+chrismbeckett:toastr # remove in future (still used in profile.coffee via handleSuccess)
 fourseven:scss
-gwendall:impersonate
-harrison:papa-parse
-joshdellay:meteor-ladda-bootstrap
-jparker:crypto-md5
+joshdellay:meteor-ladda-bootstrap # remove in future (still used in login, forgotPassword, resetPassword, firstLogin)
+jparker:crypto-md5 # remove in future (still used in cryptoJS:md5)
 kadira:blaze-layout
 kadira:flow-router
-kevbuk:moment-range
 kevohagan:sweetalert # remove in future
 lookback:emails
-mdg:seo
-mdg:validated-method # remove in future
+mdg:validated-method # remove in future (still used in addProjetEnquiry, deleteProjectEnquiry, GetAchievementSummary, GetParticipantsCount)
 mdg:validation-error
 meteorhacks:aggregate
 meteorhacks:subs-manager # remove in future
 mizzao:user-status
-momentjs:moment
 mquandalle:jade
-okgrow:analytics
-austinsand:roba-popover
 raix:push@3.0.3-rc.5
-percolate:synced-cron
-rochal:slimscroll # remove in future
-rzymek:moment-locale-de
+percolate:synced-cron #not yet used (cron.coffee)
 summernote:standalone
 tap:i18n
-themeteorchef:jquery-validation # remove in future
