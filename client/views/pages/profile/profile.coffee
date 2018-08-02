@@ -32,7 +32,6 @@ Template.profile.onRendered ->
 Template.profile.onDestroyed ->
 
 	$('#mergeAccountsModal').modal('hide')
-	$('#editProfilePictureModal').modal('hide')
 	Session.set('target', undefined)
 
 Template.profile.events

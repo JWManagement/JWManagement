@@ -51,11 +51,6 @@ modal:
             substituteTeamleader: Ein Ersatz-Teamleiter hat die gleiche Berechtigung, wie ein normaler Teamleiter. Aber insofern das System so konfiguriert ist, dass es automatisch zuteilt, wird es immer die Bewerbung eines normalen Teamleiters bevorzugen, falls vorhanden.
             participant: Ein Teilnehmer darf die Schichten des Tags sehen und sich auf sie bewerben.
             nothing: Bei "Keine" kann der Verkündiger die Schichten des Tags weder sehen, noch sich darauf bewerben oder eingeteilt werden.
-    editProfilePicture:
-        title: Profilbild ändern
-        text: Das Bild sollte mindestens 256x256 Pixel groß sein. Akzeptierte Formate sind JPEG und PNG.
-        upload: Bild hochladen
-        remove: Bild entfernen
     editShift:
         title: Schichtdaten bearbeiten
         mainData: Allgemeine Daten

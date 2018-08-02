@@ -51,11 +51,6 @@ modal:
             substituteTeamleader: A substitute team leader has the same permissions as a normal team leader. But if the system shall schedule automatically, it will always prefer the request of a normal team leader if there is one.
             participant: The participant can see and request shifts of assigned tags.
             nothing: With "None" the user cannot see or request shifts of this tag. Neither can he be scheduled into a shift.
-    editProfilePicture:
-        title: Change profile picture
-        text: The picture should be at least 256x256 pixels. Accepted formats are JPEG and PNG.
-        upload: Upload picture
-        remove: Remove picture
     editShift:
         title: Edit shift information
         mainData: Main Details

@@ -41,11 +41,6 @@ modal:
             substituteTeamleader: O lider de equipa substituto tem as mesmas permissões que um lider de equipa normal. Mas se o sistema planejar automáticamente, irá sempre preferir a requisição de um lider de equipa normal, se existente.
             participant: O participante pode ver e requisitar turnos de rótulos designados.
             nothing: Com “Nenhum”, o usuário não pode ver ou requisitar turnos desse rótulo. Nem pode ser planejado para trabalhar num turno.
-    editProfilePicture:
-        title: Mudar imagem de perfil.
-        text: A imagem deve ter o tamanho minimo de 256x256 pixels. Formatos aceites são JPEG and PNG.
-        upload: Carregar Imagem
-        remove: Remover Imagem
     editShift:
         title: Editar informação de turno
         mainData: Detalhes principais

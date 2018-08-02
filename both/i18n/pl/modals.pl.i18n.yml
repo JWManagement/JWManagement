@@ -51,11 +51,6 @@ modal:
             substituteTeamleader: Zastępca koordynatora zmian.
             participant: Współpracownik widzi i wysyła prośby dotyczące wybranej zmiany dla wybranego Tagu.
             nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi grafik ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
-    editProfilePicture:
-        title: Zmień zdjęcie profilowe
-        text: Zdjęcie powinno mieć przynajmniej 256x256 pikseli. Akceptowany format: JPEG, PNG.
-        upload: Wrzuć zdjęcie
-        remove: Usuń zdjęcie
     editShift:
         title: Edytuj informacje o zmianie
         mainData: Główne informacje

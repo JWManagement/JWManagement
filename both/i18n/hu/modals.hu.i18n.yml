@@ -48,11 +48,6 @@ modal:
             substituteTeamleader: A helyettes csoportvezető ugyanazokkal a jogosultságokkal rendelkezik, mint egy normál csoportvezető. De ha a rendszer automatikusan ütemez, akkor mindig egy normál csoportvezető kérését fogja előnyben részesíteni, ha van ilyen.
             participant: A résztvevő megtekintheti és kérheti a szolgálati időpontot hozzárendelt címkével.
             nothing: A "Nincs" lehetőséggel a felhasználó nem láthatja vagy kérheti címkés szolgálati időpontot. Egyik szolgálati időpontban sem lehet ütemezni.
-    editProfilePicture:
-        title: Profil kép cseréje
-        text: A képnek legalább 256x256 képpontnak kell lennie. Az elfogadott formátumok JPEG és PNG.
-        upload: Kép feltöltése
-        remove: Kép eltávolítása
     editShift:
         title: Szolgálati időszak információjának szerkesztése
         mainData: Főbb részletek
