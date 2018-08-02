@@ -24,7 +24,7 @@ exports.send = (data) ->
 			footer: TAPi18n.__('mail.footer', '', data.language)
 			link: TAPi18n.__('mail.link', '', data.language)
 
-		data.data.content = 
+		data.data.content =
 			headline: TAPi18n.__('mail.' + data.from + '.headline', '', data.language)
 			hello: TAPi18n.__('mail.' + data.from + '.hello', '', data.language)
 			text1: TAPi18n.__('mail.' + data.from + '.text1', '', data.language)
@@ -32,7 +32,13 @@ exports.send = (data) ->
 			changed: TAPi18n.__('mail.' + data.from + '._changed', '', data.language)
 			button: TAPi18n.__('mail.' + data.from + '.button', '', data.language)
 
-		if Meteor.user().notifications.email
+		if Meteor.user().notifications?.push
+			sent = Push.send
+				from: project.name
+				title: TAPi18n.__('push.teamCancellation.headline', user.profile.language)
+				text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
+				query: userId: user._id
+		else
 			sent = Mailer.send
 				to: data.recipient
 				from: data.sender + ' <no-reply@jwmanagement.org>'
@@ -40,12 +46,5 @@ exports.send = (data) ->
 				subject: data.subject
 				template: data.template
 				data: data.data
-
-		if Meteor.user().notifications.push
-			sent = Push.send
-				from: project.name
-				title: TAPi18n.__('push.teamCancellation.headline', user.profile.language)
-				text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
-				query: userId: user._id
 
 	sent

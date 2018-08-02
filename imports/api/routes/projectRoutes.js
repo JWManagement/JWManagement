@@ -100,9 +100,9 @@ FlowRouter.route('/:language/:projectId/shifts', {
         Helpers.doIfLoggedIn(() => {
             let parent = Session.get('parent');
 
-            if (parent != 'settings' && parent != 'project.details') {
+            if (parent != 'settings') {
                 Session.set('parent', 'project.details');
-                Session.set('target', 'project.details');
+                Session.set('target', null);
             }
 
             BlazeLayout.render('mainLayout', { content: 'shifts' });

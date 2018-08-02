@@ -74,8 +74,8 @@ Template.DetailsForm.helpers({
         return Template.instance().noResult.get();
     },
     hasPermissionToSee(definition) {
-        const hasRole = true;
-        const customFulfilled = true;
+        let hasRole = true;
+        let customFulfilled = true;
 
         if (definition.canSee != null) {
             const projectId = FlowRouter.getParam('projectId');
@@ -137,7 +137,7 @@ Template.DetailsForm.helpers({
         const template = Template.instance();
         const key = content.key;
         const item = template.item.get();
-        const value = '';
+        let value = '';
 
         if (key.indexOf('_') > 0) {
             value = item;

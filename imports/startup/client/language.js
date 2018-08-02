@@ -1,5 +1,7 @@
+import moment from 'moment';
+
 Meteor.startup(() => {
-    Meteor.autorun((tracker) => {
+    Tracker.autorun((tracker) => {
         if (Meteor.user() != null) {
             tracker.stop();
 

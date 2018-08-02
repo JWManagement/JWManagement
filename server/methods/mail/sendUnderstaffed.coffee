@@ -21,7 +21,7 @@ Meteor.methods
 			type = 'teamleader'
 		else
 			users = Roles.getUsersInRole Permissions.member, shift.projectId, fields: profile: 1
-		users = user.fetch()
+			users = users.fetch()
 			type = 'participant'
 
 		for user in users.filter((u) -> u.profile.shortTermCalls == true)

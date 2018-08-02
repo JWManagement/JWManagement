@@ -18,5 +18,3 @@ import '/imports/api/calendar/service.js';
 
 import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
-
-Impersonate.admins = ['support'];
