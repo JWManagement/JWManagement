@@ -4,8 +4,6 @@ Template.profile.helpers
 
 	isField: (field, val) -> 'selected' if @profile? and @profile[field] == val
 
-	picture: -> Pictures.findOne userId: Meteor.userId()
-
 	isAvailable: (day, hour) ->
 		if @profile.available? && Object.keys(@profile.available).length > 0
 			if parseInt(hour) * 100 in @profile.available[day]
@@ -41,9 +39,6 @@ Template.profile.events
 
 	'change #username': (e) ->
 		$('#username').val(Validations.cleanedUsername(e.target.value))
-
-	'click .profile-image': (e) ->
-		wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
 	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, handleSuccess
 

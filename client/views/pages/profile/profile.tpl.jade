@@ -5,25 +5,6 @@ if queryParam 'mergeAccounts'
 .wrapper-content
 	.container-fluid
 		with currentUser
-			.row.m-b-lg.m-t-lg
-				.col-md-6
-					.profile-image-wrapper
-						with picture
-							.profile-image
-								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
-								.profile-image-description {{_ 'profile.changePicture'}}
-						else
-							.profile-image.svg
-								p {{{jdenticon hash=_id}}}
-								.profile-image-description {{_ 'profile.changePicture'}}
-					.profile-info
-						div
-							h2.no-margins {{profile.firstname}} {{profile.lastname}}
-							if profile.congregation
-								h4 {{profile.congregation}}
-							if profile.languages
-								small
-									p {{_ "profile.speaks"}} {{profile.languages}}
 			.row.m-t-lg
 				.col-md-6
 					.ibox
