@@ -1,4 +1,4 @@
-export generateShiftOrganization = ->
+exports.generateShiftOrganization = ->
 
 	# TODO: loop through projects, tags
 	# TODO: 	if automation

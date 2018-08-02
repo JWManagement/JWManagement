@@ -1,7 +1,9 @@
 moment = require('moment')
 { send } = require('./send.coffee')
 
-export sendDeclined = (shiftId, teamId, userId) ->
+Meteor.methods
+
+	sendDeclined: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId
 
 		if shift?

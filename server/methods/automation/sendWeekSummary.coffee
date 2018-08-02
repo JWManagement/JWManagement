@@ -1,4 +1,4 @@
-export sendWeekSummary = ->
+exports.sendWeekSummary = ->
 
 	# TODO: loop through users
 	# TODO: 	get users requests for next week

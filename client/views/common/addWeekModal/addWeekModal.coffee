@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.addWeekModal.helpers
 
 	getProject: ->

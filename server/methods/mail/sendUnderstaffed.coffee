@@ -1,7 +1,9 @@
 moment = require('moment')
 { send } = require('./send.coffee')
 
-export sendUnderstaffed = (shiftId, teamId) ->
+Meteor.methods
+
+	sendUnderstaffed: (shiftId, teamId) ->
 		shift = Shifts.findOne shiftId
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 		shiftData = teams: []

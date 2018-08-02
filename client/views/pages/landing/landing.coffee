@@ -1,4 +1,4 @@
-import { Messages } from '/imports/api/messages/messages.coffee'
+Messages = require '/imports/api/messages/messages.coffee'
 
 Template.landing.helpers
 

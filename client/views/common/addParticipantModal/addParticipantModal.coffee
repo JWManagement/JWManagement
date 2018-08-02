@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.addParticipantModal.helpers
 
 	getUsers: ->

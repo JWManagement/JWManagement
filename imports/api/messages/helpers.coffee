@@ -1,5 +1,5 @@
-import { Messages } from '/imports/api/messages/messages.coffee'
+{ Messages } = require '/imports/api/messages/messages.coffee'
 
-export Helpers =
+exports.Helpers =
 
 	dummy: ->

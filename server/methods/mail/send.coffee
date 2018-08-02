@@ -1,6 +1,6 @@
-import { Mailer } from 'meteor/lookback:emails'
+{ Mailer } = require 'meteor/lookback:emails'
 
-export send = (data) ->
+exports.send = (data) ->
 	# recipient
 	# sender
 	# from

@@ -1,7 +1,9 @@
 moment = require('moment')
 { send } = require('./send.coffee')
 
-export sendConfirmation = (shiftId, teamId, userId) ->
+Meteor.methods
+
+	sendConfirmation: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 		user = Meteor.users.findOne userId, fields: profile: 1

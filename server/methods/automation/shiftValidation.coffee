@@ -1,1 +1,1 @@
-export shiftValidation = ->
+exports.shiftValidation = ->

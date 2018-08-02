@@ -1,6 +1,5 @@
 import '/imports/api/projects/projects.js';
 import '/imports/api/messages/messages.coffee';
-import '/imports/api/reports/reports.coffee';
 
 import '/imports/startup/server/mailer.js';
 import '/imports/startup/server/prerenderio.js';

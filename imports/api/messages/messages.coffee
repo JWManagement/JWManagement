@@ -1,10 +1,12 @@
-import SimpleSchema from 'simpl-schema'
-import { Mongo } from 'meteor/mongo'
+SimpleSchemaObj = require 'simpl-schema'
+{ Mongo } = require 'meteor/mongo'
 
-import { Methods } from './methods.coffee'
-import { Helpers } from './helpers.coffee'
+{ Methods } = require './methods.coffee'
+{ Helpers } = require './helpers.coffee'
 
-export Messages = new Mongo.Collection 'messages'
+Messages = new Mongo.Collection 'messages'
+
+SimpleSchema = SimpleSchemaObj.default;
 
 Messages.deny
 	insert: -> true
@@ -55,3 +57,5 @@ Messages.attachSchema = Messages.schema
 
 Messages.methods = Methods
 Messages.helpers = Helpers
+
+exports.Messages = Messages

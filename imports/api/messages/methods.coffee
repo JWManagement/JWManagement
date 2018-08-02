@@ -1,7 +1,9 @@
-import SimpleSchema from 'simpl-schema'
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js';
+SimpleSchemaObj = require 'simpl-schema'
+SystemLanguages = require '/imports/api/dropdowns/SystemLanguages.js';
 
-export Methods =
+SimpleSchema = SimpleSchemaObj.default;
+
+exports.Methods =
 
 	addProjectEnquiry: new ValidatedMethod
 		name: 'Messages.methods.addProjectEnquiry'
