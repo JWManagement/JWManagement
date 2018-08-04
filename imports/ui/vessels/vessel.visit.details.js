@@ -52,7 +52,8 @@ Template['vessel.visit.details'].helpers({
       title: 'language',
       contents: [{
         key: 'languageIds',
-        type: [{
+        type: 'array',
+        item: {
           key: 'languageId',
           type: 'dropdown',
           allowedValues: Languages.allowedValues,
@@ -61,7 +62,7 @@ Template['vessel.visit.details'].helpers({
             method: 'vessel.visit.language.delete',
             canDo: 'author'
           }
-        }]
+        }
       }],
       actions: [{
         key: 'language.new',
