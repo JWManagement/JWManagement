@@ -1,0 +1,6 @@
+template(name="DetailsFormCheckbox")
+  .input.form-group(key='{{getKey definition}}' link='{{definition.link}}')
+    .key {{getEntityTranslation definition.key}}
+    .value
+        | {{getValue definition entity}}
+        i.fa.fa-angle-right.icon

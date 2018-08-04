@@ -6,6 +6,7 @@ import './DetailsForm.jade';
 import './DetailsForm.scss';
 
 import './Actions/DetailsForm.Actions';
+import './Checkbox/DetailsForm.Checkbox';
 import './Date/DetailsForm.Date';
 import './Dropdown/DetailsForm.Dropdown';
 import './Email/DetailsForm.Email';
@@ -18,7 +19,7 @@ import './Header/DetailsForm.Header';
 
 export { getValue, getKey };
 
-// confirm, delete, CHECKBOX
+// confirm, delete
 
 Template.DetailsForm.helpers({
   getLinkedKey(content) {
