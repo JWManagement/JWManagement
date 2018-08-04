@@ -13,7 +13,7 @@ Template.calendar.helpers({
     return template.selectedDateShifts.get();
   },
   getFormattedTime(time) {
-    return moment(time, 'Hmm').format(TAPi18n.__('timeFormat.time'));
+    return moment(time, 'Hmm').format(TAPi18n.__('dateFormat.time'));
   },
   hasNoRequests() {
     return this.approvedRequests == 0 && this.pendingRequests == 0;

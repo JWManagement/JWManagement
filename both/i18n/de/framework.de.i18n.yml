@@ -19,5 +19,4 @@ detailsForm:
 dateFormat:
     date: DD.MM.YYYY
     dateAndTime: DD.MM.YYYY HH:mm [Uhr]
-timeFormat:
     time: HH:mm [Uhr]
