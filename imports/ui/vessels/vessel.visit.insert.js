@@ -1,5 +1,3 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
-
 Template['vessel.visit.insert'].helpers({
   data: {
     backLink: 'vessel.details',

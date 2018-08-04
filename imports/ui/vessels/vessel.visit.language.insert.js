@@ -1,4 +1,3 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
 import Languages from '/imports/api/dropdowns/Languages.js';
 
 Template['vessel.visit.language.insert'].helpers({

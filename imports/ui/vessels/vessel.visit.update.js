@@ -1,5 +1,3 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
-
 Template['vessel.visit.update'].helpers({
   data: {
     getMethod: 'vessel.visit.getField',
