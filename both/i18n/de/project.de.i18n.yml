@@ -16,6 +16,7 @@ project:
         vessels: Schiffe
         notes: Notizen
         leave: Projekt verlassen
+        leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen? Das kann nicht rückgängig gemacht werden.
     details:
         sections:
             project: Projekt
