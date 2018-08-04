@@ -17,7 +17,7 @@ template(name="DetailsForm")
       each section in sections
 
         if isType section 'header'
-          +DetailsFormHeader section=section entity=item
+          +DetailsFormHeader section=section entity=getItem
         else
           .section
 
@@ -26,100 +26,81 @@ template(name="DetailsForm")
 
             if section.contents
               .section-content.clearfix
-                each content in section.contents
-                  if hasPermissionToSee content
-                    if isArray content
-                      .array(key='{{content.key}}')
-                        each entity in getValue content
-                          if isArray content.type.[0]
-                            tr.array-item(entityKey='{{content.type.[0].key}}Id' entityId='{{entity._id}}' entityLink='{{content.type.[0].link}}')
-                              if content.icon
-                                th.left.with-icon
-                                  i.material-icons {{content.icon}}
-                              else
-                                th.left
-                              td.item
-                                each field in content.type.[0].type
-                                  tr.field
-                                    th.key {{getEntityTranslation content.type.[0].key field.key}}:
-                                    th.middle
-                                    td.value
-                                      if isTel field
-                                        if getProperty entity field
-                                          a(href='tel:{{getProperty entity field}}') {{getProperty entity field}}
-                                        else
-                                          | -
-                                      else if isEmail field
-                                        if getProperty entity field
-                                          a(href='mailto:{{getProperty entity field}}') {{getProperty entity field}}
-                                        else
-                                          | -
-                                      else if getProperty entity field
-                                        | {{getProperty entity field}}
-                                      else
-                                        | -
-                              td.link(rowspan='{{content.type.[0].type.count}}')
-                                if isDelete content.type.[0]
-                                  i.fa.fa-trash.icon
-                                else
-                                  i.fa.fa-angle-right
-                          else if isDropdown content.type.[0]
-                            if content.type.[0].click
-                              .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' entityId='{{entity._id}}')
-                                .key {{getProperty entity content.type.[0]}}
+
+                each field in section.contents
+                  if hasPermissionToSee field
+
+                    if isType field 'array'
+                      .array(key='{{field.key}}')
+
+                        if isEmptyArray field
+                          p.noElements {{getNoElementsTranslation field.item}}
+
+                        else if isType field.item 'entity'
+                          each item in getValue field getItem
+                            +DetailsFormArrayEntity definition=field.item entity=item
+
+                        else if isType field.item 'dropdown'
+                          each entity in getValue field
+                            h1 DROPDOWN
+                            if field.item.click
+                              .input.form-group.array-item(key='{{getKey field.item}}' clickType='{{field.item.click.type}}' clickMethod='{{field.item.click.method}}' entityId='{{entity._id}}')
+                                .key {{getProperty entity field.item}}
                                 .value
                                   i.fa.fa-trash.icon
                             else
                               .form-group
-                                .key {{getProperty entity content.type.[0]}}
-                          else if isKeyValue content.type.[0]
-                            .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
+                                .key {{getProperty entity field.item}}
+                        else if isKeyValue field.item
+                          each entity in getValue field
+                            h1 FIELD.item
+                            .input.form-group.array-item(key='{{getKey field.item}}' clickType='{{field.item.click.type}}' clickMethod='{{field.item.click.method}}' clickLink='{{field.item.click.link}}' entityId='{{entity._id}}')
                               .key {{entity.key}}
                               .value
                                 | {{entity.value}}
-                                if isDelete content.type.[0]
-                                  i.fa.fa-trash.icon
-                                else
-                                  i.fa.fa-angle-right.icon
-                          else
-                            .input.form-group.array-item(key='{{getLinkedKey content.type.[0]}}' clickType='{{content.type.[0].click.type}}' clickMethod='{{content.type.[0].click.method}}' clickLink='{{content.type.[0].click.link}}' entityId='{{entity._id}}')
-                              .key
-                                if content.icon
-                                  i.material-icons {{content.icon}}
-                                | {{getProperty entity content.type.[0]}}
-                              .value
-                                if isDelete content.type.[0]
+                                if isType field.item 'delete'
                                   i.fa.fa-trash.icon
                                 else
                                   i.fa.fa-angle-right.icon
                         else
-                          p.noElements {{getNoElementsTranslation content.type.[0]}}
+                          each entity in getValue field
+                            h1 ELSE
+                            .input.form-group.array-item(key='{{getKey field.item}}' clickType='{{field.item.click.type}}' clickMethod='{{field.item.click.method}}' clickLink='{{field.item.click.link}}' entityId='{{entity._id}}')
+                              .key
+                                if field.item.icon
+                                  i.material-icons {{field.item.icon}}
+                                | {{getProperty entity field.item}}
+                              .value
+                                if isType field.item 'delete'
+                                  i.fa.fa-trash.icon
+                                else
+                                  i.fa.fa-angle-right.icon
 
-                    else if isType content 'phone'
-                      +DetailsFormPhone definition=content entity=item
+                    else if isType field 'phone'
+                      +DetailsFormPhone definition=field entity=getItem
 
-                    else if isType content 'email'
-                      +DetailsFormEmail definition=content entity=item
+                    else if isType field 'email'
+                      +DetailsFormEmail definition=field entity=getItem
 
-                    else if isType content 'text'
-                      +DetailsFormText definition=content entity=item
+                    else if isType field 'text'
+                      +DetailsFormText definition=field entity=getItem
 
-                    else if isType content 'textbox'
-                      +DetailsFormTextbox definition=content entity=item
+                    else if isType field 'textbox'
+                      +DetailsFormTextbox definition=field entity=getItem
 
-                    else if isType content 'date'
-                      +DetailsFormDate definition=content entity=item
+                    else if isType field 'date'
+                      +DetailsFormDate definition=field entity=getItem
 
-                    else if isType content 'link'
-                      +DetailsFormLink definition=content entity=item
+                    else if isType field 'link'
+                      +DetailsFormLink definition=field entity=getItem
 
-                    else if isType content 'dropdown'
-                      +DetailsFormDropdown definition=content entity=item
+                    else if isType field 'dropdown'
+                      +DetailsFormDropdown definition=field entity=getItem
 
-                    else if isType content 'checkbox'
-                      +DetailsFormCheckbox definition=content entity=item
+                    else if isType field 'checkbox'
+                      +DetailsFormCheckbox definition=field entity=getItem
 
                     else
-                      h1 Nope
+                      h1 Unsupported form type
 
             +DetailsFormActions actions=section.actions

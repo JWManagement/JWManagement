@@ -6,6 +6,7 @@ import './DetailsForm.jade';
 import './DetailsForm.scss';
 
 import './Actions/DetailsForm.Actions';
+import './Array/Entity/DetailsForm.Array.Entity';
 import './Checkbox/DetailsForm.Checkbox';
 import './Date/DetailsForm.Date';
 import './Dropdown/DetailsForm.Dropdown';
@@ -17,16 +18,15 @@ import './Text/DetailsForm.Text';
 import './Textbox/DetailsForm.Textbox';
 import './Header/DetailsForm.Header';
 
-export { getValue, getKey };
+export { getValue, getKey, isType };
 
-// confirm, delete
+// delete
 
 Template.DetailsForm.helpers({
-  getLinkedKey(content) {
-    if (content.linkedKey != null) {
-      return content.linkedKey;
-    }
-    return content.key;
+  getKey,
+  getValue,
+  isEmptyArray(field) {
+    return getValue(field, Template.instance().item.get()).length == 0;
   },
   getSectionTranslation(key) {
     return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'));
@@ -34,39 +34,10 @@ Template.DetailsForm.helpers({
   getBackgroundColor(section) {
     return (section.background != null ? section.background : '');
   },
-  isType(field, type) {
-    return field.type == type;
-  },
-  item() {
+  isType,
+  getItem() {
     const template = Template.instance();
     return template.item.get();
-  },
-  isTel(field) {
-    return field.type == 'tel';
-  },
-  isEmail(field) {
-    return field.type == 'email';
-  },
-  isDropdown(field) {
-    return field.type == 'dropdown';
-  },
-  isKeyValue(field) {
-    return field.type == 'keyValue';
-  },
-  isTextbox(field) {
-    return field.type == 'textbox';
-  },
-  isTitle(field) {
-    return field.type == 'title';
-  },
-  isDescription(field) {
-    return field.type == 'description';
-  },
-  isDelete(field) {
-    return field.type == 'delete';
-  },
-  isArray(content) {
-    return typeof(content.type) == 'object' && content.type.length >= 0;
   },
   isLoading() {
     return Template.instance().isLoading.get();
@@ -132,39 +103,6 @@ Template.DetailsForm.helpers({
         || ('type') in section && section.type == 'header');
     } else {
       return template.sections;
-    }
-  },
-  getValue(content) {
-    const template = Template.instance();
-    const key = content.key;
-    const item = template.item.get();
-    let value = '';
-
-    if (key.indexOf('_') > 0) {
-      value = item;
-
-      for (property of key.split('_')) {
-        if (property in value) {
-          value = value[property];
-        } else {
-          return '';
-        }
-      }
-    } else {
-      value = item[key];
-    }
-
-    if (content.type == 'dropdown') {
-      return TAPi18n.__([
-        FlowRouter.getRouteName().split('.')[0],
-        'entity',
-        key + 'Values',
-        value
-      ].join('.').replace(/_/g, '.'));
-    } else if (content.type == 'checkbox') {
-      return value ? TAPi18n.__('detailsForm.yes') : TAPi18n.__('detailsForm.no');
-    } else {
-      return value;
     }
   },
   getProperty(entity, field) {
@@ -352,4 +290,8 @@ function getKey(definition) {
   }
 
   return definition.key;
+}
+
+function isType(field, type) {
+  return field.type == type;
 }
