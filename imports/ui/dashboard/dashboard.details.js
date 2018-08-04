@@ -21,11 +21,13 @@ Template['dashboard.details'].helpers({
       title: 'missingShiftReports',
       contents: [{
         key: 'missingShiftReports',
-        icon: 'announcement',
-        type: [{
+        type: 'array',
+        item: {
           key: 'shift',
           link: 'shift.details',
-          type: [{
+          icon: 'announcement',
+          type: 'entity',
+          rows: [{
             key: 'tag'
           }, {
             key: 'date',
@@ -34,26 +36,28 @@ Template['dashboard.details'].helpers({
             uiFormat: 'date'
           }, {
             key: 'start',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }, {
             key: 'end',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }]
-        }]
+        }
       }]
     }, {
       title: 'upcomingShifts',
       contents: [{
         key: 'upcomingShifts',
-        icon: 'event_available',
-        type: [{
+        type: 'array',
+        item: {
           key: 'shift',
           link: 'shift.details',
-          type: [{
+          icon: 'event_available',
+          type: 'entity',
+          rows: [{
             key: 'tag'
           }, {
             key: 'date',
@@ -62,26 +66,28 @@ Template['dashboard.details'].helpers({
             uiFormat: 'date'
           }, {
             key: 'start',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }, {
             key: 'end',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }]
-        }]
+        }
       }]
     }, {
       title: 'pendingRequests',
       contents: [{
         key: 'pendingRequests',
-        icon: 'hourglass_empty',
-        type: [{
+        type: 'array',
+        item: {
           key: 'shift',
+          icon: 'hourglass_empty',
           link: 'shift.details',
-          type: [{
+          type: 'entity',
+          rows: [{
             key: 'tag'
           }, {
             key: 'date',
@@ -90,26 +96,28 @@ Template['dashboard.details'].helpers({
             uiFormat: 'date'
           }, {
             key: 'start',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }, {
             key: 'end',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }]
-        }]
+        }
       }]
     }, {
       title: 'olderShifts',
       contents: [{
         key: 'olderShifts',
-        icon: 'event_available',
-        type: [{
+        type: 'array',
+        item: {
           key: 'shift',
           link: 'shift.details',
-          type: [{
+          icon: 'event_available',
+          type: 'entity',
+          rows: [{
             key: 'tag'
           }, {
             key: 'date',
@@ -118,16 +126,16 @@ Template['dashboard.details'].helpers({
             uiFormat: 'date'
           }, {
             key: 'start',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }, {
             key: 'end',
-            type: 'time',
+            type: 'date',
             dbFormat: 'Hmm',
             uiFormat: 'time'
           }]
-        }]
+        }
       }]
     }, {
       title: 'administration',

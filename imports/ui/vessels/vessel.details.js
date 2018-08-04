@@ -1,5 +1,3 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
-
 Template['vessel.details'].helpers({
   data: {
     getMethod: 'vessel.get',
@@ -34,10 +32,12 @@ Template['vessel.details'].helpers({
       title: 'visit',
       contents: [{
         key: 'visits',
-        type: [{
+        type: 'array',
+        item: {
           key: 'visit',
           link: 'vessel.visit.details',
-          type: [{
+          type: 'entity',
+          rows: [{
             key: 'date',
             type: 'date',
             dbFormat: 'YYYYMMDD',
@@ -69,7 +69,7 @@ Template['vessel.details'].helpers({
             key: 'country',
             type: 'text'
           }]
-        }]
+        }
       }],
       actions: [{
         key: 'visit.new',
