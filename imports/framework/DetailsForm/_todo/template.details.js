@@ -43,6 +43,42 @@ Template['template.details'].helpers({
                 type: 'dropdown',
                 linkedKey: 'profile_gender', // OPTIONAL
                 icon: 'group' // OPTIONAL
+            }, {
+              key: 'visits',
+              type: 'array',
+              item: {
+                key: 'visit',
+                link: 'vessel.visit.details',
+                type: 'entity',
+                rows: [{
+                  key: 'date',
+                  type: 'date',
+                  dbFormat: 'YYYYMMDD',
+                  uiFormat: 'date'
+                }, {
+                  key: 'languages',
+                  type: 'text'
+                }, {
+                  key: 'email',
+                  type: 'email'
+                }, {
+                  key: 'phone',
+                  type: 'tel'
+                }]
+              }
+            }, {
+              key: 'languageIds',
+              type: 'array',
+              item: {
+                key: 'languageId',
+                type: 'dropdown',
+                allowedValues: Languages.allowedValues,
+                click: {
+                  type: 'delete',
+                  method: 'vessel.visit.language.delete',
+                  canDo: 'author'
+                }
+              }
             }]
         }]
     }
