@@ -5,8 +5,9 @@ Template.InsertFormLink.helpers({
     if (template.displayValue != null) {
       return template.displayValue;
     } else {
-      const value = 'placeholder';
+      let value = 'placeholder';
       const data = Template.currentData().data;
+
       if (data.value != null) {
         value = data.value;
       }
