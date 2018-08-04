@@ -1,11 +1,11 @@
 template(name="DetailsFormPhone")
-    if definition.readonly
-        .form-group
-            .key {{getEntityTranslation definition.key}}
-            .value
-                if getValue definition entity
-                    a(href='tel:{{getValue definition entity}}') {{getValue definition entity}}
-                else
-                    | -
-    else
-        h1 To be implemented!
+  if definition.readonly
+    .form-group
+      .key {{getEntityTranslation definition.key}}
+      .value
+        if getValue definition entity
+          a(href='tel:{{getValue definition entity}}') {{getValue definition entity}}
+        else
+          | -
+  else
+    h1 To be implemented!

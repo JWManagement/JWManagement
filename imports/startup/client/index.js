@@ -74,20 +74,20 @@ import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
 Meteor.startup(function() {
-    BlazeLayout.setRoot('body');
+  BlazeLayout.setRoot('body');
 
-    TimeSync.loggingEnabled = false;
+  TimeSync.loggingEnabled = false;
 });
 
 Tracker.autorun(function() {
-    const routeName = FlowRouter.getRouteName();
-    let title = TAPi18n.__('navigation.' + routeName);
+  const routeName = FlowRouter.getRouteName();
+  let title = TAPi18n.__('navigation.' + routeName);
 
-    if (routeName === 'home' && !Meteor.user()) {
-        title = TAPi18n.__('navigation.login');
-    }
+  if (routeName === 'home' && !Meteor.user()) {
+    title = TAPi18n.__('navigation.login');
+  }
 
-    document.title = title + ' | JW Management';
+  document.title = title + ' | JW Management';
 
-    $('body').attr('page', routeName);
+  $('body').attr('page', routeName);
 });

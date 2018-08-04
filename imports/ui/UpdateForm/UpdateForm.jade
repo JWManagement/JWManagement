@@ -1,108 +1,108 @@
 template(name="UpdateForm")
-    .navigation-wrapper
-        nav.navbar.navbar-fixed-top
-            a.navbar-back(href="{{getBackLink}}")
-                i.fa.fa-angle-left.m-r-xs
-                | {{_ 'navigation.back'}}
-            .navbar-title {{getTitle}}
-            if isSearchEnabled
-                .search.input-group
-                    span.input-group-addon &#xF002;
-                    input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
+  .navigation-wrapper
+    nav.navbar.navbar-fixed-top
+      a.navbar-back(href="{{getBackLink}}")
+        i.fa.fa-angle-left.m-r-xs
+        | {{_ 'navigation.back'}}
+      .navbar-title {{getTitle}}
+      if isSearchEnabled
+        .search.input-group
+          span.input-group-addon &#xF002;
+          input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
 
-    if isSearchEnabled
-        .search-splitter
+  if isSearchEnabled
+    .search-splitter
 
-    form.form-horizontal
-        if isReady
-            if isText
-                +UpdateFormTextInput data=getInputData
-            else if isDate
-                +UpdateFormDateInput data=getInputData
-            else if isDropdown
-                +UpdateFormDropdownInput data=getInputData
-            else if isPicker
-                +UpdateFormPickerInput data=getInputData
-            else if isCheckbox
-                +UpdateFormCheckboxInput data=getInputData
-            else if isTextbox
-                +UpdateFormTextboxInput data=getInputData
-        else
-            .section
-                .section-header {{getEntityTranslation}}
-                .section-loading
-                    i.fa.fa-circle-o-notch.fa-spin
+  form.form-horizontal
+    if isReady
+      if isText
+        +UpdateFormTextInput data=getInputData
+      else if isDate
+        +UpdateFormDateInput data=getInputData
+      else if isDropdown
+        +UpdateFormDropdownInput data=getInputData
+      else if isPicker
+        +UpdateFormPickerInput data=getInputData
+      else if isCheckbox
+        +UpdateFormCheckboxInput data=getInputData
+      else if isTextbox
+        +UpdateFormTextboxInput data=getInputData
+    else
+      .section
+        .section-header {{getEntityTranslation}}
+        .section-loading
+          i.fa.fa-circle-o-notch.fa-spin
 
 template(name="UpdateFormTextInput")
-    .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation}}
-        .section-content
-            .text-input
-                input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
-        if hasError
-            .section-error
-                p {{getEntityErrorTranslation}}
+  .section(class='{{getErrorClass}}')
+    .section-header {{getEntityTranslation}}
+    .section-content
+      .text-input
+        input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormDateInput")
-    .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation}}
-        .section-date
-            .datepicker
-        if hasError
-            .section-error
-                p {{getEntityErrorTranslation}}
+  .section(class='{{getErrorClass}}')
+    .section-header {{getEntityTranslation}}
+    .section-date
+      .datepicker
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormDropdownInput")
-    .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation}}
-        .section-select
-            select
-                with 'placeholder'
-                    option(value) {{getEntityTranslation getItemKey}}
-                if isAllowedValues
-                    each getItems
-                        option(value='{{this}}') {{getEntityTranslation getItemKey}}
-                else if isAllowedKeyValues
-                    each keyValue in getKeyValues
-                        option(value='{{keyValue.key}}') {{keyValue.value}}
-        if hasError
-            .section-error
-                p {{getEntityErrorTranslation}}
+  .section(class='{{getErrorClass}}')
+    .section-header {{getEntityTranslation}}
+    .section-select
+      select
+        with 'placeholder'
+          option(value) {{getEntityTranslation getItemKey}}
+        if isAllowedValues
+          each getItems
+            option(value='{{this}}') {{getEntityTranslation getItemKey}}
+        else if isAllowedKeyValues
+          each keyValue in getKeyValues
+            option(value='{{keyValue.key}}') {{keyValue.value}}
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormPickerInput")
-    .section-picker(class='{{getSearchEnabledClass}}')
-        if isAllowedValues
-            each item in getItems
-                .item.form-group(key='{{item}}')
-                    .checkmark
-                        if isChecked item
-                            i.icon.fa.fa-check
-                    +with item
-                        .key {{getEntityTranslation getItemKey}}
-        else if isAllowedKeyValues
-            each keyValue in getKeyValues
-                .item.form-group(key='{{keyValue.key}}')
-                    .checkmark
-                        if isChecked keyValue.key
-                            i.icon.fa.fa-check
-                    .key {{keyValue.value}}
+  .section-picker(class='{{getSearchEnabledClass}}')
+    if isAllowedValues
+      each item in getItems
+        .item.form-group(key='{{item}}')
+          .checkmark
+            if isChecked item
+              i.icon.fa.fa-check
+          +with item
+            .key {{getEntityTranslation getItemKey}}
+    else if isAllowedKeyValues
+      each keyValue in getKeyValues
+        .item.form-group(key='{{keyValue.key}}')
+          .checkmark
+            if isChecked keyValue.key
+              i.icon.fa.fa-check
+          .key {{keyValue.value}}
 
 template(name="UpdateFormCheckboxInput")
-    .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation}}
-        .section-select
-            input(type='checkbox' checked='{{getValue}}')
-            | {{getEntityTranslation getKey}}
-        if hasError
-            .section-error
-                p {{getEntityErrorTranslation}}
+  .section(class='{{getErrorClass}}')
+    .section-header {{getEntityTranslation}}
+    .section-select
+      input(type='checkbox' checked='{{getValue}}')
+      | {{getEntityTranslation getKey}}
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}
 
 template(name="UpdateFormTextboxInput")
-    .section(class='{{getErrorClass}}')
-        .section-header {{getEntityTranslation}}
-        .section-content
-            .text-input
-                textarea(placeholder='{{getEntityTranslation}}' autofocus) {{getValue}}
-        if hasError
-            .section-error
-                p {{getEntityErrorTranslation}}
+  .section(class='{{getErrorClass}}')
+    .section-header {{getEntityTranslation}}
+    .section-content
+      .text-input
+        textarea(placeholder='{{getEntityTranslation}}' autofocus) {{getValue}}
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

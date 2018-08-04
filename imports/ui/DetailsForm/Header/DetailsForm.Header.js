@@ -3,9 +3,9 @@ import './DetailsForm.Header.jade';
 import { getValue } from '../DetailsForm';
 
 Template.DetailsFormHeader.helpers({
-    getValueByKey(key, entity) {
-        return getValue({ key: key }, entity);
-    }
+  getValueByKey(key, entity) {
+    return getValue({ key: key }, entity);
+  }
 });
 
 Template.DetailsFormHeader.onCreated(() => {});

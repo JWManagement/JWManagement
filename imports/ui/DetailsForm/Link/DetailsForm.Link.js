@@ -3,8 +3,8 @@ import './DetailsForm.Link.jade';
 import { getValue, getKey } from '../DetailsForm';
 
 Template.DetailsFormLink.helpers({
-    getKey,
-    getValue
+  getKey,
+  getValue
 });
 
 Template.DetailsFormLink.onCreated(() => {});

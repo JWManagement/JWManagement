@@ -1,15 +1,15 @@
 Template.UpdateFormCheckboxInput.helpers({
-    getValue() {
-        return Template.instance().value;
-    }
+  getValue() {
+    return Template.instance().value;
+  }
 });
 
 Template.UpdateFormCheckboxInput.onCreated(() => {
-    const template = Template.instance();
-    const data = Template.currentData().data;
+  const template = Template.instance();
+  const data = Template.currentData().data;
 
-    template.value = data.value;
-    template.updateForm = data.parentInstance;
+  template.value = data.value;
+  template.updateForm = data.parentInstance;
 });
 
 Template.UpdateFormCheckboxInput.onRendered(() => {});
@@ -17,9 +17,9 @@ Template.UpdateFormCheckboxInput.onRendered(() => {});
 Template.UpdateFormCheckboxInput.onDestroyed(() => {});
 
 Template.UpdateFormCheckboxInput.events({
-    'change input': (e, template) => {
-        const value = $(e.target).is(':checked');
+  'change input': (e, template) => {
+    const value = $(e.target).is(':checked');
 
-        template.updateForm.updateEntity(value);
-    }
+    template.updateForm.updateEntity(value);
+  }
 });
