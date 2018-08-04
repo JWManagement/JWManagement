@@ -8,19 +8,19 @@ import '/imports/api/datepicker/bootstrap-datepicker.pl.min.js';
 import '/imports/api/datepicker/bootstrap-datepicker.pt.min.js';
 import '/imports/api/datepicker/bootstrap-datepicker.ru.min.js';
 
-import '/imports/api/projects/projects.js';
+import '/imports/startup/common/rolesExtensions.js';
 
-import '/imports/api/util/templateHelpers.js';
-import '/imports/api/util/rolesExtensions.js';
+import '/imports/api/projects/projects.js';
 
 import '/imports/api/routes/mainRoutes.js';
 import '/imports/api/routes/projectRoutes.js';
 import '/imports/api/routes/policyRoutes.js';
 
-import '/imports/ui/DetailsForm/DetailsForm.js';
-import '/imports/ui/InsertForm/InsertForm.js';
-import '/imports/ui/SearchForm/SearchForm.js';
-import '/imports/ui/UpdateForm/UpdateForm.js';
+import '/imports/framework/DetailsForm/DetailsForm.js';
+import '/imports/framework/InsertForm/InsertForm.js';
+import '/imports/framework/SearchForm/SearchForm.js';
+import '/imports/framework/UpdateForm/UpdateForm.js';
+import '/imports/framework/templateHelpers.js';
 
 import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details.js';
@@ -70,7 +70,7 @@ import '/imports/startup/client/language.js';
 
 import { TimeSync } from 'meteor/mizzao:timesync';
 
-import SimpleSchemaHelper from '/imports/api/util/SimpleSchemaHelper.js';
+import SimpleSchemaHelper from '/imports/startup/common/SimpleSchemaHelper.js';
 SimpleSchemaHelper.init();
 
 Meteor.startup(function() {
