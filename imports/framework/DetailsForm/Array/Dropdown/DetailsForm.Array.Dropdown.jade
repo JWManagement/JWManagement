@@ -1,0 +1,9 @@
+template(name="DetailsFormArrayDropdown")
+  if definition.click
+    .input.form-group.array-item(key='{{getKey definition}}' clickType='{{definition.click.type}}' clickMethod='{{definition.click.method}}' entityId='{{entity._id}}')
+      .key {{getValue entity}}
+      .value
+        i.fa.fa-trash.icon
+  else
+    .form-group
+      .key {{getValue entity}}

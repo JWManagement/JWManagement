@@ -6,6 +6,7 @@ import './DetailsForm.jade';
 import './DetailsForm.scss';
 
 import './Actions/DetailsForm.Actions';
+import './Array/Dropdown/DetailsForm.Array.Dropdown';
 import './Array/Entity/DetailsForm.Array.Entity';
 import './Checkbox/DetailsForm.Checkbox';
 import './Date/DetailsForm.Date';
