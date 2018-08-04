@@ -1,10 +1,10 @@
 template(name="DetailsFormActions")
   if actions
     each action in actions
-      if isButton action
+      if isType action 'link'
         .m-sm
           a.btn.btn-block.p-xs(class='btn-{{action.style}}' href='{{getActionPath action}}') {{getEntityTranslation action.key}}
-      if isConfirm action
+      else if isType action 'confirm'
         .m-sm
           .confirm-button.btn.btn-block.p-xs(class='btn-{{action.style}}' method='{{action.method}}' route='{{action.route}}' key='{{action.key}}')
             | {{getEntityTranslation action.key}}

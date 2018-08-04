@@ -1,11 +1,8 @@
 import './DetailsForm.Actions.jade';
 
 Template.DetailsFormActions.helpers({
-  isButton(action) {
-    return action.type == 'link';
-  },
-  isConfirm(action) {
-    return action.type == 'confirm';
+  isType(action, type) {
+    return action.type == type;
   },
   getActionPath(action) {
     return FlowRouter.path(
