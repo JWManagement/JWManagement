@@ -1,7 +1,7 @@
 import Languages from '/imports/api/dropdowns/Languages.js';
 
 Template['vessel.visit.language.insert'].helpers({
-  dat: {
+  data: {
     backLink: 'vessel.visit.details',
     fields: [{
       key: 'languageIds',
