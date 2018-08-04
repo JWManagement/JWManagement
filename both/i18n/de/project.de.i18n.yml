@@ -15,10 +15,12 @@ project:
         store: Depot
         vessels: Schiffe
         notes: Notizen
+        leave: Projekt verlassen
     details:
         sections:
             project: Projekt
             modules: Module
             administration: Verwaltung
+            participation: Teilnahme
     search:
         placeholder: Suche nach Projekten

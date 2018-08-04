@@ -75,6 +75,14 @@ Template['project.details'].helpers({
       icon: 'note',
       canSee: Permissions.shiftAndStoreAdmin
     }]
+  }, {
+    title: 'participation',
+    contents: [{
+      key: 'leave',
+      type: 'link',
+      route: 'project.leave.insert',
+      icon: 'meeting_room'
+    }]
   }]
   }
 });

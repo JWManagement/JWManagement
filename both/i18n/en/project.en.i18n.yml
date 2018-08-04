@@ -15,10 +15,12 @@ project:
         store: Store
         vessels: Vessels
         notes: Notes
+        leave: Leave project
     details:
         sections:
             project: Project
             modules: Modules
             administration: Administration
+            participation: Participation
     search:
         placeholder: Search for projects
