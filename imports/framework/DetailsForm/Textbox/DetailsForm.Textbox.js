@@ -1,6 +1,6 @@
 import './DetailsForm.Textbox.jade';
 
-import { getValue, getKey } from '../DetailsForm';
+import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm';
 
 Template.DetailsFormTextbox.helpers({
   getKey,

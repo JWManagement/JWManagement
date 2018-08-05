@@ -1,6 +1,9 @@
 import './DetailsForm.Navigation.jade';
 
+import { getTitle } from '/imports/framework/DetailsForm/DetailsForm';
+
 Template.DetailsFormNavigation.helpers({
+  getTitle,
   hasBackLink() {
     if (Template.currentData().data) {
       return Template.currentData().data.backLink != null;

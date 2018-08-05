@@ -22,8 +22,6 @@ import './Header/DetailsForm.Header';
 
 export { getValue, getKey, isType, loadData };
 
-// delete
-
 Template.DetailsForm.helpers({
   getKey,
   getValue,
@@ -131,6 +129,25 @@ Template.DetailsForm.helpers({
       }
       return entity[field.key];
     }
+  },
+  getNoElementsTranslation(item) {
+    let translationString = [];
+
+    if (item.action) {
+      if (item.action.type == 'route') {
+        translationString = item.action.route.split('.');
+      } else if (item.action.type == 'method') {
+        translationString = item.action.method.split('.');
+      }
+    } else {
+      translationString = item.link.split('.');
+    }
+
+    translationString.pop();
+    translationString.splice(1, 0, 'entity');
+    translationString.push('noElements');
+
+    return TAPi18n.__(translationString.join('.').replace(/_/g, '.'));
   }
 });
 

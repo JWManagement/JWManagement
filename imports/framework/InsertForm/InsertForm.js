@@ -1,16 +1,25 @@
 import './InsertForm.jade';
 import './InsertForm.scss';
 
-import './InsertFormCheckboxInput.js';
-import './InsertFormDateInput.js';
-import './InsertFormDropdownInput.js';
-import './InsertFormLink.js';
-import './InsertFormPasswordInput.js';
-import './InsertFormPickerInput.js';
-import './InsertFormTextboxInput.js';
-import './InsertFormTextInput.js';
+import './InsertFormCheckboxInput';
+import './InsertFormDateInput';
+import './InsertFormDropdownInput';
+import './InsertFormLink';
+import './InsertFormPasswordInput';
+import './InsertFormPickerInput';
+import './InsertFormTextboxInput';
+import './InsertFormTextInput';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
 
 Template.InsertForm.helpers({
+  getKey,
+  getEntityTranslation,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   getBackLink() {
     FlowRouter.getParam('language');
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
@@ -127,6 +136,13 @@ Template.InsertForm.helpers({
   },
   isSaving() {
     return Template.instance().isSaving.get();
+  },
+  isRequired() {
+    const data = Template.currentData().data;
+    if (data.required != null) {
+      return data.required;
+    }
+    return false;
   }
 });
 

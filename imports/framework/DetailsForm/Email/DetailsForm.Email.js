@@ -1,8 +1,9 @@
 import './DetailsForm.Email.jade';
 
-import { getValue } from '../DetailsForm';
+import { getValue } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
-Template.DetailsFormEmail.helpers({ getValue });
+Template.DetailsFormEmail.helpers({ getValue, getEntityTranslation });
 
 Template.DetailsFormEmail.onCreated(() => {});
 

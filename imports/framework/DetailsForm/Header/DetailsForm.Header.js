@@ -1,6 +1,6 @@
 import './DetailsForm.Header.jade';
 
-import { getValue } from '../DetailsForm';
+import { getValue } from '/imports/framework/DetailsForm/DetailsForm';
 
 Template.DetailsFormHeader.helpers({
   getValueByKey(key, entity) {

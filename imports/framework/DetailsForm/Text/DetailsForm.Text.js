@@ -1,10 +1,12 @@
 import './DetailsForm.Text.jade';
 
-import { getValue, getKey } from '../DetailsForm';
+import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormText.helpers({
   getKey,
-  getValue
+  getValue,
+  getEntityTranslation
 });
 
 Template.DetailsFormText.onCreated(() => {});

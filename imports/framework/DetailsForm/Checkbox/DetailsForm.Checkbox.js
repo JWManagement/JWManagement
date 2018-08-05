@@ -1,8 +1,10 @@
 import './DetailsForm.Checkbox.jade';
 
-import { getKey, getValue } from '../DetailsForm';
+import { getKey, getValue } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormCheckbox.helpers({
+  getEntityTranslation,
   getKey,
   getValue(definition, entity) {
     let value = entity;

@@ -1,8 +1,9 @@
 import './DetailsForm.Phone.jade';
 
-import { getValue } from '../DetailsForm';
+import { getValue } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
-Template.DetailsFormPhone.helpers({ getValue });
+Template.DetailsFormPhone.helpers({ getValue, getEntityTranslation });
 
 Template.DetailsFormPhone.onCreated(() => {});
 

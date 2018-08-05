@@ -1,16 +1,25 @@
 import './UpdateForm.jade';
 import './UpdateForm.scss';
 
-import './UpdateFormTextInput.js';
-import './UpdateFormDateInput.js';
-import './UpdateFormDropdownInput.js';
-import './UpdateFormPickerInput.js';
-import './UpdateFormCheckboxInput.js';
-import './UpdateFormTextboxInput.js';
+import './UpdateFormTextInput';
+import './UpdateFormDateInput';
+import './UpdateFormDropdownInput';
+import './UpdateFormPickerInput';
+import './UpdateFormCheckboxInput';
+import './UpdateFormTextboxInput';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
 
 const possibleUpdateTypes = ['date', 'checkbox', 'dropdown', 'picker', 'textbox'];
 
 Template.UpdateForm.helpers({
+  getEntityTranslation,
+  getKey,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   getBackLink() {
     FlowRouter.getParam('language');
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);

@@ -1,6 +1,9 @@
 import './DetailsForm.Actions.jade';
 
+import { getEntityTranslation } from '/imports/framework/Helpers';
+
 Template.DetailsFormActions.helpers({
+  getEntityTranslation,
   isType(action, type) {
     return action.type == type;
   },

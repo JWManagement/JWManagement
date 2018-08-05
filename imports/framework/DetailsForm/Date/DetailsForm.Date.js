@@ -2,9 +2,11 @@ import moment from 'moment';
 
 import './DetailsForm.Date.jade';
 
-import { getValue, getKey } from '../DetailsForm';
+import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormDate.helpers({
+  getEntityTranslation,
   getKey,
   getValue(definition, entity) {
     const value = getValue(definition, entity);

@@ -3,7 +3,10 @@ import RouteManager from '/imports/api/managers/RouteManager.js';
 import './SearchForm.jade';
 import './SearchForm.scss';
 
+import { getTitle } from '/imports/framework/Helpers';
+
 Template.SearchForm.helpers({
+  getTitle,
   getBackLink() {
     FlowRouter.getParam('language');
     return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params);

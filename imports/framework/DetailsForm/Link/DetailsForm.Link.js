@@ -1,10 +1,12 @@
 import './DetailsForm.Link.jade';
 
-import { getValue, getKey } from '../DetailsForm';
+import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormLink.helpers({
   getKey,
-  getValue
+  getValue,
+  getEntityTranslation
 });
 
 Template.DetailsFormLink.onCreated(() => {});

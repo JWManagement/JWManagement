@@ -2,9 +2,11 @@ import moment from 'moment';
 
 import './DetailsForm.Array.Entity.jade';
 
-import { getValue, getKey, isType } from '../../DetailsForm';
+import { getValue, getKey, isType } from '/imports/framework/DetailsForm/DetailsForm';
+import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormArrayEntity.helpers({
+  getEntityTranslation,
   getKey,
   getValue(definition, entity) {
     const value = getValue(definition, entity);

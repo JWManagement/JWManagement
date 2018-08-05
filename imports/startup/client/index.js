@@ -20,7 +20,6 @@ import '/imports/framework/DetailsForm/DetailsForm.js';
 import '/imports/framework/InsertForm/InsertForm.js';
 import '/imports/framework/SearchForm/SearchForm.js';
 import '/imports/framework/UpdateForm/UpdateForm.js';
-import '/imports/framework/templateHelpers.js';
 
 import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details.js';
