@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/JWDeveloper/JWManagement.svg?branch=develop)](https://travis-ci.org/JWDeveloper/JWManagement)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7dd7bb38cf769432c906/maintainability)](https://codeclimate.com/github/JWDeveloper/JWManagement/maintainability)
 
 # What is JW Management?
 
