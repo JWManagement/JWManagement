@@ -73,6 +73,12 @@ Meteor.methods({
     checkPermissions(projectId, userId);
 
     const publisher = getExtendedPublisher(userId, projectId, language);
+    const project = Projects.findOne(projectId, {
+      fields: {
+        'tags._id': 1,
+        'tags.name': 1
+      }
+    });
 
     if (publisher != undefined) {
       publisher.profile.availability = {
@@ -86,16 +92,29 @@ Meteor.methods({
       };
     }
 
+    const projectRole = Roles.getRolesForUser(publisher, projectId)[0];
+
     publisher.permissions = {
-      project: 'Member',
-      tags: [{
-        key: 'Trolley',
-        value: 'Teamleader'
-      }, {
-        key: 'Infostand',
-        value: 'Participant'
-      }]
+      project: TAPi18n.__('role.' + projectRole, {}, language),
+      tags: []
     };
+
+    for (let tag of project.tags) {
+      const tagRoles = Roles.getRolesForUser(publisher, tag._id);
+      let tagRole = 'nothing';
+
+      if (tagRoles.length > 0) {
+        tagRole = tagRoles[0];
+      }
+
+      publisher.permissions.tags.push({
+        _id: tag._id,
+        tag: tag.name,
+        role: TAPi18n.__('role.' + tagRole, {}, language)
+      });
+    }
+
+    delete publisher.roles;
 
     return publisher;
   },
@@ -493,7 +512,8 @@ function getExtendedPublisher(userId, projectId, language) {
       'profile.available': 1,
       'profile.shortTermCalls': 1,
       'profile.shortTermCallsAlways': 1,
-      'profile.vacations': 1
+      'profile.vacations': 1,
+      roles: 1
     }
   });
 

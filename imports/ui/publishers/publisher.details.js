@@ -93,17 +93,28 @@ Template['publisher.details'].helpers({
         route: 'publisher.profile.vacation.insert'
       }]
     }, {
-      title: 'permissions',
+      title: 'projectPermissions',
       contents: [{
         key: 'permissions_project',
         type: 'text'
-      }, {
+      }]
+    }, {
+      title: 'tagPermissions',
+      contents: [{
         key: 'permissions_tags',
-        type: [{
+        type: 'array',
+        item: {
           key: 'tag',
-          type: 'keyValue',
-          link: 'publisher.permission.details'
-        }]
+          link: 'publisher.permissions.tag.update',
+          type: 'entity',
+          rows: [{
+            key: 'tag',
+            type: 'text'
+          }, {
+            key: 'role',
+            type: 'text'
+          }]
+        }
       }]
     }, {
       title: 'password',
