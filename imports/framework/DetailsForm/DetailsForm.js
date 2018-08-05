@@ -82,10 +82,10 @@ Template.DetailsForm.helpers({
                 content.readonly = item.createdBy != Meteor.userId();
               }
             }
-            if (typeof(content.type) == 'object' && content.type.length > 0) {
-              if ('click' in content.type[0] && 'canDo' in content.type[0].click) {
-                if (content.type[0].click.canDo == 'author' && item.createdBy != Meteor.userId()) {
-                  delete content.type[0].click;
+            if (content.type == 'array') {
+              if ('action' in content.item && 'canDo' in content.item.action) {
+                if (content.item.action.canDo == 'author' && item.createdBy != Meteor.userId()) {
+                  delete content.item.action;
                 }
               }
             }
