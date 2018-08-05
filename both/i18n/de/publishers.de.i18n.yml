@@ -101,7 +101,7 @@ publisher:
                 end: Ende
                 new: Neuen Urlaub eintragen
                 noElements: Kein Urlaub eingetragen
-                deleteConfirmation: Möchtest du diesen Urlaub wirklich löschen?
+                methodConfirmation: Möchtest du diesen Urlaub wirklich löschen?
                 startDateFormat: DD.MM.YYYY [bis]
                 endDateFormat: DD.MM.YYYY
         password:

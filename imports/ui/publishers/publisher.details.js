@@ -77,14 +77,16 @@ Template['publisher.details'].helpers({
       title: 'vacations',
       contents: [{
         key: 'profile_vacations',
-        type: [{
+        type: 'array',
+        item: {
           key: 'display',
-          type: 'delete',
-          click: {
-            type: 'delete',
+          type: 'link',
+          action: {
+            type: 'method',
+            icon: 'trash',
             method: 'publisher.profile.vacation.delete'
           }
-        }]
+        }
       }],
       actions: [{
         key: 'profile.vacation.new',

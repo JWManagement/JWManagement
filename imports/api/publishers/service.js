@@ -415,7 +415,7 @@ Meteor.methods({
       availability: timeslots
     };
   },
-  'publisher.profile.availability.delete': ({ language, projectId, userId, key, timeslot }) => {
+  'publisher.profile.availability.delete': ({ language, projectId, userId, key }, timeslot) => {
     checkPermissions(projectId, userId);
 
     const publisher = Users.findOne(userId);
@@ -465,7 +465,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.vacation.delete': ({ language, projectId, userId, display }) => {
+  'publisher.profile.vacation.delete': ({ language, projectId, userId }, vacationId) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -473,7 +473,7 @@ Meteor.methods({
       let newVacations = [];
 
       for (let vacation of vacations) {
-        if (vacation._id != display) {
+        if (vacation._id != vacationId) {
           newVacations.push(vacation);
         }
       }

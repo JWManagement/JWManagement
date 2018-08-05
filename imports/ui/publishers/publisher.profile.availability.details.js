@@ -11,14 +11,16 @@ Template['publisher.profile.availability.details'].helpers({
         title: params.key.split('_').pop(),
         contents: [{
           key: 'availability',
-          type: [{
+          type: 'array',
+          item: {
             key: 'timeslot',
-            type: 'delete',
-            click: {
-              type: 'delete',
+            type: 'link',
+            action: {
+              type: 'method',
+              icon: 'trash',
               method: 'publisher.profile.availability.delete'
             }
-          }]
+          }
         }],
         actions: [{
           key: 'new',

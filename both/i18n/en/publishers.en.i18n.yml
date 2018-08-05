@@ -101,7 +101,7 @@ publisher:
                 end: End
                 new: Add new vacation
                 noElements: No vacations added
-                deleteConfirmation: Do you really want to delete this vacation?
+                methodConfirmation: Do you really want to delete this vacation?
                 startDateFormat: MM/DD/YYYY [until]
                 endDateFormat: MM/DD/YYYY
         password:

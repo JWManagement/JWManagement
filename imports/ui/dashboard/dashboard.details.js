@@ -8,14 +8,16 @@ Template['dashboard.details'].helpers({
       title: 'myProjects',
       contents: [{
         key: 'myProjects',
-        icon: 'group',
-        type: [{
+        type: 'array',
+        item: {
           key: 'project',
-          click: {
-            type: 'link',
-            link: 'project.details'
+          type: 'link',
+          icon: 'group',
+          action: {
+            type: 'route',
+            route: 'project.details'
           }
-        }]
+        }
       }]
     }, {
       title: 'missingShiftReports',
