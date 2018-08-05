@@ -31,4 +31,18 @@ Template.DetailsFormArrayEntity.onRendered(() => {});
 
 Template.DetailsFormArrayEntity.onDestroyed(() => {});
 
-Template.DetailsFormArrayEntity.events({});
+Template.DetailsFormArrayEntity.events({
+  'click tr.array-item': (e) => {
+    e.stopPropagation();
+
+    const data = Template.currentData();
+    const link = data.definition.link;
+    const key = data.definition.key;
+    const entityId = data.entity._id;
+
+    let params = FlowRouter.current().params;
+    params[key + 'Id'] = entityId;
+
+    FlowRouter.go(FlowRouter.path(link, params));
+  }
+});

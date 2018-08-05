@@ -215,17 +215,6 @@ Template.DetailsForm.events({
       FlowRouter.go(FlowRouter.path(clickLink, params));
     }
   },
-  'click tr.array-item': (e) => {
-    e.stopPropagation();
-    const $tr = $(e.target).closest('tr.array-item');
-    const entityKey = $tr.attr('entityKey');
-    const entityId = $tr.attr('entityId');
-    const entityLink = $tr.attr('entityLink');
-    let params = FlowRouter.current().params;
-    params[entityKey] = entityId;
-
-    FlowRouter.go(FlowRouter.path(entityLink, params));
-  },
   'click .confirm-button': (e) => {
     const key = $(e.target).attr('key');
     const method = $(e.target).attr('method');
