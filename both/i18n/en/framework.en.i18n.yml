@@ -13,6 +13,7 @@ validation:
     minString8: The password has to be at least 8 characters long
     passwordMismatch: The passwords do not match
     hasToBeBigger: This value has to be bigger
+    regEx: This is not a valid email address
 detailsForm:
     yes: Yes
     no: No

@@ -150,7 +150,7 @@ Meteor.methods
 
 	cancelParticipation: (shiftId, teamId) ->
 		user = Meteor.user()
-		userId = user._id
+		userId = Meteor.userId()
 		shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1, tagId: 1, date: 1, projectId: 1
 
 		if Meteor.isServer

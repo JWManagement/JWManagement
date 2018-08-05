@@ -9,9 +9,10 @@ Meteor.methods
 		newUser = Meteor.users.findOne userId,
 			fields: _id: 1
 
-		if oldUser? && newUser?
+		if oldUser? && newUser? && oldUser.roles?
 			for id in Object.keys(oldUser.roles)
-				Roles.addUsersToRoles userId, oldUser.roles[id][0], id
+				if oldUser.roles[id]? && oldUser.roles[id][0]?
+					Roles.addUsersToRoles userId, oldUser.roles[id][0], id
 
 			Meteor.users.remove oldUser._id
 

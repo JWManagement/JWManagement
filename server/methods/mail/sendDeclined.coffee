@@ -38,9 +38,3 @@ Meteor.methods
 					set = {}
 					set['teams.' + teamNr + '.declined.' + declinedNr + '.informed'] = true
 					Shifts.update shift._id, $set: set
-
-			Push.send
-				from: project.name
-				title: TAPi18n.__('push.declined.headline', user.profile.language)
-				text: TAPi18n.__('push.declined.text1', {date: date, time: time}, user.profile.language)
-				query: userId: user._id

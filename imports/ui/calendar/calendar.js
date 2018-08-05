@@ -23,7 +23,7 @@ Template.calendar.helpers({
 Template.calendar.onCreated(() => {
   const template = Template.instance();
 
-  template.selectedDate = Date();
+  template.selectedDate = new Date();
   template.selectedDateShifts = new ReactiveVar([]);
   template.loadShifts = loadShifts;
   template.setDate = setDate;

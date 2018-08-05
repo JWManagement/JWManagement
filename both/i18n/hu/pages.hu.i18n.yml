@@ -259,9 +259,3 @@ firstLogin:
     usernameExists: This username is already in use. Please choose another one.
     usernameMissing: Adj meg egy felhasználónevet!
     agreeTermsMissing: Kérünk, fogadd el a használati feltételeket és az adatvédelmi irányelvet.
-terms:
-    title: Használási feltételek (angol)
-    back: Vissza a kezdő oldalra
-privacy:
-    title: Adatvédelmi irányelvek (angol)
-    back: Vissza a kezdőoldalra

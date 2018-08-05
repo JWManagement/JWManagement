@@ -66,13 +66,13 @@ Meteor.methods
 					hasTeamleader = false
 					isTeamleader = false
 
-					for participant in team.participants
+					for participant in team.participants when participant?
 						if participant.thisTeamleader
 							hasTeamleader = true
 						if participant._id == userId
 							isTeamleader = (participant.teamleader || participant.substituteTeamleader)
 
-					for approvedUser in team.pending.concat(team.declined) when approvedUser._id == userId
+					for approvedUser in team.pending.concat(team.declined) when approvedUser? && approvedUser._id == userId
 						approvedUser.thisTeamleader = (!hasTeamleader && isTeamleader)
 						approvedUser.checked = false
 

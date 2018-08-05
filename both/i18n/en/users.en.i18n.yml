@@ -4,6 +4,6 @@ user:
     entity:
         username: Username
         profile:
-            firstname: Firstname
-            lastname: Lastname
+            firstname: First name
+            lastname: Last name
             email: Email
