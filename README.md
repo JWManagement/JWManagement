@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/JWDeveloper/JWManagement.svg?branch=develop)](https://travis-ci.org/JWDeveloper/JWManagement)
+
 # What is JW Management?
 
 JW Management is a highly configurable shift management system for Jehovah's Witnesses.
