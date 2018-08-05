@@ -44,19 +44,12 @@ template(name="DetailsForm")
                           each item in getValue field getItem
                             +DetailsFormArrayDropdown definition=field.item entity=item
 
+                        else if isType field.item 'link'
+                          each item in getValue field getItem
+                            +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
+
                         else
-                          each entity in getValue field
-                            h1 ELSE
-                            .input.form-group.array-item(key='{{getKey field.item}}' clickType='{{field.item.click.type}}' clickMethod='{{field.item.click.method}}' clickLink='{{field.item.click.link}}' entityId='{{entity._id}}')
-                              .key
-                                if field.item.icon
-                                  i.material-icons {{field.item.icon}}
-                                | {{getProperty entity field.item}}
-                              .value
-                                if isType field.item 'delete'
-                                  i.fa.fa-trash.icon
-                                else
-                                  i.fa.fa-angle-right.icon
+                          h1 Unsupported array type
 
                     else if isType field 'phone'
                       +DetailsFormPhone definition=field entity=getItem

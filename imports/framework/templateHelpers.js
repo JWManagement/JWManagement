@@ -28,13 +28,17 @@ Template.registerHelper('getEntityTranslation', (key, suffix) => {
   return TAPi18n.__(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'));
 });
 
-Template.registerHelper('getNoElementsTranslation', ({click, link}) => {
-  let translationString;
+Template.registerHelper('getNoElementsTranslation', (item) => {
+  let translationString = [];
 
-  if (click != null) {
-    translationString = click.method.split('.');
+  if (item.action) {
+    if (item.action.type == 'route') {
+      translationString = item.action.route.split('.');
+    } else if (item.action.type == 'method') {
+      translationString = item.action.method.split('.');
+    }
   } else {
-    translationString = link.split('.');
+    translationString = item.link.split('.');
   }
 
   translationString.pop();

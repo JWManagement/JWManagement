@@ -20,7 +20,7 @@ import './Text/DetailsForm.Text';
 import './Textbox/DetailsForm.Textbox';
 import './Header/DetailsForm.Header';
 
-export { getValue, getKey, isType };
+export { getValue, getKey, isType, loadData };
 
 // delete
 
@@ -42,6 +42,9 @@ Template.DetailsForm.helpers({
   getItem() {
     const template = Template.instance();
     return template.item.get();
+  },
+  getInstance() {
+    return Template.instance();
   },
   isLoading() {
     return Template.instance().isLoading.get();
@@ -182,40 +185,6 @@ Template.DetailsForm.events({
       FlowRouter.go(FlowRouter.path(link, params));
     } else {
       RouteManager.navigateToUpdate(key);
-    }
-  },
-  'click .input.array-item': (e, template) => {
-    e.stopPropagation();
-    const $e = $(e.target).closest('.input');
-    const clickType = $e.attr('clickType');
-    const clickMethod = $e.attr('clickMethod');
-    const clickLink = $e.attr('clickLink');
-    const entityId = $e.attr('entityId');
-    let entityKey = $e.attr('key');
-
-    if (clickType == 'delete') {
-      let messagePathParts = clickMethod.split('.');
-      messagePathParts.pop();
-      messagePathParts.splice(1, 0, 'entity');
-      messagePathParts.push(clickType + 'Confirmation');
-
-      let params = FlowRouter.current().params;
-      params[entityKey]= entityId;
-
-      if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
-        Meteor.call(clickMethod, params, entityId, (e, r) => {
-          if (e == null) {
-            loadData(template);
-          } else {
-            alert('SERVER ERROR');
-          }
-        });
-      }
-    } else if (clickType == 'link') {
-      let params = FlowRouter.current().params;
-      params[entityKey + 'Id'] = entityId;
-
-      FlowRouter.go(FlowRouter.path(clickLink, params));
     }
   },
   'click .confirm-button': (e) => {
