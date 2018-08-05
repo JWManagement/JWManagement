@@ -40,13 +40,13 @@ template(name="DetailsForm")
                           each item in getValue field getItem
                             +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
 
+                        else if isType field.item 'dropdown'
+                          each item in getValue field getItem
+                            +DetailsFormArrayDropdown definition=field.item entity=item parentInstance=getInstance
+
                         else if isType field.item 'entity'
                           each item in getValue field getItem
                             +DetailsFormArrayEntity definition=field.item entity=item
-
-                        else if isType field.item 'dropdown'
-                          each item in getValue field getItem
-                            +DetailsFormArrayDropdown definition=field.item entity=item
 
                         else
                           h1 Unsupported array type

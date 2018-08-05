@@ -1,9 +1,14 @@
 template(name="DetailsFormArrayDropdown")
-  if definition.click
-    .input.form-group.array-item(key='{{getKey definition}}' clickType='{{definition.click.type}}' clickMethod='{{definition.click.method}}' entityId='{{entity._id}}')
-      .key {{getValue entity}}
-      .value
-        i.fa.fa-trash.icon
-  else
-    .form-group
-      .key {{getValue entity}}
+
+  .input.form-group.array-item
+
+    .key
+      if definition.icon
+        i.material-icons {{definition.icon}}
+      | {{getValue entity}}
+
+    .value
+      if isType definition.action 'method'
+        i.fa.icon(class="fa-{{definition.action.icon}}")
+      else
+        i.fa.fa-angle-right.icon
