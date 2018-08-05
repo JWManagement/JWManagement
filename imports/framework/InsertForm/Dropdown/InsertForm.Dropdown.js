@@ -1,4 +1,15 @@
-Template.InsertFormDropdownInput.helpers({
+import './InsertForm.Dropdown.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.InsertFormDropdown.helpers({
+  getKey,
+  getEntityTranslation,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   isAllowedValues() {
     const template = Template.instance();
     return template.allowedValues != null;
@@ -22,7 +33,7 @@ Template.InsertFormDropdownInput.helpers({
   }
 });
 
-Template.InsertFormDropdownInput.onCreated(() => {
+Template.InsertFormDropdown.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -44,7 +55,7 @@ Template.InsertFormDropdownInput.onCreated(() => {
   }
 });
 
-Template.InsertFormDropdownInput.onRendered(() => {
+Template.InsertFormDropdown.onRendered(() => {
   const template = Template.instance();
 
   Tracker.afterFlush(() => {
@@ -52,9 +63,9 @@ Template.InsertFormDropdownInput.onRendered(() => {
   });
 });
 
-Template.InsertFormDropdownInput.onDestroyed(() => {});
+Template.InsertFormDropdown.onDestroyed(() => {});
 
-Template.InsertFormDropdownInput.events({
+Template.InsertFormDropdown.events({
   'change select': (e, template) => {
     const value = $(e.target).val();
 

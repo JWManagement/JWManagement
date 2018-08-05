@@ -1,4 +1,15 @@
-Template.InsertFormPickerInput.helpers({
+import './InsertForm.Picker.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.InsertFormPicker.helpers({
+  getKey,
+  getEntityTranslation,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   isAllowedValues() {
     const template = Template.instance();
     return template.allowedValues != null;
@@ -62,7 +73,7 @@ Template.InsertFormPickerInput.helpers({
   }
 });
 
-Template.InsertFormPickerInput.onCreated(() => {
+Template.InsertFormPicker.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -84,11 +95,11 @@ Template.InsertFormPickerInput.onCreated(() => {
   }
 });
 
-Template.InsertFormPickerInput.onRendered(() => {});
+Template.InsertFormPicker.onRendered(() => {});
 
-Template.InsertFormPickerInput.onDestroyed(() => {});
+Template.InsertFormPicker.onDestroyed(() => {});
 
-Template.InsertFormPickerInput.events({
+Template.InsertFormPicker.events({
   'click .form-group': function(e, template) {
     const key = $(e.target).closest('.section').attr('key');
     const value = $(e.target).closest('.form-group').attr('key');

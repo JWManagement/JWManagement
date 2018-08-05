@@ -1,0 +1,21 @@
+template(name="InsertFormPicker")
+
+  .section(key='{{getKey}}')
+    .section-picker
+
+      if isAllowedValues
+        each item in getItems
+          .form-group(key='{{item}}')
+            .checkmark
+              if isChecked item
+                i.icon.fa.fa-check
+            +with item
+              .key {{getEntityTranslation getItemKey}}
+
+      else if isAllowedKeyValues
+        each keyValue in getKeyValues
+          .form-group(key='{{keyValue.key}}')
+            .checkmark
+              if isChecked keyValue.key
+                i.icon.fa.fa-check
+            .key {{keyValue.value}}

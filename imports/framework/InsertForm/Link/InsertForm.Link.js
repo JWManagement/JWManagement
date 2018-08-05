@@ -1,4 +1,15 @@
+import './InsertForm.Link.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
 Template.InsertFormLink.helpers({
+  getKey,
+  getEntityTranslation,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   getValue() {
     const template = Template.instance();
 

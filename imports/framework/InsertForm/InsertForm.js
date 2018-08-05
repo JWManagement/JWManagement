@@ -1,14 +1,14 @@
 import './InsertForm.jade';
 import './InsertForm.scss';
 
-import './InsertFormCheckboxInput';
-import './InsertFormDateInput';
-import './InsertFormDropdownInput';
-import './InsertFormLink';
-import './InsertFormPasswordInput';
-import './InsertFormPickerInput';
-import './InsertFormTextboxInput';
-import './InsertFormTextInput';
+import './Checkbox/InsertForm.Checkbox';
+import './Date/InsertForm.Date';
+import './Dropdown/InsertForm.Dropdown';
+import './Link/InsertForm.Link';
+import './Password/InsertForm.Password';
+import './Picker/InsertForm.Picker';
+import './Text/InsertForm.Text';
+import './Textbox/InsertForm.Textbox';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';

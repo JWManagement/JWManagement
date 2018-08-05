@@ -1,6 +1,17 @@
 import autosize from 'autosize';
 
-Template.InsertFormTextboxInput.helpers({
+import './InsertForm.Textbox.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.InsertFormTextbox.helpers({
+  getKey,
+  getEntityTranslation,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   getValue() {
     const data = Template.currentData().data;
     if (data.value != null) {
@@ -10,7 +21,7 @@ Template.InsertFormTextboxInput.helpers({
   }
 });
 
-Template.InsertFormTextboxInput.onCreated(() => {
+Template.InsertFormTextbox.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -18,13 +29,13 @@ Template.InsertFormTextboxInput.onCreated(() => {
   template.insertForm = data.parentInstance;
 });
 
-Template.InsertFormTextboxInput.onRendered(() => {
+Template.InsertFormTextbox.onRendered(() => {
   autosize(document.querySelectorAll('textarea'));
 });
 
-Template.InsertFormTextboxInput.onDestroyed(() => {});
+Template.InsertFormTextbox.onDestroyed(() => {});
 
-Template.InsertFormTextboxInput.events({
+Template.InsertFormTextbox.events({
   'change textarea': (e, template) => {
     const value = $(e.target).val().trim();
 

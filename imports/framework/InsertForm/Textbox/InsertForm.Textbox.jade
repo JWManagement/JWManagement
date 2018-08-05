@@ -1,0 +1,16 @@
+template(name="InsertFormTextbox")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header
+      | {{getEntityTranslation getKey}}
+      if isRequired
+        | *
+
+    .section-content
+      .text-input
+        textarea(placeholder='{{getEntityTranslation getKey}}') {{getValue}}
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}
