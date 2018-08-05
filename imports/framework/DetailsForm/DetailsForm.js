@@ -8,6 +8,7 @@ import './DetailsForm.scss';
 import './Actions/DetailsForm.Actions';
 import './Array/Dropdown/DetailsForm.Array.Dropdown';
 import './Array/Entity/DetailsForm.Array.Entity';
+import './Array/Link/DetailsForm.Array.Link';
 import './Checkbox/DetailsForm.Checkbox';
 import './Date/DetailsForm.Date';
 import './Dropdown/DetailsForm.Dropdown';
@@ -27,7 +28,9 @@ Template.DetailsForm.helpers({
   getKey,
   getValue,
   isEmptyArray(field) {
-    return getValue(field, Template.instance().item.get()).length == 0;
+    const template = Template.instance();
+    const value = getValue(field, template.item.get());
+    return value.length == 0;
   },
   getSectionTranslation(key) {
     return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'));
