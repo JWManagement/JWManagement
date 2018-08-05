@@ -1,0 +1,10 @@
+sudo: required
+language: node_js
+node_js:
+  - "8"
+before_install:
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/6a3a7afc21be99f1afedbd2856d060a02755de6d/configure.sh | /bin/sh"
+services:
+  - mongodb
+env:
+  - LAIKA_OPTIONS="-t 5000"
