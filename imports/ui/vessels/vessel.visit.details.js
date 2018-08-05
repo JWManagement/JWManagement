@@ -57,8 +57,9 @@ Template['vessel.visit.details'].helpers({
           key: 'languageId',
           type: 'dropdown',
           allowedValues: Languages.allowedValues,
-          click: {
-            type: 'delete',
+          action: {
+            type: 'method',
+            icon: 'trash',
             method: 'vessel.visit.language.delete',
             canDo: 'author'
           }
