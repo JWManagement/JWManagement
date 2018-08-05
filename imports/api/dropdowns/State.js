@@ -1,5 +1,5 @@
 export default State = {
-    CREATED: 'created',
-    INVITED: 'invited',
-    ACTIVE: 'active'
+  CREATED: 'created',
+  INVITED: 'invited',
+  ACTIVE: 'active'
 }

@@ -1,8 +1,8 @@
+moment = require('moment')
+
 Template.profile.helpers
 
 	isField: (field, val) -> 'selected' if @profile? and @profile[field] == val
-
-	picture: -> Pictures.findOne userId: Meteor.userId()
 
 	isAvailable: (day, hour) ->
 		if @profile.available? && Object.keys(@profile.available).length > 0
@@ -32,16 +32,12 @@ Template.profile.onRendered ->
 Template.profile.onDestroyed ->
 
 	$('#mergeAccountsModal').modal('hide')
-	$('#editProfilePictureModal').modal('hide')
 	Session.set('target', undefined)
 
 Template.profile.events
 
 	'change #username': (e) ->
 		$('#username').val(Validations.cleanedUsername(e.target.value))
-
-	'click .profile-image': (e) ->
-		wrs -> FlowRouter.setQueryParams editProfilePicture: true
 
 	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, handleSuccess
 
@@ -80,6 +76,13 @@ Template.profile.events
 			Meteor.call 'updateProfile', 'shortTermCallsAlways', false
 
 	'change #shortTermCallsAlways': (e) -> Meteor.call 'updateProfile', 'shortTermCallsAlways', e.target.checked, handleSuccess
+
+	'change #notifyViaPush': (e) ->
+		Meteor.call 'updateProfile', 'notifyViaPush', e.target.checked, handleSuccess
+		if e.target.checked == false
+			Meteor.call 'updateProfile', 'notifyViaEmail', false
+
+	'change #notifyViaPush': (e) -> Meteor.call 'updateProfile', 'notifyViaEmail', e.target.checked, handleSuccess
 
 	'click #mergeAccounts': ->
 		wrs -> FlowRouter.setQueryParams mergeAccounts: true

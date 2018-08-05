@@ -1,15 +1,19 @@
 navigation:
     welcome: Willkommen
     home: Übersicht
+    dashboard:
+        details: Übersicht
     profile: Mein Profil
     shifts: Schichten
     calendar: Kalender
     wiki: Informationen
-    admin:
+    project:
+        search: Projekte
         details: Verwaltung
     settings: Einstellungen
-    users: Benutzer
     user:
+        search: Benutzer
+    publisher:
         search: Verkündiger
         details: Verkündigerdaten
         update: Verkündiger bearbeiten
@@ -40,6 +44,9 @@ navigation:
         details: Notizdaten
         update: Notiz bearbeiten
         insert: Neue Notiz erfassen
+    language:
+        details: Sprache
+        update: Sprache ändern
     login: Anmelden
     logout: Abmelden
     loggingOut: Abmelden...

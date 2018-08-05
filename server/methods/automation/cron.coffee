@@ -1,5 +1,5 @@
-import { backup } from './backup.coffee'
-import { shiftValidation } from './shiftValidation.coffee'
+{ backup } = require('./backup.coffee')
+{ shiftValidation } = require('./shiftValidation.coffee')
 
 Meteor.startup -> if Meteor.isProduction
 

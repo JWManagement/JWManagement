@@ -1,0 +1,27 @@
+project:
+    nameShort: Admin
+    entity:
+        _id: ID
+        name: Name
+        news:
+            text: News
+        shifts: Shifts
+        calendar: Calendar
+        knowledgeBase: Knowledge Base
+        settings: Settings
+        users: Users
+        publishers: Publishers
+        reports: Reports
+        store: Store
+        vessels: Vessels
+        notes: Notes
+        leave: Leave project
+        leaveConfirmation: Do you really want to leave this project? This can't be undone.
+    details:
+        sections:
+            project: Project
+            modules: Modules
+            administration: Administration
+            participation: Participation
+    search:
+        placeholder: Search for projects

@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.day.helpers
 
 	today: -> 'today' if @date == parseInt(moment(new Date).format('YYYYDDDD'))

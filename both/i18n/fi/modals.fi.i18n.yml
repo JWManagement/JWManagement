@@ -51,11 +51,6 @@ modal:
             substituteTeamleader: Tiimivastaavan apulaisella on samat käyttöoikeudet, kuin tiimivastaavalla.
             participant: Osallistuja näkee vuorot, jotka on luotu tietyillä tunnisteilla (liitetty julistajaan) ja voi ilmoittautua niihin.
             nothing: Ei mitään käyttöoikeusroolilla käyttäjä ei näe tunnisteilla merkittyjä vuoroja eikä voi ilmoittautua niihin. Häntä ei myöskään voi liittää mihinkään vuoroon.
-    editProfilePicture:
-        title: Vaihda profiilikuva
-        text: Kuvan tulisi olla vähintään 256x256 pistettä. Hyväksytyt formaatit ovat JPEG ja PNG.
-        upload: Lataa kuva
-        remove: Poista kuva
     editShift:
         title: Muokkaa vuoron tietoja
         mainData: Perustiedot

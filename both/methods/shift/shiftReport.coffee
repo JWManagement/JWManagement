@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	initReport: (shiftId, teamId) ->

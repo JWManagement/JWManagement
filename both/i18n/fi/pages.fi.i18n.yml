@@ -71,35 +71,6 @@ profile:
     addVacation: Lisää loma
     deleteVacation: Poista tämä loma
     usernameTaken: Käyttäjänimi on jo varattu. Valitse jokin muu käyttäjänimi.
-dashboard:
-    loadingProjects: Ladataan projekteja...
-    projects: Omat projektit
-    noProjects: Et ole osallistujana missään projektissa
-    loadingShifts: Ladataan vuoroja...
-    shifts: Omat vuorot
-    noShifts: Sinulla ei ole tällä hetkellä vuoroja
-    news: Ajankohtaiset uutiset
-    noNews: Ei uutisia
-    newsFrom: Viimeiset muutokset
-    editNews: Muokkaa uutisia
-    changeNews: Muuta uutisia
-    cancelNews: Peruuta muokkaaminen
-    understaffed: Alhainen osallistujamäärä
-    understaffedMore: Näytä lisää vuoroja, joissa on alhainen osallistujamäärä
-    missing: Puuttuva vuororaportti
-    missing_plural: Puuttuvat vuororaportit
-    approved: Hyväksytty ilmoittautuminen
-    approved_plural: Hyväksytty ilmoittautuminen
-    pending: Odottava ilmoittautuminen
-    pending_plural: Odottavat ilmoittautumiset
-    declined: Hylätyt ilmoittautumiset
-    declined_plural: Hylätyt ilmoittautumiset
-    marked: Vuorot, joissa alhainen osallistujamäärä
-    marked_plural: Vuorot, joissa alhainen osallistujamäärä
-    participant: Vuoron osallistuja
-    participant_plural: Vuorojen osallistujat
-    showOlder: Näytä myös vanhemmat vuorot
-    showAll: Näytä kaikki
 wiki:
     name: Tiedotuskeskus
     nameShort: Info
@@ -158,36 +129,6 @@ shifts:
         noPermission: Vain projektivastaava tai vuorovastaava voi muokata tai aikatauluttaa vuoroja.
 day:
     removeAll: Poista kaikki
-reports:
-    placements: Julkaisut
-    bibles: Raamatut
-    books: Kirjat
-    magazines: Lehdet
-    brochures: Kirjaset
-    tracts: Traktaatit
-    invitations: Kutsut
-    videos: Näytetyt videot
-    talks: Puheet
-    achievements: Raportti
-    hours: Käytetty aika
-    texts: Raamatunkohtien lukeminen
-    website: Näytetty jw.org sivustoa
-    shifts: Suoritetut vuorot
-    missing: Puuttuvat vuorot
-    participants: Osallistujat
-    fulltime: Osallistuvat kokoajanpalvelijat
-    publishers: Osallistuvat julistajat
-    allParticipants: Kaikki osallistujat
-    experiences: Kokemukset
-    route: Reitti
-    good: Hyvät kokemukset
-    problems: Ongelmat ja vaikeat tilanteet
-    show: Näytä
-    prevMonth: Siirry edelliseen kuukauteen
-    nextMonth: Siirry seuraavaan kuukauteen
-    meetingStart: Kokoontuminen alussa
-    meetingEnd: Kokoontuminen lopussa
-    place: Paikka
 settings:
     main:
         title: Asetukset

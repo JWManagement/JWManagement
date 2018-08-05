@@ -120,34 +120,6 @@ profile:
     addVacation: Szabadság hozzáadása
     deleteVacation: Szabadság törlése
     usernameTaken: Ezt a felhasználónevet már valaki más használja. Kérjük, válassz másikat.
-dashboard:
-    loadingProjects: Projektek betöltése...
-    projects: Saját projektek
-    noProjects: Te nem veszel részt semmilyen projektben
-    loadingShifts: Szilgálati időszakok betöltése ...
-    shifts: Szolgálati időszakaim
-    noShifts: Jelenleg nics szolgálati időszakod
-    news: Aktuális hírek
-    noNews: Nincs hírek
-    newsFrom: Utolsó változtatás
-    editNews: A hírek szerkesztése
-    changeNews: A hírek módosítása
-    cancelNews: Szerkesztés visszavonása
-    understaffed: Létszámhiány
-    understaffedMore: Mutass több létszáhiányos szolgálati időszakot
-    missing: Hiányzó szolgálati jelentés
-    missing_plural: Hiányzó szolgálati jelentések
-    approved: Jóváhagyott kérés
-    approved_plural: Jóváhagyott kérés
-    pending: Elbírálásra váró kérelem
-    declined: Elutasított kérés
-    declined_plural: Elutasított kérések
-    marked: Létszámhiányos szolgálati időszak
-    marked_plural: Létszámhiányos szolgálati időszakok
-    participant: szolgálati időszak résztvevő
-    participant_plural: szolgálati időszak résztvevői
-    showOlder: Régebbi szolgálati időszakok megjelenítése
-    showAll: Mutastd az összeset
 wiki:
     name: Információs Központ
     nameShort: Infó
@@ -201,45 +173,11 @@ shifts:
         noPermission: A projektmenedzser vagy a szolgálat szervezője csak szolgálati időszakok szerkesztésére vagy ütemezésére jogosult.
 day:
     removeAll: Összes törlése
-admin:
+project:
     name: Adminisztráció
     nameShort: Admin
-users:
-    title: Felhasználók névsora
-    search: Keresés...
-    inviteUser: További felhasználók meghívása
-    addNewUser: Új felhasználó hozzáadása
-    deleted: Törölve!
-    sendToAll: E-mail mindenkinek
-    sendToAllInTag: Küldjön e-mailt az összes címkére %s
-    export: Exportálás csv -be.
 reports:
-    placements: Terjesztések
-    bibles: Bibliák
-    books: Könyvek
-    magazines: Folyóiratok
-    brochures: Füzetek
-    tracts: Tájékoztatók
-    videos: Videó lejátszások
-    talks: Beszélgetések
-    achievements: Eredmények
-    hours: Szolgálati idő
-    texts: Felolvasott Bibliaversek
-    shifts: Megvalósult szolgálati időszakok
-    missing: Hiányzó csoport jelentések
-    participants: Résztvevők
-    publishers: Résztvevő hírnökök
-    allParticipants: Az összes resztvevő
-    experiences: Tapasztalatok
-    route: Útvonal
-    good: Jó tapasztalatok
-    problems: Problémák / nehézségek
-    show: Mutat
-    prevMonth: Ugrás az előző hónapra
-    nextMonth: Ugrás az következő hónapra
-    meetingStart: Találkozás kezdete
-    meetingEnd: Találkozás vége
-    place: Helye
+    export: Exportálás csv -be.
 settings:
     main:
         title: Fő beállítások

@@ -1,4 +1,11 @@
 .row.navigation-wrapper
-	nav.navbar.navbar-fixed-top
-		+navbarBrand
-		+navbarProfile
+    nav.navbar.navbar-fixed-top
+        .navbar-header
+            if target
+                a.navbar-brand(href="{{target}}")
+                    i.fa.fa-angle-left.m-r-xs
+                    | {{name}}
+            else if name
+                a.navbar-brand.dashboard {{name}}
+            else
+                a.navbar-brand JW Management

@@ -1,8 +1,9 @@
-import { Messages } from '/imports/api/messages/messages.coffee'
+moment = require('moment')
+AWS = require('aws-sdk')
 
-AWS = require 'aws-sdk'
+{ Messages } = require('/imports/api/messages/messages.coffee')
 
-export backup = ->
+exports.backup = ->
 
 	AWS.config.update region: 'eu-central-1'
 	s3 = new AWS.S3()

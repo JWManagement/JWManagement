@@ -1,0 +1,11 @@
+template(name="DetailsFormHeader")
+  .section.indigo
+    .section-content
+
+      if section.title
+        if getValueByKey section.title entity
+          h1.title {{{getValueByKey section.title entity}}}
+
+      if section.description
+        if getValueByKey section.description entity
+          p.description {{{getValueByKey section.description entity}}}

@@ -1,36 +1,4 @@
-import { Reports } from '/imports/api/reports/reports.coffee'
-
-defaultText = "<i class='fa fa-spinner fa-pulse'></i>"
-
-fetchData = (thisTemplate) ->
-	projectId = FlowRouter.getParam('projectId')
-	month = FlowRouter.getQueryParam('month')
-	unless month then month = moment(new Date).format('YYYY[M]MM')
-	startDate = parseInt moment(month, 'YYYY[M]MM').format('YYYYDDDD')
-	endDate = parseInt moment(month, 'YYYY[M]MM').endOf('month').format('YYYYDDDD')
-
-	for field in Object.keys(thisTemplate.basicSums)
-		thisTemplate.basicSums[field].set(defaultText)
-
-	Reports.GetAchievementSummary.call
-		projectId: projectId
-		startDate: startDate
-		endDate: endDate
-	, (e, result) -> unless e
-		delete result._id
-		for field in Object.keys(result)
-			thisTemplate.basicSums[field].set(result[field])
-
-	for field in Object.keys(thisTemplate.participantsCount)
-		thisTemplate.participantsCount[field].set(defaultText)
-
-	Reports.GetParticipantsCount.call
-		projectId: projectId
-		startDate: startDate
-		endDate: endDate
-	, (e, result) -> unless e
-		for field in Object.keys(result)
-			thisTemplate.participantsCount[field].set(result[field])
+moment = require('moment')
 
 Template.reports.helpers
 
@@ -44,28 +12,8 @@ Template.reports.helpers
 		else
 			button: 'disabled', icon: 'fa-spinner fa-pulse'
 
-	basicSums: (field) -> Template.instance().basicSums[field].get()
-
-	participantsCount: (field) -> Template.instance().participantsCount[field].get()
-
 Template.reports.onCreated ->
 
-	Template.instance().basicSums =
-		texts: new ReactiveVar
-		speaks: new ReactiveVar
-		videos: new ReactiveVar
-		website: new ReactiveVar
-		hours: new ReactiveVar
-		route: new ReactiveVar
-		good: new ReactiveVar
-		problems: new ReactiveVar
-
-	Template.instance().participantsCount =
-		fulltime: new ReactiveVar
-		publishers: new ReactiveVar
-		all: new ReactiveVar
-
-	self = this
 	projectId = FlowRouter.getParam('projectId')
 	month = FlowRouter.getQueryParam('month')
 
@@ -85,8 +33,6 @@ Template.reports.onRendered ->
 
 	thisTemplate = Template.instance()
 
-	fetchData(thisTemplate)
-
 Template.reports.events
 
 	'click #prevMonth': ->
@@ -95,7 +41,6 @@ Template.reports.events
 		Session.set 'subscribe', prevMonth
 		wrs ->
 			FlowRouter.setQueryParams month: prevMonth
-			fetchData(thisTemplate)
 
 	'click #nextMonth': ->
 		nextMonth = moment(FlowRouter.getQueryParam('month'), 'YYYY[M]MM').add(1, 'M').format('YYYY[M]MM')
@@ -103,12 +48,6 @@ Template.reports.events
 		Session.set 'subscribe', nextMonth
 		wrs ->
 			FlowRouter.setQueryParams month: nextMonth
-			fetchData(thisTemplate)
-
-	'click #showMissing': -> false
-
-	'click #showExperiences': (e) ->
-		type = $(e.target).attr('type')
 
 	'click #exportReports': ->
 		projectId = FlowRouter.getParam('projectId')

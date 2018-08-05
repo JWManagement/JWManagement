@@ -33,6 +33,7 @@ profile:
         helpText: Markiere bitte die Stunden, in denen du verfügbar bist.
         shortTermCalls: Ich darf kurzfristig kontaktiert werden
         shortTermCallsAlways: Auch wenn keine Verfügbarkeit angegeben ist
+        notifyViaEmail: I prefer to be contacted via Email.
     speaks: Spricht
     telefon: Telefon
     congregation: Versammlung
@@ -71,36 +72,6 @@ profile:
     addVacation: Urlaub hinzufügen
     deleteVacation: Urlaub wieder stornieren
     usernameTaken: Dieser Benutzername wird schon verwendet. Bitte wähle einen anderen
-dashboard:
-    loadingProjects: Lade Projekte...
-    projects: Meine Projekte
-    noProjects: Du nimmst an keinem Projekt teil
-    loadingShifts: Lade Schichten...
-    shifts: Meine Schichten
-    noShifts: Du hast noch keine Schichten
-    news: Neuigkeiten
-    noNews: Keine Neuigkeiten
-    newsFrom: Letzte Änderung
-    editNews: Neuigkeiten bearbeiten
-    changeNews: Änderungen speichern
-    cancelNews: Änderungen abbrechen
-    understaffed: Unterbesetzt
-    understaffedMore: Mehr unterbesetzte Schichten zeigen
-    missing: Fehlender Schichtbericht
-    missing_plural: Fehlende Schichtberichte
-    approved: Angenommene Bewerbung
-    approved_plural: Angenommene Bewerbungen
-    pending: Offene Bewerbung
-    pending_plural: Offene Bewerbungen
-    declined: Abgelehnte Bewerbung
-    declined_plural: Abgelehnte Bewerbungen
-    marked: Unterbesetzte Schicht
-    marked_plural: Unterbesetzte Schichten
-    participant: Schicht-Teilnehmer
-    participant_plural: Schicht-Teilnehmer
-    showOlder: Auch ältere Schichten zeigen
-    showAll: Alles zeigen
-    calendar: Kalender
 wiki:
     name: Informationen
     nameShort: Infos
@@ -160,35 +131,7 @@ shifts:
 day:
     removeAll: Alle löschen
 reports:
-    placements: Abgaben
-    bibles: Bibeln
-    books: Bücher
-    magazines: Zeitschriften
-    brochures: Broschüren
-    tracts: Traktate
-    invitations: Einladungen
-    videos: Gezeigte Videos
-    talks: Geführte Gespräche
-    achievements: Was erreicht wurde
-    hours: Eingesetzte Stunden
-    texts: Vorgelesene Bibeltexte
-    website: Website gezeigt
-    shifts: Stattgefundene Schichten
-    missing: Fehlende Berichte
-    participants: Teilnehmer
-    fulltime: Teilgenommene Vollzeitdiener
-    publishers: Teilgenommene Verkündiger
-    allParticipants: Teilnehmer insgesamt
-    experiences: Erfahrungen
-    route: Zur Route
-    good: Schöne Erfahrungen
-    problems: Probleme / Schwierigkeiten
-    show: Zeigen
-    prevMonth: Zum nächsten Monat gehen
-    nextMonth: Zum vorherigen Monat gehen
-    meetingStart: Treffpunkt zu Beginn
-    meetingEnd: Treffpunkt am Ende
-    place: Ort
+    export: Export als CSV
 settings:
     main:
         title: Allgemeine Einstellungen

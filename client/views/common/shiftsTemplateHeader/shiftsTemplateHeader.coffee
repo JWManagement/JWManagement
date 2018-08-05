@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.shiftsTemplateHeader.helpers
 
 	initDatepickerStart: ->
@@ -90,7 +92,7 @@ Template.shiftsTemplateHeader.helpers
 		templateId = FlowRouter.getQueryParam('templateId')
 		project = Projects.findOne projectId, fields: tags: 1
 
-		if project?
+		if project? && project.tags?
 			for tag in project.tags when tag._id == tagId
 				for template in tag.templates when template._id == templateId
 					return template

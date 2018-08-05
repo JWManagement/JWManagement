@@ -4,11 +4,10 @@ navigation:
     profile: Oma profiili
     shifts: Vuorot
     wiki: Tiedotuskeskus
-    admin:
+    project:
         details: Hallinta
     settings: Asetukset
-    users: Käyttäjät
-    user:
+    publisher:
         search: Julistajat
         details: Julistajan tiedot
         update: Muokkaa julistajaa

@@ -1,10 +1,3 @@
-/*
- *
- *   INSPINIA - Responsive Admin Theme
- *   version 2.4
- *
-*/
-// Google Fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import "custom/variables";
 @import "framework/typography";
@@ -34,14 +27,13 @@
 @import "custom/printingLayout";
 @import "custom/checkbox";
 @import "pages/landing";
-@import "pages/navigation";
 @import "pages/dashboard";
 @import "pages/profile";
 @import "pages/shifts";
 @import "pages/reports";
 @import "pages/store";
 @import "pages/wiki";
-@import "pages/admin";
+@import "pages/project";
 @import "pages/users";
 @import "pages/settings";
 @import "pages/login";

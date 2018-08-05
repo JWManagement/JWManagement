@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	changeAllShiftTags: (projectId, tagId, tagName) ->

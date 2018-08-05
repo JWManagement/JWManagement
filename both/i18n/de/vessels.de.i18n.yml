@@ -40,7 +40,7 @@ vessel:
             language:
                 new: Eine Sprache hinzufügen
                 noElements: Noch keine Sprachen hinzugefügt
-                deleteConfirmation: Möchtest du wirklich diese Sprache löschen?
+                methodConfirmation: Möchtest du wirklich diese Sprache löschen?
                 languageIds: Sprache
                 languageIdsValues:
                     placeholder: Wähle eine Sprache

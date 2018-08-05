@@ -1,0 +1,39 @@
+template(name="DetailsFormArrayEntity")
+
+  tr.array-item
+
+    if definition.icon
+      th.left.with-icon
+        i.material-icons {{definition.icon}}
+    else
+      th.left
+
+    td.item
+      each rowDefinition in definition.rows
+
+        tr.field
+          th.key {{getEntityTranslation definition.key rowDefinition.key}}:
+          th.middle
+          td.value
+
+            if isType rowDefinition 'tel'
+              if getValue rowDefinition entity
+                a(href='tel:{{getValue rowDefinition entity}}') {{getValue rowDefinition entity}}
+              else
+                | -
+            else if isType rowDefinition 'email'
+              if getValue rowDefinition entity
+                a(href='mailto:{{getValue rowDefinition entity}}') {{getValue rowDefinition entity}}
+              else
+                | -
+            else if getValue rowDefinition entity
+              | {{getValue rowDefinition entity}}
+            else
+              | -
+
+    td.link(rowspan='{{definition.type.count}}')
+
+      if isType definition 'delete'
+        i.fa.fa-trash.icon
+      else
+        i.fa.fa-angle-right

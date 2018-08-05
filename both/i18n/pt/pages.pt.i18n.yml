@@ -119,30 +119,6 @@ profile:
     until: até
     addVacation: Adicionar Férias
     usernameTaken: Este nome de usuário ja está em uso. Por favor escolha outro.
-dashboard:
-    loadingProjects: Carregando projetos...
-    projects: Meus projetos
-    noProjects: Você não está participando em nenhum projeto
-    loadingShifts: Carregando Turnos
-    shifts: Meus Turnos
-    noShifts: Você não tem turnos de momento
-    news: Ultimas Noticias
-    noNews: Nenhuma Noticia
-    newsFrom: Última Alteração
-    understaffed: Pouco Pessoal
-    understaffedMore: Mostrar mais turnos com falta de pessoal
-    missing: Relatório de Turno em falta
-    missing_plural: Relatórios de Turno em falta
-    accepted: Aplicação Aceite
-    accepted_plural: Aplicações Aceites
-    pending: Aplicação Aberta
-    pending_plural: Aplicações Abertas
-    declined: Aplicação Negada
-    declined_plural: Aplicações Negadas
-    marked: Turno com falta de Pessoal
-    marked_plural: Turnos com falta de Pessoal
-    participant: Participante de Turno
-    participant_plural: Participantes de Turno
 wiki:
     name: Centro de Informação
     nameShort: Informação
@@ -181,38 +157,9 @@ shifts:
         noPermission: Apenas um Gerente de Projeto ou Gerente de Turno tem permissão para editar ou reservar turnos.
 day:
     removeAll: Remover todos
-admin:
+project:
     name: Administração
     nameShort: Admin
-users:
-    title: Lista de usuários
-    search: Procurar...
-    inviteUser: Convitar usuários adicionados
-    addNewUser: Adicionar novo usuário
-    deleted: Apagado!
-    sendToAll: Enviar email a todos
-reports:
-    placements: Colocações
-    bibles: Biblias
-    books: Livros
-    magazines: Revistas
-    brochures: Brochuras
-    tracts: Tratados
-    videos: Videos Mostrados
-    talks: Conversas
-    achievements: Pontos Altos
-    hours: Tempo Realizado
-    texts: textos Biblicos Lidos
-    shifts: Turnos Realizados
-    missing: Relatórios de Turno Realizados
-    participants: Participantes
-    publishers: Publicadores Participando
-    allParticipants: Participantes No Geral
-    experiences: Experiencias
-    route: Rota
-    good: Experiencias Encorajadoras
-    problems: Problemas / Dificuldades
-    show: Mostrar
 settings:
     main:
         title: Configurações Principais

@@ -4,11 +4,10 @@ navigation:
     profile: Мой профиль
     shifts: Смены
     wiki: Информация
-    admin:
+    project:
         details: Управление
     settings: Настройки
-    users: Пользователи
-    user:
+    publisher:
         search: Пользователи
     reports: Отчёты
     store: Депо/склад

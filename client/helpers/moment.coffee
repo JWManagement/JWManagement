@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.registerHelper 'format', (value, oldFormat, newFormat) ->
 	TAPi18n.getLanguage()
 	moment(value, oldFormat).format(newFormat)

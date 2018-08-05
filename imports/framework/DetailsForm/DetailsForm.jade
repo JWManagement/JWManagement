@@ -1,0 +1,81 @@
+template(name="DetailsForm")
+  +DetailsFormNavigation data=data.navigation
+
+  form.form-horizontal
+
+    if isLoading
+      .loading
+        i.fa.fa-circle-o-notch.fa-spin.fa-3x
+
+    else if noResult
+      .center-align
+        h2 Oops!
+        p We couldn't find anything.
+        button#back.btn.btn-primary {{_ 'navigation.back'}}
+
+    else
+      each section in sections
+
+        if isType section 'header'
+          +DetailsFormHeader section=section entity=getItem
+        else
+          .section
+
+            if section.title
+              .section-title {{getSectionTranslation section.title}}
+
+            if section.contents
+              .section-content.clearfix
+
+                each field in section.contents
+                  if hasPermissionToSee field
+
+                    if isType field 'array'
+                      .array(key='{{field.key}}')
+
+                        if isEmptyArray field
+                          p.noElements {{getNoElementsTranslation field.item}}
+
+                        else if isType field.item 'link'
+                          each item in getValue field getItem
+                            +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
+
+                        else if isType field.item 'dropdown'
+                          each item in getValue field getItem
+                            +DetailsFormArrayDropdown definition=field.item entity=item parentInstance=getInstance
+
+                        else if isType field.item 'entity'
+                          each item in getValue field getItem
+                            +DetailsFormArrayEntity definition=field.item entity=item
+
+                        else
+                          h1 Unsupported array type
+
+                    else if isType field 'link'
+                      +DetailsFormLink definition=field entity=getItem
+
+                    else if isType field 'text'
+                      +DetailsFormText definition=field entity=getItem
+
+                    else if isType field 'email'
+                      +DetailsFormEmail definition=field entity=getItem
+
+                    else if isType field 'phone'
+                      +DetailsFormPhone definition=field entity=getItem
+
+                    else if isType field 'date'
+                      +DetailsFormDate definition=field entity=getItem
+
+                    else if isType field 'textbox'
+                      +DetailsFormTextbox definition=field entity=getItem
+
+                    else if isType field 'dropdown'
+                      +DetailsFormDropdown definition=field entity=getItem
+
+                    else if isType field 'checkbox'
+                      +DetailsFormCheckbox definition=field entity=getItem
+
+                    else
+                      h1 Unsupported form type
+
+            +DetailsFormActions actions=section.actions

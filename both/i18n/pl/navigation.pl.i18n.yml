@@ -4,11 +4,10 @@ navigation:
     profile: Mój profil
     shifts: Grafik
     wiki: Centrum informacji
-    admin:
+    project:
         details: Adminitracja
     settings: Ustawienia
-    users: Użytkownicy
-    user:
+    publisher:
         search: Użytkownicy
     reports: Sprawozdania
     store: Magazyn

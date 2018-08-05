@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.publish 'futureWeeks', (projectId, week) ->
 
 	if Roles.userIsInRole @userId, Permissions.member, projectId

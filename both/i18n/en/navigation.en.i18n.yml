@@ -1,15 +1,19 @@
 navigation:
     welcome: Welcome
     home: Dashboard
+    dashboard:
+        details: Dashboard
     profile: My Profile
     shifts: Shifts
     calendar: Calendar
     wiki: Information Center
-    admin:
+    project:
+        search: Projects
         details: Administration
     settings: Settings
-    users: Users
     user:
+        search: Users
+    publisher:
         search: Publishers
         details: Publisher details
         update: Edit publisher
@@ -40,6 +44,9 @@ navigation:
         details: Note details
         update: Edit note
         insert: Add note
+    language:
+        details: Language
+        update: Edit language
     login: Login
     logout: Logout
     loggingOut: Logging out...

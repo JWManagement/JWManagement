@@ -1,30 +1,27 @@
+moment = require('moment')
+{ send } = require('./send.coffee')
+
 Meteor.methods
+
 	sendUnderstaffed: (shiftId, teamId) ->
 		shift = Shifts.findOne shiftId
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
-
-		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
-
-		if shift?
-			shiftData = {}
-			shiftData.teams = []
-
+		shiftData = teams: []
 		tlNeeded = true
+
 		for team in shift.teams when team._id = teamId
 			shiftData.teams[0] = team
 
-			for participant in team.participants when participant.teamleader
-				tlNeeded = false
-			for pendingUser in team.pending when pendingUser.teamleader
-				tlNeeded = false
+			tlNeeded = false if team.participants.filter((p) -> p.teamleader).length >= 1
+			tlNeeded = false if team.pending.filter((p) -> p.teamleader).length >= 1
 
 		if tlNeeded
 			users = Roles.getUsersInRole Permissions.teamleader, shift.tagId, fields: profile: 1
-			users = users.fetch()
+			users = users.fetch().filter (u) -> Roles.userIsInRole u._id, Permissions.participant, shift.tagId
 			type = 'teamleader'
 		else
 			users = Roles.getUsersInRole Permissions.member, shift.projectId, fields: profile: 1
-			users = users.fetch().filter (u) -> Roles.userIsInRole u._id, Permissions.participant, shift.tagId
+			users = users.fetch()
 			type = 'participant'
 
 		for user in users.filter((u) -> u.profile.shortTermCalls == true)
@@ -34,7 +31,7 @@ Meteor.methods
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
 			name = user.profile.firstname + ' ' + user.profile.lastname
 
-			Meteor.call 'sendMail',
+			send
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email

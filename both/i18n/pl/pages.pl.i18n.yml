@@ -129,35 +129,6 @@ profile:
     addVacation: Dodaj wakacje
     deleteVacation: Usuń te wakacje
     usernameTaken: Ta nazwa użytkownika jest już przez kogoś zajęta. Proszę wybrać inną.
-dashboard:
-    loadingProjects: Ładowanie projektów...
-    projects: Moje projekty
-    noProjects: Nie jesteś współpracownikiem w żadnym projekcie
-    loadingShifts: Ładowanie zmian...
-    shifts: Moje zmiany
-    noShifts: Aktualnie nie masz żadnych zmian
-    news: Aktualne wiadomości
-    noNews: Brak wiadomości
-    newsFrom: Ostatnio zmieniona
-    editNews: Edytuj tą informację
-    changeNews: Edytuj wiadomość
-    cancelNews: Anuluj edycję
-    understaffed: Za mało osób
-    understaffedMore: Pokaż więcej zmian z brakami głosicieli
-    missing: Brakuje sprawozdania ze zmiany
-    missing_plural: Brakujące sprawozdania ze zmian
-    approved: Prośba zaakceptowana
-    approved_plural: Zaakceptowane prośby
-    pending: Prośba oczekuje na rozpatrzenie
-    pending_plural: Prośby oczekujące na rozpatrzenie
-    declined: Prośba odrzucona
-    declined_plural: Odrzucone prośby
-    marked: Zmiana bez wystarczającej liczby głosicieli
-    marked_plural: Zmiany bez wystarczającej liczy błosicieli
-    participant: Współpracownik zmiany
-    participant_plural: Współpracownicy zmiany
-    showOlder: Pokaż również starsze zmiany
-    showAll: Pokaż wszystko
 wiki:
     name: Centrum informacji
     nameShort: Info
@@ -212,7 +183,7 @@ shifts:
         noPermission: Tylko Menadżer projektu lub Menadżer zmian jest uprawniony aby edytować lub usuwać zmiany
 day:
     removeAll: Usuń wszystkie
-admin:
+project:
     name: Administrator
     nameShort: Admin
 users:
@@ -223,37 +194,8 @@ users:
     deleted: Usunięty!
     sendToAll: Wyślij e-mail do wszystkich
     sendToAllInTag: Wyślij e-mail do wszystkich z tagiem %s
-    export: Eksportuj jako CSV
 reports:
-    placements: Publikacje
-    bibles: Biblie
-    books: Książki
-    magazines: Czasopisma
-    brochures: Broszury
-    tracts: Traktaty
-    invitations: Zaproszenia
-    videos: Pokazane filmy
-    talks: Rozmowy
-    achievements: Osiągnięcia
-    hours: Poświęcony czas
-    texts: Przeczytane wersety Biblijne
-    website: Pokazana strona
-    shifts: Odbyte zmiany
-    missing: Brakujących sprawozdań
-    participants: Współpracownicy
-    fulltime: Współpracujący słudzy pełnoczasowi
-    publishers: Współpracujący głosiciele
-    allParticipants: Współpracownicy razem
-    experiences: Doświadczenia
-    route: Droga
-    good: Dobre doświadczenia
-    problems: Problemy / Trudności
-    show: Pokaż
-    prevMonth: Idź do poprzedniego miesiąca
-    nextMonth: Idź do następnego miesiąca
-    meetingStart: Zbiórka start
-    meetingEnd: Zbiórka koniec
-    place: Miejsce
+    export: Eksportuj jako CSV
 settings:
     main:
         title: Główne ustawienia

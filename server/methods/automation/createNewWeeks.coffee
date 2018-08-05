@@ -1,4 +1,6 @@
-export createNewWeeks = ->
+moment = require('moment')
+
+exports.createNewWeeks = ->
 
 	for project in projects
 		hadAutomation = false

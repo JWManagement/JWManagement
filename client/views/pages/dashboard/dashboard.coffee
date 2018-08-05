@@ -1,3 +1,4 @@
+moment = require('moment')
 newsMaxSize = 500
 
 Template.dashboard.helpers

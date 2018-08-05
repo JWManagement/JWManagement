@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	addTemplateShift: (projectId, weekId, tagId, tagName, day) ->

@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.shiftModal.helpers
 
 	getShiftId: -> FlowRouter.getQueryParam('showShift')

@@ -1,7 +1,7 @@
 export default Gender = {
-    defaultValue: 'm',
-    allowedValues: [
-        'm',
-        'w'
-    ]
+  defaultValue: 'm',
+  allowedValues: [
+    'm',
+    'w'
+  ]
 }
