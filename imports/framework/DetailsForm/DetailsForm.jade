@@ -44,17 +44,6 @@ template(name="DetailsForm")
                           each item in getValue field getItem
                             +DetailsFormArrayDropdown definition=field.item entity=item
 
-                        else if isKeyValue field.item
-                          each entity in getValue field
-                            h1 FIELD.item
-                            .input.form-group.array-item(key='{{getKey field.item}}' clickType='{{field.item.click.type}}' clickMethod='{{field.item.click.method}}' clickLink='{{field.item.click.link}}' entityId='{{entity._id}}')
-                              .key {{entity.key}}
-                              .value
-                                | {{entity.value}}
-                                if isType field.item 'delete'
-                                  i.fa.fa-trash.icon
-                                else
-                                  i.fa.fa-angle-right.icon
                         else
                           each entity in getValue field
                             h1 ELSE
