@@ -1,6 +1,6 @@
 import './DetailsForm.Array.Link.jade';
 
-import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm';
+import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsFormArrayLink.helpers({
   getValue,

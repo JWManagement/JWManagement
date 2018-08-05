@@ -1,6 +1,6 @@
 import './DetailsForm.Dropdown.jade';
 
-import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm';
+import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormDropdown.helpers({

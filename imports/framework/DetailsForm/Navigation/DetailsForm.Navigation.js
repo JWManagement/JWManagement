@@ -1,6 +1,6 @@
 import './DetailsForm.Navigation.jade';
 
-import { getTitle } from '/imports/framework/DetailsForm/DetailsForm';
+import { getTitle } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsFormNavigation.helpers({
   getTitle,

@@ -2,7 +2,7 @@ import moment from 'moment';
 
 import './DetailsForm.Array.Entity.jade';
 
-import { getValue, getKey, isType } from '/imports/framework/DetailsForm/DetailsForm';
+import { getValue, getKey, isType } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormArrayEntity.helpers({

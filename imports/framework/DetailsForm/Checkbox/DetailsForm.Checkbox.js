@@ -1,6 +1,6 @@
 import './DetailsForm.Checkbox.jade';
 
-import { getKey, getValue } from '/imports/framework/DetailsForm/DetailsForm';
+import { getKey, getValue } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
 
 Template.DetailsFormCheckbox.helpers({

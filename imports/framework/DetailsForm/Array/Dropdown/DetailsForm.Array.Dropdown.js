@@ -1,6 +1,6 @@
 import './DetailsForm.Array.Dropdown.jade';
 
-import { isType, loadData } from '/imports/framework/DetailsForm/DetailsForm';
+import { isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsFormArrayDropdown.helpers({
   getValue(entity) {
