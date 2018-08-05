@@ -36,6 +36,10 @@ template(name="DetailsForm")
                         if isEmptyArray field
                           p.noElements {{getNoElementsTranslation field.item}}
 
+                        else if isType field.item 'link'
+                          each item in getValue field getItem
+                            +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
+
                         else if isType field.item 'entity'
                           each item in getValue field getItem
                             +DetailsFormArrayEntity definition=field.item entity=item
@@ -44,30 +48,26 @@ template(name="DetailsForm")
                           each item in getValue field getItem
                             +DetailsFormArrayDropdown definition=field.item entity=item
 
-                        else if isType field.item 'link'
-                          each item in getValue field getItem
-                            +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
-
                         else
                           h1 Unsupported array type
 
-                    else if isType field 'phone'
-                      +DetailsFormPhone definition=field entity=getItem
-
-                    else if isType field 'email'
-                      +DetailsFormEmail definition=field entity=getItem
+                    else if isType field 'link'
+                      +DetailsFormLink definition=field entity=getItem
 
                     else if isType field 'text'
                       +DetailsFormText definition=field entity=getItem
 
-                    else if isType field 'textbox'
-                      +DetailsFormTextbox definition=field entity=getItem
+                    else if isType field 'email'
+                      +DetailsFormEmail definition=field entity=getItem
+
+                    else if isType field 'phone'
+                      +DetailsFormPhone definition=field entity=getItem
 
                     else if isType field 'date'
                       +DetailsFormDate definition=field entity=getItem
 
-                    else if isType field 'link'
-                      +DetailsFormLink definition=field entity=getItem
+                    else if isType field 'textbox'
+                      +DetailsFormTextbox definition=field entity=getItem
 
                     else if isType field 'dropdown'
                       +DetailsFormDropdown definition=field entity=getItem
