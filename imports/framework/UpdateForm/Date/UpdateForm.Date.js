@@ -1,8 +1,20 @@
 import moment from 'moment';
 
-Template.UpdateFormDateInput.helpers({});
+import './UpdateForm.Date.jade';
 
-Template.UpdateFormDateInput.onCreated(() => {
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.UpdateFormDate.helpers({
+  getEntityTranslation,
+  getKey,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation
+});
+
+Template.UpdateFormDate.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -15,7 +27,7 @@ Template.UpdateFormDateInput.onCreated(() => {
   }
 });
 
-Template.UpdateFormDateInput.onRendered(() => {
+Template.UpdateFormDate.onRendered(() => {
   const template = Template.instance();
   const $datePicker = template.$('.datepicker');
 
@@ -45,4 +57,4 @@ Template.UpdateFormDateInput.onRendered(() => {
   $datePicker.find('.table-condensed').removeClass('table-condensed');
 });
 
-Template.UpdateFormDateInput.onDestroyed(() => {});
+Template.UpdateFormDate.onDestroyed(() => {});

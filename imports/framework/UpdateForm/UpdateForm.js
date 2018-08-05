@@ -1,12 +1,12 @@
 import './UpdateForm.jade';
 import './UpdateForm.scss';
 
-import './UpdateFormTextInput';
-import './UpdateFormDateInput';
-import './UpdateFormDropdownInput';
-import './UpdateFormPickerInput';
-import './UpdateFormCheckboxInput';
-import './UpdateFormTextboxInput';
+import './Text/UpdateForm.Text';
+import './Date/UpdateForm.Date';
+import './Dropdown/UpdateForm.Dropdown';
+import './Picker/UpdateForm.Picker';
+import './Checkbox/UpdateForm.Checkbox';
+import './Textbox/UpdateForm.Textbox';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';

@@ -1,0 +1,13 @@
+template(name="UpdateFormText")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header {{getEntityTranslation}}
+
+    .section-content
+      .text-input
+        input(type='text' placeholder='{{getEntityTranslation}}' value='{{getValue}}' autofocus)
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

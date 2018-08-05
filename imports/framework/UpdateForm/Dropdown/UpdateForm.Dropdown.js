@@ -1,4 +1,15 @@
-Template.UpdateFormDropdownInput.helpers({
+import './UpdateForm.Dropdown.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.UpdateFormDropdown.helpers({
+  getEntityTranslation,
+  getKey,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   isAllowedValues() {
     const template = Template.instance();
     return template.allowedValues != null;
@@ -22,7 +33,7 @@ Template.UpdateFormDropdownInput.helpers({
   }
 });
 
-Template.UpdateFormDropdownInput.onCreated(() => {
+Template.UpdateFormDropdown.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -43,7 +54,7 @@ Template.UpdateFormDropdownInput.onCreated(() => {
   }
 });
 
-Template.UpdateFormDropdownInput.onRendered(() => {
+Template.UpdateFormDropdown.onRendered(() => {
   const template = Template.instance();
 
   template.autorun(() => {
@@ -55,9 +66,9 @@ Template.UpdateFormDropdownInput.onRendered(() => {
   });
 });
 
-Template.UpdateFormDropdownInput.onDestroyed(() => {});
+Template.UpdateFormDropdown.onDestroyed(() => {});
 
-Template.UpdateFormDropdownInput.events({
+Template.UpdateFormDropdown.events({
   'change select': (e, template) => {
     const value = template.$(e.target).val();
 

@@ -1,4 +1,15 @@
-Template.UpdateFormPickerInput.helpers({
+import './UpdateForm.Picker.jade';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+Template.UpdateFormPicker.helpers({
+  getEntityTranslation,
+  getKey,
+  getTitle,
+  hasError,
+  getErrorClass,
+  getEntityErrorTranslation,
   isAllowedValues() {
     const template = Template.instance();
     return template.allowedValues != null;
@@ -52,7 +63,7 @@ Template.UpdateFormPickerInput.helpers({
   }
 });
 
-Template.UpdateFormPickerInput.onCreated(() => {
+Template.UpdateFormPicker.onCreated(() => {
   const template = Template.instance();
   const data = Template.currentData().data;
 
@@ -73,11 +84,11 @@ Template.UpdateFormPickerInput.onCreated(() => {
   }
 });
 
-Template.UpdateFormPickerInput.onRendered(() => {});
+Template.UpdateFormPicker.onRendered(() => {});
 
-Template.UpdateFormPickerInput.onDestroyed(() => {});
+Template.UpdateFormPicker.onDestroyed(() => {});
 
-Template.UpdateFormPickerInput.events({
+Template.UpdateFormPicker.events({
   'click .item': (e, template) => {
     const value = $(e.target).closest('.item').attr('key');
     template.updateForm.updateEntity(value);
