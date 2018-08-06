@@ -1,3 +1,5 @@
+import { Mailer } from 'meteor/lookback:emails';
+
 export default MailManager = {
 
   sendMail: (data) => {
