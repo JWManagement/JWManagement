@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
+
 import Gender from '/imports/api/dropdowns/Gender';
 import Pioneer from '/imports/api/dropdowns/Pioneer';
 import Privilege from '/imports/api/dropdowns/Privilege';

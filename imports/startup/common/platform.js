@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 const Platform = {
 
   getOS: function() {

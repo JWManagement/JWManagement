@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 export default RoleManager = {
 
   setProjectPermission: (projectId, userId) => {

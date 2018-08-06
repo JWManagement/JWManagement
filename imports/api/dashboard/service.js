@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import moment from 'moment';
+
 import Permissions from '/imports/api/util/Permissions';
 
 const PROJECT_OPTIONS = {

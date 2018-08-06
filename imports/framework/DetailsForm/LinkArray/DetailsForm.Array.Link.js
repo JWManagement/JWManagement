@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';

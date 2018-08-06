@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 module.exports = class PersistenceManager {
   constructor(db) {
     this.db = db;

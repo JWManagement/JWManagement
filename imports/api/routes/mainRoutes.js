@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Helpers from '/imports/api/routes/Helpers';
 
 FlowRouter.notFound = {

@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';

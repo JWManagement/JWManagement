@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Vessels from '/imports/api/vessels/Vessels';
 import Languages from '/imports/api/dropdowns/Languages';
 

@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import '/imports/api/datepicker/bootstrap-datepicker.min';
 import '/imports/api/datepicker/bootstrap-datepicker.de.min';
 import '/imports/api/datepicker/bootstrap-datepicker.fi.min';

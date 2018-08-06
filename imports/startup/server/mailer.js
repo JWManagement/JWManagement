@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 Meteor.startup(() => {
   Mailer.config({
     from: 'JW Management <no-reply@jwmanagement.org>',

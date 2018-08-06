@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Permissions from '/imports/api/util/Permissions';
 import RoleManager from '/imports/api/managers/RoleManager';
 

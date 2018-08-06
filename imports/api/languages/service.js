@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Users from '/imports/api/users/Users';
 import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
 

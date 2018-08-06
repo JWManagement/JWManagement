@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Users from '/imports/api/users/Users';
 
 Meteor.methods({

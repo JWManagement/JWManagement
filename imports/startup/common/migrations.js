@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import Vessels from '/imports/api/vessels/Vessels';
 
 // to use this, import the file

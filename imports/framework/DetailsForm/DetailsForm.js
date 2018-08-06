@@ -1,5 +1,6 @@
-import moment from 'moment';
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import moment from 'moment';
 
 import RouteManager from '/imports/api/managers/RouteManager';
 

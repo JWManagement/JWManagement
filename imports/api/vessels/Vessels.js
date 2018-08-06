@@ -1,5 +1,7 @@
-import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
+
 import Languages from '/imports/api/dropdowns/Languages';
 
 const PersistenceManager = require('/imports/api/managers/PersistenceManager');

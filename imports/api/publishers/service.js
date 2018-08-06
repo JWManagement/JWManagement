@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';

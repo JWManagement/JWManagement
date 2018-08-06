@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 
 const CollectionManager = require('/imports/api/managers/CollectionManager');
