@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { WebApp } from 'meteor/webapp';
 
 Meteor.startup(() => {
   const prerenderio = Npm.require('prerender-node');
