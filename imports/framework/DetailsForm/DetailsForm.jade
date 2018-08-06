@@ -79,4 +79,5 @@ template(name="DetailsForm")
                     else
                       h1 Unsupported form type
 
-            +DetailsFormActions actions=section.actions
+            if section.actions
+              +DetailsFormActions actions=section.actions
