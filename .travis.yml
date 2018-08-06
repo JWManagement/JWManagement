@@ -8,4 +8,4 @@ services:
   - mongodb
 script:
   - meteor add practicalmeteor:mocha
-  - meteor test --driver-package practicalmeteor:mocha
+  - meteor test --once --driver-package practicalmeteor:mocha
