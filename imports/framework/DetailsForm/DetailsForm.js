@@ -1,19 +1,18 @@
 import moment from 'moment';
-import RoleManager from '/imports/api/managers/RoleManager';
 import RouteManager from '/imports/api/managers/RouteManager';
 
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 
 import './Actions/DetailsForm.Actions';
-import './Array/Dropdown/DetailsForm.Array.Dropdown';
-import './Array/Entity/DetailsForm.Array.Entity';
-import './Array/Link/DetailsForm.Array.Link';
 import './Checkbox/DetailsForm.Checkbox';
 import './Date/DetailsForm.Date';
 import './Dropdown/DetailsForm.Dropdown';
+import './DropdownArray/DetailsForm.Array.Dropdown';
 import './Email/DetailsForm.Email';
+import './EntityArray/DetailsForm.Array.Entity';
 import './Link/DetailsForm.Link';
+import './LinkArray/DetailsForm.Array.Link';
 import './Navigation/DetailsForm.Navigation';
 import './Phone/DetailsForm.Phone';
 import './Text/DetailsForm.Text';
