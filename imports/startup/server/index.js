@@ -1,20 +1,20 @@
-import '/imports/api/projects/projects.js';
+import '/imports/api/projects/projects';
 import '/imports/api/messages/messages.coffee';
 
-import '/imports/startup/server/mailer.js';
-import '/imports/startup/server/prerenderio.js';
+import '/imports/startup/server/mailer';
+import '/imports/startup/server/prerenderio';
 
-import '/imports/startup/common/rolesExtensions.js';
+import '/imports/startup/common/rolesExtensions';
 
-import '/imports/api/dashboard/service.js';
-import '/imports/api/languages/service.js';
-import '/imports/api/projects/service.js';
-import '/imports/api/shifts/service.js';
-import '/imports/api/users/service.js';
-import '/imports/api/publishers/service.js';
-import '/imports/api/vessels/service.js';
-import '/imports/api/notes/service.js';
-import '/imports/api/calendar/service.js';
+import '/imports/api/dashboard/service';
+import '/imports/api/languages/service';
+import '/imports/api/projects/service';
+import '/imports/api/shifts/service';
+import '/imports/api/users/service';
+import '/imports/api/publishers/service';
+import '/imports/api/vessels/service';
+import '/imports/api/notes/service';
+import '/imports/api/calendar/service';
 
-import SimpleSchemaHelper from '/imports/startup/common/SimpleSchemaHelper.js';
+import SimpleSchemaHelper from '/imports/startup/common/SimpleSchemaHelper';
 SimpleSchemaHelper.init();

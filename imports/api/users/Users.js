@@ -1,8 +1,8 @@
 import SimpleSchema from 'simpl-schema';
-import Gender from '/imports/api/dropdowns/Gender.js';
-import Pioneer from '/imports/api/dropdowns/Pioneer.js';
-import Privilege from '/imports/api/dropdowns/Privilege.js';
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js';
+import Gender from '/imports/api/dropdowns/Gender';
+import Pioneer from '/imports/api/dropdowns/Pioneer';
+import Privilege from '/imports/api/dropdowns/Privilege';
+import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
 import { Mongo } from 'meteor/mongo';
 
 const PersistenceManager = require('/imports/api/managers/PersistenceManager.js');

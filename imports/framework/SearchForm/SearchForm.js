@@ -1,4 +1,4 @@
-import RouteManager from '/imports/api/managers/RouteManager.js';
+import RouteManager from '/imports/api/managers/RouteManager';
 
 import './SearchForm.jade';
 import './SearchForm.scss';

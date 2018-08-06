@@ -1,4 +1,4 @@
-import Permissions from '/imports/api/util/Permissions.js';
+import Permissions from '/imports/api/util/Permissions';
 
 Template['dashboard.details'].helpers({
   data: {

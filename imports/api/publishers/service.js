@@ -2,11 +2,11 @@ import { Accounts } from 'meteor/accounts-base'
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
-import Users from '/imports/api/users/Users.js';
-import PasswordsSchema from '/imports/api/users/PasswordsSchema.js';
-import RoleManager from '/imports/api/managers/RoleManager.js';
-import MailManager from '/imports/api/managers/MailManager.js';
-import State from '/imports/api/dropdowns/State.js';
+import Users from '/imports/api/users/Users';
+import PasswordsSchema from '/imports/api/users/PasswordsSchema';
+import RoleManager from '/imports/api/managers/RoleManager';
+import MailManager from '/imports/api/managers/MailManager';
+import State from '/imports/api/dropdowns/State';
 
 Meteor.methods({
   'publisher.search': ({ language, projectId, searchString, limit }) => {

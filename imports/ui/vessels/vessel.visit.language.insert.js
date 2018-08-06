@@ -1,4 +1,4 @@
-import Languages from '/imports/api/dropdowns/Languages.js';
+import Languages from '/imports/api/dropdowns/Languages';
 
 Template['vessel.visit.language.insert'].helpers({
   data: {

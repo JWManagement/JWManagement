@@ -1,4 +1,4 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
+import Vessels from '/imports/api/vessels/Vessels';
 
 // to use this, import the file
 

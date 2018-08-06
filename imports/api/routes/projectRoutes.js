@@ -1,6 +1,6 @@
 import moment from 'moment';
-import Helpers from '/imports/api/routes/Helpers.js';
-import RouteManager from '/imports/api/managers/RouteManager.js';
+import Helpers from '/imports/api/routes/Helpers';
+import RouteManager from '/imports/api/managers/RouteManager';
 
 RouteManager.registerTranslatedPage('dashboard', {
   details: ''

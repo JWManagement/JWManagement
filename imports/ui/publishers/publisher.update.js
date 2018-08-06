@@ -1,6 +1,6 @@
-import Gender from '/imports/api/dropdowns/Gender.js';
-import Pioneer from '/imports/api/dropdowns/Pioneer.js';
-import Privilege from '/imports/api/dropdowns/Privilege.js';
+import Gender from '/imports/api/dropdowns/Gender';
+import Pioneer from '/imports/api/dropdowns/Pioneer';
+import Privilege from '/imports/api/dropdowns/Privilege';
 
 Template['publisher.update'].helpers({
   data: {

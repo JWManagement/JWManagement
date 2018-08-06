@@ -1,4 +1,4 @@
-import Users from '/imports/api/users/Users.js';
+import Users from '/imports/api/users/Users';
 
 Roles.getAllGroupsForUser = function(userId, roles) {
   let groups = [];

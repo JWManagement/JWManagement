@@ -1,5 +1,4 @@
-import Vessels from '/imports/api/vessels/Vessels.js';
-import Languages from '/imports/api/dropdowns/Languages.js';
+import Languages from '/imports/api/dropdowns/Languages';
 
 Template['vessel.visit.details'].helpers({
   data: {

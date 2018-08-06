@@ -1,4 +1,4 @@
-import VesselType from '/imports/api/dropdowns/VesselType.js';
+import VesselType from '/imports/api/dropdowns/VesselType';
 
 Template['vessel.insert'].helpers({
   data: {

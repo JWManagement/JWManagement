@@ -1,5 +1,5 @@
 import moment from 'moment';
-import Permissions from '/imports/api/util/Permissions.js';
+import Permissions from '/imports/api/util/Permissions';
 
 const PROJECT_OPTIONS = {
   fields: {
