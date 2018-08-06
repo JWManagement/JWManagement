@@ -18,7 +18,8 @@ template(name="DetailsForm")
 
         if isType section 'header'
           +DetailsFormHeader section=section entity=getItem
-        else
+
+        else if isSectionVisible section
           .section
 
             if section.title

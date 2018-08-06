@@ -20,7 +20,7 @@ import './Text/DetailsForm.Text';
 import './Textbox/DetailsForm.Textbox';
 import './Header/DetailsForm.Header';
 
-import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
+import { getValue, isType, loadData, hasPermissionToSee } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsForm.helpers({
   getValue,
@@ -49,23 +49,18 @@ Template.DetailsForm.helpers({
   noResult() {
     return Template.instance().noResult.get();
   },
-  hasPermissionToSee(definition) {
-    let hasRole = true;
-    let customFulfilled = true;
-
-    if (definition.canSee != null) {
-      const projectId = FlowRouter.getParam('projectId');
-      hasRole = RoleManager.hasPermission(projectId, definition.canSee);
+  isSectionVisible(section) {
+    if (section.contents && section.contents.length > 0) {
+      for (let definition of section.contents) {
+        if (hasPermissionToSee(definition)) {
+          return true;
+        }
+      }
+      return false;
     }
-
-    if (definition.custom != null) {
-      const template = Template.instance();
-      const item = template.item.get();
-      customFulfilled = definition.custom(item);
-    }
-
-    return hasRole && customFulfilled;
+    return true;
   },
+  hasPermissionToSee,
   sections() {
     const template = Template.instance();
     const item = template.item.get();

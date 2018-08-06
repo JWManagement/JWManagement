@@ -1,4 +1,4 @@
-export { loadData, getValue, getKey, isType };
+export { loadData, getValue, getKey, isType, hasPermissionToSee };
 
 function loadData(template) {
   if (template.getMethod != null) {
@@ -47,4 +47,22 @@ function getKey(definition) {
 
 function isType(field, type) {
   return field.type == type;
+}
+
+function hasPermissionToSee(definition) {
+  let hasRole = true;
+  let customFulfilled = true;
+
+  if (definition.canSee != null) {
+    const projectId = FlowRouter.getParam('projectId');
+    hasRole = RoleManager.hasPermission(projectId, definition.canSee);
+  }
+
+  if (definition.custom != null) {
+    const template = Template.instance();
+    const item = template.item.get();
+    customFulfilled = definition.custom(item);
+  }
+
+  return hasRole && customFulfilled;
 }
