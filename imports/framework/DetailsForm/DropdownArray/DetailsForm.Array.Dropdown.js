@@ -1,6 +1,8 @@
-import './DetailsForm.Array.Dropdown.jade';
+import { Template } from 'meteor/templating';
 
 import { isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
+
+import './DetailsForm.Array.Dropdown.jade';
 
 Template.DetailsFormArrayDropdown.helpers({
   getValue(entity) {

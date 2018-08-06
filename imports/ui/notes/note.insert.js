@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['note.insert'].helpers({
   data: {
     backLink: 'note.search',

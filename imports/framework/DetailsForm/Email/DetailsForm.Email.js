@@ -1,7 +1,9 @@
-import './DetailsForm.Email.jade';
+import { Template } from 'meteor/templating';
 
 import { getValue } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
+
+import './DetailsForm.Email.jade';
 
 Template.DetailsFormEmail.helpers({ getValue, getEntityTranslation });
 

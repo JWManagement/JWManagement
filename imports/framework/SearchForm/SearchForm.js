@@ -1,9 +1,10 @@
+import { Template } from 'meteor/templating';
+
 import RouteManager from '/imports/api/managers/RouteManager';
+import { getTitle } from '/imports/framework/Helpers';
 
 import './SearchForm.jade';
 import './SearchForm.scss';
-
-import { getTitle } from '/imports/framework/Helpers';
 
 Template.SearchForm.helpers({
   getTitle,

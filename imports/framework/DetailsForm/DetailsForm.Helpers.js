@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 export { loadData, getValue, getKey, isType, hasPermissionToSee };
 
 function loadData(template) {

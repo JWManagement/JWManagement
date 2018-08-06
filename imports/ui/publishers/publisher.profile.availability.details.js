@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['publisher.profile.availability.details'].helpers({
   data() {
     const params = FlowRouter.current().params;

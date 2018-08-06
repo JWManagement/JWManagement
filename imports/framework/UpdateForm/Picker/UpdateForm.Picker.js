@@ -1,7 +1,9 @@
-import './UpdateForm.Picker.jade';
+import { Template } from 'meteor/templating';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+import './UpdateForm.Picker.jade';
 
 Template.UpdateFormPicker.helpers({
   getEntityTranslation,

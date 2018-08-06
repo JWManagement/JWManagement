@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 import Languages from '/imports/api/dropdowns/Languages';
 
 Template['vessel.visit.language.insert'].helpers({

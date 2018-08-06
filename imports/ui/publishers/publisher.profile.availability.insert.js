@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 import Hour from '/imports/api/dropdowns/Hour';
 
 Template['publisher.profile.availability.insert'].helpers({

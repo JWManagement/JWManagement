@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['user.search'].helpers({
   data: {
     entityId: 'userId',

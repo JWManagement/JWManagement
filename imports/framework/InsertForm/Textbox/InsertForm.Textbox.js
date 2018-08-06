@@ -1,4 +1,5 @@
 import autosize from 'autosize';
+import { Template } from 'meteor/templating';
 
 import './InsertForm.Textbox.jade';
 

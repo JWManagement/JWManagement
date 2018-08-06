@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { Template } from 'meteor/templating';
 
 import './calendar.tpl.jade';
 import './calendar.scss';

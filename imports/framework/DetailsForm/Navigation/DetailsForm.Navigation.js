@@ -1,6 +1,8 @@
-import './DetailsForm.Navigation.jade';
+import { Template } from 'meteor/templating';
 
 import { getTitle } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
+
+import './DetailsForm.Navigation.jade';
 
 Template.DetailsFormNavigation.helpers({
   getTitle,

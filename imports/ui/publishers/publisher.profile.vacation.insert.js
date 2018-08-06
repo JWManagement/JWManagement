@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['publisher.profile.vacation.insert'].helpers({
   data: {
     backLink: 'publisher.details',

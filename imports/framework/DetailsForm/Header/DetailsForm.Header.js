@@ -1,6 +1,8 @@
-import './DetailsForm.Header.jade';
+import { Template } from 'meteor/templating';
 
 import { getValue } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
+
+import './DetailsForm.Header.jade';
 
 Template.DetailsFormHeader.helpers({
   getValueByKey(key, entity) {

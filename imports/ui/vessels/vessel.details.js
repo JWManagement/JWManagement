@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['vessel.details'].helpers({
   data: {
     getMethod: 'vessel.get',

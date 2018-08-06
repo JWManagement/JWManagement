@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['vessel.visit.update'].helpers({
   data: {
     getMethod: 'vessel.visit.getField',

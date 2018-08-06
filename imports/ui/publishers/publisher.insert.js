@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 import Gender from '/imports/api/dropdowns/Gender';
 import Pioneer from '/imports/api/dropdowns/Pioneer';
 import Privilege from '/imports/api/dropdowns/Privilege';

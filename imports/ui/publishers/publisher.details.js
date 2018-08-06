@@ -1,4 +1,4 @@
-import Users from '/imports/api/users/Users';
+import { Template } from 'meteor/templating';
 
 Template['publisher.details'].helpers({
   data: {

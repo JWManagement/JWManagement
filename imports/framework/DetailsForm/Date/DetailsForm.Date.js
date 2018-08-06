@@ -1,9 +1,10 @@
 import moment from 'moment';
-
-import './DetailsForm.Date.jade';
+import { Template } from 'meteor/templating';
 
 import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
+
+import './DetailsForm.Date.jade';
 
 Template.DetailsFormDate.helpers({
   getEntityTranslation,

@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['note.details'].helpers({
   data: {
     getMethod: 'note.get',

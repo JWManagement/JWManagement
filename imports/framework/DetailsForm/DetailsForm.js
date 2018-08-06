@@ -1,4 +1,6 @@
 import moment from 'moment';
+import { Template } from 'meteor/templating';
+
 import RouteManager from '/imports/api/managers/RouteManager';
 
 import './DetailsForm.jade';

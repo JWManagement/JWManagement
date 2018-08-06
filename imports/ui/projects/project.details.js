@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 import Permissions from '/imports/api/util/Permissions';
 
 Template['project.details'].helpers({

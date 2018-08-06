@@ -1,9 +1,10 @@
 import autosize from 'autosize';
-
-import './UpdateForm.Textbox.jade';
+import { Template } from 'meteor/templating';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
+import './UpdateForm.Textbox.jade';
 
 Template.UpdateFormTextbox.helpers({
   getEntityTranslation,

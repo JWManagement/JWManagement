@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['vessel.visit.insert'].helpers({
   data: {
     backLink: 'vessel.details',

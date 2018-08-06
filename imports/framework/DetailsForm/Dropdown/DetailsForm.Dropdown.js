@@ -1,7 +1,9 @@
-import './DetailsForm.Dropdown.jade';
+import { Template } from 'meteor/templating';
 
 import { getValue, getKey } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
+
+import './DetailsForm.Dropdown.jade';
 
 Template.DetailsFormDropdown.helpers({
   getEntityTranslation,

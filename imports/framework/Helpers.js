@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 export { getKey, getTitle, getEntityTranslation };
 
 function getKey() {

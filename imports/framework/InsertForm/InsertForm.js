@@ -1,3 +1,8 @@
+import { Template } from 'meteor/templating';
+
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+
 import './InsertForm.jade';
 import './InsertForm.scss';
 
@@ -9,9 +14,6 @@ import './Password/InsertForm.Password';
 import './Picker/InsertForm.Picker';
 import './Text/InsertForm.Text';
 import './Textbox/InsertForm.Textbox';
-
-import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
 
 Template.InsertForm.helpers({
   getKey,

@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['language.update'].helpers({
   data: {
     getMethod: 'language.get',

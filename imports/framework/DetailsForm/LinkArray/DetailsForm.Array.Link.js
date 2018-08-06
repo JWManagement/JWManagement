@@ -1,6 +1,8 @@
-import './DetailsForm.Array.Link.jade';
+import { Template } from 'meteor/templating';
 
 import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
+
+import './DetailsForm.Array.Link.jade';
 
 Template.DetailsFormArrayLink.helpers({
   getValue,

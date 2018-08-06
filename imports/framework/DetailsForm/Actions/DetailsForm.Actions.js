@@ -1,6 +1,8 @@
-import './DetailsForm.Actions.jade';
+import { Template } from 'meteor/templating';
 
 import { getEntityTranslation } from '/imports/framework/Helpers';
+
+import './DetailsForm.Actions.jade';
 
 Template.DetailsFormActions.helpers({
   getEntityTranslation,

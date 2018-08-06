@@ -1,4 +1,4 @@
-import Notes from '/imports/api/notes/Notes';
+import { Template } from 'meteor/templating';
 
 Template['note.search'].helpers({
   data: {

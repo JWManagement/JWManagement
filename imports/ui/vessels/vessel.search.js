@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 Template['vessel.search'].helpers({
   data: {
     entityId: 'vesselId',

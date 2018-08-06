@@ -1,7 +1,9 @@
-import './DetailsForm.Checkbox.jade';
+import { Template } from 'meteor/templating';
 
 import { getKey, getValue } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers';
+
+import './DetailsForm.Checkbox.jade';
 
 Template.DetailsFormCheckbox.helpers({
   getEntityTranslation,
