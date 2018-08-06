@@ -1,0 +1,10 @@
+sudo: required
+language: node_js
+node_js:
+  - '8'
+before_install:
+  - 'curl https://install.meteor.com | /bin/sh'
+services:
+  - mongodb
+script:
+  - meteor test --once --driver-package meteortesting:mocha
