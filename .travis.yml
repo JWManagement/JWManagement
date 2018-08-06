@@ -7,4 +7,5 @@ before_install:
 services:
   - mongodb
 script:
-  - meteor test
+  - meteor add practicalmeteor:mocha
+  - meteor test --driver-package practicalmeteor:mocha
