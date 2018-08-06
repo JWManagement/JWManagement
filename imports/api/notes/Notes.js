@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 
-const CollectionManager = require('/imports/api/managers/CollectionManager.js');
+const CollectionManager = require('/imports/api/managers/CollectionManager');
 
 let Notes = {};
 

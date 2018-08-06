@@ -1,5 +1,5 @@
 import Permissions from '/imports/api/util/Permissions';
-import RoleManager from '/imports/api/managers/RoleManager.js'
+import RoleManager from '/imports/api/managers/RoleManager';
 
 Meteor.methods({
   'project.search': ({ searchString, limit }) => {

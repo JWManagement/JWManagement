@@ -1,5 +1,5 @@
-import Users from '/imports/api/users/Users.js'
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages.js'
+import Users from '/imports/api/users/Users';
+import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
 
 Meteor.methods({
   'language.get': () => {

@@ -1,5 +1,5 @@
-import Users from '/imports/api/users/Users.js'
-import Permissions from '/imports/api/util/Permissions.js'
+import Users from '/imports/api/users/Users';
+import Permissions from '/imports/api/util/Permissions';
 
 Meteor.methods({
   'calendar.getShifts': ({ projectId, date }) => {

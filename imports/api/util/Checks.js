@@ -1,10 +1,10 @@
-// import { Projects } from '/imports/api/projects/projects.js' STILL GLOBAL VARIABLE
+// import { Projects } from '/imports/api/projects/projects' STILL GLOBAL VARIABLE
 //import { Weeks } from '/imports/api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
 //import { Shifts } from '/imports/api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
 
-import { Permissions } from '/imports/api/util/Permissions.js'
+import { Permissions } from '/imports/api/util/Permissions';
 import { Roles } from 'meteor/alanning:roles';
-import Users from 'imports/api/users/Users.js'
+import Users from 'imports/api/users/Users';
 
 const Checks = {
   user: {

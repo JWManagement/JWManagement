@@ -1,5 +1,5 @@
-import Vessels from '/imports/api/vessels/Vessels.js'
-import Languages from '/imports/api/dropdowns/Languages.js'
+import Vessels from '/imports/api/vessels/Vessels';
+import Languages from '/imports/api/dropdowns/Languages';
 
 Meteor.methods({
   'vessel.search': ({ language, projectId, searchString, limit }) => {
