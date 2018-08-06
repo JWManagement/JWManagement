@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 
 import Permissions from '/imports/api/util/Permissions';
 import RoleManager from '/imports/api/managers/RoleManager';

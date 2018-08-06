@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
+import { Roles } from 'meteor/alanning:roles';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
