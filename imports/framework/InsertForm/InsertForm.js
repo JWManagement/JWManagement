@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 
+import RouteManager from '/imports/api/managers/RouteManager';
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
 

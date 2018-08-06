@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 
+import RoleManager from '/imports/api/managers/RoleManager';
+
 export { loadData, getValue, getKey, isType, hasPermissionToSee };
 
 function loadData(template) {
