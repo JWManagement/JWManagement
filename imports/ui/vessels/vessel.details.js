@@ -63,9 +63,6 @@ Template['vessel.details'].helpers({
             key: 'harbor',
             type: 'text'
           }, {
-            key: 'harborGroup',
-            type: 'text'
-          }, {
             key: 'country',
             type: 'text'
           }]

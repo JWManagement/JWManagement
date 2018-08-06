@@ -296,7 +296,6 @@ vessel:
             harborId: Hafen
             harborIdValues:
                 placeholder: Wähle einen Hafen
-            harborGroup: Hafengruppe
             country: Land
             languageId:
                 noElements: Noch keine Sprachen hinzugefügt

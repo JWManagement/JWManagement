@@ -35,7 +35,6 @@ vessel:
             harborId: Harbor
             harborIdValues:
                 placeholder: Select a harbor
-            harborGroup: Harbor group
             country: Country
             language:
                 new: Add a language

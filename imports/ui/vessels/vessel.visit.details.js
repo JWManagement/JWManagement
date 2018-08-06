@@ -34,10 +34,6 @@ Template['vessel.visit.details'].helpers({
         linkedKey: 'harborId',
         canUpdate: 'author'
       }, {
-        key: 'harborGroup',
-        type: 'text',
-        readonly: true
-      }, {
         key: 'country',
         type: 'text',
         readonly: true

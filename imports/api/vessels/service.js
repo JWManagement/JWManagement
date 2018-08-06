@@ -268,13 +268,11 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
         const project = Projects.findOne(vessel.visits[0].projectId, {
           fields: {
             country: 1,
-            harborGroup: 1,
             harbors: 1
           }
         });
 
         vessel.visits[0].country = project.country;
-        vessel.visits[0].harborGroup = project.harborGroup;
 
         const harbor = project.harbors.filter((harbor) => {
           return harbor._id == vessel.visits[0].harborId;

@@ -71,8 +71,6 @@ Template.settings.events
 
 	'change #country': (e) -> Meteor.call 'updateProject', @_id, 'country', e.target.value, handleError
 
-	'change #harborGroup': (e) -> Meteor.call 'updateProject', @_id, 'harborGroup', e.target.value, handleError
-
 	'change #harbors': (e) -> Meteor.call 'updateProject', @_id, 'harbors', JSON.parse(e.target.value), handleError
 
 	'click #deleteProject': ->
