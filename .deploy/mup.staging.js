@@ -1,13 +1,9 @@
-console.log(process.env);
-console.log(HOST_PASSWORD);
-console.log(${HOST_PASSWORD});
-
 module.exports = {
   servers: {
     one: {
       host: '80.240.27.13',
       username: 'root',
-      password: HOST_PASSWORD
+      password: process.env.HOST_PASSWORD
     }
   },
   app: {
