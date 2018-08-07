@@ -15,14 +15,11 @@ module.exports = {
     servers: {
       one: {}
     },
+    env: {
+      ROOT_URL: 'https://staging.jwmanagement.org'
+    },
     buildOptions: {
       serverOnly: true
-    },
-    ssl: {
-      autogenerate: {
-        email: 'support@jwmanagement.org',
-        domains: 'www.jwmanagement.org'
-      }
     },
     enableUploadProgressBar: false
   },
