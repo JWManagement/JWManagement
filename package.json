@@ -23,6 +23,7 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "start": "meteor --settings settings.json"
+    "start": "meteor --settings settings.json",
+    "test": "meteor test --driver-package meteortesting:mocha"
   }
 }
