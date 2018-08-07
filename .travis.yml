@@ -11,10 +11,10 @@ script:
   - meteor test --once --driver-package meteortesting:mocha
 deploy:
   - provider: script
-    script: mup deploy --config=.deploy/mup.staging.js --settings=settings.json
+    script: bash .deploy/deploy.staging.sh
     on:
       branch: develop
   - provider: script
-    script: mup deploy --config=.deploy/mup.production.js --settings=settings.json
+    script: bash .deploy/deploy.production.sh
     on:
       branch: master
