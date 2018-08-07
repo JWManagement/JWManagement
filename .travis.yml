@@ -3,8 +3,18 @@ language: node_js
 node_js:
   - '8'
 before_install:
-  - 'curl https://install.meteor.com | /bin/sh'
+  - curl https://install.meteor.com | /bin/sh
+  - npm install -g mup
 services:
   - mongodb
 script:
   - meteor test --once --driver-package meteortesting:mocha
+deploy:
+  - provider: script
+    script: mup deploy --config=.deploy/mup.staging.js --settings=settings.json
+    on:
+      branch: develop
+  - provider: script
+    script: mup deploy --config=.deploy/mup.production.js --settings=settings.json
+    on:
+      branch: master
