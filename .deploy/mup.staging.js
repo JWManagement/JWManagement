@@ -10,7 +10,12 @@ module.exports = {
     name: 'JWManagement',
     path: '../',
     docker: {
-      image: 'abernix/meteord:node-8-base'
+      image: 'abernix/meteord:node-8-base',
+      buildInstructions: [
+        'ENV AWS_REGION eu-central-1',
+        'ENV AWS_ACCESS_KEY_ID ' + process.env.AWS_ACCESS_KEY_ID,
+        'ENV AWS_SECRET_ACCESS_KEY ' + process.env.AWS_SECRET_ACCESS_KEY
+      ]
     },
     servers: {
       one: {}
