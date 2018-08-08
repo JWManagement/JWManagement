@@ -10,12 +10,13 @@ services:
 script:
   - meteor test --once --driver-package meteortesting:mocha
 deploy:
-  skip_cleanup: true
   - provider: script
     script: bash .deploy/deploy.staging.sh
+    skip_cleanup: true
     on:
       branch: develop
   - provider: script
     script: bash .deploy/deploy.production.sh
+    skip_cleanup: true
     on:
       branch: master
