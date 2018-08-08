@@ -24,7 +24,7 @@ module.exports = {
       AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
     },
     log: {
-      driver: 'awslog',
+      driver: 'awslogs',
       opts: {
         'awslogs-region': 'eu-central-1',
         'awslogs-group': 'JWManagement',
