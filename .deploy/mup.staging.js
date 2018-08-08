@@ -16,7 +16,12 @@ module.exports = {
       one: {}
     },
     env: {
-      ROOT_URL: 'https://staging.jwmanagement.org'
+      ROOT_URL: 'https://staging.jwmanagement.org',
+      MONGO_URL: process.env.MONGO_URL,
+      MONGO_OPLOG_URL: process.env.MONGO_OPLOG_URL,
+      MAIL_URL: process.env.MAIL_URL,
+      AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+      AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
     },
     buildOptions: {
       serverOnly: true
