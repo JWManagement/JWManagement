@@ -2,4 +2,4 @@
 
 npm install
 
-mup deploy --config=./mup.staging.js --settings=settings.json
+mup deploy --config=.deploy/mup.staging.js --settings=.deploy/settings.json
