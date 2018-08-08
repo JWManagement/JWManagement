@@ -1,20 +1,8 @@
 module.exports = {
-  servers: {
-    one: {
-      host: process.env.SERVER_IP,
-      username: 'root',
-      password: process.env.SERVER_PASSWORD
-    }
-  },
   app: {
+    type: 'aws-beanstalk',
     name: 'JWManagementStaging',
     path: '../',
-    docker: {
-      image: 'zodern/meteor:root'
-    },
-    servers: {
-      one: {}
-    },
     env: {
       ROOT_URL: 'https://staging.jwmanagement.org',
       MONGO_URL: process.env.MONGO_URL,
@@ -26,15 +14,21 @@ module.exports = {
       AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
       LOGGLY_TOKEN: process.env.LOGGLY_TOKEN
     },
-    buildOptions: {
-      serverOnly: true
+    auth: {
+      id: process.env.AWS_ACCESS_KEY_ID,
+      secret: process.env.AWS_SECRET_ACCESS_KEY
     },
-    enableUploadProgressBar: false
-  },
-  proxy: {
-    domains: 'staging.jwmanagement.org',
-    ssl: {
-      letsEncryptEmail: 'support@jwmanagement.org'
+    minInstances: 1,
+    maxInstances: 10,
+    instanceType: 't3.micro',
+    sslDomains: ['staging.jwmanagement.org'],
+    forceSSL: true,
+    region: 'eu-central-1',
+    gracefulShutdown: false,
+    oldVersions: 3,
+    buildOptions: {
+      buildLocation: '../build'
     }
-  }
+  },
+  plugins: ['mup-aws-beanstalk']
 };

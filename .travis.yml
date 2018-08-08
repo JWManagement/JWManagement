@@ -10,7 +10,7 @@ cache:
     - .meteor/local
 before_install:
   - curl https://install.meteor.com | /bin/sh
-  - npm install -g mup
+  - npm install -g mup mup-aws-beanstalk
 stages:
   - name: Test
   - name: Deploy
