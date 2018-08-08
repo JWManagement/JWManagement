@@ -23,6 +23,14 @@ module.exports = {
       AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
       AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
     },
+    log: {
+      driver: 'awslog',
+      opts: {
+        'awslogs-region': 'eu-central-1',
+        'awslogs-group': 'JWManagement',
+        'awslogs-stream': 'Staging'
+      }
+    },
     buildOptions: {
       serverOnly: true
     },
