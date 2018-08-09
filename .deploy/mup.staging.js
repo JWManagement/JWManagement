@@ -1,9 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      host: '80.240.27.13',
+      host: process.env.STAGING_IP,
       username: 'root',
-      password: process.env.HOST_PASSWORD
+      password: process.env.STAGING_PASSWORD
     }
   },
   app: {
