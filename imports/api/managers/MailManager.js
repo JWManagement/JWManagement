@@ -1,4 +1,5 @@
 import { Mailer } from 'meteor/lookback:emails';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 export default MailManager = {
 

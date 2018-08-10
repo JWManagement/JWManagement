@@ -1,3 +1,5 @@
+import { TAPi18n } from 'meteor/tap:i18n';
+
 FlowRouter.route('/:language/privacy', {
   name: 'privacy',
   triggersEnter: () => {

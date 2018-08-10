@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
 import { Roles } from 'meteor/alanning:roles';
 import { Mailer } from 'meteor/lookback:emails';
+import { TAPi18n } from 'meteor/tap:i18n';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
