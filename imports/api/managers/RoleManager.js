@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
-export default RoleManager = {
+const RoleManager = {
 
   setProjectPermission: (projectId, userId) => {
     if (Permissions.member.indexOf(permission) > -1) {
@@ -47,4 +47,6 @@ export default RoleManager = {
     return false;
   }
 
-}
+};
+
+export default RoleManager;

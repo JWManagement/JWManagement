@@ -1,6 +1,6 @@
+import { Session } from 'meteor/session';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-
 import Helpers from '/imports/api/routes/Helpers';
 
 const RouteManager = {
