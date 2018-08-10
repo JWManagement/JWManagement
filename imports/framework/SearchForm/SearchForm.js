@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
 import { Session } from 'meteor/session';
+import { ReactiveVar } from 'meteor/reactive-var';
 import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 

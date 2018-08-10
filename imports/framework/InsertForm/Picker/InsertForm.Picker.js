@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
@@ -27,36 +28,36 @@ Template.InsertFormPicker.helpers({
     const searchText = template.insertForm.searchText.get();
 
     if (searchText != '') {
-      const regEx = new RegExp(searchText, 'gi')
+      const regEx = new RegExp(searchText, 'gi');
 
       return template.allowedValues
       .map((item) => {
-        return '' + item;
+        return String(item);
       })
       .filter((item) => {
         return item.match(regEx);
       });
-    } 
+    }
       return template.allowedValues
       .map((item) => {
-        return '' + item;
+        return String(item);
       });
-    
+
   },
   getKeyValues() {
     const template = Template.instance();
     const searchText = template.insertForm.searchText.get();
 
     if (searchText != '') {
-      const regEx = new RegExp(searchText, 'gi')
+      const regEx = new RegExp(searchText, 'gi');
 
       return template.allowedKeyValues.get()
       .filter(({key, value}) => {
         return key.match(regEx) || value.match(regEx);
       });
-    } 
+    }
       return template.allowedKeyValues.get();
-    
+
   },
   getItemKey() {
     const template = Template.instance();
@@ -71,9 +72,9 @@ Template.InsertFormPicker.helpers({
 
     if (data.search == true) {
       return 'search-enabled';
-    } 
+    }
       return 'search-disabled';
-    
+
   }
 });
 
