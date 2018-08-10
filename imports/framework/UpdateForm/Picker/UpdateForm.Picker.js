@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
@@ -30,9 +31,9 @@ Template.UpdateFormPicker.helpers({
       return template.allowedValues.filter((value) => {
         return value.match(regEx);
       });
-    } else {
+    } 
       return template.allowedValues;
-    }
+    
   },
   getKeyValues() {
     const template = Template.instance();
@@ -43,9 +44,9 @@ Template.UpdateFormPicker.helpers({
       return template.allowedKeyValues.get().filter(({ key, value }) => {
         return key.match(regEx) || value.match(regEx);
       });
-    } else {
+    } 
       return template.allowedKeyValues.get();
-    }
+    
   },
   getItemKey() {
     const item = Template.currentData();
@@ -60,9 +61,9 @@ Template.UpdateFormPicker.helpers({
 
     if (data.search == true) {
       return 'search-enabled';
-    } else {
+    } 
       return 'search-disabled';
-    }
+    
   }
 });
 

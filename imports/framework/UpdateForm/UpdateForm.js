@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';

@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
@@ -18,7 +19,7 @@ Template.InsertFormLink.helpers({
 
     if (template.displayValue != null) {
       return template.displayValue;
-    } 
+    }
       let value = 'placeholder';
       const data = Template.currentData().data;
 
@@ -32,7 +33,7 @@ Template.InsertFormLink.helpers({
       messagePathParts = messagePathParts.concat(data.key.replace(/_/g, '.'));
 
       return TAPi18n.__(messagePathParts.join('.') + 'Values.' + value);
-    
+
   }
 });
 

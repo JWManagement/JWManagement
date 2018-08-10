@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import RouteManager from '/imports/api/managers/RouteManager';
 import { getTitle } from '/imports/framework/Helpers';

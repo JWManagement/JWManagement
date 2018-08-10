@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getTitle } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 

@@ -1,3 +1,5 @@
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
 import Helpers from '/imports/api/routes/Helpers';
 
 export default RouteManager = {
@@ -110,4 +112,4 @@ export default RouteManager = {
     return params;
   }
 
-}
+};

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { getValue, isType, loadData } from '/imports/framework/DetailsForm/DetailsForm.Helpers';
 
@@ -18,7 +19,7 @@ Template.DetailsFormArrayLink.onRendered(() => {});
 Template.DetailsFormArrayLink.onDestroyed(() => {});
 
 Template.DetailsFormArrayLink.events({
-  'click .input.array-item': (e, template) => {
+  'click .input.array-item': (e) => {
     e.stopPropagation();
 
     const data = Template.currentData();

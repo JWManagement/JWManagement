@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import moment from 'moment';
 
 import RouteManager from '/imports/api/managers/RouteManager';
@@ -103,9 +104,9 @@ Template.DetailsForm.helpers({
         ('contents' in section && section.contents.length > 0)
         || ('actions' in section && section.actions.length > 0)
         || ('type') in section && section.type == 'header');
-    } 
+    }
       return template.sections;
-    
+
   },
   getProperty(entity, field) {
     if (field.type == 'dropdown') {

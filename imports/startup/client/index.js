@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import '/imports/api/datepicker/bootstrap-datepicker.min';
 import '/imports/api/datepicker/bootstrap-datepicker.de.min';

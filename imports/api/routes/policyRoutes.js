@@ -1,4 +1,5 @@
 import { TAPi18n } from 'meteor/tap:i18n';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 FlowRouter.route('/:language/privacy', {
   name: 'privacy',

@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import moment from 'moment';
 
 import Helpers from '/imports/api/routes/Helpers';
