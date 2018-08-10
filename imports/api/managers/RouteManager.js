@@ -3,7 +3,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import Helpers from '/imports/api/routes/Helpers';
 
-export default RouteManager = {
+const RouteManager = {
 
   registerTranslatedPage(entityName, routes) {
     this.registerEntity(entityName, routes, '/:language/');
@@ -114,3 +114,5 @@ export default RouteManager = {
   }
 
 };
+
+export default RouteManager;

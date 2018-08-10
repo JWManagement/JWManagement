@@ -6,14 +6,18 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
+import { getMailTexts } from '/imports/framework/Functions.Mail';
+import { checkPermissions } from '/imports/framework/Functions.Security';
 import Users from '/imports/api/users/Users';
 import PasswordsSchema from '/imports/api/users/PasswordsSchema';
 import RoleManager from '/imports/api/managers/RoleManager';
 import MailManager from '/imports/api/managers/MailManager';
 import State from '/imports/api/dropdowns/State';
+import Permissions from '/imports/api/util/Permissions';
+import { getExtendedPublisher } from '/imports/api/publishers/Functions';
 
 Meteor.methods({
-  'publisher.search': ({ language, projectId, searchString, limit }) => {
+  'publisher.search': ({ projectId, searchString, limit }) => {
     checkPermissions(projectId);
 
     let rolesObject = {};
@@ -126,9 +130,9 @@ Meteor.methods({
     checkPermissions(projectId, userId);
 
     if (key.indexOf('_') > -1) {
-      var publisher = getExtendedPublisher(userId, projectId, language);
+      let publisher = getExtendedPublisher(userId, projectId, language);
 
-      for (property of key.split('_')) {
+      for (let property of key.split('_')) {
         if (property in publisher) {
           publisher = publisher[property];
         } else {
@@ -137,11 +141,11 @@ Meteor.methods({
       }
 
       return publisher;
-    } 
+    }
       return getExtendedPublisher(userId, projectId, language)[key];
-    
+
   },
-  'publisher.insert': ({ language, projectId }, publisher) => {
+  'publisher.insert': ({ projectId }, publisher) => {
     checkPermissions(projectId);
 
     try {
@@ -334,7 +338,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.availability.insert': ({ language, projectId, userId, key }, timeslot) => {
+  'publisher.profile.availability.insert': ({ projectId, userId, key }, timeslot) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -419,7 +423,7 @@ Meteor.methods({
       availability: timeslots
     };
   },
-  'publisher.profile.availability.delete': ({ language, projectId, userId, key }, timeslot) => {
+  'publisher.profile.availability.delete': ({ projectId, userId, key }, timeslot) => {
     checkPermissions(projectId, userId);
 
     const publisher = Users.findOne(userId);
@@ -445,7 +449,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.vacation.insert': ({ language, projectId, userId, key }, newVacation) => {
+  'publisher.profile.vacation.insert': ({ language, projectId, userId }, newVacation) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -488,169 +492,3 @@ Meteor.methods({
     }
   }
 });
-
-function getExtendedPublisher(userId, projectId, language) {
-  let publisher = Users.findOne({
-    $and: [{
-      _id: userId
-    }, {
-      ['roles.' + projectId]: {
-        $in: Permissions.member
-      }
-    }, {
-      username: {
-        $ne: 'adm'
-      }
-    }]
-  }, {
-    fields: {
-      username: 1,
-      'profile.firstname': 1,
-      'profile.lastname': 1,
-      'profile.email': 1,
-      'profile.telefon': 1,
-      'profile.gender': 1,
-      'profile.pioneer': 1,
-      'profile.privilege': 1,
-      'profile.languages': 1,
-      'profile.available': 1,
-      'profile.shortTermCalls': 1,
-      'profile.shortTermCallsAlways': 1,
-      'profile.vacations': 1,
-      roles: 1
-    }
-  });
-
-  if (publisher != undefined) {
-    if (publisher.profile.available == null) {
-      publisher.profile.available = {};
-    }
-
-    publisher.profile.availability = {
-      mondays: convertTimeslotToAvailability(publisher.profile.available.mo, language),
-      tuesdays: convertTimeslotToAvailability(publisher.profile.available.tu, language),
-      wednesdays: convertTimeslotToAvailability(publisher.profile.available.we, language),
-      thursdays: convertTimeslotToAvailability(publisher.profile.available.th, language),
-      fridays: convertTimeslotToAvailability(publisher.profile.available.fr, language),
-      saturdays: convertTimeslotToAvailability(publisher.profile.available.sa, language),
-      sundays: convertTimeslotToAvailability(publisher.profile.available.su, language)
-    };
-
-    if (publisher.profile.vacations == null) {
-      publisher.profile.vacations = [];
-    }
-
-    for (let vacation of publisher.profile.vacations) {
-      const dateFormatStart = TAPi18n.__('publisher.entity.profile.vacation.startDateFormat', {}, language);
-      const dateFormatEnd = TAPi18n.__('publisher.entity.profile.vacation.endDateFormat', {}, language);
-
-      // support legacy number format
-      if (vacation.createdAt == null) {
-        const startDisplay = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);
-        const endDisplay = moment(vacation.end, 'YYYYDDD').format(dateFormatEnd);
-        vacation.display = startDisplay + ' ' + endDisplay;
-      } else {
-        const startDisplay = moment(vacation.start, 'YYYYMMDD').format(dateFormatStart);
-        const endDisplay = moment(vacation.end, 'YYYYMMDD').format(dateFormatEnd);
-        vacation.display = startDisplay + ' ' + endDisplay;
-      }
-    }
-  }
-
-  return publisher;
-}
-
-function convertTimeslotToAvailability(timeslots, language) {
-  if (typeof timeslots == 'object' && timeslots.length > 0) {
-    const dateFormatStart = TAPi18n.__('publisher.entity.profile.availability.startDateFormat', {}, language);
-    const dateFormatEnd = TAPi18n.__('publisher.entity.profile.availability.endDateFormat', {}, language);
-    let timePeriods = [];
-
-    timeslots.sort((a, b) => {
-      return a - b;
-    });
-
-    let periodBegin = -1;
-    let lastValue = 0;
-    let numbers = [];
-
-    for (let timeslot of timeslots) {
-      let timeslotHmm = timeslot;
-
-      if (timeslotHmm == 0) {
-        timeslotHmm = 2400;
-      }
-
-      if (periodBegin < 0) {
-        periodBegin = timeslotHmm;
-      } else if (timeslot != lastValue + 100) {
-        const timeslotStart = moment(periodBegin, 'Hmm');
-        const timeslotEnd = moment(lastValue + 100, 'Hmm');
-
-        if (periodBegin == 2400 && lastValue == 2300) {
-          timePeriods.push({
-            numbers: numbers,
-            timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
-          });
-        } else {
-          timePeriods.push({
-            numbers: numbers,
-            timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-          });
-        }
-
-        periodBegin = timeslotHmm;
-        numbers = [];
-      }
-
-      lastValue = timeslot;
-      numbers.push(timeslot);
-    }
-
-    const timeslotStart = moment(periodBegin, 'Hmm');
-    const timeslotEnd = moment(lastValue + 100, 'Hmm');
-
-    if (periodBegin == 2400 && lastValue == 2300) {
-      timePeriods.push({
-        numbers: numbers,
-        timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
-      });
-    } else {
-      timePeriods.push({
-        numbers: numbers,
-        timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-      });
-    }
-
-    return timePeriods;
-  }
-
-  return [];
-}
-
-function checkPermissions(projectId, userId = null) {
-  const project = Projects.findOne(projectId, { fields: { _id: 1 } });
-
-  if (project == null) {
-    throw new Meteor.Error('projectNotFound');
-  }
-
-  if (!Roles.userIsInRole(Meteor.userId(), Permissions.admin, projectId)) {
-    throw new Meteor.Error('youAreNotProjectAdmin');
-  }
-
-  if (userId != null && !Roles.userIsInRole(userId, Permissions.member, projectId)) {
-    throw new Meteor.Error('userIsNotProjectMember');
-  }
-}
-
-function getMailTexts(mail, language) {
-  let values = {};
-  values.headline = TAPi18n.__('mail.' + mail + '.headline', '', language);
-  values.hello = TAPi18n.__('mail.' + mail + '.hello', '', language);
-  values.text1 = TAPi18n.__('mail.' + mail + '.text1', '', language);
-  values.text2 = TAPi18n.__('mail.' + mail + '.text2', '', language);
-  values.changed = TAPi18n.__('mail.' + mail + '._changed', '', language);
-  values.button = TAPi18n.__('mail.' + mail + '.button', '', language);
-  return values;
-}
