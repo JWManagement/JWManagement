@@ -1,6 +1,6 @@
 // import { Projects } from '/imports/api/projects/projects' STILL GLOBAL VARIABLE
-//import { Weeks } from '/imports/api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
-//import { Shifts } from '/imports/api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
+// import { Weeks } from '/imports/api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
+// import { Shifts } from '/imports/api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
 
 import { Meteor } from 'meteor/meteor';
 
@@ -103,7 +103,7 @@ const Checks = {
     },
     isParticipant: (projectId) => {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.participant, projectId)) {
-        throw new Meteor.Error('notTagParticipant')
+        throw new Meteor.Error('notTagParticipant');
       }
     },
     isAdmin: (projectId, tagId) => {
@@ -145,6 +145,6 @@ const Checks = {
       }
     }
   }
-}
+};
 
 export default Checks;

@@ -49,7 +49,7 @@ Users.schema = new SimpleSchema({
   },
   username: {
     type: String,
-    autoValue: function () {
+    autoValue: function() {
       if (this.isSet && typeof this.value === "string") {
         return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '');
       }

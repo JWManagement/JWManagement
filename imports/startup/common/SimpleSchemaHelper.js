@@ -36,6 +36,6 @@ const SimpleSchemaHelper = {
       keyNotInSchema: '[key] is not allowed by the schema'
     });
   }
-}
+};
 
 export default SimpleSchemaHelper;

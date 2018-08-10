@@ -61,7 +61,7 @@ Meteor.methods({
     return project;
   },
   'project.leave': ({ projectId }) => {
-    const project = Projects.findOne(projectId, { fields: { _id: 1 } })
+    const project = Projects.findOne(projectId, { fields: { _id: 1 } });
 
     if (project == null) {
       throw new Meteor.Error('projectNotFound');
@@ -78,7 +78,7 @@ Meteor.methods({
           RoleManager.removeTagPermission(tag._id, userId);
         }
       }
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   }

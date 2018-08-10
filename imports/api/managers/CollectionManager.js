@@ -22,7 +22,7 @@ module.exports = class CollectionManager {
           [this.collection.name]: entity
         }
       });
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e.error, e.details);
     }
   }
@@ -48,7 +48,7 @@ module.exports = class CollectionManager {
           [this.collection.name + '.$']: entity
         }
       });
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e.error, e.details);
     }
   }
@@ -64,7 +64,7 @@ module.exports = class CollectionManager {
           }
         }
       });
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e.error, e.details);
     }
   }
@@ -94,7 +94,7 @@ module.exports = class CollectionManager {
       throw new ValidationError(errors);
     }
   }
-}
+};
 
 function getUpdatedEntity(keys, entity, value) {
   const firstKey = keys.shift();

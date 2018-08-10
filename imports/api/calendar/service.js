@@ -116,11 +116,15 @@ Meteor.methods({
                     }
                   }
 
-                  if (!team.isTlNeeded) break;
+                  if (!team.isTlNeeded) {
+                    break;
+                  }
                 }
               }
 
-              if (!team.isTlNeeded) break;
+              if (!team.isTlNeeded) {
+                break;
+              }
             }
           } else {
             team.isTlNeeded = false;
@@ -129,7 +133,7 @@ Meteor.methods({
       }
 
       return shifts;
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }

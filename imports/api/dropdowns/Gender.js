@@ -4,4 +4,4 @@ export default Gender = {
     'm',
     'w'
   ]
-}
+};

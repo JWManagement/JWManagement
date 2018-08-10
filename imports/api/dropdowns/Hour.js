@@ -26,4 +26,4 @@ export default Hour = {
     22,
     23
   ]
-}
+};

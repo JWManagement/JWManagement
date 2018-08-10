@@ -22,4 +22,4 @@ Roles.getAllGroupsForUser = function(userId, roles) {
   }
 
   return groups;
-}
+};

@@ -22,7 +22,7 @@ module.exports = class PersistenceManager {
       entity = getUpdatedEntity(key.split('.'), entity, value);
       this.validate(entity);
       this.db.update(entityId, entity);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e.error, e.details);
     }
   }
@@ -58,7 +58,7 @@ module.exports = class PersistenceManager {
       throw new ValidationError(errors);
     }
   }
-}
+};
 
 function getUpdatedEntity(keys, entity, value) {
   const firstKey = keys.shift();

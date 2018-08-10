@@ -159,7 +159,7 @@ function getUpdatedShifts(projects, shifts) {
     return null;
   })
   .filter((shift) => {
-    return shift != null
+    return shift != null;
   });
 }
 

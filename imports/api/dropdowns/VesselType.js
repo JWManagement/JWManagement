@@ -13,4 +13,4 @@ export default VesselType = {
     't',
     'unknown'
   ]
-}
+};
