@@ -66,7 +66,7 @@ Meteor.methods({
     try {
       Vessels.persistence.insert(vessel);
       return vessel._id;
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -75,7 +75,7 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, key, value);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -84,34 +84,34 @@ Meteor.methods({
 
     let visits = Vessels.findOne(vesselId).visits;
 
-    if(visits == null) {
+    if (visits == null) {
       visits = [];
     }
 
     visit._id = Random.id();
     visit.projectId = projectId;
-    delete visit.userId
+    delete visit.userId;
     visits.push(visit);
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits);
       return visit._id;
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
   'vessel.visit.getAvailableHarbors': ({ projectId }) => {
     checkVesselModule(projectId);
 
-    const project = Projects.findOne(projectId, { fields: { harbors: 1 } })
+    const project = Projects.findOne(projectId, { fields: { harbors: 1 } });
 
     return project.harbors
     .map(({ _id, name }) => {
       return { key: _id, value: name };
     })
     .sort((a, b) => {
-      if(a.key < b.key) return -1;
-      if(a.key > b.key) return 1;
+      if (a.key < b.key) {return -1;}
+      if (a.key > b.key) {return 1;}
       return 0;
     });
   },
@@ -149,7 +149,7 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -172,7 +172,7 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -192,10 +192,10 @@ Meteor.methods({
     }
 
     const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-      if(visit.languageIds == null) {
+      if (visit.languageIds == null) {
         visit.languageIds = [];
       }
-      if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageIds }).length == 0) {
+      if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageIds; }).length == 0) {
         visit.languageIds.push(languageIds);
       }
       return visit;
@@ -203,7 +203,7 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -231,7 +231,7 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   }
@@ -312,7 +312,7 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
 }
 
 function checkVesselModule(projectId) {
-  const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } })
+  const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } });
 
   if (project == null || project.vesselModule != true) {
     throw new Meteor.Error('projectNotFound');

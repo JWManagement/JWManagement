@@ -18,7 +18,7 @@ Template.InsertFormLink.helpers({
 
     if (template.displayValue != null) {
       return template.displayValue;
-    } else {
+    } 
       let value = 'placeholder';
       const data = Template.currentData().data;
 
@@ -32,7 +32,7 @@ Template.InsertFormLink.helpers({
       messagePathParts = messagePathParts.concat(data.key.replace(/_/g, '.'));
 
       return TAPi18n.__(messagePathParts.join('.') + 'Values.' + value);
-    }
+    
   }
 });
 

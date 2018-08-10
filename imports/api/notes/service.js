@@ -20,7 +20,7 @@ Meteor.methods({
     }
 
     const regEx = new RegExp(searchString, 'i');
-    const rolesObject = {}
+    const rolesObject = {};
 
     const notes = Projects.findOne(projectId, {
       fields: {
@@ -77,7 +77,7 @@ Meteor.methods({
     try {
       Notes.persistence.insert(projectId, note);
       return note._id;
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -86,7 +86,7 @@ Meteor.methods({
 
     try {
       Notes.persistence.update(projectId, noteId, key, value);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -95,7 +95,7 @@ Meteor.methods({
 
     try {
       Notes.persistence.delete(projectId, noteId);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   }
@@ -141,7 +141,7 @@ function getExtendedNote(projectId, noteId, language) {
 }
 
 function checkPermissions(projectId) {
-  const project = Projects.findOne(projectId, { fields: { _id: 1 } })
+  const project = Projects.findOne(projectId, { fields: { _id: 1 } });
 
   if (project == null) {
     throw new Meteor.Error('projectNotFound');

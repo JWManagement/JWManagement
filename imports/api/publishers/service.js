@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base'
+import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
 import { Mailer } from 'meteor/lookback:emails';
 import { TAPi18n } from 'meteor/tap:i18n';
@@ -16,7 +16,7 @@ Meteor.methods({
   'publisher.search': ({ language, projectId, searchString, limit }) => {
     checkPermissions(projectId);
 
-    let rolesObject = {}
+    let rolesObject = {};
     let result = {
       total: 0,
       items: []
@@ -30,7 +30,7 @@ Meteor.methods({
 
     rolesObject['roles.' + projectId] = {
       $in: Permissions.member
-    }
+    };
 
     const cursor = Users.find({
       $and: [
@@ -137,9 +137,9 @@ Meteor.methods({
       }
 
       return publisher;
-    } else {
+    } 
       return getExtendedPublisher(userId, projectId, language)[key];
-    }
+    
   },
   'publisher.insert': ({ language, projectId }, publisher) => {
     checkPermissions(projectId);
@@ -163,7 +163,7 @@ Meteor.methods({
 
       Users.persistence.insert(userObj);
       return publisher._id;
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -172,7 +172,7 @@ Meteor.methods({
 
     try {
       Users.persistence.update(userId, key.replace(/_/g, '.'), value);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -185,7 +185,7 @@ Meteor.methods({
       Accounts.setPassword(userId, passwords.password);
 
       return userId;
-    } catch(e) {
+    } catch (e) {
       for (let detail of e.details) {
         if (detail.type == 'minString') {
           detail.type = 'minString8';
@@ -236,7 +236,7 @@ Meteor.methods({
       data.data.global = {
         footer: TAPi18n.__('mail.footer', '', data.language),
         link: TAPi18n.__('mail.link', '', data.language)
-      }
+      };
 
       Mailer.send({
         to: data.recipient,
@@ -246,7 +246,7 @@ Meteor.methods({
         template: data.template,
         data: data.data
       });
-    } catch(e) {
+    } catch (e) {
       console.log(e);
       throw new Meteor.Error(e);
     }
@@ -303,7 +303,7 @@ Meteor.methods({
           }
         });
       }
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -330,7 +330,7 @@ Meteor.methods({
       if (!RoleManager.hasPermissions(userId)) {
         Users.remove(userId);
       }
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -400,7 +400,7 @@ Meteor.methods({
       }
 
       Users.persistence.update(userId, 'profile.available.' + day, mergedTimeslots);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -432,7 +432,7 @@ Meteor.methods({
         const delTimeslots = timeslot.split(',');
 
         for (let oldTimeslot of oldTimeslots) {
-          if (delTimeslots.indexOf('' + oldTimeslot) == -1) {
+          if (delTimeslots.indexOf(String(oldTimeslot)) == -1) {
             newTimeslots.push(oldTimeslot);
           }
         }
@@ -441,7 +441,7 @@ Meteor.methods({
 
     try {
       Users.persistence.update(userId, 'profile.available.' + day, newTimeslots);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -465,7 +465,7 @@ Meteor.methods({
       });
 
       Users.persistence.update(userId, 'profile.vacations', vacations);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   },
@@ -483,7 +483,7 @@ Meteor.methods({
       }
 
       Users.persistence.update(userId, 'profile.vacations', newVacations);
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(e);
     }
   }
@@ -629,7 +629,7 @@ function convertTimeslotToAvailability(timeslots, language) {
 }
 
 function checkPermissions(projectId, userId = null) {
-  const project = Projects.findOne(projectId, { fields: { _id: 1 } })
+  const project = Projects.findOne(projectId, { fields: { _id: 1 } });
 
   if (project == null) {
     throw new Meteor.Error('projectNotFound');

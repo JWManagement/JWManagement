@@ -53,7 +53,7 @@ Template.UpdateFormDate.onRendered(() => {
   });
 
   if (template.valueRaw != null && template.valueRaw != '') {
-    $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
+    $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate());
   }
 
   $datePicker.find('.table-condensed').removeClass('table-condensed');

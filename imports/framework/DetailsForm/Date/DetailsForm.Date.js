@@ -15,12 +15,12 @@ Template.DetailsFormDate.helpers({
 
     if (!value) {
       return '';
-    } else {
+    }
       const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat);
       const dbFormat = definition.dbFormat;
 
       return moment(value, dbFormat).format(uiFormat);
-    }
+
   }
 });
 

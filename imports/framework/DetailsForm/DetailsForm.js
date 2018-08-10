@@ -103,9 +103,9 @@ Template.DetailsForm.helpers({
         ('contents' in section && section.contents.length > 0)
         || ('actions' in section && section.actions.length > 0)
         || ('type') in section && section.type == 'header');
-    } else {
+    } 
       return template.sections;
-    }
+    
   },
   getProperty(entity, field) {
     if (field.type == 'dropdown') {

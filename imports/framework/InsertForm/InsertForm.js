@@ -103,8 +103,8 @@ Template.InsertForm.helpers({
       }
     });
 
-    if (template.entity[inputData.key] != null &&
-      template.entity[inputData.key] != '') {
+    if (template.entity[inputData.key] != null
+      && template.entity[inputData.key] != '') {
       inputData.value = template.entity[inputData.key];
     }
 
@@ -177,7 +177,7 @@ Template.InsertForm.onCreated(() => {
     }
 
     this.errors.set(newErrors);
-  }
+  };
 });
 
 Template.InsertForm.onRendered(() => {
@@ -279,7 +279,7 @@ function getRegexLastIndexOf(string, regex) {
   let lastIndexOf = -1;
   let nextStop = 0;
 
-  while((result = regex.exec(stringToWorkWith)) != null) {
+  while ((result = regex.exec(stringToWorkWith)) != null) {
     lastIndexOf = result.index;
     regex.lastIndex = ++nextStop;
   }

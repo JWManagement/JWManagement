@@ -97,7 +97,7 @@ Template.UpdateForm.onCreated(() => {
         }
       }
     });
-  }
+  };
 });
 
 Template.UpdateForm.onRendered(() => {
