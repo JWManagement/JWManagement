@@ -4,7 +4,14 @@
     "es6": true,
     "node": true
   },
-  "globals": {},
+  "globals": {
+    "window": true,
+    "alert": false,
+    "$": false,
+    "Projects": true,
+    "Shifts": true,
+    "Weeks": false
+  },
   "rules": {
     "strict": [1, "safe"],
     "complexity": [1, 10],
