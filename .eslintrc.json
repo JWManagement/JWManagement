@@ -5,12 +5,15 @@
     "node": true
   },
   "globals": {
-    "window": true,
+    "window": false,
+    "document": false,
     "alert": false,
+    "confirm": false,
     "$": false,
-    "Projects": true,
-    "Shifts": true,
-    "Weeks": false
+    "Projects": false,
+    "Shifts": false,
+    "Weeks": false,
+    "FooTable": false
   },
   "rules": {
     "strict": [1, "safe"],
