@@ -106,11 +106,9 @@ Template.settings.events
 		Session.set('parent', 'settings')
 		tagId = $(e.target).closest('.form-group').attr('tagId')
 		projectId = FlowRouter.getParam('projectId')
-		language = FlowRouter.getParam('language')
 
 		FlowRouter.go 'shifts',
 			projectId: projectId
-			language: language
 		,
 			tagId: tagId
 			templateId: @_id

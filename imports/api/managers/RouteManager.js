@@ -8,14 +8,13 @@ import { wrs } from '/imports/framework/Functions.Async';
 const RouteManager = {
 
   registerTranslatedPage(entityName, routes) {
-    this.registerEntity(entityName, routes, '/:language/');
+    this.registerEntity(entityName, routes, '/');
   },
 
-  registerEntity(entityName, routes, prefix = '/:language/:projectId/') {
+  registerEntity(entityName, routes, prefix = '/:projectId/') {
     if ('search' in routes) {
       FlowRouter.route(prefix + routes.search, {
         name: entityName + '.search',
-        triggersEnter: [ Helpers.checkLanguage ],
         action: () => {
           Helpers.doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.search');
@@ -27,7 +26,6 @@ const RouteManager = {
     if ('insert' in routes) {
       FlowRouter.route(prefix + routes.insert, {
         name: entityName + '.insert',
-        triggersEnter: [ Helpers.checkLanguage ],
         action: () => {
           Helpers.doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.insert');
@@ -39,7 +37,6 @@ const RouteManager = {
     if ('details' in routes) {
       FlowRouter.route(prefix + routes.details, {
         name: entityName + '.details',
-        triggersEnter: [ Helpers.checkLanguage ],
         action: () => {
           Helpers.doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.details');
@@ -51,7 +48,6 @@ const RouteManager = {
     if ('update' in routes) {
       FlowRouter.route(prefix + routes.update, {
         name: entityName + '.update',
-        triggersEnter: [ Helpers.checkLanguage ],
         action: () => {
           Helpers.doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.update');

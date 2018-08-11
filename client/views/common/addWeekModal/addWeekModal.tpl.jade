@@ -10,7 +10,7 @@
 						if noTemplate
 							h3.center-align {{_ 'modal.addWeek.noTemplate'}}
 							h3.center-align
-								a(href='{{pathFor "settings" projectId=_id language=langTag}}')
+								a(href='{{pathFor "settings" projectId=_id}}')
 									| {{_ 'modal.addWeek.defineTemplate'}}
 									i.fa.fa-angle-double-right
 						else

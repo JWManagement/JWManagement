@@ -5,31 +5,18 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
-import { Delay } from '/imports/framework/Functions.Async';
-
 const Helpers = {
 
   checkLanguage: () => {
-    if (Meteor.user() != null) {
-      const language = FlowRouter.current().params.language;
-      const myLanguage = Meteor.user().profile.language;
+    const language = FlowRouter.current().params.language;
+    const myLanguage = TAPi18n.getLanguage();
 
-      if (language != myLanguage) {
-        FlowRouter.withReplaceState(() => {
-          FlowRouter.setParams({ language: myLanguage });
-        });
-      }
+    if (language != myLanguage) {
+      TAPi18n.setLanguage(language);
+      moment.locale(language);
 
-      if (TAPi18n.getLanguage() != myLanguage) {
-        TAPi18n.setLanguage(myLanguage);
-        moment.locale(myLanguage);
-      }
-    }
-  },
-  logout: () => {
-    if (Meteor.loggingIn() || Meteor.userId()) {
-      Delay(() => {
-        Meteor.logout();
+      FlowRouter.withReplaceState(() => {
+        FlowRouter.setParams({ language: language });
       });
     }
   },

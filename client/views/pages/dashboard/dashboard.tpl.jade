@@ -3,7 +3,7 @@ if queryParam 'showShiftReport'
 .wrapper-content.animated.fadeInUp
     .container
         .text-center.m-b-xl
-            a.btn.btn-warning.btn-lg(href="/en")
+            a.btn.btn-warning.btn-lg(href="/")
                 | {{_ 'dashboard.entity.newDashboard'}}
                 i.fa.fa-rocket.fa-fw
         .row.m-b-lg.animated.fadeInUp
@@ -21,7 +21,7 @@ if queryParam 'showShiftReport'
                             .project-wrapper.col-md-6(id="{{_id}}" class="{{centerProject}}")
                                 .tags-popup.row
                                     .team-link.col-xs-6.col-lg-4.m-b-md.center-align
-                                        a.btn.btn-primary.btn-lg(href="{{pathFor 'calendar' projectId=_id language=langTag}}")
+                                        a.btn.btn-primary.btn-lg(href="{{pathFor 'calendar' projectId=_id}}")
                                             .m-t-xs.m-b-sm
                                                 i.fa.fa-calendar-check-o.fa-3x
                                             p.project-link-caption.m-t {{_ 'dashboard.calendar'}}
@@ -58,24 +58,24 @@ if queryParam 'showShiftReport'
                                                     button#cancelNews.btn.btn-default.btn-sm.btn-circle.fa.fa-times.pull-right(title="{{_ 'dashboard.cancelNews'}}")
                                                     .chars-left 500/500
                                         .project-link-wrapper
-                                            a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id language=langTag}}")
+                                            a.btn.btn-primary.project-link(href="{{pathFor 'wiki' projectId=_id}}")
                                                 i.fa.fa-book
                                                 p.project-link-caption {{_ 'wiki.nameShort'}}
-                                            a#toShifts.btn.btn-primary.project-link(href="{{pathFor 'shifts' projectId=_id language=langTag}}")
+                                            a#toShifts.btn.btn-primary.project-link(href="{{pathFor 'shifts' projectId=_id}}")
                                                 i.fa.fa-calendar-check-o
                                                 p.project-link-caption {{_ 'shifts.name'}}
                                             if isProjectShiftOrStoreAdmin _id
-                                                a.btn.btn-primary.project-link(href="{{pathFor 'project.details' projectId=_id language=langTag}}")
+                                                a.btn.btn-primary.project-link(href="{{pathFor 'project.details' projectId=_id}}")
                                                     i.fa.fa-gear
                                                     p.project-link-caption {{_ 'project.nameShort'}}
                                             else if vesselModule
-                                                a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessel.search' projectId=_id language=langTag}}")
+                                                a#toVessels.btn.btn-primary.project-link(href="{{pathFor 'vessel.search' projectId=_id}}")
                                                     i.fa.fa-ship
                                                     p.project-link-caption {{_ 'vessel.nameShort'}}
                                     if getUnderstaffedShifts
                                         ul.list-group
                                             each getUnderstaffedShifts
-                                                a.shift-link(href="{{pathFor 'shifts' projectId=projectId language=langTag}}")
+                                                a.shift-link(href="{{pathFor 'shifts' projectId=projectId}}")
                                                     li.list-group-item
                                                         span.float-right
                                                             span.label.label-primary.m-r-sm {{_ 'dashboard.understaffed'}}

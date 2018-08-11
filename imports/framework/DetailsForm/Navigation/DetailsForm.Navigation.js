@@ -14,8 +14,6 @@ Template.DetailsFormNavigation.helpers({
   },
   getBackLink() {
     if (Template.currentData().data) {
-      FlowRouter.getParam('language');
-
       return FlowRouter.path(
         Template.currentData().data.backLink,
         FlowRouter.current().params);

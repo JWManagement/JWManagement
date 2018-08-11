@@ -26,7 +26,7 @@ Template.profile.onRendered ->
 	@autorun ->
 		$('.input-daterange').datepicker
 			format: 'dd.mm.yyyy'
-			language: FlowRouter.getParam('language')
+			language: TAPi18n.getLanguage()
 			ignoreReadonly: true
 
 Template.profile.onDestroyed ->
@@ -144,7 +144,7 @@ Template.profile.events
 		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'
-				language: FlowRouter.getParam('language')
+				language: TAPi18n.getLanguage()
 
 	'change .startDate': (e) -> Meteor.call 'setVacationStart', @_id, e.target.value
 

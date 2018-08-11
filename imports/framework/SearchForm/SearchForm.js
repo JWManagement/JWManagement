@@ -15,7 +15,6 @@ import './SearchForm.scss';
 Template.SearchForm.helpers({
   getTitle,
   getBackLink() {
-    FlowRouter.getParam('language');
     return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params);
   },
   getTranslation(key) {
@@ -73,7 +72,6 @@ Template.SearchForm.onCreated(() => {
   template.items = new ReactiveVar([]);
   template.regEx = new ReactiveVar(new RegExp(''));
   template.table = null;
-  template.language = '';
   template.defaultResultsPerPage = 20;
   template.resultsShown = new ReactiveVar(template.defaultResultsPerPage);
 
@@ -87,8 +85,6 @@ Template.SearchForm.onRendered(() => {
   $('body').attr('type', 'SearchForm');
 
   const template = Template.instance();
-  template.language = '';
-
   const columns = template.columnDefinitions.map((column) => {
     let routeParts = FlowRouter.getRouteName().split('.');
     routeParts.pop();
@@ -99,12 +95,6 @@ Template.SearchForm.onRendered(() => {
   });
 
   template.autorun(() => {
-    let tempLanguage = FlowRouter.getParam('language');
-
-    if (template.language !== tempLanguage) {
-      template.language = tempLanguage;
-    }
-
     Tracker.afterFlush(() => {
       $('#table').html('');
 

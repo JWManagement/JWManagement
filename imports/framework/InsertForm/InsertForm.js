@@ -28,7 +28,6 @@ Template.InsertForm.helpers({
   getErrorClass,
   getEntityErrorTranslation,
   getBackLink() {
-    FlowRouter.getParam('language');
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params);
   },
   getSearchTranslation() {
