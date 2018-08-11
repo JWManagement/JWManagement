@@ -76,9 +76,8 @@ RouteManager.registerEntity('note', {
   update: 'notes/:noteId/:key'
 });
 
-FlowRouter.route('/:language/:projectId/calendar/:year?/:month?/:day?', {
+FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
   name: 'calendar',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
@@ -87,9 +86,8 @@ FlowRouter.route('/:language/:projectId/calendar/:year?/:month?/:day?', {
   }
 });
 
-FlowRouter.route('/:language/:projectId/kb', {
+FlowRouter.route('/:projectId/kb', {
   name: 'wiki',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
@@ -98,9 +96,8 @@ FlowRouter.route('/:language/:projectId/kb', {
   }
 });
 
-FlowRouter.route('/:language/:projectId/shifts', {
+FlowRouter.route('/:projectId/shifts', {
   name: 'shifts',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       let parent = Session.get('parent');
@@ -115,7 +112,7 @@ FlowRouter.route('/:language/:projectId/shifts', {
   }
 });
 
-FlowRouter.route('/:language/goToShift/:shiftId', {
+FlowRouter.route('/goToShift/:shiftId', {
   name: 'shift.details',
   action: () => {
     Helpers.doIfLoggedIn(() => {
@@ -128,7 +125,6 @@ FlowRouter.route('/:language/goToShift/:shiftId', {
         const day = parseInt(momentObj.format('DD'), 10);
 
         FlowRouter.go('calendar', {
-          language: FlowRouter.getParam('language'),
           projectId: shift.projectId,
           year: year,
           month: month,
@@ -141,9 +137,8 @@ FlowRouter.route('/:language/goToShift/:shiftId', {
   }
 });
 
-FlowRouter.route('/:language/:projectId/settings', {
+FlowRouter.route('/:projectId/settings', {
   name: 'settings',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
@@ -152,9 +147,8 @@ FlowRouter.route('/:language/:projectId/settings', {
   }
 });
 
-FlowRouter.route('/:language/:projectId/reports', {
+FlowRouter.route('/:projectId/reports', {
   name: 'reports',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
@@ -163,9 +157,8 @@ FlowRouter.route('/:language/:projectId/reports', {
   }
 });
 
-FlowRouter.route('/:language/:projectId/store', {
+FlowRouter.route('/:projectId/store', {
   name: 'store',
-  triggersEnter: [ Helpers.checkLanguage ],
   action: () => {
     Helpers.doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
