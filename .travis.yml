@@ -7,8 +7,6 @@ before_install:
   - npm install -g mup
 services:
   - mongodb
-#script:
-#  - meteor test --once --driver-package meteortesting:mocha
 deploy:
   - provider: script
     script: bash .deploy/deploy.staging.sh
