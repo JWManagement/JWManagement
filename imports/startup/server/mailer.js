@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import { Meteor } from 'meteor/meteor';
 import { Mailer } from 'meteor/lookback:emails';
 

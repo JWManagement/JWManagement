@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable max-len */
 
 App.info({
   id: 'org.jwmanagement',

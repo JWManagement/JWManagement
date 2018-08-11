@@ -47,8 +47,8 @@ Template.DetailsFormArrayLink.events({
       const deleteConfirmationMessage = TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.'));
 
       if (confirm(deleteConfirmationMessage)) {
-        Meteor.call(method, params, entityId, (e) => {
-          if (e) {
+        Meteor.call(method, params, entityId, (error) => {
+          if (error) {
             alert('SERVER ERROR');
           } else {
             loadData(detailsForm);

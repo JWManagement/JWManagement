@@ -280,8 +280,8 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
 
         vessel.visits[0].country = project.country;
 
-        const harbor = project.harbors.filter((harbor) => {
-          return harbor._id == vessel.visits[0].harborId;
+        const harbor = project.harbors.filter((h) => {
+          return h._id == vessel.visits[0].harborId;
         })[0];
 
         vessel.visits[0].harbor = harbor.name;

@@ -141,12 +141,12 @@ function getOlderShifts(projectIds, projects, date, userId) {
 
 function getUpdatedShifts(projects, shifts) {
   return shifts.map((shift) => {
-    const project = projects.filter((project) => {
-      return project._id == shift.projectId;
+    const project = projects.filter((p) => {
+      return p._id == shift.projectId;
     })[0];
 
-    const tag = project.tags.filter((tag) => {
-      return tag._id == shift.tagId;
+    const tag = project.tags.filter((t) => {
+      return t._id == shift.tagId;
     })[0];
 
     if (project != null && tag != null) {

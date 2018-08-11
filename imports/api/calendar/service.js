@@ -100,7 +100,9 @@ Meteor.methods({
             for (let request of team.pending) {
               for (let user of users) {
                 if (user._id == request._id) {
-                  if (user.roles[Roles.GLOBAL_GROUP] != null && user.roles[Roles.GLOBAL_GROUP].indexOf('teamleader') > -1) {
+                  if (user.roles[Roles.GLOBAL_GROUP] != null
+                    && user.roles[Roles.GLOBAL_GROUP].indexOf('teamleader') > -1)
+                  {
                     team.isTlNeeded = false;
                     break;
                   }

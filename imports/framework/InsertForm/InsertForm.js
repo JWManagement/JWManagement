@@ -231,14 +231,14 @@ Template.InsertForm.events({
 
     template.isSaving.set(true);
 
-    Meteor.call(FlowRouter.getRouteName(), FlowRouter.current().params, template.entity, (e, entityId) => {
+    Meteor.call(FlowRouter.getRouteName(), FlowRouter.current().params, template.entity, (error, entityId) => {
       template.isSaving.set(false);
 
-      if (e != null) {
-        if (e.error.error == 'validation-error') {
+      if (error != null) {
+        if (error.error.error == 'validation-error') {
           let errors = [];
 
-          if (e.error.reason != null && typeof e.error.reason == 'object') {
+          if (error.error.reason != null && typeof e.error.reason == 'object') {
             errors = errors.concat(e.error.reason);
           } else if (e.error.details != null) {
             errors = errors.concat(e.error.details);
