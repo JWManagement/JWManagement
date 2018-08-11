@@ -99,7 +99,6 @@ Template.SearchForm.onRendered(() => {
   });
 
   template.autorun(() => {
-    let rows = template.items.get();
     let tempLanguage = FlowRouter.getParam('language');
 
     if (template.language !== tempLanguage) {
@@ -159,9 +158,6 @@ Template.SearchForm.events({
 });
 
 function generateRows(template) {
-  const language = FlowRouter.getParam('language');
-  const projectId = FlowRouter.getParam('projectId');
-
   template.rows = template.items.get().map((item) => {
     const row = {};
 
@@ -171,7 +167,7 @@ function generateRows(template) {
       if (column.name.indexOf('_') > 0) {
         let tmp = item;
 
-        for (property of column.name.split('_')) {
+        for (let property of column.name.split('_')) {
           tmp = tmp[property];
         }
 

@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(function() {
 
-  //Push.debug = true;
+  // Push.debug = true;
 
-  //Push.Configure({
+  // Push.Configure({
   //    apn: {
   //        certData: Assets.getText('cert.pem'),
   //        keyData: Assets.getText('key.pem'),
@@ -12,5 +12,5 @@ Meteor.startup(function() {
   //        production: false,
   //        gateway: "gateway.sandbox.push.apple.com"
   //    }
-  //});
+  // });
 });

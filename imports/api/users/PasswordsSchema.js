@@ -1,4 +1,6 @@
-export default PasswordsSchema = new SimpleSchema({
+import SimpleSchema from 'simpl-schema';
+
+const PasswordsSchema = new SimpleSchema({
   password: {
     type: String,
     min: 8
@@ -12,3 +14,5 @@ export default PasswordsSchema = new SimpleSchema({
     }
   }
 });
+
+export default PasswordsSchema;

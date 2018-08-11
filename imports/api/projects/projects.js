@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Random } from 'meteor/random';
 import { Roles } from 'meteor/alanning:roles';
 
 Meteor.methods({

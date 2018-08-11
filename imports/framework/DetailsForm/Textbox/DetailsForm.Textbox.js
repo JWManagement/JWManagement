@@ -7,7 +7,7 @@ import './DetailsForm.Textbox.jade';
 Template.DetailsFormTextbox.helpers({
   getKey,
   getValue(definition, entity) {
-    return getValue(definition, entity).replace(/\r?\n|\r/g, '<br>', );
+    return getValue(definition, entity).replace(/\r?\n|\r/g, '<br>');
   }
 });
 

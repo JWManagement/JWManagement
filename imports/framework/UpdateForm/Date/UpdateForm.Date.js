@@ -38,9 +38,9 @@ Template.UpdateFormDate.onRendered(() => {
     weekStart: 1,
     language: TAPi18n.getLanguage()
   })
-  .on('changeDate', (e) => {
+  .on('changeDate', () => {
     const value = $datePicker.datepicker('getDate');
-    let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format));
+    let valueRaw = parseInt(moment(value, 'YYYY-MM-DD').format(template.format), 10);
 
     if (value == '') {
       valueRaw = null;

@@ -1,9 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
+import Permissions from '/imports/api/util/Permissions';
+
 const RoleManager = {
 
-  setProjectPermission: (projectId, userId) => {
+  setProjectPermission: (projectId, userId, permission) => {
     if (Permissions.member.indexOf(permission) > -1) {
       if (Roles.userIsInRole(userId, Permissions.member, projectId)) {
         Roles.removeUsersFromRoles(userId, Permissions.member, projectId);
@@ -18,6 +20,8 @@ const RoleManager = {
   },
 
   setTagPermission: (projectId, tagId, userId, permission) => {
+    // TODO: check that tag belongs to project and i am in project
+
     if (Permissions.participant.indexOf(permission) > -1) {
       if (Roles.userIsInRole(userId, Permissions.participant, tagId)) {
         Roles.removeUsersFromRoles(userId, Permissions.participant, tagId);

@@ -1,4 +1,4 @@
-export default Pioneer = {
+const Pioneer = {
   defaultValue: 'publisher',
   allowedValues: [
     'publisher',
@@ -10,3 +10,5 @@ export default Pioneer = {
     'ldc'
   ]
 };
+
+export default Pioneer;

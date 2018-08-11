@@ -1,4 +1,4 @@
-export default Hour = {
+const Hour = {
   defaultValue: '10',
   allowedValues: [
     0,
@@ -27,3 +27,5 @@ export default Hour = {
     23
   ]
 };
+
+export default Hour;

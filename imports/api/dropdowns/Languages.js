@@ -1,4 +1,4 @@
-export default Languages = {
+const Languages = {
   defaultValue: 'E',
   allowedValues: [
     'A', 'AL', 'AR', 'AM',
@@ -26,3 +26,5 @@ export default Languages = {
     'YR'
   ]
 };
+
+export default Languages;

@@ -5,9 +5,10 @@ import moment from 'moment';
 
 import Notes from '/imports/api/notes/Notes';
 import Users from '/imports/api/users/Users';
+import Permissions from '/imports/api/util/Permissions';
 
 Meteor.methods({
-  'note.search': ({ language, projectId, searchString, limit }) => {
+  'note.search': ({ language, projectId, searchString }) => {
     checkPermissions(projectId);
 
     const result = {
@@ -18,9 +19,6 @@ Meteor.methods({
     if (typeof searchString != 'string' || searchString == '') {
       return result;
     }
-
-    const regEx = new RegExp(searchString, 'i');
-    const rolesObject = {};
 
     const notes = Projects.findOne(projectId, {
       fields: {

@@ -33,7 +33,6 @@ Template.UpdateFormDropdown.helpers({
     return template.allowedKeyValues.get();
   },
   getItemKey() {
-    const template = Template.instance();
     const item = Template.currentData();
     return FlowRouter.getParam('key') + 'Values.' + item;
   }

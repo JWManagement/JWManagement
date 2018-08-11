@@ -1,4 +1,4 @@
-export default SystemLanguages = {
+const SystemLanguages = {
   defaultValue: 'en',
   allowedValues: [
     'de',
@@ -12,3 +12,5 @@ export default SystemLanguages = {
     'ru'
   ]
 };
+
+export default SystemLanguages;

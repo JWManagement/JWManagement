@@ -214,8 +214,8 @@ Template.DetailsForm.events({
     messagePathParts.push(key + 'Confirmation');
 
     if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
-      Meteor.call(method, FlowRouter.current().params, (e, r) => {
-        if (e == null) {
+      Meteor.call(method, FlowRouter.current().params, (error) => {
+        if (error == null) {
           FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params));
         } else {
           alert('SERVER ERROR');

@@ -123,9 +123,9 @@ FlowRouter.route('/:language/goToShift/:shiftId', {
         shiftId: FlowRouter.getParam('shiftId')
       }, (e, shift) => {
         const momentObj = moment(shift.date, 'YYYYDDD');
-        const year = parseInt(momentObj.format('YYYY'));
-        const month = parseInt(momentObj.format('MM'));
-        const day = parseInt(momentObj.format('DD'));
+        const year = parseInt(momentObj.format('YYYY'), 10);
+        const month = parseInt(momentObj.format('MM'), 10);
+        const day = parseInt(momentObj.format('DD'), 10);
 
         FlowRouter.go('calendar', {
           language: FlowRouter.getParam('language'),

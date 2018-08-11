@@ -5,9 +5,11 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
+import { Delay } from '/imports/framework/Functions.Async';
+
 const Helpers = {
 
-  checkLanguage: (c) => {
+  checkLanguage: () => {
     if (Meteor.user() != null) {
       const language = FlowRouter.current().params.language;
       const myLanguage = Meteor.user().profile.language;

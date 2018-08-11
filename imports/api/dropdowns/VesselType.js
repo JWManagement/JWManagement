@@ -1,4 +1,4 @@
-export default VesselType = {
+const VesselType = {
   defaultValue: 'c',
   allowedValues: [
     'c',
@@ -14,3 +14,5 @@ export default VesselType = {
     'unknown'
   ]
 };
+
+export default VesselType;

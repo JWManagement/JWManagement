@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 
+import Permissions from '/imports/api/util/Permissions';
+
 Template['publisher.search'].helpers({
   data: {
     entityId: 'userId',

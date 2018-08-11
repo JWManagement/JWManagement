@@ -11,7 +11,7 @@ Template['project.search'].helpers({
       name: 'name',
       mobile: true
     }],
-    searchCriteria: (search, projectId) => {
+    searchCriteria: (search) => {
       return {
         selector: {
           $or: [{

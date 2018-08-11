@@ -1,12 +1,14 @@
 import { Meteor } from 'meteor/meteor';
+import { Random } from 'meteor/random';
 import { Roles } from 'meteor/alanning:roles';
 import { TAPi18n } from 'meteor/tap:i18n';
 
 import Vessels from '/imports/api/vessels/Vessels';
 import Languages from '/imports/api/dropdowns/Languages';
+import Permissions from '/imports/api/util/Permissions';
 
 Meteor.methods({
-  'vessel.search': ({ language, projectId, searchString, limit }) => {
+  'vessel.search': ({ projectId, searchString, limit }) => {
     checkVesselModule(projectId);
 
     const result = {
@@ -60,7 +62,7 @@ Meteor.methods({
 
     return getExtendedVessel(vesselId, language)[key];
   },
-  'vessel.insert': ({ language, projectId }, vessel) => {
+  'vessel.insert': ({ projectId }, vessel) => {
     checkVesselModule(projectId);
 
     try {
@@ -70,7 +72,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'vessel.update': ({ language, projectId, vesselId }, key, value) => {
+  'vessel.update': ({ projectId, vesselId }, key, value) => {
     checkVesselModule(projectId);
 
     try {
@@ -120,7 +122,7 @@ Meteor.methods({
 
     return getExtendedVessel(vesselId, language).visits.pop();
   },
-  'vessel.visit.getField': ({ language, projectId, vesselId, visitId, key }) => {
+  'vessel.visit.getField': ({ language, projectId, vesselId, key }) => {
     checkVesselModule(projectId);
 
     return getExtendedVessel(vesselId, language).visits.pop()[key];

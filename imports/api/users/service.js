@@ -4,7 +4,7 @@ import { Roles } from 'meteor/alanning:roles';
 import Users from '/imports/api/users/Users';
 
 Meteor.methods({
-  'user.search': ({ language, searchString, limit }) => {
+  'user.search': ({ searchString, limit }) => {
     if (!Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
       return [];
     }
@@ -49,8 +49,8 @@ Meteor.methods({
     result.items = cursor.fetch();
 
     return result;
-  },
-  'user.get': ({ projectId }) => {
-    // TODO: write this
   }
+  /* 'user.get': ({ projectId }) => {
+    // TODO: write this
+  }*/
 });

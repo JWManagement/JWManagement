@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Random } from 'meteor/random';
 import SimpleSchema from 'simpl-schema';
 
 import Gender from '/imports/api/dropdowns/Gender';

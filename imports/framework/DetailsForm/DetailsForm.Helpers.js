@@ -31,7 +31,7 @@ function getValue(definition, entity) {
   if (key.indexOf('_') > 0) {
     value = entity;
 
-    for (property of key.split('_')) {
+    for (let property of key.split('_')) {
       if (property in value) {
         value = value[property];
       } else {

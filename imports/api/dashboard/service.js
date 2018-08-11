@@ -35,10 +35,10 @@ const SHIFT_OPTIONS = {
 };
 
 Meteor.methods({
-  'dashboard.get': ({ projectId }) => {
+  'dashboard.get': () => {
     const userId = Meteor.userId();
     const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member);
-    const today = parseInt(moment().format('YYYYDDD'));
+    const today = parseInt(moment().format('YYYYDDD'), 10);
     const projects = getProjects(projectIds);
     const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId);
     const upcomingShifts = getUpcomingShifts(projectIds, projects, today, userId);
@@ -151,7 +151,7 @@ function getUpdatedShifts(projects, shifts) {
 
     if (project != null && tag != null) {
       shift.tag = tag.name;
-      shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'));
+      shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10);
 
       return shift;
     }

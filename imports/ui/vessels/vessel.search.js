@@ -28,7 +28,7 @@ Template['vessel.search'].helpers({
     }, {
       name: 'mmsi'
     }],
-    searchCriteria: (search, projectId) => {
+    searchCriteria: (search) => {
       return {
         selector: {
           $or: [{

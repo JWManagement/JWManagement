@@ -1,8 +1,12 @@
+/* eslint group: "off" */
+
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { Random } from 'meteor/random';
 import { Roles } from 'meteor/alanning:roles';
 import { Mailer } from 'meteor/lookback:emails';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { ValidationError } from 'meteor/mdg:validation-error';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
@@ -154,7 +158,7 @@ Meteor.methods({
       for (let property in publisher) {
         let propertyObj = publisher[property];
 
-        for (let [index, part] of property.split('_').reverse().entries()) {
+        for (let part of property.split('_').reverse().entries()) {
           propertyObj = {[part]: propertyObj};
         }
 
@@ -171,7 +175,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.update': ({ language, projectId, userId }, key, value) => {
+  'publisher.update': ({ projectId, userId }, key, value) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -199,7 +203,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.password.reset': ({ language, projectId, userId }) => {
+  'publisher.password.reset': ({ projectId, userId }) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -255,7 +259,7 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.invite': ({ language, projectId, userId }) => {
+  'publisher.invite': ({ projectId, userId }) => {
     checkPermissions(projectId, userId);
 
     try {
@@ -324,6 +328,7 @@ Meteor.methods({
           RoleManager.removeTagPermission(tag._id, userId);
         }
 
+        // eslint-disable-next-line no-unused-vars
         for (let group of Roles.getGroupsForUser(userId)) {
           if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
             return;
@@ -344,8 +349,8 @@ Meteor.methods({
     try {
       const publisher = Users.findOne(userId);
       const day = key.split('_').pop().substring(0, 2);
-      const timeslotStart = parseInt(timeslot.start) * 100;
-      const timeslotEnd = parseInt(timeslot.end) * 100;
+      const timeslotStart = parseInt(timeslot.start, 10) * 100;
+      const timeslotEnd = parseInt(timeslot.end, 10) * 100;
       let newTimeslots = [];
       let mergedTimeslots = [];
       let time = timeslotStart;
@@ -458,8 +463,8 @@ Meteor.methods({
       // support legacy format
       for (let vacation of vacations) {
         if (vacation.createdAt == null) {
-          vacation.start = parseInt(moment(vacation.start, 'YYYYDDD').format('YYYYMMDD'));
-          vacation.end = parseInt(moment(vacation.end, 'YYYYDDD').format('YYYYMMDD'));
+          vacation.start = parseInt(moment(vacation.start, 'YYYYDDD').format('YYYYMMDD'), 10);
+          vacation.end = parseInt(moment(vacation.end, 'YYYYDDD').format('YYYYMMDD'), 10);
         }
       }
 

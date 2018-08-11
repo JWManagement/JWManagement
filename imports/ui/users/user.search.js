@@ -20,7 +20,7 @@ Template['user.search'].helpers({
       name: 'profile_email',
       mobile: true
     }],
-    searchCriteria: (search, projectId) => {
+    searchCriteria: (search) => {
       return {
         selector: {
           $or: [{

@@ -77,7 +77,7 @@ Template.calendar.onDestroyed(() => {
 });
 
 Template.calendar.events({
-  'click .shift': function(e) {
+  'click .shift': function() {
     wrs(() => {
       FlowRouter.setQueryParams({
         showShift: this._id
@@ -89,7 +89,7 @@ Template.calendar.events({
 function loadShifts() {
   const template = this;
   let params = FlowRouter.current().params;
-  params.date = parseInt(moment(template.selectedDate).format('YYYYDDD'));
+  params.date = parseInt(moment(template.selectedDate).format('YYYYDDD'), 10);
 
   template.isLoading.set(true);
 

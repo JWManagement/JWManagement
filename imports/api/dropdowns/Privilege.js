@@ -1,4 +1,4 @@
-export default Privilege = {
+const Privilege = {
   defaultValue: 'publisher',
   allowedValues: [
     'publisher',
@@ -9,3 +9,5 @@ export default Privilege = {
     'serviceOverseer'
   ]
 };
+
+export default Privilege;

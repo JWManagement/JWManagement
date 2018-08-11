@@ -42,9 +42,9 @@ Template.InsertFormDate.onRendered(() => {
     weekStart: 1,
     language: TAPi18n.getLanguage()
   })
-  .on('changeDate', (e) => {
+  .on('changeDate', () => {
     const valueRaw = $datePicker.datepicker('getDate');
-    const value = parseInt(moment(valueRaw, 'YYYY-MM-DD').format(template.format));
+    const value = parseInt(moment(valueRaw, 'YYYY-MM-DD').format(template.format), 10);
 
     template.insertForm.setFieldValue(template.key, value);
   });

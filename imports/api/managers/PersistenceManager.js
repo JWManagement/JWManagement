@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-
+import { ValidationError } from 'meteor/mdg:validation-error';
 module.exports = class PersistenceManager {
   constructor(db) {
     this.db = db;
@@ -27,7 +27,7 @@ module.exports = class PersistenceManager {
     }
   }
 
-  delete(entity) {}
+  // delete(entity) {}
 
   checkUniqueFields(entity) {
     const errors = [];

@@ -75,9 +75,6 @@ import '/imports/startup/client/language';
 
 import { TimeSync } from 'meteor/mizzao:timesync';
 
-import SimpleSchemaHelper from '/imports/startup/common/SimpleSchemaHelper';
-SimpleSchemaHelper.init();
-
 Meteor.startup(function() {
   BlazeLayout.setRoot('body');
 

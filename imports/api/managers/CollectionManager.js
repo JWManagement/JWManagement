@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { ValidationError } from 'meteor/mdg:validation-error';
 
 module.exports = class CollectionManager {
   constructor(collection, db) {

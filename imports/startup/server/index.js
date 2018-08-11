@@ -15,6 +15,3 @@ import '/imports/api/publishers/service';
 import '/imports/api/vessels/service';
 import '/imports/api/notes/service';
 import '/imports/api/calendar/service';
-
-import SimpleSchemaHelper from '/imports/startup/common/SimpleSchemaHelper';
-SimpleSchemaHelper.init();

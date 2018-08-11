@@ -211,7 +211,7 @@ Template.InsertForm.events({
     const value = $('#search').val();
     template.searchText.set(value);
   },
-  'change input': function(e) {
+  'change input': function() {
     const template = Template.instance();
     const key = this.data.key;
     const errors = template.errors.get();
@@ -247,7 +247,7 @@ Template.InsertForm.events({
           template.errors.set(errors.map((error) => {
             let parts = error.name.split('.');
 
-            if (!isNaN(parseInt(parts[parts.length - 1]))) {
+            if (!isNaN(parseInt(parts[parts.length - 1], 10))) {
               parts.pop();
             }
 
@@ -280,6 +280,7 @@ function getRegexLastIndexOf(string, regex) {
   let stringToWorkWith = string.substring(0, startpos + 1);
   let lastIndexOf = -1;
   let nextStop = 0;
+  let result;
 
   while ((result = regex.exec(stringToWorkWith)) != null) {
     lastIndexOf = result.index;

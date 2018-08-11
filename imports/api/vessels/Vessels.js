@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import { Random } from 'meteor/random';
 import SimpleSchema from 'simpl-schema';
 
 import Languages from '/imports/api/dropdowns/Languages';

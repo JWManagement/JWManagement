@@ -1,7 +1,7 @@
 import { Mailer } from 'meteor/lookback:emails';
 import { TAPi18n } from 'meteor/tap:i18n';
 
-export default MailManager = {
+const MailManager = {
 
   sendMail: (data) => {
     data.data.global = {
@@ -20,3 +20,5 @@ export default MailManager = {
   }
 
 };
+
+export default MailManager;
