@@ -14,6 +14,7 @@ import '/imports/api/datepicker/bootstrap-datepicker.pl.min';
 import '/imports/api/datepicker/bootstrap-datepicker.pt.min';
 import '/imports/api/datepicker/bootstrap-datepicker.ru.min';
 
+import '/imports/startup/common/moment';
 import '/imports/startup/common/rolesExtensions';
 
 import '/imports/api/projects/projects';
