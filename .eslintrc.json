@@ -55,7 +55,7 @@
     "no-caller": 2,
     "no-throw-literal": 1,
     "no-else-return": 1,
-    "no-empty-pattern": 2,
+    "no-empty-pattern": 0,
     "no-shadow": [1, {"allow": ["resolve", "reject", "done", "next", "cb", "i", "err", "error"]}],
     "no-implicit-coercion": [1, {"number": true, "string": true}],
     "vars-on-top": 1,
