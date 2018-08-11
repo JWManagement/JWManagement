@@ -1,9 +1,5 @@
 #!/bin/bash
 
-git stash --all
-
-npm install
-
 npm run lint
 
 mup setup --config=.deploy/mup.staging.js
