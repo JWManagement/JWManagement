@@ -1,5 +1,5 @@
-import { Meteor } from 'meteor';
-import { FlowRouter } from 'meteor/kadira:flowrouter';
+import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 function Delay(param) {
   return Meteor.setTimeout(function() {
