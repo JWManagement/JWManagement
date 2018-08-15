@@ -20,6 +20,9 @@ Meteor.startup(() => {
 
       if (TAPi18n.getLanguage() != myLanguage) {
         TAPi18n.setLanguage(myLanguage);
+      }
+
+      if (moment.locale() != myLanguage) {
         moment.locale(myLanguage);
       }
     }
