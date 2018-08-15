@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 
-import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers';
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers.Error';
+import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Helpers/Error';
 
 import './UpdateForm.Text.jade';
 

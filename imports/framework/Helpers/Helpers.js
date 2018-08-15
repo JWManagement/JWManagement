@@ -2,8 +2,6 @@ import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-export { getKey, getTitle, getEntityTranslation };
-
 function getKey() {
   return Template.instance().key;
 }
@@ -29,3 +27,5 @@ function getEntityTranslation(key, suffix) {
 
   return TAPi18n.__(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'));
 }
+
+export { getKey, getTitle, getEntityTranslation };

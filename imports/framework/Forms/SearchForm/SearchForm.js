@@ -7,7 +7,7 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import RouteManager from '/imports/framework/Managers/RouteManager';
-import { getTitle } from '/imports/framework/Helpers';
+import { getTitle } from '/imports/framework/Helpers/Helpers';
 
 import './SearchForm.jade';
 import './SearchForm.scss';
