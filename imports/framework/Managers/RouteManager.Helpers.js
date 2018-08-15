@@ -28,6 +28,9 @@ const doIfLoggedIn = function(whatToDo, elseToDo) {
     if (route != FlowRouter.getRouteName()) {
       tracker.stop();
     }
+    else if (Meteor.loggingIn()) {
+      BlazeLayout.render('blankLayout', { content: 'loading' });
+    }
     else if (Meteor.userId()) {
       whatToDo();
     }
