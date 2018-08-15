@@ -2,6 +2,12 @@ Template.login.helpers
 
 	error: -> Session.get 'error'
 
+Template.login.onCreated ->
+
+	if FlowRouter.getRouteName() == 'dashboard.details'
+		if !Meteor.userId() && !Meteor.loggingIn()
+			FlowRouter.go('welcome', { language: 'en' });
+
 Template.login.onRendered ->
 
 	Session.set 'error', ''
