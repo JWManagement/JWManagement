@@ -25,9 +25,10 @@ Template.copyShiftModal.events
 			projectId = FlowRouter.getParam('projectId')
 			shiftId = FlowRouter.getQueryParam('copyShift')
 			weekId = FlowRouter.getQueryParam('weekId')
-			tagId = FlowRouter.getQueryParam('tagId')
 
 			shift = Shifts.findOne shiftId
+
+			tagId = shift.tagId
 			tagName = shift.tag
 
 			for day in days
