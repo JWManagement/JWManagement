@@ -24,10 +24,10 @@ import '/imports/api/routes/Routes.Private';
 import '/imports/api/routes/Routes.Project';
 import '/imports/api/routes/Routes.Public';
 
-import '/imports/framework/DetailsForm/DetailsForm';
-import '/imports/framework/InsertForm/InsertForm';
-import '/imports/framework/SearchForm/SearchForm';
-import '/imports/framework/UpdateForm/UpdateForm';
+import '/imports/framework/Forms/DetailsForm/DetailsForm';
+import '/imports/framework/Forms/InsertForm/InsertForm';
+import '/imports/framework/Forms/SearchForm/SearchForm';
+import '/imports/framework/Forms/UpdateForm/UpdateForm';
 
 import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details';
