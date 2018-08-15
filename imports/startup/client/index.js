@@ -4,15 +4,15 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
-import '/imports/api/datepicker/bootstrap-datepicker.min';
-import '/imports/api/datepicker/bootstrap-datepicker.de.min';
-import '/imports/api/datepicker/bootstrap-datepicker.fi.min';
-import '/imports/api/datepicker/bootstrap-datepicker.fr.min';
-import '/imports/api/datepicker/bootstrap-datepicker.hu.min';
-import '/imports/api/datepicker/bootstrap-datepicker.it.min';
-import '/imports/api/datepicker/bootstrap-datepicker.pl.min';
-import '/imports/api/datepicker/bootstrap-datepicker.pt.min';
-import '/imports/api/datepicker/bootstrap-datepicker.ru.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.de.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.fi.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.fr.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.hu.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.it.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.pl.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.pt.min';
+import '/imports/startup/client/datepicker/bootstrap-datepicker.ru.min';
 
 import '/imports/startup/common/moment';
 import '/imports/startup/common/rolesExtensions';
