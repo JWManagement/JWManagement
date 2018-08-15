@@ -1,5 +1,5 @@
 SimpleSchemaObj = require 'simpl-schema'
-SystemLanguages = require '/imports/api/dropdowns/SystemLanguages';
+SystemLanguages = require '/imports/framework/Constants/SystemLanguages';
 
 SimpleSchema = SimpleSchemaObj.default;
 

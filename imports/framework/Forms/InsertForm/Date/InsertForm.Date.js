@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
 
 import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Helpers/Error';
+import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error';
 
 import './InsertForm.Date.jade';
 

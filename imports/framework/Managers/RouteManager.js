@@ -1,7 +1,7 @@
 import { Session } from 'meteor/session';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-import { doIfLoggedIn } from '/imports/api/framework/Managers/RouteManager.Helpers';
+import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
 
 import { wrs } from '/imports/framework/Functions/Async';
 

@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
-import { doIfLoggedIn } from '/imports/api/framework/Managers/RouteManager.Helpers';
+import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
 import RouteManager from '/imports/framework/Managers/RouteManager';
 
 RouteManager.registerTranslatedPage('dashboard', {
