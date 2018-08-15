@@ -41,4 +41,4 @@ Template.login.events
 						wrs -> FlowRouter.setParams language: language
 		else
 			submit.ladda('stop')
-			Session.set 'error', 'Mssing field'
+			Session.set 'error', 'Missing field'
