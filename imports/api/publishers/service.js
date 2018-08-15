@@ -10,8 +10,8 @@ import { ValidationError } from 'meteor/mdg:validation-error';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
-import { getMailTexts } from '/imports/framework/Functions.Mail';
-import { checkPermissions } from '/imports/framework/Functions.Security';
+import { getMailTexts } from '/imports/framework/Functions/Mail';
+import { checkPermissions } from '/imports/framework/Functions/Security';
 import Users from '/imports/api/users/Users';
 import PasswordsSchema from '/imports/api/users/PasswordsSchema';
 import RoleManager from '/imports/framework/Managers/RoleManager';

@@ -3,7 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import Helpers from '/imports/api/routes/Helpers';
 
-import { wrs } from '/imports/framework/Functions.Async';
+import { wrs } from '/imports/framework/Functions/Async';
 
 const RouteManager = {
 
