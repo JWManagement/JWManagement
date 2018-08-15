@@ -5,6 +5,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import moment from 'moment';
 
 Meteor.startup(() => {
+  moment.locale('en'); // default
+
   Tracker.autorun((tracker) => {
     if (Meteor.user() != null) {
       tracker.stop();
@@ -18,12 +20,12 @@ Meteor.startup(() => {
         });
       }
 
-      if (TAPi18n.getLanguage() != myLanguage) {
-        TAPi18n.setLanguage(myLanguage);
-      }
-
       if (moment.locale() != myLanguage) {
         moment.locale(myLanguage);
+      }
+
+      if (TAPi18n.getLanguage() != myLanguage) {
+        TAPi18n.setLanguage(myLanguage);
       }
     }
   });
