@@ -5,7 +5,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import { wrs } from '/imports/framework/Functions/Async';
-import Helpers from '/imports/api/routes/Helpers';
+import { checkLanguage, logout } from '/imports/api/framework/Managers/RouteManager.Helpers';
 
 FlowRouter.notFound = {
   action: () => {
@@ -15,7 +15,7 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/:language/welcome', {
   name: 'welcome',
-  triggersEnter: [ Helpers.checkLanguage ],
+  triggersEnter: [ checkLanguage ],
   action: () => {
     BlazeLayout.render('blankLayout', { content: 'landing' });
   }
@@ -23,7 +23,7 @@ FlowRouter.route('/:language/welcome', {
 
 FlowRouter.route('/:language/login', {
   name: 'login',
-  triggersEnter: [ Helpers.checkLanguage ],
+  triggersEnter: [ checkLanguage ],
   action: () => {
     Tracker.autorun((tracker) => {
       if (Meteor.userId()) {
@@ -40,7 +40,7 @@ FlowRouter.route('/:language/login', {
 
 FlowRouter.route('/:language/forgot', {
   name: 'forgotPassword',
-  triggersEnter: [Helpers.checkLanguage, Helpers.logout],
+  triggersEnter: [ checkLanguage, logout ],
   action: () => {
     Session.set('parent', 'dashboard.details');
     BlazeLayout.render('blankLayout', { content: 'forgotPassword' });
@@ -49,7 +49,7 @@ FlowRouter.route('/:language/forgot', {
 
 FlowRouter.route('/:language/reset', {
   name: 'resetPassword',
-  triggersEnter: [Helpers.checkLanguage, Helpers.logout],
+  triggersEnter: [ checkLanguage, logout ],
   action: () => {
     Session.set('parent', 'dashboard.details');
     BlazeLayout.render('blankLayout', { content: 'resetPassword' });
@@ -58,7 +58,7 @@ FlowRouter.route('/:language/reset', {
 
 FlowRouter.route('/:language/firstLogin', {
   name: 'firstLogin',
-  triggersEnter: [Helpers.checkLanguage, Helpers.logout],
+  triggersEnter: [ checkLanguage, logout ],
   action: () => {
     Session.set('parent', 'dashboard.details');
     BlazeLayout.render('blankLayout', { content: 'firstLogin' });

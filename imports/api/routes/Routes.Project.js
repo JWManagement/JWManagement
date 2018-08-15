@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
-import Helpers from '/imports/api/routes/Helpers';
+import { doIfLoggedIn } from '/imports/api/framework/Managers/RouteManager.Helpers';
 import RouteManager from '/imports/framework/Managers/RouteManager';
 
 RouteManager.registerTranslatedPage('dashboard', {
@@ -79,7 +79,7 @@ RouteManager.registerEntity('note', {
 FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
   name: 'calendar',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
       BlazeLayout.render('mainLayout', { content: 'calendar' });
     });
@@ -89,7 +89,7 @@ FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
 FlowRouter.route('/:projectId/kb', {
   name: 'wiki',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
       BlazeLayout.render('mainLayout', { content: 'wiki' });
     });
@@ -99,7 +99,7 @@ FlowRouter.route('/:projectId/kb', {
 FlowRouter.route('/:projectId/shifts', {
   name: 'shifts',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       let parent = Session.get('parent');
 
       if (parent != 'settings') {
@@ -115,7 +115,7 @@ FlowRouter.route('/:projectId/shifts', {
 FlowRouter.route('/goToShift/:shiftId', {
   name: 'shift.details',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Meteor.call('shift.getShiftOverview', {
         shiftId: FlowRouter.getParam('shiftId')
       }, (e, shift) => {
@@ -140,7 +140,7 @@ FlowRouter.route('/goToShift/:shiftId', {
 FlowRouter.route('/:projectId/settings', {
   name: 'settings',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
       BlazeLayout.render('mainLayout', { content: 'settings' });
     });
@@ -150,7 +150,7 @@ FlowRouter.route('/:projectId/settings', {
 FlowRouter.route('/:projectId/reports', {
   name: 'reports',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
       BlazeLayout.render('mainLayout', { content: 'reports' });
     });
@@ -160,7 +160,7 @@ FlowRouter.route('/:projectId/reports', {
 FlowRouter.route('/:projectId/store', {
   name: 'store',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'project.details');
       BlazeLayout.render('mainLayout', { content: 'store' });
     });

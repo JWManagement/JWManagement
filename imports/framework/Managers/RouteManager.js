@@ -1,7 +1,7 @@
 import { Session } from 'meteor/session';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-import Helpers from '/imports/api/routes/Helpers';
+import { doIfLoggedIn } from '/imports/api/framework/Managers/RouteManager.Helpers';
 
 import { wrs } from '/imports/framework/Functions/Async';
 
@@ -16,7 +16,7 @@ const RouteManager = {
       FlowRouter.route(prefix + routes.search, {
         name: entityName + '.search',
         action: () => {
-          Helpers.doIfLoggedIn(() => {
+          doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.search');
           });
         }
@@ -27,7 +27,7 @@ const RouteManager = {
       FlowRouter.route(prefix + routes.insert, {
         name: entityName + '.insert',
         action: () => {
-          Helpers.doIfLoggedIn(() => {
+          doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.insert');
           });
         }
@@ -38,7 +38,7 @@ const RouteManager = {
       FlowRouter.route(prefix + routes.details, {
         name: entityName + '.details',
         action: () => {
-          Helpers.doIfLoggedIn(() => {
+          doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.details');
           });
         }
@@ -49,7 +49,7 @@ const RouteManager = {
       FlowRouter.route(prefix + routes.update, {
         name: entityName + '.update',
         action: () => {
-          Helpers.doIfLoggedIn(() => {
+          doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.update');
           });
         }

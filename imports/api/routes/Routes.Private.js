@@ -4,12 +4,12 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import { wrs } from '/imports/framework/Functions/Async';
-import Helpers from '/imports/api/routes/Helpers';
+import { doIfLoggedIn } from '/imports/api/framework/Managers/RouteManager.Helpers';
 
 FlowRouter.route('/support', {
   name: 'support',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', 'dashboard.details');
       require('/imports/ui/pages/support/support.coffee');
       BlazeLayout.render('mainLayout', { content: 'support' });
@@ -20,7 +20,7 @@ FlowRouter.route('/support', {
 FlowRouter.route('/profile', {
   name: 'profile',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('target', null);
       Session.set('parent', 'dashboard.details');
       BlazeLayout.render('mainLayout', { content: 'profile' });
@@ -46,7 +46,7 @@ FlowRouter.route('/logout', {
 FlowRouter.route('/oldDashboard', {
   name: 'home',
   action: () => {
-    Helpers.doIfLoggedIn(() => {
+    doIfLoggedIn(() => {
       Session.set('parent', '');
       BlazeLayout.render('mainLayout', { content: 'dashboard' });
     },
