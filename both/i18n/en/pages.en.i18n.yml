@@ -2,12 +2,12 @@ login:
     name: Login
     welcome: Welcome to JW Management
     text: Please enter your account details to log in
-    forgot: Forgot password?
+    forgot: Forgot username or password?
     create: Create an account
     back: Back to Home Page
 forgotPassword:
-    name: Forgotten password
-    text: Enter your email address and we will send you a link to reset your password.
+    name: Forgotten username or password
+    text: Please enter your email address. We will send you a link to reset your password, then. You'll automatically be logged in and can then look up your username.
     button: Send password reset link
     back: Back to Home Page
     noUserForThisEmail: There is no account with this email address
