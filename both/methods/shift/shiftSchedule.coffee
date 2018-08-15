@@ -46,6 +46,9 @@ Meteor.methods
 
 					Meteor.call 'openTeam', shiftId, teamId
 
+				if team.report? && team.report.init
+					Meteor.call 'updateReport', shiftId, teamId, 'hours', 0
+
 				Meteor.call 'sendCancelTeam', shiftId, teamId, message
 
 	approveRequest: (shiftId, teamId, userId) ->
