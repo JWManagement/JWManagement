@@ -39,11 +39,14 @@ Template.day.events
 				throw new Meteor.Error 500, 'Not enough data provided'
 
 	'click #removeAll': (e) ->
-		visibleTags = FlowRouter.getQueryParam('showTags').split('_')
-		shifts = @shifts.filter (s) -> Shifts.findOne(s).tagId in visibleTags
+		if FlowRouter.getQueryParam('showTags')?
+			visibleTags = FlowRouter.getQueryParam('showTags').split('_')
+			shiftIds = @shifts.filter (s) -> Shifts.findOne(s).tagId in visibleTags
+		else
+			shiftIds = @shifts
 
 		swalYesNo
 			swal: 'delete.allShifts'
 			doConfirm: ->
-				for shift in shifts
-					Meteor.call 'removeShift', shift, handleError
+				for shiftId in shiftIds
+					Meteor.call 'removeShift', shiftId, handleError
