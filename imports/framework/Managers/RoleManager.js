@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
-import Permissions from '/imports/api/util/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 const RoleManager = {
 

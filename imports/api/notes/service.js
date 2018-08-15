@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import Notes from '/imports/api/notes/Notes';
 import Users from '/imports/api/users/Users';
-import Permissions from '/imports/api/util/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 Meteor.methods({
   'note.search': ({ language, projectId, searchString }) => {

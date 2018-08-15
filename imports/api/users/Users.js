@@ -2,10 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import SimpleSchema from 'simpl-schema';
 
-import Gender from '/imports/api/dropdowns/Gender';
-import Pioneer from '/imports/api/dropdowns/Pioneer';
-import Privilege from '/imports/api/dropdowns/Privilege';
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
+import Gender from '/imports/framework/Constants/Gender';
+import Pioneer from '/imports/framework/Constants/Pioneer';
+import Privilege from '/imports/framework/Constants/Privilege';
+import SystemLanguages from '/imports/framework/Constants/SystemLanguages';
 
 const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
 

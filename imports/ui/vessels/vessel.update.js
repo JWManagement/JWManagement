@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import VesselType from '/imports/api/dropdowns/VesselType';
+import VesselType from '/imports/framework/Constants/VesselType';
 
 Template['vessel.update'].helpers({
   data: {

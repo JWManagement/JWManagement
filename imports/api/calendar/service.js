@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
 import Users from '/imports/api/users/Users';
-import Permissions from '/imports/api/util/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 Meteor.methods({
   'calendar.getShifts': ({ projectId, date }) => {

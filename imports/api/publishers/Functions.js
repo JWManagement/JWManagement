@@ -2,7 +2,7 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import moment from 'moment';
 
 import Users from '/imports/api/users/Users';
-import Permissions from '/imports/api/util/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 function convertTimeslotToAvailability(timeslots, language) {
   if (typeof timeslots == 'object' && timeslots.length > 0) {

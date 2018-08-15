@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import Gender from '/imports/api/dropdowns/Gender';
-import Pioneer from '/imports/api/dropdowns/Pioneer';
-import Privilege from '/imports/api/dropdowns/Privilege';
+import Gender from '/imports/framework/Constants/Gender';
+import Pioneer from '/imports/framework/Constants/Pioneer';
+import Privilege from '/imports/framework/Constants/Privilege';
 
 Template['publisher.update'].helpers({
   data: {

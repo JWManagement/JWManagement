@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import Permissions from '/imports/api/util/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 Template['publisher.search'].helpers({
   data: {

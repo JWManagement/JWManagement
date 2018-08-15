@@ -4,8 +4,8 @@ import { Roles } from 'meteor/alanning:roles';
 import { TAPi18n } from 'meteor/tap:i18n';
 
 import Vessels from '/imports/api/vessels/Vessels';
-import Languages from '/imports/api/dropdowns/Languages';
-import Permissions from '/imports/api/util/Permissions';
+import Languages from '/imports/framework/Constants/Languages';
+import Permissions from '/imports/framework/Constants/Permissions';
 
 Meteor.methods({
   'vessel.search': ({ projectId, searchString, limit }) => {

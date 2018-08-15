@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import Languages from '/imports/api/dropdowns/Languages';
+import Languages from '/imports/framework/Constants/Languages';
 
 Template['vessel.visit.details'].helpers({
   data: {

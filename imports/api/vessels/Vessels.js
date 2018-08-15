@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { Random } from 'meteor/random';
 import SimpleSchema from 'simpl-schema';
 
-import Languages from '/imports/api/dropdowns/Languages';
+import Languages from '/imports/framework/Constants/Languages';
 
 const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
 

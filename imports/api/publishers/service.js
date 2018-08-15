@@ -16,8 +16,8 @@ import Users from '/imports/api/users/Users';
 import PasswordsSchema from '/imports/api/users/PasswordsSchema';
 import RoleManager from '/imports/framework/Managers/RoleManager';
 import MailManager from '/imports/framework/Managers/MailManager';
-import State from '/imports/api/dropdowns/State';
-import Permissions from '/imports/api/util/Permissions';
+import State from '/imports/framework/Constants/State';
+import Permissions from '/imports/framework/Constants/Permissions';
 import { getExtendedPublisher } from '/imports/api/publishers/Functions';
 
 Meteor.methods({

@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
+import SystemLanguages from '/imports/framework/Constants/SystemLanguages';
 
 Template['language.update'].helpers({
   data: {

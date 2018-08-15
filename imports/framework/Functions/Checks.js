@@ -4,7 +4,7 @@
 
 import { Meteor } from 'meteor/meteor';
 
-import { Permissions } from '/imports/api/util/Permissions';
+import { Permissions } from '/imports/framework/Constants/Permissions';
 import { Roles } from 'meteor/alanning:roles';
 
 const Checks = {
