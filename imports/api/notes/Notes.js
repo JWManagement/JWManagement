@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import SimpleSchema from 'simpl-schema';
 
-const CollectionManager = require('/imports/api/managers/CollectionManager');
+const CollectionManager = require('/imports/framework/Managers/CollectionManager');
 
 let Notes = {};
 

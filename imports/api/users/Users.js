@@ -7,7 +7,7 @@ import Pioneer from '/imports/api/dropdowns/Pioneer';
 import Privilege from '/imports/api/dropdowns/Privilege';
 import SystemLanguages from '/imports/api/dropdowns/SystemLanguages';
 
-const PersistenceManager = require('/imports/api/managers/PersistenceManager');
+const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
 
 let Users = Meteor.users;
 

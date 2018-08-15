@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema';
 
 import Languages from '/imports/api/dropdowns/Languages';
 
-const PersistenceManager = require('/imports/api/managers/PersistenceManager');
+const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
 
 let Vessels = new Mongo.Collection('vessels');
 

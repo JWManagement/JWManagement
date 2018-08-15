@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
 import Permissions from '/imports/api/util/Permissions';
-import RoleManager from '/imports/api/managers/RoleManager';
+import RoleManager from '/imports/framework/Managers/RoleManager';
 
 Meteor.methods({
   'project.search': ({ searchString, limit }) => {

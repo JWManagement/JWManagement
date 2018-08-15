@@ -5,7 +5,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
 import Helpers from '/imports/api/routes/Helpers';
-import RouteManager from '/imports/api/managers/RouteManager';
+import RouteManager from '/imports/framework/Managers/RouteManager';
 
 RouteManager.registerTranslatedPage('dashboard', {
   details: ''
