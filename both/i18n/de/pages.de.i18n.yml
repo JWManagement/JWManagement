@@ -9,7 +9,7 @@ forgotPassword:
     name: Benutzername oder Passwort vergessen
     text: Bitte gib deine E-Mail Adresse ein, dann schicken wir dir einen Link um dein Passwort zurückzusetzen. Dadurch wirst du eingeloggt und kannst auch deinen Benutzernamen nachschauen.
     button: Sende Link zum Zurücksetzen
-    back: Zurück zur Startseite
+    back: Zurück zum Login
     noUserForThisEmail: Es konnte kein Benutzer mit dieser E-Mail Adresse gefunden werden
     multipleAccountsForThisEmail: Es existieren mehrere Benutzer mit dieser E-Mail Adresse. Bitte wähle einen aus.
     emailMissing: Please enter your email address
@@ -19,7 +19,7 @@ resetPassword:
     text: Neues Passwort für %s %s eingeben.
     noUserFound: <p>Dieser Link ist abgelaufen</p><p>Bitte lass dir einen neuen Link zuschicken.</p>
     button: Passwort ändern
-    back: Zurück zur Startseite
+    back: Zurück zum Login
 profile:
     name: Mein Profil
     personalData: Meine Daten
