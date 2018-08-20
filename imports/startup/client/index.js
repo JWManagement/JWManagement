@@ -19,10 +19,10 @@ import '/imports/startup/common/rolesExtensions';
 
 import '/imports/api/projects/projects';
 
-import '/imports/api/routes/Routes.Public.Policy';
-import '/imports/api/routes/Routes.Private';
-import '/imports/api/routes/Routes.Project';
-import '/imports/api/routes/Routes.Public';
+import '/imports/startup/client/routes/Routes.Public.Policy';
+import '/imports/startup/client/routes/Routes.Private';
+import '/imports/startup/client/routes/Routes.Project';
+import '/imports/startup/client/routes/Routes.Public';
 
 import '/imports/framework/Forms/DetailsForm/DetailsForm';
 import '/imports/framework/Forms/InsertForm/InsertForm';
