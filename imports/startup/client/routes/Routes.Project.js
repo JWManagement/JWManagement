@@ -76,6 +76,16 @@ RouteManager.registerEntity('note', {
   update: 'notes/:noteId/:key'
 });
 
+FlowRouter.route('/:projectId/publisherActions', {
+  name: 'publisherActions',
+  action: () => {
+    doIfLoggedIn(() => {
+      Session.set('parent', 'project.details');
+      BlazeLayout.render('mainLayout', { content: 'publisherActions' });
+    });
+  }
+});
+
 FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
   name: 'calendar',
   action: () => {

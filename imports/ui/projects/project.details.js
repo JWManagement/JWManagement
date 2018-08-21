@@ -59,6 +59,12 @@ Template['project.details'].helpers({
         icon: 'people',
         canSee: Permissions.admin
       }, {
+        key: 'publisherActions',
+        type: 'link',
+        route: 'publisherActions',
+        icon: 'people',
+        canSee: Permissions.admin
+      }, {
         key: 'reports',
         type: 'link',
         route: 'reports',
