@@ -6,7 +6,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import RouteManager from '/imports/framework/Managers/RouteManager';
 
 function generateRows(template) {
-  template.rows = template.items.get().map((item) => {
+  template.rows.set(template.items.get().map((item) => {
     const row = {};
 
     template.columnDefinitions.forEach((column) => {
@@ -39,8 +39,10 @@ function generateRows(template) {
     });
 
     return row;
-  });
+  }));
+}
 
+function generateMobileRows(template) {
   const mobileColumns = template.columnDefinitions
     .filter((column) => {
       return column.mobile == true;
@@ -56,11 +58,9 @@ function generateRows(template) {
       };
     });
 
-  template.mobileRows.set(template.rows.map((row) => {
+  template.mobileRows.set(template.rows.get().map((row) => {
     return {
-      link: FlowRouter.path(
-        RouteManager.getLink('details'),
-        RouteManager.getParams(template.entityId, row._id)),
+      link: FlowRouter.path(RouteManager.getLink('details'), RouteManager.getParams(template.entityId, row._id)),
       columns: mobileColumns.map((column) => {
         return {
           th: column.translation,
@@ -91,6 +91,7 @@ function doSearch(template, retrieveAllResults = false) {
       template.isLoading.set(false);
 
       generateRows(template);
+      generateMobileRows(template);
     }
   });
 }
@@ -111,4 +112,4 @@ function updateSearch(template, search) {
   }
 }
 
-export { generateRows, updateSearch, doSearch };
+export { updateSearch, doSearch };

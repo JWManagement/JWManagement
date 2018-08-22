@@ -75,7 +75,7 @@ Template.SearchForm.onCreated(() => {
   template.defaultResultsPerPage = 20;
   template.resultsShown = new ReactiveVar(template.defaultResultsPerPage);
 
-  template.rows = [];
+  template.rows = new ReactiveVar([]);
   template.mobileRows = new ReactiveVar([]);
 });
 
@@ -95,12 +95,14 @@ Template.SearchForm.onRendered(() => {
   });
 
   template.autorun(() => {
+    const rows = template.rows.get();
+
     Tracker.afterFlush(() => {
       $('#table').html('');
 
       template.table = FooTable.init('#table', {
         columns: columns,
-        rows: template.rows,
+        rows: rows,
         empty: '',
         showToggle: false,
         paging: {
