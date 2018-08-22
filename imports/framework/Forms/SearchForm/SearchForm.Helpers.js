@@ -71,22 +71,6 @@ function generateRows(template) {
   }));
 }
 
-function updateSearch(template, search) {
-  if (template.searchString.get() !== search) {
-    template.searchString.set(search);
-    Session.set(FlowRouter.getRouteName() + '.searchString', search);
-
-    if (search == '' || search == '*' || search == '?' || search == '%') {
-      template.searchString.set('.');
-      template.regEx.set(new RegExp('.', 'i'));
-    } else {
-      template.regEx.set(new RegExp(search, 'i'));
-    }
-
-    doSearch(template);
-  }
-}
-
 function doSearch(template, retrieveAllResults = false) {
   template.isLoading.set(false);
 
@@ -109,6 +93,22 @@ function doSearch(template, retrieveAllResults = false) {
       generateRows(template);
     }
   });
+}
+
+function updateSearch(template, search) {
+  if (template.searchString.get() !== search) {
+    template.searchString.set(search);
+    Session.set(FlowRouter.getRouteName() + '.searchString', search);
+
+    if (search == '' || search == '*' || search == '?' || search == '%') {
+      template.searchString.set('.');
+      template.regEx.set(new RegExp('.', 'i'));
+    } else {
+      template.regEx.set(new RegExp(search, 'i'));
+    }
+
+    doSearch(template);
+  }
 }
 
 export { generateRows, updateSearch, doSearch };
