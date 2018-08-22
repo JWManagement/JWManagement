@@ -25,7 +25,12 @@ import './Text/DetailsForm.Text';
 import './Textbox/DetailsForm.Textbox';
 import './Header/DetailsForm.Header';
 
-import { getValue, isType, loadData, hasPermissionToSee } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import {
+  getValue,
+  isType,
+  loadData,
+  hasPermissionToSee
+} from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsForm.helpers({
   getValue,

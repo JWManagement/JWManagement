@@ -4,8 +4,6 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import RoleManager from '/imports/framework/Managers/RoleManager';
 
-export { loadData, getValue, getKey, isType, hasPermissionToSee };
-
 function loadData(template) {
   if (template.getMethod != null) {
     Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
@@ -52,7 +50,7 @@ function getKey(definition) {
 }
 
 function isType(field, type) {
-  return field.type == type;
+  return field && field.type == type;
 }
 
 function hasPermissionToSee(definition) {
@@ -72,3 +70,5 @@ function hasPermissionToSee(definition) {
 
   return hasRole && customFulfilled;
 }
+
+export { loadData, getValue, getKey, isType, hasPermissionToSee };
