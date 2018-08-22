@@ -1,3 +1,5 @@
+[Back to Framework Overview](../../README.md)
+
 How to create a Details Page
 ============================
 
@@ -121,9 +123,9 @@ How to create a Details Page
     import { Meteor } from 'meteor/meteor';
 
     Meteor.methods({
-        'template.get'() {
-            return [];
-        }
+      'template.get'() {
+        return [];
+      }
     });
     ```
 
@@ -131,7 +133,7 @@ How to create a Details Page
 
     ```javascript
     RouteManager.registerEntity('template', {
-        details: 'template/:id'
+      details: 'template/:id'
     });
     ```
 
