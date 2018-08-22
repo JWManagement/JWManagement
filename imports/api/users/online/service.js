@@ -18,18 +18,29 @@ Meteor.methods({
     .fetch()
     .filter((user) => {
       return user.username != 'adm';
-    })
-    .map((user, index) => {
-      return {
-        _id: user._id,
-        user: `${index + 1}: ${user.profile.firstname} ${user.profile.lastname} (${user.username})`,
-        isIdle: user.status.idle
-      };
     });
 
+    const onlineUsers = users
+      .filter((user) => !user.status.idle)
+      .map((user, index) => {
+        return {
+          _id: user._id,
+          user: `${index + 1}: ${user.profile.firstname} ${user.profile.lastname} (${user.username})`
+        };
+      });
+
+    const idleUsers = users
+      .filter((user) => user.status.idle)
+      .map((user, index) => {
+        return {
+          _id: user._id,
+          user: `${index + 1}: ${user.profile.firstname} ${user.profile.lastname} (${user.username})`
+        };
+      });
+
     return {
-      onlineUsers: users.filter((user) => !user.isIdle),
-      idleUsers: users.filter((user) => user.isIdle)
+      onlineUsers: onlineUsers,
+      idleUsers: idleUsers
     };
   }
 });
