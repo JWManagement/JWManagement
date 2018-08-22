@@ -7,7 +7,6 @@ user:
       firstname: First name
       lastname: Last name
       email: Email
-    noElements: Currently, no user is online
 users:
   title: Publisher Bulk Actions
   inviteUser: Send an invitation to non-activated publishers
@@ -18,4 +17,6 @@ users:
   online:
     details:
       sections:
-        users: Currently online users
+        users:
+          online: Currently online users
+          idle: Currently idle users

@@ -41,6 +41,7 @@ dashboard:
         logout: Sign out
         newDashboard: To the new dashboard
         oldDashboard: To the old dashboard
+        onlineUsers: Currently online users
     details:
         sections:
             myProjects: My Projects

@@ -31,8 +31,6 @@ dashboard:
     entity:
         profile: Profil
         language: Sprache
-        projects: Projekte
-        users: Benutzer
         shift:
             tag: Tag
             date: Datum
