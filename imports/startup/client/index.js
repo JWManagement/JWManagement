@@ -79,11 +79,19 @@ import '/imports/ui/calendar/calendar';
 import '/imports/startup/client/language';
 
 import { TimeSync } from 'meteor/mizzao:timesync';
+import { UserStatus } from 'meteor/mizzao:user-status';
 
 Meteor.startup(function() {
   BlazeLayout.setRoot('body');
 
   TimeSync.loggingEnabled = false;
+
+  Tracker.autorun((tracker) => {
+    try {
+      UserStatus.startMonitor({ threshold: 30000 });
+      tracker.stop();
+    } catch (e) {}
+  });
 });
 
 Tracker.autorun(function() {
