@@ -17,7 +17,7 @@ Meteor.methods({
     })
     .fetch()
     .filter((user) => {
-      return user.username == 'adm';
+      return user.username != 'adm';
     })
     .map((user, index) => {
       return {
