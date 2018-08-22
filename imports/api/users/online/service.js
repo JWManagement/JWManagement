@@ -1,15 +1,31 @@
 import { Meteor } from 'meteor/meteor';
-// import { Roles } from 'meteor/alanning:roles';
 
-// import Users from '/imports/api/users/Users';
+import Users from '/imports/api/users/Users';
 
 Meteor.methods({
   'users.online.get'() {
+    const users = Users.find({
+      'status.online': true
+    }, {
+      fields: {
+        username: 1,
+        'profile.firstname': 1,
+        'profile.lastname': 1
+      }
+    })
+    .fetch()
+    .filter((user) => {
+      return user.username != 'adm';
+    })
+    .map((user, index) => {
+      return {
+        _id: user._id,
+        user: `${index + 1}: ${user.profile.firstname} ${user.profile.lastname} (${user.username})`
+      };
+    });
+
     return {
-      users: [{
-        _id: 'adm',
-        user: 'Max Mustermann'
-      }]
+      users: users
     };
   }
 });
