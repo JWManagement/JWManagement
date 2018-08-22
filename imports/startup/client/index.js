@@ -41,6 +41,9 @@ import '/imports/ui/users/users.jade';
 import '/imports/ui/users/user.search';
 import '/imports/ui/users/user.details';
 
+import '/imports/ui/users/online/users.online.jade';
+import '/imports/ui/users/online/users.online.details';
+
 import '/imports/ui/projects/projects.jade';
 import '/imports/ui/projects/project.search';
 import '/imports/ui/projects/project.details';

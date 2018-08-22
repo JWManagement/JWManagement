@@ -13,6 +13,9 @@ RouteManager.registerTranslatedPage('dashboard', {
 RouteManager.registerTranslatedPage('project', {
   search: 'projects'
 });
+RouteManager.registerTranslatedPage('users.online', {
+  details: 'users/online'
+});
 RouteManager.registerTranslatedPage('user', {
   search: 'users',
   details: 'user/:userId'

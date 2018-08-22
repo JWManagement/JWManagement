@@ -165,6 +165,12 @@ Template['dashboard.details'].helpers({
         route: 'user.search',
         icon: 'group',
         canSee: Permissions.support
+      }, {
+        key: 'onlineUsers',
+        type: 'link',
+        route: 'users.online.details',
+        icon: 'group',
+        canSee: Permissions.support
       }]
     }, {
       title: 'account',

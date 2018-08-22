@@ -12,6 +12,7 @@ import '/imports/api/languages/service';
 import '/imports/api/projects/service';
 import '/imports/api/shifts/service';
 import '/imports/api/users/service';
+import '/imports/api/users/online/service';
 import '/imports/api/publishers/service';
 import '/imports/api/vessels/service';
 import '/imports/api/notes/service';
