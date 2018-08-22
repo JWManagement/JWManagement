@@ -13,6 +13,9 @@ navigation:
     settings: Settings
     user:
         search: Users
+    users:
+      online:
+        details: Online users
     publisher:
         search: Publishers
         details: Publisher details

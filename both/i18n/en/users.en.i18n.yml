@@ -1,12 +1,13 @@
 user:
-    search:
-        placeholder: Search for users
-    entity:
-        username: Username
-        profile:
-            firstname: First name
-            lastname: Last name
-            email: Email
+  search:
+    placeholder: Search for users
+  entity:
+    username: Username
+    profile:
+      firstname: First name
+      lastname: Last name
+      email: Email
+    noElements: Currently, no user is online
 users:
   title: Publisher Bulk Actions
   inviteUser: Send an invitation to non-activated publishers
@@ -14,3 +15,7 @@ users:
   export: Export as CSV-File
   sendToAll: Send an email to all publishers
   sendToAllInTag: Send an email to all in tag %s
+  online:
+    details:
+      sections:
+        users: Currently online users
