@@ -179,12 +179,24 @@ Template.DetailsForm.onRendered(() => {
   template.noResult.set(false);
   template.item.set({});
 
-  loadData(template);
+  if (data.refreshRateInSeconds) {
+    template.intervalHandle = setInterval(function() {
+      loadData(template);
+    }, data.refreshRateInSeconds * 1000);
+  } else {
+    loadData(template);
+  }
 
   window.scrollTo(0, 0);
 });
 
 Template.DetailsForm.onDestroyed(() => {
+  const template = Template.instance();
+
+  if (template.intervalHandle) {
+    clearInterval(template.intervalHandle);
+  }
+
   $('body').removeClass('md-skin');
   $('body').removeClass('top-navigation');
   $('body').attr('type', '');
