@@ -5,7 +5,9 @@ import SystemLanguages from '/imports/framework/Constants/SystemLanguages';
 
 Meteor.methods({
   'language.get': () => {
-    return Meteor.user().profile.language;
+    return {
+      language: Meteor.user().profile.language
+    };
   },
   'language.update': ({}, {}, language) => {
     const profileLanguage = Meteor.user().profile.language;
