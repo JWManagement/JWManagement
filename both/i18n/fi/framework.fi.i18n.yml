@@ -1,18 +1,18 @@
 searchForm:
-    loading: Ladataan
-    noResults: Ei tuloksia
-    xResults: %s tulos
-    xResults_plural: %s tulosta
-    showingTheFirstX: Näytetään ensimmäiset %s
-    showingAll: ''
-    showingAll_plural: Näytetään kaikki
-    showAll: Näytä kaikki %s
+  loading: Ladataan
+  noResults: Ei tuloksia
+  xResults: %s tulos
+  xResults_plural: %s tulosta
+  showingTheFirstX: Näytetään ensimmäiset %s
+  showingAll: ''
+  showingAll_plural: Näytetään kaikki
+  showAll: Näytä kaikki %s
 validation:
-    required: Tämä kenttä on pakollinen
-    unique: Tämä arvo löytyy jo järjestelmästä
-    minString8: Salasanan pitää olla vähintään 8 merkkiä pitkä
-    passwordMismatch: Salasanat eivät täsmää
-    hasToBeBigger: Arvon oltava suurempi
+  required: Tämä kenttä on pakollinen
+  unique: Tämä arvo löytyy jo järjestelmästä
+  minString8: Salasanan pitää olla vähintään 8 merkkiä pitkä
+  passwordMismatch: Salasanat eivät täsmää
+  hasToBeBigger: Arvon oltava suurempi
 detailsForm:
-    yes: Kyllä
-    no: Ei
+  yes: Kyllä
+  no: Ei

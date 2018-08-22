@@ -1,58 +1,58 @@
 welcome:
-    links:
-        home: Koti
-        features: Ominaisuudet
-        contact: Ota yhteyttä
-        login: Kirjaudu
-        dashboard: Avaa hallintatyökalu
-    header:
-        title: Edistyksellinen vuorojen hallinta
-        description: JW Management on Jehovan todistajille tehty, monipuolisesti muokattavissa oleva vuorojen hallintajärjestelmä. Sen avulla voi hallinnoida esimerkiksi julkisen julistamisen järjestelyjä ja rakentamisprojekteja.
-    divider:
-        first:
-            title: Useita tunnisteita
-            description: Erottele erilaiset vuorot helposti käyttämällä tunnisteita; liitä julistajia tunnisteisiin, joiden avulla vuoroihin voidaan ilmoittautua. Voit myös määritellä julistajat, jotka voivat toimia tiimivastaavina.
-        second:
-            title: Vuorotiimit
-            description: Määritä yksi tai useampi tiimi vuoroon. Jokaisella näistä on oma tiiminvetäjä. Välitä lisätietoja jokaiselle tiimille, kuten ohjeita, reittiohjeet, tapaamispaikat, yms.
-        third:
-            title: Varasto
-            description: Hallitse varastoa JW Management'in avulla. Jokaisen vuoron jälkeen tiimivastaava voi raportoida levitetyt julkaisut. Järjestelmä voi automaattisesti päivittää kirjallisuusvaraston tämän mukaisesti. Voit myös vastaanottaa ilmoituksia, jos kirjallisuus varastossa alkaa käydä vähiin.
-        fourth:
-            title: Ilmoitukset
-            description: Monipuolinen ilmoitusjärjestelmä mahdollistaa ilmoitusten vastaanottamisen, ilmoittautumisista vuoroihin ja vuorojen muutoksista. Voit myös vastata viesteihin suoraan järjestelmän kautta.
-    feature1:
-        title: Monikäyttöinen työkalu
-        description: <p>Vaikka JW Management on optimoitu julkisen julistamisen projekteihin, se on ensisijaisesti vuorojen hallintajärjestelmä.</p><p>Voit hallita sillä myös konventin työvuoroja, Raamattunäyttelyitä, rakennusprojekteja tai muita vastaavia projekteja.</p><p>Aina kun mahdollista, olemme halukkaita muokkaamaan järjestelmää myös muita tarpeitasi vastaavaksi.</p>
-    feature2:
-        title: Viimeisimmät muutokset
-        more: Näytä lisää
-    feature3:
-        title: Ilmainen & vapaan lähdekoodin sovellus
-        description: <p>Vieraile GitHub Repository:ssa, jossa voit seurata JW Management sovelluksen kehitystä. Voit ehdottaa ominaisuuksia, raportoida virheistä tai ehdottaa suoraan  'Pull Request'ia omilla koodimuutoksillasi.</p><p>Jos haluaisit kääntää järjestelmän jollekin muulle kielelle, lähetä käännöstiedosto meille 'Pull Request'ina tai sähköpostin välityksellä.</p>
-        free: Täysin ilmainen
-        repo: GitHub Repository
-    contact:
-        title: Ota yhteyttä
-        description: <p>Haluatko testata järjestelmää?</p><p>Valitse "Projektipyyntö" lomakkeesta ja luomme sinulle uuden projektin.</p><p>Muuta kysyttävää tai ehdotus?</p><p>Valitse sopiva vaihtoehto lomakkeesta ja kerro se meille.</p>
-        name: Etu- ja sukunimi
-        email: Sähköposti
-        projectName: Projektin nimi
-        enquiry: Projektipyyntö
-        login: Ongelmia kirjautumisessa
-        problem: Yleinen ongelma
-        suggestion: Ehdota ominaisuutta
-        question: Yleinen kysymys
-        message: Viesti
-        whatFor: Mitä haluat organisoida?
-        send: Lähetä
-        sendEnquiry: Lähetä pyyntö
-        fillOutCompletely: Ole hyvä ja täytä kaikki pakolliset kentät
-        enquirySuccessful: Pyyntö lähetettiin onnistuneesti!
-        issueTip: Vinkki: Voit lähettää tiedot löytämistäsi virheistä tai parannusehdotuksista suoraan tiketöintijärjestelmämme kautta (GitHub). Silloin voit seurata sovelluksen kehittymistä ja milloin ehdottamasi muutokset ovat valmiina julkaistavaksi sovellukseen.
-        loginTip: Vinkki: Jos olet unohtanut salasanasi, voit uusia sen alla olevan painikkeen kautta. Jos olet jo tehnyt sen ja se ei edelleenkään toimi, kysy lisää seurakuntasi vanhimmilta.
-        toGithub: Vieraile GitHub'issa
-        toForgotPassword: Uusi salasana
-        required: Pakollinen
-        terms: Käyttöehdot
-        privacy: Yksityisyys
+  links:
+    home: Koti
+    features: Ominaisuudet
+    contact: Ota yhteyttä
+    login: Kirjaudu
+    dashboard: Avaa hallintatyökalu
+  header:
+    title: Edistyksellinen vuorojen hallinta
+    description: JW Management on Jehovan todistajille tehty, monipuolisesti muokattavissa oleva vuorojen hallintajärjestelmä. Sen avulla voi hallinnoida esimerkiksi julkisen julistamisen järjestelyjä ja rakentamisprojekteja.
+  divider:
+    first:
+      title: Useita tunnisteita
+      description: Erottele erilaiset vuorot helposti käyttämällä tunnisteita; liitä julistajia tunnisteisiin, joiden avulla vuoroihin voidaan ilmoittautua. Voit myös määritellä julistajat, jotka voivat toimia tiimivastaavina.
+    second:
+      title: Vuorotiimit
+      description: Määritä yksi tai useampi tiimi vuoroon. Jokaisella näistä on oma tiiminvetäjä. Välitä lisätietoja jokaiselle tiimille, kuten ohjeita, reittiohjeet, tapaamispaikat, yms.
+    third:
+      title: Varasto
+      description: Hallitse varastoa JW Management'in avulla. Jokaisen vuoron jälkeen tiimivastaava voi raportoida levitetyt julkaisut. Järjestelmä voi automaattisesti päivittää kirjallisuusvaraston tämän mukaisesti. Voit myös vastaanottaa ilmoituksia, jos kirjallisuus varastossa alkaa käydä vähiin.
+    fourth:
+      title: Ilmoitukset
+      description: Monipuolinen ilmoitusjärjestelmä mahdollistaa ilmoitusten vastaanottamisen, ilmoittautumisista vuoroihin ja vuorojen muutoksista. Voit myös vastata viesteihin suoraan järjestelmän kautta.
+  feature1:
+    title: Monikäyttöinen työkalu
+    description: <p>Vaikka JW Management on optimoitu julkisen julistamisen projekteihin, se on ensisijaisesti vuorojen hallintajärjestelmä.</p><p>Voit hallita sillä myös konventin työvuoroja, Raamattunäyttelyitä, rakennusprojekteja tai muita vastaavia projekteja.</p><p>Aina kun mahdollista, olemme halukkaita muokkaamaan järjestelmää myös muita tarpeitasi vastaavaksi.</p>
+  feature2:
+    title: Viimeisimmät muutokset
+    more: Näytä lisää
+  feature3:
+    title: Ilmainen & vapaan lähdekoodin sovellus
+    description: <p>Vieraile GitHub Repository:ssa, jossa voit seurata JW Management sovelluksen kehitystä. Voit ehdottaa ominaisuuksia, raportoida virheistä tai ehdottaa suoraan  'Pull Request'ia omilla koodimuutoksillasi.</p><p>Jos haluaisit kääntää järjestelmän jollekin muulle kielelle, lähetä käännöstiedosto meille 'Pull Request'ina tai sähköpostin välityksellä.</p>
+    free: Täysin ilmainen
+    repo: GitHub Repository
+  contact:
+    title: Ota yhteyttä
+    description: <p>Haluatko testata järjestelmää?</p><p>Valitse "Projektipyyntö" lomakkeesta ja luomme sinulle uuden projektin.</p><p>Muuta kysyttävää tai ehdotus?</p><p>Valitse sopiva vaihtoehto lomakkeesta ja kerro se meille.</p>
+    name: Etu- ja sukunimi
+    email: Sähköposti
+    projectName: Projektin nimi
+    enquiry: Projektipyyntö
+    login: Ongelmia kirjautumisessa
+    problem: Yleinen ongelma
+    suggestion: Ehdota ominaisuutta
+    question: Yleinen kysymys
+    message: Viesti
+    whatFor: Mitä haluat organisoida?
+    send: Lähetä
+    sendEnquiry: Lähetä pyyntö
+    fillOutCompletely: Ole hyvä ja täytä kaikki pakolliset kentät
+    enquirySuccessful: Pyyntö lähetettiin onnistuneesti!
+    issueTip: Vinkki: Voit lähettää tiedot löytämistäsi virheistä tai parannusehdotuksista suoraan tiketöintijärjestelmämme kautta (GitHub). Silloin voit seurata sovelluksen kehittymistä ja milloin ehdottamasi muutokset ovat valmiina julkaistavaksi sovellukseen.
+    loginTip: Vinkki: Jos olet unohtanut salasanasi, voit uusia sen alla olevan painikkeen kautta. Jos olet jo tehnyt sen ja se ei edelleenkään toimi, kysy lisää seurakuntasi vanhimmilta.
+    toGithub: Vieraile GitHub'issa
+    toForgotPassword: Uusi salasana
+    required: Pakollinen
+    terms: Käyttöehdot
+    privacy: Yksityisyys

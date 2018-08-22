@@ -1,27 +1,27 @@
 project:
-    nameShort: Verwaltung
-    entity:
-        _id: ID
-        name: Name
-        news:
-            text: Neuigkeiten
-        shifts: Schichten
-        calendar: Kalender
-        knowledgeBase: Informationen
-        settings: Einstellungen
-        users: Benutzer
-        publishers: Verkündiger
-        reports: Berichte
-        store: Depot
-        vessels: Schiffe
-        notes: Notizen
-        leave: Projekt verlassen
-        leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen? Das kann nicht rückgängig gemacht werden.
-    details:
-        sections:
-            project: Projekt
-            modules: Module
-            administration: Verwaltung
-            participation: Teilnahme
-    search:
-        placeholder: Suche nach Projekten
+  nameShort: Verwaltung
+  entity:
+    _id: ID
+    name: Name
+    news:
+      text: Neuigkeiten
+    shifts: Schichten
+    calendar: Kalender
+    knowledgeBase: Informationen
+    settings: Einstellungen
+    users: Benutzer
+    publishers: Verkündiger
+    reports: Berichte
+    store: Depot
+    vessels: Schiffe
+    notes: Notizen
+    leave: Projekt verlassen
+    leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen? Das kann nicht rückgängig gemacht werden.
+  details:
+    sections:
+      project: Projekt
+      modules: Module
+      administration: Verwaltung
+      participation: Teilnahme
+  search:
+    placeholder: Suche nach Projekten

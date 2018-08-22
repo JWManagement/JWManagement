@@ -1,12 +1,12 @@
 user:
-    search:
-        placeholder: Suche nach Benutzern
-    entity:
-        username: Benutzername
-        profile:
-            firstname: Vorname
-            lastname: Nachname
-            email: Email
+  search:
+    placeholder: Suche nach Benutzern
+  entity:
+    username: Benutzername
+    profile:
+      firstname: Vorname
+      lastname: Nachname
+      email: Email
 users:
   inviteUser: Nicht aktivierten Verkündigern eine Einladungsmail schicken
   uploadUserFile: Mehrere Verkündiger über eine CSV-Datei anlegen

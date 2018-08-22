@@ -1,26 +1,26 @@
 navigation:
-    welcome: Witaj
-    home: Panel startowy
-    profile: Mój profil
-    shifts: Grafik
-    wiki: Centrum informacji
-    project:
-        details: Adminitracja
-    settings: Ustawienia
-    publisher:
-        search: Użytkownicy
-    reports: Sprawozdania
-    store: Magazyn
-    vessels: Vessels
-    notes: Notatki
-    login: Zaloguj
-    logout: Wyloguj
-    loggingOut: Wylogowywanie...
-    firstLogin: Pierwszy login
-    forgotPassword: Zapomniałem hasło
-    resetPassword: Resetuj hasło
-    terms: Warunki korzystania
-    privacy: Polityka prywatności
-    support: Wsparcie
-    version: Wersja
-    new: Nowy
+  welcome: Witaj
+  home: Panel startowy
+  profile: Mój profil
+  shifts: Grafik
+  wiki: Centrum informacji
+  project:
+    details: Adminitracja
+  settings: Ustawienia
+  publisher:
+    search: Użytkownicy
+  reports: Sprawozdania
+  store: Magazyn
+  vessels: Vessels
+  notes: Notatki
+  login: Zaloguj
+  logout: Wyloguj
+  loggingOut: Wylogowywanie...
+  firstLogin: Pierwszy login
+  forgotPassword: Zapomniałem hasło
+  resetPassword: Resetuj hasło
+  terms: Warunki korzystania
+  privacy: Polityka prywatności
+  support: Wsparcie
+  version: Wersja
+  new: Nowy

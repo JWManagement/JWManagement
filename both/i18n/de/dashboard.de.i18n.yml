@@ -1,50 +1,50 @@
 dashboard:
-    loadingProjects: Lade Projekte...
-    projects: Meine Projekte
-    noProjects: Du nimmst an keinem Projekt teil
-    loadingShifts: Lade Schichten...
-    shifts: Meine Schichten
-    noShifts: Du hast noch keine Schichten
-    news: Neuigkeiten
-    noNews: Keine Neuigkeiten
-    newsFrom: Letzte Änderung
-    editNews: Neuigkeiten bearbeiten
-    changeNews: Änderungen speichern
-    cancelNews: Änderungen abbrechen
-    understaffed: Unterbesetzt
-    understaffedMore: Mehr unterbesetzte Schichten zeigen
-    missing: Fehlender Schichtbericht
-    missing_plural: Fehlende Schichtberichte
-    approved: Angenommene Bewerbung
-    approved_plural: Angenommene Bewerbungen
-    pending: Offene Bewerbung
-    pending_plural: Offene Bewerbungen
-    declined: Abgelehnte Bewerbung
-    declined_plural: Abgelehnte Bewerbungen
-    marked: Unterbesetzte Schicht
-    marked_plural: Unterbesetzte Schichten
-    participant: Schicht-Teilnehmer
-    participant_plural: Schicht-Teilnehmer
-    showOlder: Auch ältere Schichten zeigen
-    showAll: Alles zeigen
-    calendar: Kalender
-    entity:
-        profile: Profil
-        language: Sprache
-        shift:
-            tag: Tag
-            date: Datum
-            start: Beginn
-            end: Ende
-        logout: Abmelden
-        newDashboard: Zur neuen Übersicht
-        oldDashboard: Zur alten Übersicht
-    details:
-        sections:
-            myProjects: Meine Projekte
-            missingShiftReports: Fehlende Schichtberichte
-            upcomingShifts: Meine kommenden Schichten
-            pendingRequests: Meine offenen Schicht-Bewerbungen
-            olderShifts: Meine vergangenen Schichten
-            administration: Verwaltung
-            account: Account
+  loadingProjects: Lade Projekte...
+  projects: Meine Projekte
+  noProjects: Du nimmst an keinem Projekt teil
+  loadingShifts: Lade Schichten...
+  shifts: Meine Schichten
+  noShifts: Du hast noch keine Schichten
+  news: Neuigkeiten
+  noNews: Keine Neuigkeiten
+  newsFrom: Letzte Änderung
+  editNews: Neuigkeiten bearbeiten
+  changeNews: Änderungen speichern
+  cancelNews: Änderungen abbrechen
+  understaffed: Unterbesetzt
+  understaffedMore: Mehr unterbesetzte Schichten zeigen
+  missing: Fehlender Schichtbericht
+  missing_plural: Fehlende Schichtberichte
+  approved: Angenommene Bewerbung
+  approved_plural: Angenommene Bewerbungen
+  pending: Offene Bewerbung
+  pending_plural: Offene Bewerbungen
+  declined: Abgelehnte Bewerbung
+  declined_plural: Abgelehnte Bewerbungen
+  marked: Unterbesetzte Schicht
+  marked_plural: Unterbesetzte Schichten
+  participant: Schicht-Teilnehmer
+  participant_plural: Schicht-Teilnehmer
+  showOlder: Auch ältere Schichten zeigen
+  showAll: Alles zeigen
+  calendar: Kalender
+  entity:
+    profile: Profil
+    language: Sprache
+    shift:
+      tag: Tag
+      date: Datum
+      start: Beginn
+      end: Ende
+    logout: Abmelden
+    newDashboard: Zur neuen Übersicht
+    oldDashboard: Zur alten Übersicht
+  details:
+    sections:
+      myProjects: Meine Projekte
+      missingShiftReports: Fehlende Schichtberichte
+      upcomingShifts: Meine kommenden Schichten
+      pendingRequests: Meine offenen Schicht-Bewerbungen
+      olderShifts: Meine vergangenen Schichten
+      administration: Verwaltung
+      account: Account

@@ -1,90 +1,90 @@
 store:
-    title: Varaston hallintakonsoli
-    short: Lyhenne
-    language: Kieli
-    languages: Kielet
-    total: Yhteensä
-    count: Lukumäärä
-    showAll: Näytä kaikki julkaisut
-    hideAll: Piilota kaikki lisäämättömät julkaisut
-    reset: Palauta varasto alkutilaan
-    noPublication: Et ole vielä lisännyt julkaisuja.<br>Jos haluat lisätä julkaisun, klikkaa painiketta, joka tuo näkyviin kaikki käytettävissä olevat julkaisut.<br>Valitse sitten julkaisut, joita sisällytetään varastoon.<br>Klikkaamalla julkaisua voit määrittää, millä kielillä julkaisuja on varastossa.
-    startAddLanguage: Lisää kieli
-    cancelAddLanguage: Peruuta
-    close: Sulje
-    addLanguage: Lisää
-    removeLanguage: Poista tämä kieli
-    setup:
-        title: Valitse varastotyyppi
-        support: Pahoittelut, mutta tämä ei ole vielä tuettuna
-        description: Valitse varastotyyppi.<br>Voit tarvittaessa vaihtaa tyyppiä myöhemmin.
-        simple:
-            name: Helppo
-            description: Kun varastotyypiksi valitaan 'Helppo', järjestelmä määrittelee automaattisesti jotkin perusryhmittelyt, kuten "Kirjat ja kirjaset", "Lehdet", jne. Nämä ryhmittelyt ovat käytettävissä raporteilla.
-        advanced:
-            name: Edistynyt
-            description: Kun varastotyypiksi valitaan "Edistynyt", voit valita, mitkä julkaisut ovat saatavilla milläkin kielellä. Voit määrittää kuinka paljon niitä pidetään varastossa ja järjestelmä seuraa määrää raportoinnin avulla. Tämä auttaa selvittämään, mitkä julkaisut ja kielet liikkuvat parhaiten.
-    type:
-        _books: Kirjat
-        _brochures: Kirjaset
-        _magazines: Lehdet
-        _tracts: Traktaatit
-        _misc: Sekalaiset
-    publication:
-        _CO-inv17: 2017 Aluekonventtikutsu
-        _CO-inv18: 2018 Aluekonventtikutsu
-        _CO-inv19: 2019 Aluekonventtikutsu
-        _CO-inv20: 2020 Aluekonventtikutsu
-        _bh: Mitä Raamattu todella opettaa?
-        _bhs: What Can the Bible Teach Us?
-        _bi12: Raamatun Uuden Maailman käännös (1984 laitos)
-        _bm: Raamattu - mikä on sen sanoma?
-        _ct: Onko Luojaa joka välittää sinusta?
-        _dv: DVD
-        _fg: Hyvä uutinen Jumalalta!
-        _fy: Perheonnen salaisuus
-        _gt: Suurin ihminen, joka koskaan on elänyt
-        _gu: The Guidance of God — Our Way to Paradise
-        _hf: Your Family Can Be Happy
-        _inv: Kokouskutsu
-        _jw: Jeesus​ — Tie, Totuus ja Elämä
-        _jwcd: Käyntikortti
-        _kt: Haluaisitko tietää totuuden?
-        _la: A Satisfying Life—How to Attain It
-        _lc: Onko elämä luotu?
-        _ld: Kuuntele Jumalaa
-        _lf: Elämän alkuperä - viisi tärkeää kysymystä
-        _lfb: Lessons You Can Learn From the Bible
-        _ll: Listen to God and Live Forever
-        _lgw: Johdanto Jumalan sanaan
-        _lmn: "Look! I Am Making All Things New"
-        _lr: Opi suurelta opettajalta
-        _mb: My Bible Lessons
-        _mi16: 2016 Muistojuhlan kutsu
-        _mi17: 2017 Muistojuhlan kutsu
-        _mi18: 2018 Muistojuhlan kutsu
-        _mi19: 2019 Muistojuhlan kutsu
-        _mi20: 2020 Muistojuhlan kutsu
-        _my: My Book of Bible Stories
-        _nwt: New World Translation of the Holy Scriptures (2013 Revision)
-        _ol: The Road to Everlasting Life — Have You Found It?
-        _pc: Lasting Peace and Happiness - How to Find Them
-        _ph: The Pathway to Peace and Happiness
-        _rj: Palaa Jehovan luo
-        _rk: Real Faith — Your Key to a Happy Life
-        _rp: How to Find the Road to Paradise
-        _sgd: Studienhilfe zur Bibel
-        _t-30: Mitä ajattelet Raamatusta?
-        _t-31: Mitä ajattelet tulevaisuudesta?
-        _t-32: Mikä on avain onnelliseen perhe-elämään?
-        _t-33: Kenen hallinnassa maailma on?
-        _t-34: Loppuuko kärsimys milloinkaan?
-        _t-35: Voivatko kuolleet elää uudelleen?
-        _t-36: Mikä on Jumalan valtakunta?
-        _t-37: Mistä voi saada kysymyksiä elämän suuriin kysymyksiin?
-        _we: Kun joku rakkaasi kuolee
-        _wp/g: Vartiotorni / Herätkää
-        _yc: Teach Your Children
-        _yp1: Questions Young People Ask — Answers That Work, Volume 1
-        _yp2: Questions Young People Ask — Answers That Work, Volume 2
-        _ypq: Answers to 10 Questions Young People Ask
+  title: Varaston hallintakonsoli
+  short: Lyhenne
+  language: Kieli
+  languages: Kielet
+  total: Yhteensä
+  count: Lukumäärä
+  showAll: Näytä kaikki julkaisut
+  hideAll: Piilota kaikki lisäämättömät julkaisut
+  reset: Palauta varasto alkutilaan
+  noPublication: Et ole vielä lisännyt julkaisuja.<br>Jos haluat lisätä julkaisun, klikkaa painiketta, joka tuo näkyviin kaikki käytettävissä olevat julkaisut.<br>Valitse sitten julkaisut, joita sisällytetään varastoon.<br>Klikkaamalla julkaisua voit määrittää, millä kielillä julkaisuja on varastossa.
+  startAddLanguage: Lisää kieli
+  cancelAddLanguage: Peruuta
+  close: Sulje
+  addLanguage: Lisää
+  removeLanguage: Poista tämä kieli
+  setup:
+    title: Valitse varastotyyppi
+    support: Pahoittelut, mutta tämä ei ole vielä tuettuna
+    description: Valitse varastotyyppi.<br>Voit tarvittaessa vaihtaa tyyppiä myöhemmin.
+    simple:
+      name: Helppo
+      description: Kun varastotyypiksi valitaan 'Helppo', järjestelmä määrittelee automaattisesti jotkin perusryhmittelyt, kuten "Kirjat ja kirjaset", "Lehdet", jne. Nämä ryhmittelyt ovat käytettävissä raporteilla.
+    advanced:
+      name: Edistynyt
+      description: Kun varastotyypiksi valitaan "Edistynyt", voit valita, mitkä julkaisut ovat saatavilla milläkin kielellä. Voit määrittää kuinka paljon niitä pidetään varastossa ja järjestelmä seuraa määrää raportoinnin avulla. Tämä auttaa selvittämään, mitkä julkaisut ja kielet liikkuvat parhaiten.
+  type:
+    _books: Kirjat
+    _brochures: Kirjaset
+    _magazines: Lehdet
+    _tracts: Traktaatit
+    _misc: Sekalaiset
+  publication:
+    _CO-inv17: 2017 Aluekonventtikutsu
+    _CO-inv18: 2018 Aluekonventtikutsu
+    _CO-inv19: 2019 Aluekonventtikutsu
+    _CO-inv20: 2020 Aluekonventtikutsu
+    _bh: Mitä Raamattu todella opettaa?
+    _bhs: What Can the Bible Teach Us?
+    _bi12: Raamatun Uuden Maailman käännös (1984 laitos)
+    _bm: Raamattu - mikä on sen sanoma?
+    _ct: Onko Luojaa joka välittää sinusta?
+    _dv: DVD
+    _fg: Hyvä uutinen Jumalalta!
+    _fy: Perheonnen salaisuus
+    _gt: Suurin ihminen, joka koskaan on elänyt
+    _gu: The Guidance of God — Our Way to Paradise
+    _hf: Your Family Can Be Happy
+    _inv: Kokouskutsu
+    _jw: Jeesus​ — Tie, Totuus ja Elämä
+    _jwcd: Käyntikortti
+    _kt: Haluaisitko tietää totuuden?
+    _la: A Satisfying Life—How to Attain It
+    _lc: Onko elämä luotu?
+    _ld: Kuuntele Jumalaa
+    _lf: Elämän alkuperä - viisi tärkeää kysymystä
+    _lfb: Lessons You Can Learn From the Bible
+    _ll: Listen to God and Live Forever
+    _lgw: Johdanto Jumalan sanaan
+    _lmn: "Look! I Am Making All Things New"
+    _lr: Opi suurelta opettajalta
+    _mb: My Bible Lessons
+    _mi16: 2016 Muistojuhlan kutsu
+    _mi17: 2017 Muistojuhlan kutsu
+    _mi18: 2018 Muistojuhlan kutsu
+    _mi19: 2019 Muistojuhlan kutsu
+    _mi20: 2020 Muistojuhlan kutsu
+    _my: My Book of Bible Stories
+    _nwt: New World Translation of the Holy Scriptures (2013 Revision)
+    _ol: The Road to Everlasting Life — Have You Found It?
+    _pc: Lasting Peace and Happiness - How to Find Them
+    _ph: The Pathway to Peace and Happiness
+    _rj: Palaa Jehovan luo
+    _rk: Real Faith — Your Key to a Happy Life
+    _rp: How to Find the Road to Paradise
+    _sgd: Studienhilfe zur Bibel
+    _t-30: Mitä ajattelet Raamatusta?
+    _t-31: Mitä ajattelet tulevaisuudesta?
+    _t-32: Mikä on avain onnelliseen perhe-elämään?
+    _t-33: Kenen hallinnassa maailma on?
+    _t-34: Loppuuko kärsimys milloinkaan?
+    _t-35: Voivatko kuolleet elää uudelleen?
+    _t-36: Mikä on Jumalan valtakunta?
+    _t-37: Mistä voi saada kysymyksiä elämän suuriin kysymyksiin?
+    _we: Kun joku rakkaasi kuolee
+    _wp/g: Vartiotorni / Herätkää
+    _yc: Teach Your Children
+    _yp1: Questions Young People Ask — Answers That Work, Volume 1
+    _yp2: Questions Young People Ask — Answers That Work, Volume 2
+    _ypq: Answers to 10 Questions Young People Ask

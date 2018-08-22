@@ -1,29 +1,29 @@
 dashboard:
-    loadingProjects: Ładowanie projektów...
-    projects: Moje projekty
-    noProjects: Nie jesteś współpracownikiem w żadnym projekcie
-    loadingShifts: Ładowanie zmian...
-    shifts: Moje zmiany
-    noShifts: Aktualnie nie masz żadnych zmian
-    news: Aktualne wiadomości
-    noNews: Brak wiadomości
-    newsFrom: Ostatnio zmieniona
-    editNews: Edytuj tą informację
-    changeNews: Edytuj wiadomość
-    cancelNews: Anuluj edycję
-    understaffed: Za mało osób
-    understaffedMore: Pokaż więcej zmian z brakami głosicieli
-    missing: Brakuje sprawozdania ze zmiany
-    missing_plural: Brakujące sprawozdania ze zmian
-    approved: Prośba zaakceptowana
-    approved_plural: Zaakceptowane prośby
-    pending: Prośba oczekuje na rozpatrzenie
-    pending_plural: Prośby oczekujące na rozpatrzenie
-    declined: Prośba odrzucona
-    declined_plural: Odrzucone prośby
-    marked: Zmiana bez wystarczającej liczby głosicieli
-    marked_plural: Zmiany bez wystarczającej liczy błosicieli
-    participant: Współpracownik zmiany
-    participant_plural: Współpracownicy zmiany
-    showOlder: Pokaż również starsze zmiany
-    showAll: Pokaż wszystko
+  loadingProjects: Ładowanie projektów...
+  projects: Moje projekty
+  noProjects: Nie jesteś współpracownikiem w żadnym projekcie
+  loadingShifts: Ładowanie zmian...
+  shifts: Moje zmiany
+  noShifts: Aktualnie nie masz żadnych zmian
+  news: Aktualne wiadomości
+  noNews: Brak wiadomości
+  newsFrom: Ostatnio zmieniona
+  editNews: Edytuj tą informację
+  changeNews: Edytuj wiadomość
+  cancelNews: Anuluj edycję
+  understaffed: Za mało osób
+  understaffedMore: Pokaż więcej zmian z brakami głosicieli
+  missing: Brakuje sprawozdania ze zmiany
+  missing_plural: Brakujące sprawozdania ze zmian
+  approved: Prośba zaakceptowana
+  approved_plural: Zaakceptowane prośby
+  pending: Prośba oczekuje na rozpatrzenie
+  pending_plural: Prośby oczekujące na rozpatrzenie
+  declined: Prośba odrzucona
+  declined_plural: Odrzucone prośby
+  marked: Zmiana bez wystarczającej liczby głosicieli
+  marked_plural: Zmiany bez wystarczającej liczy błosicieli
+  participant: Współpracownik zmiany
+  participant_plural: Współpracownicy zmiany
+  showOlder: Pokaż również starsze zmiany
+  showAll: Pokaż wszystko

@@ -1,6 +1,6 @@
 error:
-    nameRequired: Please enter the name of this vessel
-    callsignUnique: A vessel with this call sign is already existing
-    eniUnique: A vessel with this ENI number is already existing
-    imoUnique: A vessel with this IMO number is already existing
-    mmsiUnique: A vessel with this MMSI number is already existing
+  nameRequired: Please enter the name of this vessel
+  callsignUnique: A vessel with this call sign is already existing
+  eniUnique: A vessel with this ENI number is already existing
+  imoUnique: A vessel with this IMO number is already existing
+  mmsiUnique: A vessel with this MMSI number is already existing

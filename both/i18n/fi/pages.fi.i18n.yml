@@ -1,209 +1,209 @@
 login:
-    name: Kirjaudu
-    welcome: Tervetuloa JW Management'iin
-    text: Anna käyttäjätiedot kirjautuaksesi sisään
-    forgot: Salasana unohtunut?
-    create: Luo uusi tili
-    back: Takaisin aloitussivulle
+  name: Kirjaudu
+  welcome: Tervetuloa JW Management'iin
+  text: Anna käyttäjätiedot kirjautuaksesi sisään
+  forgot: Salasana unohtunut?
+  create: Luo uusi tili
+  back: Takaisin aloitussivulle
 forgotPassword:
-    name: Salasana unohtunut
-    text: Anna sähköpostiosoitteesi, niin lähetämme sinulle linkin, jonka avulla voit vaihtaa salasanasi.
-    button: Lähetä salasanan palautuslinkki
-    back: Takaisin aloitussivulle
-    noUserForThisEmail: Tällä sähköpostiosoitteella ei ole luotu käyttäjätiliä
-    multipleAccountsForThisEmail: Tällä sähköpostiosoitteella on luotu useita käyttäjätilejä. Anna myös käyttäjätunnus.
-    emailMissing: Sähköpostiosoite puuttuu
-    mailSent: Saat pian sähköpostia. Klikkaa siinä olevaa linkkiä palauttaaksesi salasanasi.
+  name: Salasana unohtunut
+  text: Anna sähköpostiosoitteesi, niin lähetämme sinulle linkin, jonka avulla voit vaihtaa salasanasi.
+  button: Lähetä salasanan palautuslinkki
+  back: Takaisin aloitussivulle
+  noUserForThisEmail: Tällä sähköpostiosoitteella ei ole luotu käyttäjätiliä
+  multipleAccountsForThisEmail: Tällä sähköpostiosoitteella on luotu useita käyttäjätilejä. Anna myös käyttäjätunnus.
+  emailMissing: Sähköpostiosoite puuttuu
+  mailSent: Saat pian sähköpostia. Klikkaa siinä olevaa linkkiä palauttaaksesi salasanasi.
 resetPassword:
-    name: Palauta salasana
-    text: Anna uusi salasana käyttäjälle %s %s.
-    noUserFound: <p>Tämä linkki on vanhentunut</p><p>Pyydä uusi linkki sähköpostiisi.</p>
-    button: Vaihda salasana
-    back: Takaisin aloitussivulle
+  name: Palauta salasana
+  text: Anna uusi salasana käyttäjälle %s %s.
+  noUserFound: <p>Tämä linkki on vanhentunut</p><p>Pyydä uusi linkki sähköpostiisi.</p>
+  button: Vaihda salasana
+  back: Takaisin aloitussivulle
 profile:
-    name: Oma profiili
-    personalData: Omat tietoni
-    changePicture: Muokkaa kuvaa...
-    options:
-        title: Asetukset
-        helpText:
-            mergeAccounts: Voit käyttää kaikkia JW Management toimintoja yhdellä käyttäjätilillä. Sinun pitää muistaa vain yksi käyttäjänimi ja salasana. Jos sinulla on useita käyttäjätilejä, klikkaa "Yhdistä tilit" ja anna toisen tilisi kirjautumistunnukset. Toiminto yhdistää tämän tilin käyttöoikeudet toisen tilisi käyttöoikeuksiin.
-    availability:
-        title: Käytettävissä
-        helpText: Merkitse tunnit, jotka olet käytettävissä.
-        shortTermCalls: Olen käytettävissä lyhyellä varoitusajalla
-        shortTermCallsAlways: Vaikka käytettävissä tietoja ei ole asetettu
-    speaks: Kielet
-    telefon: Puhelin
+  name: Oma profiili
+  personalData: Omat tietoni
+  changePicture: Muokkaa kuvaa...
+  options:
+    title: Asetukset
+    helpText:
+      mergeAccounts: Voit käyttää kaikkia JW Management toimintoja yhdellä käyttäjätilillä. Sinun pitää muistaa vain yksi käyttäjänimi ja salasana. Jos sinulla on useita käyttäjätilejä, klikkaa "Yhdistä tilit" ja anna toisen tilisi kirjautumistunnukset. Toiminto yhdistää tämän tilin käyttöoikeudet toisen tilisi käyttöoikeuksiin.
+  availability:
+    title: Käytettävissä
+    helpText: Merkitse tunnit, jotka olet käytettävissä.
+    shortTermCalls: Olen käytettävissä lyhyellä varoitusajalla
+    shortTermCallsAlways: Vaikka käytettävissä tietoja ei ole asetettu
+  speaks: Kielet
+  telefon: Puhelin
+  congregation: Seurakunta
+  languages: Vieraat kielet
+  gender: Sukupuoli
+  _gender:
+    brother: Veli
+    sister: Sisar
+  publisher: Julistaja
+  privilegeOfService: Palvelustehtävät
+  _privilegeOfService:
+    auxiliaryPioneer: Osa-aikainen tienraivaaja
+    pioneer: Vakituinen tienraivaaja
+    specialPioneer: Erikoistienraivaaja
+    circuitOverseer: Kierrosvalvoja
+    bethelite: Beteliläinen
+    fulltimeConstructionServant: Rakennusvapaaehtoinen
+  ministryPrivilege: Seurakunnan tehtävät
+  _ministryPrivilege:
+    ministerialServant: Avustava palvelija
+    elder: Vanhin
+    coordinator: Vanhimmiston koordinaattori
+    secretary: Sihteeri
+    serviceOverseer: Palvelusvalvoja
+  placeholder:
+    telefon: (esim +358401234567)
     congregation: Seurakunta
-    languages: Vieraat kielet
-    gender: Sukupuoli
-    _gender:
-        brother: Veli
-        sister: Sisar
-    publisher: Julistaja
-    privilegeOfService: Palvelustehtävät
-    _privilegeOfService:
-        auxiliaryPioneer: Osa-aikainen tienraivaaja
-        pioneer: Vakituinen tienraivaaja
-        specialPioneer: Erikoistienraivaaja
-        circuitOverseer: Kierrosvalvoja
-        bethelite: Beteliläinen
-        fulltimeConstructionServant: Rakennusvapaaehtoinen
-    ministryPrivilege: Seurakunnan tehtävät
-    _ministryPrivilege:
-        ministerialServant: Avustava palvelija
-        elder: Vanhin
-        coordinator: Vanhimmiston koordinaattori
-        secretary: Sihteeri
-        serviceOverseer: Palvelusvalvoja
-    placeholder:
-        telefon: (esim +358401234567)
-        congregation: Seurakunta
-        languages: Kielet
-    changePassword: Vaihda salasana
-    deleteAccount: Poista käyttäjätili
-    mergeAccounts: Yhdistä tilit
-    vacation:
-        title: Lomalla
-        helpText: Merkitse ajanjaksot, jolloin et ole käytettävissä.
-    until: -
-    addVacation: Lisää loma
-    deleteVacation: Poista tämä loma
-    usernameTaken: Käyttäjänimi on jo varattu. Valitse jokin muu käyttäjänimi.
+    languages: Kielet
+  changePassword: Vaihda salasana
+  deleteAccount: Poista käyttäjätili
+  mergeAccounts: Yhdistä tilit
+  vacation:
+    title: Lomalla
+    helpText: Merkitse ajanjaksot, jolloin et ole käytettävissä.
+  until: -
+  addVacation: Lisää loma
+  deleteVacation: Poista tämä loma
+  usernameTaken: Käyttäjänimi on jo varattu. Valitse jokin muu käyttäjänimi.
 wiki:
-    name: Tiedotuskeskus
-    nameShort: Info
-    files: Tiedostot
-    addQuestion: Lisää kysymys/aihe
-    edit: Muokkaa
-    delete: Poista
-    noFiles: Ei tiedostoja saatavana
-    addTab: Lisää uusi välilehti
-    editQuestion: Muokkaa tätä kysymystä
-    removeFaq: Poista tämä kysymys
-    editFaq: Muokkaa tätä vastausta
-    changeFaq: Tallenna tämä vastaus
-    cancelFaq: Peruuta muokkaus
+  name: Tiedotuskeskus
+  nameShort: Info
+  files: Tiedostot
+  addQuestion: Lisää kysymys/aihe
+  edit: Muokkaa
+  delete: Poista
+  noFiles: Ei tiedostoja saatavana
+  addTab: Lisää uusi välilehti
+  editQuestion: Muokkaa tätä kysymystä
+  removeFaq: Poista tämä kysymys
+  editFaq: Muokkaa tätä vastausta
+  changeFaq: Tallenna tämä vastaus
+  cancelFaq: Peruuta muokkaus
 shifts:
-    name: Vuorot
-    route: Reitti
-    addShift: Lisää uusi vuoro
-    addWeek: Lisää uusi viikko
-    requests: Ilmoittautumiset
-    openRequests: Avaa ilmoittautumiset
-    automation: Automaattinen
-    template: Mallipohja
-    noVisibleShifts: Tällä tunnisteella ei ole vuoroja tällä viikolla
+  name: Vuorot
+  route: Reitti
+  addShift: Lisää uusi vuoro
+  addWeek: Lisää uusi viikko
+  requests: Ilmoittautumiset
+  openRequests: Avaa ilmoittautumiset
+  automation: Automaattinen
+  template: Mallipohja
+  noVisibleShifts: Tällä tunnisteella ei ole vuoroja tällä viikolla
+  start: Aloitus
+  end: Lopetus
+  visibility: Näkyvyys:
+  helpText:
+    start: Tämä on esimmäinen viikko, joka on luotu järjestelmän toimesta.
+    end: Tämä on viimeinen viikko, joka on luotu järjestelmän toimesta.
+    visibility: Tämä määrittelee, kuinka monta viikkoa eteenpäin julistajat näkevät vuoroja ja voivat ilmoittautua niihin. Alku- ja loppuviikon määrittelemällä järjestelmä luo automaattisesti tarvittavat vuorot.
+  weeks: viikkoa
+  sendWeek: Lähetä vahvistukset
+  hideNames: Piilota vuorojen nimet
+  showNames: Näytä vuorojen nimet
+  editShifts: Muokkaa vuoroja
+  prevWeek: Siirry edelliselle viikolle
+  nextWeek: Siirry seuraavalle viikolle
+  sendWeek: Lähetä vahvistukset sähköpostilla kaikista vuoroista tällä viikolla
+  shownTag: Tämän tunnisteen vuorot ovat nyt näkyvissä
+  hiddenTag: Tämän tunnisteen vuorot ovat nyt piilotettuna
+  shift:
+    tag: Tunniste
+    schedule: Aikatauluta
+    teamleader: Tiiminvetäjä
+    teams: Tiimit
+    noTeams: Ei tiimejä
+    participants: Osallistujat
     start: Aloitus
     end: Lopetus
-    visibility: Näkyvyys:
-    helpText:
-        start: Tämä on esimmäinen viikko, joka on luotu järjestelmän toimesta.
-        end: Tämä on viimeinen viikko, joka on luotu järjestelmän toimesta.
-        visibility: Tämä määrittelee, kuinka monta viikkoa eteenpäin julistajat näkevät vuoroja ja voivat ilmoittautua niihin. Alku- ja loppuviikon määrittelemällä järjestelmä luo automaattisesti tarvittavat vuorot.
-    weeks: viikkoa
-    sendWeek: Lähetä vahvistukset
-    hideNames: Piilota vuorojen nimet
-    showNames: Näytä vuorojen nimet
-    editShifts: Muokkaa vuoroja
-    prevWeek: Siirry edelliselle viikolle
-    nextWeek: Siirry seuraavalle viikolle
-    sendWeek: Lähetä vahvistukset sähköpostilla kaikista vuoroista tällä viikolla
-    shownTag: Tämän tunnisteen vuorot ovat nyt näkyvissä
-    hiddenTag: Tämän tunnisteen vuorot ovat nyt piilotettuna
-    shift:
-        tag: Tunniste
-        schedule: Aikatauluta
-        teamleader: Tiiminvetäjä
-        teams: Tiimit
-        noTeams: Ei tiimejä
-        participants: Osallistujat
-        start: Aloitus
-        end: Lopetus
-        requests: Ilmoittautuminen
-        requests_plural: Ilmoittautumiset
-        requestsOf: Ilmoittautuminen, tarvitaan
-        requestsOf_plural: ilmoittautumista, tarvitaan
-        teamleaders: TV:a
-        noPermission: Vain projektivastaava tai vuorovastaava voi muokata tai aikatauluttaa vuoroja.
+    requests: Ilmoittautuminen
+    requests_plural: Ilmoittautumiset
+    requestsOf: Ilmoittautuminen, tarvitaan
+    requestsOf_plural: ilmoittautumista, tarvitaan
+    teamleaders: TV:a
+    noPermission: Vain projektivastaava tai vuorovastaava voi muokata tai aikatauluttaa vuoroja.
 day:
-    removeAll: Poista kaikki
+  removeAll: Poista kaikki
 settings:
-    main:
-        title: Asetukset
-        id: ID
-        name:
-            text: Nimi
-            placeholder: Projektin nimi
-            helpText: Useimmiten projektin nimenä käytetään seurakunnan nimeä. Isommissa projekteissa, joihin sisältyy monta seurakuntaa, nimenä voidaan käyttää kaupungin nimeä, jossa projekti on käynnissä. Jos projektia ei käytetä kärrytyön organisoimiseen, nimi voi olla mikä tahansa, joka kuvaa hyvin sitä, mitä ollaan tekemässä.
-        email:
-            text: Sähköposti
-            placeholder: Projektin sähköposti
-            helpText: Vuorojen vahvistamisessa ja tiimivastaavien päivitysviesteissä käytettävä sähköpostiosoite. Tätä osoitetta käytetään vastausosoitteena, johon vastaanottajat voivat vastata. Tähän osoitteeseen lähetetään myös ilmoitus, jos esimerkiksi ilmoittautumisiin tulee viime hetken peruutuksia.
-        language:
-            text: Kieli
-            helpText: JOs järjestelmä lähettää yllä olevaan osoitteeseen ilmoituksia, se lähetetään tässä valitulla kielellä.
-        deleteProject: Poista projekti
-    tags:
-        title: Tunnisteet
-        helpText: <p>Jokaiselle vuorolle pitää asettaa tunniste. Lisäksi jokaiselle käyttäjälle voidaan antaa oikeus nähdä tietyllä tunnuksella merkittyjä vuoroja tai vaihtoehtoisesti estää näkemästä vuoroja, jotka on merkitty tietyllä tunnisteella.</p><p>Tunnisteilla voidaan merkitä tiettyjä aktiviteetteja (esim. Kärrytyö, Infopiste, Katutyö, jne.). Vuorojen erottelu tunnisteita käyttämällä voi olla hyödyllistä esimerkiksi silloin, kun samaan aikaan on useita vuoroja tai jos vain tietyt julistajat on koulutettu johonkin julkisen julistamisen työmuotoon.</p><p>Jokaiseen tunnisteeseen voidaan asettaa etukäteen määriteltyjä malliviikkoja. Järjestelmä voi käyttää näitä malliviikkoja automaattisessa aikataulutuksessa. Tämä säästää projektivastaavan tai vuorovastaavan aikaa aikataulujen tekemisessä.</p>
-        id: ID
-        name: Nimi
-        img:
-            name: Kuva
-            helpText: Tämä kuva näkyy hallintapaneelissa, kun klikataan 'Vuorot' painiketta. Sen tulisi kuvata toimintaa, jota tehdään tämän tunnisteen vuoroissa. Jos haluat lisätä oman kuvan, lähetä meille sähköpostia osoitteeseen support@jwmanagement.org ja kerro, minkälaisen kuvan haluaisit lisättävän järjestelmään.
-        templates: Mallipohjat
-        showTemplate: Muokkaa vuoroja
-        editTemplate: Muokkaa nimeä
-        removeTemplate: Poista
-        addTemplate: Määritä uusi mallipohja
-        action: Toiminto
-        none: Tunnisteita ei ole vielä lisätty
-        add: Lisää uusi tunniste
-        remove: Poista tämä tunniste
-    teams:
-        title: Tiimit
-        helpText:
-            main: Jokaisessa vuorossa pitää olla ainakin yksi tiimi. Jokainen tiimi määritetään reittiin tai sijaintiin. Yksi osallistuja vuorossa on aina jonkin tiimin jäsen.
-            picture: Julistajat näkevät tämän kuvan, joten sen tulisi kuvata hyvin tämän tiimin toimintaa. Voisit esimerkiksi luoda tälle tiimille reitin Google Maps'illa tai OpenStreetMap'illa (riippuen siitä, kumpi kattaa alueenne paremmin) ja ladata siitä kuvan tänne.
-            link: Tämä linkki liitetään kuvaan. Jos käyttäjä klikkaa kuvaa, hänet ohjataan linkin osoitteeseen. Voit esimerkiksi liittää tähän linkin Google Maps'iin tai OpenStreetMap'iin.
-            description: Tässä voit lisätä tiimille kuvauksen. Voit esimerkiksi lisätä erityishuomioita tai kuvauksen reitistä.
-        id: ID
-        name: Nimi
-        icon: Kuvake
-        picture: Kuva
-        editPicture: Lataa tiimin kuva
-        noPicture: Ei ladattua kuvaa
-        link: Linkki
-        description: Kuvaus
-        action: Toiminto
-        none: Tiimejä ei ole vielä lisätty
-        add: Lisää uusi tiimi
-        remove: Poista tämä tiimi
-    meetings:
-        title: Kokoontumispiste
-        helpText:
-            main: Jokaiselle tiimille voi olla määriteltynä kokoontumispaikka. Näin jokainen tiimi voi kokoontua toisistaan riippumattomasti. Tämä voi olla käytännöllistä, jos tiimien reitit tai kokoontumispisteet ovat kaukana toisistaan ja yhteinen kokoontuminen olisi aikaa vievää. Kokoontumispisteet määritelllän koordinaatteina.
-            picture: Julistajat näkevät tämän kuvan, joten sen tulisi kuvata hyvin kokoontumispaikkaa. Voisit esimerkiksi ladata kuvan ympäristöstä Google Maps'ista tai OpenStreetMap'ista (riippuen siitä, kumpi kattaa alueenne paremmin).
-        id: ID
-        name: Nimi
-        picture: Kuva
-        editPicture: Lataa kuva kokoontumispisteelle
-        noPicture: Ei kuvaa ladattuna
-        action: Toiminto
-        none: Kokoontumispisteitä ei ole vielä lisätty
-        add: Lisää uusi kokoontumispiste
-        remove: Poista tämä kokoontumispiste
+  main:
+    title: Asetukset
+    id: ID
+    name:
+      text: Nimi
+      placeholder: Projektin nimi
+      helpText: Useimmiten projektin nimenä käytetään seurakunnan nimeä. Isommissa projekteissa, joihin sisältyy monta seurakuntaa, nimenä voidaan käyttää kaupungin nimeä, jossa projekti on käynnissä. Jos projektia ei käytetä kärrytyön organisoimiseen, nimi voi olla mikä tahansa, joka kuvaa hyvin sitä, mitä ollaan tekemässä.
+    email:
+      text: Sähköposti
+      placeholder: Projektin sähköposti
+      helpText: Vuorojen vahvistamisessa ja tiimivastaavien päivitysviesteissä käytettävä sähköpostiosoite. Tätä osoitetta käytetään vastausosoitteena, johon vastaanottajat voivat vastata. Tähän osoitteeseen lähetetään myös ilmoitus, jos esimerkiksi ilmoittautumisiin tulee viime hetken peruutuksia.
+    language:
+      text: Kieli
+      helpText: JOs järjestelmä lähettää yllä olevaan osoitteeseen ilmoituksia, se lähetetään tässä valitulla kielellä.
+    deleteProject: Poista projekti
+  tags:
+    title: Tunnisteet
+    helpText: <p>Jokaiselle vuorolle pitää asettaa tunniste. Lisäksi jokaiselle käyttäjälle voidaan antaa oikeus nähdä tietyllä tunnuksella merkittyjä vuoroja tai vaihtoehtoisesti estää näkemästä vuoroja, jotka on merkitty tietyllä tunnisteella.</p><p>Tunnisteilla voidaan merkitä tiettyjä aktiviteetteja (esim. Kärrytyö, Infopiste, Katutyö, jne.). Vuorojen erottelu tunnisteita käyttämällä voi olla hyödyllistä esimerkiksi silloin, kun samaan aikaan on useita vuoroja tai jos vain tietyt julistajat on koulutettu johonkin julkisen julistamisen työmuotoon.</p><p>Jokaiseen tunnisteeseen voidaan asettaa etukäteen määriteltyjä malliviikkoja. Järjestelmä voi käyttää näitä malliviikkoja automaattisessa aikataulutuksessa. Tämä säästää projektivastaavan tai vuorovastaavan aikaa aikataulujen tekemisessä.</p>
+    id: ID
+    name: Nimi
+    img:
+      name: Kuva
+      helpText: Tämä kuva näkyy hallintapaneelissa, kun klikataan 'Vuorot' painiketta. Sen tulisi kuvata toimintaa, jota tehdään tämän tunnisteen vuoroissa. Jos haluat lisätä oman kuvan, lähetä meille sähköpostia osoitteeseen support@jwmanagement.org ja kerro, minkälaisen kuvan haluaisit lisättävän järjestelmään.
+    templates: Mallipohjat
+    showTemplate: Muokkaa vuoroja
+    editTemplate: Muokkaa nimeä
+    removeTemplate: Poista
+    addTemplate: Määritä uusi mallipohja
+    action: Toiminto
+    none: Tunnisteita ei ole vielä lisätty
+    add: Lisää uusi tunniste
+    remove: Poista tämä tunniste
+  teams:
+    title: Tiimit
+    helpText:
+      main: Jokaisessa vuorossa pitää olla ainakin yksi tiimi. Jokainen tiimi määritetään reittiin tai sijaintiin. Yksi osallistuja vuorossa on aina jonkin tiimin jäsen.
+      picture: Julistajat näkevät tämän kuvan, joten sen tulisi kuvata hyvin tämän tiimin toimintaa. Voisit esimerkiksi luoda tälle tiimille reitin Google Maps'illa tai OpenStreetMap'illa (riippuen siitä, kumpi kattaa alueenne paremmin) ja ladata siitä kuvan tänne.
+      link: Tämä linkki liitetään kuvaan. Jos käyttäjä klikkaa kuvaa, hänet ohjataan linkin osoitteeseen. Voit esimerkiksi liittää tähän linkin Google Maps'iin tai OpenStreetMap'iin.
+      description: Tässä voit lisätä tiimille kuvauksen. Voit esimerkiksi lisätä erityishuomioita tai kuvauksen reitistä.
+    id: ID
+    name: Nimi
+    icon: Kuvake
+    picture: Kuva
+    editPicture: Lataa tiimin kuva
+    noPicture: Ei ladattua kuvaa
+    link: Linkki
+    description: Kuvaus
+    action: Toiminto
+    none: Tiimejä ei ole vielä lisätty
+    add: Lisää uusi tiimi
+    remove: Poista tämä tiimi
+  meetings:
+    title: Kokoontumispiste
+    helpText:
+      main: Jokaiselle tiimille voi olla määriteltynä kokoontumispaikka. Näin jokainen tiimi voi kokoontua toisistaan riippumattomasti. Tämä voi olla käytännöllistä, jos tiimien reitit tai kokoontumispisteet ovat kaukana toisistaan ja yhteinen kokoontuminen olisi aikaa vievää. Kokoontumispisteet määritelllän koordinaatteina.
+      picture: Julistajat näkevät tämän kuvan, joten sen tulisi kuvata hyvin kokoontumispaikkaa. Voisit esimerkiksi ladata kuvan ympäristöstä Google Maps'ista tai OpenStreetMap'ista (riippuen siitä, kumpi kattaa alueenne paremmin).
+    id: ID
+    name: Nimi
+    picture: Kuva
+    editPicture: Lataa kuva kokoontumispisteelle
+    noPicture: Ei kuvaa ladattuna
+    action: Toiminto
+    none: Kokoontumispisteitä ei ole vielä lisätty
+    add: Lisää uusi kokoontumispiste
+    remove: Poista tämä kokoontumispiste
 firstLogin:
-    name: Tervetuloa
-    text: <p>Tervetuloa JW Management'in käyttäjäksi!</p><p>Ole hyvä ja valitse itsellesi käyttäjätunnus ja salasana. Tulet tästä lähtien tarvitsemaan näitä tunnuksia tähän järjestelmään kirjautumiseksi.</p><p>Sen jälkeen voit aloittaa JW Management'in käyttämisen.</p><p>Nauti!</p>
-    agreeTerms: Hyväksyn <a href="/en/terms" target="blank">käyttöehdot</a> ja <a href="/en/privacy" target="blank">yksityisyyskäytännön</a>
-    button: Eteenpäin!
-    tokenError: Vanhentunut linkki. Tämä ei ole enää voimassa. Pyydä uutta sähköpostilla tai yritä palauttaa salasanasi.
-    tokenMissing: Viallinen linkki. Ole hyvä ja käytä linkkiä, jonka sait sähköpostissa.
-    usernameExists: Käyttäjänimi on jo olemassa. Valitse jokin toinen käyttäjänimi.
-    usernameMissing: Anna käyttäjänimi.
-    agreeTermsMissing: Ole hyvä ja hyväksy käyttöehdot ja yksityisyyskäytäntö.
-    buttonCreateAccount: Minulla ei ole vielä käyttäjätiliä
-    buttonHaveAccount: Minulla on jo käyttäjätili
+  name: Tervetuloa
+  text: <p>Tervetuloa JW Management'in käyttäjäksi!</p><p>Ole hyvä ja valitse itsellesi käyttäjätunnus ja salasana. Tulet tästä lähtien tarvitsemaan näitä tunnuksia tähän järjestelmään kirjautumiseksi.</p><p>Sen jälkeen voit aloittaa JW Management'in käyttämisen.</p><p>Nauti!</p>
+  agreeTerms: Hyväksyn <a href="/en/terms" target="blank">käyttöehdot</a> ja <a href="/en/privacy" target="blank">yksityisyyskäytännön</a>
+  button: Eteenpäin!
+  tokenError: Vanhentunut linkki. Tämä ei ole enää voimassa. Pyydä uutta sähköpostilla tai yritä palauttaa salasanasi.
+  tokenMissing: Viallinen linkki. Ole hyvä ja käytä linkkiä, jonka sait sähköpostissa.
+  usernameExists: Käyttäjänimi on jo olemassa. Valitse jokin toinen käyttäjänimi.
+  usernameMissing: Anna käyttäjänimi.
+  agreeTermsMissing: Ole hyvä ja hyväksy käyttöehdot ja yksityisyyskäytäntö.
+  buttonCreateAccount: Minulla ei ole vielä käyttäjätiliä
+  buttonHaveAccount: Minulla on jo käyttäjätili

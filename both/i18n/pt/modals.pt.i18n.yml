@@ -1,202 +1,202 @@
 modal:
-    close: Fechar
-    addParticipant:
-        title: Adicionar participante
-        noUsers: Nenhum usuário disponivel encontrado.
-        description: Por favor escolha o publicador que quer adicionar a este turno.
-        submit: Adicionar
-        alreadyRequested: Este usuário já requisitou participação.
-        alreadyParticipating: Este usuário já está participando.
-        available_users: Publicador Disponivel
-        all_users: Outro Publicador
-        select: Selecione Publicador
-    addUser:
-        title: Crie um novo usuário
-        action: Criar usuário
-        upload: Carregar Ficheiro
-        helpText: O nome de usuário deve ser curto e fácil de memorizar. Conbinações do seu primeiro e último nome  costumam ser boas conbinações. <br>Exemplo: "JoãoD" or "Jdaniel"
-        invite: Convite %s (%s)
-        existingAccounts: Contas Existentes
-    addWeek:
-        title: Criar nova semana
-        action: Crie nova semana
-        text:
-            top: Escolha uma semana, à qual a semana padrão vai ser aplicada:
-            bottom: Escolha a semana padrão:
-    cancelTeam:
-        title: Cancelar equipa
-        text: Descreva porque esta equipa tem de ser cancelada. Todos os participantes irão receber esta mensagem através do mail de cancelamento.
-        action: Cancelar equipa
-    editPermissions:
-        title: Manusear %s's permissões
-        projectPermissions: Permissões de projeto
-        projectRole: Cargo de projeto
-        tagPermissions: Rotule o Cargo
-        helpText:
-            admin: O cargo de gerente de projeto é o nivel de autorização mais elevado. Um gerente de projeto está autorizado a controlar tudo. Cada projeto tem de ter pelo menos um gerente de projeto.
-            shiftAdmin: O gerente de turno tem as permissões de um participante, mas também pode criar, modificar, eliminar e planejar turnos.
-            storeAdmin: O gerente de loja tem as permissões de um participante mas também pode visualizar os relatórios de turno e editar a loja.
-            member: O participante é o papel mais básico. Ele tem permissão de ver o Centro de Informação.
-            teamleader: Quando um lider de equipe é designado por um gerente de projeto para determinado rótulo, ele fica responsável pelo relatório de turno de equipa, do rótulo em questão.
-            substituteTeamleader: O lider de equipa substituto tem as mesmas permissões que um lider de equipa normal. Mas se o sistema planejar automáticamente, irá sempre preferir a requisição de um lider de equipa normal, se existente.
-            participant: O participante pode ver e requisitar turnos de rótulos designados.
-            nothing: Com “Nenhum”, o usuário não pode ver ou requisitar turnos desse rótulo. Nem pode ser planejado para trabalhar num turno.
-    editShift:
-        title: Editar informação de turno
-        mainData: Detalhes principais
-        tag: Rótulo
-        team: Equipa
-        teams: Equipas designadas para este turno
-        helpText:
-            tag: Estabeleça o rótulo para este turno. Todos os usuários com permissões neste rótulo conseguem visualizar este turno.
-            scheduling: Petições do tipo "Aceitar Imediatamente" irão ser aceites automáticamente, quando o limite minimo de participantes para a próxima equipa for alcançado.
-        teamMin: Minimo de participantes:
-        teamMax: Máximo de participantes:
-        teamStart: Começa:
-        teamEnd: Acaba:
-        noMeeting: Sem encontro
-        action: Acção:
-        delete: Apagar
-        switch: Planejar turno
-    editTeamPicture:
-        title: Mudar imagem de equipa.
-        currentPicture: Imagem atual:
-        hints: Esta imagem irá provavelmente ser exibida maior para o publicador.
-        noPictureUploaded: Você ainda não carregou nenhuma imagem.
-        upload: Carregar
-        delete: Apagar
-    editMeetingPicture:
-        title: Mudar imagem de ponto de encontro
-        currentPicture: Imagem atual:
-        hints: Esta imagem irá provavelmente ser exibida maior para o publicador.
-        noPictureUploaded: Você ainda não carregou nenhuma imagem
-        upload: Carregar
-        delete: Apagar
-    inviteUser:
-        title: Convidar novos Publicadores
-        key: <span class="text-warning">Nome laranja</span> significa que o usuário já foi convidado.
-        selectAll: Selecionar Tudo
-        noUsers: Nenhum Publicador novo encontrado
-        invite: Convidar
-    position:
-        title: Marque posição usando botão esquerdo do rato.
-    shift:
-        collapseTeam: Colapsar informação de equipa e assuntos de reunião
-        expandTeam: Expandir informação de equipa e assuntos de reunião
-        noParticipants: Nenhuns participantes
-        requestTeam: Requesitar participação
-        requestTeamAgain: Requesitar participação de novo
-        requests: Requesições
-        cancelTeam: Cancelar equipa
-        cancelRequest: Cancelar requisição
-        cancelParticipation: Cancel participação
-        addParticipant: Adicionar participante
-        unknownAge: Idade desconhecida
-        closedTeam: Esta equipa está fechada. Não pode requisitar participação.
-        maximumReached: Limite máximo de participantes para esta equipa já foi alcançado.
-        noPermission: Você não tem permissão de planejar usuários.
-        noTeamleader: Este usuário não tem permissão para ser lider de equipa.
-        alreadyTeamleader: Este usuário já é lider de equipa.
-        openTeam: Abrir Equipa
-        closeTeam: Fechar Equipa
-        switch: Editar Turno
-        existingTeamleaders: Lider de equipa Existe
-        noExistingTeamleader: Lider de equipa Não Existe
-        notTeamleader: Nenhum Lider de Equipa
-        selected: Selecionado:
-        of: de
-        acceptSelected: Aceitamento Selecionado
-        declineSelected: Recusa Selecionada
-        report: Relatório
-        allocations: Turnos
-        thisWeek: Esta semana
-        lastDays: últimos %s dias
-        noMeeting: Nenhum ponto de encontro
-    shiftReport:
-        title: Relatório
-        teamleader: Lider de Equipa
-        substituteTeamleader: Lider de equipa Substituto
-        publications: Publicações
-        occurrences: Occurrências
-        store: Loja
-        experiences: Experiências
-        present: Presente
-        sick: Doente
-        missing: Ausente
-        name: Nome
-        language: Linguagem
-        count: Contagem
-        action: Acção
-        noPublications: Nenhuma publicação
-        select_publication: Selecione uma publicação
-        selectPublicationFirst: Por favor selecione uma publicação primeiro
-        texts: Texto Biblico
-        speaks: Conversas
-        videos: Videos Mostrados
-        returnVisits: Revisitas
-        bibleStudies: Estudos Biblicos
-        time: Horas no Serviço
-        trolleysFilled: Carrinhos preenchidos
-        neatnessLast: Condição do carrinho após último turno.
-        bad: Má
-        normal: Normal
-        good: Boa
-        yes: Sim
-        no: Não
-        expRoute: Rota
-        expGood: Boas Experiências
-        expProblems: Problemas / Dificuldades
-        date: Data
-        toShift: Para o Turno
-    shift:
-        collapseTeam: Colapsar Rota e Pontos de Encontro
-        expandTeam: Expandir Rota e Pontos de Encontro
-        noParticipants: Nenhuns participantes
-        requestTeam: Requesitar participação
-        requestTeamAgain: Requesitar participação novamente
-        requests: Requesições
-        cancelRequest: Cancelar requisição
-        cancelParticipation: Cancelar participação
-        addParticipant: Adicionar participante
-        unknownAge: Idade desconhecida
-        closedTeam: Esta equipa esta fechada. Não pode requisitar participação.
-        maximumReached: Limite máximo de participantes já foi alcançado.
-        noPermission: Você nao tem permissão para planejar usuários.
-        noTeamleader: Este usuário não tem permissão para ser lider de equipa.
-        alreadyTeamleader: Este usuário já é lider de equipa.
-        openTeam: Abrir Equipa
-        closeTeam: Fechar Equipa
-        switch: Editar Turno
-        existingTeamleaders: Lider de Equipa já existente.
-        noExistingTeamleader: Lider de Equipa não existente.
-    position:
-        title: Marque posicão com botão esquerdo do rato.
-    route:
-        title: Criar/Editar Rota
-        routeMarkers: Marcador de Rota
-        addRouteMarkers: Clique no mapa para adicionar um novo marcador de rota.
-    addParticipant:
-        title: Adicionar participante
-        noUsers: No available users found
-        description: Por favor escolha o publicador que você quer adicionar a este turno.
-        submit: Adicionar
-        alreadyRequested: Este usuário já requisitou participação.
-        alreadyParticipating: Este usuário já está participando.
-        available_users: Publicador Disponivel
-        all_users: Outro Publicador
-        select: Selecione Publicador
-    inviteUser:
-        title: Convide Novos Publicadores
-        key: <span class="text-warning">Nome Laranja</span> significa que o usuário já foi convidado.
-        selectAll: Selecionar Tudo
-        noUsers: Não encontrados novos publicadores
-        invite: Convidar
-    uploadUserFile:
-        title: Carregar Ficheiro-Usuário
-        helpText: Ordem de detalhes pessoais (* campos mandatórios): <br> Email*, Primeiro Nome*, Último nome*, Sexo(m or f)*, Número de Telefone, Privilégio de Serviço ('publicador', 'auxiliar', 'regular', 'especial', 'circuito', 'betelita' or 'ldc'), Privilegio Ministério ('publicador', 'servo' or 'ancião'), Congregação
-        uploadFile: Carregar Ficheiro-CSV
-        new: Novos Publicadores
-        existing: Publicadores com Conta JWManagement
-        name: Nome
-        email: Email
-        add: Adicionar Usuários
+  close: Fechar
+  addParticipant:
+    title: Adicionar participante
+    noUsers: Nenhum usuário disponivel encontrado.
+    description: Por favor escolha o publicador que quer adicionar a este turno.
+    submit: Adicionar
+    alreadyRequested: Este usuário já requisitou participação.
+    alreadyParticipating: Este usuário já está participando.
+    available_users: Publicador Disponivel
+    all_users: Outro Publicador
+    select: Selecione Publicador
+  addUser:
+    title: Crie um novo usuário
+    action: Criar usuário
+    upload: Carregar Ficheiro
+    helpText: O nome de usuário deve ser curto e fácil de memorizar. Conbinações do seu primeiro e último nome  costumam ser boas conbinações. <br>Exemplo: "JoãoD" or "Jdaniel"
+    invite: Convite %s (%s)
+    existingAccounts: Contas Existentes
+  addWeek:
+    title: Criar nova semana
+    action: Crie nova semana
+    text:
+      top: Escolha uma semana, à qual a semana padrão vai ser aplicada:
+      bottom: Escolha a semana padrão:
+  cancelTeam:
+    title: Cancelar equipa
+    text: Descreva porque esta equipa tem de ser cancelada. Todos os participantes irão receber esta mensagem através do mail de cancelamento.
+    action: Cancelar equipa
+  editPermissions:
+    title: Manusear %s's permissões
+    projectPermissions: Permissões de projeto
+    projectRole: Cargo de projeto
+    tagPermissions: Rotule o Cargo
+    helpText:
+      admin: O cargo de gerente de projeto é o nivel de autorização mais elevado. Um gerente de projeto está autorizado a controlar tudo. Cada projeto tem de ter pelo menos um gerente de projeto.
+      shiftAdmin: O gerente de turno tem as permissões de um participante, mas também pode criar, modificar, eliminar e planejar turnos.
+      storeAdmin: O gerente de loja tem as permissões de um participante mas também pode visualizar os relatórios de turno e editar a loja.
+      member: O participante é o papel mais básico. Ele tem permissão de ver o Centro de Informação.
+      teamleader: Quando um lider de equipe é designado por um gerente de projeto para determinado rótulo, ele fica responsável pelo relatório de turno de equipa, do rótulo em questão.
+      substituteTeamleader: O lider de equipa substituto tem as mesmas permissões que um lider de equipa normal. Mas se o sistema planejar automáticamente, irá sempre preferir a requisição de um lider de equipa normal, se existente.
+      participant: O participante pode ver e requisitar turnos de rótulos designados.
+      nothing: Com “Nenhum”, o usuário não pode ver ou requisitar turnos desse rótulo. Nem pode ser planejado para trabalhar num turno.
+  editShift:
+    title: Editar informação de turno
+    mainData: Detalhes principais
+    tag: Rótulo
+    team: Equipa
+    teams: Equipas designadas para este turno
+    helpText:
+      tag: Estabeleça o rótulo para este turno. Todos os usuários com permissões neste rótulo conseguem visualizar este turno.
+      scheduling: Petições do tipo "Aceitar Imediatamente" irão ser aceites automáticamente, quando o limite minimo de participantes para a próxima equipa for alcançado.
+    teamMin: Minimo de participantes:
+    teamMax: Máximo de participantes:
+    teamStart: Começa:
+    teamEnd: Acaba:
+    noMeeting: Sem encontro
+    action: Acção:
+    delete: Apagar
+    switch: Planejar turno
+  editTeamPicture:
+    title: Mudar imagem de equipa.
+    currentPicture: Imagem atual:
+    hints: Esta imagem irá provavelmente ser exibida maior para o publicador.
+    noPictureUploaded: Você ainda não carregou nenhuma imagem.
+    upload: Carregar
+    delete: Apagar
+  editMeetingPicture:
+    title: Mudar imagem de ponto de encontro
+    currentPicture: Imagem atual:
+    hints: Esta imagem irá provavelmente ser exibida maior para o publicador.
+    noPictureUploaded: Você ainda não carregou nenhuma imagem
+    upload: Carregar
+    delete: Apagar
+  inviteUser:
+    title: Convidar novos Publicadores
+    key: <span class="text-warning">Nome laranja</span> significa que o usuário já foi convidado.
+    selectAll: Selecionar Tudo
+    noUsers: Nenhum Publicador novo encontrado
+    invite: Convidar
+  position:
+    title: Marque posição usando botão esquerdo do rato.
+  shift:
+    collapseTeam: Colapsar informação de equipa e assuntos de reunião
+    expandTeam: Expandir informação de equipa e assuntos de reunião
+    noParticipants: Nenhuns participantes
+    requestTeam: Requesitar participação
+    requestTeamAgain: Requesitar participação de novo
+    requests: Requesições
+    cancelTeam: Cancelar equipa
+    cancelRequest: Cancelar requisição
+    cancelParticipation: Cancel participação
+    addParticipant: Adicionar participante
+    unknownAge: Idade desconhecida
+    closedTeam: Esta equipa está fechada. Não pode requisitar participação.
+    maximumReached: Limite máximo de participantes para esta equipa já foi alcançado.
+    noPermission: Você não tem permissão de planejar usuários.
+    noTeamleader: Este usuário não tem permissão para ser lider de equipa.
+    alreadyTeamleader: Este usuário já é lider de equipa.
+    openTeam: Abrir Equipa
+    closeTeam: Fechar Equipa
+    switch: Editar Turno
+    existingTeamleaders: Lider de equipa Existe
+    noExistingTeamleader: Lider de equipa Não Existe
+    notTeamleader: Nenhum Lider de Equipa
+    selected: Selecionado:
+    of: de
+    acceptSelected: Aceitamento Selecionado
+    declineSelected: Recusa Selecionada
+    report: Relatório
+    allocations: Turnos
+    thisWeek: Esta semana
+    lastDays: últimos %s dias
+    noMeeting: Nenhum ponto de encontro
+  shiftReport:
+    title: Relatório
+    teamleader: Lider de Equipa
+    substituteTeamleader: Lider de equipa Substituto
+    publications: Publicações
+    occurrences: Occurrências
+    store: Loja
+    experiences: Experiências
+    present: Presente
+    sick: Doente
+    missing: Ausente
+    name: Nome
+    language: Linguagem
+    count: Contagem
+    action: Acção
+    noPublications: Nenhuma publicação
+    select_publication: Selecione uma publicação
+    selectPublicationFirst: Por favor selecione uma publicação primeiro
+    texts: Texto Biblico
+    speaks: Conversas
+    videos: Videos Mostrados
+    returnVisits: Revisitas
+    bibleStudies: Estudos Biblicos
+    time: Horas no Serviço
+    trolleysFilled: Carrinhos preenchidos
+    neatnessLast: Condição do carrinho após último turno.
+    bad: Má
+    normal: Normal
+    good: Boa
+    yes: Sim
+    no: Não
+    expRoute: Rota
+    expGood: Boas Experiências
+    expProblems: Problemas / Dificuldades
+    date: Data
+    toShift: Para o Turno
+  shift:
+    collapseTeam: Colapsar Rota e Pontos de Encontro
+    expandTeam: Expandir Rota e Pontos de Encontro
+    noParticipants: Nenhuns participantes
+    requestTeam: Requesitar participação
+    requestTeamAgain: Requesitar participação novamente
+    requests: Requesições
+    cancelRequest: Cancelar requisição
+    cancelParticipation: Cancelar participação
+    addParticipant: Adicionar participante
+    unknownAge: Idade desconhecida
+    closedTeam: Esta equipa esta fechada. Não pode requisitar participação.
+    maximumReached: Limite máximo de participantes já foi alcançado.
+    noPermission: Você nao tem permissão para planejar usuários.
+    noTeamleader: Este usuário não tem permissão para ser lider de equipa.
+    alreadyTeamleader: Este usuário já é lider de equipa.
+    openTeam: Abrir Equipa
+    closeTeam: Fechar Equipa
+    switch: Editar Turno
+    existingTeamleaders: Lider de Equipa já existente.
+    noExistingTeamleader: Lider de Equipa não existente.
+  position:
+    title: Marque posicão com botão esquerdo do rato.
+  route:
+    title: Criar/Editar Rota
+    routeMarkers: Marcador de Rota
+    addRouteMarkers: Clique no mapa para adicionar um novo marcador de rota.
+  addParticipant:
+    title: Adicionar participante
+    noUsers: No available users found
+    description: Por favor escolha o publicador que você quer adicionar a este turno.
+    submit: Adicionar
+    alreadyRequested: Este usuário já requisitou participação.
+    alreadyParticipating: Este usuário já está participando.
+    available_users: Publicador Disponivel
+    all_users: Outro Publicador
+    select: Selecione Publicador
+  inviteUser:
+    title: Convide Novos Publicadores
+    key: <span class="text-warning">Nome Laranja</span> significa que o usuário já foi convidado.
+    selectAll: Selecionar Tudo
+    noUsers: Não encontrados novos publicadores
+    invite: Convidar
+  uploadUserFile:
+    title: Carregar Ficheiro-Usuário
+    helpText: Ordem de detalhes pessoais (* campos mandatórios): <br> Email*, Primeiro Nome*, Último nome*, Sexo(m or f)*, Número de Telefone, Privilégio de Serviço ('publicador', 'auxiliar', 'regular', 'especial', 'circuito', 'betelita' or 'ldc'), Privilegio Ministério ('publicador', 'servo' or 'ancião'), Congregação
+    uploadFile: Carregar Ficheiro-CSV
+    new: Novos Publicadores
+    existing: Publicadores com Conta JWManagement
+    name: Nome
+    email: Email
+    add: Adicionar Usuários
