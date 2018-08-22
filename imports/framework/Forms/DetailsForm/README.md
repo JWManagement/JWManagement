@@ -151,4 +151,5 @@ How to create a Details Page
 How to add the controls
 ==========================
 
+- [Dropdown](Dropdown/README.md)
 - [LinkArray](LinkArray/README.md)
