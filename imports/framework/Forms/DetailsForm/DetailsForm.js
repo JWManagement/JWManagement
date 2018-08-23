@@ -17,8 +17,10 @@ import './Dropdown/DetailsForm.Dropdown';
 import './DropdownArray/DetailsForm.Array.Dropdown';
 import './Email/DetailsForm.Email';
 import './EntityArray/DetailsForm.Array.Entity';
+import './EntitySeeAllArray/DetailsForm.Array.EntitySeeAll';
 import './Link/DetailsForm.Link';
 import './LinkArray/DetailsForm.Array.Link';
+import './LinkSeeAllArray/DetailsForm.Array.LinkSeeAll';
 import './Navigation/DetailsForm.Navigation';
 import './Phone/DetailsForm.Phone';
 import './Text/DetailsForm.Text';
@@ -33,7 +35,24 @@ import {
 } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 
 Template.DetailsForm.helpers({
-  getValue,
+  getValue(definition, entity) {
+    const array = getValue(definition, entity);
+
+    if (definition.maxItemsShown) {
+      return array.slice(0, definition.maxItemsShown);
+    }
+
+    return array;
+  },
+  hasMoreItems(definition, entity) {
+    if (definition.maxItemsShown) {
+      const array = getValue(definition, entity);
+
+      return array.length > definition.maxItemsShown;
+    }
+
+    return false;
+  },
   isEmptyArray(field) {
     const template = Template.instance();
     const value = getValue(field, template.item.get());
@@ -156,7 +175,7 @@ Template.DetailsForm.helpers({
 });
 
 Template.DetailsForm.onCreated(() => {
-  const template = Template.instance(); // TODO: when changing profile email, also change visits
+  const template = Template.instance();
 
   template.sections = [];
   template.isLoading = new ReactiveVar(true);
