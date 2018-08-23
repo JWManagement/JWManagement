@@ -42,6 +42,8 @@ dashboard:
     newDashboard: To the new dashboard
     oldDashboard: To the old dashboard
     onlineUsers: Currently online users
+    pendingRequests: See all my pending requests
+    olderShifts: See all my previously done shifts
   details:
     sections:
       myProjects: My Projects

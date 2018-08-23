@@ -39,6 +39,8 @@ dashboard:
     logout: Abmelden
     newDashboard: Zur neuen Übersicht
     oldDashboard: Zur alten Übersicht
+    pendingRequests: Alle meine offenen Bewerbungen
+    olderShifts: Alle meine früheren Schichten
   details:
     sections:
       myProjects: Meine Projekte

@@ -85,61 +85,17 @@ Template['dashboard.details'].helpers({
       title: 'pendingRequests',
       contents: [{
         key: 'pendingRequests',
-        type: 'array',
-        item: {
-          key: 'shift',
-          icon: 'hourglass_empty',
-          link: 'shift.details',
-          type: 'entity',
-          rows: [{
-            key: 'tag'
-          }, {
-            key: 'date',
-            type: 'date',
-            dbFormat: 'YYYYMMDD',
-            uiFormat: 'date'
-          }, {
-            key: 'start',
-            type: 'date',
-            dbFormat: 'Hmm',
-            uiFormat: 'time'
-          }, {
-            key: 'end',
-            type: 'date',
-            dbFormat: 'Hmm',
-            uiFormat: 'time'
-          }]
-        }
+        type: 'link',
+        route: 'dashboard.pendingRequests.details',
+        icon: 'hourglass_empty'
       }]
     }, {
       title: 'olderShifts',
       contents: [{
         key: 'olderShifts',
-        type: 'array',
-        item: {
-          key: 'shift',
-          link: 'shift.details',
-          icon: 'event_available',
-          type: 'entity',
-          rows: [{
-            key: 'tag'
-          }, {
-            key: 'date',
-            type: 'date',
-            dbFormat: 'YYYYMMDD',
-            uiFormat: 'date'
-          }, {
-            key: 'start',
-            type: 'date',
-            dbFormat: 'Hmm',
-            uiFormat: 'time'
-          }, {
-            key: 'end',
-            type: 'date',
-            dbFormat: 'Hmm',
-            uiFormat: 'time'
-          }]
-        }
+        type: 'link',
+        route: 'dashboard.olderShifts.details',
+        icon: 'event_available'
       }]
     }, {
       title: 'administration',
