@@ -36,6 +36,10 @@ dashboard:
     details:
       sections:
         missingShiftReports: Fehlende Schichtberichte
+  upcomingShifts:
+    details:
+      sections:
+        upcomingShifts: Zukünftige Schichten
   entity:
     profile: Profil
     language: Sprache
@@ -45,6 +49,12 @@ dashboard:
       start: Beginn
       end: Ende
     missingShiftReports:
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
+    upcomingShifts:
       shift:
         tag: Tag
         date: Datum

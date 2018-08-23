@@ -7,6 +7,8 @@ navigation:
       details: My Projects
     missingShiftReports:
       details: Missing Shift Reports
+    upcomingShifts:
+      details: Upcoming Shifts
   profile: My Profile
   shifts: Shifts
   calendar: Calendar
