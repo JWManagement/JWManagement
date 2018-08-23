@@ -7,6 +7,9 @@ import moment from 'moment';
 import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
 import RouteManager from '/imports/framework/Managers/RouteManager';
 
+// TODO: rename registerTranslatedPage to registerEntity
+// TODO: rename registerEntity to registerProjectEntity
+
 RouteManager.registerTranslatedPage('dashboard', {
   details: ''
 });
