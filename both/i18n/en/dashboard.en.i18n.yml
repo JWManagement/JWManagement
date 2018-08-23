@@ -42,6 +42,15 @@ dashboard:
     newDashboard: To the new dashboard
     oldDashboard: To the old dashboard
     onlineUsers: Currently online users
+    myProjects:
+      seeAllItems: See one more project
+      seeAllItems_plural: See the other __count__ projects
+    missingShiftReports:
+      seeAllItems: See one more missing shift report
+      seeAllItems_plural: See the other __count__ missing shift reports
+    upcomingShifts:
+      seeAllItems: See one more upcoming shift
+      seeAllItems_plural: See the other __count__ upcoming shifts
     pendingRequests: See all my pending requests
     olderShifts: See all my previously done shifts
   details:

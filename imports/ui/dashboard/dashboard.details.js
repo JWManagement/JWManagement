@@ -11,6 +11,8 @@ Template['dashboard.details'].helpers({
       contents: [{
         key: 'myProjects',
         type: 'array',
+        maxItemsShown: 5,
+        allItemsRoute: 'dashboard.myProjects.details',
         item: {
           key: 'project',
           type: 'link',
@@ -26,6 +28,8 @@ Template['dashboard.details'].helpers({
       contents: [{
         key: 'missingShiftReports',
         type: 'array',
+        maxItemsShown: 1,
+        allItemsRoute: 'dashboard.missingShiftReports.details',
         item: {
           key: 'shift',
           link: 'shift.details',
@@ -56,6 +60,8 @@ Template['dashboard.details'].helpers({
       contents: [{
         key: 'upcomingShifts',
         type: 'array',
+        maxItemsShown: 3,
+        allItemsRoute: 'dashboard.upcomingShifts.details',
         item: {
           key: 'shift',
           link: 'shift.details',

@@ -39,6 +39,15 @@ dashboard:
     logout: Abmelden
     newDashboard: Zur neuen Übersicht
     oldDashboard: Zur alten Übersicht
+    myProjects:
+      seeAllItems: Zeige ein weiteres Projekt
+      seeAllItems_plural: Zeige auch die anderen __count__ Projekte
+    missingShiftReports:
+      seeAllItems: Zeige einen weiteren fehlenden Schichtbericht
+      seeAllItems_plural: Zeige auch die anderen __count__ fehlenden Schichtberichte
+    upcomingShifts:
+      seeAllItems: Zeige meine andere zukünftige Schicht
+      seeAllItems_plural: Zeige auch meine anderen __count__ zukünftigen Schichten
     pendingRequests: Alle meine offenen Bewerbungen
     olderShifts: Alle meine früheren Schichten
   details:
