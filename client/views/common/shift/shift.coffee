@@ -120,10 +120,6 @@ Template.shift.helpers
 
 Template.shift.onCreated ->
 
-	self = this
-
-	@autorun -> ShiftSubs.subscribe 'shift', self.data
-
 Template.shift.events
 
 	'click .shift': ->
