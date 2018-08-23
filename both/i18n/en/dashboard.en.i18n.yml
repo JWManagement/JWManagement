@@ -40,6 +40,14 @@ dashboard:
     details:
       sections:
         upcomingShifts: Upcoming Shifts
+  pendingRequests:
+    details:
+      sections:
+        pendingRequests: Pending Requests
+  olderShifts:
+    details:
+      sections:
+        olderShifts: Previously done Shifts
   entity:
     profile: Profile
     language: Language
@@ -73,8 +81,20 @@ dashboard:
         end: End
       seeAllItems: See one more upcoming shift
       seeAllItems_plural: See the other __count__ upcoming shifts
-    pendingRequests: See all my pending requests
-    olderShifts: See all my previously done shifts
+    pendingRequests:
+      link: See all my pending requests
+      shift:
+        tag: Tag
+        date: Date
+        start: Begin
+        end: End
+    olderShifts:
+      link: See all my previously done shifts
+      shift:
+        tag: Tag
+        date: Date
+        start: Begin
+        end: End
   details:
     sections:
       myProjects: My Projects

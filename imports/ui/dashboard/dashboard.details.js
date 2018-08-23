@@ -90,7 +90,7 @@ Template['dashboard.details'].helpers({
     }, {
       title: 'pendingRequests',
       contents: [{
-        key: 'pendingRequests',
+        key: 'pendingRequests.link',
         type: 'link',
         route: 'dashboard.pendingRequests.details',
         icon: 'hourglass_empty'
@@ -98,7 +98,7 @@ Template['dashboard.details'].helpers({
     }, {
       title: 'olderShifts',
       contents: [{
-        key: 'olderShifts',
+        key: 'olderShifts.link',
         type: 'link',
         route: 'dashboard.olderShifts.details',
         icon: 'event_available'

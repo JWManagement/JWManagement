@@ -22,6 +22,12 @@ RouteManager.registerTranslatedPage('dashboard.missingShiftReports', {
 RouteManager.registerTranslatedPage('dashboard.upcomingShifts', {
   details: 'upcomingShifts'
 });
+RouteManager.registerTranslatedPage('dashboard.pendingRequests', {
+  details: 'pendingRequests'
+});
+RouteManager.registerTranslatedPage('dashboard.olderShifts', {
+  details: 'olderShifts'
+});
 RouteManager.registerTranslatedPage('project', {
   search: 'projects'
 });

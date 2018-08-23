@@ -37,6 +37,10 @@ import '/imports/ui/dashboard/missingShiftReports/dashboard.missingShiftReports.
 import '/imports/ui/dashboard/missingShiftReports/dashboard.missingShiftReports.details';
 import '/imports/ui/dashboard/upcomingShifts/dashboard.upcomingShifts.jade';
 import '/imports/ui/dashboard/upcomingShifts/dashboard.upcomingShifts.details';
+import '/imports/ui/dashboard/pendingRequests/dashboard.pendingRequests.jade';
+import '/imports/ui/dashboard/pendingRequests/dashboard.pendingRequests.details';
+import '/imports/ui/dashboard/olderShifts/dashboard.olderShifts.jade';
+import '/imports/ui/dashboard/olderShifts/dashboard.olderShifts.details';
 
 import '/imports/ui/languages/languages.jade';
 import '/imports/ui/languages/language.details';

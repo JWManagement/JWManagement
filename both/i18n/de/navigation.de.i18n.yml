@@ -9,6 +9,10 @@ navigation:
       details: Fehlende Schichtberichte
     upcomingShifts:
       details: Zukünftige Schichten
+    pendingRequests:
+      details: Offene Bewerbungen
+    olderShifts:
+      details: Vergangene Schichten
   profile: Mein Profil
   shifts: Schichten
   calendar: Kalender

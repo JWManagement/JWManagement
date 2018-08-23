@@ -9,6 +9,10 @@ navigation:
       details: Missing Shift Reports
     upcomingShifts:
       details: Upcoming Shifts
+    pendingRequests:
+      details: Pending Requests
+    olderShifts:
+      details: Previously done Shifts
   profile: My Profile
   shifts: Shifts
   calendar: Calendar

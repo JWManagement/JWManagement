@@ -11,6 +11,8 @@ import '/imports/api/dashboard/service';
 import '/imports/api/dashboard/myProjects/service';
 import '/imports/api/dashboard/missingShiftReports/service';
 import '/imports/api/dashboard/upcomingShifts/service';
+import '/imports/api/dashboard/pendingRequests/service';
+import '/imports/api/dashboard/olderShifts/service';
 import '/imports/api/languages/service';
 import '/imports/api/projects/service';
 import '/imports/api/shifts/service';

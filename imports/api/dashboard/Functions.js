@@ -108,6 +108,36 @@ function getUpcomingShifts(projectIds, projects, date, userId) {
   return getUpdatedShifts(projects, shifts);
 }
 
+function getPendingRequests(projectIds, projects, date, userId) {
+  const shifts = Shifts.find({
+    projectId: {
+      $in: projectIds
+    },
+    date: {
+      $gte: date
+    },
+    'teams.pending._id': userId
+  }, SHIFT_OPTIONS)
+  .fetch();
+
+  return getUpdatedShifts(projects, shifts);
+}
+
+function getOlderShifts(projectIds, projects, date, userId) {
+  const shifts = Shifts.find({
+    projectId: {
+      $in: projectIds
+    },
+    date: {
+      $lt: date
+    },
+    'teams.participants._id': userId
+  }, SHIFT_OPTIONS)
+  .fetch();
+
+  return getUpdatedShifts(projects, shifts);
+}
+
 function getCleanedProjects(projects) {
   return projects.map((project) => {
     delete project.name;
@@ -124,4 +154,12 @@ function getCleanedShifts(shifts) {
   });
 }
 
-export { getProjects, getMissingShiftReports, getUpcomingShifts, getCleanedProjects, getCleanedShifts };
+export {
+  getProjects,
+  getMissingShiftReports,
+  getUpcomingShifts,
+  getPendingRequests,
+  getOlderShifts,
+  getCleanedProjects,
+  getCleanedShifts
+};

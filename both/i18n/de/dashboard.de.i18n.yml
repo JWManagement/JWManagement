@@ -40,6 +40,14 @@ dashboard:
     details:
       sections:
         upcomingShifts: Zukünftige Schichten
+  pendingRequests:
+    details:
+      sections:
+        pendingRequests: Offene Bewerbungen
+  olderShifts:
+    details:
+      sections:
+        olderShifts: Vergangene Schichten
   entity:
     profile: Profil
     language: Sprache
@@ -48,18 +56,6 @@ dashboard:
       date: Datum
       start: Beginn
       end: Ende
-    missingShiftReports:
-      shift:
-        tag: Tag
-        date: Datum
-        start: Beginn
-        end: Ende
-    upcomingShifts:
-      shift:
-        tag: Tag
-        date: Datum
-        start: Beginn
-        end: Ende
     logout: Abmelden
     newDashboard: Zur neuen Übersicht
     oldDashboard: Zur alten Übersicht
@@ -67,13 +63,35 @@ dashboard:
       seeAllItems: Zeige ein weiteres Projekt
       seeAllItems_plural: Zeige auch die anderen __count__ Projekte
     missingShiftReports:
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
       seeAllItems: Zeige einen weiteren fehlenden Schichtbericht
       seeAllItems_plural: Zeige auch die anderen __count__ fehlenden Schichtberichte
     upcomingShifts:
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
       seeAllItems: Zeige meine andere zukünftige Schicht
       seeAllItems_plural: Zeige auch meine anderen __count__ zukünftigen Schichten
-    pendingRequests: Alle meine offenen Bewerbungen
-    olderShifts: Alle meine früheren Schichten
+    pendingRequests:
+      link: Alle meine offenen Bewerbungen
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
+    olderShifts:
+      link: Alle meine vergangenen Schichten
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
   details:
     sections:
       myProjects: Meine Projekte
