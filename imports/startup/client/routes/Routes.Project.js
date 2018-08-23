@@ -10,6 +10,9 @@ import RouteManager from '/imports/framework/Managers/RouteManager';
 RouteManager.registerTranslatedPage('dashboard', {
   details: ''
 });
+RouteManager.registerTranslatedPage('dashboard.myProjects', {
+  details: 'myProjects'
+});
 RouteManager.registerTranslatedPage('project', {
   search: 'projects'
 });

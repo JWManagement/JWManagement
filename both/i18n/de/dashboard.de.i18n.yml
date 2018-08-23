@@ -28,6 +28,10 @@ dashboard:
   showOlder: Auch ältere Schichten zeigen
   showAll: Alles zeigen
   calendar: Kalender
+  myProjects:
+    details:
+      sections:
+        myProjects: Meine Projekte
   entity:
     profile: Profil
     language: Sprache

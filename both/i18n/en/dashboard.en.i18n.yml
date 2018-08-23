@@ -28,6 +28,10 @@ dashboard:
   showOlder: Show older shifts too
   showAll: Show all
   calendar: Calendar
+  myProjects:
+    details:
+      sections:
+        myProjects: My Projects
   entity:
     profile: Profile
     language: Language

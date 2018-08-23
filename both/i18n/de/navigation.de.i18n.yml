@@ -3,6 +3,8 @@ navigation:
   home: Übersicht
   dashboard:
     details: Übersicht
+    myProjects:
+      details: Meine Projekte
   profile: Mein Profil
   shifts: Schichten
   calendar: Kalender

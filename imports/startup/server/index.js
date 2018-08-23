@@ -8,6 +8,7 @@ import '/imports/startup/common/moment';
 import '/imports/startup/common/rolesExtensions';
 
 import '/imports/api/dashboard/service';
+import '/imports/api/dashboard/myProjects/service';
 import '/imports/api/languages/service';
 import '/imports/api/projects/service';
 import '/imports/api/shifts/service';
