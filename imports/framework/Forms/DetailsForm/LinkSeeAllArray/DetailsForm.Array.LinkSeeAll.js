@@ -12,15 +12,11 @@ Template.DetailsFormArrayLinkSeeAll.helpers({
     const array = getValue(definition, entity);
     const moreItemsCount = array.length - definition.maxItemsShown;
 
-    console.log(definition);
-
     let messagePathParts = FlowRouter.getRouteName().split('.');
     messagePathParts.pop();
     messagePathParts.splice(1, 0, 'entity');
     messagePathParts.push(definition.key);
     messagePathParts.push('seeAllItems');
-
-    console.log(messagePathParts.join('.'));
 
     return TAPi18n.__(messagePathParts.join('.'), { count: moreItemsCount });
   }
