@@ -129,7 +129,7 @@ How to create a Details Page
     });
     ```
 
-4. Add route configuration to `/imports/api/routes/projectRoutes.js`
+4. Add route configuration to `/imports/startup/client/routes/projectRoutes.js`
 
     ```javascript
     RouteManager.registerEntity('template', {
