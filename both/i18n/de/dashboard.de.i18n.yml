@@ -32,6 +32,10 @@ dashboard:
     details:
       sections:
         myProjects: Meine Projekte
+  missingShiftReports:
+    details:
+      sections:
+        missingShiftReports: Fehlende Schichtberichte
   entity:
     profile: Profil
     language: Sprache
@@ -40,6 +44,12 @@ dashboard:
       date: Datum
       start: Beginn
       end: Ende
+    missingShiftReports:
+      shift:
+        tag: Tag
+        date: Datum
+        start: Beginn
+        end: Ende
     logout: Abmelden
     newDashboard: Zur neuen Übersicht
     oldDashboard: Zur alten Übersicht

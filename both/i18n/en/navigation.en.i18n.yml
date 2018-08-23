@@ -3,6 +3,10 @@ navigation:
   home: Dashboard
   dashboard:
     details: Dashboard
+    myProjects:
+      details: My Projects
+    missingShiftReports:
+      details: Missing Shift Reports
   profile: My Profile
   shifts: Shifts
   calendar: Calendar

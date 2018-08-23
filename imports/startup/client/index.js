@@ -33,6 +33,8 @@ import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details';
 import '/imports/ui/dashboard/myProjects/dashboard.myProjects.jade';
 import '/imports/ui/dashboard/myProjects/dashboard.myProjects.details';
+import '/imports/ui/dashboard/missingShiftReports/dashboard.missingShiftReports.jade';
+import '/imports/ui/dashboard/missingShiftReports/dashboard.missingShiftReports.details';
 
 import '/imports/ui/languages/languages.jade';
 import '/imports/ui/languages/language.details';

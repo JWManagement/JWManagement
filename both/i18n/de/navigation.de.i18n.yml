@@ -5,6 +5,8 @@ navigation:
     details: Übersicht
     myProjects:
       details: Meine Projekte
+    missingShiftReports:
+      details: Fehlende Schichtberichte
   profile: Mein Profil
   shifts: Schichten
   calendar: Kalender

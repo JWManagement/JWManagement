@@ -32,6 +32,10 @@ dashboard:
     details:
       sections:
         myProjects: My Projects
+  missingShiftReports:
+    details:
+      sections:
+        missingShiftReports: Missing Shift Reports
   entity:
     profile: Profile
     language: Language
@@ -50,6 +54,11 @@ dashboard:
       seeAllItems: See one more project
       seeAllItems_plural: See the other __count__ projects
     missingShiftReports:
+      shift:
+        tag: Tag
+        date: Date
+        start: Begin
+        end: End
       seeAllItems: See one more missing shift report
       seeAllItems_plural: See the other __count__ missing shift reports
     upcomingShifts:

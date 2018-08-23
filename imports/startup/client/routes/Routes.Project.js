@@ -13,6 +13,9 @@ RouteManager.registerTranslatedPage('dashboard', {
 RouteManager.registerTranslatedPage('dashboard.myProjects', {
   details: 'myProjects'
 });
+RouteManager.registerTranslatedPage('dashboard.missingShiftReports', {
+  details: 'missingShiftReports'
+});
 RouteManager.registerTranslatedPage('project', {
   search: 'projects'
 });
