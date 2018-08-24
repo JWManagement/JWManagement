@@ -140,8 +140,7 @@ Template['dashboard.details'].helpers({
         key: 'oldDashboard',
         type: 'link',
         route: 'home',
-        icon: 'dashboard',
-        canSee: Permissions.admin
+        icon: 'dashboard'
       }, {
         key: 'logout',
         type: 'link',
