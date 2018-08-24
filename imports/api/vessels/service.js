@@ -239,72 +239,70 @@ Meteor.methods({
   }
 });
 
+function getExtendedVisit(visit) {
+  if (visit.isUserVisible) {
+    const author = Meteor.users.findOne(visit.createdBy, {
+      fields: {
+        'profile.firstname': 1,
+        'profile.lastname': 1,
+        'profile.telefon': 1,
+        'profile.email': 1
+      }
+    });
+    visit.person = author.profile.firstname + ' ' + author.profile.lastname;
+    visit.email = author.profile.email;
+    visit.phone = author.profile.telefon;
+  } else {
+    visit.person = 'Not visible';
+    visit.email = '';
+    visit.phone = '';
+  }
+
+  const project = Projects.findOne(visit.projectId, {
+    fields: {
+      country: 1,
+      harbors: 1
+    }
+  });
+
+  visit.country = project.country;
+
+  const harbor = project.harbors.filter((h) => h._id == visit.harborId)[0];
+
+  visit.harbor = harbor.name;
+
+  if (visit.languageIds == null) {
+    visit.languageIds = [];
+  } else {
+    visit.languageIds = visit.languageIds.map((languageId) => {
+      return {
+        _id: languageId
+      };
+    });
+  }
+
+  const interfaceLanguage = Meteor.user().profile.language;
+
+  visit.languages = visit.languageIds
+    .filter((language) => Languages.allowedValues.includes(language._id))
+    .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage))
+    .join(', ');
+
+  return visit;
+}
+
 function getExtendedVessel(vesselId) {
   let vessel = Vessels.findOne(vesselId);
 
   if (vessel) {
     if ('visits' in vessel) {
       if (vessel.visits.length > 1) {
-        vessel.visits.sort((a, b) => {
-          return a.createdAt - b.createdAt;
-        });
+        vessel.visits.sort((a, b) => a.createdAt - b.createdAt);
         vessel.visits = [vessel.visits.pop()];
       }
 
       if (vessel.visits.length > 0) {
-        if (vessel.visits[0].isUserVisible) {
-          const author = Meteor.users.findOne(vessel.visits[0].createdBy, {
-            fields: {
-              'profile.firstname': 1,
-              'profile.lastname': 1,
-              'profile.telefon': 1,
-              'profile.email': 1
-            }
-          });
-
-          vessel.visits[0].person = author.profile.firstname + ' ' + author.profile.lastname;
-          vessel.visits[0].email = author.profile.email;
-          vessel.visits[0].phone = author.profile.telefon;
-        } else {
-          vessel.visits[0].person = 'Not visible';
-          vessel.visits[0].email = '';
-          vessel.visits[0].phone = '';
-        }
-
-        const project = Projects.findOne(vessel.visits[0].projectId, {
-          fields: {
-            country: 1,
-            harbors: 1
-          }
-        });
-
-        vessel.visits[0].country = project.country;
-
-        const harbor = project.harbors.filter((h) => {
-          return h._id == vessel.visits[0].harborId;
-        })[0];
-
-        vessel.visits[0].harbor = harbor.name;
-
-        if (vessel.visits[0].languageIds == null) {
-          vessel.visits[0].languageIds = [];
-        }
-        else
-        {
-          vessel.visits[0].languageIds = vessel.visits[0].languageIds.map((languageId) => {
-            return {
-              _id: languageId
-            };
-          });
-        }
-
-        const interfaceLanguage = Meteor.user().profile.language;
-        const allLanguages = Languages.allowedValues;
-        const languages = vessel.visits[0].languageIds
-          .filter((language) => allLanguages.indexOf(language._id) > -1)
-          .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage));
-
-        vessel.visits[0].languages = languages.join(', ');
+        vessel.visits[0] = getExtendedVisit(vessel.visits[0]);
       }
     } else {
       vessel.visits = [];
