@@ -112,6 +112,12 @@ publisher:
       passwordRepeat: Re-enter the new password
     permissions:
       project: Project role
+      projectValues:
+        admin: Project manager
+        shiftScheduler: Shift scheduler
+        shiftAdmin: Shift manager
+        storeAdmin: Store manager
+        member: Member
       tag:
       noElements: No tags defined
     tag:

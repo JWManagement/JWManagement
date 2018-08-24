@@ -133,9 +133,11 @@ Meteor.methods({
   'publisher.getField': ({ language, projectId, userId, key }) => {
     checkPermissions(projectId, userId);
 
-    if (key.indexOf('_') > -1) {
-      let publisher = getExtendedPublisher(userId, projectId, language);
+    let publisher = getExtendedPublisher(userId, projectId);
 
+    if (key == 'permissions_project') {
+      return Roles.getRolesForUser(userId, projectId)[0];
+    } else if (key.indexOf('_') > -1) {
       for (let property of key.split('_')) {
         if (property in publisher) {
           publisher = publisher[property];
@@ -177,6 +179,16 @@ Meteor.methods({
   },
   'publisher.update': ({ projectId, userId }, key, value) => {
     checkPermissions(projectId, userId);
+
+    if (key == 'permissions_project') {
+      if (Permissions.member.includes(value)) {
+        Roles.removeUsersFromRoles(userId, Permissions.member, projectId);
+        Roles.setUserRoles(userId, value, projectId);
+        return true;
+      }
+
+      throw new Meteor.Error("Permission type not supported");
+    }
 
     try {
       Users.persistence.update(userId, key.replace(/_/g, '.'), value);

@@ -112,6 +112,12 @@ publisher:
       passwordRepeat: Neues Passwort wiederholen
     permissions:
       project: Projekt Rolle
+      projectValues:
+        admin: Administrator
+        shiftScheduler: Schichteinteiler
+        shiftAdmin: Schichtplaner
+        storeAdmin: Literaturdiener
+        member: Teilnehmer
       tag:
       noElements: Keine Tags definiert
     tag:
