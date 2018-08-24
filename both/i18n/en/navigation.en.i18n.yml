@@ -25,7 +25,7 @@ navigation:
     search: Users
   users:
     online:
-    details: Online users
+      details: Online users
   publisher:
     search: Publishers
     details: Publisher details

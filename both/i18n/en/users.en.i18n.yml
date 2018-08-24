@@ -7,6 +7,7 @@ user:
       firstname: First name
       lastname: Last name
       email: Email
+    noElements: No user found
 users:
   title: Publisher Bulk Actions
   inviteUser: Send an invitation to non-activated publishers
