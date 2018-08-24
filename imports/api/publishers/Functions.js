@@ -1,18 +1,32 @@
 import { TAPi18n } from 'meteor/tap:i18n';
+import { ValidationError } from 'meteor/mdg:validation-error';
 import moment from 'moment';
 
 import Users from '/imports/api/users/Users';
 import Permissions from '/imports/framework/Constants/Permissions';
 
+function getTimePeriodOrWholeDay(periodBegin, lastValue, numbers, language) {
+  if (periodBegin == 2400 && lastValue == 2300) {
+    return {
+      numbers: numbers,
+      timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
+    };
+  }
+
+  const dateFormatStart = TAPi18n.__('publisher.entity.profile.availability.startDateFormat', {}, language);
+  const dateFormatEnd = TAPi18n.__('publisher.entity.profile.availability.endDateFormat', {}, language);
+
+  return {
+    numbers: numbers,
+    timeslot: `${moment(periodBegin, 'Hmm').format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').format(dateFormatEnd)}`
+  };
+}
+
 function convertTimeslotToAvailability(timeslots, language) {
   if (typeof timeslots == 'object' && timeslots.length > 0) {
-    const dateFormatStart = TAPi18n.__('publisher.entity.profile.availability.startDateFormat', {}, language);
-    const dateFormatEnd = TAPi18n.__('publisher.entity.profile.availability.endDateFormat', {}, language);
     let timePeriods = [];
 
-    timeslots.sort((a, b) => {
-      return a - b;
-    });
+    timeslots.sort((a, b) => a - b);
 
     let periodBegin = -1;
     let lastValue = 0;
@@ -21,27 +35,10 @@ function convertTimeslotToAvailability(timeslots, language) {
     for (let timeslot of timeslots) {
       let timeslotHmm = timeslot;
 
-      if (timeslotHmm == 0) {
-        timeslotHmm = 2400;
-      }
-
       if (periodBegin < 0) {
-        periodBegin = timeslotHmm;
+        periodBegin = timeslotHmm == 0 ? 2400 : timeslotHmm;
       } else if (timeslot != lastValue + 100) {
-        const timeslotStart = moment(periodBegin, 'Hmm');
-        const timeslotEnd = moment(lastValue + 100, 'Hmm');
-
-        if (periodBegin == 2400 && lastValue == 2300) {
-          timePeriods.push({
-            numbers: numbers,
-            timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
-          });
-        } else {
-          timePeriods.push({
-            numbers: numbers,
-            timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-          });
-        }
+        timePeriods.push(getTimePeriodOrWholeDay(periodBegin, lastValue, numbers, language));
 
         periodBegin = timeslotHmm;
         numbers = [];
@@ -51,20 +48,7 @@ function convertTimeslotToAvailability(timeslots, language) {
       numbers.push(timeslot);
     }
 
-    const timeslotStart = moment(periodBegin, 'Hmm');
-    const timeslotEnd = moment(lastValue + 100, 'Hmm');
-
-    if (periodBegin == 2400 && lastValue == 2300) {
-      timePeriods.push({
-        numbers: numbers,
-        timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
-      });
-    } else {
-      timePeriods.push({
-        numbers: numbers,
-        timeslot: timeslotStart.format(dateFormatStart) + ' ' + timeslotEnd.format(dateFormatEnd)
-      });
-    }
+    timePeriods.push(getTimePeriodOrWholeDay(periodBegin, lastValue, numbers, language));
 
     return timePeriods;
   }
@@ -144,4 +128,63 @@ function getExtendedPublisher(userId, projectId, language) {
   return publisher;
 }
 
-export { getExtendedPublisher };
+function validateAvailabilityInsert(timeslotStart, timeslotEnd) {
+  const validationErrors = [];
+  if (isNaN(timeslotStart)) {
+    validationErrors.push({
+      name: 'start',
+      type: 'required'
+    });
+  }
+  if (isNaN(timeslotEnd)) {
+    validationErrors.push({
+      name: 'end',
+      type: 'required'
+    });
+  }
+  if (timeslotEnd < timeslotStart) {
+    validationErrors.push({
+      name: 'end',
+      type: 'hasToBeBigger'
+    });
+  }
+  if (validationErrors.length > 0) {
+    throw new ValidationError(validationErrors);
+  }
+}
+
+function getMergedTimeslots(publisher, day, newTimeslots) {
+  let mergedTimeslots = [];
+
+  for (let userDay in publisher.profile.available) {
+    if (userDay == day) {
+      mergedTimeslots = publisher.profile.available[userDay];
+      for (let newTimeslot of newTimeslots) {
+        if (mergedTimeslots.indexOf(newTimeslot) == -1) {
+          mergedTimeslots.push(newTimeslot);
+        }
+      }
+    }
+  }
+
+  return mergedTimeslots;
+}
+
+function getNewTimeslots(timeslotStart, timeslotEnd) {
+  let time = timeslotStart;
+  let newTimeslots = [];
+
+  while (time <= timeslotEnd) {
+    newTimeslots.push(time);
+    time += 100;
+  }
+
+  return newTimeslots;
+}
+
+export {
+  getExtendedPublisher,
+  validateAvailabilityInsert,
+  getMergedTimeslots,
+  getNewTimeslots
+};

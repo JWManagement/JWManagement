@@ -6,7 +6,6 @@ import { Random } from 'meteor/random';
 import { Roles } from 'meteor/alanning:roles';
 import { Mailer } from 'meteor/lookback:emails';
 import { TAPi18n } from 'meteor/tap:i18n';
-import { ValidationError } from 'meteor/mdg:validation-error';
 import objectAssignDeep from 'object-assign-deep';
 import moment from 'moment';
 
@@ -18,7 +17,12 @@ import RoleManager from '/imports/framework/Managers/RoleManager';
 import MailManager from '/imports/framework/Managers/MailManager';
 import State from '/imports/framework/Constants/State';
 import Permissions from '/imports/framework/Constants/Permissions';
-import { getExtendedPublisher } from '/imports/api/publishers/Functions';
+import {
+  getExtendedPublisher,
+  validateAvailabilityInsert,
+  getMergedTimeslots,
+  getNewTimeslots
+} from '/imports/api/publishers/Functions';
 
 Meteor.methods({
   'publisher.search': ({ projectId, searchString, limit }) => {
@@ -148,8 +152,8 @@ Meteor.methods({
 
       return publisher;
     }
-      return getExtendedPublisher(userId, projectId, language)[key];
 
+    return getExtendedPublisher(userId, projectId)[key];
   },
   'publisher.insert': ({ projectId }, publisher) => {
     checkPermissions(projectId);
@@ -359,44 +363,13 @@ Meteor.methods({
     checkPermissions(projectId, userId);
 
     try {
-      const publisher = Users.findOne(userId);
-      const day = key.split('_').pop().substring(0, 2);
       const timeslotStart = parseInt(timeslot.start, 10) * 100;
       const timeslotEnd = parseInt(timeslot.end, 10) * 100;
-      let newTimeslots = [];
-      let mergedTimeslots = [];
-      let time = timeslotStart;
-      const validationErrors = [];
 
-      if (isNaN(timeslotStart)) {
-        validationErrors.push({
-          name: 'start',
-          type: 'required'
-        });
-      }
+      validateAvailabilityInsert(timeslotStart, timeslotEnd);
 
-      if (isNaN(timeslotEnd)) {
-        validationErrors.push({
-          name: 'end',
-          type: 'required'
-        });
-      }
-
-      if (timeslotEnd < timeslotStart) {
-        validationErrors.push({
-          name: 'end',
-          type: 'hasToBeBigger'
-        });
-      }
-
-      if (validationErrors.length > 0) {
-        throw new ValidationError(validationErrors);
-      }
-
-      while (time <= timeslotEnd) {
-        newTimeslots.push(time);
-        time += 100;
-      }
+      const publisher = Users.findOne(userId);
+      const day = key.split('_').pop().substring(0, 2);
 
       if (publisher.profile.available == null) {
         publisher.profile.available = {};
@@ -408,17 +381,8 @@ Meteor.methods({
         publisher.profile.available[day] = [];
       }
 
-      for (let userDay in publisher.profile.available) {
-        if (userDay == day) {
-          mergedTimeslots = publisher.profile.available[userDay];
-
-          for (let newTimeslot of newTimeslots) {
-            if (mergedTimeslots.indexOf(newTimeslot) == -1) {
-              mergedTimeslots.push(newTimeslot);
-            }
-          }
-        }
-      }
+      const newTimeslots = getNewTimeslots(timeslotStart, timeslotEnd);
+      const mergedTimeslots = getMergedTimeslots(publisher, day, newTimeslots);
 
       Users.persistence.update(userId, 'profile.available.' + day, mergedTimeslots);
     } catch (e) {
