@@ -85,10 +85,10 @@ Meteor.methods({
 
     return result;
   },
-  'publisher.get': ({ language, projectId, userId }) => {
+  'publisher.get': ({ projectId, userId }) => {
     checkPermissions(projectId, userId);
 
-    const publisher = getExtendedPublisher(userId, projectId, language);
+    const publisher = getExtendedPublisher(userId, projectId);
     const project = Projects.findOne(projectId, {
       fields: {
         'tags._id': 1,
@@ -109,6 +109,7 @@ Meteor.methods({
     }
 
     const projectRole = Roles.getRolesForUser(publisher, projectId)[0];
+    const language = Meteor.user().profile.language;
 
     publisher.permissions = {
       project: TAPi18n.__('role.' + projectRole, {}, language),
@@ -134,7 +135,7 @@ Meteor.methods({
 
     return publisher;
   },
-  'publisher.getField': ({ language, projectId, userId, key }) => {
+  'publisher.getField': ({ projectId, userId, key }) => {
     checkPermissions(projectId, userId);
 
     let publisher = getExtendedPublisher(userId, projectId);
@@ -243,17 +244,19 @@ Meteor.methods({
         }
       });
 
+      const language = publisher.profile.language;
+
       const data = {
         recipient: publisher.profile.email,
         sender: 'JW Management',
         from: 'support@jwmanagement.org',
-        subject: TAPi18n.__('mail.resetPassword.subject', '', publisher.profile.language),
+        subject: TAPi18n.__('mail.resetPassword.subject', '', language),
         template: 'resetPassword',
-        language: publisher.profile.language,
+        language: language,
         data: {
           token: token,
-          language: publisher.profile.language,
-          content: getMailTexts('resetPassword', publisher.profile.language)
+          language: language,
+          content: getMailTexts('resetPassword', language)
         }
       };
 
@@ -304,19 +307,21 @@ Meteor.methods({
         }
       });
 
+      const language = publisher.profile.language;
+
       MailManager.sendMail({
         recipient: publisher.profile.email,
         sender: project.name,
         from: project.email,
-        subject: TAPi18n.__('mail.accountCreated.subject', '', publisher.profile.language),
+        subject: TAPi18n.__('mail.accountCreated.subject', '', language),
         template: 'accountCreated',
-        language: publisher.profile.language,
+        language: language,
         data: {
           token: token,
           project: project.name,
           name: publisher.profile.firstname + ' ' + publisher.profile.lastname,
-          language: publisher.profile.language,
-          content: getMailTexts('accountCreated', publisher.profile.language)
+          language: language,
+          content: getMailTexts('accountCreated', language)
         }
       });
 
@@ -389,10 +394,10 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.availability.get': ({ language, projectId, userId, key }) => {
+  'publisher.profile.availability.get': ({ projectId, userId, key }) => {
     checkPermissions(projectId, userId);
 
-    const publisher = getExtendedPublisher(userId, projectId, language);
+    const publisher = getExtendedPublisher(userId, projectId);
     const timeslots = publisher.profile.availability[key.split('_').pop()].map((obj) => {
       return {
         _id: obj.numbers.join(','),
@@ -430,11 +435,11 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.vacation.insert': ({ language, projectId, userId }, newVacation) => {
+  'publisher.profile.vacation.insert': ({ projectId, userId }, newVacation) => {
     checkPermissions(projectId, userId);
 
     try {
-      let vacations = getExtendedPublisher(userId, projectId, language).profile.vacations;
+      let vacations = getExtendedPublisher(userId, projectId).profile.vacations;
 
       // support legacy format
       for (let vacation of vacations) {
@@ -454,11 +459,11 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'publisher.profile.vacation.delete': ({ language, projectId, userId }, vacationId) => {
+  'publisher.profile.vacation.delete': ({ projectId, userId }, vacationId) => {
     checkPermissions(projectId, userId);
 
     try {
-      const vacations = getExtendedPublisher(userId, projectId, language).profile.vacations;
+      const vacations = getExtendedPublisher(userId, projectId).profile.vacations;
       let newVacations = [];
 
       for (let vacation of vacations) {

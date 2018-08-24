@@ -52,15 +52,15 @@ Meteor.methods({
 
     return result;
   },
-  'vessel.get': ({ language, projectId, vesselId }) => {
+  'vessel.get': ({ projectId, vesselId }) => {
     checkVesselModule(projectId);
 
-    return getExtendedVessel(vesselId, language);
+    return getExtendedVessel(vesselId);
   },
-  'vessel.getField': ({ language, projectId, vesselId, key }) => {
+  'vessel.getField': ({ projectId, vesselId, key }) => {
     checkVesselModule(projectId);
 
-    return getExtendedVessel(vesselId, language)[key];
+    return getExtendedVessel(vesselId)[key];
   },
   'vessel.insert': ({ projectId }, vessel) => {
     checkVesselModule(projectId);
@@ -117,20 +117,20 @@ Meteor.methods({
       return 0;
     });
   },
-  'vessel.visit.getLast': ({ language, projectId, vesselId }) => {
+  'vessel.visit.getLast': ({ projectId, vesselId }) => {
     checkVesselModule(projectId);
 
-    return getExtendedVessel(vesselId, language).visits.pop();
+    return getExtendedVessel(vesselId).visits.pop();
   },
-  'vessel.visit.getField': ({ language, projectId, vesselId, key }) => {
+  'vessel.visit.getField': ({ projectId, vesselId, key }) => {
     checkVesselModule(projectId);
 
-    return getExtendedVessel(vesselId, language).visits.pop()[key];
+    return getExtendedVessel(vesselId).visits.pop()[key];
   },
-  'vessel.visit.update': ({ language, projectId, vesselId, visitId }, key, value) => {
+  'vessel.visit.update': ({ projectId, vesselId, visitId }, key, value) => {
     checkVesselModule(projectId);
 
-    const extendedVisits = getExtendedVessel(vesselId, language).visits;
+    const extendedVisits = getExtendedVessel(vesselId).visits;
 
     // only author can update visit
     if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
@@ -155,10 +155,10 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'vessel.visit.delete': ({ language, projectId, vesselId, visitId }) => {
+  'vessel.visit.delete': ({ projectId, vesselId, visitId }) => {
     checkVesselModule(projectId);
 
-    const extendedVisits = getExtendedVessel(vesselId, language).visits;
+    const extendedVisits = getExtendedVessel(vesselId).visits;
 
     // only author can delete visit
     if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
@@ -178,10 +178,10 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'vessel.visit.language.insert': ({ language, projectId, vesselId, visitId }, { languageIds }) => {
+  'vessel.visit.language.insert': ({ projectId, vesselId, visitId }, { languageIds }) => {
     checkVesselModule(projectId);
 
-    const extendedVisits = getExtendedVessel(vesselId, language).visits;
+    const extendedVisits = getExtendedVessel(vesselId).visits;
 
     // only author can update visit
     if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
@@ -197,7 +197,7 @@ Meteor.methods({
       if (visit.languageIds == null) {
         visit.languageIds = [];
       }
-      if (visit._id == visitId && visit.languageIds.filter((x) => { return x == languageIds; }).length == 0) {
+      if (visit._id == visitId && visit.languageIds.filter((x) => x == languageIds).length == 0) {
         visit.languageIds.push(languageIds);
       }
       return visit;
@@ -209,10 +209,10 @@ Meteor.methods({
       throw new Meteor.Error(e);
     }
   },
-  'vessel.visit.language.delete': ({ language, projectId, vesselId, visitId }, languageId) => {
+  'vessel.visit.language.delete': ({ projectId, vesselId, visitId }, languageId) => {
     checkVesselModule(projectId);
 
-    const extendedVisits = getExtendedVessel(vesselId, language).visits;
+    const extendedVisits = getExtendedVessel(vesselId).visits;
 
     // only author can update visit
     if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
@@ -239,10 +239,10 @@ Meteor.methods({
   }
 });
 
-function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
+function getExtendedVessel(vesselId) {
   let vessel = Vessels.findOne(vesselId);
 
-  if (vessel != undefined) {
+  if (vessel) {
     if ('visits' in vessel) {
       if (vessel.visits.length > 1) {
         vessel.visits.sort((a, b) => {
@@ -298,10 +298,11 @@ function getExtendedVessel(vesselId, interfaceLanguage = 'en') {
           });
         }
 
+        const interfaceLanguage = Meteor.user().profile.language;
         const allLanguages = Languages.allowedValues;
         const languages = vessel.visits[0].languageIds
-        .filter((language) => allLanguages.indexOf(language._id) > -1)
-        .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage));
+          .filter((language) => allLanguages.indexOf(language._id) > -1)
+          .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage));
 
         vessel.visits[0].languages = languages.join(', ');
       }

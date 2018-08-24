@@ -8,9 +8,10 @@ import Users from '/imports/api/users/Users';
 import Permissions from '/imports/framework/Constants/Permissions';
 
 Meteor.methods({
-  'note.search': ({ language, projectId, searchString }) => {
+  'note.search': ({ projectId, searchString }) => {
     checkPermissions(projectId);
 
+    const language = Meteor.user().profile.language;
     const result = {
       total: 0,
       items: []
@@ -34,17 +35,14 @@ Meteor.methods({
         }
       });
 
-      if (user != undefined) {
-        const username = user.profile.firstname + ' ' + user.profile.lastname;
+      if (user) {
+        const username = `${user.profile.firstname} ${user.profile.lastname}`;
         const dateformat = TAPi18n.__('dateFormat.dateAndTime', '', language);
-        const datetime = moment(note.lastChangeAt).format(dateformat);
 
-        note.lastChange = username + ' (' + datetime + ')';
+        note.lastChange = `${username} (${moment(note.lastChangeAt).format(dateformat)})`;
       } else {
         // legacy support
-        const datetime = moment(note.date, 'YYYYMMDD').format('YYYY-MM-DD');
-
-        note.lastChange = note.author + ' (' + datetime + ')';
+        note.lastChange = `${note.author} (${moment(note.date, 'YYYYMMDD').format('YYYY-MM-DD')})`;
       }
 
       if (note.text == undefined) {
@@ -59,15 +57,15 @@ Meteor.methods({
 
     return result;
   },
-  'note.get': ({ language, projectId, noteId }) => {
+  'note.get': ({ projectId, noteId }) => {
     checkPermissions(projectId);
 
-    return getExtendedNote(projectId, noteId, language);
+    return getExtendedNote(projectId, noteId);
   },
-  'note.getField': ({ language, projectId, noteId, key }) => {
+  'note.getField': ({ projectId, noteId, key }) => {
     checkPermissions(projectId);
 
-    return getExtendedNote(projectId, noteId, language)[key];
+    return getExtendedNote(projectId, noteId)[key];
   },
   'note.insert': ({ projectId }, note) => {
     checkPermissions(projectId);
@@ -99,7 +97,7 @@ Meteor.methods({
   }
 });
 
-function getExtendedNote(projectId, noteId, language) {
+function getExtendedNote(projectId, noteId) {
   const notes = Projects.findOne(projectId, {
     fields: {
       notes: 1
@@ -124,6 +122,7 @@ function getExtendedNote(projectId, noteId, language) {
 
     if (user != undefined) {
       const username = user.profile.firstname + ' ' + user.profile.lastname;
+      const language = Meteor.user().profile.language;
       const dateformat = TAPi18n.__('dateFormat.dateAndTime', '', language);
       const datetime = moment(note.lastChangeAt).format(dateformat);
 

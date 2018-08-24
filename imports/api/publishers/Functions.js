@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { TAPi18n } from 'meteor/tap:i18n';
 import { ValidationError } from 'meteor/mdg:validation-error';
 import moment from 'moment';
@@ -57,7 +58,7 @@ function convertTimeslotToAvailability(timeslots, language) {
 }
 
 
-function getExtendedPublisher(userId, projectId, language) {
+function getExtendedPublisher(userId, projectId) {
   let publisher = Users.findOne({
     $and: [{
       _id: userId
@@ -93,6 +94,8 @@ function getExtendedPublisher(userId, projectId, language) {
     if (publisher.profile.available == null) {
       publisher.profile.available = {};
     }
+
+    const language = Meteor.user().profile.language;
 
     publisher.profile.availability = {
       mondays: convertTimeslotToAvailability(publisher.profile.available.mo, language),
