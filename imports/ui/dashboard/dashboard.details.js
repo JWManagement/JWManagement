@@ -88,16 +88,13 @@ Template['dashboard.details'].helpers({
         }
       }]
     }, {
-      title: 'pendingRequests',
+      title: 'otherShifts',
       contents: [{
         key: 'pendingRequests.link',
         type: 'link',
         route: 'dashboard.pendingRequests.details',
         icon: 'hourglass_empty'
-      }]
-    }, {
-      title: 'olderShifts',
-      contents: [{
+      }, {
         key: 'olderShifts.link',
         type: 'link',
         route: 'dashboard.olderShifts.details',
@@ -140,8 +137,7 @@ Template['dashboard.details'].helpers({
         key: 'oldDashboard',
         type: 'link',
         route: 'home',
-        icon: 'dashboard',
-        canSee: Permissions.admin
+        icon: 'dashboard'
       }, {
         key: 'logout',
         type: 'link',

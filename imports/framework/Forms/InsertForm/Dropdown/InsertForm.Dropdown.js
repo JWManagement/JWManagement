@@ -4,7 +4,7 @@ import { Tracker } from 'meteor/tracker';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
+import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error';
 
 import './InsertForm.Dropdown.jade';
@@ -12,7 +12,6 @@ import './InsertForm.Dropdown.jade';
 Template.InsertFormDropdown.helpers({
   getKey,
   getEntityTranslation,
-  getTitle,
   hasError,
   getErrorClass,
   getEntityErrorTranslation,

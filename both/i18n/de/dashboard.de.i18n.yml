@@ -1,4 +1,6 @@
 dashboard:
+
+  # old dashboard
   loadingProjects: Lade Projekte...
   projects: Meine Projekte
   noProjects: Du nimmst an keinem Projekt teil
@@ -28,6 +30,8 @@ dashboard:
   showOlder: Auch ältere Schichten zeigen
   showAll: Alles zeigen
   calendar: Kalender
+
+  # new dashboard
   myProjects:
     details:
       sections:
@@ -97,7 +101,6 @@ dashboard:
       myProjects: Meine Projekte
       missingShiftReports: Fehlende Schichtberichte
       upcomingShifts: Meine kommenden Schichten
-      pendingRequests: Meine offenen Schicht-Bewerbungen
-      olderShifts: Meine vergangenen Schichten
+      otherShifts: Andere Schichten
       administration: Verwaltung
       account: Account

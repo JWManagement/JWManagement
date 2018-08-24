@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
+import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
 import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error';
 
 import './InsertForm.Checkbox.jade';
@@ -8,7 +8,6 @@ import './InsertForm.Checkbox.jade';
 Template.InsertFormCheckbox.helpers({
   getKey,
   getEntityTranslation,
-  getTitle,
   hasError,
   getErrorClass,
   getEntityErrorTranslation
