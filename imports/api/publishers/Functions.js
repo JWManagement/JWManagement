@@ -90,8 +90,8 @@ function getExtendedPublisher(userId, projectId) {
     }
   });
 
-  if (publisher != undefined) {
-    if (publisher.profile.available == null) {
+  if (publisher) {
+    if (!publisher.profile.available) {
       publisher.profile.available = {};
     }
 
@@ -107,7 +107,7 @@ function getExtendedPublisher(userId, projectId) {
       sundays: convertTimeslotToAvailability(publisher.profile.available.su, language)
     };
 
-    if (publisher.profile.vacations == null) {
+    if (!publisher.profile.vacations) {
       publisher.profile.vacations = [];
     }
 
@@ -116,7 +116,7 @@ function getExtendedPublisher(userId, projectId) {
       const dateFormatEnd = TAPi18n.__('publisher.entity.profile.vacation.endDateFormat', {}, language);
 
       // support legacy number format
-      if (vacation.createdAt == null) {
+      if (!vacation.createdAt) {
         const startDisplay = moment(vacation.start, 'YYYYDDD').format(dateFormatStart);
         const endDisplay = moment(vacation.end, 'YYYYDDD').format(dateFormatEnd);
         vacation.display = startDisplay + ' ' + endDisplay;
