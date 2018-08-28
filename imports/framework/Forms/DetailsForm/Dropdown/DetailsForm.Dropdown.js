@@ -13,6 +13,10 @@ Template.DetailsFormDropdown.helpers({
   getValue(definition, entity) {
     const value = getValue(definition, entity);
 
+    if (!value) {
+      return '';
+    }
+
     let routeNameParts = FlowRouter.getRouteName().split('.');
     routeNameParts.pop();
     routeNameParts.splice(1, 0, 'entity');
