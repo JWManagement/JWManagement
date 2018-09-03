@@ -34,6 +34,8 @@ import {
   hasPermissionToSee
 } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 
+// TODO: remove all events from in here
+
 Template.DetailsForm.helpers({
   getValue(definition, entity) {
     const array = getValue(definition, entity);
