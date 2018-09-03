@@ -111,6 +111,7 @@ publisher:
       password: Enter the new password
       passwordRepeat: Re-enter the new password
     permissions:
+      permissions: Permissions
       project: Project permissions
       projectValues:
         admin: Project manager

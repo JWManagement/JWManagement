@@ -111,6 +111,7 @@ publisher:
       password: Neues Passwort eingeben
       passwordRepeat: Neues Passwort wiederholen
     permissions:
+      permissions: Berechtigungen
       project: Projekt Berechtigungen
       projectValues:
         admin: Administrator

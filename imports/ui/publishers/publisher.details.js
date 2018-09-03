@@ -97,7 +97,7 @@ Template['publisher.details'].helpers({
     }, {
       title: 'permissions',
       contents: [{
-        key: 'permissions',
+        key: 'permissions.permissions',
         type: 'link',
         route: 'publisher.permissions.details'
       }]
