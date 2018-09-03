@@ -7,45 +7,42 @@ import moment from 'moment';
 import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
 import RouteManager from '/imports/framework/Managers/RouteManager';
 
-// TODO: rename registerTranslatedPage to registerEntity
-// TODO: rename registerEntity to registerProjectEntity
-
-RouteManager.registerTranslatedPage('dashboard', {
+RouteManager.registerEntity('dashboard', {
   details: ''
 });
-RouteManager.registerTranslatedPage('dashboard.myProjects', {
+RouteManager.registerEntity('dashboard.myProjects', {
   details: 'myProjects'
 });
-RouteManager.registerTranslatedPage('dashboard.missingShiftReports', {
+RouteManager.registerEntity('dashboard.missingShiftReports', {
   details: 'missingShiftReports'
 });
-RouteManager.registerTranslatedPage('dashboard.upcomingShifts', {
+RouteManager.registerEntity('dashboard.upcomingShifts', {
   details: 'upcomingShifts'
 });
-RouteManager.registerTranslatedPage('dashboard.pendingRequests', {
+RouteManager.registerEntity('dashboard.pendingRequests', {
   details: 'pendingRequests'
 });
-RouteManager.registerTranslatedPage('dashboard.olderShifts', {
+RouteManager.registerEntity('dashboard.olderShifts', {
   details: 'olderShifts'
 });
-RouteManager.registerTranslatedPage('project', {
+RouteManager.registerEntity('project', {
   search: 'projects'
 });
-RouteManager.registerTranslatedPage('users.online', {
+RouteManager.registerEntity('users.online', {
   details: 'users/online'
 });
-RouteManager.registerTranslatedPage('user', {
+RouteManager.registerEntity('user', {
   search: 'users',
   details: 'user/:userId'
 });
-RouteManager.registerTranslatedPage('language', {
+RouteManager.registerEntity('language', {
   details: 'language',
   update: 'language/:key'
 });
-RouteManager.registerEntity('project', {
+RouteManager.registerProjectEntity('project', {
   details: ''
 });
-RouteManager.registerEntity('publisher.password', {
+RouteManager.registerProjectEntity('publisher.password', {
   insert: 'publishers/:userId/password',
   forwarding: {
     route: 'publishers/:userId/password/forwarding',
@@ -53,11 +50,11 @@ RouteManager.registerEntity('publisher.password', {
     link: 'publisher.details'
   }
 });
-RouteManager.registerEntity('publisher.profile.availability', {
+RouteManager.registerProjectEntity('publisher.profile.availability', {
   insert: 'publishers/:userId/availability/:key/new',
   details: 'publishers/:userId/availability/:key'
 });
-RouteManager.registerEntity('publisher.profile.vacation', {
+RouteManager.registerProjectEntity('publisher.profile.vacation', {
   insert: 'publishers/:userId/vacation/new',
   forwarding: {
     route: 'publishers/:userId/vacation/forwarding',
@@ -65,27 +62,27 @@ RouteManager.registerEntity('publisher.profile.vacation', {
     link: 'publisher.details'
   }
 });
-RouteManager.registerEntity('publisher.permissions', {
+RouteManager.registerProjectEntity('publisher.permissions', {
   details: 'publishers/:userId/permissions'
 });
-RouteManager.registerEntity('publisher', {
+RouteManager.registerProjectEntity('publisher', {
   search: 'publishers',
   insert: 'publishers/new',
   details: 'publishers/:userId',
   update: 'publishers/:userId/:key'
 });
-RouteManager.registerEntity('vessel', {
+RouteManager.registerProjectEntity('vessel', {
   search: 'vessels',
   insert: 'vessels/new',
   details: 'vessels/:vesselId',
   update: 'vessels/:vesselId/:key'
 });
-RouteManager.registerEntity('vessel.visit', {
+RouteManager.registerProjectEntity('vessel.visit', {
   insert: 'vessels/:vesselId/visits/new',
   details: 'vessels/:vesselId/visits/:visitId',
   update: 'vessels/:vesselId/visits/:visitId/:key'
 });
-RouteManager.registerEntity('vessel.visit.language', {
+RouteManager.registerProjectEntity('vessel.visit.language', {
   insert: 'vessels/:vesselId/visits/:visitId/languages/new',
   forwarding: {
     route: 'vessels/:vesselId/visits/:visitId/language/forwarding',
@@ -93,7 +90,7 @@ RouteManager.registerEntity('vessel.visit.language', {
     link: 'vessel.visit.details'
   }
 });
-RouteManager.registerEntity('note', {
+RouteManager.registerProjectEntity('note', {
   search: 'notes',
   insert: 'notes/new',
   details: 'notes/:noteId',

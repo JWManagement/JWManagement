@@ -7,11 +7,11 @@ import { wrs } from '/imports/framework/Functions/Async';
 
 const RouteManager = {
 
-  registerTranslatedPage(entityName, routes) {
-    this.registerEntity(entityName, routes, '/');
+  registerEntity(entityName, routes) {
+    this.registerProjectEntity(entityName, routes, '/');
   },
 
-  registerEntity(entityName, routes, prefix = '/:projectId/') {
+  registerProjectEntity(entityName, routes, prefix = '/:projectId/') {
     if ('search' in routes) {
       FlowRouter.route(prefix + routes.search, {
         name: entityName + '.search',
