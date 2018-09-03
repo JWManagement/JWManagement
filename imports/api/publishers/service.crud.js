@@ -96,9 +96,7 @@ function publisherGetField({ projectId, userId, key }) {
 
   let publisher = getExtendedPublisher(userId, projectId);
 
-  if (key == 'permissions_project') {
-    return Roles.getRolesForUser(userId, projectId)[0];
-  } else if (key.indexOf('_') > -1) {
+  if (key.indexOf('_') > -1) {
     for (let property of key.split('_')) {
       if (property in publisher) {
         publisher = publisher[property];

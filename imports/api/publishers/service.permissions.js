@@ -1,19 +1,40 @@
+import { Roles } from 'meteor/alanning:roles';
+
 import { checkPermissions } from '/imports/framework/Functions/Security';
 
 function publisherGetPermissions({ projectId, userId }) {
   checkPermissions(projectId, userId);
 
-  // get project
-  // only return the tag inside user.roles that are in this project
+  const project = Projects.findOne(projectId, {
+    fields: {
+      'tags._id': 1,
+      'tags.name': 1
+    }
+  });
 
-  // return Roles.getRolesForUser(userId)[0];
+  let tags = [];
+
+  for (let tag of project.tags) {
+    const tagPermissions = Roles.getRolesForUser(userId, projectId);
+
+    console.log(tag);
+
+    if (tagPermissions.length > 0) {
+      tags.push({
+        tag: tag.name,
+        role: tagPermissions[0]
+      });
+    } else {
+      tags.push({
+        tag: tag.name,
+        role: 'none'
+      });
+    }
+  }
 
   return {
-    project: 'member',
-    tags: [{
-      tag: 'Trolley',
-      role: 'participant'
-    }]
+    project: Roles.getRolesForUser(userId, projectId)[0],
+    tags: tags
   };
 }
 
