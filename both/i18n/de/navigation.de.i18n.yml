@@ -36,6 +36,8 @@ navigation:
         details: Verfügbarkeit
     password:
       insert: Passwort des Verkündigers ändern
+    permissions:
+      details: Verkündiger Berechtigungen
   reports: Berichte
   store: Depot
   vessel:

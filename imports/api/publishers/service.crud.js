@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { TAPi18n } from 'meteor/tap:i18n';
 import objectAssignDeep from 'object-assign-deep';
 
 import { checkPermissions } from '/imports/framework/Functions/Security';
@@ -74,12 +73,6 @@ function publisherGet({ projectId, userId }) {
   checkPermissions(projectId, userId);
 
   const publisher = getExtendedPublisher(userId, projectId);
-  const project = Projects.findOne(projectId, {
-    fields: {
-      'tags._id': 1,
-      'tags.name': 1
-    }
-  });
 
   if (publisher != undefined) {
     publisher.profile.availability = {
@@ -91,29 +84,6 @@ function publisherGet({ projectId, userId }) {
       saturdays: publisher.profile.availability.saturdays.map((x) => { return x.timeslot; }).join(', '),
       sundays: publisher.profile.availability.sundays.map((x) => { return x.timeslot; }).join(', ')
     };
-  }
-
-  const projectRole = Roles.getRolesForUser(publisher, projectId)[0];
-  const language = Meteor.user().profile.language;
-
-  publisher.permissions = {
-    project: TAPi18n.__('role.' + projectRole, {}, language),
-    tags: []
-  };
-
-  for (let tag of project.tags) {
-    const tagRoles = Roles.getRolesForUser(publisher, tag._id);
-    let tagRole = 'nothing';
-
-    if (tagRoles.length > 0) {
-      tagRole = tagRoles[0];
-    }
-
-    publisher.permissions.tags.push({
-      _id: tag._id,
-      tag: tag.name,
-      role: TAPi18n.__('role.' + tagRole, {}, language)
-    });
   }
 
   delete publisher.roles;
@@ -190,10 +160,22 @@ function publisherUpdate({ projectId, userId }, key, value) {
   }
 }
 
+function publisherTagUpdate({ projectId, userId, tagId }, key, value) {
+  checkPermissions(projectId, userId);
+
+  console.log(projectId);
+  console.log(userId);
+  console.log(tagId);
+  console.log(key);
+  console.log(value);
+
+}
+
 export {
   publisherSearch,
   publisherGet,
   publisherGetField,
   publisherInsert,
-  publisherUpdate
+  publisherUpdate,
+  publisherTagUpdate
 };

@@ -111,7 +111,7 @@ publisher:
       password: Enter the new password
       passwordRepeat: Re-enter the new password
     permissions:
-      project: Project role
+      project: Project permissions
       projectValues:
         admin: Project manager
         shiftScheduler: Shift scheduler
@@ -119,10 +119,8 @@ publisher:
         storeAdmin: Store manager
         member: Member
       tag:
-      noElements: No tags defined
-    tag:
-      tag: Tag
-      role: Role
+        tag: Tag
+        role: Role
     invite: Send project invitation
     inviteConfirmation: Do you really want to send a project invitation mail to the user?
     delete: Revoke this user's access to the project
@@ -134,8 +132,7 @@ publisher:
       identification: Identification data
       availability: Availability
       vacations: Vacations
-      projectPermissions: Project permissions
-      tagPermissions: Tag permissions
+      permissions: Permissions
       password: Password
       options: Options
   profile:
@@ -149,3 +146,9 @@ publisher:
           fridays: Availability on fridays
           saturdays: Availability on saturdays
           sundays: Availability on sundays
+  permissions:
+    details:
+      sections:
+        permissions:
+          project: Project permissions
+          tags: Tag permissions

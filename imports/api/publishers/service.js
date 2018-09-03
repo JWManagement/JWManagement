@@ -19,11 +19,16 @@ import {
 } from './service.vacation';
 
 import {
+  publisherGetPermissions
+} from './service.permissions';
+
+import {
   publisherSearch,
   publisherGet,
   publisherGetField,
   publisherInsert,
-  publisherUpdate
+  publisherUpdate,
+  publisherTagUpdate
 } from './service.crud';
 
 Meteor.methods({
@@ -35,6 +40,8 @@ Meteor.methods({
   'publisher.password.insert': publisherPasswordInsert,
   'publisher.password.reset': publisherPasswordReset,
   'publisher.invite': publisherInvite,
+  'publisher.getPermissions': publisherGetPermissions,
+  'publisher.permissions.update': publisherTagUpdate,
   'publisher.removeFromProject': removeFromProject,
   'publisher.profile.availability.insert': publisherProfileAvailabilityInsert,
   'publisher.profile.availability.get': publisherProfileAvailabilityGet,

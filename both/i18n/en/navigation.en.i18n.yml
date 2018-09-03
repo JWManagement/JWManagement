@@ -39,6 +39,8 @@ navigation:
         details: Availability
     password:
       insert: Change password
+    permissions:
+      details: Publisher permission details
   publisherActions: Publisher Bulk Actions
   reports: Reports
   store: Store Room

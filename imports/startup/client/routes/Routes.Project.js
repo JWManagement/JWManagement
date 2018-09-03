@@ -65,6 +65,9 @@ RouteManager.registerEntity('publisher.profile.vacation', {
     link: 'publisher.details'
   }
 });
+RouteManager.registerEntity('publisher.permissions', {
+  details: 'publishers/:userId/permissions'
+});
 RouteManager.registerEntity('publisher', {
   search: 'publishers',
   insert: 'publishers/new',

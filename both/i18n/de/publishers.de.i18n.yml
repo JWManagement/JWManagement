@@ -111,15 +111,13 @@ publisher:
       password: Neues Passwort eingeben
       passwordRepeat: Neues Passwort wiederholen
     permissions:
-      project: Projekt Rolle
+      project: Projekt Berechtigungen
       projectValues:
         admin: Administrator
         shiftScheduler: Schichteinteiler
         shiftAdmin: Schichtplaner
         storeAdmin: Literaturdiener
         member: Teilnehmer
-      tag:
-      noElements: Keine Tags definiert
     tag:
       tag: Tag
       role: Rolle
@@ -135,8 +133,7 @@ publisher:
       availability: Verfügbarkeit
       vacations: Urlaub
       password: Passwort
-      projectPermissions: Projekt Berechtigungen
-      tagPermissions: Tag Berechtigungen
+      permissions: Berechtigungen
       options: Optionen
   profile:
     availability:
@@ -149,3 +146,9 @@ publisher:
           fridays: Verfügbarkeit Freitags
           saturdays: Verfügbarkeit Samstags
           sundays: Verfügbarkeit Sonntags
+  permissions:
+    details:
+      sections:
+        permissions:
+          project: Projekt Berechtigungen
+          tags: Tag Berechtigungen
