@@ -6,17 +6,6 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { wrs } from '/imports/framework/Functions/Async';
 import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
 
-FlowRouter.route('/support', {
-  name: 'support',
-  action: () => {
-    doIfLoggedIn(() => {
-      Session.set('parent', 'dashboard.details');
-      require('/imports/ui/pages/support/support.coffee');
-      BlazeLayout.render('mainLayout', { content: 'support' });
-    });
-  }
-});
-
 FlowRouter.route('/profile', {
   name: 'profile',
   action: () => {
