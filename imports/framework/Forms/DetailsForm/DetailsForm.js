@@ -5,8 +5,6 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import moment from 'moment';
 
-import RouteManager from '/imports/framework/Managers/RouteManager';
-
 import './DetailsForm.jade';
 import './DetailsForm.scss';
 
@@ -33,8 +31,6 @@ import {
   loadData,
   hasPermissionToSee
 } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
-
-// TODO: remove all events from in here
 
 Template.DetailsForm.helpers({
   getValue(definition, entity) {
@@ -223,42 +219,4 @@ Template.DetailsForm.onDestroyed(() => {
   $('body').attr('type', '');
 });
 
-Template.DetailsForm.events({
-  'click .input:not(.array-item)': (e) => {
-    const $e = $(e.target).closest('.input');
-    const key = $e.attr('key');
-    const link = $e.attr('link');
-
-    if (link != null) {
-      let params = FlowRouter.current().params;
-
-      if (key != null) {
-        params.key = key;
-      }
-
-      FlowRouter.go(FlowRouter.path(link, params));
-    } else {
-      RouteManager.navigateToUpdate(key);
-    }
-  },
-  'click .confirm-button': (e) => {
-    const key = $(e.target).attr('key');
-    const method = $(e.target).attr('method');
-    const route = $(e.target).attr('route');
-
-    let messagePathParts = FlowRouter.getRouteName().split('.');
-    messagePathParts.pop();
-    messagePathParts.splice(1, 0, 'entity');
-    messagePathParts.push(key + 'Confirmation');
-
-    if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
-      Meteor.call(method, FlowRouter.current().params, (error) => {
-        if (error == null) {
-          FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params));
-        } else {
-          alert('SERVER ERROR');
-        }
-      });
-    }
-  }
-});
+Template.DetailsForm.events({});

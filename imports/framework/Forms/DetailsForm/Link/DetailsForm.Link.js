@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { getValue, getKey } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers/Helpers';
 
 import './DetailsForm.Link.jade';
@@ -17,4 +17,6 @@ Template.DetailsFormLink.onRendered(() => {});
 
 Template.DetailsFormLink.onDestroyed(() => {});
 
-Template.DetailsFormLink.events({});
+Template.DetailsFormLink.events({
+  'click .input': defaultClickHandler
+});

@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 
-import { getValue, getKey } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 
 import './DetailsForm.Textbox.jade';
 
@@ -17,4 +17,6 @@ Template.DetailsFormTextbox.onRendered(() => {});
 
 Template.DetailsFormTextbox.onDestroyed(() => {});
 
-Template.DetailsFormTextbox.events({});
+Template.DetailsFormTextbox.events({
+  'click .input': defaultClickHandler
+});

@@ -2,7 +2,7 @@ import moment from 'moment';
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
 
-import { getValue, getKey } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers/Helpers';
 
 import './DetailsForm.Date.jade';
@@ -30,4 +30,6 @@ Template.DetailsFormDate.onRendered(() => {});
 
 Template.DetailsFormDate.onDestroyed(() => {});
 
-Template.DetailsFormDate.events({});
+Template.DetailsFormDate.events({
+  'click .input': defaultClickHandler
+});

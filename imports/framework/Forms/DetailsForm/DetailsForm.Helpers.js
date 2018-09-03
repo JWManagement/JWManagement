@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { TAPi18n } from 'meteor/tap:i18n';
 
 import RoleManager from '/imports/framework/Managers/RoleManager';
+import RouteManager from '/imports/framework/Managers/RouteManager';
 
 function loadData(template) {
   if (template.getMethod != null) {
@@ -72,6 +73,24 @@ function hasPermissionToSee(definition) {
   return hasRole && customFulfilled;
 }
 
+function defaultClickHandler(e) {
+  const $e = $(e.target).closest('.input');
+  const key = $e.attr('key');
+  const link = $e.attr('link');
+
+  if (link != null) {
+    let params = FlowRouter.current().params;
+
+    if (key != null) {
+      params.key = key;
+    }
+
+    FlowRouter.go(FlowRouter.path(link, params));
+  } else {
+    RouteManager.navigateToUpdate(key);
+  }
+}
+
 function getValueForSeeAllItems(definition, entity) {
   const array = getValue(definition, entity);
   const moreItemsCount = array.length - definition.maxItemsShown;
@@ -101,6 +120,7 @@ export {
   getKey,
   isType,
   hasPermissionToSee,
+  defaultClickHandler,
   getValueForSeeAllItems,
   clickHandlerForSeeAllItems
 };

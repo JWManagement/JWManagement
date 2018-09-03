@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { TAPi18n } from 'meteor/tap:i18n';
 
-import { getKey, getValue } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import { getKey, getValue, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
 import { getEntityTranslation } from '/imports/framework/Helpers/Helpers';
 
 import './DetailsForm.Checkbox.jade';
@@ -26,4 +26,6 @@ Template.DetailsFormCheckbox.onRendered(() => {});
 
 Template.DetailsFormCheckbox.onDestroyed(() => {});
 
-Template.DetailsFormCheckbox.events({});
+Template.DetailsFormCheckbox.events({
+  'click .input': defaultClickHandler
+});
