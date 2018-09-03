@@ -28,6 +28,8 @@ template(name="UpdateForm")
         +UpdateFormCheckbox data=getInputData
       else if isTextbox
         +UpdateFormTextbox data=getInputData
+      else
+        h1 Unsupported Inputtype
     else
       .section
         .section-header {{getEntityTranslation}}
