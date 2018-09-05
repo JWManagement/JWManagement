@@ -4,7 +4,7 @@ import Permissions from '/imports/framework/Constants/Permissions';
 
 Template['publisher.permissions.details'].helpers({
   data: {
-    getMethod: 'publisher.getPermissions',
+    getMethod: 'publisher.permissions.get',
     navigation: {
       backLink: 'publisher.details'
     },

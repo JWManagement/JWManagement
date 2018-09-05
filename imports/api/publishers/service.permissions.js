@@ -1,8 +1,10 @@
+import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
+import Permissions from '/imports/framework/Constants/Permissions';
 import { checkPermissions } from '/imports/framework/Functions/Security';
 
-function publisherGetPermissions({ projectId, userId }) {
+function publisherPermissionsGet({ projectId, userId }) {
   checkPermissions(projectId, userId);
 
   const project = Projects.findOne(projectId, {
@@ -16,8 +18,6 @@ function publisherGetPermissions({ projectId, userId }) {
 
   for (let tag of project.tags) {
     const tagPermissions = Roles.getRolesForUser(userId, projectId);
-
-    console.log(tag);
 
     if (tagPermissions.length > 0) {
       tags.push({
@@ -38,4 +38,26 @@ function publisherGetPermissions({ projectId, userId }) {
   };
 }
 
-export { publisherGetPermissions };
+function publisherPermissionsProjectGet({ projectId, userId }) {
+  checkPermissions(projectId, userId);
+
+  return Roles.getRolesForUser(userId, projectId)[0];
+}
+
+function publisherPermissionsUpdate({ projectId, userId }, key, value) {
+  checkPermissions(projectId, userId);
+
+  if (Permissions.member.includes(value)) {
+    Roles.removeUsersFromRoles(userId, Permissions.member, projectId);
+    Roles.setUserRoles(userId, value, projectId);
+    return true;
+  }
+
+  throw new Meteor.Error("Permission type not supported");
+}
+
+export {
+  publisherPermissionsGet,
+  publisherPermissionsProjectGet,
+  publisherPermissionsUpdate
+};

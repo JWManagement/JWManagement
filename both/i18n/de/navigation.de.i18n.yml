@@ -38,6 +38,7 @@ navigation:
       insert: Passwort des Verkündigers ändern
     permissions:
       details: Verkündiger Berechtigungen
+      update: Projekt Berechtigungen ändern
   reports: Berichte
   store: Depot
   vessel:

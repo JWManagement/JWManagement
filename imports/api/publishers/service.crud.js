@@ -141,16 +141,6 @@ function publisherInsert({ projectId }, publisher) {
 function publisherUpdate({ projectId, userId }, key, value) {
   checkPermissions(projectId, userId);
 
-  if (key == 'permissions_project') {
-    if (Permissions.member.includes(value)) {
-      Roles.removeUsersFromRoles(userId, Permissions.member, projectId);
-      Roles.setUserRoles(userId, value, projectId);
-      return true;
-    }
-
-    throw new Meteor.Error("Permission type not supported");
-  }
-
   try {
     Users.persistence.update(userId, key.replace(/_/g, '.'), value);
   } catch (e) {

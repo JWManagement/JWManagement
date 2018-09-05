@@ -41,6 +41,7 @@ navigation:
       insert: Change password
     permissions:
       details: Publisher permission details
+      update: Update project permissions
   publisherActions: Publisher Bulk Actions
   reports: Reports
   store: Store Room
