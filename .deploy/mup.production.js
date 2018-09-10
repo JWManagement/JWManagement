@@ -16,7 +16,6 @@ module.exports = {
       one: {}
     },
     env: {
-      PORT: 3001,
       ROOT_URL: 'https://production.jwmanagement.org',
       MONGO_URL: process.env.MONGO_URL,
       MONGO_OPLOG_URL: process.env.MONGO_OPLOG_URL,
