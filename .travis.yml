@@ -1,0 +1,20 @@
+sudo: required
+language: node_js
+node_js:
+  - '8'
+before_install:
+  - curl https://install.meteor.com | /bin/sh
+  - npm install -g mup
+services:
+  - mongodb
+deploy:
+  - provider: script
+    script: bash .deploy/deploy.staging.sh
+    skip_cleanup: true
+    on:
+      branch: develop
+  - provider: script
+    script: bash .deploy/deploy.production.sh
+    skip_cleanup: true
+    on:
+      branch: master
