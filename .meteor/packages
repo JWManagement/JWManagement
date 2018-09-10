@@ -37,7 +37,7 @@ cfs:s3
 cfs:standard-packages
 chrismbeckett:toastr # remove in future
 chuangbo:cookie # remove in future
-fourseven:scss
+# fourseven:scss # disabled for travis test
 gwendall:impersonate
 harrison:papa-parse
 joshdellay:meteor-ladda-bootstrap
