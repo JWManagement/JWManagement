@@ -7,7 +7,7 @@ module.exports = {
     }
   },
   app: {
-    name: 'JWManagement',
+    name: 'JWManagementStaging',
     path: '../',
     docker: {
       image: 'abernix/meteord:node-8-base'
