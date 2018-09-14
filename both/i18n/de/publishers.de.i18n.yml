@@ -119,9 +119,14 @@ publisher:
         shiftAdmin: Schichtplaner
         storeAdmin: Literaturdiener
         member: Teilnehmer
-    tag:
-      tag: Tag
-      role: Rolle
+      tag:
+        tag: Tag
+        role: Rolle
+        roleValues:
+          teamleader: Teamleiter
+          substituteTeamleader: Ersatzteamleiter
+          participant: Teilnehmer
+          none: Nichts
     invite: Einladungsmail senden
     inviteConfirmation: Möchtest du diesem Verkündiger wirklich eine Einladungsmail senden?
     delete: Verkündiger aus diesem Projekt entfernen
@@ -153,3 +158,8 @@ publisher:
         permissions:
           project: Projekt Berechtigungen
           tags: Tag Berechtigungen
+    tag:
+      details:
+        sections:
+          permissions:
+            tag: Tag Berechtigung
