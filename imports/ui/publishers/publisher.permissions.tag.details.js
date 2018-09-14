@@ -10,12 +10,9 @@ Template['publisher.permissions.tag.details'].helpers({
     },
     sections: [{
       title: 'permissions.tag',
-      type: 'header',
       contents: [{
-        key: 'gender',
-        type: 'dropdown',
-        linkedKey: 'profile_gender', // OPTIONAL
-        icon: 'group' // OPTIONAL
+        key: 'role',
+        type: 'dropdown'
       }]
     }]
   }

@@ -43,20 +43,10 @@ function publisherPermissionsGet({ projectId, userId }) {
 function publisherPermissionsTagGet({ projectId, userId, tagId }) {
   checkPermissions(projectId, userId);
 
-  const project = Projects.findOne(projectId, {
-    fields: {
-      'tags._id': 1,
-      'tags.name': 1
-    }
-  });
-
   const role = Roles.getRolesForUser(userId, tagId)[0];
 
-  const tag = project.tags.find(tag => tag._id == tagId);
-
   return {
-    name: tag.name,
-    role
+    role: role
   };
 }
 
