@@ -132,8 +132,8 @@ Please follow the instructions to setup JW Management in your local dev environm
 			"available": {},
 			"vacations": [],
 			"shortTermCalls": false,
-			"shortTermCallsAlways": false
-			"language": "en",
+			"shortTermCallsAlways": false,
+			"language": "en"
 		},
 		"state": "active",
 		"services": {
