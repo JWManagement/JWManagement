@@ -39,6 +39,8 @@ navigation:
     permissions:
       details: Verkündiger Berechtigungen
       update: Projekt Berechtigungen ändern
+      tag:
+        details: Tag Berechtigung
   reports: Berichte
   store: Depot
   vessel:
