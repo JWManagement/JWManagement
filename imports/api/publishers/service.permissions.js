@@ -17,15 +17,17 @@ function publisherPermissionsGet({ projectId, userId }) {
   let tags = [];
 
   for (let tag of project.tags) {
-    const tagPermissions = Roles.getRolesForUser(userId, projectId);
+    const tagPermissions = Roles.getRolesForUser(userId, tag._id);
 
     if (tagPermissions.length > 0) {
       tags.push({
+        _id: tag._id,
         tag: tag.name,
         role: tagPermissions[0]
       });
     } else {
       tags.push({
+        _id: tag._id,
         tag: tag.name,
         role: 'none'
       });
@@ -35,6 +37,26 @@ function publisherPermissionsGet({ projectId, userId }) {
   return {
     project: Roles.getRolesForUser(userId, projectId)[0],
     tags: tags
+  };
+}
+
+function publisherPermissionsTagGet({ projectId, userId, tagId }) {
+  checkPermissions(projectId, userId);
+
+  const project = Projects.findOne(projectId, {
+    fields: {
+      'tags._id': 1,
+      'tags.name': 1
+    }
+  });
+
+  const role = Roles.getRolesForUser(userId, tagId)[0];
+
+  const tag = project.tags.find(tag => tag._id == tagId);
+
+  return {
+    name: tag.name,
+    role
   };
 }
 
@@ -59,5 +81,6 @@ function publisherPermissionsUpdate({ projectId, userId }, key, value) {
 export {
   publisherPermissionsGet,
   publisherPermissionsProjectGet,
-  publisherPermissionsUpdate
+  publisherPermissionsUpdate,
+  publisherPermissionsTagGet
 };
