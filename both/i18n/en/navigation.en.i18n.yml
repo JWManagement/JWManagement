@@ -44,6 +44,7 @@ navigation:
       update: Update project permissions
       tag:
         details: Tag permission details
+        update: Update tag permission
   publisherActions: Publisher Bulk Actions
   reports: Reports
   store: Store Room

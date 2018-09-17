@@ -22,7 +22,9 @@ import {
   publisherPermissionsGet,
   publisherPermissionsProjectGet,
   publisherPermissionsUpdate,
-  publisherPermissionsTagGet
+  publisherPermissionsTagGet,
+  publisherPermissionsTagsGet,
+  publisherPermissionsTagUpdate
 } from './service.permissions';
 
 import {
@@ -46,6 +48,8 @@ Meteor.methods({
   'publisher.permissions.project.get': publisherPermissionsProjectGet,
   'publisher.permissions.update': publisherPermissionsUpdate,
   'publisher.permissions.tag.get': publisherPermissionsTagGet,
+  'publisher.permissions.tags.get': publisherPermissionsTagsGet,
+  'publisher.permissions.tag.update': publisherPermissionsTagUpdate,
   'publisher.removeFromProject': removeFromProject,
   'publisher.profile.availability.insert': publisherProfileAvailabilityInsert,
   'publisher.profile.availability.get': publisherProfileAvailabilityGet,

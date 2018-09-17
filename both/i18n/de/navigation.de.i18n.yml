@@ -41,6 +41,7 @@ navigation:
       update: Projekt Berechtigungen ändern
       tag:
         details: Tag Berechtigung
+        update: Tag Berechtigung ändern
   reports: Berichte
   store: Depot
   vessel:

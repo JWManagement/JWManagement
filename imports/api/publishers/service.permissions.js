@@ -40,15 +40,7 @@ function publisherPermissionsGet({ projectId, userId }) {
   };
 }
 
-function publisherPermissionsTagGet({ projectId, userId, tagId }) {
-  checkPermissions(projectId, userId);
-
-  const role = Roles.getRolesForUser(userId, tagId)[0];
-
-  return {
-    role: role
-  };
-}
+// PROJECT
 
 function publisherPermissionsProjectGet({ projectId, userId }) {
   checkPermissions(projectId, userId);
@@ -68,9 +60,41 @@ function publisherPermissionsUpdate({ projectId, userId }, key, value) {
   throw new Meteor.Error("Permission type not supported");
 }
 
+// TAG
+
+function publisherPermissionsTagsGet({ projectId, userId, tagId }) {
+  checkPermissions(projectId, userId);
+
+  const role = Roles.getRolesForUser(userId, tagId)[0];
+
+  return {
+    role: role
+  };
+}
+
+function publisherPermissionsTagGet({ projectId, userId, tagId }) {
+  checkPermissions(projectId, userId);
+
+  return Roles.getRolesForUser(userId, tagId)[0];
+}
+
+function publisherPermissionsTagUpdate({ projectId, userId, tagId }, key, value) {
+  checkPermissions(projectId, userId);
+
+  if (Permissions.participant.includes(value)) {
+    Roles.removeUsersFromRoles(userId, Permissions.participant, tagId);
+    Roles.setUserRoles(userId, value, tagId);
+    return true;
+  }
+
+  throw new Meteor.Error("Permission type not supported");
+}
+
 export {
   publisherPermissionsGet,
   publisherPermissionsProjectGet,
   publisherPermissionsUpdate,
-  publisherPermissionsTagGet
+  publisherPermissionsTagsGet,
+  publisherPermissionsTagGet,
+  publisherPermissionsTagUpdate
 };

@@ -1,10 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import Languages from '/imports/framework/Constants/Languages';
-
 Template['publisher.permissions.tag.details'].helpers({
   data: {
-    getMethod: 'publisher.permissions.tag.get',
+    getMethod: 'publisher.permissions.tags.get',
     navigation: {
       backLink: 'publisher.permissions.details'
     },

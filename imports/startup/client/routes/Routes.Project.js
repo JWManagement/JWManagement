@@ -68,7 +68,7 @@ RouteManager.registerProjectEntity('publisher.permissions', {
 });
 RouteManager.registerProjectEntity('publisher.permissions.tag', {
   details: 'publishers/:userId/permissions/tag/:tagId',
-  // update: 'publishers/:userId/permissions/:key'
+  update: 'publishers/:userId/permissions/tag/:tagId/:key'
 });
 RouteManager.registerProjectEntity('publisher', {
   search: 'publishers',
