@@ -25,6 +25,10 @@ How to create a Details Page
           navbarStyle: 'flat', // OPTIONAL
           hideTitle: true // OPTIONAL
         },
+        header: { // OPTIONAL
+          title: 'title_key',
+          description: 'description_key'
+        },
         sections: [{
           key: 'myProjects',
           type: 'array',
@@ -39,7 +43,6 @@ How to create a Details Page
           }
         }, {
           title: 'mySection', // OPTIONAL
-          type: 'header', // OPTIONAL
           contents: [{
             key: 'firstname',
             type: 'text',

@@ -10,11 +10,11 @@ Template['project.details'].helpers({
       navbarStyle: 'flat',
       hideTitle: true
     },
-    sections: [{
-      type: 'header',
+    header: {
       title: 'name',
       description: 'news_text'
-    }, {
+    },
+    sections: [{
       title: 'modules',
       contents: [{
         key: 'calendar',
