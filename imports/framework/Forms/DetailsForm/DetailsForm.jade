@@ -19,6 +19,9 @@ template(name="DetailsForm")
         if isType section 'header'
           +DetailsFormHeader section=section entity=getItem
 
+          if section.contents
+            h1 No contents supported in header section
+
         else if isSectionVisible section
           .section
 
