@@ -63,3 +63,8 @@ How to create a Update Page
     ```javascript
     import '/imports/api/template/service';
     ```
+
+How to add the controls
+==========================
+
+- [Picker](Picker/README.md)
