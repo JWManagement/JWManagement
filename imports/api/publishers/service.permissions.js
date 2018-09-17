@@ -81,9 +81,13 @@ function publisherPermissionsTagGet({ projectId, userId, tagId }) {
 function publisherPermissionsTagUpdate({ projectId, userId, tagId }, key, value) {
   checkPermissions(projectId, userId);
 
-  if (Permissions.participant.includes(value)) {
+  if (Permissions.participantWithNone.includes(value)) {
     Roles.removeUsersFromRoles(userId, Permissions.participant, tagId);
-    Roles.setUserRoles(userId, value, tagId);
+
+    if (value != 'none') {
+      Roles.setUserRoles(userId, value, tagId);
+    }
+
     return true;
   }
 

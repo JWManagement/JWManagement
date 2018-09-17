@@ -9,7 +9,7 @@ Template['publisher.permissions.tag.update'].helpers({
     fields: [{
       key: 'role',
       type: 'picker',
-      allowedValues: Permissions.participant
+      allowedValues: Permissions.participantWithNone
     }]
   }
 });

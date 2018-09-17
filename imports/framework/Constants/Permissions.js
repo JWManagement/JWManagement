@@ -48,6 +48,12 @@ const Permissions = {
     'substituteTeamleader',
     'participant'
   ],
+  participantWithNone: [
+    'teamleader',
+    'substituteTeamleader',
+    'participant',
+    'none'
+  ],
   support: [
     'support'
   ]
