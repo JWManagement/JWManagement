@@ -49,15 +49,19 @@ function getUpdatedShifts(projects, shifts) {
       return p._id == shift.projectId;
     })[0];
 
-    const tag = project.tags.filter((t) => {
-      return t._id == shift.tagId;
-    })[0];
+    if (project) {
+      const tag = project.tags.filter((t) => {
+        return t._id == shift.tagId;
+      })[0];
 
-    if (project != null && tag != null) {
-      shift.tag = tag.name;
-      shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10);
+      if (project != null && tag != null) {
+        shift.tag = tag.name;
+        shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10);
 
-      return shift;
+        return shift;
+      }
+
+      return null;
     }
 
     return null;

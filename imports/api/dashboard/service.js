@@ -13,7 +13,7 @@ import {
 } from '/imports/api/dashboard/Functions';
 
 Meteor.methods({
-  'dashboard.get': () => {
+  'dashboard.get'() {
     const userId = Meteor.userId();
     const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member);
     const today = parseInt(moment().format('YYYYDDD'), 10);
