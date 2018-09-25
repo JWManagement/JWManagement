@@ -14,12 +14,12 @@ template(name="DetailsForm")
         button#back.btn.btn-primary {{_ 'navigation.back'}}
 
     else
+
+      if header
+        +DetailsFormHeader section=header entity=getItem
+
       each section in sections
-
-        if isType section 'header'
-          +DetailsFormHeader section=section entity=getItem
-
-        else if isSectionVisible section
+        if isSectionVisible section
           .section
 
             if section.title

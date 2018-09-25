@@ -132,8 +132,8 @@ Please follow the instructions to setup JW Management in your local dev environm
 			"available": {},
 			"vacations": [],
 			"shortTermCalls": false,
-			"shortTermCallsAlways": false
-			"language": "en",
+			"shortTermCallsAlways": false,
+			"language": "en"
 		},
 		"state": "active",
 		"services": {
@@ -164,7 +164,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 		"wiki": { "tabs": [] },
 		"tags": [
 			{
-				"_id": "abc",
+				"_id": "abcdef",
 				"name": "Cart Witnessing",
 				"img": "trolley",
 				"templates": []
@@ -172,7 +172,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 		],
 		"teams": [
 			{
-				"_id": "abcdef",
+				"_id": "abcdefg",
 				"name": "Location/Route 1",
 				"link": "",
 				"description": ""

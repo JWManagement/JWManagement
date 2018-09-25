@@ -66,6 +66,8 @@ import '/imports/ui/publishers/publisher.insert';
 import '/imports/ui/publishers/publisher.password.insert';
 import '/imports/ui/publishers/publisher.permissions.details';
 import '/imports/ui/publishers/publisher.permissions.update';
+import '/imports/ui/publishers/publisher.permissions.tag.details';
+import '/imports/ui/publishers/publisher.permissions.tag.update';
 import '/imports/ui/publishers/publisher.profile.availability.details';
 import '/imports/ui/publishers/publisher.profile.availability.insert';
 import '/imports/ui/publishers/publisher.profile.vacation.insert';

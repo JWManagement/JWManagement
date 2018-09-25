@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import objectAssignDeep from 'object-assign-deep';
 
 import { checkPermissions } from '/imports/framework/Functions/Security';

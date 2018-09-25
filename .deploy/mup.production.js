@@ -1,9 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      host: process.env.STAGING_IP,
+      host: process.env.SERVER_IP,
       username: 'root',
-      password: process.env.STAGING_PASSWORD
+      password: process.env.SERVER_PASSWORD
     }
   },
   app: {
@@ -20,6 +20,8 @@ module.exports = {
       MONGO_URL: process.env.MONGO_URL,
       MONGO_OPLOG_URL: process.env.MONGO_OPLOG_URL,
       MAIL_URL: process.env.MAIL_URL,
+      APM_ID: process.env.APM_ID,
+      APM_KEY: process.env.APM_KEY,
       AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
       AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
     },

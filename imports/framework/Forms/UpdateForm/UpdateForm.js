@@ -49,23 +49,8 @@ Template.UpdateForm.helpers({
   isReady() {
     return !Template.instance().isLoading.get() && !Template.instance().noResult.get();
   },
-  isText() {
-    return Template.instance().inputData.get().type == 'text';
-  },
-  isDate() {
-    return Template.instance().inputData.get().type == 'date';
-  },
-  isDropdown() {
-    return Template.instance().inputData.get().type == 'dropdown';
-  },
-  isPicker() {
-    return Template.instance().inputData.get().type == 'picker';
-  },
-  isCheckbox() {
-    return Template.instance().inputData.get().type == 'checkbox';
-  },
-  isTextbox() {
-    return Template.instance().inputData.get().type == 'textbox';
+  isType(data, type) {
+    return data.type == type;
   },
   getInputData() {
     return Template.instance().inputData.get();

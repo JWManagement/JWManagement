@@ -128,8 +128,11 @@ Template.DetailsForm.helpers({
         || ('actions' in section && section.actions.length > 0)
         || ('type') in section && section.type == 'header');
     }
-      return template.sections;
 
+    return template.sections;
+  },
+  header() {
+    return Template.instance().header;
   },
   getProperty(entity, field) {
     if (field.type == 'dropdown') {
@@ -176,6 +179,7 @@ Template.DetailsForm.onCreated(() => {
   const template = Template.instance();
 
   template.sections = [];
+  template.header = {};
   template.isLoading = new ReactiveVar(true);
   template.noResult = new ReactiveVar(false); // TODO: is this working?
   template.item = new ReactiveVar({});
@@ -190,6 +194,7 @@ Template.DetailsForm.onRendered(() => {
   const data = Template.currentData().data;
 
   template.sections = data.sections;
+  template.header = data.header;
   template.getMethod = data.getMethod;
 
   template.isLoading.set(true);
