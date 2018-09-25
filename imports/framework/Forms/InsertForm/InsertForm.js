@@ -239,8 +239,8 @@ Template.InsertForm.events({
 
           if (error.error.reason != null && typeof e.error.reason == 'object') {
             errors = errors.concat(e.error.reason);
-          } else if (e.error.details != null) {
-            errors = errors.concat(e.error.details);
+          } else if (error.error.details != null) {
+            errors = errors.concat(error.error.details);
           }
 
           template.errors.set(errors.map((error) => {
