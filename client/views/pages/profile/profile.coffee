@@ -37,14 +37,14 @@ Template.profile.onDestroyed ->
 Template.profile.events
 
 	'change #username': (e) ->
-		$('#username').val(Validations.cleanedUsername(e.target.value))
+		$('#username').val(e.target.value)
 
 	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, handleSuccess
 
 	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
 
 	'change #username': (e) ->
-		username = Validations.cleanedUsername(e.target.value)
+		username = e.target.value
 
 		Meteor.call 'updateProfile', 'username', username, (error) ->
 			if error

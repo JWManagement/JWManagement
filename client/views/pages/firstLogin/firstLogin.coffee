@@ -39,7 +39,7 @@ Template.firstLogin.events
 		registerState.set(false)
 
 	'change #username': (e) ->
-		$('#username').val(Validations.cleanedUsername(e.target.value))
+		$('#username').val(e.target.value)
 
 	'submit form': (event) ->
 		event.preventDefault()
@@ -47,7 +47,7 @@ Template.firstLogin.events
 		token = FlowRouter.getQueryParam('token')
 
 		if registerState.get()
-			username = Validations.cleanedUsername($('#username').val())
+			username = $('#username').val()
 			password1 = $('#password1').val()
 			password2 = $('#password2').val()
 			agreeTerms = $('#agreeTerms').prop('checked')
@@ -72,7 +72,7 @@ Template.firstLogin.events
 			else
 				Session.set 'errorMessage', TAPi18n.__('firstLogin.tokenMissing')
 		else
-			username = Validations.cleanedUsername($('#username').val())
+			username = $('#username').val()
 			password = $('#password').val()
 
 			if username
