@@ -20,8 +20,7 @@ Template['publisher.insert'].helpers({
     }, {
       key: 'profile_telefon'
     }, {
-      key: 'username',
-      required: true
+      key: 'username'
     }, {
       key: 'profile_gender',
       type: 'picker',
