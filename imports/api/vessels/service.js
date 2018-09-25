@@ -240,6 +240,10 @@ Meteor.methods({
 });
 
 function getExtendedVisit(visit) {
+  visit.person = 'Not visible';
+  visit.email = '';
+  visit.phone = '';
+
   if (visit.isUserVisible) {
     const author = Meteor.users.findOne(visit.createdBy, {
       fields: {
@@ -249,13 +253,12 @@ function getExtendedVisit(visit) {
         'profile.email': 1
       }
     });
-    visit.person = author.profile.firstname + ' ' + author.profile.lastname;
-    visit.email = author.profile.email;
-    visit.phone = author.profile.telefon;
-  } else {
-    visit.person = 'Not visible';
-    visit.email = '';
-    visit.phone = '';
+
+    if (author) {
+      visit.person = author.profile.firstname + ' ' + author.profile.lastname;
+      visit.email = author.profile.email;
+      visit.phone = author.profile.telefon;
+    }
   }
 
   const project = Projects.findOne(visit.projectId, {
