@@ -119,7 +119,7 @@ function publisherInsert({ projectId }, publisher) {
     for (let property in publisher) {
       let propertyObj = publisher[property];
 
-      for (let part of property.split('_').reverse().entries()) {
+      for (let part of property.split('_').reverse()) {
         propertyObj = {[part]: propertyObj};
       }
 
