@@ -54,7 +54,8 @@ Users.schema = new SimpleSchema({
       if (this.isSet && typeof this.value === "string") {
         return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '');
       }
-      }
+      return Random.hexString(10);
+    }
   },
   status: {
     type: Object,
