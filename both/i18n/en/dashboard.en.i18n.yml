@@ -63,7 +63,10 @@ dashboard:
       start: Begin
       end: End
     logout: Sign out
+
+    # old dashboard
     newDashboard: To the new dashboard
+    newDashboardDescription: Good news! We redesigned the dashboard for you. It should especially be handy on mobile devices. We hope you like it! If anything doesn't work for you, please tell your project coordinators - they'll inform us.
     oldDashboard: To the old dashboard
     onlineUsers: Currently online users
     myProjects:
