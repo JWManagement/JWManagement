@@ -27,9 +27,7 @@ FlowRouter.route('/:language/login', {
   action: () => {
     Tracker.autorun((tracker) => {
       if (Meteor.userId()) {
-        wrs(() => {
-          FlowRouter.go('dashboard.details');
-        });
+        wrs(() => FlowRouter.go('home'));
         tracker.stop();
       } else {
         BlazeLayout.render('blankLayout', { content: 'login' });
