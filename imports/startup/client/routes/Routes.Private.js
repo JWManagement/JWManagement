@@ -5,6 +5,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import { wrs } from '/imports/framework/Functions/Async';
 import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers';
+import { setLanguageOnAuth } from '../language';
 
 FlowRouter.route('/profile', {
   name: 'profile',
@@ -25,9 +26,8 @@ FlowRouter.route('/logout', {
     BlazeLayout.render('blankLayout', { content: 'logout' });
 
     Meteor.logout(() => {
-      wrs(() => {
-        FlowRouter.go('welcome', { language: language });
-      });
+      setLanguageOnAuth();
+      wrs(() => FlowRouter.go('welcome', { language: language }));
     });
   }
 });

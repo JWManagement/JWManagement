@@ -4,7 +4,13 @@ import { TAPi18n } from 'meteor/tap:i18n';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import moment from 'moment';
 
-Meteor.startup(() => {
+import { wrs } from '/imports/framework/Functions/Async';
+
+export { setLanguageOnAuth };
+
+Meteor.startup(setLanguageOnAuth);
+
+function setLanguageOnAuth() {
   moment.locale('en'); // default
 
   Tracker.autorun((tracker) => {
@@ -15,9 +21,7 @@ Meteor.startup(() => {
       const myLanguage = Meteor.user().profile.language;
 
       if (language != myLanguage) {
-        FlowRouter.withReplaceState(() => {
-          FlowRouter.setParams({ language: myLanguage });
-        });
+        wrs(() => FlowRouter.setParams({ language: myLanguage }));
       }
 
       if (moment.locale() != myLanguage) {
@@ -29,4 +33,4 @@ Meteor.startup(() => {
       }
     }
   });
-});
+}

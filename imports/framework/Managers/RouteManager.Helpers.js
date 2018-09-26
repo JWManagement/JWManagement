@@ -5,7 +5,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import moment from 'moment';
 
-import { Delay } from '/imports/framework/Functions/Async';
+import { Delay, wrs } from '/imports/framework/Functions/Async';
+import { setLanguageOnAuth } from '../../startup/client/language';
+
+export { checkLanguage, doIfLoggedIn, logout };
 
 const checkLanguage = function() {
   const language = FlowRouter.current().params.language;
@@ -15,9 +18,7 @@ const checkLanguage = function() {
     TAPi18n.setLanguage(language);
     moment.locale(language);
 
-    FlowRouter.withReplaceState(() => {
-      FlowRouter.setParams({ language: language });
-    });
+    wrs(() => FlowRouter.setParams({ language: language }));
   }
 };
 
@@ -44,10 +45,6 @@ const doIfLoggedIn = function(whatToDo, elseToDo) {
 
 const logout = function() {
   if (Meteor.loggingIn() || Meteor.userId()) {
-    Delay(() => {
-      Meteor.logout();
-    });
+    Delay(() => Meteor.logout(setLanguageOnAuth));
   }
 };
-
-export { checkLanguage, doIfLoggedIn, logout };
