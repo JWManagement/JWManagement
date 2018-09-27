@@ -10,12 +10,6 @@
 			.collapse.navbar-collapse
 				ul.nav.navbar-nav.navbar-right.text-uppercase
 					li
-						a(href='#home') {{_ 'welcome.links.home'}}
-					li
-						a(href='#divider') {{_ 'welcome.links.features'}}
-					li
-						a(href='#contact') {{_ 'welcome.links.contact'}}
-					li
 						+languageSwitch
 					li.toApp
 						if currentUser
@@ -62,24 +56,6 @@
 	section#feature2.feature
 		.container
 			.row
-				.col-sm-6.col-sm-push-6.wow.fadeInLeft
-					img.img-responsive(src='/landing/light-bulb.png' alt='light bulb img' style="max-height:300px;")
-				.col-sm-6.col-sm-pull-6.wow.fadeInRight
-					h2.text-uppercase.m-b {{_ 'welcome.feature2.title'}}
-					each latestReleases
-						.row
-							.col-xs-2
-								span {{tag}}
-							.col-xs-10
-								ul
-									each body
-										if this
-											li {{{this}}}
-					.center-align.m-t
-						a(href='https://github.com/JWDeveloper/JWManagement/releases' target='_blank') {{_ 'welcome.feature2.more'}}
-	section#feature3.feature.feature-inverted
-		.container
-			.row
 				.col-sm-6.wow.fadeInLeft
 					img.img-responsive(src='/landing/product.png' alt='open-source img' style="max-height:300px;")
 				.col-sm-6.wow.fadeInRight
@@ -92,61 +68,10 @@
 						i.fa.fa-code
 						a(href="https://github.com/JWDeveloper/JWManagement")
 							| {{_ 'welcome.feature3.repo'}}
-	Changelog
-	section#contact
+	section
 		.overlay
 			.container
-				.row
-					.col-md-6.wow.fadeInUp
-						h2.text-uppercase {{_ 'welcome.contact.title'}}
-						| {{{_ 'welcome.contact.description'}}}
-					.col-md-6.wow.fadeInUp
-						.contact-form
-							form#contactForm
-								unless equals selectedType 'issue'
-									unless equals selectedType 'login'
-										.col-md-6
-											input#name.form-control(type='text' placeholder='{{_ "welcome.contact.name"}}*' required)
-										.col-md-6
-											input#email.form-control(type='email' placeholder='{{_ "welcome.contact.email"}}*' required)
-								.col-md-12
-									select#type.form-control
-										option(type='question') {{_ "welcome.contact.question"}}
-										option(type='login') {{_ "welcome.contact.login"}}
-										option(type='issue') {{_ "welcome.contact.problem"}}
-										option(type='issue') {{_ "welcome.contact.suggestion"}}
-										option(type='enquiry') {{_ "welcome.contact.enquiry"}}
-								if equals selectedType 'login'
-									.col-md-12
-										p.m-b-lg {{_ 'welcome.contact.loginTip'}}
-									.col-md-8
-										a.submit.btn.btn-block.text-uppercase(href='{{pathFor "forgot" language="{{langTag}}"}}')
-											| {{_ 'welcome.contact.toForgotPassword'}}
-											i.fa.fa-angle-double-right.fa-fw
-								else if equals selectedType 'issue'
-									.col-md-12
-										p.m-b-lg {{_ 'welcome.contact.issueTip'}}
-									.col-md-8
-										a.submit.btn.btn-block.text-uppercase(href='//github.com/JWDeveloper/JWManagement/issues' target='blank')
-											| {{_ 'welcome.contact.toGithub'}}
-											i.fa.fa-angle-double-right.fa-fw
-								else if equals selectedType 'enquiry'
-									.col-md-12
-										input#projectName.form-control(type='projectName' placeholder='{{_ "welcome.contact.projectName"}}*' required)
-									.col-md-12
-										textarea#message.form-control(placeholder='{{_ "welcome.contact.whatFor"}}*' rows='4' required)
-									.col-md-8
-										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.sendEnquiry"}}')
-									.col-md-12
-										p * {{_ 'welcome.contact.required'}}
-								else
-									.col-md-12
-										textarea#message.form-control(placeholder='{{_ "welcome.contact.message"}}*' rows='4' required)
-									.col-md-8
-										input.submit.form-control.text-uppercase(type='submit' value='{{_ "welcome.contact.send"}}')
-									.col-md-12
-										p * {{_ 'welcome.contact.required'}}
-				.row.center-align.m-t-xl
+				.row.center-align
 					.col-xs-12.wow.fadeInUp
 						a.link-inverted(href='{{pathFor "terms"}}') {{_ "welcome.contact.terms"}}
 						| |
