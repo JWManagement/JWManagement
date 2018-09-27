@@ -1,0 +1,21 @@
+.faq-item(id="{{faq._id}}")
+	a.faq-question.collapsed(data-toggle="collapse" href="#faq{{faq._id}}") {{faq.question}}
+	if isProjectAdmin
+		button.btn.btn-warning.btn-sm.btn-circle.editor-btn.editQuestion(title="{{_ 'wiki.editQuestion'}}", class="{{ hideWhenNotEditing }}")
+			i.fa.fa-pencil.fa-fw
+		button.btn.btn-info.btn-sm.btn-circle.pull-right.js-move-faq-down(title="{{_ 'wiki.moveFaqDown'}}")
+			i.fa.fa-arrow-down.fa-fw
+		button.btn.btn-info.btn-sm.btn-circle.pull-right.js-move-faq-up(title="{{_ 'wiki.moveFaqUp'}}")
+			i.fa.fa-arrow-up.fa-fw
+		button.btn.btn-danger.btn-sm.btn-circle.pull-right.editor-btn.removeFaq(title="{{_ 'wiki.removeFaq'}}", class="{{ hideWhenNotEditing }}")
+			i.fa.fa-trash-o.fa-fw
+		button.btn.btn-warning.btn-sm.btn-circle.pull-right.editFaq(title="{{_ 'wiki.editFaq'}}", class="{{ hideWhenEditing }}")
+			i.fa.fa-pencil.fa-fw
+		button.btn.btn-success.btn-sm.btn-circle.pull-right.editor-btn.changeFaq(title="{{_ 'wiki.changeFaq'}}", class="{{ hideWhenNotEditing }}")
+			i.fa.fa-check.fa-fw
+		button.btn.btn-default.btn-sm.btn-circle.pull-right.editor-btn.cancelFaq(title="{{_ 'wiki.cancelFaq'}}", class="{{ hideWhenNotEditing }}")
+			i.fa.fa-times.fa-fw
+	.panel-collapse.collapse(id="faq{{faq._id}}")
+		.content(class="{{ hideWhenEditing }}") {{{faq.answer}}}
+		if isProjectAdmin
+			.summernote.hidden {{{faq.answer}}}

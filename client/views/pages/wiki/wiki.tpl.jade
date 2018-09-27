@@ -29,25 +29,9 @@
 											i.fa.fa-plus.fa-fw
 							.tab-content
 								each tabs
-									.tab-pane(id="{{_id}}") 
-										each faq
-											.faq-item(id="{{_id}}")
-												a.faq-question.collapsed(data-toggle="collapse" href="#faq{{_id}}") {{question}}
-												if isProjectAdmin
-													button.btn.btn-warning.btn-sm.btn-circle.hidden.editor-btn.editQuestion(title="{{_ 'wiki.editQuestion'}}")
-														i.fa.fa-pencil.fa-fw
-													button.btn.btn-danger.btn-sm.btn-circle.pull-right.hidden.editor-btn.removeFaq(title="{{_ 'wiki.removeFaq'}}")
-														i.fa.fa-trash-o.fa-fw
-													button.btn.btn-warning.btn-sm.btn-circle.pull-right.editFaq(title="{{_ 'wiki.editFaq'}}")
-														i.fa.fa-pencil.fa-fw
-													button.btn.btn-success.btn-sm.btn-circle.pull-right.hidden.editor-btn.changeFaq(title="{{_ 'wiki.changeFaq'}}")
-														i.fa.fa-check.fa-fw
-													button.btn.btn-default.btn-sm.btn-circle.pull-right.hidden.editor-btn.cancelFaq(title="{{_ 'wiki.cancelFaq'}}")
-														i.fa.fa-times.fa-fw
-												.panel-collapse.collapse(id="faq{{_id}}") 
-													.content {{{answer}}}
-													if isProjectAdmin
-														.summernote.hidden {{{answer}}}
+									.tab-pane(id="{{_id}}")
+										each faq in faq
+											+faq_item (faqArgs _id faq @index)
 										if isProjectAdmin
 											.row
 												button.btn.btn-primary.btn-rounded.center-block.addQuestion
