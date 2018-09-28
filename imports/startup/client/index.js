@@ -19,7 +19,6 @@ import '/imports/startup/common/rolesExtensions';
 
 import '/imports/api/projects/projects';
 
-import '/imports/startup/client/routes/Routes.Public.Policy';
 import '/imports/startup/client/routes/Routes.Private';
 import '/imports/startup/client/routes/Routes.Project';
 import '/imports/startup/client/routes/Routes.Public';

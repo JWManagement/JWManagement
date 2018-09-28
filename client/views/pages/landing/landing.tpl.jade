@@ -63,7 +63,10 @@
       .container
         .row.center-align
           .col-xs-12.wow.fadeInUp
-            a.link-inverted(href='{{pathFor "terms"}}') {{_ "welcome.footer.terms"}}
+            if isGerman
+              a.link-inverted(href='{{pathFor "termsDE"}}') {{_ "welcome.footer.terms"}}
+            else
+              a.link-inverted(href='{{pathFor "termsEN"}}') {{_ "welcome.footer.terms"}}
             | |
             a.link-inverted(href='{{pathFor "privacy"}}') {{_ "welcome.footer.privacy"}}
   script(src="/lib/wow.min.js")

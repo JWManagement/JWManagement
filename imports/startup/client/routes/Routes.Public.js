@@ -62,3 +62,26 @@ FlowRouter.route('/:language/firstLogin', {
     BlazeLayout.render('blankLayout', { content: 'firstLogin' });
   }
 });
+
+// Terms & Policy
+
+FlowRouter.route('/privacy', {
+  name: 'privacy',
+  action: () => {
+    BlazeLayout.render('blankLayout', { content: 'privacy' });
+  }
+});
+
+FlowRouter.route('/de/terms', {
+  name: 'termsDE',
+  action: () => {
+    BlazeLayout.render('blankLayout', { content: 'termsDE' });
+  }
+});
+
+FlowRouter.route('/en/terms', {
+  name: 'termsEN',
+  action: () => {
+    BlazeLayout.render('blankLayout', { content: 'termsEN' });
+  }
+});

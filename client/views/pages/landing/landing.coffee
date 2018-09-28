@@ -1,6 +1,8 @@
 Messages = require '/imports/api/messages/messages.coffee'
 
-Template.landing.helpers({})
+Template.landing.helpers
+
+	isGerman: -> TAPi18n.getLanguage() == 'de'
 
 Template.landing.onRendered ->
 
