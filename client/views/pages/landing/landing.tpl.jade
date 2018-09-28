@@ -1,23 +1,13 @@
 .welcome-wrapper
   nav.navbar.navbar-default.navbar-fixed-top.my-nav(role='navigation')
-    .container
-      .navbar-header
-        button.navbar-toggle(data-toggle='collapse' data-target='.navbar-collapse')
-          span.icon.icon-bar
-          span.icon.icon-bar
-          span.icon.icon-bar
+    .container.clearfix
+      .navbar-header.pull-left
         a.navbar-brand(href="https://www.jwmanagement.org") JW Management
-      .collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right.text-uppercase
-          li
-            +languageSwitch
-          li.toApp
-            if currentUser
-              a#toDashboard(href) {{_ 'welcome.links.dashboard'}}
-            else
-              a#toLogin(href) {{_ 'welcome.links.login'}}
+      ul.nav.navbar-nav.pull-right.text-uppercase
+        li
+          +languageSwitch
   section#home
-    .overlay.no-dim
+    .overlay
       .container
         .row
           .col-md-1
@@ -68,7 +58,7 @@
               | {{_ 'welcome.feature2.repo'}}
         .col-sm-6.wow.fadeInLeft
           img.img-responsive(src='/landing/product.png' alt='open-source img' style="max-height:300px;")
-  section
+  section#footer
     .overlay
       .container
         .row.center-align
