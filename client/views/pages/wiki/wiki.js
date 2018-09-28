@@ -14,9 +14,6 @@ Template.wiki.helpers({
       projectId: projectId
     });
   },
-  projectId: function() {
-    return FlowRouter.getParam('projectId');
-  },
   isReady: function() {
     return ProjectSubs.ready();
   },
