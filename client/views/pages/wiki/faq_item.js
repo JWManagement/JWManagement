@@ -1,7 +1,8 @@
-import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import SimpleSchema from 'simpl-schema';
+import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+
+import SimpleSchema from 'simpl-schema';
 
 Template.faq_item.onCreated(function () {
   this.autorun(() => {
