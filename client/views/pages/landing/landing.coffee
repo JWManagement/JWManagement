@@ -9,12 +9,11 @@ Template.landing.onRendered ->
 	Tracker.autorun (tracker) ->
 		loadingDep.depend()
 
-		unless WOW? && $('body').singlePageNav?
+		unless WOW?
 			Delay -> loadingDep.changed()
 			null
 		else
 			new WOW().init()
-			$('.navbar').singlePageNav offset: 70
 
 			tracker.stop()
 
