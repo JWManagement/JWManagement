@@ -1,0 +1,52 @@
+<template name="signUp">
+  <div class="container signUp-wrapper">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="m-t-xl">Sign up</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center p-xl">
+        <h2>Please enter your details below to sign up.</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <div class="form-group">
+          <label>{{_ "input.email"}}</label>
+          <input class="form-control" type='email' placeholder='{{_ "input.email"}}' required />
+        </div>
+        <div class="form-group">
+          <label>{{_ "input.firstname"}}</label>
+          <input class="form-control" type='text' placeholder='{{_ "input.firstname"}}' required />
+        </div>
+        <div class="form-group">
+          <label>{{_ "input.lastname"}}</label>
+          <input class="form-control" type='text' placeholder='{{_ "input.lastname"}}' required />
+        </div>
+        <div class="form-group">
+          <label>{{_ "input.username"}}</label>
+          <input class="form-control" type='text' placeholder='{{_ "input.username"}}' required />
+        </div>
+        <div class="form-group">
+          <label>{{_ "input.password"}}</label>
+          <input class="form-control" type='text' placeholder='{{_ "input.password"}}' required />
+        </div>
+        <div class="form-group">
+          <label>{{_ "input.passwordRepeat"}}</label>
+          <input class="form-control" type='text' placeholder='{{_ "input.passwordRepeat"}}' required />
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-md m-b-sm">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <button class="btn btn-primary btn-block btn-lg" href="/">Sign up</button>
+      </div>
+    </div>
+    <div class="row m-t-md m-b-xl">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <a class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'login' language='en'}}">I already have an account</a>
+      </div>
+    </div>
+  </div>
+</template>

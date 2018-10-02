@@ -29,6 +29,7 @@ import '/imports/framework/Forms/SearchForm/SearchForm';
 import '/imports/framework/Forms/UpdateForm/UpdateForm';
 
 import '/imports/ui/landing/landing';
+import '/imports/ui/signUp/signUp';
 import '/imports/ui/dashboard/dashboard.jade';
 import '/imports/ui/dashboard/dashboard.details';
 import '/imports/ui/dashboard/myProjects/dashboard.myProjects.jade';

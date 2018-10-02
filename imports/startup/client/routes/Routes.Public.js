@@ -13,11 +13,12 @@ FlowRouter.notFound = {
   }
 };
 
-FlowRouter.route('/:language/welcome', {
-  name: 'welcome',
+FlowRouter.route('/:language/signup', {
+  name: 'signUp',
   triggersEnter: [ checkLanguage ],
   action: () => {
-    BlazeLayout.render('blankLayout', { content: 'landing' });
+    Session.set('parent', 'welcome');
+    BlazeLayout.render('mainLayout', { content: 'signUp' });
   }
 });
 
