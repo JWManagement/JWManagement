@@ -1,9 +1,9 @@
-import { Template } from 'meteor/templating';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Template } from 'meteor/templating'
+import { FlowRouter } from 'meteor/kadira:flow-router'
 
 Template['publisher.profile.availability.details'].helpers({
-  data() {
-    const params = FlowRouter.current().params;
+  data () {
+    const params = FlowRouter.current().params
 
     return {
       getMethod: 'publisher.profile.availability.get',
@@ -32,6 +32,6 @@ Template['publisher.profile.availability.details'].helpers({
           route: 'publisher.profile.availability.insert'
         }]
       }]
-    };
+    }
   }
-});
+})

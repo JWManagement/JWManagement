@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions'
 
 Template['publisher.search'].helpers({
   data: {
@@ -40,7 +40,7 @@ Template['publisher.search'].helpers({
                 { 'profile.email': search },
                 { 'profile.telefon': search },
                 { username: search }
-              ],
+              ]
             },
             {
               ['roles.' + projectId]: {
@@ -61,7 +61,7 @@ Template['publisher.search'].helpers({
             username: 1
           }
         }
-      };
+      }
     }
   }
-});
+})

@@ -1,22 +1,22 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 import {
   publisherPasswordInsert,
   publisherPasswordReset,
   publisherInvite,
   removeFromProject
-} from './service.security';
+} from './service.security'
 
 import {
   publisherProfileAvailabilityInsert,
   publisherProfileAvailabilityGet,
   publisherProfileAvailabilityDelete
-} from './service.availability';
+} from './service.availability'
 
 import {
   publisherProfileVacationInsert,
   publisherProfileVacationDelete
-} from './service.vacation';
+} from './service.vacation'
 
 import {
   publisherPermissionsGet,
@@ -25,7 +25,7 @@ import {
   publisherPermissionsTagGet,
   publisherPermissionsTagsGet,
   publisherPermissionsTagUpdate
-} from './service.permissions';
+} from './service.permissions'
 
 import {
   publisherSearch,
@@ -33,7 +33,7 @@ import {
   publisherGetField,
   publisherInsert,
   publisherUpdate
-} from './service.crud';
+} from './service.crud'
 
 Meteor.methods({
   'publisher.search': publisherSearch,
@@ -56,4 +56,4 @@ Meteor.methods({
   'publisher.profile.availability.delete': publisherProfileAvailabilityDelete,
   'publisher.profile.vacation.insert': publisherProfileVacationInsert,
   'publisher.profile.vacation.delete': publisherProfileVacationDelete
-});
+})

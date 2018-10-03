@@ -1,6 +1,6 @@
-import { Meteor } from 'meteor/meteor';
-import { Random } from 'meteor/random';
-import { Roles } from 'meteor/alanning:roles';
+import { Meteor } from 'meteor/meteor'
+import { Random } from 'meteor/random'
+import { Roles } from 'meteor/alanning:roles'
 
 Meteor.methods({
 
@@ -29,9 +29,9 @@ Meteor.methods({
         }],
         meetings: [],
         store: {}
-      });
+      })
 
-      const username = Random.id(5);
+      const username = Random.id(5)
 
       Meteor.call('createAccount', {
         username: username,
@@ -46,14 +46,14 @@ Meteor.methods({
       },
       args.projectId,
       () => {
-        const user = Meteor.users.findOne({ username: username });
-        const userId = user._id;
+        const user = Meteor.users.findOne({ username: username })
+        const userId = user._id
 
-        Meteor.call('changeProjectRole', args.projectId, userId, 'admin');
-        Meteor.call('changeTagRole', args.tagId, userId, 'teamleader');
+        Meteor.call('changeProjectRole', args.projectId, userId, 'admin')
+        Meteor.call('changeTagRole', args.tagId, userId, 'teamleader')
 
-        return Meteor.call('sendInvitationMails', [userId], args.projectId);
-      });
+        return Meteor.call('sendInvitationMails', [userId], args.projectId)
+      })
     }
   }
-});
+})

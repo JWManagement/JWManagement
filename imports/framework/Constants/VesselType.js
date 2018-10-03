@@ -13,6 +13,6 @@ const VesselType = {
     't',
     'unknown'
   ]
-};
+}
 
-export default VesselType;
+export default VesselType

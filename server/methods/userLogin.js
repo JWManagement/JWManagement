@@ -1,21 +1,21 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 Meteor.methods({
-  getUsernameForEmailAddress(email) {
+  getUsernameForEmailAddress (email) {
     const users = Meteor.users.find({
       'profile.email': email
     }, {
       fields: {
         username: 1
       }
-    }).fetch();
+    }).fetch()
 
     if (users.length > 1) {
-      throw new Meteor.Error('multipleAccountsFound');
+      throw new Meteor.Error('multipleAccountsFound')
     } else if (users.length == 1) {
-      return users[0].username;
+      return users[0].username
     } else {
-      throw new Meteor.Error('noAccountFound');
+      throw new Meteor.Error('noAccountFound')
     }
   }
-});
+})

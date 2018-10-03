@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import SystemLanguages from '/imports/framework/Constants/SystemLanguages';
+import SystemLanguages from '/imports/framework/Constants/SystemLanguages'
 
 Template['language.update'].helpers({
   data: {
@@ -12,4 +12,4 @@ Template['language.update'].helpers({
       allowedValues: SystemLanguages.allowedValues
     }]
   }
-});
+})

@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions'
 
 Template['dashboard.details'].helpers({
   data: {
@@ -146,4 +146,4 @@ Template['dashboard.details'].helpers({
       }]
     }]
   }
-});
+})

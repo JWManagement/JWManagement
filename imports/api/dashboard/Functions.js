@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment'
 
 const PROJECT_OPTIONS = {
   fields: {
@@ -11,7 +11,7 @@ const PROJECT_OPTIONS = {
     name: 1,
     _id: 1
   }
-};
+}
 
 const SHIFT_OPTIONS = {
   fields: {
@@ -28,50 +28,50 @@ const SHIFT_OPTIONS = {
     end: 1,
     tagId: 1
   }
-};
+}
 
-function getProjects(projectIds) {
+function getProjects (projectIds) {
   return Projects.find({
     _id: {
       $in: projectIds
     }
   }, PROJECT_OPTIONS)
-  .fetch()
-  .map((project) => {
-    project.project = project.name;
-    return project;
-  });
+    .fetch()
+    .map((project) => {
+      project.project = project.name
+      return project
+    })
 }
 
-function getUpdatedShifts(projects, shifts) {
+function getUpdatedShifts (projects, shifts) {
   return shifts.map((shift) => {
     const project = projects.filter((p) => {
-      return p._id == shift.projectId;
-    })[0];
+      return p._id == shift.projectId
+    })[0]
 
     if (project) {
       const tag = project.tags.filter((t) => {
-        return t._id == shift.tagId;
-      })[0];
+        return t._id == shift.tagId
+      })[0]
 
       if (project != null && tag != null) {
-        shift.tag = tag.name;
-        shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10);
+        shift.tag = tag.name
+        shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10)
 
-        return shift;
+        return shift
       }
 
-      return null;
+      return null
     }
 
-    return null;
+    return null
   })
-  .filter((shift) => {
-    return shift != null;
-  });
+    .filter((shift) => {
+      return shift != null
+    })
 }
 
-function getMissingShiftReports(projectIds, projects, date, userId) {
+function getMissingShiftReports (projectIds, projects, date, userId) {
   const shifts = Shifts.find({
     projectId: {
       $in: projectIds
@@ -86,18 +86,18 @@ function getMissingShiftReports(projectIds, projects, date, userId) {
       }
     }
   }, SHIFT_OPTIONS)
-  .fetch()
-  .filter((shift) => {
+    .fetch()
+    .filter((shift) => {
     // only return shift if my team hasn't submitted the report yet
-    return shift.teams.filter((team) => {
-      return team.report == null || !team.report.submitted;
-    }).length > 0;
-  });
+      return shift.teams.filter((team) => {
+        return team.report == null || !team.report.submitted
+      }).length > 0
+    })
 
-  return getUpdatedShifts(projects, shifts);
+  return getUpdatedShifts(projects, shifts)
 }
 
-function getUpcomingShifts(projectIds, projects, date, userId) {
+function getUpcomingShifts (projectIds, projects, date, userId) {
   const shifts = Shifts.find({
     projectId: {
       $in: projectIds
@@ -107,12 +107,12 @@ function getUpcomingShifts(projectIds, projects, date, userId) {
     },
     'teams.participants._id': userId
   }, SHIFT_OPTIONS)
-  .fetch();
+    .fetch()
 
-  return getUpdatedShifts(projects, shifts);
+  return getUpdatedShifts(projects, shifts)
 }
 
-function getPendingRequests(projectIds, projects, date, userId) {
+function getPendingRequests (projectIds, projects, date, userId) {
   const shifts = Shifts.find({
     projectId: {
       $in: projectIds
@@ -122,12 +122,12 @@ function getPendingRequests(projectIds, projects, date, userId) {
     },
     'teams.pending._id': userId
   }, SHIFT_OPTIONS)
-  .fetch();
+    .fetch()
 
-  return getUpdatedShifts(projects, shifts);
+  return getUpdatedShifts(projects, shifts)
 }
 
-function getOlderShifts(projectIds, projects, date, userId) {
+function getOlderShifts (projectIds, projects, date, userId) {
   const shifts = Shifts.find({
     projectId: {
       $in: projectIds
@@ -137,25 +137,25 @@ function getOlderShifts(projectIds, projects, date, userId) {
     },
     'teams.participants._id': userId
   }, SHIFT_OPTIONS)
-  .fetch();
+    .fetch()
 
-  return getUpdatedShifts(projects, shifts);
+  return getUpdatedShifts(projects, shifts)
 }
 
-function getCleanedProjects(projects) {
+function getCleanedProjects (projects) {
   return projects.map((project) => {
-    delete project.name;
-    delete project.tags;
-    return project;
-  });
+    delete project.name
+    delete project.tags
+    return project
+  })
 }
 
-function getCleanedShifts(shifts) {
+function getCleanedShifts (shifts) {
   return shifts.map((shift) => {
-    delete shift.tagId;
-    delete shift.teams;
-    return shift;
-  });
+    delete shift.tagId
+    delete shift.teams
+    return shift
+  })
 }
 
 export {
@@ -166,4 +166,4 @@ export {
   getOlderShifts,
   getCleanedProjects,
   getCleanedShifts
-};
+}

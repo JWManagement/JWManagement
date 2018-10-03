@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['dashboard.upcomingShifts.details'].helpers({
   data: {
@@ -38,4 +38,4 @@ Template['dashboard.upcomingShifts.details'].helpers({
       }]
     }]
   }
-});
+})

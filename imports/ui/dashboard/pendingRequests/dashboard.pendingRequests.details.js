@@ -1,10 +1,10 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['dashboard.pendingRequests.details'].helpers({
   data: {
     getMethod: 'dashboard.pendingRequests.get',
     navigation: {
-      backLink: 'dashboard.details',
+      backLink: 'dashboard.details'
     },
     sections: [{
       title: 'pendingRequests',
@@ -38,4 +38,4 @@ Template['dashboard.pendingRequests.details'].helpers({
       }]
     }]
   }
-});
+})

@@ -1,53 +1,53 @@
-import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-import { Random } from 'meteor/random';
-import { Roles } from 'meteor/alanning:roles';
-import { Mailer } from 'meteor/lookback:emails';
-import { TAPi18n } from 'meteor/tap:i18n';
+import { Meteor } from 'meteor/meteor'
+import { Accounts } from 'meteor/accounts-base'
+import { Random } from 'meteor/random'
+import { Roles } from 'meteor/alanning:roles'
+import { Mailer } from 'meteor/lookback:emails'
+import { TAPi18n } from 'meteor/tap:i18n'
 
-import { getMailTexts } from '/imports/framework/Functions/Mail';
-import { checkPermissions } from '/imports/framework/Functions/Security';
-import Users from '/imports/api/users/Users';
-import PasswordsSchema from '/imports/api/users/PasswordsSchema';
-import RoleManager from '/imports/framework/Managers/RoleManager';
-import MailManager from '/imports/framework/Managers/MailManager';
-import State from '/imports/framework/Constants/State';
-import Permissions from '/imports/framework/Constants/Permissions';
+import { getMailTexts } from '/imports/framework/Functions/Mail'
+import { checkPermissions } from '/imports/framework/Functions/Security'
+import Users from '/imports/api/users/Users'
+import PasswordsSchema from '/imports/api/users/PasswordsSchema'
+import RoleManager from '/imports/framework/Managers/RoleManager'
+import MailManager from '/imports/framework/Managers/MailManager'
+import State from '/imports/framework/Constants/State'
+import Permissions from '/imports/framework/Constants/Permissions'
 
-function publisherPasswordInsert({ projectId, userId }, passwords) {
-  checkPermissions(projectId, userId);
+function publisherPasswordInsert ({ projectId, userId }, passwords) {
+  checkPermissions(projectId, userId)
 
   try {
-    PasswordsSchema.validate(passwords);
+    PasswordsSchema.validate(passwords)
 
-    Accounts.setPassword(userId, passwords.password);
+    Accounts.setPassword(userId, passwords.password)
 
-    return userId;
+    return userId
   } catch (e) {
     for (let detail of e.details) {
       if (detail.type == 'minString') {
-        detail.type = 'minString8';
+        detail.type = 'minString8'
       }
     }
 
-    throw new Meteor.Error(e);
+    throw new Meteor.Error(e)
   }
 }
 
-function publisherPasswordReset({ projectId, userId }) {
-  checkPermissions(projectId, userId);
+function publisherPasswordReset ({ projectId, userId }) {
+  checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43);
+    const token = Random.id(43)
     const publisher = Users.findOne(userId, {
       fields: {
         'profile.email': 1,
         'profile.language': 1
       }
-    });
+    })
 
     if (publisher.profile.email == '') {
-      throw new Meteor.Error('userHasNoEmail');
+      throw new Meteor.Error('userHasNoEmail')
     }
 
     Users.update(userId, {
@@ -56,9 +56,9 @@ function publisherPasswordReset({ projectId, userId }) {
           token: token
         }
       }
-    });
+    })
 
-    const language = publisher.profile.language;
+    const language = publisher.profile.language
 
     const data = {
       recipient: publisher.profile.email,
@@ -72,12 +72,12 @@ function publisherPasswordReset({ projectId, userId }) {
         language: language,
         content: getMailTexts('resetPassword', language)
       }
-    };
+    }
 
     data.data.global = {
       footer: TAPi18n.__('mail.footer', '', data.language),
       link: TAPi18n.__('mail.link', '', data.language)
-    };
+    }
 
     Mailer.send({
       to: data.recipient,
@@ -86,24 +86,24 @@ function publisherPasswordReset({ projectId, userId }) {
       subject: data.subject,
       template: data.template,
       data: data.data
-    });
+    })
   } catch (e) {
-    console.log(e);
-    throw new Meteor.Error(e);
+    console.log(e)
+    throw new Meteor.Error(e)
   }
 }
 
-function publisherInvite({ projectId, userId }) {
-  checkPermissions(projectId, userId);
+function publisherInvite ({ projectId, userId }) {
+  checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43);
+    const token = Random.id(43)
     const project = Projects.findOne(projectId, {
       fields: {
         name: 1
       },
       email: 1
-    });
+    })
     const publisher = Users.findOne(userId, {
       fields: {
         'profile.email': 1,
@@ -112,7 +112,7 @@ function publisherInvite({ projectId, userId }) {
         'profile.language': 1,
         state: 1
       }
-    });
+    })
 
     Users.update(userId, {
       $set: {
@@ -120,9 +120,9 @@ function publisherInvite({ projectId, userId }) {
           token: token
         }
       }
-    });
+    })
 
-    const language = publisher.profile.language;
+    const language = publisher.profile.language
 
     MailManager.sendMail({
       recipient: publisher.profile.email,
@@ -138,45 +138,44 @@ function publisherInvite({ projectId, userId }) {
         language: language,
         content: getMailTexts('accountCreated', language)
       }
-    });
+    })
 
     if (publisher.state == 'created') {
       Users.update(userId, {
         $set: {
           state: State.INVITED
         }
-      });
+      })
     }
   } catch (e) {
-    throw new Meteor.Error(e);
+    throw new Meteor.Error(e)
   }
 }
 
-function removeFromProject() {
+function removeFromProject () {
   return ({ projectId, userId }) => {
-    checkPermissions(projectId, userId);
+    checkPermissions(projectId, userId)
     try {
-      RoleManager.removeProjectPermission(projectId, userId);
-      const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } });
+      RoleManager.removeProjectPermission(projectId, userId)
+      const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
       if (project && project.tags) {
         for (let tag of project.tags) {
-          RoleManager.removeTagPermission(tag._id, userId);
+          RoleManager.removeTagPermission(tag._id, userId)
         }
         // eslint-disable-next-line no-unused-vars
         for (let group of Roles.getGroupsForUser(userId)) {
           if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
-            return;
+            return
           }
         }
       }
       if (!RoleManager.hasPermissions(userId)) {
-        Users.remove(userId);
+        Users.remove(userId)
       }
+    } catch (e) {
+      throw new Meteor.Error(e)
     }
-    catch (e) {
-      throw new Meteor.Error(e);
-    }
-  };
+  }
 }
 
 export {
@@ -184,4 +183,4 @@ export {
   publisherPasswordReset,
   publisherInvite,
   removeFromProject
-};
+}

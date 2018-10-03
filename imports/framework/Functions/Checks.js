@@ -2,10 +2,10 @@
 // import { Weeks } from '/imports/api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
 // import { Shifts } from '/imports/api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
 
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
-import { Permissions } from '/imports/framework/Constants/Permissions';
-import { Roles } from 'meteor/alanning:roles';
+import { Permissions } from '/imports/framework/Constants/Permissions'
+import { Roles } from 'meteor/alanning:roles'
 
 const Checks = {
   user: {
@@ -14,10 +14,10 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (user == null) {
-        throw new Meteor.Error('invalidUserId');
+        throw new Meteor.Error('invalidUserId')
       }
     }
   },
@@ -27,10 +27,10 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (shift == null) {
-        throw new Meteor.Error('invalidShiftId');
+        throw new Meteor.Error('invalidShiftId')
       }
     },
     isTagParticipant: (shiftId) => {
@@ -38,10 +38,10 @@ const Checks = {
         fields: {
           tagId: 1
         }
-      });
+      })
 
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.participant, shift.tagId)) {
-        throw new Meteor.Error('notTagParticipant');
+        throw new Meteor.Error('notTagParticipant')
       }
     }
   },
@@ -51,10 +51,10 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (week == null) {
-        throw new Meteor.Error('invalidWeek');
+        throw new Meteor.Error('invalidWeek')
       }
     }
   },
@@ -64,25 +64,25 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (project == null) {
-        throw new Meteor.Error('invalidProject');
+        throw new Meteor.Error('invalidProject')
       }
     },
     isAdmin: (projectId) => {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.admin, projectId)) {
-        throw new Meteor.Error('notAdmin');
+        throw new Meteor.Error('notAdmin')
       }
     },
     isShiftAdmin: (projectId) => {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.shiftAdmin, projectId)) {
-        throw new Meteor.Error('notShiftAdmin');
+        throw new Meteor.Error('notShiftAdmin')
       }
     },
     isMember: (projectId) => {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, projectId)) {
-        throw new Meteor.Error('notMember');
+        throw new Meteor.Error('notMember')
       }
     }
   },
@@ -95,15 +95,15 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (project == null) {
-        throw new Meteor.Error('invalidTag');
+        throw new Meteor.Error('invalidTag')
       }
     },
     isParticipant: (projectId) => {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.participant, projectId)) {
-        throw new Meteor.Error('notTagParticipant');
+        throw new Meteor.Error('notTagParticipant')
       }
     },
     isAdmin: (projectId, tagId) => {
@@ -114,10 +114,10 @@ const Checks = {
         fields: {
           _id: 1
         }
-      });
+      })
 
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.admin, project._id)) {
-        throw new Meteor.Error('notAdmin');
+        throw new Meteor.Error('notAdmin')
       }
     }
   },
@@ -126,10 +126,10 @@ const Checks = {
       const project = Projects.findOne({
         _id: projectId,
         'teams._id': teamId
-      });
+      })
 
       if (project == null) {
-        throw new Meteor.Error('invalidTeam');
+        throw new Meteor.Error('invalidTeam')
       }
     }
   },
@@ -138,13 +138,13 @@ const Checks = {
       const project = Projects.findOne({
         _id: projectId,
         'meetings._id': meetingPointId
-      });
+      })
 
       if (project == null) {
-        throw new Meteor.Error('invalidMeetingPoint');
+        throw new Meteor.Error('invalidMeetingPoint')
       }
     }
   }
-};
+}
 
-export default Checks;
+export default Checks

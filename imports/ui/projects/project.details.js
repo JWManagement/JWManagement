@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions'
 
 Template['project.details'].helpers({
   data: {
@@ -41,7 +41,7 @@ Template['project.details'].helpers({
         icon: 'directions_boat',
         canSee: Permissions.member,
         custom: (project) => {
-          return project.vesselModule == true;
+          return project.vesselModule == true
         }
       }]
     }, {
@@ -96,4 +96,4 @@ Template['project.details'].helpers({
       }]
     }]
   }
-});
+})

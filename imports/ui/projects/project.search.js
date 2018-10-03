@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['project.search'].helpers({
   data: {
@@ -25,7 +25,7 @@ Template['project.search'].helpers({
             name: 1
           }
         }
-      };
+      }
     }
   }
-});
+})

@@ -4,6 +4,6 @@ const Gender = {
     'm',
     'w'
   ]
-};
+}
 
-export default Gender;
+export default Gender

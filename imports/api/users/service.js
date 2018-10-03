@@ -1,24 +1,24 @@
-import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
+import { Meteor } from 'meteor/meteor'
+import { Roles } from 'meteor/alanning:roles'
 
-import Users from '/imports/api/users/Users';
+import Users from '/imports/api/users/Users'
 
 Meteor.methods({
   'user.search': ({ searchString, limit }) => {
     if (!Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
-      return [];
+      return []
     }
 
     const result = {
       total: 0,
       items: []
-    };
-
-    if (typeof searchString != 'string' || searchString == '') {
-      return result;
     }
 
-    const regEx = new RegExp(searchString, 'i');
+    if (typeof searchString !== 'string' || searchString == '') {
+      return result
+    }
+
+    const regEx = new RegExp(searchString, 'i')
 
     const cursor = Users.find({
       $or: [
@@ -43,14 +43,14 @@ Meteor.methods({
         username: 1
       },
       limit: limit
-    });
+    })
 
-    result.total = cursor.count();
-    result.items = cursor.fetch();
+    result.total = cursor.count()
+    result.items = cursor.fetch()
 
-    return result;
+    return result
   }
   /* 'user.get': ({ projectId }) => {
     // TODO: write this
-  }*/
-});
+  } */
+})

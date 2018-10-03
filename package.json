@@ -26,6 +26,9 @@
   "scripts": {
     "start": "meteor --settings .deploy/settings.json",
     "mocha": "meteor test --driver-package meteortesting:mocha",
-    "lint": "eslint \"*.js\" \"imports/**/*.js\" \"client/**/*.js\" \"server/**/*.js\" --ignore-pattern \"client/lib/*\" --ignore-pattern \"*.min.js\" --ignore-pattern \"migrations.js\" --ignore-pattern \"platform.js\""
+    "lint": "standard \"*.js\" \"imports/**/*.js\" \"client/**/*.js\" \"server/**/*.js\" --ignore-pattern \"client/lib/*\" --ignore-pattern \"*.min.js\" --ignore-pattern \"migrations.js\" --ignore-pattern \"platform.js\""
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
   }
 }

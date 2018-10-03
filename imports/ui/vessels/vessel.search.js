@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['vessel.search'].helpers({
   data: {
@@ -51,7 +51,7 @@ Template['vessel.search'].helpers({
             callsign: 1
           }
         }
-      };
+      }
     }
   }
-});
+})

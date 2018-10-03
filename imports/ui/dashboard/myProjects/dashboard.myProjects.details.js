@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['dashboard.myProjects.details'].helpers({
   data: {
@@ -23,4 +23,4 @@ Template['dashboard.myProjects.details'].helpers({
       }]
     }]
   }
-});
+})
