@@ -49,7 +49,7 @@ Template.login.events({
 
     loginWithPasswordAsync(usernameOrEmail, password)
       .catch((error) => {
-        if (error.reason == 'User not found') {
+        if (error.reason === 'User not found') {
           return Meteor.callPromise('getUsernameForEmailAddress', usernameOrEmail)
             .then(username => loginWithPasswordAsync(username, password))
         }
@@ -58,9 +58,9 @@ Template.login.events({
       .catch((error) => {
         let message = 'generic'
 
-        if (error.error == 400) {
+        if (error.error === 400) {
           message = 'missingField'
-        } else if (error.error == 403) {
+        } else if (error.error === 403) {
           message = 'incorrectPassword'
         } else if (['noAccountFound', 'multipleAccountsFound'].includes(error.error)) {
           message = error.error

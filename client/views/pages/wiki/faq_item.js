@@ -19,7 +19,7 @@ Template.faq_item.onCreated(function () {
   this.editing = new ReactiveVar(false)
 
   this.toggleEditing = (editing) => {
-    this.editing.set(editing);
+    this.editing.set(editing)
     if (editing) {
       this.$('.note-editor').removeClass('hidden')
     } else {
