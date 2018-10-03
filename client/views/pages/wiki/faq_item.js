@@ -1,7 +1,7 @@
+import { Meteor } from 'meteor/meteor'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-
 import SimpleSchema from 'simpl-schema'
 
 Template.faq_item.onCreated(function () {
@@ -19,7 +19,7 @@ Template.faq_item.onCreated(function () {
   this.editing = new ReactiveVar(false)
 
   this.toggleEditing = (editing) => {
-    this.editing.set(editing)
+    this.editing.set(editing);
     if (editing) {
       this.$('.note-editor').removeClass('hidden')
     } else {
@@ -67,8 +67,9 @@ Template.faq_item.events({
     instance.toggleEditing(true)
   },
   'click .changeFaq': function (e, instance) {
-    code = instance.$('.summernote').summernote('code')
-    Meteor.call('changeFaq', FlowRouter.getParam('projectId'), instance.data.tabId, instance.data.faq._id, code, function () {
+    const code = instance.$('.summernote').summernote('code')
+    const projectId = FlowRouter.getParam('projectId')
+    Meteor.call('changeFaq', projectId, instance.data.tabId, instance.data.faq._id, code, function () {
       instance.toggleEditing(false)
     })
   },
