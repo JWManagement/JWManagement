@@ -80,10 +80,6 @@ Template.SearchForm.onCreated(() => {
 })
 
 Template.SearchForm.onRendered(() => {
-  $('body').addClass('md-skin')
-  $('body').addClass('top-navigation')
-  $('body').attr('type', 'SearchForm')
-
   const template = Template.instance()
   const columns = template.columnDefinitions.map((column) => {
     let routeParts = FlowRouter.getRouteName().split('.')
@@ -121,12 +117,6 @@ Template.SearchForm.onRendered(() => {
   template.searchString.set(null)
 
   updateSearch(template, searchString)
-})
-
-Template.SearchForm.onDestroyed(() => {
-  $('body').removeClass('md-skin')
-  $('body').removeClass('top-navigation')
-  $('body').attr('type', '')
 })
 
 Template.SearchForm.events({

@@ -186,10 +186,6 @@ Template.DetailsForm.onCreated(() => {
 })
 
 Template.DetailsForm.onRendered(() => {
-  $('body').addClass('md-skin')
-  $('body').addClass('top-navigation')
-  $('body').attr('type', 'DetailsForm')
-
   const template = Template.instance()
   const data = Template.currentData().data
 
@@ -218,10 +214,6 @@ Template.DetailsForm.onDestroyed(() => {
   if (template.intervalHandle) {
     clearInterval(template.intervalHandle)
   }
-
-  $('body').removeClass('md-skin')
-  $('body').removeClass('top-navigation')
-  $('body').attr('type', '')
 })
 
 Template.DetailsForm.events({})

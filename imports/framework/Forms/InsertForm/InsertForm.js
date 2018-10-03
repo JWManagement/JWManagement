@@ -182,17 +182,7 @@ Template.InsertForm.onCreated(() => {
 })
 
 Template.InsertForm.onRendered(() => {
-  $('body').addClass('md-skin')
-  $('body').addClass('top-navigation')
-  $('body').attr('type', 'InsertForm')
-
   window.scrollTo(0, 0)
-})
-
-Template.InsertForm.onDestroyed(() => {
-  $('body').removeClass('md-skin')
-  $('body').removeClass('top-navigation')
-  $('body').attr('type', '')
 })
 
 Template.InsertForm.events({

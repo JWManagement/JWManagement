@@ -87,10 +87,6 @@ Template.UpdateForm.onCreated(() => {
 })
 
 Template.UpdateForm.onRendered(() => {
-  $('body').addClass('md-skin')
-  $('body').addClass('top-navigation')
-  $('body').attr('type', 'UpdateForm')
-
   const template = Template.instance()
   const data = Template.currentData().data
 
@@ -140,12 +136,6 @@ Template.UpdateForm.onRendered(() => {
   })
 
   window.scrollTo(0, 0)
-})
-
-Template.UpdateForm.onDestroyed(() => {
-  $('body').removeClass('md-skin')
-  $('body').removeClass('top-navigation')
-  $('body').attr('type', '')
 })
 
 Template.UpdateForm.events({
