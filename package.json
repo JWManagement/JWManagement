@@ -26,9 +26,35 @@
   "scripts": {
     "start": "meteor --settings .deploy/settings.json",
     "mocha": "meteor test --driver-package meteortesting:mocha",
-    "lint": "standard \"*.js\" \"imports/**/*.js\" \"client/**/*.js\" \"server/**/*.js\" --ignore-pattern \"client/lib/*\" --ignore-pattern \"*.min.js\" --ignore-pattern \"migrations.js\" --ignore-pattern \"platform.js\""
+    "lint": "standard"
   },
   "devDependencies": {
     "standard": "^12.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "client/lib/*",
+      "*.min.js",
+      "migrations.js",
+      "platform.js"
+    ],
+    "globals": [
+      "window",
+      "document",
+      "alert",
+      "confirm",
+      "$",
+      "Projects",
+      "ProjectSubs",
+      "Shifts",
+      "FS",
+      "Files",
+      "FileSubs",
+      "Weeks",
+      "FooTable",
+      "swalInput",
+      "swalYesNo",
+      "handleError"
+    ]
   }
 }
