@@ -45,7 +45,7 @@ Meteor.methods({
         note.lastChange = `${note.author} (${moment(note.date, 'YYYYMMDD').format('YYYY-MM-DD')})`
       }
 
-      if (note.text === undefined) {
+      if (note.text == null) {
         note.text = ''
       } else if (note.text.length > 25) {
         note.text = note.text.substring(0, 25) + ' ...'
@@ -120,7 +120,7 @@ function getExtendedNote (projectId, noteId) {
       }
     })
 
-    if (user !== undefined) {
+    if (user != null) {
       const username = user.profile.firstname + ' ' + user.profile.lastname
       const language = Meteor.user().profile.language
       const dateformat = TAPi18n.__('dateFormat.dateAndTime', '', language)
