@@ -112,7 +112,7 @@ function getExtendedNote (projectId, noteId) {
     }
   }
 
-  if (note !== null) {
+  if (note != null) {
     const user = Users.findOne(note.lastChangeBy, {
       fields: {
         'profile.firstname': 1,
@@ -140,7 +140,7 @@ function getExtendedNote (projectId, noteId) {
 function checkPermissions (projectId) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
-  if (project === null) {
+  if (project == null) {
     throw new Meteor.Error('projectNotFound')
   }
 

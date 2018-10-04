@@ -31,7 +31,7 @@ Template.InsertForm.helpers({
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params)
   },
   getSearchTranslation () {
-    if (FlowRouter.getParam('key') !== null) {
+    if (FlowRouter.getParam('key') != null) {
       const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values'
 
       let routeNameParts = FlowRouter.getRouteName().split('.')
@@ -48,7 +48,7 @@ Template.InsertForm.helpers({
     const template = Template.instance()
     const activeFieldKey = template.activeField.get()
 
-    if (activeFieldKey !== null) {
+    if (activeFieldKey != null) {
       const activeField = template.fields.filter((field) => {
         return field.key === activeFieldKey
       })[0]
@@ -104,7 +104,7 @@ Template.InsertForm.helpers({
       }
     })
 
-    if (template.entity[inputData.key] !== null &&
+    if (template.entity[inputData.key] != null &&
       template.entity[inputData.key] !== '') {
       inputData.value = template.entity[inputData.key]
     }
@@ -129,9 +129,9 @@ Template.InsertForm.helpers({
         if (field.type === 'date') {
           inputData.format = field.format
         }
-        if (template.entity[field.key] !== null) {
+        if (template.entity[field.key] != null) {
           inputData.value = template.entity[field.key]
-        } else if (field.defaultValue !== null) {
+        } else if (field.defaultValue != null) {
           inputData.value = field.defaultValue
         }
         return true
@@ -145,7 +145,7 @@ Template.InsertForm.helpers({
   },
   isRequired () {
     const data = Template.currentData().data
-    if (data.required !== null) {
+    if (data.required != null) {
       return data.required
     }
     return false
@@ -188,7 +188,7 @@ Template.InsertForm.onRendered(() => {
 Template.InsertForm.events({
   'click .navbar-back': function (e) {
     const template = Template.instance()
-    if (template.activeField.get() !== null) {
+    if (template.activeField.get() != null) {
       e.preventDefault()
       e.stopPropagation()
 
@@ -223,13 +223,13 @@ Template.InsertForm.events({
     Meteor.call(FlowRouter.getRouteName(), FlowRouter.current().params, template.entity, (error, entityId) => {
       template.isSaving.set(false)
 
-      if (error !== null) {
+      if (error != null) {
         if (error.error.error === 'validation-error') {
           let errors = []
 
-          if (error.error.reason !== null && typeof e.error.reason === 'object') {
+          if (error.error.reason != null && typeof e.error.reason === 'object') {
             errors = errors.concat(e.error.reason)
-          } else if (error.error.details !== null) {
+          } else if (error.error.details != null) {
             errors = errors.concat(error.error.details)
           }
 
@@ -271,7 +271,7 @@ function getRegexLastIndexOf (string, regex) {
   let nextStop = 0
   let result
 
-  while ((result = regex.exec(stringToWorkWith)) !== null) {
+  while ((result = regex.exec(stringToWorkWith)) != null) {
     lastIndexOf = result.index
     regex.lastIndex = ++nextStop
   }

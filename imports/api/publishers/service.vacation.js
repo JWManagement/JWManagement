@@ -14,7 +14,7 @@ function publisherProfileVacationInsert ({ projectId, userId }, newVacation) {
 
     // support legacy format
     for (let vacation of vacations) {
-      if (vacation.createdAt === null) {
+      if (vacation.createdAt == null) {
         vacation.start = parseInt(moment(vacation.start, 'YYYYDDD').format('YYYYMMDD'), 10)
         vacation.end = parseInt(moment(vacation.end, 'YYYYDDD').format('YYYYMMDD'), 10)
       }

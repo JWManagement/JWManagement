@@ -81,11 +81,11 @@ function doSearch (template, retrieveAllResults = false) {
   template.resultsShown.set(params.limit)
 
   Meteor.call(routeName, params, (e, r) => {
-    if (e !== null) {
+    if (e != null) {
       alert(e); return
     }
 
-    if (r !== null) {
+    if (r != null) {
       template.items.set(r.items)
       template.itemCount.set(r.total)
       template.isLoading.set(false)

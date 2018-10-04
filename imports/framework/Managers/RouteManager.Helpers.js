@@ -30,7 +30,7 @@ const doIfLoggedIn = function (whatToDo, elseToDo) {
       BlazeLayout.render('blankLayout', { content: 'loading' })
     } else if (Meteor.userId()) {
       whatToDo()
-    } else if (elseToDo !== null) {
+    } else if (elseToDo != null) {
       elseToDo()
     } else {
       BlazeLayout.render('blankLayout', { content: 'login' })

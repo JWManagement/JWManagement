@@ -18,7 +18,7 @@ Template.DetailsFormArrayEntity.helpers({
       return TAPi18n.__('language._' + entity._id.toUpperCase())
     }
 
-    if (definition.type === 'date' && value !== null) {
+    if (definition.type === 'date' && value != null) {
       const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat)
       const dbFormat = definition.dbFormat
 

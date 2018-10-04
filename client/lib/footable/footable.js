@@ -466,7 +466,7 @@
   F.is.element = function (obj) {
     return typeof HTMLElement === 'object'
       ? obj instanceof HTMLElement
-      : obj && typeof obj === 'object' && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === 'string'
+      : obj && typeof obj === 'object' && obj != null && obj.nodeType === 1 && typeof obj.nodeName === 'string'
   }
 
   /**
@@ -3997,7 +3997,7 @@
       }
       self.ft.$el.addClass('footable-filtering').addClass(position)
 
-      self.$container = self.container === null ? $() : $(self.container).first()
+      self.$container = self.container == null ? $() : $(self.container).first()
       if (!self.$container.length) {
         // add it to a row and then populate it with the search input and column selector dropdown.
         self.$row = $('<tr/>', { 'class': 'footable-filtering' }).prependTo(self.ft.$el.children('thead'))
@@ -4917,7 +4917,7 @@
     hasChanged: function () {
       return !(!this.initial || !this.column ||
 				(this.column.name === this.initial.column &&
-					(this.column.direction === this.initial.direction || (this.initial.direction === null && this.column.direction === 'ASC')))
+					(this.column.direction === this.initial.direction || (this.initial.direction == null && this.column.direction === 'ASC')))
       )
     },
     /**
@@ -5545,7 +5545,7 @@
       }
       this.ft.$el.addClass('footable-paging').addClass(position)
 
-      this.$container = this.container === null ? null : $(this.container).first()
+      this.$container = this.container == null ? null : $(this.container).first()
       if (!F.is.jq(this.$container)) {
         var $tfoot = this.ft.$el.children('tfoot')
         if ($tfoot.length == 0) {
