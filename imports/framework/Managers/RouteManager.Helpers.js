@@ -8,8 +8,6 @@ import moment from 'moment'
 import { Delay, wrs } from '/imports/framework/Functions/Async'
 import { setLanguageOnAuth } from '../../startup/client/language'
 
-export { checkLanguage, doIfLoggedIn, logout }
-
 const checkLanguage = function () {
   const language = FlowRouter.current().params.language
   const myLanguage = TAPi18n.getLanguage()
@@ -45,3 +43,5 @@ const logout = function () {
     Delay(() => Meteor.logout(setLanguageOnAuth))
   }
 }
+
+export { checkLanguage, doIfLoggedIn, logout }

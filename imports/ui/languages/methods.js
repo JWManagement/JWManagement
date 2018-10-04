@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 import moment from 'moment'
 
 Meteor.methods({
-  'language.update': ({}, {}, language) => {
+  'language.update': (_, __, language) => {
     const userId = Meteor.userId()
 
     Meteor.users.update(userId, {
