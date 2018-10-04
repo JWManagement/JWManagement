@@ -76,3 +76,5 @@ navigation:
   back: Zurück
   save: Speichern
   create: Neuer Eintrag
+  support:
+    details: Hilfe

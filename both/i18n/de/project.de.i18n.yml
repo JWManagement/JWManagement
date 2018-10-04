@@ -18,6 +18,7 @@ project:
     notes: Notizen
     leave: Projekt verlassen
     leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen? Das kann nicht rückgängig gemacht werden.
+    support: Support
   details:
     sections:
       project: Projekt

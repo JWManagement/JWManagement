@@ -88,6 +88,9 @@ import '/imports/ui/notes/note.details'
 import '/imports/ui/notes/note.update'
 import '/imports/ui/notes/note.insert'
 
+import '/imports/ui/projects/support.jade';
+import '/imports/ui/projects/support.details';
+
 import '/imports/ui/calendar/calendar'
 
 import '/imports/startup/client/language'
