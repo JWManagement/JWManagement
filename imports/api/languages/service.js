@@ -9,7 +9,7 @@ Meteor.methods({
       language: Meteor.user().profile.language
     }
   },
-  'language.update': ({}, {}, language) => {
+  'language.update': (_, __, language) => {
     const profileLanguage = Meteor.user().profile.language
     const isSystemLanguage = SystemLanguages.allowedValues.indexOf(language) > -1
 

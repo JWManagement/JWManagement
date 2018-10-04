@@ -30,7 +30,7 @@ Template.UpdateForm.helpers({
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params)
   },
   getSearchTranslation () {
-    if (FlowRouter.getParam('key') != null) {
+    if (FlowRouter.getParam('key') !== null) {
       const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values'
 
       let routeNameParts = FlowRouter.getRouteName().split('.')
@@ -44,13 +44,13 @@ Template.UpdateForm.helpers({
     }
   },
   isSearchEnabled () {
-    return Template.instance().inputData.get().search == true && FlowRouter.getParam('key') != null
+    return Template.instance().inputData.get().search === true && FlowRouter.getParam('key') !== null
   },
   isReady () {
     return !Template.instance().isLoading.get() && !Template.instance().noResult.get()
   },
   isType (data, type) {
-    return data.type == type
+    return data.type === type
   },
   getInputData () {
     return Template.instance().inputData.get()
@@ -73,8 +73,8 @@ Template.UpdateForm.onCreated(() => {
     const key = FlowRouter.getParam('key')
 
     Meteor.call(routeName, params, key, value, (e) => {
-      if (e != null) {
-        if (e.error.error == 'validation-error' && e.error.reason.length > 0) {
+      if (e !== null) {
+        if (e.error.error === 'validation-error' && e.error.reason.length > 0) {
           let inputData = template.inputData.get()
           inputData.error = e.error.reason[0].type
           template.inputData.set(inputData)
@@ -96,7 +96,7 @@ Template.UpdateForm.onRendered(() => {
   template.inputData.set({ parentInstance: template })
 
   Meteor.call(data.getMethod, FlowRouter.current().params, (e, value) => {
-    if (e == null) {
+    if (e === null) {
       let inputData = template.inputData.get()
       inputData.value = value
       template.inputData.set(inputData)
@@ -108,7 +108,7 @@ Template.UpdateForm.onRendered(() => {
   })
 
   data.fields.some((field) => {
-    if (field.key == FlowRouter.getParam('key')) {
+    if (field.key === FlowRouter.getParam('key')) {
       let inputData = template.inputData.get()
       inputData.type = 'text'
 
@@ -116,7 +116,7 @@ Template.UpdateForm.onRendered(() => {
         inputData.type = field.type
       }
 
-      if (inputData.type == 'date') {
+      if (inputData.type === 'date') {
         inputData.format = field.format
       }
 

@@ -7,7 +7,7 @@ import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
 
 function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
-  if (periodBegin == 2400 && lastValue == 2300) {
+  if (periodBegin === 2400 && lastValue === 2300) {
     return {
       numbers: numbers,
       timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
@@ -37,8 +37,8 @@ function convertTimeslotToAvailability (timeslots, language) {
       let timeslotHmm = timeslot
 
       if (periodBegin < 0) {
-        periodBegin = timeslotHmm == 0 ? 2400 : timeslotHmm
-      } else if (timeslot != lastValue + 100) {
+        periodBegin = timeslotHmm === 0 ? 2400 : timeslotHmm
+      } else if (timeslot !== lastValue + 100) {
         timePeriods.push(getTimePeriodOrWholeDay(periodBegin, lastValue, numbers, language))
 
         periodBegin = timeslotHmm
@@ -159,10 +159,10 @@ function getMergedTimeslots (publisher, day, newTimeslots) {
   let mergedTimeslots = []
 
   for (let userDay in publisher.profile.available) {
-    if (userDay == day) {
+    if (userDay === day) {
       mergedTimeslots = publisher.profile.available[userDay]
       for (let newTimeslot of newTimeslots) {
-        if (mergedTimeslots.indexOf(newTimeslot) == -1) {
+        if (mergedTimeslots.indexOf(newTimeslot) === -1) {
           mergedTimeslots.push(newTimeslot)
         }
       }

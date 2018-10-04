@@ -34,7 +34,7 @@ module.exports = class CollectionManager {
       let entity = null
 
       for (let e of entities) {
-        if (e._id == entityId) {
+        if (e._id === entityId) {
           entity = e
         }
       }
@@ -78,7 +78,7 @@ module.exports = class CollectionManager {
         const existingEntitiesCount = this.db
           .findOne(parentId)[this.collection.name]
           .filter((collectionEntity) => {
-            return collectionEntity._id != entity._id && collectionEntity[key] == entity[key]
+            return collectionEntity._id !== entity._id && collectionEntity[key] === entity[key]
           })
           .length
 

@@ -9,7 +9,7 @@ Template.DetailsFormNavigation.helpers({
   getTitle,
   hasBackLink () {
     if (Template.currentData().data) {
-      return Template.currentData().data.backLink != null
+      return Template.currentData().data.backLink !== null
     }
   },
   getBackLink () {
@@ -23,7 +23,7 @@ Template.DetailsFormNavigation.helpers({
     if (Template.currentData().data) {
       const navbarStyle = Template.currentData().data.navbarStyle
 
-      return (navbarStyle != null ? navbarStyle : '')
+      return (navbarStyle !== null ? navbarStyle : '')
     }
   },
   showTitle () {

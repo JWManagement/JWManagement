@@ -4,7 +4,6 @@ import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { Mailer } from 'meteor/lookback:emails'
 import { TAPi18n } from 'meteor/tap:i18n'
-
 import { getMailTexts } from '/imports/framework/Functions/Mail'
 import { checkPermissions } from '/imports/framework/Functions/Security'
 import Users from '/imports/api/users/Users'
@@ -25,7 +24,7 @@ function publisherPasswordInsert ({ projectId, userId }, passwords) {
     return userId
   } catch (e) {
     for (let detail of e.details) {
-      if (detail.type == 'minString') {
+      if (detail.type === 'minString') {
         detail.type = 'minString8'
       }
     }
@@ -46,7 +45,7 @@ function publisherPasswordReset ({ projectId, userId }) {
       }
     })
 
-    if (publisher.profile.email == '') {
+    if (publisher.profile.email === '') {
       throw new Meteor.Error('userHasNoEmail')
     }
 
@@ -140,7 +139,7 @@ function publisherInvite ({ projectId, userId }) {
       }
     })
 
-    if (publisher.state == 'created') {
+    if (publisher.state === 'created') {
       Users.update(userId, {
         $set: {
           state: State.INVITED

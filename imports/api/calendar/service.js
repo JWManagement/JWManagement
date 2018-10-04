@@ -58,14 +58,14 @@ Meteor.methods({
 
       for (let shift of shifts) {
         for (let tag of project.tags) {
-          if (tag._id == shift.tagId) {
+          if (tag._id === shift.tagId) {
             shift.tag = tag.name
           }
         }
 
         for (let team of shift.teams) {
           for (let projectTeam of project.teams) {
-            if (team._id == projectTeam._id) {
+            if (team._id === projectTeam._id) {
               team.name = projectTeam.name
               team.icon = projectTeam.icon
             }
@@ -94,20 +94,20 @@ Meteor.methods({
 
       for (let shift of shifts) {
         for (let team of shift.teams) {
-          if (team.participants.length == 0 && team.pending.length > 0) {
+          if (team.participants.length === 0 && team.pending.length > 0) {
             team.isTlNeeded = true
 
             for (let request of team.pending) {
               for (let user of users) {
-                if (user._id == request._id) {
-                  if (user.roles[Roles.GLOBAL_GROUP] != null &&
+                if (user._id === request._id) {
+                  if (user.roles[Roles.GLOBAL_GROUP] !== null &&
                     user.roles[Roles.GLOBAL_GROUP].indexOf('teamleader') > -1) {
                     team.isTlNeeded = false
                     break
                   }
 
                   for (let role in user.roles) {
-                    if (role == shift.tagId) {
+                    if (role === shift.tagId) {
                       const isTeamleader = teamleadRoles.indexOf(user.roles[role][0]) > -1
 
                       if (isTeamleader) {
@@ -143,7 +143,7 @@ Meteor.methods({
 function checkPermissions (projectId) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
-  if (project == null) {
+  if (project === null) {
     throw new Meteor.Error('projectNotFound')
   }
 

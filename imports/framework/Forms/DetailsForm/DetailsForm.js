@@ -54,13 +54,13 @@ Template.DetailsForm.helpers({
   isEmptyArray (field) {
     const template = Template.instance()
     const value = getValue(field, template.item.get())
-    return value.length == 0
+    return value.length === 0
   },
   getSectionTranslation (key) {
     return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'))
   },
   getBackgroundColor (section) {
-    return (section.background != null ? section.background : '')
+    return (section.background !== null ? section.background : '')
   },
   isType,
   getItem () {
@@ -92,18 +92,18 @@ Template.DetailsForm.helpers({
     const template = Template.instance()
     const item = template.item.get()
 
-    if (item != null) {
+    if (item !== null) {
       return template.sections.map((section) => {
-        if (section.contents != null) {
+        if (section.contents !== null) {
           section.contents = section.contents.map((content) => {
             if ('canUpdate' in content) {
-              if (content.canUpdate == 'author') {
-                content.readonly = item.createdBy != Meteor.userId()
+              if (content.canUpdate === 'author') {
+                content.readonly = item.createdBy !== Meteor.userId()
               }
             }
-            if (content.type == 'array') {
+            if (content.type === 'array') {
               if ('action' in content.item && 'canDo' in content.item.action) {
-                if (content.item.action.canDo == 'author' && item.createdBy != Meteor.userId()) {
+                if (content.item.action.canDo === 'author' && item.createdBy !== Meteor.userId()) {
                   delete content.item.action
                 }
               }
@@ -111,10 +111,10 @@ Template.DetailsForm.helpers({
             return content
           })
         }
-        if (section.actions != null) {
+        if (section.actions !== null) {
           section.actions = section.actions.filter((action) => {
-            if ('canSee' in action && action.canSee == 'author') {
-              if (item.createdBy != Meteor.userId()) {
+            if ('canSee' in action && action.canSee === 'author') {
+              if (item.createdBy !== Meteor.userId()) {
                 return false
               }
             }
@@ -125,8 +125,8 @@ Template.DetailsForm.helpers({
       })
         .filter((section) =>
           ('contents' in section && section.contents.length > 0) ||
-        ('actions' in section && section.actions.length > 0) ||
-        ('type') in section && section.type == 'header')
+          ('actions' in section && section.actions.length > 0) ||
+          ('type' in section && section.type === 'header'))
     }
 
     return template.sections
@@ -135,15 +135,15 @@ Template.DetailsForm.helpers({
     return Template.instance().header
   },
   getProperty (entity, field) {
-    if (field.type == 'dropdown') {
+    if (field.type === 'dropdown') {
       return TAPi18n.__('language._' + entity._id.toUpperCase())
     }
 
     if (field.key in entity) {
       const value = entity[field.key]
 
-      if (field.type == 'date') {
-        if (value != null) {
+      if (field.type === 'date') {
+        if (value !== null) {
           const uiFormat = TAPi18n.__('dateFormat.' + field.uiFormat)
           const dbFormat = field.dbFormat
 
@@ -158,9 +158,9 @@ Template.DetailsForm.helpers({
     let translationString = []
 
     if (item.action) {
-      if (item.action.type == 'route') {
+      if (item.action.type === 'route') {
         translationString = item.action.route.split('.')
-      } else if (item.action.type == 'method') {
+      } else if (item.action.type === 'method') {
         translationString = item.action.method.split('.')
       }
     } else {

@@ -31,7 +31,7 @@ Template.InsertForm.helpers({
     return FlowRouter.path(Template.instance().backLink.get(), FlowRouter.current().params)
   },
   getSearchTranslation () {
-    if (FlowRouter.getParam('key') != null) {
+    if (FlowRouter.getParam('key') !== null) {
       const key = FlowRouter.getParam('key').replace(/_/g, '.') + 'Values'
 
       let routeNameParts = FlowRouter.getRouteName().split('.')
@@ -48,12 +48,12 @@ Template.InsertForm.helpers({
     const template = Template.instance()
     const activeFieldKey = template.activeField.get()
 
-    if (activeFieldKey != null) {
+    if (activeFieldKey !== null) {
       const activeField = template.fields.filter((field) => {
-        return field.key == activeFieldKey
+        return field.key === activeFieldKey
       })[0]
 
-      return activeField.search == true
+      return activeField.search === true
     }
     return false
   },
@@ -64,29 +64,29 @@ Template.InsertForm.helpers({
     const template = Template.instance()
 
     for (let field of template.fields) {
-      if (field.key == template.activeField.get()) {
+      if (field.key === template.activeField.get()) {
         return field
       }
     }
     return {}
   },
   isPicker (field) {
-    return field.type == 'picker'
+    return field.type === 'picker'
   },
   isDate (field) {
-    return field.type == 'date'
+    return field.type === 'date'
   },
   isDropdown (field) {
-    return field.type == 'dropdown'
+    return field.type === 'dropdown'
   },
   isCheckbox (field) {
-    return field.type == 'checkbox'
+    return field.type === 'checkbox'
   },
   isTextbox (field) {
-    return field.type == 'textbox'
+    return field.type === 'textbox'
   },
   isPassword (field) {
-    return field.type == 'password'
+    return field.type === 'password'
   },
   getInputData () {
     const template = Template.instance()
@@ -98,19 +98,19 @@ Template.InsertForm.helpers({
     }
 
     errors.some((error) => {
-      if (error.name == inputData.key) {
+      if (error.name === inputData.key) {
         inputData.error = error.type
         return true
       }
     })
 
-    if (template.entity[inputData.key] != null &&
-      template.entity[inputData.key] != '') {
+    if (template.entity[inputData.key] !== null &&
+      template.entity[inputData.key] !== '') {
       inputData.value = template.entity[inputData.key]
     }
 
     template.fields.some((field) => {
-      if (field.key == inputData.key) {
+      if (field.key === inputData.key) {
         if ('default' in field) {
           inputData.defaultValue = field.default
         }
@@ -126,12 +126,12 @@ Template.InsertForm.helpers({
         if ('required' in field) {
           inputData.required = field.required
         }
-        if (field.type == 'date') {
+        if (field.type === 'date') {
           inputData.format = field.format
         }
-        if (template.entity[field.key] != null) {
+        if (template.entity[field.key] !== null) {
           inputData.value = template.entity[field.key]
-        } else if (field.defaultValue != null) {
+        } else if (field.defaultValue !== null) {
           inputData.value = field.defaultValue
         }
         return true
@@ -145,7 +145,7 @@ Template.InsertForm.helpers({
   },
   isRequired () {
     const data = Template.currentData().data
-    if (data.required != null) {
+    if (data.required !== null) {
       return data.required
     }
     return false
@@ -172,7 +172,7 @@ Template.InsertForm.onCreated(() => {
     template.entity[key] = value
 
     for (let error of errors) {
-      if (error.name != key) {
+      if (error.name !== key) {
         newErrors.push(error)
       }
     }
@@ -188,7 +188,7 @@ Template.InsertForm.onRendered(() => {
 Template.InsertForm.events({
   'click .navbar-back': function (e) {
     const template = Template.instance()
-    if (template.activeField.get() != null) {
+    if (template.activeField.get() !== null) {
       e.preventDefault()
       e.stopPropagation()
 
@@ -207,7 +207,7 @@ Template.InsertForm.events({
     let newErrors = []
 
     for (let error in errors) {
-      if (error.name != key) {
+      if (error.name !== key) {
         newErrors.push(error)
       }
     }
@@ -223,13 +223,13 @@ Template.InsertForm.events({
     Meteor.call(FlowRouter.getRouteName(), FlowRouter.current().params, template.entity, (error, entityId) => {
       template.isSaving.set(false)
 
-      if (error != null) {
-        if (error.error.error == 'validation-error') {
+      if (error !== null) {
+        if (error.error.error === 'validation-error') {
           let errors = []
 
-          if (error.error.reason != null && typeof e.error.reason === 'object') {
+          if (error.error.reason !== null && typeof e.error.reason === 'object') {
             errors = errors.concat(e.error.reason)
-          } else if (error.error.details != null) {
+          } else if (error.error.details !== null) {
             errors = errors.concat(error.error.details)
           }
 
@@ -271,7 +271,7 @@ function getRegexLastIndexOf (string, regex) {
   let nextStop = 0
   let result
 
-  while ((result = regex.exec(stringToWorkWith)) != null) {
+  while ((result = regex.exec(stringToWorkWith)) !== null) {
     lastIndexOf = result.index
     regex.lastIndex = ++nextStop
   }

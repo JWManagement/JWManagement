@@ -10,7 +10,7 @@ import './DetailsForm.Actions.jade'
 Template.DetailsFormActions.helpers({
   getEntityTranslation,
   isType (action, type) {
-    return action.type == type
+    return action.type === type
   },
   getActionPath (action) {
     return FlowRouter.path(
@@ -38,7 +38,7 @@ Template.DetailsFormActions.events({
 
     if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
       Meteor.call(method, FlowRouter.current().params, (error) => {
-        if (error == null) {
+        if (error === null) {
           FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params))
         } else {
           alert('SERVER ERROR')

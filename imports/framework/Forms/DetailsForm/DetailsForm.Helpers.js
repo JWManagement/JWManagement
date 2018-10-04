@@ -7,9 +7,9 @@ import RoleManager from '/imports/framework/Managers/RoleManager'
 import RouteManager from '/imports/framework/Managers/RouteManager'
 
 function loadData (template) {
-  if (template.getMethod != null) {
+  if (template.getMethod !== null) {
     Meteor.call(template.getMethod, FlowRouter.current().params, (e, entity) => {
-      if (e == null) {
+      if (e === null) {
         template.item.set(entity)
         template.noResult.set(false)
         template.isLoading.set(false)
@@ -44,7 +44,7 @@ function getValue (definition, entity) {
 }
 
 function getKey (definition) {
-  if (definition.linkedKey != null) {
+  if (definition.linkedKey !== null) {
     return definition.linkedKey
   }
 
@@ -52,19 +52,19 @@ function getKey (definition) {
 }
 
 function isType (field, type) {
-  return field && field.type == type
+  return field && field.type === type
 }
 
 function hasPermissionToSee (definition) {
   let hasRole = true
   let customFulfilled = true
 
-  if (definition.canSee != null) {
+  if (definition.canSee !== null) {
     const projectId = FlowRouter.getParam('projectId')
     hasRole = RoleManager.hasPermission(projectId, definition.canSee)
   }
 
-  if (definition.custom != null) {
+  if (definition.custom !== null) {
     const template = Template.instance()
     const item = template.item.get()
     customFulfilled = definition.custom(item)
@@ -78,10 +78,10 @@ function defaultClickHandler (e) {
   const key = $e.attr('key')
   const link = $e.attr('link')
 
-  if (link != null) {
+  if (link !== null) {
     let params = FlowRouter.current().params
 
-    if (key != null) {
+    if (key !== null) {
       params.key = key
     }
 

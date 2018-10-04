@@ -12,7 +12,7 @@ Meteor.methods({
 
     if (users.length > 1) {
       throw new Meteor.Error('multipleAccountsFound')
-    } else if (users.length == 1) {
+    } else if (users.length === 1) {
       return users[0].username
     } else {
       throw new Meteor.Error('noAccountFound')

@@ -84,7 +84,7 @@ function publisherPermissionsTagUpdate ({ projectId, userId, tagId }, key, value
   if (Permissions.participantWithNone.includes(value)) {
     Roles.removeUsersFromRoles(userId, Permissions.participant, tagId)
 
-    if (value != 'none') {
+    if (value !== 'none') {
       Roles.setUserRoles(userId, value, tagId)
     }
 

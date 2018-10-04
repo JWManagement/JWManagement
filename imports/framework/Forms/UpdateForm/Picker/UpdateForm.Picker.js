@@ -16,17 +16,17 @@ Template.UpdateFormPicker.helpers({
   getEntityErrorTranslation,
   isAllowedValues () {
     const template = Template.instance()
-    return template.allowedValues != null
+    return template.allowedValues !== null
   },
   isAllowedKeyValues () {
     const template = Template.instance()
-    return template.allowedKeyValuesMethod != null
+    return template.allowedKeyValuesMethod !== null
   },
   getItems () {
     const template = Template.instance()
     const searchText = template.updateForm.searchText.get()
 
-    if (searchText != '') {
+    if (searchText !== '') {
       const regEx = new RegExp(searchText, 'gi')
       return template.allowedValues.filter((value) => {
         return value.match(regEx)
@@ -38,7 +38,7 @@ Template.UpdateFormPicker.helpers({
     const template = Template.instance()
     const searchText = template.updateForm.searchText.get()
 
-    if (searchText != '') {
+    if (searchText !== '') {
       const regEx = new RegExp(searchText, 'gi')
       return template.allowedKeyValues.get().filter(({ key, value }) => {
         return key.match(regEx) || value.match(regEx)
@@ -52,12 +52,12 @@ Template.UpdateFormPicker.helpers({
   },
   isChecked (keyValue) {
     const template = Template.instance()
-    return keyValue == template.value.get()
+    return keyValue === template.value.get()
   },
   getSearchEnabledClass () {
     const data = Template.currentData().data
 
-    if (data.search == true) {
+    if (data.search === true) {
       return 'search-enabled'
     }
     return 'search-disabled'
@@ -74,9 +74,9 @@ Template.UpdateFormPicker.onCreated(() => {
   template.allowedKeyValuesMethod = data.allowedKeyValuesMethod
   template.allowedKeyValues = new ReactiveVar([])
 
-  if (template.allowedKeyValuesMethod != null) {
+  if (template.allowedKeyValuesMethod !== null) {
     Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
-      if (e == null) {
+      if (e === null) {
         template.allowedKeyValues.set(keyValues)
       } else {
         alert('SERVER ERROR')

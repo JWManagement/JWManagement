@@ -21,14 +21,14 @@ Template.SearchForm.helpers({
     return TAPi18n.__(FlowRouter.getRouteName() + '.' + key.replace(/_/g, '.'))
   },
   valueOrDash (value) {
-    return (value != '' ? value : '-')
+    return (value !== '' ? value : '-')
   },
   isLoading () {
     return Template.instance().isLoading.get()
   },
   noResults () {
     const template = Template.instance()
-    return !template.isLoading.get() && template.items.get().length == 0
+    return !template.isLoading.get() && template.items.get().length === 0
   },
   resultsMobile () {
     const template = Template.instance()

@@ -17,13 +17,13 @@ function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslo
     const publisher = Users.findOne(userId)
     const day = key.split('_').pop().substring(0, 2)
 
-    if (publisher.profile.available == null) {
+    if (publisher.profile.available === null) {
       publisher.profile.available = {}
 
       Users.persistence.update(userId, 'profile.available', {})
     }
 
-    if (Object.keys(publisher.profile.available).indexOf(day) == -1) {
+    if (Object.keys(publisher.profile.available).indexOf(day) === -1) {
       publisher.profile.available[day] = []
     }
 
@@ -60,12 +60,12 @@ function publisherProfileAvailabilityDelete ({ projectId, userId, key }, timeslo
   let newTimeslots = []
 
   for (let userDay in publisher.profile.available) {
-    if (userDay == day) {
+    if (userDay === day) {
       const oldTimeslots = publisher.profile.available[userDay]
       const delTimeslots = timeslot.split(',')
 
       for (let oldTimeslot of oldTimeslots) {
-        if (delTimeslots.indexOf(String(oldTimeslot)) == -1) {
+        if (delTimeslots.indexOf(String(oldTimeslot)) === -1) {
           newTimeslots.push(oldTimeslot)
         }
       }

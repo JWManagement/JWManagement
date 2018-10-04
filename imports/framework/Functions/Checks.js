@@ -16,7 +16,7 @@ const Checks = {
         }
       })
 
-      if (user == null) {
+      if (user === null) {
         throw new Meteor.Error('invalidUserId')
       }
     }
@@ -29,7 +29,7 @@ const Checks = {
         }
       })
 
-      if (shift == null) {
+      if (shift === null) {
         throw new Meteor.Error('invalidShiftId')
       }
     },
@@ -53,7 +53,7 @@ const Checks = {
         }
       })
 
-      if (week == null) {
+      if (week === null) {
         throw new Meteor.Error('invalidWeek')
       }
     }
@@ -66,7 +66,7 @@ const Checks = {
         }
       })
 
-      if (project == null) {
+      if (project === null) {
         throw new Meteor.Error('invalidProject')
       }
     },
@@ -97,7 +97,7 @@ const Checks = {
         }
       })
 
-      if (project == null) {
+      if (project === null) {
         throw new Meteor.Error('invalidTag')
       }
     },
@@ -128,7 +128,7 @@ const Checks = {
         'teams._id': teamId
       })
 
-      if (project == null) {
+      if (project === null) {
         throw new Meteor.Error('invalidTeam')
       }
     }
@@ -140,7 +140,7 @@ const Checks = {
         'meetings._id': meetingPointId
       })
 
-      if (project == null) {
+      if (project === null) {
         throw new Meteor.Error('invalidMeetingPoint')
       }
     }

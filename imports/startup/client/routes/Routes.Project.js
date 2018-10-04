@@ -138,7 +138,7 @@ FlowRouter.route('/:projectId/shifts', {
     doIfLoggedIn(() => {
       let parent = Session.get('parent')
 
-      if (parent != 'settings') {
+      if (parent !== 'settings') {
         Session.set('parent', 'project.details')
         Session.set('target', null)
       }

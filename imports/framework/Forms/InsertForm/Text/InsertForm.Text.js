@@ -13,7 +13,7 @@ Template.InsertFormText.helpers({
   getEntityErrorTranslation,
   getValue () {
     const data = Template.currentData().data
-    if (data.value != null) {
+    if (data.value !== null) {
       return data.value
     }
     return ''

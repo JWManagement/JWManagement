@@ -14,21 +14,21 @@ function setLanguageOnAuth () {
   moment.locale('en') // default
 
   Tracker.autorun((tracker) => {
-    if (Meteor.user() != null) {
+    if (Meteor.user() !== null) {
       tracker.stop()
 
       const language = FlowRouter.current().params.language
       const myLanguage = Meteor.user().profile.language
 
-      if (language != myLanguage) {
+      if (language !== myLanguage) {
         wrs(() => FlowRouter.setParams({ language: myLanguage }))
       }
 
-      if (moment.locale() != myLanguage) {
+      if (moment.locale() !== myLanguage) {
         moment.locale(myLanguage)
       }
 
-      if (TAPi18n.getLanguage() != myLanguage) {
+      if (TAPi18n.getLanguage() !== myLanguage) {
         TAPi18n.setLanguage(myLanguage)
       }
     }

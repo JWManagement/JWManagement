@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
-
 import Vessels from '/imports/api/vessels/Vessels'
 import Languages from '/imports/framework/Constants/Languages'
 import Permissions from '/imports/framework/Constants/Permissions'
@@ -16,7 +15,7 @@ Meteor.methods({
       items: []
     }
 
-    if (typeof searchString !== 'string' || searchString == '') {
+    if (typeof searchString !== 'string' || searchString === '') {
       return result
     }
 
@@ -86,7 +85,7 @@ Meteor.methods({
 
     let visits = Vessels.findOne(vesselId).visits
 
-    if (visits == null) {
+    if (visits === null) {
       visits = []
     }
 
@@ -133,17 +132,17 @@ Meteor.methods({
     const extendedVisits = getExtendedVessel(vesselId).visits
 
     // only author can update visit
-    if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+    if (extendedVisits.length === 0 || extendedVisits[0].createdBy !== Meteor.userId()) {
       return
     }
 
     // only last visit can be updated
-    if (visitId != extendedVisits[0]._id) {
+    if (visitId !== extendedVisits[0]._id) {
       return
     }
 
     const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-      if (visit._id == visitId) {
+      if (visit._id === visitId) {
         visit[key] = value
       }
       return visit
@@ -161,16 +160,16 @@ Meteor.methods({
     const extendedVisits = getExtendedVessel(vesselId).visits
 
     // only author can delete visit
-    if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+    if (extendedVisits.length === 0 || extendedVisits[0].createdBy !== Meteor.userId()) {
       return
     }
 
     // only last visit can be deleted
-    if (visitId != extendedVisits[0]._id) {
+    if (visitId !== extendedVisits[0]._id) {
       return
     }
 
-    const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id != visitId)
+    const visits = Vessels.findOne(vesselId).visits.filter((visit) => visit._id !== visitId)
 
     try {
       Vessels.persistence.update(vesselId, 'visits', visits)
@@ -184,20 +183,20 @@ Meteor.methods({
     const extendedVisits = getExtendedVessel(vesselId).visits
 
     // only author can update visit
-    if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+    if (extendedVisits.length === 0 || extendedVisits[0].createdBy !== Meteor.userId()) {
       return
     }
 
     // only last visit can be updated
-    if (visitId != extendedVisits[0]._id) {
+    if (visitId !== extendedVisits[0]._id) {
       return
     }
 
     const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-      if (visit.languageIds == null) {
+      if (visit.languageIds === null) {
         visit.languageIds = []
       }
-      if (visit._id == visitId && visit.languageIds.filter((x) => x == languageIds).length == 0) {
+      if (visit._id === visitId && visit.languageIds.filter((x) => x === languageIds).length === 0) {
         visit.languageIds.push(languageIds)
       }
       return visit
@@ -215,18 +214,18 @@ Meteor.methods({
     const extendedVisits = getExtendedVessel(vesselId).visits
 
     // only author can update visit
-    if (extendedVisits.length == 0 || extendedVisits[0].createdBy != Meteor.userId()) {
+    if (extendedVisits.length === 0 || extendedVisits[0].createdBy !== Meteor.userId()) {
       return
     }
 
     // only last visit can be updated
-    if (visitId != extendedVisits[0]._id) {
+    if (visitId !== extendedVisits[0]._id) {
       return
     }
 
     const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-      if (visit._id == visitId) {
-        visit.languageIds = visit.languageIds.filter((langId) => langId != languageId)
+      if (visit._id === visitId) {
+        visit.languageIds = visit.languageIds.filter((langId) => langId !== languageId)
       }
       return visit
     })
@@ -270,11 +269,11 @@ function getExtendedVisit (visit) {
 
   visit.country = project.country
 
-  const harbor = project.harbors.filter((h) => h._id == visit.harborId)[0]
+  const harbor = project.harbors.filter((h) => h._id === visit.harborId)[0]
 
   visit.harbor = harbor.name
 
-  if (visit.languageIds == null) {
+  if (visit.languageIds === null) {
     visit.languageIds = []
   } else {
     visit.languageIds = visit.languageIds.map((languageId) => {
@@ -318,7 +317,7 @@ function getExtendedVessel (vesselId) {
 function checkVesselModule (projectId) {
   const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } })
 
-  if (project == null || project.vesselModule != true) {
+  if (project === null || project.vesselModule !== true) {
     throw new Meteor.Error('projectNotFound')
   }
 

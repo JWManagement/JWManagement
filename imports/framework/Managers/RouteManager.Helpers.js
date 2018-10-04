@@ -14,7 +14,7 @@ const checkLanguage = function () {
   const language = FlowRouter.current().params.language
   const myLanguage = TAPi18n.getLanguage()
 
-  if (language != myLanguage) {
+  if (language !== myLanguage) {
     TAPi18n.setLanguage(language)
     moment.locale(language)
 
@@ -26,13 +26,13 @@ const doIfLoggedIn = function (whatToDo, elseToDo) {
   const route = FlowRouter.getRouteName()
 
   Tracker.autorun((tracker) => {
-    if (route != FlowRouter.getRouteName()) {
+    if (route !== FlowRouter.getRouteName()) {
       tracker.stop()
     } else if (Meteor.loggingIn()) {
       BlazeLayout.render('blankLayout', { content: 'loading' })
     } else if (Meteor.userId()) {
       whatToDo()
-    } else if (elseToDo != null) {
+    } else if (elseToDo !== null) {
       elseToDo()
     } else {
       BlazeLayout.render('blankLayout', { content: 'login' })

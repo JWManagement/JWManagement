@@ -11,7 +11,7 @@ Roles.getAllGroupsForUser = function (userId, roles) {
   })
 
   for (let group in user.roles) {
-    if (group != Roles.GLOBAL_GROUP) {
+    if (group !== Roles.GLOBAL_GROUP) {
       for (let role of roles) {
         if (user.roles[group].indexOf(role) > -1) {
           groups.push(group)

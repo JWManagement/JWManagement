@@ -1,10 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import objectAssignDeep from 'object-assign-deep'
-
 import { checkPermissions } from '/imports/framework/Functions/Security'
 import Permissions from '/imports/framework/Constants/Permissions'
 import Users from '/imports/api/users/Users'
-
 import { getExtendedPublisher } from './Functions'
 
 function publisherSearch ({ projectId, searchString, limit }) {
@@ -16,7 +14,7 @@ function publisherSearch ({ projectId, searchString, limit }) {
     items: []
   }
 
-  if (typeof searchString !== 'string' || searchString == '') {
+  if (typeof searchString !== 'string' || searchString === '') {
     return result
   }
 
@@ -73,7 +71,7 @@ function publisherGet ({ projectId, userId }) {
 
   const publisher = getExtendedPublisher(userId, projectId)
 
-  if (publisher != undefined) {
+  if (publisher !== undefined) {
     publisher.profile.availability = {
       mondays: publisher.profile.availability.mondays.map((x) => { return x.timeslot }).join(', '),
       tuesdays: publisher.profile.availability.tuesdays.map((x) => { return x.timeslot }).join(', '),

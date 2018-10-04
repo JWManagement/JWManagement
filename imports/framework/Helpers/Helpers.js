@@ -11,13 +11,13 @@ function getTitle () {
 }
 
 function getEntityTranslation (key, suffix) {
-  if (key == null) {
+  if (key === null) {
     key = FlowRouter.getParam('key')
   }
 
   const attributeParts = [key]
 
-  if (suffix != null && typeof (suffix) === 'string') {
+  if (suffix !== null && typeof (suffix) === 'string') {
     attributeParts.push(suffix)
   }
 

@@ -29,14 +29,14 @@ Template.DetailsFormArrayDropdown.events({
     const entityId = data.entity._id
     let params = FlowRouter.current().params
 
-    if (type == 'route') {
+    if (type === 'route') {
       const key = data.definition.key
       const route = data.definition.action.route
 
       params[key + 'Id'] = entityId
 
       FlowRouter.go(FlowRouter.path(route, params))
-    } else if (type == 'method') {
+    } else if (type === 'method') {
       const method = data.definition.action.method
       const detailsForm = data.parentInstance
 

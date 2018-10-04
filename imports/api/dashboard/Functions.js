@@ -46,15 +46,15 @@ function getProjects (projectIds) {
 function getUpdatedShifts (projects, shifts) {
   return shifts.map((shift) => {
     const project = projects.filter((p) => {
-      return p._id == shift.projectId
+      return p._id === shift.projectId
     })[0]
 
     if (project) {
       const tag = project.tags.filter((t) => {
-        return t._id == shift.tagId
+        return t._id === shift.tagId
       })[0]
 
-      if (project != null && tag != null) {
+      if (project !== null && tag !== null) {
         shift.tag = tag.name
         shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10)
 
@@ -67,7 +67,7 @@ function getUpdatedShifts (projects, shifts) {
     return null
   })
     .filter((shift) => {
-      return shift != null
+      return shift !== null
     })
 }
 
@@ -90,7 +90,7 @@ function getMissingShiftReports (projectIds, projects, date, userId) {
     .filter((shift) => {
     // only return shift if my team hasn't submitted the report yet
       return shift.teams.filter((team) => {
-        return team.report == null || !team.report.submitted
+        return team.report === null || !team.report.submitted
       }).length > 0
     })
 

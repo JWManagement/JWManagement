@@ -23,7 +23,7 @@ Template.calendar.helpers({
     return moment(time, 'Hmm').format(TAPi18n.__('dateFormat.time'))
   },
   hasNoRequests () {
-    return this.approvedRequests == 0 && this.pendingRequests == 0
+    return this.approvedRequests === 0 && this.pendingRequests === 0
   }
 })
 
@@ -47,7 +47,7 @@ Template.calendar.onRendered(() => {
   let month = FlowRouter.getParam('month')
   let day = FlowRouter.getParam('day')
 
-  if (year == null || month == null || day == null) {
+  if (year === null || month === null || day === null) {
     template.setDate(new Date())
   } else {
     template.setDate(new Date(year, month - 1, day))

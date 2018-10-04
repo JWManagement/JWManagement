@@ -16,13 +16,13 @@ Template.InsertFormLink.helpers({
   getValue () {
     const template = Template.instance()
 
-    if (template.displayValue != null) {
+    if (template.displayValue !== null) {
       return template.displayValue
     }
     let value = 'placeholder'
     const data = Template.currentData().data
 
-    if (data.value != null) {
+    if (data.value !== null) {
       value = data.value
     }
 
@@ -42,9 +42,9 @@ Template.InsertFormLink.onCreated(() => {
   template.key = data.key
   template.insertForm = data.parentInstance
 
-  if (data.allowedKeyValues != null && data.value != null) {
+  if (data.allowedKeyValues !== null && data.value !== null) {
     template.displayValue = data.allowedKeyValues.filter((keyValue) => {
-      return keyValue.key == data.value
+      return keyValue.key === data.value
     })[0].value
   }
 })

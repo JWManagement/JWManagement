@@ -14,11 +14,11 @@ Template.DetailsFormArrayEntity.helpers({
   getValue (definition, entity) {
     const value = getValue(definition, entity)
 
-    if (definition.type == 'dropdown') {
+    if (definition.type === 'dropdown') {
       return TAPi18n.__('language._' + entity._id.toUpperCase())
     }
 
-    if (definition.type == 'date' && value != null) {
+    if (definition.type === 'date' && value !== null) {
       const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat)
       const dbFormat = definition.dbFormat
 

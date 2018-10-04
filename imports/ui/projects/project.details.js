@@ -41,7 +41,7 @@ Template['project.details'].helpers({
         icon: 'directions_boat',
         canSee: Permissions.member,
         custom: (project) => {
-          return project.vesselModule == true
+          return project.vesselModule === true
         }
       }]
     }, {

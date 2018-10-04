@@ -24,7 +24,7 @@ function generateRows (template) {
         value = item[column.name]
       }
 
-      if (column.type == 'dropdown') {
+      if (column.type === 'dropdown') {
         const keys = [
           FlowRouter.getRouteName().split('.')[0],
           'entity',
@@ -45,7 +45,7 @@ function generateRows (template) {
 function generateMobileRows (template) {
   const mobileColumns = template.columnDefinitions
     .filter((column) => {
-      return column.mobile == true
+      return column.mobile === true
     })
     .map((column) => {
       return {
@@ -81,11 +81,11 @@ function doSearch (template, retrieveAllResults = false) {
   template.resultsShown.set(params.limit)
 
   Meteor.call(routeName, params, (e, r) => {
-    if (e != null) {
+    if (e !== null) {
       alert(e); return
     }
 
-    if (r != null) {
+    if (r !== null) {
       template.items.set(r.items)
       template.itemCount.set(r.total)
       template.isLoading.set(false)
@@ -101,7 +101,7 @@ function updateSearch (template, search) {
     template.searchString.set(search)
     Session.set(FlowRouter.getRouteName() + '.searchString', search)
 
-    if (search == '' || search == '*' || search == '?' || search == '%') {
+    if (search === '' || search === '*' || search === '?' || search === '%') {
       template.searchString.set('.')
       template.regEx.set(new RegExp('.', 'i'))
     } else {

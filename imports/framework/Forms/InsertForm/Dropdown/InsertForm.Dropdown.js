@@ -17,11 +17,11 @@ Template.InsertFormDropdown.helpers({
   getEntityErrorTranslation,
   isAllowedValues () {
     const template = Template.instance()
-    return template.allowedValues != null
+    return template.allowedValues !== null
   },
   isAllowedKeyValues () {
     const template = Template.instance()
-    return template.allowedKeyValues != null
+    return template.allowedKeyValues !== null
   },
   getItems () {
     const template = Template.instance()
@@ -49,9 +49,9 @@ Template.InsertFormDropdown.onCreated(() => {
   template.allowedKeyValuesMethod = data.allowedKeyValuesMethod
   template.allowedKeyValues = new ReactiveVar(data.allowedKeyValues || [])
 
-  if (template.allowedKeyValuesMethod != null) {
+  if (template.allowedKeyValuesMethod !== null) {
     Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
-      if (e == null) {
+      if (e === null) {
         template.allowedKeyValues.set(keyValues)
       } else {
         alert('SERVER ERROR')
