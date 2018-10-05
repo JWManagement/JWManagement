@@ -104,7 +104,7 @@ RouteManager.registerProjectEntity('note', {
 
 RouteManager.registerProjectEntity('project.support', {
   details: 'support'
-});
+})
 
 FlowRouter.route('/:projectId/publisherActions', {
   name: 'publisherActions',
