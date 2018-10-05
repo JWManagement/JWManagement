@@ -82,6 +82,12 @@ Template['project.details'].helpers({
         route: 'note.details',
         icon: 'note',
         canSee: Permissions.shiftAndStoreAdmin
+      }, {
+        key: 'supportPage',
+        type: 'link',
+        route: 'project.support.details',
+        icon: 'help',
+        canSee: Permissions.admin
       }]
     }, {
       title: 'participation',

@@ -20,6 +20,8 @@ navigation:
   project:
     search: Projekte
     details: Verwaltung
+    support:
+      details: Hilfe
   settings: Einstellungen
   user:
     search: Benutzer

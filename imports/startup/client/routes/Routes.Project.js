@@ -102,6 +102,10 @@ RouteManager.registerProjectEntity('note', {
   update: 'notes/:noteId/:key'
 })
 
+RouteManager.registerProjectEntity('project.support', {
+  details: 'support'
+})
+
 FlowRouter.route('/:projectId/publisherActions', {
   name: 'publisherActions',
   action: () => {

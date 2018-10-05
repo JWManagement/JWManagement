@@ -82,6 +82,9 @@ template(name="DetailsForm")
                       else if isType field 'checkbox'
                         +DetailsFormCheckbox definition=field entity=getItem
 
+                      else if isType field 'content'
+                        +Template.contentBlock
+
                       else
                         h1 Unsupported form type
 
