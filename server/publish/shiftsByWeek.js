@@ -9,7 +9,8 @@ Meteor.publish('shiftsByWeek', function (projectId, date) {
     date: date
   }, {
     fields: {
-      _id: 1
+      _id: 1,
+      projectId: 1
     }
   })
 
