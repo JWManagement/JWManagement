@@ -57,6 +57,7 @@ import '/imports/ui/users/online/users.online.details'
 import '/imports/ui/projects/projects.jade'
 import '/imports/ui/projects/project.search'
 import '/imports/ui/projects/project.details'
+import '/imports/ui/projects/project.support.details'
 
 import '/imports/ui/publishers/publishers.jade'
 import '/imports/ui/publishers/publisher.search'
@@ -87,9 +88,6 @@ import '/imports/ui/notes/note.search'
 import '/imports/ui/notes/note.details'
 import '/imports/ui/notes/note.update'
 import '/imports/ui/notes/note.insert'
-
-import '/imports/ui/projects/support.jade';
-import '/imports/ui/projects/support.details';
 
 import '/imports/ui/calendar/calendar'
 

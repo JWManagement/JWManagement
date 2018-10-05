@@ -20,6 +20,8 @@ navigation:
   project:
     search: Projects
     details: Administration
+    support:
+      details: Support
   settings: Settings
   user:
     search: Users

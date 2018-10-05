@@ -102,7 +102,7 @@ RouteManager.registerProjectEntity('note', {
   update: 'notes/:noteId/:key'
 })
 
-RouteManager.registerProjectEntity('support', {
+RouteManager.registerProjectEntity('project.support', {
   details: 'support'
 });
 

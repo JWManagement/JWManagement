@@ -83,11 +83,11 @@ Template['project.details'].helpers({
         icon: 'note',
         canSee: Permissions.shiftAndStoreAdmin
       }, {
-        key: 'support',
+        key: 'supportPage',
         type: 'link',
-        route: 'support.details',
+        route: 'project.support.details',
         icon: 'help',
-        canSee: Permissions.shiftAndStoreAdmin
+        canSee: Permissions.admin
       }]
     }, {
       title: 'participation',

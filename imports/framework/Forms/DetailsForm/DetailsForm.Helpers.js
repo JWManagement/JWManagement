@@ -85,7 +85,13 @@ function defaultClickHandler (e) {
       params.key = key
     }
 
-    FlowRouter.go(FlowRouter.path(link, params))
+    const path = FlowRouter.path(link, params)
+
+    if (path.startsWith('http')) {
+      window.open(path)
+    } else {
+      FlowRouter.go(path)
+    }
   } else {
     RouteManager.navigateToUpdate(key)
   }

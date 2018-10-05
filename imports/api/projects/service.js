@@ -5,7 +5,7 @@ import Permissions from '/imports/framework/Constants/Permissions'
 import RoleManager from '/imports/framework/Managers/RoleManager'
 
 Meteor.methods({
-  'project.search': ({ searchString, limit }) => {
+  'project.search' ({ searchString, limit }) {
     if (!Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
       return []
     }
@@ -41,7 +41,7 @@ Meteor.methods({
 
     return result
   },
-  'project.get': ({ projectId }) => {
+  'project.get' ({ projectId }) {
     const project = Projects.findOne(projectId, {
       fields: {
         name: 1,
@@ -60,7 +60,7 @@ Meteor.methods({
 
     return project
   },
-  'project.leave': ({ projectId }) => {
+  'project.leave' ({ projectId }) {
     const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
 
     if (project == null) {
@@ -79,6 +79,12 @@ Meteor.methods({
       }
     } catch (e) {
       throw new Meteor.Error(e)
+    }
+  },
+  'project.support.get' () {
+    return {
+      phone: '+49 177 3291529',
+      email: 'support@jwmanagement.org'
     }
   }
 })
