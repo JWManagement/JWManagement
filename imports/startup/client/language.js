@@ -14,7 +14,7 @@ function setLanguageOnAuth () {
   moment.locale('en') // default
 
   Tracker.autorun((tracker) => {
-    if (Meteor.user() !== null) {
+    if (Meteor.user() != null) {
       tracker.stop()
 
       const language = FlowRouter.current().params.language

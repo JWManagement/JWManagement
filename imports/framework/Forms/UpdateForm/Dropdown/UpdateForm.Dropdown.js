@@ -17,11 +17,11 @@ Template.UpdateFormDropdown.helpers({
   getEntityErrorTranslation,
   isAllowedValues () {
     const template = Template.instance()
-    return template.allowedValues !== null
+    return template.allowedValues != null
   },
   isAllowedKeyValues () {
     const template = Template.instance()
-    return template.allowedKeyValuesMethod !== null
+    return template.allowedKeyValuesMethod != null
   },
   getItems () {
     const template = Template.instance()
@@ -47,9 +47,9 @@ Template.UpdateFormDropdown.onCreated(() => {
   template.allowedKeyValuesMethod = data.allowedKeyValuesMethod
   template.allowedKeyValues = new ReactiveVar([])
 
-  if (template.allowedKeyValuesMethod !== null) {
+  if (template.allowedKeyValuesMethod != null) {
     Meteor.call(template.allowedKeyValuesMethod, FlowRouter.current().params, (e, keyValues) => {
-      if (e === null) {
+      if (e == null) {
         template.allowedKeyValues.set(keyValues)
       } else {
         alert('SERVER ERROR')

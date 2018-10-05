@@ -23,7 +23,7 @@ Template.InsertFormDate.onCreated(() => {
   template.format = data.format
   template.insertForm = data.parentInstance
 
-  if (data.defaultValue !== null) {
+  if (data.defaultValue != null) {
     if (data.defaultValue === 'today') {
       template.defaultValue = Date()
     } else {
@@ -48,7 +48,7 @@ Template.InsertFormDate.onRendered(() => {
       template.insertForm.setFieldValue(template.key, value)
     })
 
-  if (template.defaultValue !== null) {
+  if (template.defaultValue != null) {
     $datePicker.datepicker('setDate', template.defaultValue)
   }
 })

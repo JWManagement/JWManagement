@@ -60,7 +60,7 @@ Template.DetailsForm.helpers({
     return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'))
   },
   getBackgroundColor (section) {
-    return (section.background !== null ? section.background : '')
+    return (section.background != null ? section.background : '')
   },
   isType,
   getItem () {
@@ -92,9 +92,9 @@ Template.DetailsForm.helpers({
     const template = Template.instance()
     const item = template.item.get()
 
-    if (item !== null) {
+    if (item != null) {
       return template.sections.map((section) => {
-        if (section.contents !== null) {
+        if (section.contents != null) {
           section.contents = section.contents.map((content) => {
             if ('canUpdate' in content) {
               if (content.canUpdate === 'author') {
@@ -111,7 +111,7 @@ Template.DetailsForm.helpers({
             return content
           })
         }
-        if (section.actions !== null) {
+        if (section.actions != null) {
           section.actions = section.actions.filter((action) => {
             if ('canSee' in action && action.canSee === 'author') {
               if (item.createdBy !== Meteor.userId()) {
@@ -143,7 +143,7 @@ Template.DetailsForm.helpers({
       const value = entity[field.key]
 
       if (field.type === 'date') {
-        if (value !== null) {
+        if (value != null) {
           const uiFormat = TAPi18n.__('dateFormat.' + field.uiFormat)
           const dbFormat = field.dbFormat
 

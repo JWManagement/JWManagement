@@ -17,7 +17,7 @@ function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslo
     const publisher = Users.findOne(userId)
     const day = key.split('_').pop().substring(0, 2)
 
-    if (publisher.profile.available === null) {
+    if (publisher.profile.available == null) {
       publisher.profile.available = {}
 
       Users.persistence.update(userId, 'profile.available', {})

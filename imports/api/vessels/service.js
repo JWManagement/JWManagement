@@ -85,7 +85,7 @@ Meteor.methods({
 
     let visits = Vessels.findOne(vesselId).visits
 
-    if (visits === null) {
+    if (visits == null) {
       visits = []
     }
 
@@ -193,7 +193,7 @@ Meteor.methods({
     }
 
     const visits = Vessels.findOne(vesselId).visits.map((visit) => {
-      if (visit.languageIds === null) {
+      if (visit.languageIds == null) {
         visit.languageIds = []
       }
       if (visit._id === visitId && visit.languageIds.filter((x) => x === languageIds).length === 0) {
@@ -273,7 +273,7 @@ function getExtendedVisit (visit) {
 
   visit.harbor = harbor.name
 
-  if (visit.languageIds === null) {
+  if (visit.languageIds == null) {
     visit.languageIds = []
   } else {
     visit.languageIds = visit.languageIds.map((languageId) => {
@@ -317,7 +317,7 @@ function getExtendedVessel (vesselId) {
 function checkVesselModule (projectId) {
   const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } })
 
-  if (project === null || project.vesselModule !== true) {
+  if (project == null || project.vesselModule !== true) {
     throw new Meteor.Error('projectNotFound')
   }
 

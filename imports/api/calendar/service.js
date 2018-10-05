@@ -100,7 +100,7 @@ Meteor.methods({
             for (let request of team.pending) {
               for (let user of users) {
                 if (user._id === request._id) {
-                  if (user.roles[Roles.GLOBAL_GROUP] !== null &&
+                  if (user.roles[Roles.GLOBAL_GROUP] != null &&
                     user.roles[Roles.GLOBAL_GROUP].indexOf('teamleader') > -1) {
                     team.isTlNeeded = false
                     break
@@ -143,7 +143,7 @@ Meteor.methods({
 function checkPermissions (projectId) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
-  if (project === null) {
+  if (project == null) {
     throw new Meteor.Error('projectNotFound')
   }
 

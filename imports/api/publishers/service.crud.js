@@ -71,7 +71,7 @@ function publisherGet ({ projectId, userId }) {
 
   const publisher = getExtendedPublisher(userId, projectId)
 
-  if (publisher !== undefined) {
+  if (publisher != null) {
     publisher.profile.availability = {
       mondays: publisher.profile.availability.mondays.map((x) => { return x.timeslot }).join(', '),
       tuesdays: publisher.profile.availability.tuesdays.map((x) => { return x.timeslot }).join(', '),

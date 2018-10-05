@@ -6,7 +6,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 Template.wiki.helpers({
   tabs: function () {
     const project = Projects.findOne(FlowRouter.getParam('projectId'))
-    return project !== null ? project.wiki !== null ? project.wiki.tabs : void 0 : void 0
+    return project != null ? project.wiki != null ? project.wiki.tabs : void 0 : void 0
   },
   files: function () {
     const projectId = FlowRouter.getParam('projectId')

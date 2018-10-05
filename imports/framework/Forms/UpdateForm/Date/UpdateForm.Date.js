@@ -23,7 +23,7 @@ Template.UpdateFormDate.onCreated(() => {
   template.format = data.format
   template.updateForm = data.parentInstance
 
-  if (template.valueRaw !== null && template.valueRaw === 'today') {
+  if (template.valueRaw != null && template.valueRaw === 'today') {
     template.valueRaw = moment(Date()).format(template.format)
   }
 })
@@ -51,7 +51,7 @@ Template.UpdateFormDate.onRendered(() => {
       }
     })
 
-  if (template.valueRaw !== null && template.valueRaw !== '') {
+  if (template.valueRaw != null && template.valueRaw !== '') {
     $datePicker.datepicker('setDate', moment(template.valueRaw, template.format).toDate())
   }
 

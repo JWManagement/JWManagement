@@ -50,7 +50,7 @@ Meteor.methods({
       }
     })
 
-    if (project === null) {
+    if (project == null) {
       throw new Meteor.Error('projectNotFound')
     }
 
@@ -63,7 +63,7 @@ Meteor.methods({
   'project.leave': ({ projectId }) => {
     const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
 
-    if (project === null) {
+    if (project == null) {
       throw new Meteor.Error('projectNotFound')
     }
 
