@@ -10,7 +10,7 @@ module.exports = {
     name: 'JWManagementStaging',
     path: '../',
     docker: {
-      image: 'abernix/meteord:node-8-base'
+      image: 'zodern/meteor:root'
     },
     servers: {
       one: {}
