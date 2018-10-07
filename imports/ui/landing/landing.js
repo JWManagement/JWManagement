@@ -1,2 +1,2 @@
-import './landing.html';
-import './landing.scss';
+import './landing.html'
+import './landing.scss'
