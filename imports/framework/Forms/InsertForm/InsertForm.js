@@ -186,7 +186,7 @@ Template.InsertForm.onRendered(() => {
 })
 
 Template.InsertForm.events({
-  'click .navbar-back': function (e) {
+  'click .navbar-back' (e) {
     const template = Template.instance()
     if (template.activeField.get() != null) {
       e.preventDefault()

@@ -25,7 +25,7 @@ Template.login.onRendered(() => {
 })
 
 Template.login.events({
-  'submit form': function (event) {
+  'submit form' (event) {
     event.preventDefault()
     Session.set('error', '')
 
