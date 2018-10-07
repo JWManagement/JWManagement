@@ -1,13 +1,13 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 const Platform = {
 
-  getOS: function() {
+  getOS: function () {
     if (this.isAndroid()) {
-      return 'md';
+      return 'md'
     } else {
-      return 'ios';
-    } 
+      return 'ios'
+    }
   },
 
   isCordova: Meteor.isCordova || true,
@@ -15,6 +15,6 @@ const Platform = {
   isIOS: navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i),
 
   isAndroid: navigator.userAgent.indexOf('Android') > 0
-};
+}
 
-export default Platform;
+export default Platform

@@ -1,35 +1,34 @@
-import moment from 'moment';
-import { Template } from 'meteor/templating';
-import { TAPi18n } from 'meteor/tap:i18n';
+import moment from 'moment'
+import { Template } from 'meteor/templating'
+import { TAPi18n } from 'meteor/tap:i18n'
 
-import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
-import { getEntityTranslation } from '/imports/framework/Helpers/Helpers';
+import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+import { getEntityTranslation } from '/imports/framework/Helpers/Helpers'
 
-import './DetailsForm.Date.jade';
+import './DetailsForm.Date.jade'
 
 Template.DetailsFormDate.helpers({
   getEntityTranslation,
   getKey,
-  getValue(definition, entity) {
-    const value = getValue(definition, entity);
+  getValue (definition, entity) {
+    const value = getValue(definition, entity)
 
     if (!value) {
-      return '';
+      return ''
     }
-      const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat);
-      const dbFormat = definition.dbFormat;
+    const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat)
+    const dbFormat = definition.dbFormat
 
-      return moment(value, dbFormat).format(uiFormat);
-
+    return moment(value, dbFormat).format(uiFormat)
   }
-});
+})
 
-Template.DetailsFormDate.onCreated(() => {});
+Template.DetailsFormDate.onCreated(() => {})
 
-Template.DetailsFormDate.onRendered(() => {});
+Template.DetailsFormDate.onRendered(() => {})
 
-Template.DetailsFormDate.onDestroyed(() => {});
+Template.DetailsFormDate.onDestroyed(() => {})
 
 Template.DetailsFormDate.events({
   'click .input': defaultClickHandler
-});
+})

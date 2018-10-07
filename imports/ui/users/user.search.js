@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['user.search'].helpers({
   data: {
@@ -42,7 +42,7 @@ Template['user.search'].helpers({
             username: 1
           }
         }
-      };
+      }
     }
   }
-});
+})

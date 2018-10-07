@@ -26,6 +26,6 @@ const Hour = {
     22,
     23
   ]
-};
+}
 
-export default Hour;
+export default Hour

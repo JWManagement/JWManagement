@@ -5,16 +5,54 @@ node_js:
 before_install:
   - curl https://install.meteor.com | /bin/sh
   - npm install -g mup
-services:
-  - mongodb
-deploy:
-  - provider: script
-    script: bash .deploy/deploy.staging.sh
-    skip_cleanup: true
-    on:
-      branch: develop
-  - provider: script
-    script: bash .deploy/deploy.production.sh
-    skip_cleanup: true
-    on:
-      branch: master
+
+stages:
+  # Staging
+  - name: "Staging Pre-deploy"
+    if: branch = develop
+  - name: "Staging Deploy"
+    if: branch = develop AND type = push
+  - name: "Staging Post-deploy"
+    if: branch = develop AND type = push
+  # Production
+  - name: "Production Pre-deploy"
+    if: branch = master
+  - name: "Production Deploy"
+    if: branch = master AND type = push
+  - name: "Production Post-deploy"
+    if: branch = master AND type = push
+
+jobs:
+  include:
+    # Staging
+    - stage: "Staging Pre-deploy"
+      name: Logs
+      script: .deploy/logs.staging.sh
+    - stage: "Staging Pre-deploy"
+      name: Lint
+      script: .deploy/lint.sh
+    - stage: "Staging Deploy"
+      name: Setup
+      script: .deploy/setup.staging.sh
+    - stage: "Staging Deploy"
+      name: "Build & Push"
+      script: .deploy/deploy.staging.sh
+    - stage: "Staging Post-deploy"
+      name: Logs
+      script: .deploy/logs.staging.sh
+    # Production
+    - stage: "Production Pre-deploy"
+      name: Logs
+      script: .deploy/logs.production.sh
+    - stage: "Production Pre-deploy"
+      name: Lint
+      script: .deploy/lint.sh
+    - stage: "Production Deploy"
+      name: Setup
+      script: .deploy/setup.production.sh
+    - stage: "Production Deploy"
+      name: "Build & Push"
+      script: .deploy/deploy.production.sh
+    - stage: "Production Post-deploy"
+      name: Logs
+      script: .deploy/logs.production.sh

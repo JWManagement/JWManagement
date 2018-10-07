@@ -1,4 +1,4 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 Meteor.methods({
   'shift.getShiftOverview': ({ shiftId }) => {
@@ -7,6 +7,6 @@ Meteor.methods({
         projectId: 1,
         date: 1
       }
-    });
+    })
   }
-});
+})

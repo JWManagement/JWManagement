@@ -25,6 +25,6 @@ const Languages = {
     'X',
     'YR'
   ]
-};
+}
 
-export default Languages;
+export default Languages

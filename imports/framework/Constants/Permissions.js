@@ -57,6 +57,6 @@ const Permissions = {
   support: [
     'support'
   ]
-};
+}
 
-export default Permissions;
+export default Permissions

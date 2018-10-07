@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['publisher.permissions.tag.details'].helpers({
   data: {
@@ -14,4 +14,4 @@ Template['publisher.permissions.tag.details'].helpers({
       }]
     }]
   }
-});
+})

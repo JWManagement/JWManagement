@@ -1,5 +1,5 @@
-import { Mailer } from 'meteor/lookback:emails';
-import { TAPi18n } from 'meteor/tap:i18n';
+import { Mailer } from 'meteor/lookback:emails'
+import { TAPi18n } from 'meteor/tap:i18n'
 
 const MailManager = {
 
@@ -7,7 +7,7 @@ const MailManager = {
     data.data.global = {
       footer: TAPi18n.__('mail.footer', '', data.language),
       link: TAPi18n.__('mail.link', '', data.language)
-    };
+    }
 
     Mailer.send({
       to: data.recipient,
@@ -16,9 +16,9 @@ const MailManager = {
       subject: data.subject,
       template: data.template,
       data: data.data
-    });
+    })
   }
 
-};
+}
 
-export default MailManager;
+export default MailManager

@@ -67,7 +67,7 @@ How to create a Search Page
           items: []
         };
 
-        if (typeof searchString != 'string' || searchString == '') {
+        if (typeof searchString !== 'string' || searchString === '') {
           return result;
         }
 

@@ -1,60 +1,60 @@
-import { Meteor } from 'meteor/meteor';
-import { Random } from 'meteor/random';
-import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor'
+import { Random } from 'meteor/random'
+import SimpleSchema from 'simpl-schema'
 
-import Gender from '/imports/framework/Constants/Gender';
-import Pioneer from '/imports/framework/Constants/Pioneer';
-import Privilege from '/imports/framework/Constants/Privilege';
-import SystemLanguages from '/imports/framework/Constants/SystemLanguages';
+import Gender from '/imports/framework/Constants/Gender'
+import Pioneer from '/imports/framework/Constants/Pioneer'
+import Privilege from '/imports/framework/Constants/Privilege'
+import SystemLanguages from '/imports/framework/Constants/SystemLanguages'
 
-const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
+const PersistenceManager = require('/imports/framework/Managers/PersistenceManager')
 
-let Users = Meteor.users;
+let Users = Meteor.users
 
 Users.deny({
-  insert: () => { return true; },
-  update: () => { return true; },
-  remove: () => { return true; }
-});
+  insert: () => { return true },
+  update: () => { return true },
+  remove: () => { return true }
+})
 
 Users.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return Random.id();
+        return Random.id()
       }
     }
   },
   createdAt: {
     type: Date,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return new Date;
+        return new Date()
       }
     }
   },
   createdBy: {
     type: String,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return Meteor.userId();
+        return Meteor.userId()
       }
     }
   },
   lastChangeBy: {
     type: String,
-    autoValue: function() {
-      return Meteor.userId();
+    autoValue: function () {
+      return Meteor.userId()
     }
   },
   username: {
     type: String,
-    autoValue: function() {
-      if (this.isSet && typeof this.value === "string") {
-        return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '');
+    autoValue: function () {
+      if (this.isSet && typeof this.value === 'string') {
+        return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '')
       }
-      return Random.hexString(10);
+      return Random.hexString(10)
     }
   },
   status: {
@@ -181,25 +181,25 @@ Users.schema = new SimpleSchema({
   'profile.vacations.$': new SimpleSchema({
     _id: {
       type: String,
-      autoValue: function() {
+      autoValue: function () {
         if (!this.isSet) {
-          return Random.id();
+          return Random.id()
         }
       }
     },
     createdAt: {
       type: Date,
-      autoValue: function() {
+      autoValue: function () {
         if (!this.isSet) {
-          return new Date;
+          return new Date()
         }
       }
     },
     createdBy: {
       type: String,
-      autoValue: function() {
+      autoValue: function () {
         if (!this.isSet) {
-          return Meteor.userId();
+          return Meteor.userId()
         }
       }
     },
@@ -236,12 +236,12 @@ Users.schema = new SimpleSchema({
     blackbox: true,
     optional: true
   }
-});
+})
 
-Users.uniqueKeys = ['username'];
+Users.uniqueKeys = ['username']
 
-Users.attachSchema = Users.schema;
+Users.attachSchema = Users.schema
 
-Users.persistence = new PersistenceManager(Users);
+Users.persistence = new PersistenceManager(Users)
 
-export default Users;
+export default Users

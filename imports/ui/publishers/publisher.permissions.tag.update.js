@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions';
+import Permissions from '/imports/framework/Constants/Permissions'
 
 Template['publisher.permissions.tag.update'].helpers({
   data: {
@@ -12,4 +12,4 @@ Template['publisher.permissions.tag.update'].helpers({
       allowedValues: Permissions.participantWithNone
     }]
   }
-});
+})

@@ -1,22 +1,22 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 import {
   getValueForSeeAllItems,
   clickHandlerForSeeAllItems
-} from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+} from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
 
-import './DetailsForm.Array.EntitySeeAll.jade';
+import './DetailsForm.Array.EntitySeeAll.jade'
 
 Template.DetailsFormArrayEntitySeeAll.helpers({
   getValue: getValueForSeeAllItems
-});
+})
 
-Template.DetailsFormArrayEntitySeeAll.onCreated(() => {});
+Template.DetailsFormArrayEntitySeeAll.onCreated(() => {})
 
-Template.DetailsFormArrayEntitySeeAll.onRendered(() => {});
+Template.DetailsFormArrayEntitySeeAll.onRendered(() => {})
 
-Template.DetailsFormArrayEntitySeeAll.onDestroyed(() => {});
+Template.DetailsFormArrayEntitySeeAll.onDestroyed(() => {})
 
 Template.DetailsFormArrayEntitySeeAll.events({
   'click tr.array-item': clickHandlerForSeeAllItems
-});
+})

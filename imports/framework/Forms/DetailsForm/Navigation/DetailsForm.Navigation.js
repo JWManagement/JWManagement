@@ -1,42 +1,42 @@
-import { Template } from 'meteor/templating';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Template } from 'meteor/templating'
+import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getTitle } from '/imports/framework/Helpers/Helpers';
+import { getTitle } from '/imports/framework/Helpers/Helpers'
 
-import './DetailsForm.Navigation.jade';
+import './DetailsForm.Navigation.jade'
 
 Template.DetailsFormNavigation.helpers({
   getTitle,
-  hasBackLink() {
+  hasBackLink () {
     if (Template.currentData().data) {
-      return Template.currentData().data.backLink != null;
+      return Template.currentData().data.backLink != null
     }
   },
-  getBackLink() {
+  getBackLink () {
     if (Template.currentData().data) {
       return FlowRouter.path(
         Template.currentData().data.backLink,
-        FlowRouter.current().params);
+        FlowRouter.current().params)
     }
   },
-  getNavbarStyle() {
+  getNavbarStyle () {
     if (Template.currentData().data) {
-      const navbarStyle = Template.currentData().data.navbarStyle;
+      const navbarStyle = Template.currentData().data.navbarStyle
 
-      return (navbarStyle != null ? navbarStyle : '');
+      return (navbarStyle != null ? navbarStyle : '')
     }
   },
-  showTitle() {
+  showTitle () {
     if (Template.currentData().data) {
-      return !Template.currentData().data.hideTitle;
+      return !Template.currentData().data.hideTitle
     }
   }
-});
+})
 
-Template.DetailsFormNavigation.onCreated(() => {});
+Template.DetailsFormNavigation.onCreated(() => {})
 
-Template.DetailsFormNavigation.onRendered(() => {});
+Template.DetailsFormNavigation.onRendered(() => {})
 
-Template.DetailsFormNavigation.onDestroyed(() => {});
+Template.DetailsFormNavigation.onDestroyed(() => {})
 
-Template.DetailsFormNavigation.events({});
+Template.DetailsFormNavigation.events({})

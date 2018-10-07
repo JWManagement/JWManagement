@@ -1,0 +1,12 @@
+body.gray-bg.md-skin.top-navigation
+
+  #wrapper
+
+    #page-wrapper(class="{{currentRouteName}}-wrapper")
+
+      +navigation
+
+      .template-content
+        +Template.dynamic(template=content)
+
+      +footer

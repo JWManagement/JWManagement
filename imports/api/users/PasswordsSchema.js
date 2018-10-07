@@ -1,4 +1,4 @@
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'simpl-schema'
 
 const PasswordsSchema = new SimpleSchema({
   password: {
@@ -7,12 +7,12 @@ const PasswordsSchema = new SimpleSchema({
   },
   passwordRepeat: {
     type: String,
-    custom: function() {
+    custom: function () {
       if (this.value !== this.field('password').value) {
-        return 'passwordMismatch';
+        return 'passwordMismatch'
       }
     }
   }
-});
+})
 
-export default PasswordsSchema;
+export default PasswordsSchema

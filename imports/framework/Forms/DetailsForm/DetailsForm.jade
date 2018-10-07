@@ -1,90 +1,95 @@
 template(name="DetailsForm")
-  +DetailsFormNavigation data=data.navigation
+  body.md-skin.top-navigation(type='DetailsForm')
 
-  form.form-horizontal
+    +DetailsFormNavigation data=data.navigation
 
-    if isLoading
-      .loading
-        i.fa.fa-circle-o-notch.fa-spin.fa-3x
+    form.form-horizontal
 
-    else if noResult
-      .center-align
-        h2 Oops!
-        p We couldn't find anything.
-        button#back.btn.btn-primary {{_ 'navigation.back'}}
+      if isLoading
+        .loading
+          i.fa.fa-circle-o-notch.fa-spin.fa-3x
 
-    else
-
-      if header
-        +DetailsFormHeader section=header entity=getItem
-
-      each section in sections
-        if isSectionVisible section
-          .section
-
-            if section.title
-              .section-title {{getSectionTranslation section.title}}
-
-            if section.contents
-              .section-content.clearfix
-
-                each field in section.contents
-                  if hasPermissionToSee field
-
-                    if isType field 'array'
-                      .array(key='{{field.key}}')
-
-                        if isEmptyArray field
-                          p.noElements {{getNoElementsTranslation field.item}}
-
-                        else if isType field.item 'link'
-                          each item in getValue field getItem
-                            +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
-                          if hasMoreItems field getItem
-                            +DetailsFormArrayLinkSeeAll definition=field entity=getItem
-
-                        else if isType field.item 'dropdown'
-                          each item in getValue field getItem
-                            +DetailsFormArrayDropdown definition=field.item entity=item parentInstance=getInstance
-
-                        else if isType field.item 'entity'
-                          each item in getValue field getItem
-                            +DetailsFormArrayEntity definition=field.item entity=item
-                          if hasMoreItems field getItem
-                            +DetailsFormArrayEntitySeeAll definition=field entity=getItem
-
-                        else
-                          h1 Unsupported array type
-
-                    else if isType field 'link'
-                      +DetailsFormLink definition=field entity=getItem
-
-                    else if isType field 'text'
-                      +DetailsFormText definition=field entity=getItem
-
-                    else if isType field 'email'
-                      +DetailsFormEmail definition=field entity=getItem
-
-                    else if isType field 'phone'
-                      +DetailsFormPhone definition=field entity=getItem
-
-                    else if isType field 'date'
-                      +DetailsFormDate definition=field entity=getItem
-
-                    else if isType field 'textbox'
-                      +DetailsFormTextbox definition=field entity=getItem
-
-                    else if isType field 'dropdown'
-                      +DetailsFormDropdown definition=field entity=getItem
-
-                    else if isType field 'checkbox'
-                      +DetailsFormCheckbox definition=field entity=getItem
-
-                    else
-                      h1 Unsupported form type
-
-            if section.actions
-              +DetailsFormActions actions=section.actions
+      else if noResult
+        .center-align
+          h2 Oops!
+          p We couldn't find anything.
+          button#back.btn.btn-primary {{_ 'navigation.back'}}
 
       else
-        h1 Sections are missing!
+
+        if header
+          +DetailsFormHeader section=header entity=getItem
+
+        each section in sections
+          if isSectionVisible section
+            .section
+
+              if section.title
+                .section-title {{getSectionTranslation section.title}}
+
+              if section.contents
+                .section-content.clearfix
+
+                  each field in section.contents
+                    if hasPermissionToSee field
+
+                      if isType field 'array'
+                        .array(key='{{field.key}}')
+
+                          if isEmptyArray field
+                            p.noElements {{getNoElementsTranslation field.item}}
+
+                          else if isType field.item 'link'
+                            each item in getValue field getItem
+                              +DetailsFormArrayLink definition=field.item entity=item parentInstance=getInstance
+                            if hasMoreItems field getItem
+                              +DetailsFormArrayLinkSeeAll definition=field entity=getItem
+
+                          else if isType field.item 'dropdown'
+                            each item in getValue field getItem
+                              +DetailsFormArrayDropdown definition=field.item entity=item parentInstance=getInstance
+
+                          else if isType field.item 'entity'
+                            each item in getValue field getItem
+                              +DetailsFormArrayEntity definition=field.item entity=item
+                            if hasMoreItems field getItem
+                              +DetailsFormArrayEntitySeeAll definition=field entity=getItem
+
+                          else
+                            h1 Unsupported array type
+
+                      else if isType field 'link'
+                        +DetailsFormLink definition=field entity=getItem
+
+                      else if isType field 'text'
+                        +DetailsFormText definition=field entity=getItem
+
+                      else if isType field 'email'
+                        +DetailsFormEmail definition=field entity=getItem
+
+                      else if isType field 'phone'
+                        +DetailsFormPhone definition=field entity=getItem
+
+                      else if isType field 'date'
+                        +DetailsFormDate definition=field entity=getItem
+
+                      else if isType field 'textbox'
+                        +DetailsFormTextbox definition=field entity=getItem
+
+                      else if isType field 'dropdown'
+                        +DetailsFormDropdown definition=field entity=getItem
+
+                      else if isType field 'checkbox'
+                        +DetailsFormCheckbox definition=field entity=getItem
+
+                      else if isType field 'content'
+                        +Template.contentBlock
+
+                      else
+                        h1 Unsupported form type
+
+              if section.actions
+                +DetailsFormActions actions=section.actions
+
+        else
+          h1 Sections are missing!

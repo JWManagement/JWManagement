@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['publisher.details'].helpers({
   data: {
@@ -132,4 +132,4 @@ Template['publisher.details'].helpers({
       }]
     }]
   }
-});
+})

@@ -1,49 +1,49 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { Random } from 'meteor/random';
-import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor'
+import { Mongo } from 'meteor/mongo'
+import { Random } from 'meteor/random'
+import SimpleSchema from 'simpl-schema'
 
-import Languages from '/imports/framework/Constants/Languages';
+import Languages from '/imports/framework/Constants/Languages'
 
-const PersistenceManager = require('/imports/framework/Managers/PersistenceManager');
+const PersistenceManager = require('/imports/framework/Managers/PersistenceManager')
 
-let Vessels = new Mongo.Collection('vessels');
+let Vessels = new Mongo.Collection('vessels')
 
 Vessels.deny({
-  insert: () => { return true; },
-  update: () => { return true; },
-  remove: () => { return true; }
-});
+  insert: () => { return true },
+  update: () => { return true },
+  remove: () => { return true }
+})
 
 Vessels.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return Random.id();
+        return Random.id()
       }
     }
   },
   createdAt: {
     type: Date,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return new Date();
+        return new Date()
       }
     }
   },
   createdBy: {
     type: String,
-    autoValue: function() {
+    autoValue: function () {
       if (!this.isSet) {
-        return Meteor.userId();
+        return Meteor.userId()
       }
     }
   },
   lastChangeBy: {
     type: String,
     autoValue: () => {
-      return Meteor.userId();
+      return Meteor.userId()
     }
   },
   name: {
@@ -80,29 +80,29 @@ Vessels.schema = new SimpleSchema({
   'visits.$': new SimpleSchema({
     _id: {
       type: String,
-      autoValue: function() {
+      autoValue: function () {
         if (!this.isSet) {
-          return Random.id();
+          return Random.id()
         }
       }
     },
     createdAt: {
       type: Date,
       autoValue: () => {
-        return new Date();
+        return new Date()
       }
     },
     createdBy: {
       type: String,
       autoValue: () => {
-        return Meteor.userId();
+        return Meteor.userId()
       }
     },
     isUserVisible: {
       type: Boolean,
-      autoValue: function() {
+      autoValue: function () {
         if (!this.isSet) {
-          return true;
+          return true
         }
       }
     },
@@ -125,20 +125,20 @@ Vessels.schema = new SimpleSchema({
     },
     'languageIds.$': {
       type: String,
-      custom: function() {
+      custom: function () {
         if (Languages.allowedValues.indexOf(this.value) > -1) {
-          return undefined;
+          return undefined
         }
-        return 'required';
+        return 'required'
       }
     }
   })
-});
+})
 
-Vessels.uniqueKeys = ['callsign', 'eni', 'imo', 'mmsi'];
+Vessels.uniqueKeys = ['callsign', 'eni', 'imo', 'mmsi']
 
-Vessels.attachSchema = Vessels.schema;
+Vessels.attachSchema = Vessels.schema
 
-Vessels.persistence = new PersistenceManager(Vessels);
+Vessels.persistence = new PersistenceManager(Vessels)
 
-export default Vessels;
+export default Vessels
