@@ -21,13 +21,11 @@ FlowRouter.route('/profile', {
 FlowRouter.route('/logout', {
   name: 'logout',
   action () {
-    const language = Meteor.user().profile.language
-
     BlazeLayout.render('blankLayout', { content: 'logout' })
 
     Meteor.logout(() => {
       setLanguageOnAuth()
-      wrs(() => FlowRouter.go('welcome', { language: language }))
+      wrs(() => FlowRouter.go('landing'))
     })
   }
 })
@@ -40,9 +38,7 @@ FlowRouter.route('/oldDashboard', {
       BlazeLayout.render('mainLayout', { content: 'dashboard' })
     },
     () => {
-      const language = Meteor.user().profile.language
-
-      FlowRouter.go('welcome', { language: language })
+      FlowRouter.go('landing')
     })
   }
 })

@@ -17,7 +17,7 @@ FlowRouter.route('/:language/signup', {
   name: 'signUp',
   triggersEnter: [ checkLanguage ],
   action () {
-    Session.set('parent', 'welcome')
+    Session.set('parent', 'dashboard.details')
     BlazeLayout.render('mainLayout', { content: 'signUp' })
   }
 })
