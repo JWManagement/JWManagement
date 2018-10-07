@@ -4,17 +4,17 @@ import { Tracker } from 'meteor/tracker'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 Template.wiki.helpers({
-  tabs: function () {
+  tabs () {
     const project = Projects.findOne(FlowRouter.getParam('projectId'))
     return project != null ? project.wiki != null ? project.wiki.tabs : void 0 : void 0
   },
-  files: function () {
+  files () {
     const projectId = FlowRouter.getParam('projectId')
     return Files.find({
       projectId: projectId
     })
   },
-  isReady: function () {
+  isReady () {
     return ProjectSubs.ready()
   },
   faqArgs: function (tabId, faq, index) {
@@ -47,7 +47,7 @@ Template.wiki.onRendered(function () {
 })
 
 Template.wiki.events({
-  'click .addTab': function () {
+  'click .addTab' () {
     const projectId = FlowRouter.getParam('projectId')
     return swalInput({
       swal: 'add.tab',
@@ -61,7 +61,7 @@ Template.wiki.events({
     return swalYesNo({
       swal: 'delete.tab',
       type: 'warning',
-      doConfirm: function () {
+      doConfirm () {
         return Meteor.call('removeTab', FlowRouter.getParam('projectId'), tabId, function () {
           $('.nav-tabs li').first().addClass('active')
           return $('.tab-content .tab-pane').first().addClass('active')
@@ -116,12 +116,12 @@ Template.wiki.events({
     return swalYesNo({
       swal: 'delete.file',
       type: 'warning',
-      doConfirm: function () {
+      doConfirm () {
         return Meteor.call('removeFile', fileId, projectId)
       }
     })
   },
-  'click .editFile': function () {
+  'click .editFile' () {
     const projectId = FlowRouter.getParam('projectId')
     const fileId = this._id
     return swalInput({

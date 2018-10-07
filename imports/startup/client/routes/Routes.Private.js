@@ -9,7 +9,7 @@ import { setLanguageOnAuth } from '../language'
 
 FlowRouter.route('/profile', {
   name: 'profile',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('target', null)
       Session.set('parent', 'dashboard.details')
@@ -20,7 +20,7 @@ FlowRouter.route('/profile', {
 
 FlowRouter.route('/logout', {
   name: 'logout',
-  action: () => {
+  action () {
     const language = Meteor.user().profile.language
 
     BlazeLayout.render('blankLayout', { content: 'logout' })
@@ -34,7 +34,7 @@ FlowRouter.route('/logout', {
 
 FlowRouter.route('/oldDashboard', {
   name: 'home',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', '')
       BlazeLayout.render('mainLayout', { content: 'dashboard' })

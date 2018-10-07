@@ -36,7 +36,7 @@ Template.InsertFormTextbox.onRendered(() => {
 Template.InsertFormTextbox.onDestroyed(() => {})
 
 Template.InsertFormTextbox.events({
-  'change textarea': (e, template) => {
+  'change textarea' (e, template) {
     const value = $(e.target).val().trim()
 
     template.insertForm.setFieldValue(template.key, value)

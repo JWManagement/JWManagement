@@ -8,7 +8,7 @@ import { wrs } from '/imports/framework/Functions/Async'
 import { checkLanguage, logout } from '/imports/framework/Managers/RouteManager.Helpers'
 
 FlowRouter.notFound = {
-  action: () => {
+  action () {
     BlazeLayout.render('blankLayout', { content: 'notFound' })
   }
 }
@@ -16,7 +16,7 @@ FlowRouter.notFound = {
 FlowRouter.route('/:language/signup', {
   name: 'signUp',
   triggersEnter: [ checkLanguage ],
-  action: () => {
+  action () {
     Session.set('parent', 'welcome')
     BlazeLayout.render('mainLayout', { content: 'signUp' })
   }
@@ -25,7 +25,7 @@ FlowRouter.route('/:language/signup', {
 FlowRouter.route('/:language/login', {
   name: 'login',
   triggersEnter: [ checkLanguage ],
-  action: () => {
+  action () {
     Tracker.autorun((tracker) => {
       if (Meteor.userId()) {
         wrs(() => FlowRouter.go('home'))
@@ -40,7 +40,7 @@ FlowRouter.route('/:language/login', {
 FlowRouter.route('/:language/forgot', {
   name: 'forgotPassword',
   triggersEnter: [ checkLanguage, logout ],
-  action: () => {
+  action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'forgotPassword' })
   }
@@ -49,7 +49,7 @@ FlowRouter.route('/:language/forgot', {
 FlowRouter.route('/:language/reset', {
   name: 'resetPassword',
   triggersEnter: [ checkLanguage, logout ],
-  action: () => {
+  action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'resetPassword' })
   }
@@ -58,7 +58,7 @@ FlowRouter.route('/:language/reset', {
 FlowRouter.route('/:language/firstLogin', {
   name: 'firstLogin',
   triggersEnter: [ checkLanguage, logout ],
-  action: () => {
+  action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'firstLogin' })
   }

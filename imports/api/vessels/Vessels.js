@@ -10,15 +10,15 @@ const PersistenceManager = require('/imports/framework/Managers/PersistenceManag
 let Vessels = new Mongo.Collection('vessels')
 
 Vessels.deny({
-  insert: () => { return true },
-  update: () => { return true },
-  remove: () => { return true }
+  insert () { return true },
+  update () { return true },
+  remove () { return true }
 })
 
 Vessels.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Random.id()
       }
@@ -26,7 +26,7 @@ Vessels.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return new Date()
       }
@@ -34,7 +34,7 @@ Vessels.schema = new SimpleSchema({
   },
   createdBy: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Meteor.userId()
       }
@@ -42,7 +42,7 @@ Vessels.schema = new SimpleSchema({
   },
   lastChangeBy: {
     type: String,
-    autoValue: () => {
+    autoValue () {
       return Meteor.userId()
     }
   },
@@ -80,7 +80,7 @@ Vessels.schema = new SimpleSchema({
   'visits.$': new SimpleSchema({
     _id: {
       type: String,
-      autoValue: function () {
+      autoValue () {
         if (!this.isSet) {
           return Random.id()
         }
@@ -88,19 +88,19 @@ Vessels.schema = new SimpleSchema({
     },
     createdAt: {
       type: Date,
-      autoValue: () => {
+      autoValue () {
         return new Date()
       }
     },
     createdBy: {
       type: String,
-      autoValue: () => {
+      autoValue () {
         return Meteor.userId()
       }
     },
     isUserVisible: {
       type: Boolean,
-      autoValue: function () {
+      autoValue () {
         if (!this.isSet) {
           return true
         }
@@ -125,7 +125,7 @@ Vessels.schema = new SimpleSchema({
     },
     'languageIds.$': {
       type: String,
-      custom: function () {
+      custom () {
         if (Languages.allowedValues.indexOf(this.value) > -1) {
           return undefined
         }

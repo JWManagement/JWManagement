@@ -15,7 +15,7 @@ const RouteManager = {
     if ('search' in routes) {
       FlowRouter.route(prefix + routes.search, {
         name: entityName + '.search',
-        action: () => {
+        action () {
           doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.search')
           })
@@ -26,7 +26,7 @@ const RouteManager = {
     if ('insert' in routes) {
       FlowRouter.route(prefix + routes.insert, {
         name: entityName + '.insert',
-        action: () => {
+        action () {
           doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.insert')
           })
@@ -37,7 +37,7 @@ const RouteManager = {
     if ('details' in routes) {
       FlowRouter.route(prefix + routes.details, {
         name: entityName + '.details',
-        action: () => {
+        action () {
           doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.details')
           })
@@ -48,7 +48,7 @@ const RouteManager = {
     if ('update' in routes) {
       FlowRouter.route(prefix + routes.update, {
         name: entityName + '.update',
-        action: () => {
+        action () {
           doIfLoggedIn(() => {
             BlazeLayout.render(entityName + '.update')
           })
@@ -59,7 +59,7 @@ const RouteManager = {
     if ('forwarding' in routes) {
       FlowRouter.route(prefix + routes.forwarding.route, {
         name: routes.forwarding.name,
-        action: () => {
+        action () {
           wrs(() => {
             FlowRouter.go(routes.forwarding.link, FlowRouter.current().params)
           })

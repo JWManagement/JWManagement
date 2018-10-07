@@ -35,7 +35,7 @@ Meteor.methods({
       }
     }
   },
-  setVesselId: function () {
+  setVesselId () {
     var compare, i, j, k, len, vessel, vessels
 
     if (Meteor.isServer) {

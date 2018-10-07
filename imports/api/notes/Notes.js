@@ -9,7 +9,7 @@ let Notes = {}
 Notes.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Random.id()
       }
@@ -17,7 +17,7 @@ Notes.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return new Date()
       }
@@ -25,7 +25,7 @@ Notes.schema = new SimpleSchema({
   },
   createdBy: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Meteor.userId()
       }
@@ -33,13 +33,13 @@ Notes.schema = new SimpleSchema({
   },
   lastChangeBy: {
     type: String,
-    autoValue: () => {
+    autoValue () {
       return Meteor.userId()
     }
   },
   lastChangeAt: {
     type: Date,
-    autoValue: () => {
+    autoValue () {
       return new Date()
     }
   },

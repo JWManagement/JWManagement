@@ -12,15 +12,15 @@ const PersistenceManager = require('/imports/framework/Managers/PersistenceManag
 let Users = Meteor.users
 
 Users.deny({
-  insert: () => { return true },
-  update: () => { return true },
-  remove: () => { return true }
+  insert () { return true },
+  update () { return true },
+  remove () { return true }
 })
 
 Users.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Random.id()
       }
@@ -28,7 +28,7 @@ Users.schema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return new Date()
       }
@@ -36,7 +36,7 @@ Users.schema = new SimpleSchema({
   },
   createdBy: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (!this.isSet) {
         return Meteor.userId()
       }
@@ -44,13 +44,13 @@ Users.schema = new SimpleSchema({
   },
   lastChangeBy: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       return Meteor.userId()
     }
   },
   username: {
     type: String,
-    autoValue: function () {
+    autoValue () {
       if (this.isSet && typeof this.value === 'string') {
         return this.value.toLowerCase().replace(/[^a-z0-9 äöü_-]+/g, '')
       }
@@ -181,7 +181,7 @@ Users.schema = new SimpleSchema({
   'profile.vacations.$': new SimpleSchema({
     _id: {
       type: String,
-      autoValue: function () {
+      autoValue () {
         if (!this.isSet) {
           return Random.id()
         }
@@ -189,7 +189,7 @@ Users.schema = new SimpleSchema({
     },
     createdAt: {
       type: Date,
-      autoValue: function () {
+      autoValue () {
         if (!this.isSet) {
           return new Date()
         }
@@ -197,7 +197,7 @@ Users.schema = new SimpleSchema({
     },
     createdBy: {
       type: String,
-      autoValue: function () {
+      autoValue () {
         if (!this.isSet) {
           return Meteor.userId()
         }

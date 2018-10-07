@@ -40,7 +40,7 @@ Template['project.details'].helpers({
         route: 'vessel.search',
         icon: 'directions_boat',
         canSee: Permissions.member,
-        custom: (project) => {
+        custom (project) {
           return project.vesselModule === true
         }
       }]

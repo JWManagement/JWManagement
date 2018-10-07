@@ -195,12 +195,12 @@ Template.InsertForm.events({
       template.activeField.set(null)
     }
   },
-  'keyup #search': () => {
+  'keyup #search' () {
     const template = Template.instance()
     const value = $('#search').val()
     template.searchText.set(value)
   },
-  'change input': function () {
+  'change input' () {
     const template = Template.instance()
     const key = this.data.key
     const errors = template.errors.get()
@@ -213,7 +213,7 @@ Template.InsertForm.events({
     }
     template.errors.set(newErrors)
   },
-  'click .navbar-save': (e) => {
+  'click .navbar-save' (e) {
     e.preventDefault()
 
     const template = Template.instance()

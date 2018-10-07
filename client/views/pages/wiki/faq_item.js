@@ -58,7 +58,7 @@ Template.faq_item.events({
     return swalYesNo({
       swal: 'delete.question',
       type: 'warning',
-      doConfirm: function () {
+      doConfirm () {
         Meteor.call('removeFaq', projectId, instance.data.tabId, instance.data.faq._id)
       }
     })

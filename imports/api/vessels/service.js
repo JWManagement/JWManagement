@@ -7,7 +7,7 @@ import Languages from '/imports/framework/Constants/Languages'
 import Permissions from '/imports/framework/Constants/Permissions'
 
 Meteor.methods({
-  'vessel.search': ({ projectId, searchString, limit }) => {
+  'vessel.search' ({ projectId, searchString, limit }) {
     checkVesselModule(projectId)
 
     const result = {
@@ -51,17 +51,17 @@ Meteor.methods({
 
     return result
   },
-  'vessel.get': ({ projectId, vesselId }) => {
+  'vessel.get' ({ projectId, vesselId }) {
     checkVesselModule(projectId)
 
     return getExtendedVessel(vesselId)
   },
-  'vessel.getField': ({ projectId, vesselId, key }) => {
+  'vessel.getField' ({ projectId, vesselId, key }) {
     checkVesselModule(projectId)
 
     return getExtendedVessel(vesselId)[key]
   },
-  'vessel.insert': ({ projectId }, vessel) => {
+  'vessel.insert' ({ projectId }, vessel) {
     checkVesselModule(projectId)
 
     try {
@@ -71,7 +71,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.update': ({ projectId, vesselId }, key, value) => {
+  'vessel.update' ({ projectId, vesselId }, key, value) {
     checkVesselModule(projectId)
 
     try {
@@ -80,7 +80,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.insert': ({ projectId, vesselId }, visit) => {
+  'vessel.visit.insert' ({ projectId, vesselId }, visit) {
     checkVesselModule(projectId)
 
     let visits = Vessels.findOne(vesselId).visits
@@ -101,7 +101,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.getAvailableHarbors': ({ projectId }) => {
+  'vessel.visit.getAvailableHarbors' ({ projectId }) {
     checkVesselModule(projectId)
 
     const project = Projects.findOne(projectId, { fields: { harbors: 1 } })
@@ -116,17 +116,17 @@ Meteor.methods({
         return 0
       })
   },
-  'vessel.visit.getLast': ({ projectId, vesselId }) => {
+  'vessel.visit.getLast' ({ projectId, vesselId }) {
     checkVesselModule(projectId)
 
     return getExtendedVessel(vesselId).visits.pop()
   },
-  'vessel.visit.getField': ({ projectId, vesselId, key }) => {
+  'vessel.visit.getField' ({ projectId, vesselId, key }) {
     checkVesselModule(projectId)
 
     return getExtendedVessel(vesselId).visits.pop()[key]
   },
-  'vessel.visit.update': ({ projectId, vesselId, visitId }, key, value) => {
+  'vessel.visit.update' ({ projectId, vesselId, visitId }, key, value) {
     checkVesselModule(projectId)
 
     const extendedVisits = getExtendedVessel(vesselId).visits
@@ -154,7 +154,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.delete': ({ projectId, vesselId, visitId }) => {
+  'vessel.visit.delete' ({ projectId, vesselId, visitId }) {
     checkVesselModule(projectId)
 
     const extendedVisits = getExtendedVessel(vesselId).visits
@@ -177,7 +177,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.language.insert': ({ projectId, vesselId, visitId }, { languageIds }) => {
+  'vessel.visit.language.insert' ({ projectId, vesselId, visitId }, { languageIds }) {
     checkVesselModule(projectId)
 
     const extendedVisits = getExtendedVessel(vesselId).visits
@@ -208,7 +208,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.language.delete': ({ projectId, vesselId, visitId }, languageId) => {
+  'vessel.visit.language.delete' ({ projectId, vesselId, visitId }, languageId) {
     checkVesselModule(projectId)
 
     const extendedVisits = getExtendedVessel(vesselId).visits

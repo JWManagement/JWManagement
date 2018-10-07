@@ -139,10 +139,10 @@ Template.UpdateForm.onRendered(() => {
 })
 
 Template.UpdateForm.events({
-  'submit form': (e) => {
+  'submit form' (e) {
     e.preventDefault()
   },
-  'keyup #search': () => {
+  'keyup #search' () {
     const template = Template.instance()
     const value = $('#search').val()
     template.searchText.set(value)
