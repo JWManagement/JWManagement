@@ -18,7 +18,7 @@ Template.addParticipantModal.helpers
 					'profile.shortTermCalls': 1
 					'profile.shortTermCallsAlways': 1
 
-			users = users.fetch()
+			users = users.fetch().filter((u) -> u._id != 'adm')
 
 			if users.length > 1
 				users = users.filter (user) -> Roles.userIsInRole user._id, Permissions.participant, shift.tagId
