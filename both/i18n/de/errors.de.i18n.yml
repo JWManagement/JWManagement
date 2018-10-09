@@ -8,3 +8,5 @@ error:
   incorrectPassword: Dieses Passwort scheint nicht zu stimmen
   noAccountFound: Es gibt keinen Benutzer mit diesem Benutzernamen bzw. dieser E-Mail Adresse
   multipleAccountsFound: Es existieren mehrere Benutzer mit dieser E-Mail Adresse. Bitte verwende den Benutzernamen
+  passwordsDoNotMatch: Die Passwörter stimmen nicht überein
+  403: Es existiert bereits ein Account mit diesem Benutzernamen

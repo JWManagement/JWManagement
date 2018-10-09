@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
+import { Accounts } from 'meteor/accounts-base'
 import { Session } from 'meteor/session'
+import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import './signUp.html'
@@ -23,20 +25,28 @@ Template.signUp.events({
     const submit = $('#submit').ladda()
     submit.ladda('start')
 
-    Meteor.call('signUp', {
-      email: event.target.email.value,
-      firstname: event.target.firstname.value,
-      lastname: event.target.lastname.value,
+    if (event.target.password.value !== event.target.passwordRepeat.value) {
+      Session.set('error', TAPi18n.__(`error.passwordsDoNotMatch`))
+      submit.ladda('stop')
+      return
+    }
+
+    Accounts.createUser({
       username: event.target.username.value,
       password: event.target.password.value,
-      passwordRepeat: event.target.passwordRepeat.value
-    }, (err, res) => {
-      submit.ladda('stop')
-
+      profile: {
+        firstname: event.target.firstname.value,
+        lastname: event.target.lastname.value,
+        email: event.target.email.value,
+        language: 'en'
+      }
+    }, (err) => {
       if (err) {
-        Session.set('error', err)
+        Session.set('error', TAPi18n.__(`error.${err.error}`))
+        submit.ladda('stop')
+        console.log(err)
       } else {
-        FlowRouter.go('login', { language: 'en' })
+        FlowRouter.go('dashboard.details', { language: 'en' })
       }
     })
   }
