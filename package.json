@@ -30,6 +30,7 @@
     "lint": "standard"
   },
   "devDependencies": {
+    "cypress": "^3.1.0",
     "standard": "^12.0.1"
   },
   "standard": {
@@ -56,7 +57,11 @@
       "swalInput",
       "swalYesNo",
       "handleError",
-      "arguments"
+      "arguments",
+      "describe",
+      "it",
+      "expect",
+      "cy"
     ]
   }
 }
