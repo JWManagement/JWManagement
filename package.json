@@ -16,6 +16,7 @@
     "cordova-plugin-device": "^1.1.4",
     "eslint": "^5.3.0",
     "jquery": "^1.12.4",
+    "loggly": "^1.1.1",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
     "object-assign-deep": "^0.4.0",
@@ -54,7 +55,8 @@
       "FooTable",
       "swalInput",
       "swalYesNo",
-      "handleError"
+      "handleError",
+      "arguments"
     ]
   }
 }

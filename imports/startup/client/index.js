@@ -92,6 +92,7 @@ import '/imports/ui/notes/note.insert'
 import '/imports/ui/calendar/calendar'
 
 import '/imports/startup/client/language'
+import '/imports/startup/client/logger'
 
 import { TimeSync } from 'meteor/mizzao:timesync'
 import { UserStatus } from 'meteor/mizzao:user-status'
