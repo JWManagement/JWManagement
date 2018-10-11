@@ -1,3 +1,4 @@
+/* eslint no-unused-expressions: "off" */
 /// <reference types="Cypress" />
 
 context('Assertions', () => {
@@ -6,7 +7,6 @@ context('Assertions', () => {
   })
 
   describe('Implicit Assertions', () => {
-
     it('.should() - make an assertion about the current subject', () => {
       // https://on.cypress.io/should
       cy.get('.assertion-table')
@@ -31,32 +31,32 @@ context('Assertions', () => {
       // Pass a function to should that can have any number
       // of explicit assertions within it.
       cy.get('.assertions-p').find('p')
-      .should(($p) => {
+        .should(($p) => {
         // return an array of texts from all of the p's
         // @ts-ignore TS6133 unused variable
-        const texts = $p.map((i, el) => // https://on.cypress.io/$
-          Cypress.$(el).text())
+          const texts = $p.map((i, el) => // https://on.cypress.io/$
+            Cypress.$(el).text())
 
-        // jquery map returns jquery object
-        // and .get() convert this to simple array
-        const paragraphs = texts.get()
+          // jquery map returns jquery object
+          // and .get() convert this to simple array
+          const paragraphs = texts.get()
 
-        // array should have length of 3
-        expect(paragraphs).to.have.length(3)
+          // array should have length of 3
+          expect(paragraphs).to.have.length(3)
 
-        // set this specific subject
-        expect(paragraphs).to.deep.eq([
-          'Some text from first p',
-          'More text from second p',
-          'And even more text from third p',
-        ])
-      })
+          // set this specific subject
+          expect(paragraphs).to.deep.eq([
+            'Some text from first p',
+            'More text from second p',
+            'And even more text from third p'
+          ])
+        })
     })
 
     it('assert - assert shape of an object', () => {
       const person = {
         name: 'Joe',
-        age: 20,
+        age: 20
       }
       assert.isObject(person, 'value is object')
     })

@@ -61,7 +61,12 @@
       "describe",
       "it",
       "expect",
-      "cy"
+      "Cypress",
+      "cy",
+      "context",
+      "beforeEach",
+      "assert",
+      "localStorage"
     ]
   }
 }

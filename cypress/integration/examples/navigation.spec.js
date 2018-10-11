@@ -1,3 +1,4 @@
+/* eslint no-unused-expressions: "off" */
 /// <reference types="Cypress" />
 
 context('Navigation', () => {
@@ -50,7 +51,7 @@ context('Navigation', () => {
       onLoad (contentWindow) {
         // contentWindow is the remote page's window object
         expect(typeof contentWindow === 'object').to.be.true
-      },
+      }
     })
-    })
+  })
 })

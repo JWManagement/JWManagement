@@ -1,3 +1,4 @@
+/* eslint no-unused-expressions: "off" */
 /// <reference types="Cypress" />
 
 context('Location', () => {

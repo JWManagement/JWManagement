@@ -1,3 +1,4 @@
+/* eslint no-unused-expressions: "off" */
 /// <reference types="Cypress" />
 
 context('Spies, Stubs, and Clock', () => {
@@ -6,7 +7,7 @@ context('Spies, Stubs, and Clock', () => {
     cy.visit('https://example.cypress.io/commands/spies-stubs-clocks')
 
     let obj = {
-      foo () {},
+      foo () {}
     }
 
     let spy = cy.spy(obj, 'foo').as('anyArgs')
@@ -28,7 +29,7 @@ context('Spies, Stubs, and Clock', () => {
       */
       foo (a, b) {
         console.log('a', a, 'b', b)
-      },
+      }
     }
 
     let stub = cy.stub(obj, 'foo').as('foo')

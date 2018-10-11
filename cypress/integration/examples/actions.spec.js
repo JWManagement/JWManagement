@@ -17,9 +17,9 @@ context('Actions', () => {
       .type('{del}{selectall}{backspace}')
 
       // .type() with key modifiers
-      .type('{alt}{option}') //these are equivalent
-      .type('{ctrl}{control}') //these are equivalent
-      .type('{meta}{command}{cmd}') //these are equivalent
+      .type('{alt}{option}') // these are equivalent
+      .type('{ctrl}{control}') // these are equivalent
+      .type('{meta}{command}{cmd}') // these are equivalent
       .type('{shift}')
 
       // Delay each keypress by 0.1 sec
@@ -178,7 +178,7 @@ context('Actions', () => {
     cy.get('.action-select').select('apples')
 
     cy.get('.action-select-multiple')
-    .select(['apples', 'oranges', 'bananas'])
+      .select(['apples', 'oranges', 'bananas'])
 
     // Select option(s) with matching value
     cy.get('.action-select').select('fr-bananas')
@@ -217,7 +217,6 @@ context('Actions', () => {
   })
 
   it('cy.scrollTo() - scroll the window or element to a position', () => {
-
     // https://on.cypress.io/scrollTo
 
     // You can scroll to 9 specific positions of an element:
