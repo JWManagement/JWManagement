@@ -130,6 +130,11 @@ Template['dashboard.details'].helpers({
         route: 'users.online.details',
         icon: 'group',
         canSee: Permissions.support
+      }, {
+        key: 'startProject',
+        type: 'link',
+        route: 'project.insert',
+        icon: 'add_circle_outline'
       }]
     }, {
       title: 'account',

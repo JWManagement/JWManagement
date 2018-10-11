@@ -70,6 +70,7 @@ const RouteManager = {
 
   navigateTo (form, params) {
     const routeName = this.getLink(form)
+    console.log(routeName)
 
     FlowRouter.go(routeName, params)
   },

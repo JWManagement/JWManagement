@@ -26,7 +26,8 @@ RouteManager.registerEntity('dashboard.olderShifts', {
   details: 'olderShifts'
 })
 RouteManager.registerEntity('project', {
-  search: 'projects'
+  search: 'projects',
+  insert: 'projects/new'
 })
 RouteManager.registerEntity('users.online', {
   details: 'users/online'

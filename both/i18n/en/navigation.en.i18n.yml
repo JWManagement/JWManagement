@@ -22,6 +22,7 @@ navigation:
     details: Administration
     support:
       details: Support
+    insert: New project
   settings: Settings
   user:
     search: Users

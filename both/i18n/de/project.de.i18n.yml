@@ -24,6 +24,9 @@ project:
       email: Sende uns eine E-Mail
       github: Lege eine GitHub Issue an
       paypal: PayPal
+    projectName: Projektname
+    projectEmail: Projekt E-Mail
+    language: Sprache
   details:
     sections:
       project: Projekt

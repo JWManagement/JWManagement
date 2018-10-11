@@ -56,6 +56,7 @@ import '/imports/ui/users/online/users.online.details'
 
 import '/imports/ui/projects/projects.jade'
 import '/imports/ui/projects/project.search'
+import '/imports/ui/projects/project.insert'
 import '/imports/ui/projects/project.details'
 import '/imports/ui/projects/project.support.details'
 
