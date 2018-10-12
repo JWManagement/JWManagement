@@ -4,6 +4,7 @@ import loggly from 'loggly'
 let Logger
 
 if (Meteor.isProduction) {
+  console.log(process.env.LOGGLY_TOKEN)
   Logger = loggly.createClient({
     token: process.env.LOGGLY_TOKEN,
     subdomain: 'dev',
