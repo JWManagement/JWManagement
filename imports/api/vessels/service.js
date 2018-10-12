@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
-import Vessels from '/imports/api/vessels/Vessels'
+import Vessels from './Vessels'
 import Languages from '/imports/framework/Constants/Languages'
 import Permissions from '/imports/framework/Constants/Permissions'
 
@@ -76,6 +76,15 @@ Meteor.methods({
 
     try {
       Vessels.persistence.update(vesselId, key, value)
+    } catch (e) {
+      throw new Meteor.Error(e)
+    }
+  },
+  'vessel.delete': ({ projectId, vesselId }, key, value) => {
+    checkVesselModule(projectId)
+
+    try {
+      Vessels.persistence.delete(vesselId)
     } catch (e) {
       throw new Meteor.Error(e)
     }
@@ -317,7 +326,7 @@ function getExtendedVessel (vesselId) {
 function checkVesselModule (projectId) {
   const project = Projects.findOne(projectId, { fields: { vesselModule: 1 } })
 
-  if (project == null || project.vesselModule !== true) {
+  if (!project || !project.vesselModule) {
     throw new Meteor.Error('projectNotFound')
   }
 
