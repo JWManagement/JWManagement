@@ -19,11 +19,6 @@ Template['project.insert'].helpers({
       defaultValue: SystemLanguages.defaultValue,
       required: true
     }]
-  },
-  actions: [{
-    key: 'create',
-    type: 'confirm',
-    style: 'info'
   }]
 })
 
