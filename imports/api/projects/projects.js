@@ -4,7 +4,7 @@ import { Roles } from 'meteor/alanning:roles'
 
 Meteor.methods({
 
-  createProject: (args) => {
+  createProject (args) {
     if (Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
       Projects.insert({
         _id: args.projectId,

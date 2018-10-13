@@ -19,7 +19,7 @@ Template.DetailsFormArrayLink.onRendered(() => {})
 Template.DetailsFormArrayLink.onDestroyed(() => {})
 
 Template.DetailsFormArrayLink.events({
-  'click .input.array-item': (e) => {
+  'click .input.array-item' (e) {
     e.stopPropagation()
 
     const data = Template.currentData()

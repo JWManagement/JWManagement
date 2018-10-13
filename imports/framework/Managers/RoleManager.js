@@ -5,7 +5,7 @@ import Permissions from '/imports/framework/Constants/Permissions'
 
 const RoleManager = {
 
-  setProjectPermission: (projectId, userId, permission) => {
+  setProjectPermission (projectId, userId, permission) {
     if (Permissions.member.indexOf(permission) > -1) {
       if (Roles.userIsInRole(userId, Permissions.member, projectId)) {
         Roles.removeUsersFromRoles(userId, Permissions.member, projectId)
@@ -15,11 +15,11 @@ const RoleManager = {
     }
   },
 
-  removeProjectPermission: (projectId, userId) => {
+  removeProjectPermission (projectId, userId) {
     Roles.removeUsersFromRoles(userId, Permissions.member, projectId)
   },
 
-  setTagPermission: (projectId, tagId, userId, permission) => {
+  setTagPermission (projectId, tagId, userId, permission) {
     // TODO: check that tag belongs to project and i am in project
 
     if (Permissions.participant.indexOf(permission) > -1) {
@@ -31,15 +31,15 @@ const RoleManager = {
     }
   },
 
-  removeTagPermission: (tagId, userId) => {
+  removeTagPermission (tagId, userId) {
     Roles.removeUsersFromRoles(userId, Permissions.participant, tagId)
   },
 
-  hasPermission: (projectId, permissions, userId = Meteor.userId()) => {
+  hasPermission (projectId, permissions, userId = Meteor.userId()) {
     return Roles.userIsInRole(userId, permissions, projectId)
   },
 
-  hasPermissions: (userId) => {
+  hasPermissions (userId) {
     const groups = Roles.getGroupsForUser(userId)
 
     for (let group of groups) {

@@ -90,7 +90,7 @@ Template.UpdateFormPicker.onRendered(() => {})
 Template.UpdateFormPicker.onDestroyed(() => {})
 
 Template.UpdateFormPicker.events({
-  'click .item': (e, template) => {
+  'click .item' (e, template) {
     const value = $(e.target).closest('.item').attr('key')
     template.updateForm.updateEntity(value)
     template.value.set(value)

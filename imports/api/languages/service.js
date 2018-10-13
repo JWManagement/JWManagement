@@ -4,12 +4,12 @@ import Users from '/imports/api/users/Users'
 import SystemLanguages from '/imports/framework/Constants/SystemLanguages'
 
 Meteor.methods({
-  'language.get': () => {
+  'language.get' () {
     return {
       language: Meteor.user().profile.language
     }
   },
-  'language.update': (_, __, language) => {
+  'language.update' (_, __, language) {
     const profileLanguage = Meteor.user().profile.language
     const isSystemLanguage = SystemLanguages.allowedValues.indexOf(language) > -1
 

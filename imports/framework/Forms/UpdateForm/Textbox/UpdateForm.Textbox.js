@@ -32,7 +32,7 @@ Template.UpdateFormTextbox.onRendered(() => {
 Template.UpdateFormTextbox.onDestroyed(() => {})
 
 Template.UpdateFormTextbox.events({
-  'change textarea': (e, template) => {
+  'change textarea' (e, template) {
     const value = $(e.target).val().trim()
     template.updateForm.updateEntity(value)
   }

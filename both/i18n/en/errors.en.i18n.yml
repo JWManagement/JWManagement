@@ -8,3 +8,5 @@ error:
   incorrectPassword: This password seems to be incorrect
   noAccountFound: No account with this username or email could be found
   multipleAccountsFound: There are multiple accounts with this email. Please use the username
+  passwordsDoNotMatch: The passwords do not match
+  403: This username already exists

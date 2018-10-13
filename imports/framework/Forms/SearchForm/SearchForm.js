@@ -120,21 +120,21 @@ Template.SearchForm.onRendered(() => {
 })
 
 Template.SearchForm.events({
-  'click #more': (e, template) => {
+  'click #more' (e, template) {
     doSearch(template, true)
   },
-  'click .results-desktop tbody tr:not(.footable-empty)': (e, template) => {
+  'click .results-desktop tbody tr:not(.footable-empty)' (e, template) {
     const entityId = $(e.target).closest('tr').find('td').first().html()
 
     RouteManager.navigateToDetails(template.entityId, entityId)
   },
-  'click .navbar-create': () => {
+  'click .navbar-create' () {
     RouteManager.navigateToInsert()
   },
-  'keyup #search': (e, template) => {
+  'keyup #search' (e, template) {
     updateSearch(template, e.target.value)
   },
-  'change #search': (e, template) => {
+  'change #search' (e, template) {
     updateSearch(template, e.target.value)
   }
 })

@@ -21,7 +21,7 @@ Template.DetailsFormArrayDropdown.onRendered(() => {})
 Template.DetailsFormArrayDropdown.onDestroyed(() => {})
 
 Template.DetailsFormArrayDropdown.events({
-  'click .input.array-item': (e) => {
+  'click .input.array-item' (e) {
     e.stopPropagation()
 
     const data = Template.currentData()

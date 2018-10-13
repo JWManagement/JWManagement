@@ -13,7 +13,7 @@ Template.login.helpers({
 Template.login.onCreated(() => {
   if (FlowRouter.getRouteName() === 'dashboard.details') {
     if (!Meteor.userId() && !Meteor.loggingIn()) {
-      return FlowRouter.go('welcome', {
+      return FlowRouter.go('landing', {
         language: 'en'
       })
     }
@@ -25,7 +25,7 @@ Template.login.onRendered(() => {
 })
 
 Template.login.events({
-  'submit form': function (event) {
+  'submit form' (event) {
     event.preventDefault()
     Session.set('error', '')
 

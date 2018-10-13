@@ -8,7 +8,7 @@ import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
 
 Meteor.methods({
-  'note.search': ({ projectId, searchString }) => {
+  'note.search' ({ projectId, searchString }) {
     checkPermissions(projectId)
 
     const language = Meteor.user().profile.language
@@ -57,17 +57,17 @@ Meteor.methods({
 
     return result
   },
-  'note.get': ({ projectId, noteId }) => {
+  'note.get' ({ projectId, noteId }) {
     checkPermissions(projectId)
 
     return getExtendedNote(projectId, noteId)
   },
-  'note.getField': ({ projectId, noteId, key }) => {
+  'note.getField' ({ projectId, noteId, key }) {
     checkPermissions(projectId)
 
     return getExtendedNote(projectId, noteId)[key]
   },
-  'note.insert': ({ projectId }, note) => {
+  'note.insert' ({ projectId }, note) {
     checkPermissions(projectId)
 
     try {
@@ -77,7 +77,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'note.update': ({ projectId, noteId }, key, value) => {
+  'note.update' ({ projectId, noteId }, key, value) {
     checkPermissions(projectId)
 
     try {
@@ -86,7 +86,7 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'note.delete': ({ projectId, noteId }) => {
+  'note.delete' ({ projectId, noteId }) {
     checkPermissions(projectId)
 
     try {

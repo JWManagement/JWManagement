@@ -20,10 +20,11 @@ project:
     leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen? Das kann nicht rückgängig gemacht werden.
     supportPage: Hilfe
     support:
-      phone: Ruf an (am schnellsten/einfachsten)
+      phone: Ruf an (empfohlen)
       email: Sende uns eine E-Mail
       github: Lege eine GitHub Issue an
       paypal: PayPal
+    noElements: Keine Projekte gefunden
   details:
     sections:
       project: Projekt
