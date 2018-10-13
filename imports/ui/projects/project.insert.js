@@ -19,7 +19,7 @@ Template['project.insert'].helpers({
       defaultValue: SystemLanguages.defaultValue,
       required: true
     }]
-  }]
+  }
 })
 
 Template['project.insert'].events({})
