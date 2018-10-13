@@ -3,6 +3,18 @@ project:
   entity:
     _id: ID
     name: Name
+    email: Projekt E-Mail Adresse
+    language: Standard Sprache
+    languageValues:
+      de: Deutsch
+      en: Englisch
+      fi: Finnisch
+      fr: Französisch (teilweise)
+      hu: Ungarisch
+      it: Italienisch (teilweise)
+      pl: Polnisch
+      pt: Portugiesisch
+      ru: Russisch
     news:
       text: Neuigkeiten
     shifts: Schichten
@@ -24,9 +36,6 @@ project:
       email: Sende uns eine E-Mail
       github: Lege eine GitHub Issue an
       paypal: PayPal
-    projectName: Projektname
-    projectEmail: Projekt E-Mail
-    language: Sprache
   details:
     sections:
       project: Projekt

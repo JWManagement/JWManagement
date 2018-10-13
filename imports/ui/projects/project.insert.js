@@ -1,17 +1,23 @@
 import { Template } from 'meteor/templating'
 
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
+
 Template['project.insert'].helpers({
   data: {
     backLink: 'dashboard.details',
     entityKey: 'project',
     fields: [{
-      key: 'projectName',
+      key: 'name',
       required: true
     }, {
-      key: 'projectEmail',
+      key: 'email',
       required: true
     }, {
-      key: 'language'
+      key: 'language',
+      type: 'picker',
+      allowedValues: SystemLanguages.allowedValues,
+      defaultValue: SystemLanguages.defaultValue,
+      required: true
     }]
   },
   actions: [{

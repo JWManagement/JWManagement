@@ -17,8 +17,6 @@ import '/imports/startup/client/datepicker/bootstrap-datepicker.ru.min'
 import '/imports/startup/common/moment'
 import '/imports/startup/common/rolesExtensions'
 
-import '/imports/api/projects/projects'
-
 import '/imports/startup/client/routes/Routes.Public.Policy'
 import '/imports/startup/client/routes/Routes.Private'
 import '/imports/startup/client/routes/Routes.Project'
