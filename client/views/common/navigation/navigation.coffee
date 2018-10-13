@@ -20,10 +20,8 @@ Template.navigation.helpers
 					FlowRouter.path parent,
 						projectId: projectId
 						language: TAPi18n.getLanguage()
-				else if parent != 'home'
-					FlowRouter.path parent, language: TAPi18n.getLanguage()
 				else
-					FlowRouter.path 'home', language: TAPi18n.getLanguage()
+					FlowRouter.path parent, language: TAPi18n.getLanguage()
 
 Template.navigation.onDestroyed ->
 
