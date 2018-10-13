@@ -4,6 +4,7 @@ import '/imports/api/messages/messages.coffee'
 import '/imports/startup/server/mailer'
 import '/imports/startup/server/prerenderio'
 import '/imports/startup/server/kadira'
+import '/imports/startup/server/logger'
 
 import '/imports/startup/common/moment'
 import '/imports/startup/common/rolesExtensions'

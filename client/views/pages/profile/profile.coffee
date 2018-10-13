@@ -12,7 +12,12 @@ Template.profile.helpers
 	getVacations: ->
 		if @profile.vacations?
 			@profile.vacations
-				.filter (v) -> v.end >= parseInt(moment(new Date).format('YYYYDDDD'))
+				.map (v) ->
+					if v.end.toString().length == 7
+						v.start = parseInt(moment(v.start, 'YYYYDDDD').format('YYYYMMDD'))
+						v.end = parseInt(moment(v.end, 'YYYYDDDD').format('YYYYMMDD'))
+					v
+				.filter (v) -> v.end >= parseInt(moment(new Date).format('YYYYMMDD'))
 				.sort (a, b) -> a.start - b.start
 
 	weekdays: -> [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
@@ -140,7 +145,7 @@ Template.profile.events
 	'click .delVacation': (e) -> Meteor.call 'removeVacation', @_id
 
 	'click #addVacation': ->
-		today = moment(new Date).format('YYYYDDDD')
+		today = moment(new Date).format('YYYYMMDD')
 		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'

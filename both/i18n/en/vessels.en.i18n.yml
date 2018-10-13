@@ -20,6 +20,8 @@ vessel:
     eni: ENI
     imo: IMO
     mmsi: MMSI
+    delete: Delete this vessel
+    deleteConfirmation: Do you really want to delete this vessel?
     visit:
       new: Note a new visit
       noElements: This ship has not been visited yet
