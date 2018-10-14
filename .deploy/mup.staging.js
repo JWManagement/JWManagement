@@ -23,7 +23,8 @@ module.exports = {
       APM_ID: process.env.APM_ID,
       APM_KEY: process.env.APM_KEY,
       AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
-      AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
+      AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+      LOGGLY_TOKEN: process.env.LOGGLY_TOKEN
     },
     buildOptions: {
       serverOnly: true
