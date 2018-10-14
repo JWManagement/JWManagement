@@ -129,11 +129,14 @@ Template.InsertForm.helpers({
         if (field.type === 'date') {
           inputData.format = field.format
         }
+
         if (template.entity[field.key] != null) {
           inputData.value = template.entity[field.key]
         } else if (field.defaultValue != null) {
           inputData.value = field.defaultValue
+          template.entity[field.key] = field.defaultValue
         }
+
         return true
       }
     })
