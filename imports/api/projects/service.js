@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
-import SimpleSchema from 'simpl-schema'
 import { ValidationError } from 'meteor/mdg:validation-error'
+import SimpleSchema from 'simpl-schema'
 
 import Permissions from '../../framework/Constants/Permissions'
 import RoleManager from '../../framework/Managers/RoleManager'
@@ -73,7 +73,7 @@ Meteor.methods({
     validationContext.validate(project)
 
     if (!validationContext.isValid()) {
-      throw new Meteor.Error(new ValidationError(validationContext.validationErrors()))
+      throw new ValidationError(validationContext.validationErrors())
     }
 
     if (!Meteor.userId()) {

@@ -2,9 +2,12 @@ import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
+import { ValidationError } from 'meteor/mdg:validation-error'
+import SimpleSchema from 'simpl-schema'
 import Vessels from './Vessels'
-import Languages from '/imports/framework/Constants/Languages'
-import Permissions from '/imports/framework/Constants/Permissions'
+import Languages from '../../framework/Constants/Languages'
+import Permissions from '../../framework/Constants/Permissions'
+import VesselType from '../../framework/Constants/VesselType'
 
 Meteor.methods({
   'vessel.search' ({ projectId, searchString, limit }) {
@@ -62,7 +65,58 @@ Meteor.methods({
     return getExtendedVessel(vesselId)[key]
   },
   'vessel.insert' ({ projectId }, vessel) {
-    checkVesselModule(projectId)
+    const validationContext = new SimpleSchema({
+      projectId: {
+        type: String,
+        min: 5,
+        custom () {
+          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
+
+          if (!project || !project.vesselModule) {
+            return 'projectNotFound'
+          }
+
+          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
+            return 'userNotProjectMember'
+          }
+        }
+      },
+      name: String,
+      flag: {
+        type: String,
+        optional: true
+      },
+      type: {
+        type: String,
+        allowedValues: VesselType.allowedValues
+      },
+      callsign: {
+        type: String,
+        optional: true
+      },
+      eni: {
+        type: String,
+        optional: true
+      },
+      imo: {
+        type: String,
+        optional: true
+      },
+      mmsi: {
+        type: String,
+        optional: true
+      }
+    }).newContext()
+
+    validationContext.validate({ projectId, ...vessel })
+
+    if (!validationContext.isValid()) {
+      throw new ValidationError(validationContext.validationErrors())
+    }
+
+    if (!Meteor.userId()) {
+      throw Meteor.Error('must be logged in to insert a new project')
+    }
 
     try {
       Vessels.persistence.insert(vessel)
@@ -90,7 +144,49 @@ Meteor.methods({
     }
   },
   'vessel.visit.insert' ({ projectId, vesselId }, visit) {
-    checkVesselModule(projectId)
+    const validationContext = new SimpleSchema({
+      projectId: {
+        type: String,
+        custom () {
+          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
+
+          if (!project || !project.vesselModule) {
+            return 'projectNotFound'
+          }
+
+          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
+            return 'userNotProjectMember'
+          }
+        }
+      },
+      vesselId: {
+        type: String,
+        custom () {
+          const vessel = Vessels.findOne(this.value, { fields: { _id: 1 } })
+
+          if (!vessel) {
+            return 'vesselNotFound'
+          }
+        }
+      },
+      isUserVisible: Boolean,
+      harborId: String,
+      date: Number,
+      dateNext: {
+        type: Number,
+        optional: true
+      }
+    }).newContext()
+
+    validationContext.validate({ projectId, vesselId, ...visit })
+
+    if (!validationContext.isValid()) {
+      throw new ValidationError(validationContext.validationErrors())
+    }
+
+    if (!Meteor.userId()) {
+      throw Meteor.Error('must be logged in to insert a new project')
+    }
 
     let visits = Vessels.findOne(vesselId).visits
 
@@ -187,7 +283,54 @@ Meteor.methods({
     }
   },
   'vessel.visit.language.insert' ({ projectId, vesselId, visitId }, { languageIds }) {
-    checkVesselModule(projectId)
+    const validationContext = new SimpleSchema({
+      projectId: {
+        type: String,
+        custom () {
+          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
+
+          if (!project || !project.vesselModule) {
+            return 'projectNotFound'
+          }
+
+          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
+            return 'userNotProjectMember'
+          }
+        }
+      },
+      vesselId: {
+        type: String,
+        custom () {
+          const vessel = Vessels.findOne(this.value, { fields: { _id: 1 } })
+
+          if (!vessel) {
+            return 'vesselNotFound'
+          }
+        }
+      },
+      visitId: {
+        type: String,
+        custom () {
+          const vessel = Vessels.findOne(this.field('vesselId').value, { fields: { 'visits._id': 1 } })
+          const visitId = this.value
+
+          if (vessel.visits.filter(v => v._id === visitId).length === 0) {
+            return 'visitNotFound'
+          }
+        }
+      },
+      languageIds: String
+    }).newContext()
+
+    validationContext.validate({ projectId, vesselId, visitId, languageIds })
+
+    if (!validationContext.isValid()) {
+      throw new ValidationError(validationContext.validationErrors())
+    }
+
+    if (!Meteor.userId()) {
+      throw Meteor.Error('must be logged in to insert a new project')
+    }
 
     const extendedVisits = getExtendedVessel(vesselId).visits
 
