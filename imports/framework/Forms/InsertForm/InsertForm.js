@@ -129,11 +129,14 @@ Template.InsertForm.helpers({
         if (field.type === 'date') {
           inputData.format = field.format
         }
+
         if (template.entity[field.key] != null) {
           inputData.value = template.entity[field.key]
         } else if (field.defaultValue != null) {
           inputData.value = field.defaultValue
+          template.entity[field.key] = field.defaultValue
         }
+
         return true
       }
     })
@@ -227,8 +230,8 @@ Template.InsertForm.events({
         if (error.error.error === 'validation-error') {
           let errors = []
 
-          if (error.error.reason != null && typeof e.error.reason === 'object') {
-            errors = errors.concat(e.error.reason)
+          if (error.error.reason != null && typeof error.error.reason === 'object') {
+            errors = errors.concat(error.error.reason)
           } else if (error.error.details != null) {
             errors = errors.concat(error.error.details)
           }

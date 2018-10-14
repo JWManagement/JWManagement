@@ -3,6 +3,18 @@ project:
   entity:
     _id: ID
     name: Name
+    email: Projekt E-Mail Adresse
+    language: Standard Sprache
+    languageValues:
+      de: Deutsch
+      en: Englisch
+      fi: Finnisch
+      fr: Französisch (teilweise)
+      hu: Ungarisch
+      it: Italienisch (teilweise)
+      pl: Polnisch
+      pt: Portugiesisch
+      ru: Russisch
     news:
       text: Neuigkeiten
     shifts: Schichten

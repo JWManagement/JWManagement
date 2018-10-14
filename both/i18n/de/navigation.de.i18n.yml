@@ -23,6 +23,7 @@ navigation:
     details: Verwaltung
     support:
       details: Hilfe
+    insert: Neues Projekt
   settings: Einstellungen
   user:
     search: Benutzer
