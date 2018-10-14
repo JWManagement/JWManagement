@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 
 const Platform = {
 
-  getOS: function () {
+  getOS () {
     if (this.isAndroid()) {
       return 'md'
     } else {

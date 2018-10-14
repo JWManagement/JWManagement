@@ -28,7 +28,7 @@ Template['publisher.search'].helpers({
         mobile: true
       }
     ],
-    searchCriteria: (search, projectId) => {
+    searchCriteria (search, projectId) {
       return {
         selector: {
           $and: [

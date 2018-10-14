@@ -17,7 +17,6 @@ import '/imports/startup/client/datepicker/bootstrap-datepicker.ru.min'
 import '/imports/startup/common/moment'
 import '/imports/startup/common/rolesExtensions'
 
-import '/imports/startup/client/routes/Routes.Public.Policy'
 import '/imports/startup/client/routes/Routes.Private'
 import '/imports/startup/client/routes/Routes.Project'
 import '/imports/startup/client/routes/Routes.Public'
@@ -26,6 +25,9 @@ import '/imports/framework/Forms/DetailsForm/DetailsForm'
 import '/imports/framework/Forms/InsertForm/InsertForm'
 import '/imports/framework/Forms/SearchForm/SearchForm'
 import '/imports/framework/Forms/UpdateForm/UpdateForm'
+
+import '/imports/ui/landing/landing'
+import '/imports/ui/signUp/signUp'
 
 import '/imports/ui/dashboard/dashboard.jade'
 import '/imports/ui/dashboard/dashboard.details'

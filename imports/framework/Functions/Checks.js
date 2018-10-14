@@ -9,7 +9,7 @@ import { Roles } from 'meteor/alanning:roles'
 
 const Checks = {
   user: {
-    validId: (userId) => {
+    validId (userId) {
       const user = Meteor.users.findOne(userId, {
         fields: {
           _id: 1
@@ -22,7 +22,7 @@ const Checks = {
     }
   },
   shift: {
-    validId: (shiftId) => {
+    validId (shiftId) {
       const shift = Shifts.findOne(shiftId, {
         fields: {
           _id: 1
@@ -33,7 +33,7 @@ const Checks = {
         throw new Meteor.Error('invalidShiftId')
       }
     },
-    isTagParticipant: (shiftId) => {
+    isTagParticipant (shiftId) {
       const shift = Shifts.findOne(shiftId, {
         fields: {
           tagId: 1
@@ -46,7 +46,7 @@ const Checks = {
     }
   },
   week: {
-    validId: (weekId) => {
+    validId (weekId) {
       const week = Weeks.findOne(weekId, {
         fields: {
           _id: 1
@@ -59,7 +59,7 @@ const Checks = {
     }
   },
   project: {
-    validId: (projectId) => {
+    validId (projectId) {
       const project = Projects.findOne(projectId, {
         fields: {
           _id: 1
@@ -70,24 +70,24 @@ const Checks = {
         throw new Meteor.Error('invalidProject')
       }
     },
-    isAdmin: (projectId) => {
+    isAdmin (projectId) {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.admin, projectId)) {
         throw new Meteor.Error('notAdmin')
       }
     },
-    isShiftAdmin: (projectId) => {
+    isShiftAdmin (projectId) {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.shiftAdmin, projectId)) {
         throw new Meteor.Error('notShiftAdmin')
       }
     },
-    isMember: (projectId) => {
+    isMember (projectId) {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, projectId)) {
         throw new Meteor.Error('notMember')
       }
     }
   },
   tag: {
-    validId: (projectId, tagId) => {
+    validId (projectId, tagId) {
       const project = Projects.findOne({
         _id: projectId,
         'tags._id': tagId
@@ -101,12 +101,12 @@ const Checks = {
         throw new Meteor.Error('invalidTag')
       }
     },
-    isParticipant: (projectId) => {
+    isParticipant (projectId) {
       if (!Roles.userIsInRole(Meteor.userId(), Permissions.participant, projectId)) {
         throw new Meteor.Error('notTagParticipant')
       }
     },
-    isAdmin: (projectId, tagId) => {
+    isAdmin (projectId, tagId) {
       const project = Projects.findOne({
         _id: projectId,
         'tags._id': tagId
@@ -122,7 +122,7 @@ const Checks = {
     }
   },
   team: {
-    validId: (projectId, teamId) => {
+    validId (projectId, teamId) {
       const project = Projects.findOne({
         _id: projectId,
         'teams._id': teamId
@@ -134,7 +134,7 @@ const Checks = {
     }
   },
   meetingPoint: {
-    validId: (projectId, meetingPointId) => {
+    validId (projectId, meetingPointId) {
       const project = Projects.findOne({
         _id: projectId,
         'meetings._id': meetingPointId

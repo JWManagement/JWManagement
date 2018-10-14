@@ -9,7 +9,7 @@ import {
 } from '/imports/api/dashboard/Functions'
 
 Meteor.methods({
-  'dashboard.myProjects.get': () => {
+  'dashboard.myProjects.get' () {
     const userId = Meteor.userId()
     const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
     const projects = getProjects(projectIds)

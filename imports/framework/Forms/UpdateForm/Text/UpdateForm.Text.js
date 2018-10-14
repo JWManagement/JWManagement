@@ -29,7 +29,7 @@ Template.UpdateFormText.onRendered(() => {})
 Template.UpdateFormText.onDestroyed(() => {})
 
 Template.UpdateFormText.events({
-  'change input': (e, template) => {
+  'change input' (e, template) {
     const value = $(e.target).val().trim()
     template.updateForm.updateEntity(value)
   }

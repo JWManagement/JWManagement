@@ -7,7 +7,7 @@ const PasswordsSchema = new SimpleSchema({
   },
   passwordRepeat: {
     type: String,
-    custom: function () {
+    custom () {
       if (this.value !== this.field('password').value) {
         return 'passwordMismatch'
       }

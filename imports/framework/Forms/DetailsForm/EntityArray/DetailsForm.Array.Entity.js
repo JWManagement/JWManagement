@@ -37,7 +37,7 @@ Template.DetailsFormArrayEntity.onRendered(() => {})
 Template.DetailsFormArrayEntity.onDestroyed(() => {})
 
 Template.DetailsFormArrayEntity.events({
-  'click tr.array-item': (e) => {
+  'click tr.array-item' (e) {
     e.stopPropagation()
 
     const data = Template.currentData()

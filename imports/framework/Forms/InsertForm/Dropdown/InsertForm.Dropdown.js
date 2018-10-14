@@ -71,7 +71,7 @@ Template.InsertFormDropdown.onRendered(() => {
 Template.InsertFormDropdown.onDestroyed(() => {})
 
 Template.InsertFormDropdown.events({
-  'change select': (e, template) => {
+  'change select' (e, template) {
     const value = $(e.target).val()
 
     template.insertForm.setFieldValue(template.key, value)

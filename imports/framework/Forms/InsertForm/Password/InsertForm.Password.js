@@ -33,7 +33,7 @@ Template.InsertFormPassword.onRendered(() => {})
 Template.InsertFormPassword.onDestroyed(() => {})
 
 Template.InsertFormPassword.events({
-  'change input': (e, template) => {
+  'change input' (e, template) {
     const value = $(e.target).val().trim()
 
     template.insertForm.setFieldValue(template.key, value)

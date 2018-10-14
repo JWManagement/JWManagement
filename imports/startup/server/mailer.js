@@ -28,7 +28,7 @@ Meteor.startup(() => {
         path: 'confirmation/confirmation.html',
         route: {
           path: '/confirmation',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -80,7 +80,7 @@ Meteor.startup(() => {
         path: 'declined/declined.html',
         route: {
           path: '/declined',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -99,7 +99,7 @@ Meteor.startup(() => {
         path: 'reversal/reversal.html',
         route: {
           path: '/reversal',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -117,7 +117,7 @@ Meteor.startup(() => {
         path: 'teamUpdate/teamUpdate.html',
         route: {
           path: '/teamUpdate',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -156,7 +156,7 @@ Meteor.startup(() => {
         path: 'understaffed/understaffed.html',
         route: {
           path: '/understaffed',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -176,7 +176,7 @@ Meteor.startup(() => {
         path: 'teamCancellation/teamCancellation.html',
         route: {
           path: '/teamCancellation',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               team: 'Innenstadt',
@@ -195,7 +195,7 @@ Meteor.startup(() => {
         path: 'toOrga/toOrga.html',
         route: {
           path: '/toOrga',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               text: 'das Team <b>\'Innenstadt\'</b> am <b>01.01.2099</b> um <b>10:00 - 12:00</b> Uhr wurde <u>abgesagt</u>.',
@@ -210,7 +210,7 @@ Meteor.startup(() => {
         path: 'resetPassword/resetPassword.html',
         route: {
           path: '/resetPassword',
-          data: function () {
+          data () {
             return {
               token: '287zrp98wjf0qzw40tf',
               language: 'de',
@@ -228,7 +228,7 @@ Meteor.startup(() => {
         path: 'joinProject/joinProject.html',
         route: {
           path: '/joinProject',
-          data: function () {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -246,7 +246,7 @@ Meteor.startup(() => {
         path: 'accountCreated/accountCreated.html',
         route: {
           path: '/accountCreated',
-          data: function () {
+          data () {
             return {
               token: '287zrp98wjf0qzw40tf',
               project: 'NeanderTrolley',

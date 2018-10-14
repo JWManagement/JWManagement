@@ -27,7 +27,13 @@ module.exports = class PersistenceManager {
     }
   }
 
-  // delete(entity) {}
+  delete (entityId) {
+    try {
+      this.db.remove({ _id: entityId })
+    } catch (e) {
+      throw new Meteor.Error(e.error, e.details)
+    }
+  }
 
   checkUniqueFields (entity) {
     const errors = []

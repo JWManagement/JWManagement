@@ -54,7 +54,7 @@ Template.InsertFormLink.onRendered(() => {})
 Template.InsertFormLink.onDestroyed(() => {})
 
 Template.InsertFormLink.events({
-  'click .link': (e, template) => {
+  'click .link' (e, template) {
     template.insertForm.activeField.set(template.key)
   }
 })

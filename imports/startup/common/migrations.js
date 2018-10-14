@@ -6,7 +6,7 @@ import Vessels from '/imports/api/vessels/Vessels'
 // to use this, import the file
 
 Meteor.methods({
-  setProjectUsersProfile: function (projectId) {
+  setProjectUsersProfile (projectId) {
     var k, len, ref, user, users
 
     if (Meteor.isServer) {
@@ -35,7 +35,7 @@ Meteor.methods({
       }
     }
   },
-  setVesselId: function () {
+  setVesselId () {
     var compare, i, j, k, len, vessel, vessels
 
     if (Meteor.isServer) {
