@@ -9,12 +9,12 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@okgrow/auto-analytics": "^2.0.0",
-    "autosize": "^4.0.0",
-    "aws-sdk": "^2.10.0",
+    "autosize": "^4.0.2",
+    "aws-sdk": "^2.334.0",
     "babel-runtime": "^6.20.0",
     "bcrypt": "^0.8.7",
     "cordova-plugin-device": "^1.1.4",
-    "eslint": "^5.3.0",
+    "eslint": "^5.7.0",
     "jquery": "^1.12.4",
     "loggly": "^1.1.1",
     "meteor-node-stubs": "^0.4.1",
@@ -22,7 +22,7 @@
     "object-assign-deep": "^0.4.0",
     "prerender-node": "^2.7.4",
     "simpl-schema": "^0.3.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.9.1"
   },
   "scripts": {
     "start": "meteor --settings .deploy/settings.json",
