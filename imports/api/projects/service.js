@@ -1,10 +1,11 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'simpl-schema'
+import { ValidationError } from 'meteor/mdg:validation-error'
 
 import Permissions from '../../framework/Constants/Permissions'
 import RoleManager from '../../framework/Managers/RoleManager'
-import SystemLanguages from '../../framework/Constants/SystemLanguages';
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 Meteor.methods({
   'project.search' ({ searchString, limit }) {
@@ -72,8 +73,7 @@ Meteor.methods({
     validationContext.validate(project)
 
     if (!validationContext.isValid()) {
-      console.log(validationContext)
-      throw new ValidationError(validationContext.validationErrors())
+      throw new Meteor.Error(new ValidationError(validationContext.validationErrors()))
     }
 
     if (!Meteor.userId()) {
@@ -124,5 +124,5 @@ Meteor.methods({
       phone: '+49 177 3291529',
       email: 'support@jwmanagement.org'
     }
-  },
+  }
 })

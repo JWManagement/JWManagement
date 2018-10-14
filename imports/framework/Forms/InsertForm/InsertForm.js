@@ -227,13 +227,13 @@ Template.InsertForm.events({
       template.isSaving.set(false)
 
       if (error != null) {
-        if (error.error === 'validation-error') {
+        if (error.error.error === 'validation-error') {
           let errors = []
 
-          if (error.reason != null && typeof error.reason === 'object') {
-            errors = errors.concat(error.reason)
-          } else if (error.details != null) {
-            errors = errors.concat(error.details)
+          if (error.error.reason != null && typeof error.error.reason === 'object') {
+            errors = errors.concat(error.error.reason)
+          } else if (error.error.details != null) {
+            errors = errors.concat(error.error.details)
           }
 
           template.errors.set(errors.map((error) => {
