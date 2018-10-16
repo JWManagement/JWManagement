@@ -8,6 +8,7 @@ import moment from 'moment'
 import Notes from '/imports/api/notes/Notes'
 import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
+import { validateProjectId } from '../../framework/Helpers/Validations'
 
 Meteor.methods({
   'note.search' ({ projectId, searchString }) {
@@ -74,15 +75,7 @@ Meteor.methods({
       projectId: {
         type: String,
         custom () {
-          const project = Projects.findOne(this.value, { fields: { _id: 1 } })
-
-          if (!project) {
-            return 'projectNotFound'
-          }
-
-          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
-            return 'userNotProjectMember'
-          }
+          validateProjectId(this.value, false)
         }
       },
       title: String,
@@ -96,7 +89,7 @@ Meteor.methods({
     }
 
     if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new project')
+      throw Meteor.Error('must be logged in to insert a new note')
     }
 
     try {

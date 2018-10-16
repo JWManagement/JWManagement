@@ -8,6 +8,7 @@ import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
 import Permissions from '../../framework/Constants/Permissions'
 import VesselType from '../../framework/Constants/VesselType'
+import { validateProjectId, validateVesselId, validateVisitId } from '../../framework/Helpers/Validations'
 
 Meteor.methods({
   'vessel.search' ({ projectId, searchString, limit }) {
@@ -68,17 +69,8 @@ Meteor.methods({
     const validationContext = new SimpleSchema({
       projectId: {
         type: String,
-        min: 5,
         custom () {
-          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
-
-          if (!project || !project.vesselModule) {
-            return 'projectNotFound'
-          }
-
-          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
-            return 'userNotProjectMember'
-          }
+          validateProjectId(this.value, true)
         }
       },
       name: String,
@@ -115,7 +107,7 @@ Meteor.methods({
     }
 
     if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new project')
+      throw Meteor.Error('must be logged in to insert a new vessel')
     }
 
     try {
@@ -148,25 +140,13 @@ Meteor.methods({
       projectId: {
         type: String,
         custom () {
-          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
-
-          if (!project || !project.vesselModule) {
-            return 'projectNotFound'
-          }
-
-          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
-            return 'userNotProjectMember'
-          }
+          validateProjectId(this.field('vesselId').value, this.value)
         }
       },
       vesselId: {
         type: String,
         custom () {
-          const vessel = Vessels.findOne(this.value, { fields: { _id: 1 } })
-
-          if (!vessel) {
-            return 'vesselNotFound'
-          }
+          validateVesselId(this.value, this.field('projectId'))
         }
       },
       isUserVisible: Boolean,
@@ -185,7 +165,7 @@ Meteor.methods({
     }
 
     if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new project')
+      throw Meteor.Error('must be logged in to insert a new visit')
     }
 
     let visits = Vessels.findOne(vesselId).visits
@@ -287,36 +267,22 @@ Meteor.methods({
       projectId: {
         type: String,
         custom () {
-          const project = Projects.findOne(this.value, { fields: { vesselModule: 1 } })
-
-          if (!project || !project.vesselModule) {
-            return 'projectNotFound'
-          }
-
-          if (!Roles.userIsInRole(Meteor.userId(), Permissions.member, this.value)) {
-            return 'userNotProjectMember'
-          }
+          validateProjectId(this.value, true)
         }
       },
       vesselId: {
         type: String,
         custom () {
-          const vessel = Vessels.findOne(this.value, { fields: { _id: 1 } })
-
-          if (!vessel) {
-            return 'vesselNotFound'
-          }
+          validateVesselId(this.value, this.field('projectId').value)
         }
       },
       visitId: {
         type: String,
         custom () {
-          const vessel = Vessels.findOne(this.field('vesselId').value, { fields: { 'visits._id': 1 } })
-          const visitId = this.value
-
-          if (vessel.visits.filter(v => v._id === visitId).length === 0) {
-            return 'visitNotFound'
-          }
+          validateVisitId(
+            this.value,
+            this.field('vesselId').value,
+            this.field('projectId').value)
         }
       },
       languageIds: String
@@ -329,7 +295,7 @@ Meteor.methods({
     }
 
     if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new project')
+      throw Meteor.Error('must be logged in to insert a new language')
     }
 
     const extendedVisits = getExtendedVessel(vesselId).visits
