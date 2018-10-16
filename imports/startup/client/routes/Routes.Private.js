@@ -3,8 +3,8 @@ import { Session } from 'meteor/session'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 
-import { wrs } from '/imports/framework/Functions/Async'
-import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers'
+import { wrs } from '../../../framework/Functions/Async'
+import { doIfLoggedIn } from '../../../framework/Managers/RouteManager.Helpers'
 import { setLanguageOnAuth } from '../language'
 
 FlowRouter.route('/profile', {

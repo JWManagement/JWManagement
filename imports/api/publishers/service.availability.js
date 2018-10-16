@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 
-import { checkPermissions } from '/imports/framework/Functions/Security'
-import Users from '/imports/api/users/Users'
+import { checkPermissions } from '../../framework/Functions/Security'
+import Users from '../users/Users'
 
 import { validateAvailabilityInsert, getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
 

@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import objectAssignDeep from 'object-assign-deep'
-import { checkPermissions } from '/imports/framework/Functions/Security'
-import Permissions from '/imports/framework/Constants/Permissions'
-import Users from '/imports/api/users/Users'
+import { checkPermissions } from '../../framework/Functions/Security'
+import Permissions from '../../framework/Constants/Permissions'
+import Users from '../users/Users'
 import { getExtendedPublisher } from './Functions'
 
 function publisherSearch ({ projectId, searchString, limit }) {

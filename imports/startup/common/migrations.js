@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 
-import Vessels from '/imports/api/vessels/Vessels'
+import Vessels from '../../api/vessels/Vessels'
 
 // to use this, import the file
 

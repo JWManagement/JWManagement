@@ -1,10 +1,10 @@
-// import { Projects } from '/imports/api/projects/projects' STILL GLOBAL VARIABLE
-// import { Weeks } from '/imports/api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
-// import { Shifts } from '/imports/api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
+// import { Projects } from '../../api/projects/projects' STILL GLOBAL VARIABLE
+// import { Weeks } from '../../api/weeks/weeks.coffee' STILL GLOBAL VARIABLE
+// import { Shifts } from '../../api/shifts/shifts.coffee' STILL GLOBAL VARIABLE
 
 import { Meteor } from 'meteor/meteor'
 
-import { Permissions } from '/imports/framework/Constants/Permissions'
+import { Permissions } from '../Constants/Permissions'
 import { Roles } from 'meteor/alanning:roles'
 
 const Checks = {

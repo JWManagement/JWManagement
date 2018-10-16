@@ -3,7 +3,7 @@ import { Session } from 'meteor/session'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import RouteManager from '/imports/framework/Managers/RouteManager'
+import RouteManager from '../../Managers/RouteManager'
 
 function generateRows (template) {
   template.rows.set(template.items.get().map((item) => {

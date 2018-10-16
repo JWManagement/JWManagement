@@ -3,8 +3,8 @@ import { TAPi18n } from 'meteor/tap:i18n'
 import { ValidationError } from 'meteor/mdg:validation-error'
 import moment from 'moment'
 
-import Users from '/imports/api/users/Users'
-import Permissions from '/imports/framework/Constants/Permissions'
+import Users from '../users/Users'
+import Permissions from '../../framework/Constants/Permissions'
 
 function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
   if (periodBegin === 2400 && lastValue === 2300) {

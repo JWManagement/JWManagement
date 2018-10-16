@@ -5,9 +5,9 @@ import { ReactiveVar } from 'meteor/reactive-var'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import RouteManager from '/imports/framework/Managers/RouteManager'
-import { getTitle } from '/imports/framework/Helpers/Helpers'
-import { updateSearch, doSearch } from '/imports/framework/Forms/SearchForm/SearchForm.Helpers'
+import RouteManager from '../../Managers/RouteManager'
+import { getTitle } from '../../Helpers/Helpers'
+import { updateSearch, doSearch } from './SearchForm.Helpers'
 
 import './SearchForm.jade'
 import './SearchForm.scss'

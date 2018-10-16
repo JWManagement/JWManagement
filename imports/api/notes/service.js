@@ -5,9 +5,9 @@ import { ValidationError } from 'meteor/mdg:validation-error'
 import SimpleSchema from 'simpl-schema'
 import moment from 'moment'
 
-import Notes from '/imports/api/notes/Notes'
-import Users from '/imports/api/users/Users'
-import Permissions from '/imports/framework/Constants/Permissions'
+import Notes from './Notes'
+import Users from '../users/Users'
+import Permissions from '../../framework/Constants/Permissions'
 import { validateProjectId } from '../../framework/Helpers/Validations'
 
 Meteor.methods({

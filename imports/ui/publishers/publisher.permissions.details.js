@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions'
+import Permissions from '../../framework/Constants/Permissions'
 
 Template['publisher.permissions.details'].helpers({
   data: {

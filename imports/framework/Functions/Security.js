@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 
-import Permissions from '/imports/framework/Constants/Permissions'
+import Permissions from '../Constants/Permissions'
 
 function checkPermissions (projectId, userId = null) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })

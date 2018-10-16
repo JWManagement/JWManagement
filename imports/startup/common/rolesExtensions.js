@@ -1,6 +1,6 @@
 import { Roles } from 'meteor/alanning:roles'
 
-import Users from '/imports/api/users/Users'
+import Users from '../../api/users/Users'
 
 Roles.getAllGroupsForUser = function (userId, roles) {
   let groups = []

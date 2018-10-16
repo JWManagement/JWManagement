@@ -5,7 +5,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import moment from 'moment'
 
-import { Delay, wrs } from '/imports/framework/Functions/Async'
+import { Delay, wrs } from '../Functions/Async'
 import { setLanguageOnAuth } from '../../startup/client/language'
 
 const checkLanguage = function () {

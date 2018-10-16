@@ -3,8 +3,8 @@ import { Template } from 'meteor/templating'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getValue, getKey, isType } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
-import { getEntityTranslation } from '/imports/framework/Helpers/Helpers'
+import { getValue, getKey, isType } from '../DetailsForm.Helpers'
+import { getEntityTranslation } from '../../../Helpers/Helpers'
 
 import './DetailsForm.Array.Entity.jade'
 
