@@ -62,7 +62,7 @@ function validateVisitId (visitId, vesselId, projectId) {
 function validateUserId (userId, projectId, permission) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
-  if (project == null) {
+  if (!project) {
     throw new Meteor.Error('projectNotFound')
   }
 
