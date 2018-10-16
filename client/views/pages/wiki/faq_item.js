@@ -38,42 +38,42 @@ Template.faq_item.helpers({
 })
 
 Template.faq_item.events({
-  'click .editQuestion': function (e, instance) {
+  'click .editQuestion' (e, instance) {
     const projectId = FlowRouter.getParam('projectId')
     return swalInput({
       swal: 'update.question',
-      doConfirm: function (inputValue) {
+      doConfirm (inputValue) {
         Meteor.call('changeQuestion', projectId, instance.data.tabId, instance.data.faq._id, inputValue)
       }
     })
   },
-  'click .js-move-faq-down': function (e, instance) {
+  'click .js-move-faq-down' (e, instance) {
     instance.data.moveFaq('down', instance.data.tabId, instance.data.faq._id)
   },
-  'click .js-move-faq-up': function (e, instance) {
+  'click .js-move-faq-up' (e, instance) {
     instance.data.moveFaq('up', instance.data.tabId, instance.data.faq._id)
   },
-  'click .removeFaq': function (e, instance) {
+  'click .removeFaq' (e, instance) {
     const projectId = FlowRouter.getParam('projectId')
     return swalYesNo({
       swal: 'delete.question',
       type: 'warning',
-      doConfirm: function () {
+      doConfirm () {
         Meteor.call('removeFaq', projectId, instance.data.tabId, instance.data.faq._id)
       }
     })
   },
-  'click .editFaq': function (e, instance) {
+  'click .editFaq' (e, instance) {
     instance.toggleEditing(true)
   },
-  'click .changeFaq': function (e, instance) {
+  'click .changeFaq' (e, instance) {
     const code = instance.$('.summernote').summernote('code')
     const projectId = FlowRouter.getParam('projectId')
     Meteor.call('changeFaq', projectId, instance.data.tabId, instance.data.faq._id, code, function () {
       instance.toggleEditing(false)
     })
   },
-  'click .cancelFaq': function (e, instance) {
+  'click .cancelFaq' (e, instance) {
     instance.toggleEditing(false)
   }
 })

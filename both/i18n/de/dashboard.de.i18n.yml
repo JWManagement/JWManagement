@@ -99,6 +99,7 @@ dashboard:
         date: Datum
         start: Beginn
         end: Ende
+    startProject: Neues Projekt
   details:
     sections:
       myProjects: Meine Projekte

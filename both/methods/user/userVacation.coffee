@@ -20,9 +20,9 @@ Meteor.methods
 	setVacationStart: (vacationId, start) ->
 		if start != ''
 			Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
-				$set: 'profile.vacations.$.start': parseInt moment(start, 'DD.MM.YYYY').format('YYYYDDDD')
+				$set: 'profile.vacations.$.start': parseInt moment(start, 'DD.MM.YYYY').format('YYYYMMDD')
 
 	setVacationEnd: (vacationId, end) ->
 		if end != ''
 			Meteor.users.update _id: Meteor.userId(), 'profile.vacations._id': vacationId,
-				$set: 'profile.vacations.$.end': parseInt moment(end, 'DD.MM.YYYY').format('YYYYDDDD')
+				$set: 'profile.vacations.$.end': parseInt moment(end, 'DD.MM.YYYY').format('YYYYMMDD')

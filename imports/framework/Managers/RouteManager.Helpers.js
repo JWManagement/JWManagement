@@ -33,7 +33,7 @@ const doIfLoggedIn = function (whatToDo, elseToDo) {
     } else if (elseToDo != null) {
       elseToDo()
     } else {
-      BlazeLayout.render('blankLayout', { content: 'login' })
+      BlazeLayout.render('landing')
     }
   })
 }

@@ -14,10 +14,15 @@ if (Meteor.isProduction) {
     tags: ['meteor', 'loggly'],
     json: true
   })
+
+  Logger.error = e => Logger.log(e)
 } else {
   Logger = {
     log (message) {
       console.log(message)
+    },
+    error (message) {
+      console.error(message)
     }
   }
 }
@@ -30,7 +35,10 @@ Meteor.startup(function () {
 
 Meteor.methods({
   'logger.log' (message) {
-    Logger.log(message)
+    Logger.log({ message: 'Client Log', content: message })
+  },
+  'logger.error' (error) {
+    Logger.error({ message: 'Client Error', error })
   }
 })
 
@@ -38,19 +46,12 @@ Meteor.methods({
 const bound = Meteor.bindEnvironment((callback) => { callback() })
 process.on('uncaughtException', function (error) {
   bound(() => {
-    Logger.log({ message: 'Server Crash', error: error })
-    console.error(error.stack)
+    Logger.error({ message: 'Server Crash', error: error })
     process.exit(7)
   })
 })
 
 // Catch-all Meteor's errors
-const originalMeteorDebug = Meteor._debug
 Meteor._debug = (message, stack) => {
-  const error = new Error(message)
-  error.stack = stack
-
-  Logger.log({ message: 'Meteor Error', error: error })
-
-  return originalMeteorDebug.apply(this, arguments)
+  Logger.log({ message: 'Meteor Error', error: { message, stack } })
 }

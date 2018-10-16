@@ -129,11 +129,14 @@ Template.InsertForm.helpers({
         if (field.type === 'date') {
           inputData.format = field.format
         }
+
         if (template.entity[field.key] != null) {
           inputData.value = template.entity[field.key]
         } else if (field.defaultValue != null) {
           inputData.value = field.defaultValue
+          template.entity[field.key] = field.defaultValue
         }
+
         return true
       }
     })
@@ -186,7 +189,7 @@ Template.InsertForm.onRendered(() => {
 })
 
 Template.InsertForm.events({
-  'click .navbar-back': function (e) {
+  'click .navbar-back' (e) {
     const template = Template.instance()
     if (template.activeField.get() != null) {
       e.preventDefault()
@@ -195,12 +198,12 @@ Template.InsertForm.events({
       template.activeField.set(null)
     }
   },
-  'keyup #search': () => {
+  'keyup #search' () {
     const template = Template.instance()
     const value = $('#search').val()
     template.searchText.set(value)
   },
-  'change input': function () {
+  'change input' () {
     const template = Template.instance()
     const key = this.data.key
     const errors = template.errors.get()
@@ -213,7 +216,7 @@ Template.InsertForm.events({
     }
     template.errors.set(newErrors)
   },
-  'click .navbar-save': (e) => {
+  'click .navbar-save' (e) {
     e.preventDefault()
 
     const template = Template.instance()
@@ -227,8 +230,8 @@ Template.InsertForm.events({
         if (error.error.error === 'validation-error') {
           let errors = []
 
-          if (error.error.reason != null && typeof e.error.reason === 'object') {
-            errors = errors.concat(e.error.reason)
+          if (error.error.reason != null && typeof error.error.reason === 'object') {
+            errors = errors.concat(error.error.reason)
           } else if (error.error.details != null) {
             errors = errors.concat(error.error.details)
           }

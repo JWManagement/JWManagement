@@ -1,5 +1,6 @@
 navigation:
   welcome: Willkommen
+  signUp: Account erstellen
   home: Übersicht
   dashboard:
     details: Übersicht
@@ -22,6 +23,7 @@ navigation:
     details: Verwaltung
     support:
       details: Hilfe
+    insert: Neues Projekt
   settings: Einstellungen
   user:
     search: Benutzer

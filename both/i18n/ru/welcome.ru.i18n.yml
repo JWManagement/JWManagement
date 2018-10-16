@@ -1,0 +1,10 @@
+welcome:
+  links:
+    home: Старт
+    features: Функции
+    contact: Контакт
+    login: Войти
+    dashboard: Информационная панель
+  footer:
+    terms: УСЛОВИЯ ИСПОЛЬЗОВАНИЯ
+    privacy: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ

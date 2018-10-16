@@ -2,8 +2,8 @@ import { Template } from 'meteor/templating'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers'
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error'
+import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
 
 import './InsertForm.Link.jade'
 
@@ -54,7 +54,7 @@ Template.InsertFormLink.onRendered(() => {})
 Template.InsertFormLink.onDestroyed(() => {})
 
 Template.InsertFormLink.events({
-  'click .link': (e, template) => {
+  'click .link' (e, template) {
     template.insertForm.activeField.set(template.key)
   }
 })

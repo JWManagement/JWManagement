@@ -26,7 +26,8 @@ RouteManager.registerEntity('dashboard.olderShifts', {
   details: 'olderShifts'
 })
 RouteManager.registerEntity('project', {
-  search: 'projects'
+  search: 'projects',
+  insert: 'projects/new'
 })
 RouteManager.registerEntity('users.online', {
   details: 'users/online'
@@ -108,7 +109,7 @@ RouteManager.registerProjectEntity('project.support', {
 
 FlowRouter.route('/:projectId/publisherActions', {
   name: 'publisherActions',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'publisherActions' })
@@ -118,7 +119,7 @@ FlowRouter.route('/:projectId/publisherActions', {
 
 FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
   name: 'calendar',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'calendar' })
@@ -128,7 +129,7 @@ FlowRouter.route('/:projectId/calendar/:year?/:month?/:day?', {
 
 FlowRouter.route('/:projectId/kb', {
   name: 'wiki',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'wiki' })
@@ -138,7 +139,7 @@ FlowRouter.route('/:projectId/kb', {
 
 FlowRouter.route('/:projectId/shifts', {
   name: 'shifts',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       let parent = Session.get('parent')
 
@@ -154,7 +155,7 @@ FlowRouter.route('/:projectId/shifts', {
 
 FlowRouter.route('/goToShift/:shiftId', {
   name: 'shift.details',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Meteor.call('shift.getShiftOverview', {
         shiftId: FlowRouter.getParam('shiftId')
@@ -179,7 +180,7 @@ FlowRouter.route('/goToShift/:shiftId', {
 
 FlowRouter.route('/:projectId/settings', {
   name: 'settings',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'settings' })
@@ -189,7 +190,7 @@ FlowRouter.route('/:projectId/settings', {
 
 FlowRouter.route('/:projectId/reports', {
   name: 'reports',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'reports' })
@@ -199,7 +200,7 @@ FlowRouter.route('/:projectId/reports', {
 
 FlowRouter.route('/:projectId/store', {
   name: 'store',
-  action: () => {
+  action () {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'store' })

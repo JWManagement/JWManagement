@@ -101,7 +101,7 @@ Template.InsertFormPicker.onRendered(() => {})
 Template.InsertFormPicker.onDestroyed(() => {})
 
 Template.InsertFormPicker.events({
-  'click .form-group': function (e, template) {
+  'click .form-group' (e, template) {
     const key = $(e.target).closest('.section').attr('key')
     const value = $(e.target).closest('.form-group').attr('key')
 

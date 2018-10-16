@@ -20,6 +20,8 @@ vessel:
     eni: ENI
     imo: IMO
     mmsi: MMSI
+    delete: Dieses Schiff löschen
+    deleteConfirmation: Möchtest du dieses Schiff wirklich löschen?
     visit:
       new: Neuen Besuch erfassen
       noElements: Dieses Schiff wurde noch nicht besucht

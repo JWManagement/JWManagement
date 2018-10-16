@@ -3,7 +3,7 @@ import { TAPi18n } from 'meteor/tap:i18n'
 
 const MailManager = {
 
-  sendMail: (data) => {
+  sendMail (data) {
     data.data.global = {
       footer: TAPi18n.__('mail.footer', '', data.language),
       link: TAPi18n.__('mail.link', '', data.language)

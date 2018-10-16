@@ -77,7 +77,7 @@ Template.calendar.onDestroyed(() => {
 })
 
 Template.calendar.events({
-  'click .shift': function () {
+  'click .shift' () {
     wrs(() => {
       FlowRouter.setQueryParams({
         showShift: this._id

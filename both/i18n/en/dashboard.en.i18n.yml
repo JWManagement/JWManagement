@@ -102,6 +102,7 @@ dashboard:
         date: Date
         start: Begin
         end: End
+    startProject: New project
   details:
     sections:
       myProjects: My projects

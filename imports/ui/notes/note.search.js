@@ -18,7 +18,7 @@ Template['note.search'].helpers({
       name: 'lastChange',
       mobile: true
     }],
-    searchCriteria: (search) => {
+    searchCriteria (search) {
       return {
         selector: {
           $or: [{

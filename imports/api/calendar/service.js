@@ -5,7 +5,7 @@ import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
 
 Meteor.methods({
-  'calendar.getShifts': ({ projectId, date }) => {
+  'calendar.getShifts' ({ projectId, date }) {
     checkPermissions(projectId)
 
     try {

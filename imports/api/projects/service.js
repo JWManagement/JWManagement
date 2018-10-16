@@ -1,8 +1,11 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
+import SimpleSchema from 'simpl-schema'
+import { ValidationError } from 'meteor/mdg:validation-error'
 
-import Permissions from '/imports/framework/Constants/Permissions'
-import RoleManager from '/imports/framework/Managers/RoleManager'
+import Permissions from '../../framework/Constants/Permissions'
+import RoleManager from '../../framework/Managers/RoleManager'
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 Meteor.methods({
   'project.search' ({ searchString, limit }) {
@@ -59,6 +62,41 @@ Meteor.methods({
     }
 
     return project
+  },
+  'project.insert' (_, project) {
+    const validationContext = new SimpleSchema({
+      name: { type: String, min: 3 },
+      email: { type: String, regEx: SimpleSchema.RegEx.Email },
+      language: { type: String, min: 2, allowedValues: SystemLanguages.allowedValues }
+    }).newContext()
+
+    validationContext.validate(project)
+
+    if (!validationContext.isValid()) {
+      throw new Meteor.Error(new ValidationError(validationContext.validationErrors()))
+    }
+
+    if (!Meteor.userId()) {
+      throw Meteor.Error('must be logged in to create new project')
+    }
+
+    const projectId = Projects.insert({
+      name: project.name,
+      email: project.email,
+      language: project.language,
+      news: {},
+      wiki: {
+        tabs: []
+      },
+      tags: [],
+      teams: [],
+      meetings: [],
+      store: {}
+    })
+
+    Roles.addUsersToRoles(Meteor.userId(), Permissions.admin, projectId)
+
+    return projectId
   },
   'project.leave' ({ projectId }) {
     const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })

@@ -1,0 +1,30 @@
+<template name="landing">
+  <div class="container landing-wrapper">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="m-t-xl m-b-xl">JW Management</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <img class="img-responsive" src="/landing/shifts.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center p-xl">
+        <h2>Welcome to JW Management!</h2>
+        <h2>Advanced shift scheduling for Jehovah's Witnesses</h2>
+      </div>
+    </div>
+    <div class="row m-t-md m-b-sm">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <a id="signIn" class="btn btn-primary btn-block btn-lg" href="{{pathFor 'login' language='en'}}">Sign in</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <a id="signUp" class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'signUp' language='en'}}">Sign up for free</a>
+      </div>
+    </div>
+  </div>
+</template>

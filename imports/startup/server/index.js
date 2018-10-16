@@ -1,4 +1,3 @@
-import '/imports/api/projects/projects'
 import '/imports/api/messages/messages.coffee'
 
 import '/imports/startup/server/mailer'

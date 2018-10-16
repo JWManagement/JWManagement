@@ -26,7 +26,7 @@ Template.DetailsFormActions.onRendered(() => {})
 Template.DetailsFormActions.onDestroyed(() => {})
 
 Template.DetailsFormActions.events({
-  'click .confirm-button': (e) => {
+  'click .confirm-button' (e) {
     const key = $(e.target).attr('key')
     const method = $(e.target).attr('method')
     const route = $(e.target).attr('route')
