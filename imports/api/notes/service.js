@@ -1,14 +1,11 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
-import { ValidationError } from 'meteor/mdg:validation-error'
-import SimpleSchema from 'simpl-schema'
 import moment from 'moment'
-
 import Notes from '/imports/api/notes/Notes'
 import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
-import { validateProjectId } from '../../framework/Helpers/Validations'
+import { validate, validateProjectId } from '../../framework/Functions/Validations'
 
 Meteor.methods({
   'note.search' ({ projectId, searchString }) {
@@ -71,7 +68,7 @@ Meteor.methods({
     return getExtendedNote(projectId, noteId)[key]
   },
   'note.insert' ({ projectId }, note) {
-    const validationContext = new SimpleSchema({
+    validate('note', {
       projectId: {
         type: String,
         custom () {
@@ -80,17 +77,10 @@ Meteor.methods({
       },
       title: String,
       text: String
-    }).newContext()
-
-    validationContext.validate({ projectId, ...note })
-
-    if (!validationContext.isValid()) {
-      throw new ValidationError(validationContext.validationErrors())
-    }
-
-    if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new note')
-    }
+    }, {
+      projectId,
+      ...note
+    })
 
     try {
       Notes.persistence.insert(projectId, note)
