@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema'
 
 import Permissions from '../../framework/Constants/Permissions'
 import RoleManager from '../../framework/Managers/RoleManager'
-import SystemLanguages from '../../framework/Constants/SystemLanguages';
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 Meteor.methods({
   'project.search' ({ searchString, limit }) {
@@ -124,5 +124,5 @@ Meteor.methods({
       phone: '+49 177 3291529',
       email: 'support@jwmanagement.org'
     }
-  },
+  }
 })
