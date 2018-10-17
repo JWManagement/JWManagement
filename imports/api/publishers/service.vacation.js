@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import moment from 'moment'
 import Users from '/imports/api/users/Users'
 import { checkPermissions } from '/imports/framework/Functions/Security'
-import { validate } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/validations'
 import { defaultValidations } from '../../framework/Functions/defaultValidations'
 import { getExtendedPublisher } from './Functions'
 

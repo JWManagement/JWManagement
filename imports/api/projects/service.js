@@ -4,7 +4,7 @@ import SimpleSchema from 'simpl-schema'
 import Permissions from '../../framework/Constants/Permissions'
 import RoleManager from '../../framework/Managers/RoleManager'
 import SystemLanguages from '../../framework/Constants/SystemLanguages'
-import { validate } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/validations'
 
 Meteor.methods({
   'project.search' ({ searchString, limit }) {

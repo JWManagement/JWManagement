@@ -7,7 +7,7 @@ import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
 import Permissions from '../../framework/Constants/Permissions'
 import VesselType from '../../framework/Constants/VesselType'
-import { validate } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/validations'
 import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({

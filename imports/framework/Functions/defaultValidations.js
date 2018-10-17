@@ -1,4 +1,4 @@
-import { validateProjectId, validateUserId, validateVesselId, validateVisitId } from './Validations'
+import { validateProjectId, validateUserId, validateVesselId, validateVisitId } from './validations'
 import Permissions from '../Constants/Permissions'
 
 const defaultValidations = {
