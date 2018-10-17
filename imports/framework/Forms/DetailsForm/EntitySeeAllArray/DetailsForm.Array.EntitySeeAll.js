@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating'
 import {
   getValueForSeeAllItems,
   clickHandlerForSeeAllItems
-} from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+} from '../DetailsForm.Helpers'
 
 import './DetailsForm.Array.EntitySeeAll.jade'
 

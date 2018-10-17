@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-import { getValue, getKey, defaultClickHandler } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+import { getValue, getKey, defaultClickHandler } from '../DetailsForm.Helpers'
 
 import './DetailsForm.Textbox.jade'
 

@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getValue, isType, loadData } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+import { getValue, isType, loadData } from '../DetailsForm.Helpers'
 
 import './DetailsForm.Array.Link.jade'
 

@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions'
+import Permissions from '../../framework/Constants/Permissions'
 
 Template['dashboard.details'].helpers({
   data: {

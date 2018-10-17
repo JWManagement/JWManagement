@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import Users from '/imports/api/users/Users'
+import Users from '../Users'
 
 Meteor.methods({
   'users.online.get' () {

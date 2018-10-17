@@ -2,8 +2,8 @@ import moment from 'moment'
 import { Template } from 'meteor/templating'
 import { TAPi18n } from 'meteor/tap:i18n'
 
-import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers'
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error'
+import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
 
 import './UpdateForm.Date.jade'
 

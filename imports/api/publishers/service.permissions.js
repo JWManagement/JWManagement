@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 
-import Permissions from '/imports/framework/Constants/Permissions'
-import { checkPermissions } from '/imports/framework/Functions/Security'
+import Permissions from '../../framework/Constants/Permissions'
+import { checkPermissions } from '../../framework/Functions/Security'
 
 function publisherPermissionsGet ({ projectId, userId }) {
   checkPermissions(projectId, userId)

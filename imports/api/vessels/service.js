@@ -2,9 +2,13 @@ import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
+
 import Vessels from './Vessels'
-import Languages from '/imports/framework/Constants/Languages'
-import Permissions from '/imports/framework/Constants/Permissions'
+import Languages from '../../framework/Constants/Languages'
+import Permissions from '../../framework/Constants/Permissions'
+import VesselType from '../../framework/Constants/VesselType'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
   'vessel.search' ({ projectId, searchString, limit }) {
@@ -62,7 +66,37 @@ Meteor.methods({
     return getExtendedVessel(vesselId)[key]
   },
   'vessel.insert' ({ projectId }, vessel) {
-    checkVesselModule(projectId)
+    validate('vessel', {
+      ...defaultValidations.projectWithVesselModule,
+      name: String,
+      flag: {
+        type: String,
+        optional: true
+      },
+      type: {
+        type: String,
+        allowedValues: VesselType.allowedValues
+      },
+      callsign: {
+        type: String,
+        optional: true
+      },
+      eni: {
+        type: String,
+        optional: true
+      },
+      imo: {
+        type: String,
+        optional: true
+      },
+      mmsi: {
+        type: String,
+        optional: true
+      }
+    }, {
+      projectId,
+      ...vessel
+    })
 
     try {
       Vessels.persistence.insert(vessel)
@@ -90,7 +124,21 @@ Meteor.methods({
     }
   },
   'vessel.visit.insert' ({ projectId, vesselId }, visit) {
-    checkVesselModule(projectId)
+    validate('visit', {
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
+      isUserVisible: Boolean,
+      harborId: String,
+      date: Number,
+      dateNext: {
+        type: Number,
+        optional: true
+      }
+    }, {
+      projectId,
+      vesselId,
+      ...visit
+    })
 
     let visits = Vessels.findOne(vesselId).visits
 
@@ -187,7 +235,17 @@ Meteor.methods({
     }
   },
   'vessel.visit.language.insert' ({ projectId, vesselId, visitId }, { languageIds }) {
-    checkVesselModule(projectId)
+    validate('language', {
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
+      ...defaultValidations.visit,
+      languageIds: String
+    }, {
+      projectId,
+      vesselId,
+      visitId,
+      languageIds
+    })
 
     const extendedVisits = getExtendedVessel(vesselId).visits
 

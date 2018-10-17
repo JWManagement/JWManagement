@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getTitle } from '/imports/framework/Helpers/Helpers'
+import { getTitle } from '../../../Helpers/Helpers'
 
 import './DetailsForm.Navigation.jade'
 

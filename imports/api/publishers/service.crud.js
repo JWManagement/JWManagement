@@ -1,9 +1,15 @@
 import { Meteor } from 'meteor/meteor'
+import SimpleSchema from 'simpl-schema'
 import objectAssignDeep from 'object-assign-deep'
-import { checkPermissions } from '/imports/framework/Functions/Security'
-import Permissions from '/imports/framework/Constants/Permissions'
-import Users from '/imports/api/users/Users'
+import { checkPermissions } from '../../framework/Functions/Security'
+import Permissions from '../../framework/Constants/Permissions'
+import Users from '../users/Users'
 import { getExtendedPublisher } from './Functions'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
+import Gender from '../../framework/Constants/Gender'
+import Pioneer from '../../framework/Constants/Pioneer'
+import Privilege from '../../framework/Constants/Privilege'
 
 function publisherSearch ({ projectId, searchString, limit }) {
   checkPermissions(projectId)
@@ -109,7 +115,42 @@ function publisherGetField ({ projectId, userId, key }) {
 }
 
 function publisherInsert ({ projectId }, publisher) {
-  checkPermissions(projectId)
+  validate('publisher', {
+    ...defaultValidations.projectAdmin,
+    username: {
+      type: String,
+      optional: true
+    },
+    'profile_firstname': String,
+    'profile_lastname': String,
+    'profile_email': {
+      type: String,
+      regEx: SimpleSchema.RegEx.Email
+    },
+    'profile_gender': {
+      type: String,
+      allowedValues: Gender.allowedValues
+    },
+    'profile_languages': {
+      type: String,
+      optional: true
+    },
+    'profile_pioneer': {
+      type: String,
+      allowedValues: Pioneer.allowedValues
+    },
+    'profile_privilege': {
+      type: String,
+      allowedValues: Privilege.allowedValues
+    },
+    'profile_telefon': {
+      type: String,
+      optional: true
+    }
+  }, {
+    projectId,
+    ...publisher
+  })
 
   try {
     let userObj = {}

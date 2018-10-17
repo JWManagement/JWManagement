@@ -4,9 +4,9 @@ import { ReactiveVar } from 'meteor/reactive-var'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import RouteManager from '/imports/framework/Managers/RouteManager'
-import { getKey, getTitle, getEntityTranslation } from '/imports/framework/Helpers/Helpers'
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error'
+import RouteManager from '../../Managers/RouteManager'
+import { getKey, getTitle, getEntityTranslation } from '../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../Helpers/Error'
 
 import './InsertForm.jade'
 import './InsertForm.scss'
@@ -227,13 +227,13 @@ Template.InsertForm.events({
       template.isSaving.set(false)
 
       if (error != null) {
-        if (error.error.error === 'validation-error') {
+        if (error.error === 'validation-error') {
           let errors = []
 
-          if (error.error.reason != null && typeof error.error.reason === 'object') {
-            errors = errors.concat(error.error.reason)
-          } else if (error.error.details != null) {
-            errors = errors.concat(error.error.details)
+          if (error.reason != null && typeof error.reason === 'object') {
+            errors = errors.concat(error.reason)
+          } else if (error.details != null) {
+            errors = errors.concat(error.details)
           }
 
           template.errors.set(errors.map((error) => {

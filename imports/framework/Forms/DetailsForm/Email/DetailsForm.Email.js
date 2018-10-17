@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 
-import { getValue } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
-import { getEntityTranslation } from '/imports/framework/Helpers/Helpers'
+import { getValue } from '../DetailsForm.Helpers'
+import { getEntityTranslation } from '../../../Helpers/Helpers'
 
 import './DetailsForm.Email.jade'
 

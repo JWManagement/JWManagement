@@ -3,9 +3,9 @@ import { Mongo } from 'meteor/mongo'
 import { Random } from 'meteor/random'
 import SimpleSchema from 'simpl-schema'
 
-import Languages from '/imports/framework/Constants/Languages'
+import Languages from '../../framework/Constants/Languages'
 
-const PersistenceManager = require('/imports/framework/Managers/PersistenceManager')
+const PersistenceManager = require('../../framework/Managers/PersistenceManager')
 
 let Vessels = new Mongo.Collection('vessels')
 

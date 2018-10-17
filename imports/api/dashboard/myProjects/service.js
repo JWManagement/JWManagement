@@ -1,12 +1,12 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 
-import Permissions from '/imports/framework/Constants/Permissions'
+import Permissions from '../../../framework/Constants/Permissions'
 
 import {
   getProjects,
   getCleanedProjects
-} from '/imports/api/dashboard/Functions'
+} from '../Functions'
 
 Meteor.methods({
   'dashboard.myProjects.get' () {
