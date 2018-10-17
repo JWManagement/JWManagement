@@ -9,7 +9,8 @@ template(name="InsertFormPicker")
             .checkmark
               if isChecked item
                 i.icon.fa.fa-check
-            +with item
+            // stringify because +with doesn't handle 0 correctly
+            +with stringify item
               .key {{getEntityTranslation getItemKey}}
 
       else if isAllowedKeyValues
