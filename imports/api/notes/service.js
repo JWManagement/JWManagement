@@ -5,7 +5,8 @@ import moment from 'moment'
 import Notes from '/imports/api/notes/Notes'
 import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
-import { validate, validateProjectId } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/Validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
   'note.search' ({ projectId, searchString }) {
@@ -69,12 +70,7 @@ Meteor.methods({
   },
   'note.insert' ({ projectId }, note) {
     validate('note', {
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.value, false)
-        }
-      },
+      ...defaultValidations.projectAdmin,
       title: String,
       text: String
     }, {

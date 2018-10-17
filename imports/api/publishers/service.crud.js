@@ -5,7 +5,8 @@ import { checkPermissions } from '/imports/framework/Functions/Security'
 import Permissions from '/imports/framework/Constants/Permissions'
 import Users from '/imports/api/users/Users'
 import { getExtendedPublisher } from './Functions'
-import { validate, validateProjectId } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/Validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
@@ -115,12 +116,7 @@ function publisherGetField ({ projectId, userId, key }) {
 
 function publisherInsert ({ projectId }, publisher) {
   validate('publisher', {
-    projectId: {
-      type: String,
-      custom () {
-        validateProjectId(this.value, Permissions.admin)
-      }
-    },
+    ...defaultValidations.projectAdmin,
     username: {
       type: String,
       optional: true

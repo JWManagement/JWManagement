@@ -2,27 +2,13 @@ import { Meteor } from 'meteor/meteor'
 import moment from 'moment'
 import Users from '/imports/api/users/Users'
 import { checkPermissions } from '/imports/framework/Functions/Security'
-import { validate, validateProjectId, validateUserId } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/Validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 import { getExtendedPublisher } from './Functions'
-import Permissions from '../../framework/Constants/Permissions'
 
 function publisherProfileVacationInsert ({ projectId, userId }, newVacation) {
   validate('vacation', {
-    projectId: {
-      type: String,
-      custom () {
-        validateProjectId(this.value, Permissions.admin)
-      }
-    },
-    userId: {
-      type: String,
-      custom () {
-        validateUserId(
-          this.value,
-          this.field('projectId').value,
-          Permissions.member)
-      }
-    },
+    ...defaultValidations.projectAdminAndUserMember,
     start: Number,
     end: {
       type: Number,

@@ -7,12 +7,8 @@ import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
 import Permissions from '../../framework/Constants/Permissions'
 import VesselType from '../../framework/Constants/VesselType'
-import {
-  validate,
-  validateProjectId,
-  validateVesselId,
-  validateVisitId
-} from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/Validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
   'vessel.search' ({ projectId, searchString, limit }) {
@@ -71,12 +67,7 @@ Meteor.methods({
   },
   'vessel.insert' ({ projectId }, vessel) {
     validate('vessel', {
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.value, true)
-        }
-      },
+      ...defaultValidations.projectWithVesselModule,
       name: String,
       flag: {
         type: String,
@@ -134,18 +125,8 @@ Meteor.methods({
   },
   'vessel.visit.insert' ({ projectId, vesselId }, visit) {
     validate('visit', {
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.field('vesselId').value, this.value)
-        }
-      },
-      vesselId: {
-        type: String,
-        custom () {
-          validateVesselId(this.value, this.field('projectId'))
-        }
-      },
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
       isUserVisible: Boolean,
       harborId: String,
       date: Number,
@@ -255,27 +236,9 @@ Meteor.methods({
   },
   'vessel.visit.language.insert' ({ projectId, vesselId, visitId }, { languageIds }) {
     validate('language', {
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.value, true)
-        }
-      },
-      vesselId: {
-        type: String,
-        custom () {
-          validateVesselId(this.value, this.field('projectId').value)
-        }
-      },
-      visitId: {
-        type: String,
-        custom () {
-          validateVisitId(
-            this.value,
-            this.field('vesselId').value,
-            this.field('projectId').value)
-        }
-      },
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
+      ...defaultValidations.visit,
       languageIds: String
     }, {
       projectId,

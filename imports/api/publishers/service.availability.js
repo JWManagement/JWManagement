@@ -1,29 +1,13 @@
 import { Meteor } from 'meteor/meteor'
-
 import { checkPermissions } from '/imports/framework/Functions/Security'
 import Users from '/imports/api/users/Users'
-
 import { getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
-import { validate, validateProjectId, validateUserId } from '../../framework/Functions/Validations'
-import Permissions from '../../framework/Constants/Permissions'
+import { validate } from '../../framework/Functions/Validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslot) {
   validate('availability', {
-    projectId: {
-      type: String,
-      custom () {
-        validateProjectId(this.value, Permissions.admin)
-      }
-    },
-    userId: {
-      type: String,
-      custom () {
-        validateUserId(
-          this.value,
-          this.field('projectId').value,
-          Permissions.member)
-      }
-    },
+    ...defaultValidations.projectAdminAndUserMember,
     key: String,
     start: Number,
     end: {
