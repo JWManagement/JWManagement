@@ -33,7 +33,7 @@ publisher:
       availability:
         new: Neue Verfügbarkeit eintragen
         noElements: Keine Verfügbarkeiten angegeben
-        deleteConfirmation: Möchtest du diese Verfügbarkeit wirklich löschen?
+        methodConfirmation: Möchtest du diese Verfügbarkeit wirklich löschen?
         mondays: Montags
         tuesdays: Dienstags
         wednesdays: Mittwochs

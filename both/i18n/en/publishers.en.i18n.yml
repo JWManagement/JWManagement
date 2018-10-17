@@ -33,7 +33,7 @@ publisher:
       availability:
         new: Add new timeslot
         noElements: No timeslot(s) entered
-        deleteConfirmation: Do you really want to delete this timeslot?
+        methodConfirmation: Do you really want to delete this timeslot?
         mondays: Mondays
         tuesdays: Tuesdays
         wednesdays: Wednesdays
