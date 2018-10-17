@@ -2,10 +2,11 @@ import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
 import moment from 'moment'
-
 import Notes from '/imports/api/notes/Notes'
 import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
   'note.search' ({ projectId, searchString }) {
@@ -68,7 +69,14 @@ Meteor.methods({
     return getExtendedNote(projectId, noteId)[key]
   },
   'note.insert' ({ projectId }, note) {
-    checkPermissions(projectId)
+    validate('note', {
+      ...defaultValidations.projectAdmin,
+      title: String,
+      text: String
+    }, {
+      projectId,
+      ...note
+    })
 
     try {
       Notes.persistence.insert(projectId, note)
