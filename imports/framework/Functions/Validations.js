@@ -63,11 +63,11 @@ function validateUserId (userId, projectId, permission) {
   const project = Projects.findOne(projectId, { fields: { _id: 1 } })
 
   if (!project) {
-    throw new Meteor.Error('projectNotFound')
+    return 'projectNotFound'
   }
 
   if (!Roles.userIsInRole(userId, permission, projectId)) {
-    throw new ValidationError('insufficientPermissions')
+    return 'insufficientPermissions'
   }
 }
 

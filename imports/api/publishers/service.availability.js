@@ -3,16 +3,47 @@ import { Meteor } from 'meteor/meteor'
 import { checkPermissions } from '/imports/framework/Functions/Security'
 import Users from '/imports/api/users/Users'
 
-import { validateAvailabilityInsert, getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
+import { getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
+import { validate, validateProjectId, validateUserId } from '../../framework/Functions/Validations'
+import Permissions from '../../framework/Constants/Permissions'
 
 function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslot) {
-  checkPermissions(projectId, userId)
+  validate('availability', {
+    projectId: {
+      type: String,
+      custom () {
+        validateProjectId(this.value, Permissions.admin)
+      }
+    },
+    userId: {
+      type: String,
+      custom () {
+        validateUserId(
+          this.value,
+          this.field('projectId').value,
+          Permissions.member)
+      }
+    },
+    key: String,
+    start: Number,
+    end: {
+      type: Number,
+      custom () {
+        if (this.value < this.field('start').value) {
+          return 'hasToBeBigger'
+        }
+      }
+    }
+  }, {
+    projectId,
+    userId,
+    key,
+    ...timeslot
+  })
 
   try {
     const timeslotStart = parseInt(timeslot.start, 10) * 100
     const timeslotEnd = parseInt(timeslot.end, 10) * 100
-
-    validateAvailabilityInsert(timeslotStart, timeslotEnd)
 
     const publisher = Users.findOne(userId)
     const day = key.split('_').pop().substring(0, 2)
