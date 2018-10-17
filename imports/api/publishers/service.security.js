@@ -6,19 +6,37 @@ import { Mailer } from 'meteor/lookback:emails'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { getMailTexts } from '../../framework/Functions/Mail'
 import { checkPermissions } from '../../framework/Functions/Security'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 import Users from '../users/Users'
-import PasswordsSchema from '../users/PasswordsSchema'
 import RoleManager from '../../framework/Managers/RoleManager'
 import MailManager from '../../framework/Managers/MailManager'
 import State from '../../framework/Constants/State'
 import Permissions from '../../framework/Constants/Permissions'
 
 function publisherPasswordInsert ({ projectId, userId }, passwords) {
-  checkPermissions(projectId, userId)
+  validate('project', {
+    ...defaultValidations.projectAdminAndUserMember,
+    password: {
+      type: String,
+      min: 8
+    },
+    passwordRepeat: {
+      type: String,
+      min: 8,
+      custom () {
+        if (this.value !== this.field('password').value) {
+          return 'passwordMismatch'
+        }
+      }
+    }
+  }, {
+    projectId,
+    userId,
+    ...passwords
+  })
 
   try {
-    PasswordsSchema.validate(passwords)
-
     Accounts.setPassword(userId, passwords.password)
 
     return userId

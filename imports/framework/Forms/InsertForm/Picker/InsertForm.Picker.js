@@ -22,43 +22,35 @@ Template.InsertFormPicker.helpers({
     const template = Template.instance()
     return template.allowedKeyValues.get() != null
   },
+  stringify: item => item.toString(),
   getItems () {
     const template = Template.instance()
     const searchText = template.insertForm.searchText.get()
 
-    if (searchText !== '') {
+    if (searchText) {
       const regEx = new RegExp(searchText, 'gi')
 
       return template.allowedValues
-        .map((item) => {
-          return String(item)
-        })
-        .filter((item) => {
-          return item.match(regEx)
-        })
+        .filter(item => item.match(regEx))
     }
+
     return template.allowedValues
-      .map((item) => {
-        return String(item)
-      })
   },
   getKeyValues () {
     const template = Template.instance()
     const searchText = template.insertForm.searchText.get()
 
-    if (searchText !== '') {
+    if (searchText) {
       const regEx = new RegExp(searchText, 'gi')
 
       return template.allowedKeyValues.get()
-        .filter(({ key, value }) => {
-          return key.match(regEx) || value.match(regEx)
-        })
+        .filter(({ key, value }) => key.match(regEx) || value.match(regEx))
     }
     return template.allowedKeyValues.get()
   },
   getItemKey () {
     const template = Template.instance()
-    return template.key + 'Values.' + this
+    return `${template.key}Values.${this}`
   },
   isChecked (keyValue) {
     const template = Template.instance()
@@ -90,6 +82,7 @@ Template.InsertFormPicker.onCreated(() => {
       if (e == null) {
         template.allowedKeyValues.set(keyValues)
       } else {
+        console.log(e)
         alert('SERVER ERROR')
       }
     })
@@ -103,7 +96,11 @@ Template.InsertFormPicker.onDestroyed(() => {})
 Template.InsertFormPicker.events({
   'click .form-group' (e, template) {
     const key = $(e.target).closest('.section').attr('key')
-    const value = $(e.target).closest('.form-group').attr('key')
+    let value = $(e.target).closest('.form-group').attr('key')
+
+    if (parseInt(value)) {
+      value = parseInt(value)
+    }
 
     template.insertForm.setFieldValue(key, value)
     template.value.set(value)

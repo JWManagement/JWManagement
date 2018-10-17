@@ -2,13 +2,13 @@ import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
 import { TAPi18n } from 'meteor/tap:i18n'
-import { ValidationError } from 'meteor/mdg:validation-error'
-import SimpleSchema from 'simpl-schema'
+
 import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
 import Permissions from '../../framework/Constants/Permissions'
 import VesselType from '../../framework/Constants/VesselType'
-import { validateProjectId, validateVesselId, validateVisitId } from '../../framework/Helpers/Validations'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
   'vessel.search' ({ projectId, searchString, limit }) {
@@ -66,13 +66,8 @@ Meteor.methods({
     return getExtendedVessel(vesselId)[key]
   },
   'vessel.insert' ({ projectId }, vessel) {
-    const validationContext = new SimpleSchema({
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.value, true)
-        }
-      },
+    validate('vessel', {
+      ...defaultValidations.projectWithVesselModule,
       name: String,
       flag: {
         type: String,
@@ -98,17 +93,10 @@ Meteor.methods({
         type: String,
         optional: true
       }
-    }).newContext()
-
-    validationContext.validate({ projectId, ...vessel })
-
-    if (!validationContext.isValid()) {
-      throw new ValidationError(validationContext.validationErrors())
-    }
-
-    if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new vessel')
-    }
+    }, {
+      projectId,
+      ...vessel
+    })
 
     try {
       Vessels.persistence.insert(vessel)
@@ -136,19 +124,9 @@ Meteor.methods({
     }
   },
   'vessel.visit.insert' ({ projectId, vesselId }, visit) {
-    const validationContext = new SimpleSchema({
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.field('vesselId').value, this.value)
-        }
-      },
-      vesselId: {
-        type: String,
-        custom () {
-          validateVesselId(this.value, this.field('projectId'))
-        }
-      },
+    validate('visit', {
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
       isUserVisible: Boolean,
       harborId: String,
       date: Number,
@@ -156,17 +134,11 @@ Meteor.methods({
         type: Number,
         optional: true
       }
-    }).newContext()
-
-    validationContext.validate({ projectId, vesselId, ...visit })
-
-    if (!validationContext.isValid()) {
-      throw new ValidationError(validationContext.validationErrors())
-    }
-
-    if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new visit')
-    }
+    }, {
+      projectId,
+      vesselId,
+      ...visit
+    })
 
     let visits = Vessels.findOne(vesselId).visits
 
@@ -263,40 +235,17 @@ Meteor.methods({
     }
   },
   'vessel.visit.language.insert' ({ projectId, vesselId, visitId }, { languageIds }) {
-    const validationContext = new SimpleSchema({
-      projectId: {
-        type: String,
-        custom () {
-          validateProjectId(this.value, true)
-        }
-      },
-      vesselId: {
-        type: String,
-        custom () {
-          validateVesselId(this.value, this.field('projectId').value)
-        }
-      },
-      visitId: {
-        type: String,
-        custom () {
-          validateVisitId(
-            this.value,
-            this.field('vesselId').value,
-            this.field('projectId').value)
-        }
-      },
+    validate('language', {
+      ...defaultValidations.projectWithVesselModule,
+      ...defaultValidations.vessel,
+      ...defaultValidations.visit,
       languageIds: String
-    }).newContext()
-
-    validationContext.validate({ projectId, vesselId, visitId, languageIds })
-
-    if (!validationContext.isValid()) {
-      throw new ValidationError(validationContext.validationErrors())
-    }
-
-    if (!Meteor.userId()) {
-      throw Meteor.Error('must be logged in to insert a new language')
-    }
+    }, {
+      projectId,
+      vesselId,
+      visitId,
+      languageIds
+    })
 
     const extendedVisits = getExtendedVessel(vesselId).visits
 

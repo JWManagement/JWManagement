@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor'
 import { TAPi18n } from 'meteor/tap:i18n'
-import { ValidationError } from 'meteor/mdg:validation-error'
 import moment from 'moment'
 
 import Users from '../users/Users'
@@ -130,31 +129,6 @@ function getExtendedPublisher (userId, projectId) {
   return publisher
 }
 
-function validateAvailabilityInsert (timeslotStart, timeslotEnd) {
-  const validationErrors = []
-  if (isNaN(timeslotStart)) {
-    validationErrors.push({
-      name: 'start',
-      type: 'required'
-    })
-  }
-  if (isNaN(timeslotEnd)) {
-    validationErrors.push({
-      name: 'end',
-      type: 'required'
-    })
-  }
-  if (timeslotEnd < timeslotStart) {
-    validationErrors.push({
-      name: 'end',
-      type: 'hasToBeBigger'
-    })
-  }
-  if (validationErrors.length > 0) {
-    throw new ValidationError(validationErrors)
-  }
-}
-
 function getMergedTimeslots (publisher, day, newTimeslots) {
   let mergedTimeslots = []
 
@@ -186,7 +160,6 @@ function getNewTimeslots (timeslotStart, timeslotEnd) {
 
 export {
   getExtendedPublisher,
-  validateAvailabilityInsert,
   getMergedTimeslots,
   getNewTimeslots
 }

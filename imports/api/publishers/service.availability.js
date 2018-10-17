@@ -1,18 +1,33 @@
 import { Meteor } from 'meteor/meteor'
-
 import { checkPermissions } from '../../framework/Functions/Security'
 import Users from '../users/Users'
-
-import { validateAvailabilityInsert, getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
+import { getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
+import { validate } from '../../framework/Functions/validations'
+import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslot) {
-  checkPermissions(projectId, userId)
+  validate('availability', {
+    ...defaultValidations.projectAdminAndUserMember,
+    key: String,
+    start: Number,
+    end: {
+      type: Number,
+      custom () {
+        if (this.value < this.field('start').value) {
+          return 'hasToBeBigger'
+        }
+      }
+    }
+  }, {
+    projectId,
+    userId,
+    key,
+    ...timeslot
+  })
 
   try {
     const timeslotStart = parseInt(timeslot.start, 10) * 100
     const timeslotEnd = parseInt(timeslot.end, 10) * 100
-
-    validateAvailabilityInsert(timeslotStart, timeslotEnd)
 
     const publisher = Users.findOne(userId)
     const day = key.split('_').pop().substring(0, 2)
