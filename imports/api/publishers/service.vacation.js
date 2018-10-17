@@ -1,13 +1,42 @@
 import { Meteor } from 'meteor/meteor'
 import moment from 'moment'
-
-import { checkPermissions } from '/imports/framework/Functions/Security'
 import Users from '/imports/api/users/Users'
-
+import { checkPermissions } from '/imports/framework/Functions/Security'
+import { validate, validateProjectId, validateUserId } from '../../framework/Functions/Validations'
 import { getExtendedPublisher } from './Functions'
+import Permissions from '../../framework/Constants/Permissions'
 
 function publisherProfileVacationInsert ({ projectId, userId }, newVacation) {
-  checkPermissions(projectId, userId)
+  validate('vacation', {
+    projectId: {
+      type: String,
+      custom () {
+        validateProjectId(this.value, Permissions.admin)
+      }
+    },
+    userId: {
+      type: String,
+      custom () {
+        validateUserId(
+          this.value,
+          this.field('projectId').value,
+          Permissions.member)
+      }
+    },
+    start: Number,
+    end: {
+      type: Number,
+      custom () {
+        if (this.value < this.field('start').value) {
+          return 'hasToBeBigger'
+        }
+      }
+    }
+  }, {
+    projectId,
+    userId,
+    ...newVacation
+  })
 
   try {
     let vacations = getExtendedPublisher(userId, projectId).profile.vacations
