@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { checkPermissions } from '/imports/framework/Functions/Security'
 import Users from '/imports/api/users/Users'
 import { getNewTimeslots, getExtendedPublisher, getMergedTimeslots } from './Functions'
-import { validate } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/validations'
 import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 function publisherProfileAvailabilityInsert ({ projectId, userId, key }, timeslot) {

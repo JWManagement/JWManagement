@@ -5,7 +5,7 @@ import moment from 'moment'
 import Notes from '/imports/api/notes/Notes'
 import Users from '/imports/api/users/Users'
 import Permissions from '/imports/framework/Constants/Permissions'
-import { validate } from '../../framework/Functions/Validations'
+import { validate } from '../../framework/Functions/validations'
 import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
 Meteor.methods({
