@@ -15,7 +15,7 @@ import State from '../../framework/Constants/State'
 import Permissions from '../../framework/Constants/Permissions'
 
 function publisherPasswordInsert ({ projectId, userId }, passwords) {
-  validate('project', {
+  validate('password', {
     ...defaultValidations.projectAdminAndUserMember,
     password: {
       type: String,

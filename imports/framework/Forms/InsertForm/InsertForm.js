@@ -249,6 +249,10 @@ Template.InsertForm.events({
               error.name = error.name.substring(getRegexLastIndexOf(error.name, /[0-9]/g) + 2)
             }
 
+            if (error.min) {
+              error.type += error.min
+            }
+
             return error
           }))
         } else {
