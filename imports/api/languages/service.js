@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 
-import Users from '/imports/api/users/Users'
-import SystemLanguages from '/imports/framework/Constants/SystemLanguages'
+import Users from '../users/Users'
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 Meteor.methods({
   'language.get' () {

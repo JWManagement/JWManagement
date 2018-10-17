@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 import { TAPi18n } from 'meteor/tap:i18n'
 
-import Languages from '/imports/framework/Constants/Languages'
+import Languages from '../../framework/Constants/Languages'
 
 Template['vessel.visit.language.insert'].helpers({
   data: {

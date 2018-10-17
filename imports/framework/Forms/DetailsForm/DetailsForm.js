@@ -30,7 +30,7 @@ import {
   isType,
   loadData,
   hasPermissionToSee
-} from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+} from './DetailsForm.Helpers'
 
 Template.DetailsForm.helpers({
   getValue (definition, entity) {

@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating'
 
-import Gender from '/imports/framework/Constants/Gender'
-import Pioneer from '/imports/framework/Constants/Pioneer'
-import Privilege from '/imports/framework/Constants/Privilege'
+import Gender from '../../framework/Constants/Gender'
+import Pioneer from '../../framework/Constants/Pioneer'
+import Privilege from '../../framework/Constants/Privilege'
 
 Template['publisher.insert'].helpers({
   data: {

@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 
-import { getValue } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers'
+import { getValue } from '../DetailsForm.Helpers'
 
 import './DetailsForm.Header.jade'
 

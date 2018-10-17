@@ -4,8 +4,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import moment from 'moment'
 
-import { doIfLoggedIn } from '/imports/framework/Managers/RouteManager.Helpers'
-import RouteManager from '/imports/framework/Managers/RouteManager'
+import { doIfLoggedIn } from '../../../framework/Managers/RouteManager.Helpers'
+import RouteManager from '../../../framework/Managers/RouteManager'
 
 RouteManager.registerEntity('dashboard', {
   details: ''

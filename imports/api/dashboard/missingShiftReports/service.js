@@ -2,13 +2,13 @@ import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 import moment from 'moment'
 
-import Permissions from '/imports/framework/Constants/Permissions'
+import Permissions from '../../../framework/Constants/Permissions'
 
 import {
   getProjects,
   getMissingShiftReports,
   getCleanedShifts
-} from '/imports/api/dashboard/Functions'
+} from '../Functions'
 
 Meteor.methods({
   'dashboard.missingShiftReports.get' () {

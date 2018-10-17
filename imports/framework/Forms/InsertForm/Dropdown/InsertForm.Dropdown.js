@@ -4,8 +4,8 @@ import { Tracker } from 'meteor/tracker'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers'
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error'
+import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
 
 import './InsertForm.Dropdown.jade'
 
