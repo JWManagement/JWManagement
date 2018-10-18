@@ -15,7 +15,7 @@ import State from '../../framework/Constants/State'
 import Permissions from '../../framework/Constants/Permissions'
 
 function publisherPasswordInsert ({ projectId, userId }, passwords) {
-  validate('project', {
+  validate('password', {
     ...defaultValidations.projectAdminAndUserMember,
     password: {
       type: String,
@@ -169,29 +169,27 @@ function publisherInvite ({ projectId, userId }) {
   }
 }
 
-function removeFromProject () {
-  return ({ projectId, userId }) => {
-    checkPermissions(projectId, userId)
-    try {
-      RoleManager.removeProjectPermission(projectId, userId)
-      const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
-      if (project && project.tags) {
-        for (let tag of project.tags) {
-          RoleManager.removeTagPermission(tag._id, userId)
-        }
-        // eslint-disable-next-line no-unused-vars
-        for (let group of Roles.getGroupsForUser(userId)) {
-          if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
-            return
-          }
+function removeFromProject ({ projectId, userId }) {
+  checkPermissions(projectId, userId)
+  try {
+    RoleManager.removeProjectPermission(projectId, userId)
+    const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
+    if (project && project.tags) {
+      for (let tag of project.tags) {
+        RoleManager.removeTagPermission(tag._id, userId)
+      }
+      // eslint-disable-next-line no-unused-vars
+      for (let group of Roles.getGroupsForUser(userId)) {
+        if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
+          return
         }
       }
-      if (!RoleManager.hasPermissions(userId)) {
-        Users.remove(userId)
-      }
-    } catch (e) {
-      throw new Meteor.Error(e)
     }
+    if (!RoleManager.hasPermissions(userId)) {
+      Users.remove(userId)
+    }
+  } catch (e) {
+    throw new Meteor.Error(e)
   }
 }
 
