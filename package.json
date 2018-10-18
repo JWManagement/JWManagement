@@ -26,8 +26,8 @@
   },
   "scripts": {
     "start": "meteor --settings .deploy/settings.json",
-    "mocha": "meteor test --driver-package meteortesting:mocha",
-    "lint": "standard"
+    "lint": "standard",
+    "cypress": "./node_modules/cypress/bin/cypress run"
   },
   "devDependencies": {
     "cypress": "^3.1.0",
