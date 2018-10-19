@@ -1,4 +1,7 @@
 #!/bin/bash
 
 npm start &
-./node_modules/cypress/bin/cypress run
+
+sleep 180
+
+npm run cypress:run
