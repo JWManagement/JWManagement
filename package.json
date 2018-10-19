@@ -27,7 +27,8 @@
   "scripts": {
     "start": "meteor --settings .deploy/settings.json",
     "lint": "standard",
-    "cypress": "./node_modules/cypress/bin/cypress run"
+    "cypress:open": "./node_modules/cypress/bin/cypress open",
+    "cypress:run": "./node_modules/cypress/bin/cypress run"
   },
   "devDependencies": {
     "cypress": "^3.1.0",
