@@ -30,6 +30,12 @@ Template.signUp.events({
       return
     }
 
+    if (event.target.password.value.length < 8) {
+      Session.set('error', TAPi18n.__(`error.passwordTooShort`))
+      submit.ladda('stop')
+      return
+    }
+
     Accounts.createUser({
       username: event.target.username.value,
       password: event.target.password.value,
