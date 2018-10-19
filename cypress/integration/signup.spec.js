@@ -54,12 +54,12 @@ describe('Sign up page', function () {
       .get('#usernameOrEmail').type('mmouse')
       .get('#password').type('12345678')
       .get('[type=submit]').click()
-      .wait(100)
+      .wait(1000)
 
     cy
       .visit('/profile')
       .get('#deleteAccount').click()
-      .wait(300)
+      .wait(500)
       .get('button.confirm').click()
 
     cy.contains('JW Management')
