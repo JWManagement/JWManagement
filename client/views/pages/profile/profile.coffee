@@ -132,8 +132,8 @@ Template.profile.events
 			swal: 'delete.account'
 			type: 'error'
 			doConfirm: ->
-				FlowRouter.go('dashboard')
-				Meteor.call 'deleteUser', Meteor.userId()
+				FlowRouter.go('dashboard.details')
+				Meteor.call('account.delete')
 
 	'click .timetable td:not(.day)': (e) ->
 		day = $(e.target).parent().attr('data-day')

@@ -9,4 +9,5 @@ error:
   noAccountFound: No account with this username or email could be found
   multipleAccountsFound: There are multiple accounts with this email. Please use the username
   passwordsDoNotMatch: The passwords do not match
+  passwordTooShort: The password has to have at least 8 characters
   403: This username already exists

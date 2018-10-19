@@ -18,7 +18,7 @@ function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
 
   return {
     numbers: numbers,
-    timeslot: `${moment(periodBegin, 'Hmm').format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').format(dateFormatEnd)}`
+    timeslot: `${moment(periodBegin, 'Hmm').locale(language).format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').locale(language).format(dateFormatEnd)}`
   }
 }
 

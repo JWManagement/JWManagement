@@ -25,7 +25,7 @@ FlowRouter.route('/logout', {
 
     Meteor.logout(() => {
       setLanguageOnAuth()
-      wrs(() => FlowRouter.go('landing'))
+      wrs(() => FlowRouter.go('dashboard.details'))
     })
   }
 })
