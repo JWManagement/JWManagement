@@ -36,8 +36,6 @@ describe('Sign up page', function () {
       .get('[name=passwordRepeat]').type('12345678')
       .get('[type=submit]').click()
 
-    cy.get('.alert').should('not.be.visible')
-
     cy.get('[key=logout]').click()
   })
 
@@ -56,13 +54,14 @@ describe('Sign up page', function () {
       .get('#usernameOrEmail').type('mmouse')
       .get('#password').type('12345678')
       .get('[type=submit]').click()
-      .wait(500)
+      .wait(100)
 
     cy
       .visit('/profile')
       .get('#deleteAccount').click()
-      .get('.confirm').click()
-      .wait(1000)
-      .contains('JW Management')
+      .wait(300)
+      .get('button.confirm').click()
+
+    cy.contains('JW Management')
   })
 })
