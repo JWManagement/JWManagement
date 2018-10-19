@@ -11,10 +11,6 @@ const Logger = {
 
 export { Logger }
 
-Meteor.startup(function () {
-  Logger.log('JW Management Client started!')
-})
-
 // Catch-all Client's errors
 Meteor.startup(function () {
   const _GlobalErrorHandler = window.onerror
