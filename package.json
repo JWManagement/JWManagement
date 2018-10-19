@@ -60,6 +60,7 @@
       "arguments",
       "describe",
       "it",
+      "after",
       "expect",
       "Cypress",
       "cy",
