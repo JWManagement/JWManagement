@@ -1,9 +1,9 @@
 #!/bin/bash
 
-npm start &
-
-sleep 180
+meteor &
 
 rm -rf .meteor/local/db
+
+sleep 180
 
 npm run cypress:run

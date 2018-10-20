@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { Accounts } from 'meteor/accounts-base'
 import { Session } from 'meteor/session'
@@ -37,8 +36,6 @@ Template.signUp.events({
       return
     }
 
-    Meteor.call('TEST_DisplayUsersCollection')
-
     Accounts.createUser({
       username: event.target.username.value,
       password: event.target.password.value,
@@ -54,8 +51,6 @@ Template.signUp.events({
         submit.ladda('stop')
         console.log(err)
       } else {
-        Meteor.call('TEST_DisplayUsersCollection')
-
         FlowRouter.go('dashboard.details', { language: 'en' })
       }
     })
