@@ -1,6 +1,6 @@
 #!/bin/bash
 
-meteor &
+MONGO_URL= meteor &
 
 rm -rf .meteor/local/db
 
