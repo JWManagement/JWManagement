@@ -16,7 +16,7 @@ module.exports = {
       one: {}
     },
     env: {
-      ROOT_URL: 'https://production.jwmanagement.org',
+      ROOT_URL: 'https://www.jwmanagement.org',
       MONGO_URL: process.env.MONGO_URL,
       MONGO_OPLOG_URL: process.env.MONGO_OPLOG_URL,
       MAIL_URL: process.env.MAIL_URL,
@@ -32,7 +32,7 @@ module.exports = {
     enableUploadProgressBar: false
   },
   proxy: {
-    domains: 'production.jwmanagement.org',
+    domains: 'jwmanagement.org,www.jwmanagement.org',
     ssl: {
       letsEncryptEmail: 'support@jwmanagement.org'
     }
