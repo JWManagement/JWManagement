@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf .meteor/local/db
+
 npm start &
 
 sleep 180
