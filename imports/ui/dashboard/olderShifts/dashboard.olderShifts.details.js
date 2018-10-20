@@ -1,10 +1,10 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['dashboard.olderShifts.details'].helpers({
   data: {
     getMethod: 'dashboard.olderShifts.get',
     navigation: {
-      backLink: 'dashboard.details',
+      backLink: 'dashboard.details'
     },
     sections: [{
       title: 'olderShifts',
@@ -38,4 +38,4 @@ Template['dashboard.olderShifts.details'].helpers({
       }]
     }]
   }
-});
+})

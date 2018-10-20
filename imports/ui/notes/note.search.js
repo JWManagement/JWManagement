@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['note.search'].helpers({
   data: {
@@ -18,7 +18,7 @@ Template['note.search'].helpers({
       name: 'lastChange',
       mobile: true
     }],
-    searchCriteria: (search) => {
+    searchCriteria (search) {
       return {
         selector: {
           $or: [{
@@ -38,7 +38,7 @@ Template['note.search'].helpers({
             date: 1
           }
         }
-      };
+      }
     }
   }
-});
+})

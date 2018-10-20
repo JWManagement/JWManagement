@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['vessel.details'].helpers({
   data: {
@@ -75,7 +75,13 @@ Template['vessel.details'].helpers({
         type: 'link',
         style: 'primary',
         route: 'vessel.visit.insert'
+      }, {
+        key: 'delete',
+        type: 'confirm',
+        style: 'danger',
+        method: 'vessel.delete',
+        route: 'vessel.search'
       }]
     }]
   }
-});
+})

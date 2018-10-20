@@ -1,5 +1,6 @@
 input:
   username: Username
+  usernameOrEmail: Username or Email address
   firstname: First name
   lastname: Surname
   email: Email address

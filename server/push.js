@@ -1,6 +1,6 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
-Meteor.startup(function() {
+Meteor.startup(function () {
 
   // Push.debug = true;
 
@@ -13,4 +13,4 @@ Meteor.startup(function() {
   //        gateway: "gateway.sandbox.push.apple.com"
   //    }
   // });
-});
+})

@@ -9,6 +9,6 @@ const Pioneer = {
     'bethelite',
     'ldc'
   ]
-};
+}
 
-export default Pioneer;
+export default Pioneer

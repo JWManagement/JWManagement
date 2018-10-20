@@ -1,8 +1,8 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Gender from '/imports/framework/Constants/Gender';
-import Pioneer from '/imports/framework/Constants/Pioneer';
-import Privilege from '/imports/framework/Constants/Privilege';
+import Gender from '../../framework/Constants/Gender'
+import Pioneer from '../../framework/Constants/Pioneer'
+import Privilege from '../../framework/Constants/Privilege'
 
 Template['publisher.insert'].helpers({
   data: {
@@ -20,8 +20,7 @@ Template['publisher.insert'].helpers({
     }, {
       key: 'profile_telefon'
     }, {
-      key: 'username',
-      required: true
+      key: 'username'
     }, {
       key: 'profile_gender',
       type: 'picker',
@@ -44,4 +43,4 @@ Template['publisher.insert'].helpers({
       key: 'profile_languages'
     }]
   }
-});
+})

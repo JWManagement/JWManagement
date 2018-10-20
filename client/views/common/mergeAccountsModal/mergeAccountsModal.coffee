@@ -12,7 +12,7 @@ Template.mergeAccountsModal.events
 		e.preventDefault()
 
 		oldUserId = Meteor.userId()
-		username = Validations.cleanedUsername($('#otherUsername').val())
+		username = $('#otherUsername').val()
 		password = $('#otherPassword').val()
 
 		if username != '' && password != ''

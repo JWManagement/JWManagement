@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Permissions from '/imports/framework/Constants/Permissions';
+import Permissions from '../../framework/Constants/Permissions'
 
 Template['project.details'].helpers({
   data: {
@@ -10,11 +10,11 @@ Template['project.details'].helpers({
       navbarStyle: 'flat',
       hideTitle: true
     },
-    sections: [{
-      type: 'header',
+    header: {
       title: 'name',
       description: 'news_text'
-    }, {
+    },
+    sections: [{
       title: 'modules',
       contents: [{
         key: 'calendar',
@@ -40,9 +40,7 @@ Template['project.details'].helpers({
         route: 'vessel.search',
         icon: 'directions_boat',
         canSee: Permissions.member,
-        custom: (project) => {
-          return project.vesselModule == true;
-        }
+        custom: project => project.vesselModule
       }]
     }, {
       title: 'administration',
@@ -56,7 +54,7 @@ Template['project.details'].helpers({
         key: 'publishers',
         type: 'link',
         route: 'publisher.search',
-        icon: 'people',
+        icon: 'person',
         canSee: Permissions.admin
       }, {
         key: 'publisherActions',
@@ -82,6 +80,12 @@ Template['project.details'].helpers({
         route: 'note.details',
         icon: 'note',
         canSee: Permissions.shiftAndStoreAdmin
+      }, {
+        key: 'supportPage',
+        type: 'link',
+        route: 'project.support.details',
+        icon: 'help',
+        canSee: Permissions.admin
       }]
     }, {
       title: 'participation',
@@ -96,4 +100,4 @@ Template['project.details'].helpers({
       }]
     }]
   }
-});
+})

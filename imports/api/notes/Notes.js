@@ -1,46 +1,46 @@
-import { Meteor } from 'meteor/meteor';
-import { Random } from 'meteor/random';
-import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor'
+import { Random } from 'meteor/random'
+import SimpleSchema from 'simpl-schema'
 
-const CollectionManager = require('/imports/framework/Managers/CollectionManager');
+const CollectionManager = require('../../framework/Managers/CollectionManager')
 
-let Notes = {};
+let Notes = {}
 
 Notes.schema = new SimpleSchema({
   _id: {
     type: String,
-    autoValue: function() {
+    autoValue () {
       if (!this.isSet) {
-        return Random.id();
+        return Random.id()
       }
     }
   },
   createdAt: {
     type: Date,
-    autoValue: function() {
+    autoValue () {
       if (!this.isSet) {
-        return new Date();
+        return new Date()
       }
     }
   },
   createdBy: {
     type: String,
-    autoValue: function() {
+    autoValue () {
       if (!this.isSet) {
-        return Meteor.userId();
+        return Meteor.userId()
       }
     }
   },
   lastChangeBy: {
     type: String,
-    autoValue: () => {
-      return Meteor.userId();
+    autoValue () {
+      return Meteor.userId()
     }
   },
   lastChangeAt: {
     type: Date,
-    autoValue: () => {
-      return new Date();
+    autoValue () {
+      return new Date()
     }
   },
   title: {
@@ -49,14 +49,14 @@ Notes.schema = new SimpleSchema({
   text: {
     type: String
   }
-});
+})
 
-Notes.name = 'notes';
+Notes.name = 'notes'
 
-Notes.uniqueKeys = [];
+Notes.uniqueKeys = []
 
-Notes.attachSchema = Notes.schema;
+Notes.attachSchema = Notes.schema
 
-Notes.persistence = new CollectionManager(Notes, Projects);
+Notes.persistence = new CollectionManager(Notes, Projects)
 
-export default Notes;
+export default Notes

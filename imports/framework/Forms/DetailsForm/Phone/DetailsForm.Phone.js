@@ -1,16 +1,16 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import { getValue } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
-import { getEntityTranslation } from '/imports/framework/Helpers/Helpers';
+import { getValue } from '../DetailsForm.Helpers'
+import { getEntityTranslation } from '../../../Helpers/Helpers'
 
-import './DetailsForm.Phone.jade';
+import './DetailsForm.Phone.jade'
 
-Template.DetailsFormPhone.helpers({ getValue, getEntityTranslation });
+Template.DetailsFormPhone.helpers({ getValue, getEntityTranslation })
 
-Template.DetailsFormPhone.onCreated(() => {});
+Template.DetailsFormPhone.onCreated(() => {})
 
-Template.DetailsFormPhone.onRendered(() => {});
+Template.DetailsFormPhone.onRendered(() => {})
 
-Template.DetailsFormPhone.onDestroyed(() => {});
+Template.DetailsFormPhone.onDestroyed(() => {})
 
-Template.DetailsFormPhone.events({});
+Template.DetailsFormPhone.events({})

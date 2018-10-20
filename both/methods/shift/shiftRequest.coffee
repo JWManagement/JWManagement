@@ -53,36 +53,13 @@ Meteor.methods
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
 					else if team.pending.length >= team.min - 1
+
+						teamleader = team.pending.find((user) => user.teamleader) || team.pending.find((user) => user.substituteTeamleader)
+
 						approvedUsers = [ ]
 						declinedUsers = [ ]
-						hasTeamleader = false
-						chosenId = null
-						chosenIsTeamleader = false
 
-						if user.teamleader
-							hasTeamleader = true
-							chosenId = user._id
-							chosenIsTeamleader = true
-						else if user.substituteTeamleader
-							hasTeamleader = true
-							chosenId = user._id
-							chosenIsTeamleader = false
-
-						for pendingUser in team.pending when pendingUser.teamleader || pendingUser.substituteTeamleader
-							hasTeamleader = true
-
-							if !chosenId?
-								if pendingUser.teamleader
-									chosenId = pendingUser._id
-									chosenIsTeamleader = true
-								else if pendingUser.substituteTeamleader
-									chosenId = pendingUser._id
-									chosenIsTeamleader = false
-							else if !chosenIsTeamleader && pendingUser.substituteTeamleader
-								chosenId = pendingUser._id
-								chosenIsTeamleader = false
-
-						if hasTeamleader
+						if teamleader?
 							approvedUsers.push userId
 
 							Shifts.update _id: shiftId, 'teams._id': teamId,
@@ -121,7 +98,7 @@ Meteor.methods
 								for participant in otherTeam.participants when participant._id in approvedUsers
 									Meteor.call 'declineParticipant', shiftId, otherTeam._id, participant._id
 
-							Meteor.call 'setLeader', shiftId, team._id, chosenId
+							Meteor.call 'setLeader', shiftId, team._id, teamleader._id
 
 							for approvedUser in approvedUsers
 								Meteor.call 'sendConfirmation', shiftId, teamId, approvedUser

@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Languages from '/imports/framework/Constants/Languages';
+import Languages from '../../framework/Constants/Languages'
 
 Template['vessel.visit.details'].helpers({
   data: {
@@ -81,4 +81,4 @@ Template['vessel.visit.details'].helpers({
       }]
     }]
   }
-});
+})

@@ -11,6 +11,6 @@ const SystemLanguages = {
     'pt',
     'ru'
   ]
-};
+}
 
-export default SystemLanguages;
+export default SystemLanguages

@@ -1,9 +1,9 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error';
+import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
 
-import './InsertForm.Text.jade';
+import './InsertForm.Text.jade'
 
 Template.InsertFormText.helpers({
   getKey,
@@ -11,31 +11,31 @@ Template.InsertFormText.helpers({
   hasError,
   getErrorClass,
   getEntityErrorTranslation,
-  getValue() {
-    const data = Template.currentData().data;
+  getValue () {
+    const data = Template.currentData().data
     if (data.value != null) {
-      return data.value;
+      return data.value
     }
-    return '';
+    return ''
   }
-});
+})
 
 Template.InsertFormText.onCreated(() => {
-  const template = Template.instance();
-  const data = Template.currentData().data;
+  const template = Template.instance()
+  const data = Template.currentData().data
 
-  template.key = data.key;
-  template.insertForm = data.parentInstance;
-});
+  template.key = data.key
+  template.insertForm = data.parentInstance
+})
 
-Template.InsertFormText.onRendered(() => {});
+Template.InsertFormText.onRendered(() => {})
 
-Template.InsertFormText.onDestroyed(() => {});
+Template.InsertFormText.onDestroyed(() => {})
 
 Template.InsertFormText.events({
-  'change input': (e, template) => {
-    const value = $(e.target).val().trim();
+  'change input' (e, template) {
+    const value = $(e.target).val().trim()
 
-    template.insertForm.setFieldValue(template.key, value);
+    template.insertForm.setFieldValue(template.key, value)
   }
-});
+})

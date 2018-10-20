@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['publisher.password.insert'].helpers({
   data: {
@@ -16,4 +16,4 @@ Template['publisher.password.insert'].helpers({
       }
     ]
   }
-});
+})

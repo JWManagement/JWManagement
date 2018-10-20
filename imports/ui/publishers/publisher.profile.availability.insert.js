@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Hour from '/imports/framework/Constants/Hour';
+import Hour from '../../framework/Constants/Hour'
 
 Template['publisher.profile.availability.insert'].helpers({
   data: {
@@ -20,4 +20,4 @@ Template['publisher.profile.availability.insert'].helpers({
       required: true
     }]
   }
-});
+})

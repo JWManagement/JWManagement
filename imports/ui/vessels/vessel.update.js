@@ -1,6 +1,6 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import VesselType from '/imports/framework/Constants/VesselType';
+import VesselType from '../../framework/Constants/VesselType'
 
 Template['vessel.update'].helpers({
   data: {
@@ -24,4 +24,4 @@ Template['vessel.update'].helpers({
       key: 'mmsi'
     }]
   }
-});
+})

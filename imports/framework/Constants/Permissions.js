@@ -48,9 +48,15 @@ const Permissions = {
     'substituteTeamleader',
     'participant'
   ],
+  participantWithNone: [
+    'teamleader',
+    'substituteTeamleader',
+    'participant',
+    'none'
+  ],
   support: [
     'support'
   ]
-};
+}
 
-export default Permissions;
+export default Permissions

@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['publisher.profile.vacation.insert'].helpers({
   data: {
@@ -16,4 +16,4 @@ Template['publisher.profile.vacation.insert'].helpers({
       required: true
     }]
   }
-});
+})

@@ -3,6 +3,18 @@ project:
   entity:
     _id: ID
     name: Name
+    email: Project Email Address
+    language: Default language
+    languageValues:
+      de: German
+      en: English
+      fi: Finnish
+      fr: French (partially)
+      hu: Hungarian
+      it: Italian (partially)
+      pl: Polish
+      pt: Portuguese
+      ru: Russian
     news:
       text: News
     shifts: Shifts
@@ -18,6 +30,13 @@ project:
     notes: Notes
     leave: Leave project
     leaveConfirmation: Do you really want to leave this project? This can't be undone.
+    supportPage: Support
+    support:
+      phone: Call us
+      email: Send us a mail
+      github: Create a GitHub Issue
+      paypal: PayPal
+    noElements: No Projects found
   details:
     sections:
       project: Project
@@ -26,3 +45,8 @@ project:
       participation: Participation
   search:
     placeholder: Search for projects
+  support:
+    details:
+      sections:
+        title: If you encounter any problems or have any questions or ideas, please tell us via
+        donate: We gladly pay the operating costs for you. If you want to contribute something, though, we'd be very happy

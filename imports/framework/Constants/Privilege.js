@@ -8,6 +8,6 @@ const Privilege = {
     'secretary',
     'serviceOverseer'
   ]
-};
+}
 
-export default Privilege;
+export default Privilege

@@ -1,5 +1,5 @@
 const Hour = {
-  defaultValue: '10',
+  defaultValue: 10,
   allowedValues: [
     0,
     1,
@@ -26,6 +26,6 @@ const Hour = {
     22,
     23
   ]
-};
+}
 
-export default Hour;
+export default Hour

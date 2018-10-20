@@ -1,5 +1,6 @@
 navigation:
   welcome: Willkommen
+  signUp: Account erstellen
   home: Übersicht
   dashboard:
     details: Übersicht
@@ -20,6 +21,9 @@ navigation:
   project:
     search: Projekte
     details: Verwaltung
+    support:
+      details: Hilfe
+    insert: Neues Projekt
   settings: Einstellungen
   user:
     search: Benutzer
@@ -39,6 +43,9 @@ navigation:
     permissions:
       details: Verkündiger Berechtigungen
       update: Projekt Berechtigungen ändern
+      tag:
+        details: Tag Berechtigung
+        update: Tag Berechtigung ändern
   reports: Berichte
   store: Depot
   vessel:

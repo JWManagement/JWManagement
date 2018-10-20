@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['vessel.visit.update'].helpers({
   data: {
@@ -24,4 +24,4 @@ Template['vessel.visit.update'].helpers({
       format: 'YYYYMMDD'
     }]
   }
-});
+})

@@ -3,4 +3,6 @@
 /build/
 .DS_Store
 mup.js
+mup-staging.js
 .idea
+*.sw[po]

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
-import { Meteor } from 'meteor/meteor';
-import { Mailer } from 'meteor/lookback:emails';
+import { Meteor } from 'meteor/meteor'
+import { Mailer } from 'meteor/lookback:emails'
 
 Meteor.startup(() => {
   Mailer.config({
@@ -12,7 +12,7 @@ Meteor.startup(() => {
       ignoreImage: true,
       ignoreHref: false
     }
-  });
+  })
 
   Mailer.init({
     helpers: {
@@ -28,7 +28,7 @@ Meteor.startup(() => {
         path: 'confirmation/confirmation.html',
         route: {
           path: '/confirmation',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -72,7 +72,7 @@ Meteor.startup(() => {
                 hello: 'Hallo',
                 text1: 'du wurdest folgender Schicht zugeteilt:'
               }
-            };
+            }
           }
         }
       },
@@ -80,7 +80,7 @@ Meteor.startup(() => {
         path: 'declined/declined.html',
         route: {
           path: '/declined',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -91,7 +91,7 @@ Meteor.startup(() => {
                 text1: 'deine Bewerbung auf folgende Schicht konnte leider nicht berücksichtigt werden:',
                 text2: 'Vielen Dank für deine Bewerbung!'
               }
-            };
+            }
           }
         }
       },
@@ -99,7 +99,7 @@ Meteor.startup(() => {
         path: 'reversal/reversal.html',
         route: {
           path: '/reversal',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -109,7 +109,7 @@ Meteor.startup(() => {
                 hello: 'Hallo',
                 text1: 'hiermit bestätigen wir, dass du aus folgendem Team ausgetragen wurdest:'
               }
-            };
+            }
           }
         }
       },
@@ -117,7 +117,7 @@ Meteor.startup(() => {
         path: 'teamUpdate/teamUpdate.html',
         route: {
           path: '/teamUpdate',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -148,7 +148,7 @@ Meteor.startup(() => {
                 text2: 'Im Folgenden findest du die aktuellen Daten des Teams:',
                 changed: 'hat sich geändert.'
               }
-            };
+            }
           }
         }
       },
@@ -156,7 +156,7 @@ Meteor.startup(() => {
         path: 'understaffed/understaffed.html',
         route: {
           path: '/understaffed',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -168,7 +168,7 @@ Meteor.startup(() => {
                 text1: 'das folgende Team ist unterbelegt und benötigt noch einen',
                 text2: 'Schau doch bitte nach, ob es dir möglich wäre, einzuspringen.'
               }
-            };
+            }
           }
         }
       },
@@ -176,7 +176,7 @@ Meteor.startup(() => {
         path: 'teamCancellation/teamCancellation.html',
         route: {
           path: '/teamCancellation',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               team: 'Innenstadt',
@@ -187,7 +187,7 @@ Meteor.startup(() => {
                 headline: 'Team musste leider abgesagt werden.',
                 hello: 'Hallo'
               }
-            };
+            }
           }
         }
       },
@@ -195,14 +195,14 @@ Meteor.startup(() => {
         path: 'toOrga/toOrga.html',
         route: {
           path: '/toOrga',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               text: 'das Team <b>\'Innenstadt\'</b> am <b>01.01.2099</b> um <b>10:00 - 12:00</b> Uhr wurde <u>abgesagt</u>.',
               content: {
                 hello: 'Hallo Organisations-Team'
               }
-            };
+            }
           }
         }
       },
@@ -210,7 +210,7 @@ Meteor.startup(() => {
         path: 'resetPassword/resetPassword.html',
         route: {
           path: '/resetPassword',
-          data: function() {
+          data () {
             return {
               token: '287zrp98wjf0qzw40tf',
               language: 'de',
@@ -220,7 +220,7 @@ Meteor.startup(() => {
                 button: 'Passwort zurücksetzen',
                 text2: '<p>Tipps für sichere Passwörter findest du im g01 22. 6. S.31</p><p>Wenn du das Zurücksetzen deines Passwortes nicht angefordert hast, lösche diese E-Mail bitte.</p>'
               }
-            };
+            }
           }
         }
       },
@@ -228,7 +228,7 @@ Meteor.startup(() => {
         path: 'joinProject/joinProject.html',
         route: {
           path: '/joinProject',
-          data: function() {
+          data () {
             return {
               project: 'Wuppertrolley',
               name: 'Tim Antkowiak',
@@ -238,7 +238,7 @@ Meteor.startup(() => {
                 text1: 'du wurdest zu folgendem Projekt eingeladen:',
                 text2: 'Du findest das Projekt jetzt auf der Übersichtsseite unter "Meine Projekte".<br><br> Viel Freude!'
               }
-            };
+            }
           }
         }
       },
@@ -246,7 +246,7 @@ Meteor.startup(() => {
         path: 'accountCreated/accountCreated.html',
         route: {
           path: '/accountCreated',
-          data: function() {
+          data () {
             return {
               token: '287zrp98wjf0qzw40tf',
               project: 'NeanderTrolley',
@@ -258,10 +258,10 @@ Meteor.startup(() => {
                 text2: 'Bei Problemen kannst du dich gerne an uns wenden. <br> Wir wünschen dir viel Freude mit JW Management. <br> Deine Brüder von JW Management',
                 button: 'Los geht\'s!'
               }
-            };
+            }
           }
         }
       }
     }
-  });
-});
+  })
+})

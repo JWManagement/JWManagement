@@ -33,7 +33,7 @@ publisher:
       availability:
         new: Add new timeslot
         noElements: No timeslot(s) entered
-        deleteConfirmation: Do you really want to delete this timeslot?
+        methodConfirmation: Do you really want to delete this timeslot?
         mondays: Mondays
         tuesdays: Tuesdays
         wednesdays: Wednesdays
@@ -122,6 +122,11 @@ publisher:
       tag:
         tag: Tag
         role: Role
+        roleValues:
+          teamleader: Teamleader
+          substituteTeamleader: Substitute teamleader
+          participant: Participant
+          none: None
     invite: Send project invitation
     inviteConfirmation: Do you really want to send a project invitation mail to the user?
     delete: Revoke this user's access to the project
@@ -153,3 +158,8 @@ publisher:
         permissions:
           project: Project permissions
           tags: Tag permissions
+    tag:
+      details:
+        sections:
+          permissions:
+            tag: Tag permission

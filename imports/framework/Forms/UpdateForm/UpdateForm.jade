@@ -1,37 +1,51 @@
 template(name="UpdateForm")
 
-  .navigation-wrapper
-    nav.navbar.navbar-fixed-top
-      a.navbar-back(href="{{getBackLink}}")
-        i.fa.fa-angle-left.m-r-xs
-        | {{_ 'navigation.back'}}
-      .navbar-title {{getTitle}}
-      if isSearchEnabled
-        .search.input-group
-          span.input-group-addon &#xF002;
-          input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
+  body.md-skin.top-navigation(type='UpdateForm')
 
-  if isSearchEnabled
-    .search-splitter
+    .navigation-wrapper
+      nav.navbar.navbar-fixed-top
 
-  form.form-horizontal
-    if isReady
-      if isText
-        +UpdateFormText data=getInputData
-      else if isDate
-        +UpdateFormDate data=getInputData
-      else if isDropdown
-        +UpdateFormDropdown data=getInputData
-      else if isPicker
-        +UpdateFormPicker data=getInputData
-      else if isCheckbox
-        +UpdateFormCheckbox data=getInputData
-      else if isTextbox
-        +UpdateFormTextbox data=getInputData
+        a.navbar-back(href="{{getBackLink}}")
+          i.fa.fa-angle-left.m-r-xs
+          | {{_ 'navigation.back'}}
+
+        .navbar-title {{getTitle}}
+
+        if isSearchEnabled
+          .search.input-group
+            span.input-group-addon &#xF002;
+            input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
+
+    if isSearchEnabled
+      .search-splitter
+
+    form.form-horizontal
+
+      if isReady
+
+        if isType getInputData 'text'
+          +UpdateFormText data=getInputData
+
+        else if isType getInputData 'date'
+          +UpdateFormDate data=getInputData
+
+        else if isType getInputData 'dropdown'
+          +UpdateFormDropdown data=getInputData
+
+        else if isType getInputData 'picker'
+          +UpdateFormPicker data=getInputData
+
+        else if isType getInputData 'checkbox'
+          +UpdateFormCheckbox data=getInputData
+
+        else if isType getInputData 'textbox'
+          +UpdateFormTextbox data=getInputData
+
+        else
+          h1 Unsupported Inputtype
+
       else
-        h1 Unsupported Inputtype
-    else
-      .section
-        .section-header {{getEntityTranslation}}
-        .section-loading
-          i.fa.fa-circle-o-notch.fa-spin
+        .section
+          .section-header {{getEntityTranslation}}
+          .section-loading
+            i.fa.fa-circle-o-notch.fa-spin

@@ -25,34 +25,10 @@ welcome:
     title: Multifunktionswerkzeug
     description: <p>JW Management ist zwar für Projekte des öffentlichen Zeugnisgebens optimiert, in erster Linie aber doch nur ein Schichtverwaltungssystem.</p><p>Du kannst genauso gut auch den Ordnungsdienst im Saalkomplex oder auf dem Kongress, eine Bibelausstellung, ein Bauprojekt oder anderes damit organisieren.</p><p>Außerdem sind wir stets bereit weitere Optimierungen für spezielle Projekte vorzunehmen, insofern das möglich ist.</p>
   feature2:
-    title: Letzte Änderungen
-    more: Mehr zeigen
-  feature3:
     title: Kostenlos & Open-Source
     description: <p>Besuche unser Repository und schaue dir an, wie JW Management programmiert ist. Du kannst Feature-Requests oder Bug-Reports erstellen oder direkt Code-Änderungen als Pull-Request vorschlagen.</p><p>Wenn du die Anwendung in eine weitere Sprache übersetzen möchtest, schick uns die Änderungen als Pull-Request oder per Mail.</p>
     free: Völlig kostenlos
     repo: GitHub Repository
-  contact:
-    title: Kontaktiere uns
-    description: <p>Möchtest du das System testen?</p><p>Wähle im Kontaktformular rechts "Projekt beantragen" aus und wir legen dir ein Projekt an.</p><p>Hast du eine andere Frage oder Idee?</p><p>Wähle im Formular die entsprechende Option aus und lass es uns wissen.</p>
-    name: Vor- und Nachname
-    email: E-Mail Adresse
-    projectName: Projektname
-    enquiry: Projekt beantragen
-    login: Problem beim Login
-    problem: Problem melden
-    suggestion: Verbesserung vorschlagen
-    question: Generelle Frage
-    message: Nachricht
-    whatFor: Was möchtest du mit dem System verwalten?
-    send: Senden
-    sendEnquiry: Anfrage senden
-    fillOutCompletely: Bitte fülle alle Pflichtfelder aus!
-    enquirySuccessful: Anfrage wurde übermittelt!
-    issueTip: Tipp: Du kannst uns direkt über unser Ticket-System (GitHub) Fehler melden, oder uns von deinen Ideen erzählen. Damit kannst du auch genau sehen, was wir zu deinen Ideen sagen und wann die Änderungen live gehen.
-    loginTip: Tipp: Wenn du dein Passwort vergessen hast, kannst du es mit Hilfe des Buttons unten zurücksetzen. Wenn du das bereits versucht hast und es nicht funktioniert, sprich einen deiner Ältesten an.
-    toGithub: GitHub besuchen
-    toForgotPassword: Password zurücksetzen
-    required: Pflichtfelder
+  footer:
     terms: Nutzungsbedingungen
     privacy: Datenschutzerklärung

@@ -1,28 +1,31 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
 
 import {
   publisherPasswordInsert,
   publisherPasswordReset,
   publisherInvite,
   removeFromProject
-} from './service.security';
+} from './service.security'
 
 import {
   publisherProfileAvailabilityInsert,
   publisherProfileAvailabilityGet,
   publisherProfileAvailabilityDelete
-} from './service.availability';
+} from './service.availability'
 
 import {
   publisherProfileVacationInsert,
   publisherProfileVacationDelete
-} from './service.vacation';
+} from './service.vacation'
 
 import {
   publisherPermissionsGet,
   publisherPermissionsProjectGet,
-  publisherPermissionsUpdate
-} from './service.permissions';
+  publisherPermissionsUpdate,
+  publisherPermissionsTagGet,
+  publisherPermissionsTagsGet,
+  publisherPermissionsTagUpdate
+} from './service.permissions'
 
 import {
   publisherSearch,
@@ -30,7 +33,7 @@ import {
   publisherGetField,
   publisherInsert,
   publisherUpdate
-} from './service.crud';
+} from './service.crud'
 
 Meteor.methods({
   'publisher.search': publisherSearch,
@@ -44,10 +47,13 @@ Meteor.methods({
   'publisher.permissions.get': publisherPermissionsGet,
   'publisher.permissions.project.get': publisherPermissionsProjectGet,
   'publisher.permissions.update': publisherPermissionsUpdate,
+  'publisher.permissions.tag.get': publisherPermissionsTagGet,
+  'publisher.permissions.tags.get': publisherPermissionsTagsGet,
+  'publisher.permissions.tag.update': publisherPermissionsTagUpdate,
   'publisher.removeFromProject': removeFromProject,
   'publisher.profile.availability.insert': publisherProfileAvailabilityInsert,
   'publisher.profile.availability.get': publisherProfileAvailabilityGet,
   'publisher.profile.availability.delete': publisherProfileAvailabilityDelete,
   'publisher.profile.vacation.insert': publisherProfileVacationInsert,
   'publisher.profile.vacation.delete': publisherProfileVacationDelete
-});
+})

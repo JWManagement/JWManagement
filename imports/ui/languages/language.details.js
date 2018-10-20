@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['language.details'].helpers({
   data: {
@@ -14,4 +14,4 @@ Template['language.details'].helpers({
       }]
     }]
   }
-});
+})

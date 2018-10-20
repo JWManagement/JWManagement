@@ -1,9 +1,9 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import { getKey, getEntityTranslation } from '/imports/framework/Helpers/Helpers';
-import { hasError, getErrorClass, getEntityErrorTranslation } from '/imports/framework/Helpers/Error';
+import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
+import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
 
-import './InsertForm.Password.jade';
+import './InsertForm.Password.jade'
 
 Template.InsertFormPassword.helpers({
   getKey,
@@ -11,31 +11,31 @@ Template.InsertFormPassword.helpers({
   hasError,
   getErrorClass,
   getEntityErrorTranslation,
-  getValue() {
-    const data = Template.currentData().data;
+  getValue () {
+    const data = Template.currentData().data
     if (data.value != null) {
-      return data.value;
+      return data.value
     }
-    return '';
+    return ''
   }
-});
+})
 
 Template.InsertFormPassword.onCreated(() => {
-  const template = Template.instance();
-  const data = Template.currentData().data;
+  const template = Template.instance()
+  const data = Template.currentData().data
 
-  template.key = data.key;
-  template.insertForm = data.parentInstance;
-});
+  template.key = data.key
+  template.insertForm = data.parentInstance
+})
 
-Template.InsertFormPassword.onRendered(() => {});
+Template.InsertFormPassword.onRendered(() => {})
 
-Template.InsertFormPassword.onDestroyed(() => {});
+Template.InsertFormPassword.onDestroyed(() => {})
 
 Template.InsertFormPassword.events({
-  'change input': (e, template) => {
-    const value = $(e.target).val().trim();
+  'change input' (e, template) {
+    const value = $(e.target).val().trim()
 
-    template.insertForm.setFieldValue(template.key, value);
+    template.insertForm.setFieldValue(template.key, value)
   }
-});
+})

@@ -12,7 +12,12 @@ Template.profile.helpers
 	getVacations: ->
 		if @profile.vacations?
 			@profile.vacations
-				.filter (v) -> v.end >= parseInt(moment(new Date).format('YYYYDDDD'))
+				.map (v) ->
+					if v.end.toString().length == 7
+						v.start = parseInt(moment(v.start, 'YYYYDDDD').format('YYYYMMDD'))
+						v.end = parseInt(moment(v.end, 'YYYYDDDD').format('YYYYMMDD'))
+					v
+				.filter (v) -> v.end >= parseInt(moment(new Date).format('YYYYMMDD'))
 				.sort (a, b) -> a.start - b.start
 
 	weekdays: -> [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
@@ -37,14 +42,14 @@ Template.profile.onDestroyed ->
 Template.profile.events
 
 	'change #username': (e) ->
-		$('#username').val(Validations.cleanedUsername(e.target.value))
+		$('#username').val(e.target.value)
 
 	'change #firstname': (e) -> Meteor.call 'updateProfile', 'firstname', e.target.value, handleSuccess
 
 	'change #lastname': (e) -> Meteor.call 'updateProfile', 'lastname', e.target.value, handleSuccess
 
 	'change #username': (e) ->
-		username = Validations.cleanedUsername(e.target.value)
+		username = e.target.value
 
 		Meteor.call 'updateProfile', 'username', username, (error) ->
 			if error
@@ -127,8 +132,8 @@ Template.profile.events
 			swal: 'delete.account'
 			type: 'error'
 			doConfirm: ->
-				FlowRouter.go('dashboard')
-				Meteor.call 'deleteUser', Meteor.userId()
+				FlowRouter.go('dashboard.details')
+				Meteor.call('account.delete')
 
 	'click .timetable td:not(.day)': (e) ->
 		day = $(e.target).parent().attr('data-day')
@@ -140,7 +145,7 @@ Template.profile.events
 	'click .delVacation': (e) -> Meteor.call 'removeVacation', @_id
 
 	'click #addVacation': ->
-		today = moment(new Date).format('YYYYDDDD')
+		today = moment(new Date).format('YYYYMMDD')
 		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'

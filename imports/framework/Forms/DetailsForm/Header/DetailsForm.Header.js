@@ -1,19 +1,19 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import { getValue } from '/imports/framework/Forms/DetailsForm/DetailsForm.Helpers';
+import { getValue } from '../DetailsForm.Helpers'
 
-import './DetailsForm.Header.jade';
+import './DetailsForm.Header.jade'
 
 Template.DetailsFormHeader.helpers({
-  getValueByKey(key, entity) {
-    return getValue({ key: key }, entity);
+  getValueByKey (key, entity) {
+    return getValue({ key: key }, entity)
   }
-});
+})
 
-Template.DetailsFormHeader.onCreated(() => {});
+Template.DetailsFormHeader.onCreated(() => {})
 
-Template.DetailsFormHeader.onRendered(() => {});
+Template.DetailsFormHeader.onRendered(() => {})
 
-Template.DetailsFormHeader.onDestroyed(() => {});
+Template.DetailsFormHeader.onDestroyed(() => {})
 
-Template.DetailsFormHeader.events({});
+Template.DetailsFormHeader.events({})

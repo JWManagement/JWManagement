@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
 Template['note.update'].helpers({
   data: {
@@ -11,4 +11,4 @@ Template['note.update'].helpers({
       type: 'textbox'
     }]
   }
-});
+})

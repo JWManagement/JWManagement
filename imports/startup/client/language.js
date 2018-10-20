@@ -1,32 +1,36 @@
-import { Meteor } from 'meteor/meteor';
-import { Tracker } from 'meteor/tracker';
-import { TAPi18n } from 'meteor/tap:i18n';
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import moment from 'moment';
+import { Meteor } from 'meteor/meteor'
+import { Tracker } from 'meteor/tracker'
+import { TAPi18n } from 'meteor/tap:i18n'
+import { FlowRouter } from 'meteor/kadira:flow-router'
+import moment from 'moment'
 
-Meteor.startup(() => {
-  moment.locale('en'); // default
+import { wrs } from '../../framework/Functions/Async'
+
+export { setLanguageOnAuth }
+
+Meteor.startup(setLanguageOnAuth)
+
+function setLanguageOnAuth () {
+  moment.locale('en') // default
 
   Tracker.autorun((tracker) => {
     if (Meteor.user() != null) {
-      tracker.stop();
+      tracker.stop()
 
-      const language = FlowRouter.current().params.language;
-      const myLanguage = Meteor.user().profile.language;
+      const language = FlowRouter.current().params.language
+      const myLanguage = Meteor.user().profile.language
 
-      if (language != myLanguage) {
-        FlowRouter.withReplaceState(() => {
-          FlowRouter.setParams({ language: myLanguage });
-        });
+      if (language !== myLanguage) {
+        wrs(() => FlowRouter.setParams({ language: myLanguage }))
       }
 
-      if (moment.locale() != myLanguage) {
-        moment.locale(myLanguage);
+      if (moment.locale() !== myLanguage) {
+        moment.locale(myLanguage)
       }
 
-      if (TAPi18n.getLanguage() != myLanguage) {
-        TAPi18n.setLanguage(myLanguage);
+      if (TAPi18n.getLanguage() !== myLanguage) {
+        TAPi18n.setLanguage(myLanguage)
       }
     }
-  });
-});
+  })
+}

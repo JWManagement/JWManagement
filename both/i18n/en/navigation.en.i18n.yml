@@ -1,5 +1,6 @@
 navigation:
   welcome: Welcome
+  signUp: Sign up
   home: Dashboard
   dashboard:
     details: Dashboard
@@ -20,6 +21,9 @@ navigation:
   project:
     search: Projects
     details: Administration
+    support:
+      details: Support
+    insert: New project
   settings: Settings
   user:
     search: Users
@@ -42,6 +46,9 @@ navigation:
     permissions:
       details: Publisher permission details
       update: Update project permissions
+      tag:
+        details: Tag permission details
+        update: Update tag permission
   publisherActions: Publisher Bulk Actions
   reports: Reports
   store: Store Room

@@ -1,9 +1,9 @@
-import { Template } from 'meteor/templating';
+import { Template } from 'meteor/templating'
 
-import Gender from '/imports/framework/Constants/Gender';
-import Pioneer from '/imports/framework/Constants/Pioneer';
-import Privilege from '/imports/framework/Constants/Privilege';
-import Permissions from '/imports/framework/Constants/Permissions';
+import Gender from '../../framework/Constants/Gender'
+import Pioneer from '../../framework/Constants/Pioneer'
+import Privilege from '../../framework/Constants/Privilege'
+import Permissions from '../../framework/Constants/Permissions'
 
 Template['publisher.update'].helpers({
   data: {
@@ -47,4 +47,4 @@ Template['publisher.update'].helpers({
       }
     ]
   }
-});
+})
