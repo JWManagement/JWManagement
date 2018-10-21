@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	updateProject: (projectId, field, value) ->
@@ -23,16 +25,34 @@ Meteor.methods
 			check { userId: Meteor.userId(), projectId: projectId }, isAdmin
 
 		project = Projects.findOne(projectId)
-		name = Meteor.user().profile.firstname + ' ' + Meteor.user().profile.lastname
-		email = Meteor.user().profile.email
-		type = 'Project deletion request'
-		message = name + ' requested the deletion of project ' + project.name + ' (' + projectId + ')'
 
-		Meteor.call 'sendMessage', name, email, type, message, (e, r) ->
-			if e
-				handleError e
-			else
-				swal 'support@jwmanagement.org has been informed', '', 'success'
+		hasOpenShifts = Shifts.find({
+			projectId: projectId,
+			date: {
+				$gte: parseInt(moment().format('YYYYDDDD'))
+			},
+			'teams.participants': {
+				$exists: true,
+				$not: {
+					$size: 0
+				}
+			}
+		}).fetch().length > 0
+
+		if hasOpenShifts
+			throw new Meteor.Error(500, 'Please delete all planned shifts for the future that already have participants')
+		else
+			Shifts.remove projectId: projectId
+			Weeks.remove projectId: projectId
+
+			users = Roles.getUsersInRole(Permissions.member, projectId).fetch()
+			for user in users
+				Roles.removeUsersFromRoles(user._id, Permissions.member, projectId)
+
+				for tag in project.tags
+					Roles.removeUsersFromRoles(user._id, Permissions.participant, tag._id)
+
+			Projects.remove projectId
 
 	getProjectCount: ->
 		if Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
