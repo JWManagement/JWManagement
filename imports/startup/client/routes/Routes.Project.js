@@ -160,7 +160,7 @@ FlowRouter.route('/goToShift/:shiftId', {
       Meteor.call('shift.getShiftOverview', {
         shiftId: FlowRouter.getParam('shiftId')
       }, (e, shift) => {
-        const momentObj = moment(shift.date, 'YYYYDDD')
+        const momentObj = moment(shift.date, 'YYYYDDDD')
         const year = parseInt(momentObj.format('YYYY'), 10)
         const month = parseInt(momentObj.format('MM'), 10)
         const day = parseInt(momentObj.format('DD'), 10)

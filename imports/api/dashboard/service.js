@@ -16,7 +16,7 @@ Meteor.methods({
   'dashboard.get' () {
     const userId = Meteor.userId()
     const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
-    const today = parseInt(moment().format('YYYYDDD'), 10)
+    const today = parseInt(moment().format('YYYYDDDD'), 10)
 
     const projects = getProjects(projectIds)
     const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId)
