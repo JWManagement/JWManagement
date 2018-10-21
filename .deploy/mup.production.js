@@ -32,7 +32,7 @@ module.exports = {
     enableUploadProgressBar: false
   },
   proxy: {
-    domains: 'jwmanagement.org,www.jwmanagement.org',
+    domains: 'www.jwmanagement.org',
     ssl: {
       letsEncryptEmail: 'support@jwmanagement.org'
     }
