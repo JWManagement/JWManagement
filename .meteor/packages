@@ -53,5 +53,4 @@ percolate:synced-cron #not yet used (cron.coffee)
 summernote:standalone
 tap:i18n
 meteortesting:mocha
-lmachens:kadira
 deanius:promise
