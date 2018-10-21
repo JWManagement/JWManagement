@@ -89,7 +89,7 @@ Template.calendar.events({
 function loadShifts () {
   const template = this
   let params = FlowRouter.current().params
-  params.date = parseInt(moment(template.selectedDate).format('YYYYDDD'), 10)
+  params.date = parseInt(moment(template.selectedDate).format('YYYYDDDD'), 10)
 
   template.isLoading.set(true)
 

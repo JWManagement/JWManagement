@@ -56,7 +56,7 @@ function getUpdatedShifts (projects, shifts) {
 
       if (project != null && tag != null) {
         shift.tag = tag.name
-        shift.date = parseInt(moment(shift.date, 'YYYYDDD').format('YYYYMMDD'), 10)
+        shift.date = parseInt(moment(shift.date, 'YYYYDDDD').format('YYYYMMDD'), 10)
 
         return shift
       }

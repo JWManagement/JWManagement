@@ -2,7 +2,6 @@ import '../../api/messages/messages.coffee'
 
 import '../server/mailer'
 import '../server/prerenderio'
-import '../server/kadira'
 import '../server/logger'
 
 import '../common/moment'

@@ -79,7 +79,12 @@ Template.settings.events
 			checkInput: TAPi18n.__('swal.delete.project.checkInput')
 			closeOnSuccess: false
 			doConfirm: ->
-				Meteor.call 'deleteProject', FlowRouter.getParam('projectId')
+				Meteor.call 'deleteProject', FlowRouter.getParam('projectId'), (e) ->
+					if e
+						handleError(e)
+					else
+						swalClose()
+						FlowRouter.go(FlowRouter.path('dashboard.details'))
 
 	# Tags
 
