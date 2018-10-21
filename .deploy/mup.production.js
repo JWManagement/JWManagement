@@ -2,7 +2,7 @@ module.exports = {
   servers: {
     one: {
       host: process.env.SERVER_IP,
-      username: 'root',
+      username: 'ubuntu',
       password: process.env.SERVER_PASSWORD
     }
   },
