@@ -1,6 +1,6 @@
 describe('Landing page', function () {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/', { timeout: 180000 })
   })
 
   it('can be opened', function () {
