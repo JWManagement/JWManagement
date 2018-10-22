@@ -88,8 +88,7 @@ function defaultClickHandler (e) {
     const path = FlowRouter.path(link, params)
 
     if (path.startsWith('http')) {
-      const win = window.open(path, '_blank')
-      win.focus()
+      window.location = path
     } else {
       FlowRouter.go(path)
     }
