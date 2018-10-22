@@ -40,8 +40,17 @@ RouteManager.registerEntity('language', {
   details: 'language',
   update: 'language/:key'
 })
-RouteManager.registerProjectEntity('project', {
-  details: ''
+FlowRouter.route('/:projectId', {
+  name: 'project.details',
+  action (params) {
+    if (params.projectId.length === 2) {
+      FlowRouter.go(FlowRouter.path('dashboard.details'))
+    }
+
+    doIfLoggedIn(() => {
+      BlazeLayout.render('project.details')
+    })
+  }
 })
 RouteManager.registerProjectEntity('publisher.password', {
   insert: 'publishers/:userId/password',

@@ -48,6 +48,7 @@ meteorhacks:aggregate
 meteorhacks:subs-manager # remove in future
 mizzao:user-status
 mquandalle:jade
+okgrow:analytics
 raix:push@3.0.3-rc.5
 percolate:synced-cron #not yet used (cron.coffee)
 summernote:standalone
