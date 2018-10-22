@@ -33,7 +33,7 @@ project:
     supportPage: Support
     support:
       phone: Call us
-      email: Send us a mail
+      email: Send us an email
       github: Create a GitHub Issue
       paypal: PayPal (paypal.me/marvinzeising)
     noElements: No Projects found
