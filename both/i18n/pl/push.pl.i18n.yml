@@ -1,8 +1,8 @@
-mail:
+push:
   footer: To jest automatycznie wysłany mail. Nie oczekujemy, że na niego odpowiesz.
-  link: Otwórz JW Management
+  link: Otwórz JWManagement
   accountCreated:
-    subject: Konto JW Management zostało stworzone!
+    subject: Konto JWManagement zostało utworzone!
     headline: Witaj!
     hello: Cześć
     text1: Chcemy powiedzieć Ci, że stworzyliśmy dla Ciebie konto JW Management. Możesz ustawić swoją nazwę użytkownika i hasło klikając w przycisk poniżej.
@@ -10,9 +10,9 @@ mail:
     button: Zaczynamy!
   teamCancellation:
     subject: Zmiana anulowana
-    headline: Zmiana została anulowana.
+    headline: Zmiana została anulowana..
     hello: Witaj
-    text: Niestety chcieliśmy poinformować Cię, że twoja zmiana <b>__date__</b> o <b>__time__</b> godzinie został <u>anulowany</u>.
+    text: Niestety chcieliśmy poinformować Cię, że twoja zmiana <b>__date__</b> o <b>__time__</b> godzinie została <u>anulowana</u>.
     missingParticipant: Aktualnie brakuje współpracownika. Jeżeli będzie wystarczająco współpracowników zmiana może powstać ponownie.
   confirmation:
     subject: Zgłoszenie zaakceptowane
@@ -52,10 +52,10 @@ mail:
     text2: Znajdziesz ten projekt w zakładce "Moje Projekty".<br>Miłego dnia!
   understaffed:
     subject: Zmiana nie została skompletowana
-    headline: Zmiana nie została skompletowana
+    headline: Z powodu braku wystarczającej ilości współpracowników zmiana nie została skompletowana
     hello: Witaj
     text1: Następująca zmiana nie została zebrana i potrzebuje
-    text2: Proszę zobacz czy możesz jakoś pomóc tej zmianie.
+    text2: Ta zmiana potrzebuje wsparcia! __date__ from __time__ o'clock
     datetime: __date__ o godzinie __time__
   toOrga:
     hello: Witaj koordynatorze zmiany

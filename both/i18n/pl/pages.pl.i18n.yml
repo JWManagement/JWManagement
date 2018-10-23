@@ -33,6 +33,7 @@ profile:
     helpText: Proszę zaznacz godziny w których jesteś dostępny.
     shortTermCalls: Jestem dostępny nawet w ostatniej chwili
     shortTermCallsAlways: Nawet jeżeli nie zaznaczyłem dostępności
+    notifyViaEmail: Preferuję kontakt mailowy.
   speaks: Speaks
   telefon: Telefon
   congregation: Zbór
@@ -65,11 +66,11 @@ profile:
   deleteAccount: Usuń konta
   mergeAccounts: Scal konta
   vacation:
-    title: Wakacje
-    helpText: Proszę dodać terminy w których nie będziesz dostępny
+    title: Urlop
+    helpText: Możesz dodać tutaj termin w którym nie będziesz dostępny
   until: do
-  addVacation: Dodaj wakacje
-  deleteVacation: Usuń te wakacje
+  addVacation: Dodaj urlop
+  deleteVacation: Usuń ten urlop
   usernameTaken: Ta nazwa użytkownika jest już przez kogoś zajęta. Proszę wybrać inną.
 wiki:
   name: Centrum informacji
@@ -90,8 +91,8 @@ shifts:
   route: Ulica
   addShift: Dodaj nową zmianę
   addWeek: Dodaj nowy tydzień
-  requests: Prośby
-  openRequests: Otwarte prośby
+  requests: Zgłoszenia
+  openRequests: Otwarte zgłoszenia
   automation: Automatycznie
   template: Szablon
   noVisibleShifts: Brak zmian dla tego tagu w tym tygodniu
@@ -101,7 +102,7 @@ shifts:
   helpText:
     start: To jest pierwszy tydzień stworzony przez system.
     end: To jest ostatni tydzień stworzony przez system.
-    visibility: To definiuje ile tygodni do przodu głosiciele będą mogli zobaczyć grafik i wysyłać prośby. Uwzględniając początkowy i końcowy tydzień, system automatycznie stworzy potrzebne zmiany.
+    visibility: To definiuje ile tygodni do przodu głosiciele będą mogli zobaczyć grafik i wysyłać zgłoszenia. Uwzględniając początkowy i końcowy tydzień, system automatycznie stworzy potrzebne zmiany.
   weeks: tygodni
   sendWeek: Wyślij potwierdzenia
   hideNames: Zwiń wszystkie zmiany
@@ -121,21 +122,14 @@ shifts:
     participants: Współpracownicy
     start: Start
     end: Koniec
+    requests: Zgłoszenie
+    requests_plural: Zgłoszenia
+    requestsOf: Zgłoszenie z
+    requestsOf_plural: Zgłoszenia z
     teamleaders: Koordynatorów zmiany
     noPermission: Tylko Menadżer projektu lub Menadżer zmian jest uprawniony aby edytować lub usuwać zmiany
 day:
   removeAll: Usuń wszystkie
-project:
-  name: Administrator
-  nameShort: Admin
-users:
-  title: Lista użytkowników
-  search: Szukaj...
-  inviteUser: Zaproś dodanych użytkowników
-  addNewUser: Dodaj nowego użytkownika
-  deleted: Usunięty!
-  sendToAll: Wyślij e-mail do wszystkich
-  sendToAllInTag: Wyślij e-mail do wszystkich z tagiem %s
 reports:
   export: Eksportuj jako CSV
 settings:
@@ -149,7 +143,7 @@ settings:
     email:
       text: Email
       placeholder: Adres e-mail projetku
-      helpText: W wiadomościach email np. zawierających potwierdzenia przydziału, ten adres będzie ustawiony jako Odpowiedz-Do, więc jeżeli któryś ze współpracowników odpowie na ten e-mail, wiadomość zostanie normalnie wysłana na skrzynkę odbiorczą tego adresu (oczywiście pod warunkiem, że na programie współpracownika ma poprawnie skonfigurowaną swoją pocztę). Dodatkowo, ten adres będzie poinformowany w wypadku gdy ktoś wycofa swoją prośbę w ostatniej chwili.
+      helpText: W wiadomościach email np. zawierających potwierdzenia przydziału, ten adres będzie ustawiony jako Odpowiedz-Do, więc jeżeli któryś ze współpracowników odpowie na ten e-mail, wiadomość zostanie normalnie wysłana na skrzynkę odbiorczą tego adresu (oczywiście pod warunkiem, że na programie współpracownika ma poprawnie skonfigurowaną swoją pocztę). Dodatkowo, ten adres będzie poinformowany w wypadku gdy ktoś wycofa swoje zgłoszenie w ostatniej chwili.
     language:
       text: Język
       helpText: Jeżeli system będzie informował wymieniony wyżej adres o zmianach, to wyśle e-maile w języku sprecyzowanym tutaj.
@@ -204,43 +198,6 @@ settings:
     none: Żaden punkt zbiórki nie został jeszcze stworzony
     add: Dodaj nowy punkt zbiórki
     remove: Usuń ten punkt zbiórki
-vessels:
-  title: Vessels
-  nameShort: Vessels
-  search: Search
-  placeholder: Vessel name, call sign, ENI, IMO or MMSI
-  addNewVessel: Add new vessel
-  name: Vessel name
-  flag: Flag
-  type: Type
-  types:
-    c: Container ship
-    cr: Cruise ship
-    mf: Cargo
-    mt: Tanker
-    p: Passenger ship
-    pt: Pushtow
-    rc: River cruise ship
-    f: Ferry
-    ro: Ro-Ro
-    t: Tug
-    unknown: Unknown
-  callsign: Call sign
-  eni: ENI
-  imo: IMO
-  mmsi: MMSI
-  lastVisit: Last visit
-  nextVisit: Next visit after
-  languages: Language(s) on board
-  languagesPlaceholder: No person-specific information!
-  comments: Comments
-  commentsPlaceholder: No person-specific information!
-notes:
-  description: Tutaj możesz stworzyć proste notatki. Każdy Menadżer projektu, Menadżer zmian i Menażer magazynu będą widzieli te notatki. Dzięki temu możecie wymieniać się informacjami.
-  createNote: Stwórz notatkę
-  title: Tytuł
-  text: Tekst
-  deleteNote: Usuń tą notatkę
 firstLogin:
   name: Witaj
   text: <p>Czekaliśmy na Ciebie.</p><p>Proszę ustaw swoją nazwę użytkownika i hasło. Od teraz będziesz potrzebował ich aby zalogować się do systemu.</p><p>Po tym kroku będziesz mógł zacząć korzystać z JW Management.</p><p>Powodzenia!</p>
