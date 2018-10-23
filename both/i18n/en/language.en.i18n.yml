@@ -14,6 +14,8 @@ language:
       pl: Polish
       pt: Portuguese
       ru: Russian
+      zh-TW: Chinese (Traditional) (partially)
+      zh-CN: Chinese (Simplified) (partially)
   _de: German
   _en: English
   _fi: Finnish
@@ -83,7 +85,7 @@ language:
   _SO: Somali
   _ST: Estonian
   _SV: Slovenian
-  _T: Portugese
+  _T: Portuguese
   _TG: Tagalog
   _TI: Tigrinya
   _TK: Turkish
