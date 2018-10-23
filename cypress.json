@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "video": true,
+  "viewportWidth": 1000,
+  "viewportHeight": 1000,
+  "projectId": "vhmuoz"
+}
