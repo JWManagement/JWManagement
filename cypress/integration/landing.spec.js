@@ -1,7 +1,5 @@
 describe('Landing page', function () {
-  beforeEach(() => {
-    cy.visit('/', { timeout: 120000 })
-  })
+  beforeEach(() => cy.visit('/'))
 
   it('can be opened', function () {
     cy.contains('JW Management')
