@@ -29,7 +29,7 @@ dashboard:
   participant_plural: Współpracownicy zmiany
   showOlder: Pokaż również starsze zmiany
   showAll: Pokaż wszystko
-calendar: Calendar
+  calendar: Calendar
 
   # new dashboard
   myProjects:
