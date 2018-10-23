@@ -1,7 +1,9 @@
 #!/bin/bash
 
+rm -rf .meteor/local/db
+
 MONGO_URL= meteor &
 
-rm -rf .meteor/local/db
+sleep 60
 
 npm run cypress:run
