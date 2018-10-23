@@ -49,7 +49,7 @@ modal:
       member: Członek jest to najbardziej podstawowa rola. Może oglądać Centrum Informacji.
       teamleader: Kordynator zmian wyznaczony jest przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
       substituteTeamleader: Zastępca koordynatora zmian.
-      participant: Współpracownik widzi i wysyła prośby dotyczące wybranej zmiany dla wybranego Tagu.
+      participant: Współpracownik widzi i wysyła zgłoszenia dotyczące wybranej zmiany dla wybranego Tagu.
       nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi grafik ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
   editShift:
     title: Edytuj informacje o zmianie
@@ -59,7 +59,7 @@ modal:
     teams: Lokalizacje przypisane do tej zmiany
     helpText:
       tag: Ustaw Tag zmiany. Wszyscy użytkownicy z uprawnieniami do tego Tagu będą widzieć tą zmianę.
-      scheduling: Jeżeli wybierzesz 'akceptuj automatycznie' prośby będą akcpetowane w momencie, kiedy zostanie osiągnięta minimalna liczba współpracowników.
+      scheduling: Jeżeli wybierzesz 'akceptuj automatycznie', zgłoszenia będą akcpetowane w momencie, kiedy zostanie osiągnięta minimalna liczba współpracowników.
     addTeam: Dodaj nową lokalizację
     teamMin: Minimalna ilość współpracowników:
     teamMax: Maksymalna ilość współpracowników:
@@ -106,7 +106,7 @@ modal:
     noParticipants: Brak współpracowników
     requestTeam: Zgłoś chęć współpracy
     requestTeamAgain: Zgłoś chęć współpracy ponownie
-    requests: Prośby
+    requests: Zgłoszenia
     cancelTeam: Anuluj zmianę
     cancelRequest: Anuluj zgłoszenie
     cancelParticipation: Anuluj współpracę

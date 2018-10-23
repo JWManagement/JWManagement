@@ -1,9 +1,28 @@
 language:
+  details:
+    sections:
+      languages: Języki systemu
+  entity:
+    language: Język
+    languageValues:
+      de: Niemiecki
+      en: Angielki
+      fi: Fiński
+      fr: Francuski (częściowo)
+      hu: Węgierski
+      it: Włoski (częsciowo)
+      pl: Polski
+      pt: Portugalski
+      ru: Rosyjski
   _de: Niemiecki
-  _en: Angielski
-  _pt: Portugalski
+  _en: Angielki
+  _fi: Fiński
+  _fr: Francuski (częściowo)
   _hu: Węgierski
+  _it: Włoski (częściowo)
   _pl: Polski
+  _pt: Portugalski
+  _ru: Rosyjski
   _A: Arabski
   _AL: Albański
   _AR: Bambara
@@ -16,6 +35,8 @@ language:
   _CB: Kambodżański
   _CH: Chiński Mandaryński (Tradycyjny)
   _CHS: Chiński Mandaryński (Uproszczony)
+  _CS: Czeski
+  _CV: Cebuano
   _DAR: Dari
   _DGS: Niemiecki j. migowy
   _E: Angielski
@@ -27,15 +48,19 @@ language:
   _GE: Gruziński
   _H: Węgierski
   _HI: Hinduski
+  _HV: Hiligaynon
   _I: Włoski
   _IB: Igbo
+  _IL: Iloko
   _IN: Indonezyjski
   _J: Japoński
   _K: Ukraiński
+  _KEA: Kabuverdianu
   _KO: Koreański
   _KRI: Krio
   _L: Litewski
   _LT: Łotewski
+  _LV: Łotewski # legacy for not-updated depots
   _M: Rumuński
   _MC: Macedoński
   _O: Holenderski
@@ -60,6 +85,7 @@ language:
   _ST: Estoński
   _SV: Słowacki
   _T: Portugalski
+  _TG: Tagalog
   _TI: Tigrinya
   _TK: Turecki
   _TL: Tamil
