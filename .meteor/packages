@@ -21,7 +21,6 @@ reactive-var@1.0.11
 session@1.1.8
 shell-server@0.4.0
 standard-minifier-css@1.5.0
-standard-minifier-js@2.4.0
 tracker@1.2.0
 underscore@1.0.10
 force-ssl@1.1.0
@@ -55,3 +54,6 @@ summernote:standalone
 tap:i18n
 meteortesting:mocha
 deanius:promise
+montiapm:agent
+zodern:standard-minifier-js
+zodern:hide-production-sourcemaps
