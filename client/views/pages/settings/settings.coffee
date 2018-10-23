@@ -1,5 +1,13 @@
 Template.settings.helpers
 
+	isSupport: -> Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP
+
+	getVesselModule: ->
+		if this.vesselModule
+			'True'
+		else
+			'False'
+
 	getProject: -> Projects.findOne FlowRouter.getParam('projectId'), fields: infos: 0, items: 0
 
 	teamPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), teamId: @_id
@@ -10,9 +18,37 @@ Template.settings.helpers
 		a = TAPi18n.getLanguages()[language]
 		_id: language, name: a.name, en: a.en
 
+	json2String: (a) -> JSON.stringify(a)
+
 Template.settings.onCreated ->
 
-	ProjectSubs.subscribe 'settings', FlowRouter.getParam('projectId')
+	@autorun ->
+		projectId = FlowRouter.getParam('projectId')
+
+		handle = ProjectSubs.subscribe 'settings', projectId
+		handle.ready Tracker.afterFlush ->
+			project = Projects.findOne(projectId, fields: teams: 1)
+			if project? && project.teams?
+				for team in project.teams
+					if !team.icon?
+						team.icon = 'fa-map-signs'
+
+					$('#iconpicker_' + team._id).iconpicker
+						arrowClass: 'btn-primary'
+						arrowPrevIconClass: 'fa fa-chevron-left'
+						arrowNextIconClass: 'fa fa-chevron-right'
+						rows: 5
+						cols: 10
+						footer: true
+						header: true
+						icon: team.icon
+						iconset: 'fontawesome'
+						labelHeader: '{0} / {1}'
+						labelFooter: '{0} - {1} of {2} icons'
+						placement: 'bottom'
+						search: true
+						searchText: 'Search'
+						selectedClass: 'btn-primary'
 
 Template.settings.onRendered ->
 
@@ -31,6 +67,12 @@ Template.settings.events
 
 	'click .changeLanguage': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'language', $(e.target).attr('newLang'), handleError
 
+	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
+
+	'change #country': (e) -> Meteor.call 'updateProject', @_id, 'country', e.target.value, handleError
+
+	'change #harbors': (e) -> Meteor.call 'updateProject', @_id, 'harbors', JSON.parse(e.target.value), handleError
+
 	'click #deleteProject': ->
 		swalInput
 			swal: 'delete.project'
@@ -39,10 +81,10 @@ Template.settings.events
 			doConfirm: ->
 				Meteor.call 'deleteProject', FlowRouter.getParam('projectId'), (e) ->
 					if e
-						swal 'Error ' + e.error, e.reason, 'error'
+						handleError(e)
 					else
 						swalClose()
-						Delay -> FlowRouter.go('home')
+						FlowRouter.go(FlowRouter.path('dashboard.details'))
 
 	# Tags
 
@@ -69,11 +111,9 @@ Template.settings.events
 		Session.set('parent', 'settings')
 		tagId = $(e.target).closest('.form-group').attr('tagId')
 		projectId = FlowRouter.getParam('projectId')
-		language = FlowRouter.getParam('language')
 
 		FlowRouter.go 'shifts',
 			projectId: projectId
-			language: language
 		,
 			tagId: tagId
 			templateId: @_id
@@ -131,6 +171,12 @@ Template.settings.events
 		projectId = FlowRouter.getParam('projectId')
 
 		Meteor.call 'changeAllShiftTeams', projectId, teamId, 'name', teamName, handleError
+
+	'change .teamIcon': (e) ->
+		teamId = @_id
+		projectId = FlowRouter.getParam('projectId')
+
+		Meteor.call 'changeAllShiftTeams', projectId, teamId, 'icon', e.icon, handleError
 
 	'click #editTeamPicture': (e) ->
 		teamId = @_id

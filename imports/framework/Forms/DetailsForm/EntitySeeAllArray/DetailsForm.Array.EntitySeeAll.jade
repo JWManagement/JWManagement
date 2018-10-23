@@ -1,0 +1,11 @@
+template(name="DetailsFormArrayEntitySeeAll")
+
+  tr.array-item
+
+    th.left.with-icon
+      i.material-icons more_horiz
+
+    td.item {{getValue definition entity}}
+
+    td.link(rowspan='{{definition.type.count}}')
+      i.fa.fa-angle-right

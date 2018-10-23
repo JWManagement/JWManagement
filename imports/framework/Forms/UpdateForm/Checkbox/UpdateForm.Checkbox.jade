@@ -1,0 +1,13 @@
+template(name="UpdateFormCheckbox")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header {{getEntityTranslation}}
+
+    .section-select
+      input(type='checkbox' checked='{{getValue}}')
+      | {{getEntityTranslation getKey}}
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

@@ -1,0 +1,16 @@
+template(name="InsertFormCheckbox")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header
+      | {{getEntityTranslation getKey}}
+      if isRequired
+        | *
+
+    .section-select
+      input(type='checkbox' checked='true')
+      | {{getEntityTranslation getKey}}
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

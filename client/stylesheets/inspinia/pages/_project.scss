@@ -1,0 +1,46 @@
+.project-wrapper {
+	a {
+		color: white;
+	}
+
+	.btn-wrapper {
+		padding: 10px;
+		@media(max-width: 768px) {
+			padding: 5px;
+		}
+
+		.btn-inverted {
+			text-align    : center;
+			padding-top   : 20px;
+			padding-bottom: 10px;
+			border        : 1px solid white;
+			border-radius : 10px;
+			@media(max-width: 768px) {
+				padding-top   : 15px;
+				padding-bottom: 5px;
+
+				i {
+					font-size: 55px;
+				}
+
+				h2 {
+					font-size    : 15px;
+					margin-top   : 10px;
+					margin-bottom: 0;
+				}
+			}
+
+			h2 {
+				cursor: pointer;
+			}
+
+			&:hover {
+				background-color: darken($indigo, 5%);
+			}
+
+			&:active {
+				box-shadow: inset 0 3px 5px rgba(#000000, 0.13);
+			}
+		}
+	}
+}

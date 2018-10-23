@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Meteor.methods
 
 	addTab: (projectId, title) ->
@@ -73,6 +75,24 @@ Meteor.methods
 
 		helper = $set: {}
 		helper.$set['wiki.tabs.' + tabIndex + '.faq.' + faqIndex + '.answer'] = code
+
+		Projects.update projectId, helper
+
+	moveFaq: (direction, projectId, tabId, faqId) ->
+		if Meteor.isServer
+			check { userId: Meteor.userId(), projectId: projectId }, isAdmin
+			check tabId, String
+			check faqId, String
+
+		tabIndex = Meteor.call 'getTabIndex', projectId, tabId
+		faqIndex = Meteor.call 'getFaqIndex', projectId, tabId, faqId
+
+		project = Projects.findOne projectId
+		faq = project.wiki.tabs.find((tab) -> tab._id == tabId).faq
+		faq.splice(faqIndex + direction, 0, faq.splice(faqIndex, 1)[0])
+
+		helper = $set: {}
+		helper.$set["wiki.tabs.#{tabIndex}.faq"] = faq
 
 		Projects.update projectId, helper
 

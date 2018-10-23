@@ -225,10 +225,6 @@
 		background-color: $green;
 	}
 
-	.text-green {
-		color: $green;
-	}
-
 	.shift {
 		&.missing {
 			@extend .right;
@@ -264,7 +260,7 @@
 			}
 		}
 
-		&.accepted {
+		&.approved {
 			@extend .right;
 
 			.vertical-timeline-icon {
@@ -317,7 +313,7 @@
 				}
 			}
 
-			.shift-team.accepted {
+			.shift-team.approved {
 				color           : #206022;
 				border          : 1px solid rgba($green, 0.3);
 				background-color: rgba($green, 0.05);

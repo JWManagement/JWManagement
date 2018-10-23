@@ -1,0 +1,29 @@
+dashboard:
+  loadingProjects: Загрузка проектов...
+  projects: Мои проекты
+  noProjects: Ты не участвуешь ни в каком проекте.
+  loadingShifts: Загрузка смен...
+  shifts: Мои смены
+  noShifts: У тебя ещё нет смен
+  news: Новости/Объявления
+  noNews: Новостей/Объявлений нет
+  newsFrom: Последнее редактирование:
+  editNews: Обработать Новости/Объявления
+  changeNews: Сохранить изменения
+  cancelNews: Сбросить изменения
+  understaffed: Нехватка участников
+  understaffedMore: Показать смены с нехваткой участников
+  missing: Отсутствующий отчёт
+  missing_plural: Отсутствующие отчёты!
+  approved: Подтверждённое заявление
+  approved_plural: Подтверждённые заявления
+  pending: Заявка на смену
+  pending_plural: Заявки на смены
+  declined: Отказ заявки
+  declined_plural: Отказы заявок
+  marked: Нехватка участников
+  marked_plural: Нехватка участников
+  participant: Участник смены
+  participant_plural: Участники смены
+  showOlder: Прошлые смены
+  showAll: Все смены

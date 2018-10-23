@@ -1,4 +1,33 @@
+moment = require('moment')
+
 Meteor.methods
+
+	registerUserForProject: (userId, token) ->
+		oldUser = Meteor.users.findOne 'services.password.reset.token': token,
+			fields: roles: 1
+
+		newUser = Meteor.users.findOne userId,
+			fields: _id: 1
+
+		if oldUser? && newUser? && oldUser.roles?
+			for id in Object.keys(oldUser.roles)
+				if oldUser.roles[id]? && oldUser.roles[id][0]?
+					Roles.addUsersToRoles userId, oldUser.roles[id][0], id
+
+			Meteor.users.remove oldUser._id
+
+	mergeAccounts: (oldUserId, newUserId) -> if oldUserId != newUserId
+		oldUser = Meteor.users.findOne oldUserId,
+			fields: roles: 1
+
+		newUser = Meteor.users.findOne newUserId,
+			fields: _id: 1
+
+		if oldUser? && newUser?
+			for id in Object.keys(oldUser.roles)
+				Roles.addUsersToRoles newUserId, oldUser.roles[id][0], id
+
+			Meteor.users.remove oldUser._id
 
 	changeProjectRole: (projectId, userId, permission) ->
 		projectPermissions = Permissions.member
@@ -69,7 +98,7 @@ Meteor.methods
 							Shifts.update _id: shift._id, 'teams._id': team._id,
 								$set: 'teams.$.pending': updatedPending
 
-						if userId in (u._id for u in team.declined)
+						if userId in (u._id for u in team.declined.filter((u) -> u?))
 							updatedDeclined = team.participants
 
 							for user in updatedDeclined when user._id == userId
@@ -121,13 +150,17 @@ Meteor.methods
 		user = Meteor.users.findOne username: username,
 			fields: _id: 1
 
-		if user?
-			if Meteor.isServer
-				check { userId: Meteor.userId(), projectId: project._id }, isAdmin
-				check { userId: user._id, projectId: project._id }, isMember
+		if Meteor.isServer && user?
+			check { userId: Meteor.userId(), projectId: project._id }, isAdmin
+			check { userId: user._id, projectId: project._id }, isMember
 
 			Roles.removeUsersFromRoles user._id, Permissions.member, projectId
 
 			if project? && project.tags
 				for tag in project.tags
-					Meteor.call 'changeTagRole', tag._id, user._id, 'none'
+					Meteor.call 'changeTagRole', tag._id, user._id, 'none', ->
+						for group in Roles.getGroupsForUser(user._id)
+							return if Roles.userIsInRole(user._id, Permissions.member, group)
+							return if Roles.userIsInRole(user._id, Permissions.participant, group)
+
+						Meteor.users.remove user._id

@@ -24,6 +24,14 @@ Template.store.helpers
 			,
 				short: 'nwt'
 			,
+				short: 'jr'
+			,
+				short: 'jw'
+			,
+				short: 'lfb'
+			,
+				short: 'cf'
+			,
 				short: 'ct'
 			,
 				short: 'fy'
@@ -37,8 +45,6 @@ Template.store.helpers
 				short: 'yp1'
 			,
 				short: 'yp2'
-			,
-				short: 'ypq'
 			]
 		,
 			type: 'brochures'
@@ -51,11 +57,15 @@ Template.store.helpers
 			,
 				short: 'hf'
 			,
+				short: 'la'
+			,
 				short: 'lc'
 			,
 				short: 'ld'
 			,
 				short: 'lf'
+			,
+				short: 'lgw'
 			,
 				short: 'lmn'
 			,
@@ -65,11 +75,21 @@ Template.store.helpers
 			,
 				short: 'ol'
 			,
+				short: 'pc'
+			,
+				short: 'ph'
+			,
 				short: 'rj'
 			,
 				short: 'rk'
 			,
+				short: 'sgd'
+			,
+				short: 'we'
+			,
 				short: 'yc'
+			,
+				short: 'ypq'
 			]
 		,
 			type: 'magazines'
@@ -102,55 +122,48 @@ Template.store.helpers
 		,
 			type: 'misc'
 			items: [
+				short: 'dv'
+			,
 				short: 'CO-inv17'
 			,
 				short: 'CO-inv18'
-			,
-				short: 'CO-inv19'
-			,
-				short: 'CO-inv20'
 			,
 				short: 'inv'
 			,
 				short: 'jwcd'
 			,
-				short: 'mi16'
-			,
-				short: 'mi17'
-			,
 				short: 'mi18'
-			,
-				short: 'mi19'
-			,
-				short: 'mi20'
 			]
 		]
 
 	getLanguages: -> [
 		'A', 'AL', 'AR', 'AM'
-		'B', 'BL', 'BSN'
-		'C', 'CB', 'CH', 'CHS'
+		'B', 'BEL', 'BL', 'BSN'
+		'C', 'CB', 'CH', 'CHS', 'CV'
 		'DAR', 'DGS'
 		'E', 'ED', 'EW'
 		'F'
 		'G', 'GE'
-		'H', 'HI'
+		'H', 'HI', 'HV'
+		'I', 'IB', 'IL', 'IN'
 		'J'
-		'KRI'
-		'I', 'IB', 'IN'
-		'K', 'KO'
+		'K', 'KO', 'KRI'
+		'L', 'LT'
 		'M', 'MC'
 		'O', 'OA'
 		'P', 'PH', 'PJ', 'PL', 'PR'
 		'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU'
-		'S', 'SB', 'SI', 'SO', 'SV'
-		'T', 'TI', 'TK', 'TL', 'TW'
+		'S', 'SB', 'SI', 'SO', 'ST', 'SV'
+		'T', 'TG', 'TI', 'TK', 'TL', 'TW'
 		'U', 'UD'
 		'V', 'VT'
 		'WO'
 		'X'
 		'YR'
-	]
+	].map((lang) ->
+		short: lang
+		translation: TAPi18n.__('language.', context: lang)
+	).sort((a, b) -> a.translation > b.translation)
 
 	isReady: -> ProjectSubs.ready()
 
@@ -247,7 +260,7 @@ Template.store.events
 
 	'click #showPublication': (e) ->
 		projectId = FlowRouter.getParam('projectId')
-		short = $(e.target).attr('short')
+		short = $(e.target).closest('a').attr('short')
 
 		if FlowRouter.getQueryParam('showPublication') == short
 			wrs -> FlowRouter.setQueryParams showPublication: null

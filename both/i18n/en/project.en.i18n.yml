@@ -1,0 +1,52 @@
+project:
+  nameShort: Admin
+  entity:
+    _id: ID
+    name: Name
+    email: Project Email Address
+    language: Default language
+    languageValues:
+      de: German
+      en: English
+      fi: Finnish
+      fr: French (partially)
+      hu: Hungarian
+      it: Italian (partially)
+      pl: Polish
+      pt: Portuguese
+      ru: Russian
+    news:
+      text: News
+    shifts: Shifts
+    calendar: Calendar
+    knowledgeBase: Knowledge Base
+    settings: Settings
+    users: Users
+    publishers: Publishers
+    publisherActions: Publisher Bulk Actions
+    reports: Reports
+    store: Store
+    vessels: Vessels
+    notes: Notes
+    leave: Leave project
+    leaveConfirmation: Do you really want to leave this project? This can't be undone.
+    supportPage: Support
+    support:
+      phone: Call us
+      email: Send us an email
+      github: Create a GitHub Issue
+      paypal: PayPal (paypal.me/marvinzeising)
+    noElements: No Projects found
+  details:
+    sections:
+      project: Project
+      modules: Modules
+      administration: Administration
+      participation: Participation
+  search:
+    placeholder: Search for projects
+  support:
+    details:
+      sections:
+        title: If you encounter any problems or have any questions or ideas, please tell us
+        donate: We gladly pay the operating costs for you. If you want to contribute something, though, we'd be very happy

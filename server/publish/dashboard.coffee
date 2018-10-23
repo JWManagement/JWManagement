@@ -1,11 +1,13 @@
-Meteor.publish 'dashboard', ->
-	projectIds = GetGroupsForUser @userId, Permissions.member
+moment = require('moment')
+
+Meteor.publish 'dashboard', (projectIds) ->
 
 	[
 		Projects.find _id: $in: projectIds,
 			fields:
 				name: 1
 				description: 1
+				vesselModule: 1
 				news: 1
 				tags: 1
 				teams: 1

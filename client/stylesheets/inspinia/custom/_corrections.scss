@@ -1,3 +1,15 @@
+.footable-filtering .input-group .input-group-btn {
+	button {
+		border-top-right-radius   : 4px !important;
+		border-bottom-right-radius: 4px !important;
+	}
+
+	button:last-of-type,
+	ul.dropdown-menu {
+		display: none;
+	}
+}
+
 .sweet-alert {
 	max-height: 80% !important;
 	overflow-y: auto !important;

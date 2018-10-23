@@ -1,8 +1,10 @@
+moment = require('moment')
+
 Meteor.methods
 
 	getAvailableUsers: (projectId, shiftId) ->
 		if Meteor.isServer
-			check { userId: Meteor.userId(), projectId: projectId }, isShiftAdmin
+			check { userId: Meteor.userId(), projectId: projectId }, isShiftScheduler
 			check shiftId, isExistingShift
 
 		projectUsers = Roles.getUsersInRole Permissions.member, projectId, fields: profile: 1

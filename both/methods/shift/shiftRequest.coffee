@@ -1,9 +1,14 @@
+moment = require('moment')
+
 Meteor.methods
 
 	request: (shiftId, teamId) ->
 		user = Meteor.user()
 		userId = user._id
 		shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1, tagId: 1
+
+		if Meteor.isClient
+			Meteor.subscribe 'userStatistics', Meteor.userId(), shiftId
 
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
@@ -42,60 +47,47 @@ Meteor.methods
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
 
-							#TODO: if team.max reached -> close team
+							if team.participants.length == team.max - 1
+								Meteor.call 'closeTeam', shiftId, teamId
 
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
-					else if team.pending.length == team.min - 1
-						#TODO: set condition to team.pending.length >= team.min - 1
-						acceptedUsers = [ userId ]
-						hasTeamleader = false
-						chosenId = null
-						chosenIsTeamleader = false
+					else if team.pending.length >= team.min - 1
 
-						if user.teamleader
-							hasTeamleader = true
-							chosenId = user._id
-							chosenIsTeamleader = true
-						else if user.substituteTeamleader
-							hasTeamleader = true
-							chosenId = user._id
-							chosenIsTeamleader = false
+						teamleader = team.pending.find((user) => user.teamleader) || team.pending.find((user) => user.substituteTeamleader)
 
-						for pendingUser in team.pending when pendingUser.teamleader || pendingUser.substituteTeamleader
-							hasTeamleader = true
+						approvedUsers = [ ]
+						declinedUsers = [ ]
 
-							if !chosenId?
-								if pendingUser.teamleader
-									chosenId = pendingUser._id
-									chosenIsTeamleader = true
-								else if pendingUser.substituteTeamleader
-									chosenId = pendingUser._id
-									chosenIsTeamleader = false
-							else if !chosenIsTeamleader && pendingUser.substituteTeamleader
-								chosenId = pendingUser._id
-								chosenIsTeamleader = false
+						if teamleader?
+							approvedUsers.push userId
 
-						if hasTeamleader
-							#TODO: if team.pending > team.max, make sure to accept only {{team.max}} users
 							Shifts.update _id: shiftId, 'teams._id': teamId,
 								$pull: 'teams.$.declined': _id: userId
 								$addToSet: 'teams.$.participants': user
 
 							for pendingUser in team.pending
-								acceptedUsers.push pendingUser._id
+								if approvedUsers.length < team.max
+									approvedUsers.push pendingUser._id
+
+									Shifts.update _id: shiftId, 'teams._id': teamId,
+										$pull: 'teams.$.pending': _id: pendingUser._id
+
+									Shifts.update _id: shiftId, 'teams._id': teamId,
+										$pull: 'teams.$.declined': _id: pendingUser._id
+										$addToSet: 'teams.$.participants': pendingUser
+								else
+									declinedUsers.push pendingUser._id
+
+									Shifts.update _id: shiftId, 'teams._id': teamId,
+										$pull: 'teams.$.pending': _id: pendingUser._id
+										$addToSet: 'teams.$.declined': pendingUser
 
 								if pendingUser.checked
 									pendingUser.checked = false
 
-								Shifts.update _id: shiftId, 'teams._id': teamId,
-									$pull:
-										'teams.$.pending': _id: pendingUser._id
-										'teams.$.declined': _id: pendingUser._id
-									$addToSet: 'teams.$.participants': pendingUser
-
 							for otherTeam in shift.teams when otherTeam._id != teamId
-								for pendingUser in otherTeam.pending when pendingUser._id in acceptedUsers
+								for pendingUser in otherTeam.pending when pendingUser._id in approvedUsers
 									if pendingUser.checked
 										pendingUser.checked = false
 
@@ -103,15 +95,17 @@ Meteor.methods
 										$pull: 'teams.$.pending': _id: pendingUser._id
 										$addToSet: 'teams.$.declined': pendingUser
 
-								for participant in otherTeam.participants when participant._id in acceptedUsers
+								for participant in otherTeam.participants when participant._id in approvedUsers
 									Meteor.call 'declineParticipant', shiftId, otherTeam._id, participant._id
 
-							Meteor.call 'setLeader', shiftId, team._id, chosenId
+							Meteor.call 'setLeader', shiftId, team._id, teamleader._id
 
-							for acceptedUser in acceptedUsers
-								Meteor.call 'sendConfirmation', shiftId, teamId, acceptedUser
+							for approvedUser in approvedUsers
+								Meteor.call 'sendConfirmation', shiftId, teamId, approvedUser
+							for declinedUser in declinedUsers
+								Meteor.call 'sendDeclined', shiftId, teamId, declinedUser
 
-							if acceptedUsers.length == team.max
+							if approvedUsers.length == team.max
 								Meteor.call 'closeTeam', shiftId, teamId
 						else
 							Shifts.update _id: shiftId, 'teams._id': teamId,
@@ -123,18 +117,17 @@ Meteor.methods
 							$addToSet: 'teams.$.pending': user
 
 	cancelRequest: (shiftId, teamId) ->
-		user = Meteor.user()
 		shift = Shifts.findOne shiftId, fields: teams: 1
 
 		if Meteor.isServer
 			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
 
 		Shifts.update _id: shiftId, 'teams._id': teamId,
-			$pull: 'teams.$.pending': _id: user._id
+			$pull: 'teams.$.pending': _id: Meteor.userId()
 
 	cancelParticipation: (shiftId, teamId) ->
 		user = Meteor.user()
-		userId = user._id
+		userId = Meteor.userId()
 		shift = Shifts.findOne shiftId, fields: teams: 1, scheduling: 1, tagId: 1, date: 1, projectId: 1
 
 		if Meteor.isServer
@@ -151,10 +144,14 @@ Meteor.methods
 					$pull: 'teams.$.participants': _id: userId
 					$addToSet: 'teams.$.pending': cancelledUser
 
-				if shift.scheduling == 'manual' and Meteor.isThisWeek(shift.date)
+				firstDay = moment().startOf('isoWeek')
+				lastDay = moment().endOf('isoWeek')
+				isThisWeek = moment(shift.date, 'YYYYDDDD').isBetween(firstDay, lastDay, null, '[]')
+
+				if shift.scheduling == 'manual' && isThisWeek
 					Meteor.call 'sendUnderstaffed', shiftId, teamId
-				else if shift.scheduling == 'manual'
-					Meteor.call 'sendToOrga', shift.projectId, 'teamCancel', shiftId, teamId
+				#else if shift.scheduling == 'manual'
+				#	Meteor.call 'sendToOrga', shift.projectId, 'teamCancel', shiftId, teamId
 
 				Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 			else
@@ -177,21 +174,25 @@ Meteor.methods
 				if wasTeamleader
 					if hasTeamleader
 						Shifts.update _id: shiftId, 'teams._id': teamId,
-							$pull:
-								'teams.$.participants': _id: userId
-								'teams.$.participants': _id: newTeamleaderData._id
+							$pull: 'teams.$.participants': _id: userId
+							$addToSet: 'teams.$.declined': participantData
 
 						Shifts.update _id: shiftId, 'teams._id': teamId,
-							$addToSet:
-								'teams.$.declined': participantData
-								'teams.$.participants': newTeamleaderData
+							$pull: 'teams.$.participants': _id: newTeamleaderData._id
+
+						Shifts.update _id: shiftId, 'teams._id': teamId,
+							$addToSet: 'teams.$.participants': newTeamleaderData
 
 						Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+
+						Meteor.call 'openTeam', shiftId, teamId
 					else
-						Meteor.call 'cancelTeam', shiftId, teamId
+						Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 				else
 					Shifts.update _id: shiftId, 'teams._id': teamId,
 						$pull: 'teams.$.participants': _id: userId
 						$addToSet: 'teams.$.declined': participantData
 
 					Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
+
+					Meteor.call 'openTeam', shiftId, teamId

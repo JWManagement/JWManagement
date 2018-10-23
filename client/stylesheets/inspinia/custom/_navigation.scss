@@ -1,37 +1,9 @@
 .navigation-wrapper {
-	.language-item > a:hover ~ .language-menu,
-	.language-item:hover > .language-menu,
-	.language-menu:hover {
-		top    : 60px;
-		right  : 150px;
-		width  : 200px;
-		display: block;
+    .navbar-brand {
+        padding-left: 15px;
+    }
 
-		li > a > i {
-			line-height: inherit;
-		}
-	}
-
-	.version {
-		margin                    : 10px -10px -10px;
-		padding                   : 3px 10px;
-		text-align                : right;
-		background-color          : #eee;
-		border-bottom-left-radius : 3px;
-		border-bottom-right-radius: 3px;
-
-		a {
-			color           : $indigo;
-			margin          : 0 !important;
-			padding         : 0 !important;
-			font-size       : 10px;
-			background-color: inherit !important;
-		}
-
-		.label {
-			padding       : 4px 5px 3px;
-			margin-left   : -7px;
-			text-transform: uppercase;
-		}
-	}
+    .navbar.navbar-fixed-top {
+        transition-duration: 0s;
+    }
 }

@@ -10,9 +10,3 @@ Meteor.areValidPasswords = (password1, password2) ->
 		Session.set 'errorMessage', TAPi18n.__('password.notMatching')
 
 	value
-
-Meteor.isThisWeek = (date) ->
-	firstDay = moment().startOf('isoWeek')
-	lastDay = moment().endOf('isoWeek')
-
-	moment(date, 'YYYYDDDD').isBetween(firstDay, lastDay, null, '[]')

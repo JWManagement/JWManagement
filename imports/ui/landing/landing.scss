@@ -1,0 +1,14 @@
+@import "../../../client/stylesheets/inspinia/custom/variables";
+
+.landing-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  h1 {
+    font-weight: 400;
+    color: $indigo;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}

@@ -1,18 +1,28 @@
 .middle-box.text-center.loginscreen.animated.fadeInDown
-	h1.logo-name JW
-	h3.m-t {{_ "login.welcome"}}
-	p {{_ "login.text"}}
-	form.m-t
-		if error
-			.alert.alert-danger {{error}}
-		.form-group
-			input.form-control#username(type='text' placeholder='{{_ "input.username"}}' tabindex='1' required)
-		.form-group
-			input.form-control#password(type='password' placeholder='{{_ "input.password"}}' tabindex='2' required)
-		button.ladda-button.btn.btn-primary.full-width.m-b#submit(data-style='slide-down' type='submit') {{_ "login.name"}}
-		.m-b
-			a(href="{{pathFor 'forgotPassword' language=langTag}}") {{_ "login.forgot"}}
-		.dropdown
-			+languageSwitch
-	p.m-t-lg.text-center
-		a(href="{{pathFor 'welcome' language=langTag}}") {{_ "resetPassword.back"}}
+
+  h1.logo-name JW
+  h3.m-t {{_ "login.welcome"}}
+
+  p {{_ "login.text"}}
+
+  form.m-t
+
+    if error
+      .alert.alert-danger {{error}}
+
+    .form-group
+      input.form-control#usernameOrEmail(type='text' name='usernameOrEmail' placeholder='{{_ "input.usernameOrEmail"}}' required autofocus)
+
+    .form-group
+      input.form-control#password(type='password' password='password' placeholder='{{_ "input.password"}}' required)
+
+    button.ladda-button.btn.btn-primary.full-width.m-b#submit(data-style='slide-down' type='submit') {{_ "login.name"}}
+
+    .m-b
+      a(href="{{pathFor 'forgotPassword' language=langTag}}") {{_ "login.forgot"}}
+
+    .dropdown
+      +languageSwitch
+
+  p.m-t-lg.text-center
+    a(href="{{pathFor 'dashboard.details' language=langTag}}") {{_ "login.back"}}

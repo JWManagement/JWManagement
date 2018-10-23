@@ -1,0 +1,20 @@
+template(name="UpdateFormDropdown")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header {{getEntityTranslation}}
+
+    .section-select
+      select
+        with 'placeholder'
+          option(value) {{getEntityTranslation getItemKey}}
+        if isAllowedValues
+          each getItems
+            option(value='{{this}}') {{getEntityTranslation getItemKey}}
+        else if isAllowedKeyValues
+          each keyValue in getKeyValues
+            option(value='{{keyValue.key}}') {{keyValue.value}}
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

@@ -1,0 +1,14 @@
+template(name="DetailsFormArrayDropdown")
+
+  .input.form-group.array-item
+
+    .key
+      if definition.icon
+        i.material-icons {{definition.icon}}
+      | {{getValue entity}}
+
+    .value
+      if isType definition.action 'method'
+        i.fa.icon(class="fa-{{definition.action.icon}}")
+      else
+        i.fa.fa-angle-right.icon

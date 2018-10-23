@@ -9,7 +9,7 @@ Meteor.publish 'shift', (shiftId) ->
 
 		if shift?
 			if Roles.userIsInRole @userId, Permissions.member, shift.projectId
-				if Roles.userIsInRole @userId, Permissions.shiftAdmin, shift.projectId
+				if Roles.userIsInRole @userId, Permissions.shiftScheduler, shift.projectId
 					[
 						Shifts.find shiftId
 					,
@@ -20,18 +20,12 @@ Meteor.publish 'shift', (shiftId) ->
 
 					for team in shift.teams
 						for participant in team.participants when participant._id == @userId
-							isTeamleader = participant.thisTeamleader
-							break
-						break
+							isTeamleader = isTeamleader || participant.thisTeamleader
 
 					if isTeamleader
 						[
 							Shifts.find shiftId, fields:
-								'teams.participants.teamleader': 0
-								'teams.participants.substituteTeamleader': 0
 								'teams.participants.informed': 0
-								'teams.pending.teamleader': 0
-								'teams.pending.substituteTeamleader': 0
 								'teams.pending.checked': 0
 								'teams.declined': 0
 						,
@@ -40,11 +34,7 @@ Meteor.publish 'shift', (shiftId) ->
 					else if Roles.userIsInRole @userId, Permissions.participant, shift.tagId
 						[
 							Shifts.find shiftId, fields:
-								'teams.participants.teamleader': 0
-								'teams.participants.substituteTeamleader': 0
 								'teams.participants.informed': 0
-								'teams.pending.teamleader': 0
-								'teams.pending.substituteTeamleader': 0
 								'teams.pending.checked': 0
 								'teams.declined': 0
 								'teams.report': 0

@@ -1,0 +1,50 @@
+template(name="InsertForm")
+
+  body.md-skin.top-navigation(type='InsertForm')
+
+    .navigation-wrapper
+      nav.navbar.navbar-fixed-top
+        a.navbar-back(href="{{getBackLink}}")
+          i.fa.fa-angle-left.m-r-xs
+          | {{_ 'navigation.back'}}
+        .navbar-title {{getTitle}}
+        if isSaving
+          .navbar-save
+            i.fa.fa-circle-o-notch.fa-spin
+        else
+          a.navbar-save(href) {{_ 'navigation.save'}}
+        if isSearchEnabled
+          .search.input-group
+            span.input-group-addon &#xF002;
+            input#search.form-control(type='search' placeholder='{{getSearchTranslation}}' autocomplete='off')
+
+    if isSearchEnabled
+      .search-splitter
+
+    form.form-horizontal
+      if isPicker activeField
+        with activeField
+          +InsertFormPicker data=getInputData
+      else
+        each field in getFields
+          if isDropdown field
+            with field
+              +InsertFormDropdown data=getInputData
+          else if isCheckbox field
+            with field
+              +InsertFormCheckbox data=getInputData
+          else if isDate field
+            with field
+              +InsertFormDate data=getInputData
+          else if isTextbox field
+            with field
+              +InsertFormTextbox data=getInputData
+          else if isPassword field
+            with field
+              +InsertFormPassword data=getInputData
+          else if isPicker field
+            with field
+              +InsertFormLink data=getInputData
+          else
+            with field
+              +InsertFormText data=getInputData

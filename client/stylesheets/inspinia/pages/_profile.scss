@@ -23,31 +23,6 @@
 		}
 	}
 
-	.profile-image {
-		cursor: pointer;
-
-		&:hover .profile-image-description {
-			display: block;
-		}
-
-		img {
-			box-shadow      : rgba(0, 0, 0, 0.137255) 0 2px 2px 0px, rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0 1px 5px 0;
-			background-color: rgb(255, 255, 255);
-		}
-
-		.profile-image-description {
-			top             : 74px;
-			width           : 96px;
-			height          : 22px;
-			cursor          : pointer;
-			display         : none;
-			padding         : 2px;
-			position        : absolute;
-			text-align      : center;
-			background-color: rgba(238, 238, 238, 0.85);
-		}
-	}
-
 	.timetable {
 		tbody > tr > td:not(.day):hover {
 			cursor          : pointer;

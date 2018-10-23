@@ -1,0 +1,12 @@
+template(name="UpdateFormDate")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header {{getEntityTranslation}}
+
+    .section-date
+      .datepicker
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

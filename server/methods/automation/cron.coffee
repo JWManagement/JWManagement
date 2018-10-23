@@ -1,4 +1,7 @@
-Meteor.startup ->
+{ backup } = require('./backup.coffee')
+{ shiftValidation } = require('./shiftValidation.coffee')
+
+Meteor.startup -> if Meteor.isProduction
 
 	#SyncedCron.add
 	#	name: 'Generate shift organization'
@@ -10,9 +13,19 @@ Meteor.startup ->
 	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
 	#	job: -> Meteor.call('sendWeekSummary')
 
-	SyncedCron.add
-		name: 'Create new weeks'
-		schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
-		job: -> Meteor.call('createNewWeeks')
+	#SyncedCron.add
+	#	name: 'Create new weeks'
+	#	schedule: (parser) -> parser.cron('at 20:00 pm on Sunday')
+	#	job: -> Meteor.call('createNewWeeks')
 
-	#SyncedCron.start()
+	#SyncedCron.add
+	#	name: 'Backup'
+	#	schedule: (parser) -> parser.cron '0 2 * * *'
+	#	job: -> backup()
+
+	#SyncedCron.add
+	#	name: 'Shift validation'
+	#	schedule: (parser) -> parser.cron '*/5 * * * *'
+	#	job: -> shiftValidation()
+
+	SyncedCron.start()

@@ -1,32 +1,13 @@
-if queryParam 'editProfilePicture'
-	+editProfilePictureModal
+if queryParam 'mergeAccounts'
+	+mergeAccountsModal
 .wrapper-content
 	.container-fluid
 		with currentUser
-			.row.m-b-lg.m-t-lg
-				.col-md-6.animated.fadeInRight
-					.profile-image-wrapper.animated.fadeInLeft
-						with picture
-							.profile-image
-								img(src='{{url uploading="/img/loading.gif" storing="/img/loading.gif"}}' width='96' height='96')
-								.profile-image-description {{_ 'profile.changePicture'}}
-						else
-							.profile-image.svg
-								p {{{jdenticon hash=_id}}}
-								.profile-image-description {{_ 'profile.changePicture'}}
-					.profile-info
-						div
-							h2.no-margins {{profile.firstname}} {{profile.lastname}}
-							if profile.congregation
-								h4 {{profile.congregation}}
-							if profile.languages
-								small
-									p {{_ "profile.speaks"}} {{profile.languages}}
 			.row.m-t-lg
 				.col-md-6
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ "profile.personalData"}}
+							h2 {{_ "profile.personalData"}}
 						.ibox-content
 							form.form-horizontal
 								.form-group
@@ -70,14 +51,6 @@ if queryParam 'editProfilePicture'
 										select#gender.form-control
 											option(value='m' selected="{{isField 'gender' 'm'}}") {{_ "profile._gender.brother"}}
 											option(value='w' selected="{{isField 'gender' 'w'}}") {{_ "profile._gender.sister"}}
-									.col-xs-12.visible-xs
-										.hr-line-dashed
-									label.col-lg-2.control-label {{_ "profile.birthday"}}
-									.col-lg-4
-										#bdate-wrapper.input-group.date
-											input#bdate.form-control(type='text' placeholder='{{_ "profile.birthday"}}' value='{{profile.bdate}}')
-											span.input-group-addon
-												.fa.fa-calendar
 								.hr-line-dashed
 								.form-group
 									label.col-lg-2.control-label {{_ "profile.privilegeOfService"}}
@@ -98,21 +71,28 @@ if queryParam 'editProfilePicture'
 											option(value='publisher' selected="{{isField 'privilege' 'publisher'}}") {{_ "profile.publisher"}}
 											option(value='servant' selected="{{isField 'privilege' 'servant'}}") {{_ "profile._ministryPrivilege.ministerialServant"}}
 											option(value='elder' selected="{{isField 'privilege' 'elder'}}") {{_ "profile._ministryPrivilege.elder"}}
-					.ibox.animated.fadeInUp
+											option(value='coordinator' selected="{{isField 'privilege' 'coordinator'}}") {{_ "profile._ministryPrivilege.coordinator"}}
+											option(value='secretary' selected="{{isField 'privilege' 'secretary'}}") {{_ "profile._ministryPrivilege.secretary"}}
+											option(value='serviceOverseer' selected="{{isField 'privilege' 'serviceOverseer'}}") {{_ "profile._ministryPrivilege.serviceOverseer"}}
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.options.title'}}
-							.text-muted.m-t {{_ 'profile.options.helpText'}}
+							h2 {{_ 'profile.options.title'}}
 						.ibox-content
+							.text-muted.m-t {{_ 'profile.options.helpText.mergeAccounts'}}
+							#mergeAccounts.btn.btn-rounded.btn-warning.m-t {{_ "profile.mergeAccounts"}}
+							//hr
+							//leave project
+							hr
 							#changePassword.btn.btn-rounded.btn-primary.m-r {{_ "profile.changePassword"}}
-							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}	
+							#deleteAccount.btn.btn-rounded.btn-danger {{_ "profile.deleteAccount"}}
 				.col-md-6
-					.ibox.animated.fadeInUp
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.availability.title'}}
+							h2 {{_ 'profile.availability.title'}}
 							.text-muted.m-t {{_ 'profile.availability.helpText'}}
 						.ibox-content
 							.table-responsive
-								table.table.table-bordered.timetable.animated.fadeInUp
+								table.table.table-bordered.timetable
 									thead
 										tr
 											td
@@ -130,18 +110,22 @@ if queryParam 'editProfilePicture'
 							.checkbox.checkbox-primary.checkbox-inline
 								input#shortTermCallsAlways(type="checkbox" checked="{{profile.shortTermCallsAlways}}" disabled="{{negate profile.shortTermCalls}}")
 								label(for="shortTermCallsAlways") {{_ 'profile.availability.shortTermCallsAlways'}}
-					.ibox.animated.fadeInUp
+							.hr-line-dashed
+							.checkbox.checkbox-primary.checkbox-inline
+								input#notifyViaPush(type="checkbox" checked="{{profile.notifyViaEmail}}")
+								label(for="notifyViaEmail") {{_ 'profile.availability.notifyViaEmail'}}
+					.ibox
 						.ibox-title
-							h2.animated.fadeInUp {{_ 'profile.vacation.title'}}
+							h2 {{_ 'profile.vacation.title'}}
 							.text-muted.m-t {{_ 'profile.vacation.helpText'}}
 						.ibox-content
 							each getVacations
 								.row
 									.col-xs-11
 										.input-daterange.input-group.full-width(id="{{_id}}")
-											input.input-sm.form-control.startDate(type="text" value="{{format start 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+											input.input-sm.form-control.startDate(type="text" value="{{format start 'YYYYMMDD' 'DD.MM.YYYY'}}" readonly="readonly")
 											span.input-group-addon {{_ 'profile.until'}}
-											input.input-sm.form-control.endDate(type="text" value="{{format end 'YYYYDDDD' 'DD.MM.YYYY'}}" readonly="readonly")
+											input.input-sm.form-control.endDate(type="text" value="{{format end 'YYYYMMDD' 'DD.MM.YYYY'}}" readonly="readonly")
 									.col-xs-1.no-paddings
 										button.btn.btn-circle.btn-primary.fa.fa-trash.delVacation(title="{{_ 'profile.deleteVacation'}}")
 							button#addVacation.btn.btn-rounded.btn-success.center-block

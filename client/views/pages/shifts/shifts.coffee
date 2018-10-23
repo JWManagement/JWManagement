@@ -1,3 +1,5 @@
+moment = require('moment')
+
 Template.shifts.helpers
 
 	view: (a) ->
@@ -51,6 +53,8 @@ Template.shifts.onCreated ->
 			WeekSubs.subscribe 'weekById', weekId
 
 			ProjectSubs.subscribe 'tags', projectId, tags: 1
+
+			ShiftSubs.subscribe 'shiftsByWeekId', weekId
 		else
 			week = FlowRouter.getQueryParam('showWeek')
 
@@ -73,6 +77,8 @@ Template.shifts.onCreated ->
 						wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
 
 			WeekSubs.subscribe 'week', projectId, week
+
+			ShiftSubs.subscribe 'shiftsByWeek', projectId, week
 
 		Delay -> $('.animated').removeClass('animated').addClass('skipped')
 

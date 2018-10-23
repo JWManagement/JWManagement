@@ -1,6 +1,11 @@
-# What is JWManagement?
+[![Build Status](https://travis-ci.org/JWDeveloper/JWManagement.svg?branch=develop)](https://travis-ci.org/JWDeveloper/JWManagement)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7dd7bb38cf769432c906/maintainability)](https://codeclimate.com/github/JWDeveloper/JWManagement/maintainability)
 
-JWManagment is a highly configurable shift management system for Jehovah's Witnesses.
+[Framework Documentation](imports/framework/README.md)
+
+# What is JW Management?
+
+JW Management is a highly configurable shift management system for Jehovah's Witnesses.
 Built to power projects like the metropolitan witnessing, construction projects and/or similar.
 
 ### Multiple Tags
@@ -13,7 +18,7 @@ Define one or more teams in a shift. Each will have it's own team-leader. Provid
 
 ### Store Room
 
-Manage your store room via JWManagement. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
+Manage your store room via JW Management. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
 
 ### Notifications
 
@@ -27,7 +32,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 1. _(Optional)_ We recommend downloading and using Atom.io (https://atom.io), because it supports syntax highlighting.
 
-2. Download the JWManagement repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
+2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
 
 3. Open the extracted folder and switch into the both/i18n folder.
 
@@ -42,6 +47,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 The translation files are build with a "key: value" pattern.
 You only need to translate the value.
+Anything NOT translated will be displayed in english (so you don't necessarily have to translate everything).
 
 ### Submit
 
@@ -75,7 +81,7 @@ Same as simple setup
 ### Setup
 
 Thank you for your interest in helping us with the development of this software.
-Please follow the instructions to setup JWManagement in your local dev environment.
+Please follow the instructions to setup JW Management in your local dev environment.
 
 1. Install Meteor (https://www.meteor.com/install)
 
@@ -92,10 +98,10 @@ Please follow the instructions to setup JWManagement in your local dev environme
 5. Open Terminal, cd to the created folder and run
 
 	```shell
-	meteor npm install && meteor --settings settings.json
+	meteor npm install && npm start
 	```
 
-	This will take some seconds since meteor now downloads all node modules and npm packages on which the app depends.
+	This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
@@ -112,23 +118,22 @@ Please follow the instructions to setup JWManagement in your local dev environme
 	{
 		"_id": "asiduvaosnfvpasdf",
 		"createdAt": new Date(1450919856316),
-		"username": "myuser",
+		"username": "johndoe",
 		"profile": {
-			"bdate": "",
-			"email": "john@doe.com",
 			"firstname": "John",
-			"gender": "m",
-			"language": "en",
-			"languages": "",
 			"lastname": "Doe",
-			"pioneer": "publisher",
-			"privilege": "publisher",
+			"email": "john@doe.com",
+			"gender": "m",
 			"telefon": "",
 			"congregation": "",
+			"pioneer": "publisher",
+			"privilege": "publisher",
+			"languages": "",
 			"available": {},
 			"vacations": [],
 			"shortTermCalls": false,
-			"shortTermCallsAlways": false
+			"shortTermCallsAlways": false,
+			"language": "en"
 		},
 		"state": "active",
 		"services": {
@@ -140,9 +145,9 @@ Please follow the instructions to setup JWManagement in your local dev environme
 			"abcde": [
 				"admin"
 			],
-			"abcdef": {
+			"abcdef": [
 				"teamleader"
-			}
+			]
 		}
 	}
 	```
@@ -156,33 +161,19 @@ Please follow the instructions to setup JWManagement in your local dev environme
 		"email": "support@jwmanagement.org",
 		"language": "en",
 		"news": {},
-		"wiki": {
-			"tabs": [
-				{
-					"_id": "aisudhvboabfvop",
-					"title": "My first tab",
-					"faq": [
-						{
-							"_id": "osduvnalsiehfp",
-							"question": "My first question",
-							"answer": "My first answer"
-						}
-					]
-				}
-			]
-		},
+		"wiki": { "tabs": [] },
 		"tags": [
 			{
-				"_id": "abc",
-				"name": "Cart witnessing",
+				"_id": "abcdef",
+				"name": "Cart Witnessing",
 				"img": "trolley",
 				"templates": []
 			}
 		],
 		"teams": [
 			{
-				"_id": "abcdef",
-				"name": "Standard",
+				"_id": "abcdefg",
+				"name": "Location/Route 1",
 				"link": "",
 				"description": ""
 			}
@@ -192,7 +183,7 @@ Please follow the instructions to setup JWManagement in your local dev environme
 	}
 	```
 
-9. Now login on the website with 'myuser' and password '12345678'
+9. Now login on the website with 'johndoe' and password '12345678'
 
 ### Development
 

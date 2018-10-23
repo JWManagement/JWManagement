@@ -1,0 +1,97 @@
+language:
+  details:
+    sections:
+      languages: Sprache der Oberfläche
+  entity:
+    language: Sprache
+    languageValues:
+      de: Deutsch
+      en: Englisch
+      fi: Finnisch
+      fr: Französisch (teilweise)
+      hu: Ungarisch
+      it: Italienisch (teilweise)
+      pl: Polnisch
+      pt: Portugiesisch
+      ru: Russisch
+  _de: Deutsch
+  _en: Englisch
+  _fi: Finnisch
+  _fr: Französisch (teilweise)
+  _hu: Ungarisch
+  _it: Italienisch (teilweise)
+  _pl: Polnisch
+  _pt: Portugiesisch
+  _ru: Russisch
+  _A: Arabisch
+  _AL: Albanisch
+  _AR: Bambaro
+  _AM: Amharisch
+  _B: Tschechisch
+  _BEL: Weißrussisch
+  _BL: Bulgarisch
+  _BSN: Bosnisch
+  _C: Kroatisch
+  _CB: Kambodschanisch
+  _CH: Chinesisch
+  _CHS: Chinesisch (vereinfacht)
+  _CS: Tschechisch
+  _CV: Cebuano
+  _DAR: Dari
+  _DGS: Deutsche Gebärdensprache
+  _E: Englisch
+  _ED: Edo
+  _EDF: Englisch für Gehörlose
+  _EW: Ewe
+  _F: Französisch
+  _G: Griechisch
+  _GE: Georgisch
+  _H: Ungarisch
+  _HI: Hindi
+  _HV: Hiligaynon
+  _I: Italienisch
+  _IB: Igbo
+  _IL: Iloko
+  _IN: Indonesisch
+  _J: Japanisch
+  _K: Ukrainisch
+  _KO: Koreanisch
+  _KEA: Kapverdisches Kreol
+  _KRI: Krio
+  _L: Litauisch
+  _LT: Lettisch
+  _M: Rumänisch
+  _MC: Makedonisch
+  _O: Niederländisch
+  _OA: Oromo
+  _P: Polnisch
+  _PH: Paschto
+  _PJ: Panjabi
+  _PL: Pular
+  _PR: Persisch
+  _RD: Kurdisch (Kurmandschi)
+  _RDA: Kurdisch (Sorani)
+  _RDC: Kurdisch Kurmandschi (kyrillisch)
+  _REA: Armenisch
+  _RM: Romani (Mazedonien)
+  _RMC: Romani (Mazedonien) kyrillisch
+  _RU: Rundi
+  _S: Spanisch
+  _SB: Serbisch
+  _SI: Thai
+  _SO: Somali
+  _ST: Estnisch
+  _SV: Slowenisch
+  _T: Portugiesisch
+  _TG: Tagalog
+  _TI: Tigrinja
+  _TK: Türkisch
+  _TL: Tamil
+  _TW: Twi
+  _U: Russisch
+  _UD: Urdu
+  _V: Slowakisch
+  _VT: Vietnamesisch
+  _WO: Wolof
+  _X: Deutsch
+  _YR: Yoruba

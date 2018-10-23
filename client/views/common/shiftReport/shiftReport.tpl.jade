@@ -2,7 +2,7 @@
 	with getShift
 		.modal-dialog.modal-lg.animated.fadeInUp
 			.modal-content
-				.modal-header 
+				.modal-header
 					h1 "{{team.name}}" {{_ 'modal.shiftReport.title'}}
 					h2.m-b-none {{format date 'YYYYDDDD' 'ddd, Do MMMM YYYY'}}, {{formatTimeComparison start end}}
 				.modal-body
@@ -29,27 +29,23 @@
 									if name
 										.col-lg-4
 											.contact-box
-												.col-sm-3.text-center.no-padding
-													.jdenticon {{{jdenticon size=40 radius=20 hash=_id}}}
-												.col-sm-9
+												.col-xs-12
 													h3 {{name}}
-													.radio.radio-primary
+													.radio.radio-primary.m-l-md
 														input.inline(name="sl_state" type="radio" checked="on" disabled)
 														label {{_ 'modal.shiftReport.teamleader'}}
 								each participantsNoLeader
 									.col-lg-4
 										.contact-box
-											.col-sm-3.text-center.no-padding
-												.jdenticon {{{jdenticon size=40 radius=20 hash=_id}}}
-											.col-sm-9
+											.col-xs-12
 												h3 {{name}}
-												.state.radio.radio-primary
+												.state.radio.radio-primary.m-l-md
 													input.inline(id="present_{{_id}}" name="state_{{_id}}" type="radio" value="present" checked="{{wasState 'present'}}")
 													label(for="present_{{_id}}") {{_ 'modal.shiftReport.present'}}
-												.state.radio.radio-primary
+												.state.radio.radio-primary.m-l-md
 													input.inline(id="sick_{{_id}}" name="state_{{_id}}" type="radio" value="sick" checked="{{wasState 'sick'}}")
 													label(for="sick_{{_id}}") {{_ 'modal.shiftReport.sick'}}
-												.state.radio.radio-primary
+												.state.radio.radio-primary.m-l-md
 													input.inline(id="missing_{{_id}}" name="state_{{_id}}" type="radio" value="missing" checked="{{wasState 'missing'}}")
 													label(for="missing_{{_id}}") {{_ 'modal.shiftReport.missing'}}
 						if equals reportPage 1
@@ -66,6 +62,9 @@
 								.col-lg-2
 									label(for="videos") {{_ 'modal.shiftReport.videos'}}
 									input#videos.form-control(type="number" min="0" value="{{team.report.videos}}")
+								.col-lg-2
+									label(for="website") {{_ 'modal.shiftReport.website'}}
+									input#website.form-control(type="number" min="0" value="{{team.report.website}}")
 								.col-lg-2
 									label(for="returnVisits") {{_ 'modal.shiftReport.returnVisits'}}
 									input#returnVisits.form-control(type="number" min="0" value="{{team.report.returnVisits}}")

@@ -1,8 +1,17 @@
 Template.inviteUserModal.helpers
 
-	getNewUser: -> Meteor.users.find(state: $in: ['invited', 'created']).fetch()
+	getUsers: ->
+		projectId = FlowRouter.getParam('projectId')
+		users = Roles.getUsersInRole Permissions.member, projectId
+		collator = new Intl.Collator(TAPi18n.getLanguage())
 
-	isInvited: -> 'text-warning' if @state == 'invited'
+		users.fetch()
+			.sort((u1, u2) -> collator.compare(u1.profile.lastname, u2.profile.lastname) || collator.compare(u1.profile.firstname, u2.profile.firstname))
+			.filter((u) -> u.state != 'active')
+
+	getState: ->
+		if @state == 'invited'
+			'text-warning'
 
 Template.inviteUserModal.onRendered ->
 

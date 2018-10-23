@@ -1,0 +1,15 @@
+template(name="InsertFormDate")
+
+  .section(class='{{getErrorClass}}')
+
+    .section-header
+      | {{getEntityTranslation getKey}}
+      if isRequired
+        | *
+
+    .section-date
+      .datepicker
+
+    if hasError
+      .section-error
+        p {{getEntityErrorTranslation}}

@@ -1,0 +1,20 @@
+template(name="UpdateFormPicker")
+
+  .section-picker(class='{{getSearchEnabledClass}}')
+
+    if isAllowedValues
+      each item in getItems
+        .item.form-group(key='{{item}}')
+          .checkmark
+            if isChecked item
+              i.icon.fa.fa-check
+          +with item
+            .key {{getEntityTranslation getItemKey}}
+
+    else if isAllowedKeyValues
+      each keyValue in getKeyValues
+        .item.form-group(key='{{keyValue.key}}')
+          .checkmark
+            if isChecked keyValue.key
+              i.icon.fa.fa-check
+          .key {{keyValue.value}}
