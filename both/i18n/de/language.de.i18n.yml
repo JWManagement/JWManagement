@@ -37,6 +37,7 @@ language:
   _CHS: Chinesisch (vereinfacht)
   _CS: Tschechisch
   _CV: Cebuano
+  _DA: Dänisch
   _DAR: Dari
   _DGS: Deutsche Gebärdensprache
   _E: Englisch
@@ -44,10 +45,12 @@ language:
   _EDF: Englisch für Gehörlose
   _EW: Ewe
   _F: Französisch
+  _FI: Finnisch
   _G: Griechisch
   _GE: Georgisch
   _H: Ungarisch
   _HI: Hindi
+  _HT: Haitianisch
   _HV: Hiligaynon
   _I: Italienisch
   _IB: Igbo
@@ -62,6 +65,7 @@ language:
   _LT: Lettisch
   _M: Rumänisch
   _MC: Makedonisch
+  _NO: Norwegisch
   _O: Niederländisch
   _OA: Oromo
   _P: Polnisch
@@ -95,3 +99,4 @@ language:
   _WO: Wolof
   _X: Deutsch
   _YR: Yoruba
+  _OTHER: Andere

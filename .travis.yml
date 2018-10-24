@@ -2,26 +2,31 @@ sudo: required
 language: node_js
 node_js:
   - '8'
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+    - node_modules
+    - .meteor/local
 before_install:
   - curl https://install.meteor.com | /bin/sh
   - npm install -g mup
-
 stages:
   - name: Test
   - name: Deploy
     if: type != pull_request
-
 jobs:
   include:
     - stage: Test
       name: Lint
       script: npm run lint
-
+    - stage: Test
+      name: Cypress
+      script: .deploy/cypress.sh
     - stage: Deploy
       name: Deploy to Staging
       if: branch = develop
       script: .deploy/deploy.staging.sh
-
     - stage: Deploy
       name: Deploy to Production
       if: branch = master

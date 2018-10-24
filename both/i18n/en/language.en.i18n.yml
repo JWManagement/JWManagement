@@ -14,6 +14,8 @@ language:
       pl: Polish
       pt: Portuguese
       ru: Russian
+      zh-TW: Chinese (Traditional) (partially)
+      zh-CN: Chinese (Simplified) (partially)
   _de: German
   _en: English
   _fi: Finnish
@@ -37,6 +39,7 @@ language:
   _CHS: Chinese Mandarin (Simplified)
   _CS: Czech
   _CV: Cebuano
+  _DA: Danish
   _DAR: Dari
   _DGS: German Sign Language
   _E: English
@@ -44,10 +47,12 @@ language:
   _EDF: English edition for the Deaf
   _EW: Ewe
   _F: French
+  _FI: Finnish
   _G: Greek
   _GE: Georgian
   _H: Hungarian
   _HI: Hindi
+  _HT: Haitian Creole
   _HV: Hiligaynon
   _I: Italian
   _IB: Igbo
@@ -63,6 +68,7 @@ language:
   _LV: Latvian # legacy for not-updated depots
   _M: Romanian
   _MC: Macedonian
+  _NO: Norwegian
   _O: Dutch
   _OA: Oromo
   _P: Polish
@@ -83,7 +89,7 @@ language:
   _SO: Somali
   _ST: Estonian
   _SV: Slovenian
-  _T: Portugese
+  _T: Portuguese
   _TG: Tagalog
   _TI: Tigrinya
   _TK: Turkish
@@ -96,3 +102,4 @@ language:
   _WO: Wolof
   _X: German
   _YR: Yoruba
+  _OTHER: Other

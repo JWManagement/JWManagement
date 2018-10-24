@@ -1,0 +1,62 @@
+vessel:
+  nameShort: Vessels
+  entity:
+    name: Vessel name
+    flag: Flag
+    type: Type
+    typeValues:
+      c: Container ship
+      cr: Cruise ship
+      mf: Cargo
+      mt: Tanker
+      p: Passenger ship
+      pt: Pushtow
+      rc: River cruise ship
+      f: Ferry
+      ro: Ro-Ro
+      t: Tug
+      unknown: Unknown
+    callsign: Call sign
+    eni: ENI
+    imo: IMO
+    mmsi: MMSI
+    delete: Delete this vessel
+    deleteConfirmation: Do you really want to delete this vessel?
+    visit:
+      new: Note a new visit
+      noElements: This ship has not been visited yet
+      delete: Delete this visit
+      deleteConfirmation: Do you really want to delete this visit?
+      person: Publisher
+      email: Publisher email address
+      phone: Publisher phone number
+      isUserVisible: Make your contact data visible for other publishers?
+      date: Date
+      dateNext: Next visit preferably after
+      harbor: Harbor
+      harborId: Harbor
+      harborIdValues:
+        placeholder: Select a harbor
+      country: Country
+      language:
+        new: Add a language
+        noElements: No languages noted yet
+        methodConfirmation: Do you really want to delete this language?
+        languageIds: Language
+        languageIdsValues:
+          placeholder: Select a language
+      languages: Languages on board
+  search:
+    placeholder: Vessel name, call sign, ENI, IMO or MMSI
+  details:
+    sections:
+      identification: Identification data
+      visit: Visit data
+    dateFormat: MM/DD/YYYY
+  visit:
+    details:
+      sections:
+        main: Visit data
+        language: Language data
+        option: Options
+      dateFormat: MM/DD/YYYY

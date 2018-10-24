@@ -88,10 +88,12 @@ function getMissingShiftReports (projectIds, projects, date, userId) {
   }, SHIFT_OPTIONS)
     .fetch()
     .filter((shift) => {
-    // only return shift if my team hasn't submitted the report yet
-      return shift.teams.filter((team) => {
-        return team.report == null || !team.report.submitted
-      }).length > 0
+      // only return shift if my team hasn't submitted the report yet
+      const myTeam = shift.teams.filter((team) => {
+        return team.participants.map(p => p._id).includes(userId)
+      })[0]
+
+      return !myTeam.report || !myTeam.report.submitted
     })
 
   return getUpdatedShifts(projects, shifts)

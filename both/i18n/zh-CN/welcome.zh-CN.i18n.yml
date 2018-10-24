@@ -1,0 +1,16 @@
+welcome:
+  links:
+    home: 首页
+    features: 特征
+    contact: 联系我们
+    login: 进入
+    dashboard: 打开仪表板
+  header:
+    title: 先进的值班时间协作
+  feature2:
+    title: 自由软件、开放源代码
+    free: 完全免费
+    repo: GitHub储藏室
+  footer:
+    terms: 使用条款
+    privacy: 隐私政策

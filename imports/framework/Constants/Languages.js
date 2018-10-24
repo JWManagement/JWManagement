@@ -4,16 +4,17 @@ const Languages = {
     'A', 'AL', 'AR', 'AM',
     'B', 'BEL', 'BL', 'BSN',
     'C', 'CB', 'CH', 'CHS', 'CV',
-    'DAR', 'DGS',
+    'DA', 'DAR', 'DGS',
     'E', 'ED', 'EW',
-    'F',
+    'F', 'FI',
     'G', 'GE',
-    'H', 'HI', 'HV',
+    'H', 'HI', 'HT', 'HV',
     'I', 'IB', 'IL', 'IN',
     'J',
     'K', 'KO', 'KRI',
     'L', 'LT',
     'M', 'MC',
+    'NO',
     'O', 'OA',
     'P', 'PH', 'PJ', 'PL', 'PR',
     'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU',
@@ -23,7 +24,8 @@ const Languages = {
     'V', 'VT',
     'WO',
     'X',
-    'YR'
+    'YR',
+    'OTHER'
   ]
 }
 

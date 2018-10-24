@@ -39,12 +39,14 @@ exports.send = (data) ->
 				text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
 				query: userId: user._id
 		else
-			sent = Mailer.send
+			Mailer.send
 				to: data.recipient
 				from: data.sender + ' <no-reply@jwmanagement.org>'
 				replyTo: data.sender + '<' + data.from + '>'
 				subject: data.subject
 				template: data.template
 				data: data.data
+
+			sent = true
 
 	sent
