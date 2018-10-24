@@ -8,7 +8,7 @@ const Languages = {
     'E', 'ED', 'EW',
     'F', 'FI',
     'G', 'GE',
-    'H', 'HI', 'HV',
+    'H', 'HI', 'HT', 'HV',
     'I', 'IB', 'IL', 'IN',
     'J',
     'K', 'KO', 'KRI',
@@ -24,7 +24,8 @@ const Languages = {
     'V', 'VT',
     'WO',
     'X',
-    'YR'
+    'YR',
+    'OTHER'
   ]
 }
 

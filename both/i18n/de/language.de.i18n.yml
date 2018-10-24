@@ -50,6 +50,7 @@ language:
   _GE: Georgisch
   _H: Ungarisch
   _HI: Hindi
+  _HT: Haitianisch
   _HV: Hiligaynon
   _I: Italienisch
   _IB: Igbo
@@ -98,3 +99,4 @@ language:
   _WO: Wolof
   _X: Deutsch
   _YR: Yoruba
+  _OTHER: Andere

@@ -52,6 +52,7 @@ language:
   _GE: Georgian
   _H: Hungarian
   _HI: Hindi
+  _HT: Haitian Creole
   _HV: Hiligaynon
   _I: Italian
   _IB: Igbo
@@ -101,3 +102,4 @@ language:
   _WO: Wolof
   _X: German
   _YR: Yoruba
+  _OTHER: Other
