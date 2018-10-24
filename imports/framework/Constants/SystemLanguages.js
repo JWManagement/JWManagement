@@ -9,7 +9,9 @@ const SystemLanguages = {
     'it',
     'pl',
     'pt',
-    'ru'
+    'ru',
+    'zh-CH',
+    'zh-TW'
   ]
 }
 
