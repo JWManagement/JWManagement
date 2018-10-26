@@ -40,3 +40,26 @@ Meteor.methods
 			set = {}
 			set['teams.' + teamNr + '.participants.' + participantNr + '.informed'] = true
 			Shifts.update shiftId, $set: set
+
+	sendConfirmWeek: (projectId, tagId, weekId) ->
+		project = Projects.findOne projectId, fields: name: 1, email: 1
+		shifts = Shifts.find
+			projectId: projectId
+			tagId: tagId
+			weekId: weekId
+
+		check { userId: Meteor.userId(), projectId: projectId }, isShiftScheduler
+
+		if shifts?
+			for shift in shifts.fetch()
+				for team in shift.teams
+					for participant in team.participants
+						if !participant.informed
+							Meteor.call 'sendConfirmation', shift._id, team._id, participant._id
+
+					for declinedUser in team.declined
+						if !declinedUser.informed
+							Meteor.call 'sendDeclined', shift._id, team._id, declinedUser._id
+
+		else
+			throw new Meteor.Error 404, 'Shifts with weekId: ' + weekId + ' not found'
