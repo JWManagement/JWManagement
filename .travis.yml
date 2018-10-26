@@ -14,7 +14,7 @@ before_install:
 stages:
   - name: Test
   - name: Deploy
-    if: type != pull_request
+    if: branch = develop AND type != pull_request
 jobs:
   include:
     - stage: Test
@@ -25,9 +25,4 @@ jobs:
       script: .deploy/cypress.sh
     - stage: Deploy
       name: Deploy to Staging
-      if: branch = develop
-      script: .deploy/deploy.staging.sh
-    - stage: Deploy
-      name: Deploy to Production
-      if: branch = master
-      script: .deploy/deploy.production.sh
+      script: cd .deploy; mup setup; mup deploy --verbose
