@@ -2,8 +2,6 @@ import '../../api/messages/messages.coffee'
 
 import '../server/mailer'
 import '../server/prerenderio'
-import '../server/logger'
-import '../server/monti'
 
 import '../common/moment'
 import '../common/rolesExtensions'

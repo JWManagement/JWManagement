@@ -93,7 +93,6 @@ import '../../ui/notes/note.insert'
 import '../../ui/calendar/calendar'
 
 import './language'
-import './logger'
 
 import { TimeSync } from 'meteor/mizzao:timesync'
 import { UserStatus } from 'meteor/mizzao:user-status'
