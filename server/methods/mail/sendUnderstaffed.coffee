@@ -45,5 +45,3 @@ Meteor.methods
 					datetime: TAPi18n.__('mail.understaffed.datetime', {date: date, time: time}, user.profile.language)
 					shift: shiftData
 					content: getMailTexts 'understaffed', user.profile.language
-			, (err, res) -> if err
-				console.log 'sendMail failed: ' + err

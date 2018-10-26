@@ -43,7 +43,6 @@ kevohagan:sweetalert # remove in future
 lookback:emails
 mdg:validated-method # remove in future (still used in addProjetEnquiry, deleteProjectEnquiry, GetAchievementSummary, GetParticipantsCount)
 mdg:validation-error
-meteorhacks:aggregate
 meteorhacks:subs-manager # remove in future
 mizzao:user-status
 mquandalle:jade
@@ -54,6 +53,4 @@ summernote:standalone
 tap:i18n
 meteortesting:mocha
 deanius:promise
-montiapm:agent
-zodern:standard-minifier-js
-zodern:hide-production-sourcemaps
+mdg:meteor-apm-agent
