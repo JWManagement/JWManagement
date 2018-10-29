@@ -15,17 +15,26 @@ import {
 Meteor.methods({
   'dashboard.get' () {
     const userId = Meteor.userId()
-    const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
-    const today = parseInt(moment().format('YYYYDDDD'), 10)
 
-    const projects = getProjects(projectIds)
-    const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId)
-    const upcomingShifts = getUpcomingShifts(projectIds, projects, today, userId)
+    if (userId) {
+      const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
+      const today = parseInt(moment().format('YYYYDDDD'), 10)
 
-    return {
-      myProjects: getCleanedProjects(projects),
-      missingShiftReports: getCleanedShifts(missingShiftReports),
-      upcomingShifts: getCleanedShifts(upcomingShifts)
+      const projects = getProjects(projectIds)
+      const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId)
+      const upcomingShifts = getUpcomingShifts(projectIds, projects, today, userId)
+
+      return {
+        myProjects: getCleanedProjects(projects),
+        missingShiftReports: getCleanedShifts(missingShiftReports),
+        upcomingShifts: getCleanedShifts(upcomingShifts)
+      }
+    } else {
+      return {
+        myProjects: [],
+        missingShiftReports: [],
+        upcomingShifts: []
+      }
     }
   }
 })
