@@ -25,4 +25,4 @@ jobs:
       script:
         - cd .deploy
         - mup setup
-        - mup deploy --settings .deploy/settings.json --verbose
+        - mup deploy --settings settings.json --verbose
