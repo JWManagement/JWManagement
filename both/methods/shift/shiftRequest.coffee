@@ -116,6 +116,8 @@ Meteor.methods
 							$pull: 'teams.$.declined': _id: userId
 							$addToSet: 'teams.$.pending': user
 
+				return true
+
 	cancelRequest: (shiftId, teamId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1
 

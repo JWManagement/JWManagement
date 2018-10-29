@@ -61,5 +61,7 @@ Meteor.methods
 						if !declinedUser.informed
 							Meteor.call 'sendDeclined', shift._id, team._id, declinedUser._id
 
+			return true
+
 		else
 			throw new Meteor.Error 404, 'Shifts with weekId: ' + weekId + ' not found'

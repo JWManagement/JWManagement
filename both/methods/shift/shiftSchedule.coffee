@@ -233,6 +233,8 @@ Meteor.methods
 				Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
 				break
 
+			return true
+
 	addParticipant: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
 		user = Meteor.users.findOne userId, fields:
