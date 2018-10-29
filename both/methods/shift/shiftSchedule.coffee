@@ -131,9 +131,10 @@ Meteor.methods
 				for pending in team.pending when pending._id == userId
 					user = pending
 
-			Shifts.update _id: shiftId, 'teams._id': teamId,
-				$pull: 'teams.$.pending': _id: userId
-				$addToSet: 'teams.$.declined': user
+			if user
+				Shifts.update _id: shiftId, 'teams._id': teamId,
+					$pull: 'teams.$.pending': _id: userId
+					$addToSet: 'teams.$.declined': user
 
 	declineParticipant: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
