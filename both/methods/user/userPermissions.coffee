@@ -25,7 +25,8 @@ Meteor.methods
 
 		if oldUser? && newUser?
 			for id in Object.keys(oldUser.roles)
-				Roles.addUsersToRoles newUserId, oldUser.roles[id][0], id
+				if oldUser.roles[id][0]
+					Roles.addUsersToRoles newUserId, oldUser.roles[id][0], id
 
 			Meteor.users.remove oldUser._id
 

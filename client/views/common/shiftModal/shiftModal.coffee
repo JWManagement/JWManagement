@@ -132,7 +132,7 @@ Template.shiftModal.onCreated ->
 
 			shift = Shifts.findOne shiftId
 
-			if shift?
+			if shift? && shift.teams?
 				for team in shift.teams
 					self.subscribe 'userStatistics', user._id, shiftId for user in team.participants
 					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
