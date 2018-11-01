@@ -1,6 +1,8 @@
 fallback_language = globals.fallback_language
 
 TAPi18n = ->
+  _this = this
+
   EventEmitter.call @
 
   @_fallback_language = fallback_language
@@ -35,8 +37,8 @@ TAPi18n = ->
 
     Meteor.startup ->
       # If tap-i18n is enabled for that project
-      if @_enabled()
-        @_registerHTTPMethod()
+      if _this._enabled()
+        _this._registerHTTPMethod()
 
   @__ = @_getPackageI18nextProxy(globals.project_translations_domain)
 
