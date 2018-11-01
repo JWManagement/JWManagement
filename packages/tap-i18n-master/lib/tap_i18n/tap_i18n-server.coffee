@@ -6,7 +6,7 @@ _.extend TAPi18n.prototype,
       if not(lang_tag of @server_translators)
         @server_translators[lang_tag] = @_getSpecificLangTranslator(lang_tag)
 
-      # fallback language is integrated, and isn't part of @translations 
+      # fallback language is integrated, and isn't part of @translations
       if lang_tag != @_fallback_language
         @addResourceBundle(lang_tag, package_name, @translations[lang_tag][package_name])
 
@@ -20,7 +20,7 @@ _.extend TAPi18n.prototype,
 
   _getPackageI18nextProxy: (package_name) ->
     # A proxy to TAPi18next.t where the namespace is preset to the package's
-    (key, options, lang_tag=null) =>
+    (key, options, lang_tag=null) ->
       if not lang_tag?
         # translate to fallback_language
         return @server_translators[@_fallback_language] "#{@_getPackageDomain(package_name)}:#{key}", options
