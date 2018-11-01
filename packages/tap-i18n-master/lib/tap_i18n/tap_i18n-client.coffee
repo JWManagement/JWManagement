@@ -45,17 +45,17 @@ _.extend TAPi18n.prototype,
 
     if languageTag in project_languages
       if languageTag not in @_loaded_languages
-        loadLanguageTag = =>
+        loadLanguageTag = ->
           jqXHR = $.getJSON(@_getLanguageFilePath(languageTag))
 
-          jqXHR.done (data) =>
+          jqXHR.done (data) ->
             @_loadLangFileObject(languageTag, data)
 
             @_loaded_languages.push languageTag
 
             dfd.resolve()
 
-          jqXHR.fail (xhr, error_code) =>
+          jqXHR.fail (xhr, error_code) ->
             dfd.reject("Couldn't load language '#{languageTag}' JSON: #{error_code}")
 
         directDependencyLanguageTag = if "-" in languageTag then languageTag.replace(/-.*/, "") else fallback_language
@@ -64,11 +64,11 @@ _.extend TAPi18n.prototype,
         if languageTag != fallback_language and directDependencyLanguageTag in project_languages
           dependencyLoadDfd = @_loadLanguage directDependencyLanguageTag
 
-          dependencyLoadDfd.done =>
+          dependencyLoadDfd.done ->
             # All dependencies loaded successfully
             loadLanguageTag()
 
-          dependencyLoadDfd.fail (message) =>
+          dependencyLoadDfd.fail (message) ->
             dfd.reject("Loading process failed since dependency language
               '#{directDependencyLanguageTag}' failed to load: " + message)
         else
@@ -108,13 +108,13 @@ _.extend TAPi18n.prototype,
       UI.registerHelper @conf.helper_name, underscore_helper
 
       # {{languageTag}}
-      UI.registerHelper "languageTag", () => @getLanguage()
+      UI.registerHelper "languageTag", () -> @getLanguage()
 
     return
-      
+
   _getRegisterHelpersProxy: (package_name) ->
     # A proxy to _registerHelpers where the package_name is fixed to package_name
-    (template) =>
+    (template) ->
       @_registerHelpers(package_name, template)
 
   _prepareLanguageSpecificTranslator: (lang_tag) ->
@@ -127,7 +127,7 @@ _.extend TAPi18n.prototype,
 
     if not(lang_tag of @_languageSpecificTranslators)
       dfd = @_loadLanguage(lang_tag)
-        .done =>
+        .done ->
           @_languageSpecificTranslators[lang_tag] = @_getSpecificLangTranslator(lang_tag)
 
           @_languageSpecificTranslatorsTrackers[lang_tag].changed()
@@ -137,7 +137,7 @@ _.extend TAPi18n.prototype,
   _getPackageI18nextProxy: (package_name) ->
     # A proxy to TAPi18next.t where the namespace is preset to the package's
 
-    (key, options, lang_tag=null) =>
+    (key, options, lang_tag=null) ->
       # Devs get confused and use lang option instead of lng option, make lang
       # alias of lng
       if options?.lang? and not options?.lng?
@@ -181,8 +181,8 @@ _.extend TAPi18n.prototype,
 
     isAborted = false
     @_abortPreviousSetLang = -> isAborted = true
-    
-    @_loadLanguage(lang_tag).then =>
+
+    @_loadLanguage(lang_tag).then ->
       if not isAborted
         TAPi18next.setLng(lang_tag)
 

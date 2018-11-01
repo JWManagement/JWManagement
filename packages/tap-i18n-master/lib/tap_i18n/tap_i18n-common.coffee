@@ -33,7 +33,7 @@ TAPi18n = ->
   if Meteor.isServer
     @server_translators = {}
 
-    Meteor.startup =>
+    Meteor.startup ->
       # If tap-i18n is enabled for that project
       if @_enabled()
         @_registerHTTPMethod()
@@ -77,7 +77,7 @@ _.extend TAPi18n.prototype,
     current_lang = TAPi18next.lng()
 
     translator = null
-    TAPi18next.setLng lang, {fixLng: true}, (lang_translator) =>
+    TAPi18next.setLng lang, {fixLng: true}, (lang_translator) ->
       translator = lang_translator
 
     # Restore i18next lang that had been changed in the process of generating
