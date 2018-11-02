@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating'
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
+import SystemLanguages from './../../framework/Constants/SystemLanguages';
 
 Template['publisher.insert'].helpers({
   data: {
@@ -21,6 +22,12 @@ Template['publisher.insert'].helpers({
       key: 'profile_telefon'
     }, {
       key: 'username'
+    }, {
+      key: 'profile_language',
+      type: 'picker',
+      allowedValues: SystemLanguages.allowedValues,
+      defaultValue: SystemLanguages.defaultValue,
+      required: true
     }, {
       key: 'profile_gender',
       type: 'picker',

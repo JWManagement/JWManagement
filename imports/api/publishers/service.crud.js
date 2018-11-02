@@ -10,6 +10,7 @@ import { defaultValidations } from '../../framework/Functions/defaultValidations
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
+import SystemLanguages from '../../framework/Constants/SystemLanguages';
 
 function publisherSearch ({ projectId, searchString, limit }) {
   checkPermissions(projectId)
@@ -130,6 +131,10 @@ function publisherInsert ({ projectId }, publisher) {
     'profile_gender': {
       type: String,
       allowedValues: Gender.allowedValues
+    },
+    'profile_language': {
+      type: String,
+      allowedValues: SystemLanguages.allowedValues
     },
     'profile_languages': {
       type: String,
