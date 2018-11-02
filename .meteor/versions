@@ -62,6 +62,7 @@ force-ssl@1.1.0
 force-ssl-common@1.1.0
 fourseven:scss@4.10.0
 geojson-utils@1.0.10
+harrison:papa-parse@1.1.7
 hot-code-push@1.0.4
 html-tools@1.0.11
 htmljs@1.0.11
