@@ -23,21 +23,22 @@ Meteor.methods
 		else
 			user = users[0]
 
-		Meteor.users.update find, $set: 'services.password.reset': token: token
+		if user.services? && user.services.password? && user.services.password.reset? && user.services.password.reset.token
+			token = user.services.password.reset.token
+		else
+			Meteor.users.update find, $set: 'services.password.reset': token: token
 
-		Meteor.call 'sendMail',
-			recipient: obj.email
-			sender: 'JW Management'
-			from: 'support@jwmanagement.org'
-			subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language)
-			template: 'resetPassword'
-			language: user.profile.language
-			data:
-				token: token
+		try
+			Meteor.call 'sendMail',
+				recipient: obj.email
+				sender: 'JW Management'
+				from: 'support@jwmanagement.org'
+				subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language)
+				template: 'resetPassword'
 				language: user.profile.language
-				content: getMailTexts 'resetPassword', user.profile.language
-		, (err, res) ->
-			if err
-				console.log 'sendMail failed: ' + err
-			else
-				true
+				data:
+					token: token
+					language: user.profile.language
+					content: getMailTexts 'resetPassword', user.profile.language
+		catch e
+			console.error e
