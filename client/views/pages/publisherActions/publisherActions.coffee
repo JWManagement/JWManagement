@@ -92,17 +92,17 @@ Template.publisherActions.events
 			TAPi18n.__('input.lastname')
 			TAPi18n.__('input.gender')
 			TAPi18n.__('profile.telefon')
-			TAPi18n.__('profile.birthday')
 			TAPi18n.__('profile.privilegeOfService')
 			TAPi18n.__('profile.ministryPrivilege')
 			TAPi18n.__('profile.congregation')
+			TAPi18n.__('profile.language')
 			TAPi18n.__('profile.languages')
 			TAPi18n.__('input.username')
-			TAPi18n.__('input.roles'))
+			TAPi18n.__('role.role'))
 
 		csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + head.join(';') + '\r\n'
 
-		for user in users.fetch()
+		for user in users.fetch() when user._id != 'adm'
 			row = []
 			row.push(
 				user.profile.email
@@ -110,10 +110,10 @@ Template.publisherActions.events
 				user.profile.lastname
 				user.profile.gender
 				user.profile.telefon
-				user.profile.bdate
 				user.profile.pioneer
 				user.profile.privilege
 				user.profile.congregation
+				user.profile.language
 				user.profile.languages
 				user.username
 				'"' + Object.keys(user.roles).filter((r) -> user.roles[r][0]?).map((r) -> r + '=' + user.roles[r][0]).join(';') + '"')
