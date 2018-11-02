@@ -205,13 +205,11 @@ Users.schema = new SimpleSchema({
     },
     start: {
       type: Number,
-      min: 20000000,
-      max: 20250000
+      min: 2000000
     },
     end: {
       type: Number,
-      min: 20000000,
-      max: 20250000
+      min: 2000000
     }
   }),
   'profile.shortTermCalls': {
@@ -224,7 +222,7 @@ Users.schema = new SimpleSchema({
   },
   state: {
     type: String,
-    optional: true
+    defaultValue: 'created'
   },
   services: {
     type: Object,

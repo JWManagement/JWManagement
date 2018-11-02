@@ -10,6 +10,7 @@ publisher:
       genderValues:
         m: Brother
         w: Sister
+      congregation: Congregation
       pioneer: Privilege of service
       pioneerValues:
         publisher: Publisher
@@ -27,6 +28,19 @@ publisher:
         coordinator: Coordinator of the Body of Elders
         secretary: Secretary
         serviceOverseer: Service overseer
+      language: Account language
+      languageValues:
+        de: German
+        en: English
+        fi: Finnish
+        fr: French (partially)
+        hu: Hungarian
+        it: Italian (partially)
+        pl: Polish
+        pt: Portuguese
+        ru: Russian
+        zh-TW: Chinese (Traditional) (partially)
+        zh-CN: Chinese (Simplified) (partially)
       languages: Foreign languages
       shortTermCalls: Receive understaffed mails
       shortTermCallsAlways: Available in short term

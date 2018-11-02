@@ -171,20 +171,22 @@ function publisherInvite ({ projectId, userId }) {
 
 function removeFromProject ({ projectId, userId }) {
   checkPermissions(projectId, userId)
+
+  if (userId === Meteor.userId()) {
+    throw new Meteor.Error('You cannot remove yourself from this project')
+  }
+
   try {
     RoleManager.removeProjectPermission(projectId, userId)
+
     const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
+
     if (project && project.tags) {
       for (let tag of project.tags) {
         RoleManager.removeTagPermission(tag._id, userId)
       }
-      // eslint-disable-next-line no-unused-vars
-      for (let group of Roles.getGroupsForUser(userId)) {
-        if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
-          return
-        }
-      }
     }
+
     if (!RoleManager.hasPermissions(userId)) {
       Users.remove(userId)
     }

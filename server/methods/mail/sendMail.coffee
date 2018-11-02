@@ -7,7 +7,7 @@ Meteor.methods
 		# subject
 		# template
 		# data
-		# lanuage
+		# language
 
 		sent = false
 

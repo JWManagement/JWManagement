@@ -41,7 +41,7 @@ Template.DetailsFormActions.events({
         if (error == null) {
           FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params))
         } else {
-          alert('SERVER ERROR')
+          alert(error)
         }
       })
     }

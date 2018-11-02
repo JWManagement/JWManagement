@@ -37,6 +37,7 @@ profile:
   speaks: Speaks
   telefon: Phone
   congregation: Congregation
+  language: Account language
   languages: Foreign languages
   gender: Gender
   _gender:

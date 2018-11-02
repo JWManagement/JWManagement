@@ -54,3 +54,5 @@ tap:i18n
 meteortesting:mocha
 deanius:promise
 mdg:meteor-apm-agent
+mixmax:smart-disconnect
+harrison:papa-parse

@@ -10,6 +10,8 @@ Meteor.methods
 				check message, String
 
 			for team in shift.teams when team._id == teamId
+				Meteor.call 'sendCancelTeam', shiftId, teamId, message
+
 				if message == 'missingParticipant'
 					for pendingUser in team.pending
 						pendingUser.checked = false
@@ -48,8 +50,6 @@ Meteor.methods
 
 				if team.report? && team.report.init
 					Meteor.call 'updateReport', shiftId, teamId, 'hours', 0
-
-				Meteor.call 'sendCancelTeam', shiftId, teamId, message
 
 	approveRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
