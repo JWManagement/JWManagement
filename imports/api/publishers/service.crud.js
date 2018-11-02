@@ -10,7 +10,7 @@ import { defaultValidations } from '../../framework/Functions/defaultValidations
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
-import SystemLanguages from '../../framework/Constants/SystemLanguages';
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 function publisherSearch ({ projectId, searchString, limit }) {
   checkPermissions(projectId)
