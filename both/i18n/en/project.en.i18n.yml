@@ -35,7 +35,7 @@ project:
       phone: Call us
       email: Send us an email
       github: Create a GitHub Issue
-      paypal: PayPal (paypal.me/marvinzeising)
+      paypal: PayPal
     noElements: No Projects found
   details:
     sections:

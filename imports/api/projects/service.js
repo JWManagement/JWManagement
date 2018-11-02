@@ -121,7 +121,9 @@ Meteor.methods({
   'project.support.get' () {
     return {
       phone: '+49 177 3291529',
-      email: 'support@jwmanagement.org'
+      email: 'support@jwmanagement.org',
+      github: 'github.com/JWDeveloper/JWManagement/issues',
+      paypal: 'paypal.me/MarvinZeising'
     }
   }
 })
