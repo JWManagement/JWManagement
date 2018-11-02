@@ -35,6 +35,9 @@ Template['publisher.details'].helpers({
       }, {
         key: 'profile_languages',
         type: 'text'
+      }, {
+        key: 'profile_language',
+        type: 'dropdown'
       }]
     }, {
       title: 'availability',

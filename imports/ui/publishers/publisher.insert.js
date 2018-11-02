@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating'
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
-import SystemLanguages from './../../framework/Constants/SystemLanguages';
+import SystemLanguages from './../../framework/Constants/SystemLanguages'
 
 Template['publisher.insert'].helpers({
   data: {
