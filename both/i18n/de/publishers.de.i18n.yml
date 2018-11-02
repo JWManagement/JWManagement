@@ -27,6 +27,19 @@ publisher:
         coordinator: Koordinator
         secretary: Sekretär
         serviceOverseer: Dienstaufseher
+      language: Account Sprache
+      languageValues:
+        de: Deutsch
+        en: Englisch
+        fi: Finnisch
+        fr: Französisch (teilweise)
+        hu: Ungarisch
+        it: Italienisch (teilweise)
+        pl: Polnisch
+        pt: Portugiesisch
+        ru: Russisch
+        zh-TW: Chinesisch (Traditionell) (teilweise)
+        zh-CN: Chinesisch (Vereinfacht) (teilweise)
       languages: Fremdsprachen
       shortTermCalls: Unterbesetzt-Mails erhalten
       shortTermCallsAlways: Kurzfristig anfragbar
