@@ -14,6 +14,8 @@ language:
       pl: Polnisch
       pt: Portugiesisch
       ru: Russisch
+      zh-TW: Chinesisch (Traditionell) (teilweise)
+      zh-CN: Chinesisch (Vereinfacht) (teilweise)
   _de: Deutsch
   _en: Englisch
   _fi: Finnisch
@@ -23,6 +25,8 @@ language:
   _pl: Polnisch
   _pt: Portugiesisch
   _ru: Russisch
+  _zh-TW: Chinesisch (Traditionell) (teilweise)
+  _zh-CN: Chinesisch (Vereinfacht) (teilweise)
   _A: Arabisch
   _AL: Albanisch
   _AR: Bambaro
