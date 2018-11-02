@@ -132,6 +132,10 @@ function publisherInsert ({ projectId }, publisher) {
       type: String,
       allowedValues: Gender.allowedValues
     },
+    'profile_congregation': {
+      type: String,
+      optional: true
+    },
     'profile_language': {
       type: String,
       allowedValues: SystemLanguages.allowedValues

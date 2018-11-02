@@ -35,6 +35,8 @@ Template['publisher.insert'].helpers({
       defaultValue: Gender.defaultValue,
       required: true
     }, {
+      key: 'profile_congregation'
+    }, {
       key: 'profile_pioneer',
       type: 'picker',
       allowedValues: Pioneer.allowedValues,
