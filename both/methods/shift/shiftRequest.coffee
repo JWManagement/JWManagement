@@ -54,7 +54,10 @@ Meteor.methods
 						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
 					else if team.pending.length >= team.min - 1
 
-						teamleader = team.pending.find((user) => user.teamleader) || team.pending.find((user) => user.substituteTeamleader)
+						teamleader = team.pending.find((user) => user.teamleader) ||
+							team.pending.find((user) => user.substituteTeamleader) ||
+							(user.teamleader && user) ||
+							(user.substituteTeamleader && user)
 
 						approvedUsers = [ ]
 						declinedUsers = [ ]
