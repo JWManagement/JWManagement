@@ -41,6 +41,7 @@ Template.login.events({
           if (error) {
             reject(error)
           } else {
+            Meteor.call('setMyAccountActive')
             resolve()
           }
         })

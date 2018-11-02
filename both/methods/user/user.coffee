@@ -148,3 +148,6 @@ Meteor.methods
 			Meteor.users.find({}, fields: _id: 1).count()
 		else
 			0
+
+	setMyAccountActive: ->
+		Meteor.users.update Meteor.userId(), $set: state: 'active'

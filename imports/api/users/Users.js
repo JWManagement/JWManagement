@@ -222,7 +222,7 @@ Users.schema = new SimpleSchema({
   },
   state: {
     type: String,
-    optional: true
+    defaultValue: 'created'
   },
   services: {
     type: Object,
