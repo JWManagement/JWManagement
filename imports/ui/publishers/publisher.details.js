@@ -27,6 +27,9 @@ Template['publisher.details'].helpers({
         key: 'profile_gender',
         type: 'dropdown'
       }, {
+        key: 'profile_congregation',
+        type: 'text'
+      }, {
         key: 'profile_pioneer',
         type: 'dropdown'
       }, {

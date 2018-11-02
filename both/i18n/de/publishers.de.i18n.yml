@@ -10,6 +10,7 @@ publisher:
       genderValues:
         m: Bruder
         w: Schwester
+      congregation: Versammlung
       pioneer: Dienstvorrecht
       pioneerValues:
         publisher: Verkündiger
