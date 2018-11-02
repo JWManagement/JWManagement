@@ -20,7 +20,7 @@ Meteor.methods
 			for team in shift.teams when team.participants.length > 0
 				shiftData.teams.push team
 
-		sent = send
+		sent = Meteor.call 'sendMail',
 			recipient: user.profile.email
 			sender: project.name
 			from: project.email

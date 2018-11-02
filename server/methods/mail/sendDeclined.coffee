@@ -17,7 +17,7 @@ Meteor.methods
 				time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
 				name = user.profile.firstname + ' ' + user.profile.lastname
 
-			sent = send
+			sent = Meteor.call 'sendMail',
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
