@@ -62,7 +62,7 @@ Meteor.methods
 						approvedUsers = [ ]
 						declinedUsers = [ ]
 
-						if teamleader?
+						if teamleader
 							approvedUsers.push userId
 
 							Shifts.update _id: shiftId, 'teams._id': teamId,
