@@ -24,7 +24,7 @@
     "underscore": "^1.9.1"
   },
   "scripts": {
-    "start": "meteor --settings .deploy/settings.json",
+    "start": "meteor",
     "lint": "standard",
     "cypress:open": "./node_modules/cypress/bin/cypress open",
     "cypress:run": "./node_modules/cypress/bin/cypress run --record --key f9b79f70-0982-41ed-b240-491bcaa68fc6"
