@@ -2,7 +2,7 @@ const Languages = {
   defaultValue: 'E',
   allowedValues: [
     'A', 'AL', 'AR', 'AM',
-    'B', 'BEL', 'BL', 'BSN',
+    'B', 'BEL', 'BL', 'BSN', 'BU',
     'C', 'CB', 'CH', 'CHS', 'CV',
     'DA', 'DAR', 'DGS',
     'E', 'ED', 'EW',
