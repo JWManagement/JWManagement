@@ -6,11 +6,17 @@ Template.copyShiftModal.helpers
 
 Template.copyShiftModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#copyShiftModal').modal('show')
 	$('#copyShiftModal').on 'hidden.bs.modal', ->
 		shiftId = FlowRouter.getQueryParam('copyShift')
 
 		wrs -> FlowRouter.setQueryParams copyShift: undefined, editShift: shiftId
+
+Template.copyShiftModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.copyShiftModal.events
 

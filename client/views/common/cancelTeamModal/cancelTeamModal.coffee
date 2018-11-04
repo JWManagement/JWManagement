@@ -6,11 +6,17 @@ Template.cancelTeamModal.helpers
 
 Template.cancelTeamModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#cancelTeamModal').modal('show')
 	$('#cancelTeamModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams cancelTeam: null, shiftId: null
 
 	$('#message').focus()
+
+Template.cancelTeamModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.cancelTeamModal.events
 

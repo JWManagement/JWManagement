@@ -89,6 +89,8 @@ Template.addParticipantModal.onRendered ->
 
 	@autorun -> UserSubs.subscribe 'usersByProject', FlowRouter.getParam('projectId')
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#addParticipantModal').modal('show')
 	$('#addParticipantModal').on 'hidden.bs.modal', ->
 		shiftId = FlowRouter.getQueryParam('shiftId')
@@ -99,6 +101,10 @@ Template.addParticipantModal.onRendered ->
 			teamId: null
 			participantId: null
 			showShift: shiftId
+
+Template.addParticipantModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.addParticipantModal.events
 

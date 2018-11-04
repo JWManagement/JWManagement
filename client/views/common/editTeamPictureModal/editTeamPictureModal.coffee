@@ -15,9 +15,15 @@ Template.editTeamPictureModal.helpers
 
 Template.editTeamPictureModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#editTeamPictureModal').modal('show')
 	$('#editTeamPictureModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams editTeamPicture: undefined
+
+Template.editTeamPictureModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.editTeamPictureModal.events
 

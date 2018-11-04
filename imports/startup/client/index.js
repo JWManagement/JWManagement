@@ -94,6 +94,8 @@ import '../../ui/calendar/calendar'
 
 import './language'
 
+import '../common/migrations'
+
 import { TimeSync } from 'meteor/mizzao:timesync'
 import { UserStatus } from 'meteor/mizzao:user-status'
 

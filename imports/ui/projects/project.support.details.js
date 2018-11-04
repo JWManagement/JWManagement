@@ -17,6 +17,10 @@ Template['project.support.details'].helpers({
         type: 'email',
         readonly: true
       }, {
+        key: 'discord',
+        type: 'link',
+        route: 'https://discord.gg/Te9TKD8'
+      }, {
         key: 'github',
         type: 'link',
         route: 'https://github.com/JWDeveloper/JWManagement/issues'

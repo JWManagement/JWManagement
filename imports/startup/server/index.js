@@ -21,3 +21,5 @@ import '../../api/publishers/service'
 import '../../api/vessels/service'
 import '../../api/notes/service'
 import '../../api/calendar/service'
+
+import '../common/migrations'

@@ -12,6 +12,8 @@ Template.uploadUserFileModal.helpers
 
 Template.uploadUserFileModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#uploadUserFileModal').modal('show')
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams uploadUserFile: undefined, addUser: true
@@ -19,6 +21,10 @@ Template.uploadUserFileModal.onRendered ->
 
 		if !Session.get('users')? then Session.set 'users', undefined
 		if !Session.get('uploading')? then Session.set 'uploading', undefined
+
+Template.uploadUserFileModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.uploadUserFileModal.events
 

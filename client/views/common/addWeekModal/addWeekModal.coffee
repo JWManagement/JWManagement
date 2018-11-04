@@ -51,6 +51,14 @@ Template.addWeekModal.onCreated ->
 					$weekPicker.data('updating', false)
 			.datepicker('setDate', nextWeek)
 
+Template.addWeekModal.onRendered ->
+
+	$('#beamerSelector').addClass('hidden')
+
+Template.addWeekModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
+
 Template.addWeekModal.events
 
 	'click .changeTemplate': (e) ->

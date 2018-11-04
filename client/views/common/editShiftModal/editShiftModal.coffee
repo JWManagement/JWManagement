@@ -61,6 +61,14 @@ Template.editShiftModal.onCreated ->
 			$('#editShiftModal').on 'hidden.bs.modal', ->
 				wrs -> FlowRouter.setQueryParams editShift: undefined
 
+Template.editShiftModal.onRendered ->
+
+	$('#beamerSelector').addClass('hidden')
+
+Template.editShiftModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
+
 Template.editShiftModal.events
 
 	'change #start': (e) ->

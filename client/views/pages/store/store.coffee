@@ -137,29 +137,31 @@ Template.store.helpers
 		]
 
 	getLanguages: -> [
-		'A', 'AL', 'AR', 'AM'
-		'B', 'BEL', 'BL', 'BSN'
-		'C', 'CB', 'CH', 'CHS', 'CV'
-		'DAR', 'DGS'
-		'E', 'ED', 'EW'
-		'F'
-		'G', 'GE'
-		'H', 'HI', 'HV'
-		'I', 'IB', 'IL', 'IN'
-		'J'
-		'K', 'KO', 'KRI'
-		'L', 'LT'
-		'M', 'MC'
-		'O', 'OA'
-		'P', 'PH', 'PJ', 'PL', 'PR'
-		'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU'
-		'S', 'SB', 'SI', 'SO', 'ST', 'SV'
-		'T', 'TG', 'TI', 'TK', 'TL', 'TW'
-		'U', 'UD'
-		'V', 'VT'
-		'WO'
-		'X'
-		'YR'
+		'A', 'AL', 'AR', 'AM',
+		'B', 'BEL', 'BL', 'BSN', 'BU',
+		'C', 'CB', 'CH', 'CHS', 'CV',
+		'DA', 'DAR', 'DGS',
+		'E', 'ED', 'EW',
+		'F', 'FI',
+		'G', 'GE',
+		'H', 'HI', 'HT', 'HV',
+		'I', 'IB', 'IL', 'IN',
+		'J',
+		'K', 'KO', 'KRI',
+		'L', 'LT', 'LX',
+		'M', 'MC',
+		'NO',
+		'O', 'OA',
+		'P', 'PH', 'PJ', 'PL', 'PR',
+		'RD', 'RDA', 'RDC', 'REA', 'RM', 'RMC', 'RU',
+		'S', 'SB', 'SI', 'SO', 'ST', 'SV',
+		'T', 'TG', 'TI', 'TK', 'TL', 'TW',
+		'U', 'UD',
+		'V', 'VT',
+		'WO',
+		'X',
+		'YR',
+		'OTHER'
 	].map((lang) ->
 		short: lang
 		translation: TAPi18n.__('language.', context: lang)

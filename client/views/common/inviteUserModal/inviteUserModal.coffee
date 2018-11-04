@@ -15,11 +15,17 @@ Template.inviteUserModal.helpers
 
 Template.inviteUserModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#inviteUserModal').modal('show')
 	$('#inviteUserModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams inviteUser: undefined
 
 	Session.set 'selectedUsers', []
+
+Template.inviteUserModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.inviteUserModal.events
 

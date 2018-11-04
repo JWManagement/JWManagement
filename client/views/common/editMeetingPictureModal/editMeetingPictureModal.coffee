@@ -10,14 +10,20 @@ Template.editMeetingPictureModal.helpers
 			projectId: FlowRouter.getParam('projectId')
 			meetingId: FlowRouter.getQueryParam('editMeetingPicture')
 		, fields: _id: 1
-		
+
 		'disabled' unless picture
 
 Template.editMeetingPictureModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#editMeetingPictureModal').modal('show')
 	$('#editMeetingPictureModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams editMeetingPicture: undefined
+
+Template.editMeetingPictureModal.onDestroyed ->
+
+	$('#beamerSelector').removeClass('hidden')
 
 Template.editMeetingPictureModal.events
 

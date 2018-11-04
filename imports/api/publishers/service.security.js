@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Random } from 'meteor/random'
-import { Roles } from 'meteor/alanning:roles'
 import { Mailer } from 'meteor/lookback:emails'
 import { TAPi18n } from 'meteor/tap:i18n'
 import { getMailTexts } from '../../framework/Functions/Mail'
@@ -12,7 +11,6 @@ import Users from '../users/Users'
 import RoleManager from '../../framework/Managers/RoleManager'
 import MailManager from '../../framework/Managers/MailManager'
 import State from '../../framework/Constants/State'
-import Permissions from '../../framework/Constants/Permissions'
 
 function publisherPasswordInsert ({ projectId, userId }, passwords) {
   validate('password', {
