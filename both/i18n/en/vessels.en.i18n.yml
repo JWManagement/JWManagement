@@ -122,6 +122,8 @@ vessel:
         demid: (DEMID) Minden
         demlm: (DEMLM) Mühlheim am Main
         demnf: (DEMNF) Mondorf
+        demoe: (DEMOE) Mölln
+        demrt: (DEMRT) Luxport Mertert
         demsr: (DEMSR) Münster
         demuk: (DEMUK) Mukran
         dendt: (DENDT) Neustadt (in Holstein)
@@ -155,12 +157,15 @@ vessel:
         desls: (DESLS) Schleswig
         despe: (DESPE) Speyer
         despy: (DESPY) Spay
+        desrc: (DESRC) Scharnebeck
         desta: (DESTA) Stade
         destl: (DESTL) Stralsund
         destr: (DESTR) Stuttgart
         dests: (DESTS) Stadersand
+        detri: (DETRI) Trier
         detrv: (DETRV) Travemunde
         deuck: (DEUCK) Ükermünde
+        deuel: (DEUEL) Uelzen
         deviw: (DEVIW) Vierow
         dewed: (DEWED) Wedel
         dewes: (DEWES) Wesel
