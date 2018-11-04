@@ -7,6 +7,7 @@ import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
 import Permissions from '../../framework/Constants/Permissions'
 import VesselType from '../../framework/Constants/VesselType'
+import Harbor from '../../framework/Constants/Harbor'
 import { validate } from '../../framework/Functions/validations'
 import { defaultValidations } from '../../framework/Functions/defaultValidations'
 
@@ -58,7 +59,11 @@ Meteor.methods({
   'vessel.get' ({ projectId, vesselId }) {
     checkVesselModule(projectId)
 
-    return getExtendedVessel(vesselId)
+    try {
+      return getExtendedVessel(vesselId)
+    } catch (e) {
+      console.error(e)
+    }
   },
   'vessel.getField' ({ projectId, vesselId, key }) {
     checkVesselModule(projectId)
@@ -158,14 +163,15 @@ Meteor.methods({
       throw new Meteor.Error(e)
     }
   },
-  'vessel.visit.getAvailableHarbors' ({ projectId }) {
+  'vessel.visit.getAvailableHarbors' ({ projectId, language }) {
     checkVesselModule(projectId)
 
-    const project = Projects.findOne(projectId, { fields: { harbors: 1 } })
-
-    return project.harbors
-      .map(({ _id, name }) => {
-        return { key: _id, value: name }
+    return Harbor.allowedValues
+      .map((harborId) => {
+        return {
+          key: harborId,
+          value: TAPi18n.__(`vessel.entity.visit.harborIdValues.${harborId}`)
+        }
       })
       .sort((a, b) => {
         if (a.key < b.key) { return -1 }
@@ -329,16 +335,12 @@ function getExtendedVisit (visit) {
 
   const project = Projects.findOne(visit.projectId, {
     fields: {
-      country: 1,
-      harbors: 1
+      country: 1
     }
   })
 
   visit.country = project.country
-
-  const harbor = project.harbors.filter((h) => h._id === visit.harborId)[0]
-
-  visit.harbor = harbor.name
+  visit.harbor = TAPi18n.__(`vessel.entity.visit.harborIdValues.${Harbor.allowedValues.filter((h) => h === visit.harborId)[0]}`)
 
   if (visit.languageIds == null) {
     visit.languageIds = []
