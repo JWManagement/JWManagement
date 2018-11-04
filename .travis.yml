@@ -8,9 +8,6 @@ cache:
     - ~/.cache
     - node_modules
     - .meteor/local
-before_install:
-  - curl https://install.meteor.com | /bin/sh
-  - npm install -g mup
 stages:
   - name: Test
   - name: Deploy
@@ -23,6 +20,8 @@ jobs:
     - stage: Deploy
       name: Deploy to Staging
       script:
+        - curl https://install.meteor.com | /bin/sh
+        - npm install -g mup
         - cd .deploy
         - mup setup
         - mup deploy --settings settings.json --verbose
