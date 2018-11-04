@@ -123,6 +123,7 @@ Meteor.methods({
       phone: '+49 177 3291529',
       email: 'support@jwmanagement.org',
       github: 'github.com/JWDeveloper/JWManagement/issues',
+      discord: 'https://discord.gg/Te9TKD8',
       paypal: 'paypal.me/MarvinZeising'
     }
   }

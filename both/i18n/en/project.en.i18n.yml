@@ -36,6 +36,7 @@ project:
       email: Send us an email
       github: Create a GitHub Issue
       paypal: PayPal
+      discord: Write us on Discord
     noElements: No Projects found
   details:
     sections:
