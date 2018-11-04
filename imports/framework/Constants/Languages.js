@@ -12,7 +12,7 @@ const Languages = {
     'I', 'IB', 'IL', 'IN',
     'J',
     'K', 'KO', 'KRI',
-    'L', 'LT',
+    'L', 'LT', 'LX',
     'M', 'MC',
     'NO',
     'O', 'OA',
