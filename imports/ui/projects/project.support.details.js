@@ -19,11 +19,13 @@ Template['project.support.details'].helpers({
       }, {
         key: 'discord',
         type: 'link',
-        route: 'https://discord.gg/Te9TKD8'
+        route: 'https://discord.gg/Te9TKD8',
+        outbound: true
       }, {
         key: 'github',
         type: 'link',
-        route: 'https://github.com/JWDeveloper/JWManagement/issues'
+        route: 'https://github.com/JWDeveloper/JWManagement/issues',
+        outbound: true
       }]
     }, {
       title: 'donate',
@@ -34,7 +36,8 @@ Template['project.support.details'].helpers({
       }, {
         key: 'paypal',
         type: 'link',
-        route: 'https://www.paypal.me/marvinzeising'
+        route: 'https://www.paypal.me/marvinzeising',
+        outbound: true
       }, {
         key: 'iban',
         type: 'text',

@@ -1,11 +1,26 @@
 template(name="DetailsFormLink")
-  .input.form-group(key='{{getKey definition}}' link='{{definition.route}}')
 
-    .key
-      if definition.icon
-        i.material-icons {{definition.icon}}
-      | {{getEntityTranslation definition.key}}
+  if definition.outbound
+    .form-group(key='{{getKey definition}}')
 
-    .value
-      | {{getValue definition entity}}
-      i.fa.fa-angle-right.icon
+      .key
+        if definition.icon
+          i.material-icons {{definition.icon}}
+        | {{getEntityTranslation definition.key}}
+
+      .value
+        a(href='{{definition.route}}' target='_blank')
+          | {{getValue definition entity}}
+          i.fa.fa-external-link.icon
+
+  else
+    .input.form-group(key='{{getKey definition}}' link='{{definition.route}}')
+
+      .key
+        if definition.icon
+          i.material-icons {{definition.icon}}
+        | {{getEntityTranslation definition.key}}
+
+      .value
+        | {{getValue definition entity}}
+        i.fa.fa-angle-right.icon
