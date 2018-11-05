@@ -13,10 +13,6 @@ Template['project.support.details'].helpers({
         type: 'phone',
         readonly: true
       }, {
-        key: 'email',
-        type: 'email',
-        readonly: true
-      }, {
         key: 'discord',
         type: 'link',
         route: 'https://discord.gg/Te9TKD8'
@@ -31,6 +27,10 @@ Template['project.support.details'].helpers({
         key: 'paypal',
         type: 'link',
         route: 'https://www.paypal.me/marvinzeising'
+      }, {
+        key: 'iban',
+        type: 'text',
+        readonly: true
       }]
     }]
   }

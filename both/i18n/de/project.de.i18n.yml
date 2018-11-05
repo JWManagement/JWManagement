@@ -32,11 +32,11 @@ project:
     leaveConfirmation: Möchtest du dieses Projekt wirklich verlassen und JEGLICHE TEILNAHME DARAN AUFKÜNDIGEN? Das kann nicht rückgängig gemacht werden!
     supportPage: Hilfe
     support:
-      phone: Ruf an (empfohlen)
-      email: Sende uns eine E-Mail
+      phone: Ruf an
+      discord: Schreib uns auf Discord (empfohlen)
       github: Lege ein GitHub Issue an
       paypal: PayPal
-      discord: Schreib uns auf Discord
+      iban: IBAN
     noElements: Keine Projekte gefunden
   details:
     sections:

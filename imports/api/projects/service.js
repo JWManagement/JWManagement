@@ -121,10 +121,10 @@ Meteor.methods({
   'project.support.get' () {
     return {
       phone: '+49 177 3291529',
-      email: 'support@jwmanagement.org',
       github: 'github.com/JWDeveloper/JWManagement/issues',
-      discord: 'https://discord.gg/Te9TKD8',
-      paypal: 'paypal.me/MarvinZeising'
+      discord: 'discord.gg/Te9TKD8',
+      paypal: 'paypal.me/MarvinZeising',
+      iban: 'DE12 5001 0517 5570 1628 99'
     }
   }
 })

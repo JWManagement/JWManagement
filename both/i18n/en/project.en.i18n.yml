@@ -33,10 +33,10 @@ project:
     supportPage: Support
     support:
       phone: Call us
-      email: Send us an email
+      discord: Write us on Discord (preferred)
       github: Create a GitHub Issue
       paypal: PayPal
-      discord: Write us on Discord
+      iban: IBAN
     noElements: No Projects found
   details:
     sections:
