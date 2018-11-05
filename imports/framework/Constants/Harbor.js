@@ -34,7 +34,12 @@ const Harbor = {
     'deuck', 'deuel',
     'deviw',
     'dewed', 'dewes', 'dewib', 'dewis', 'dewlg', 'dewlr', 'dewnu', 'dewoe', 'dewol', 'dewor', 'dewue', 'dewvn', 'dewyk',
-    'dezin'
+    'dezin',
+    // poland
+    'plgdn',
+    'plgdy',
+    'plswi',
+    'plszz'
   ]
 }
 
