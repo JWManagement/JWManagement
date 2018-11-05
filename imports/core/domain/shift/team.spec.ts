@@ -8,14 +8,33 @@ function buildTeam (s: number[] = [1, 2], timeframe = { isExpired: () => false }
   return new Team('superteam', [], size.apply(null, s), timeframe)
 }
 
-describe('a team', function () {
-  describe('that is open for requests', function () {
-    let team = buildTeam()
+describe('a shift', function () {
+  it('expires if the cutoff time is reached', function () {
+    expect(false).to.eq(true)
+  })
+})
 
-    it('a publisher can make a request', function () {
-      expect(team.status).to.eq(TeamStatus.PENDING)
-      team.request('')
-      expect(team.status).to.eq(TeamStatus.OK)
+describe('a team', function () {
+  describe('accepts requests from publishers if', function () {
+    it('has participant slots available', function () {
+      expect(false).to.eq(true)
+    })
+    it('has no existing participation request from them', function () {
+      expect(false).to.eq(true)
+    })
+    it('has a BAILED participation request from them', function () {
+      expect(false).to.eq(true)
+    })
+    it('has a CANCELLED participation request from them', function () {
+      expect(false).to.eq(true)
+    })
+    it('belongs to a not EXPIRED shift', function () {
+      expect(false).to.eq(true)
+    })
+  })
+  describe('accepts requests from teamleaders', function () {
+    it('has participant or team leader slots available', function () {
+      expect(false).to.eq(true)
     })
   })
 
@@ -47,3 +66,20 @@ describe('a team', function () {
     })
   })
 })
+
+describe('a request', function () {
+  it('can be cancelled by the publisher', function () {
+    expect(false).to.eq(true)
+  })
+  it('can be approved by a scheduler', function () {
+    expect(false).to.eq(true)
+  })
+  it('can be declined by a scheduler', function () {
+    expect(false).to.eq(true)
+  })
+  it('can be bailed by the publisher', function () {
+    expect(false).to.eq(true)
+  })
+})
+
+
