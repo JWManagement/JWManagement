@@ -33,10 +33,10 @@ project:
     supportPage: Support
     support:
       phone: Call us
-      email: Send us an email
+      discord: Write us on Discord (preferred)
       github: Create a GitHub Issue
       paypal: PayPal
-      discord: Write us on Discord
+      iban: IBAN
     noElements: No Projects found
   details:
     sections:
@@ -49,5 +49,5 @@ project:
   support:
     details:
       sections:
-        title: If you encounter any problems or have any questions or ideas, please tell us
-        donate: We gladly pay the operating costs for you. If you want to contribute something, though, we'd be very happy
+        support: Get support
+        donate: Donate

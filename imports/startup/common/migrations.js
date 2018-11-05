@@ -2,12 +2,12 @@ import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
 import Vessels from '../../api/vessels/Vessels'
 
-// to use this, import the file
-
 Meteor.methods({
   deleteProjectHarbors () {
     if (Meteor.isServer) {
       console.log('deleteProjectHarbors')
+      console.log('!!! DISABLED !!!')
+      return
 
       if (Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
         Projects.update({}, {

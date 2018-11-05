@@ -1,7 +1,13 @@
 template(name="DetailsFormTextbox")
-  .input.form-group(key='{{getKey definition}}')
-    tr
-      td.value
-        | {{{getValue definition entity}}}
-      td.link
-        i.fa.fa-angle-right
+  if definition.readonly
+    .form-group(style="cursor: default;")
+      tr(style="cursor: default;")
+        td.value(style="cursor: default;")
+          | {{{getValue definition entity}}}
+  else
+    .input.form-group(key='{{getKey definition}}')
+      tr
+        td.value
+          | {{{getValue definition entity}}}
+        td.link
+          i.fa.fa-angle-right

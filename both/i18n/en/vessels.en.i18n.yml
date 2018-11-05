@@ -181,6 +181,10 @@ vessel:
         dewvn: (DEWVN) Wilhelmshaven
         dewyk: (DEWYK) Wyk auf Föhr
         dezin: (DEZIN) Zinnowitz
+        plgdn: (PLGDN) Gdansk
+        plgdy: (PLGDY) Gdynia
+        plswi: (PLSWI) Swinoujscie
+        plszz: (PLSZZ) Szczecin
       country: Country
       language:
         new: Add a language
