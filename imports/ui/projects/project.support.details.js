@@ -7,8 +7,12 @@ Template['project.support.details'].helpers({
       backLink: 'project.details'
     },
     sections: [{
-      title: 'title',
+      title: 'support',
       contents: [{
+        key: 'supportText',
+        type: 'textbox',
+        readonly: true
+      }, {
         key: 'phone',
         type: 'phone',
         readonly: true
@@ -24,6 +28,10 @@ Template['project.support.details'].helpers({
     }, {
       title: 'donate',
       contents: [{
+        key: 'donateText',
+        type: 'textbox',
+        readonly: true
+      }, {
         key: 'paypal',
         type: 'link',
         route: 'https://www.paypal.me/marvinzeising'

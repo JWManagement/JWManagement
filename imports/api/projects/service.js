@@ -120,9 +120,11 @@ Meteor.methods({
   },
   'project.support.get' () {
     return {
+      supportText: 'If you encounter any problems or have any questions or ideas, please tell us.\nHere is a list of possibilities on how to get in contact with us:',
       phone: '+49 177 3291529',
       github: 'github.com/JWDeveloper/JWManagement/issues',
       discord: 'discord.gg/Te9TKD8',
+      donateText: 'Since JW Management is used widely all around the earth now, our operating costs have increased in order to make it possible for you to have a smooth experience.\nThis means that every publisher that uses the system costs us about 0.15€ (15 cents) per year.\nWe would like to encourage you to think about whether you would be able to contribute something. (2 Corinthians 9:7)\nBy working together and each of us doing our part, we can keep the system running and are able to provide support for you.\nBrotherly love, The JW Management Team',
       paypal: 'paypal.me/MarvinZeising',
       iban: 'DE12 5001 0517 5570 1628 99'
     }
