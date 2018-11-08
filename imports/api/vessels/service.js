@@ -166,6 +166,10 @@ Meteor.methods({
   'vessel.visit.getAvailableHarbors' ({ projectId, language }) {
     checkVesselModule(projectId)
 
+    if (!Harbor.allowedValues) {
+      console.log(Harbor)
+    }
+
     return Harbor.allowedValues
       .map((harborId) => {
         return {
@@ -339,8 +343,13 @@ function getExtendedVisit (visit) {
     }
   })
 
+  if (!Harbor.allowedValues) {
+    console.log(Harbor)
+  }
+
   visit.country = project.country
-  visit.harbor = TAPi18n.__(`vessel.entity.visit.harborIdValues.${Harbor.allowedValues.filter((h) => h === visit.harborId)[0]}`)
+  const harborName = Harbor.allowedValues.filter((h) => h === visit.harborId)[0]
+  visit.harbor = TAPi18n.__(`vessel.entity.visit.harborIdValues.${harborName}`)
 
   if (visit.languageIds == null) {
     visit.languageIds = []
