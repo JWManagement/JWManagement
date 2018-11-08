@@ -10,6 +10,11 @@
 @FileSubs = new SubsManager cacheLimit: 100
 @PictureSubs = new SubsManager cacheLimit: 100
 
+if Meteor.isServer
+	# Its important to set `internal: true` this lets the SA know that we
+	# are using this internally and it will give us direct SA api
+	FS.TempStore.Storage = new FS.Store.GridFS('_tempstore', { internal: true });
+
 if Meteor.isDevelopment
 	@Files = new FS.Collection 'files',
 		stores: [

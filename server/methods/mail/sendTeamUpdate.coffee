@@ -44,3 +44,5 @@ Meteor.methods
 								content: getMailTexts 'teamUpdate', user.profile.language
 						, (err, res) -> if err
 							console.log 'sendMail failed: ' + err
+
+		true

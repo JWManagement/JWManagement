@@ -56,3 +56,4 @@ deanius:promise
 mdg:meteor-apm-agent
 mixmax:smart-disconnect
 harrison:papa-parse
+cfs:gridfs
