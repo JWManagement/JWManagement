@@ -1,3 +1,5 @@
+import '../common/i18next'
+
 import '../../api/messages/messages.coffee'
 
 import '../server/mailer'

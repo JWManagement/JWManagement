@@ -14,6 +14,7 @@ import './datepicker/bootstrap-datepicker.pl.min'
 import './datepicker/bootstrap-datepicker.pt.min'
 import './datepicker/bootstrap-datepicker.ru.min'
 
+import '../common/i18next'
 import '../common/moment'
 import '../common/rolesExtensions'
 
