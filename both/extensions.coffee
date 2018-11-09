@@ -19,10 +19,10 @@
 	array
 
 @swalYesNo = (attrs) ->
-	title = TAPi18n.__('swal.' + attrs.swal + '.title')
-	text = TAPi18n.__('swal.' + attrs.swal + '.text')
-	confirm = TAPi18n.__('swal.' + attrs.swal + '.confirm')
-	cancel = TAPi18n.__('swal.' + attrs.swal + '.cancel')
+	title = i18next.t('swal.' + attrs.swal + '.title')
+	text = i18next.t('swal.' + attrs.swal + '.text')
+	confirm = i18next.t('swal.' + attrs.swal + '.confirm')
+	cancel = i18next.t('swal.' + attrs.swal + '.cancel')
 
 	type = attrs.type || 'warning'
 	doConfirm = attrs.doConfirm || ->
@@ -34,9 +34,9 @@
 	color = '#f44336' if type in ['error', 'warning']
 
 	if attrs.textAttr2?
-		text = TAPi18n.__('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1, attr2: attrs.textAttr2)
+		text = i18next.t('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1, attr2: attrs.textAttr2)
 	else if attrs.textAttr1?
-		text = TAPi18n.__('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1)
+		text = i18next.t('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1)
 
 	swal
 		title: title
@@ -54,10 +54,10 @@
 			doCancel()
 
 @swalInput = (attrs) ->
-	title = TAPi18n.__('swal.' + attrs.swal + '.title')
-	text = TAPi18n.__('swal.' + attrs.swal + '.text')
-	confirm = TAPi18n.__('swal.' + attrs.swal + '.confirm')
-	cancel = TAPi18n.__('swal.' + attrs.swal + '.cancel')
+	title = i18next.t('swal.' + attrs.swal + '.title')
+	text = i18next.t('swal.' + attrs.swal + '.text')
+	confirm = i18next.t('swal.' + attrs.swal + '.confirm')
+	cancel = i18next.t('swal.' + attrs.swal + '.cancel')
 	placeholder = ''
 	inputError = ''
 	closeOnSuccess = true
@@ -69,11 +69,11 @@
 		closeOnSuccess = attrs.closeOnSuccess
 
 	if checkInput
-		placeholder = TAPi18n.__('swal.' + attrs.swal + '.placeholder', checkInput)
-		inputError = TAPi18n.__('swal.' + attrs.swal + '.inputError', checkInput)
+		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder', checkInput)
+		inputError = i18next.t('swal.' + attrs.swal + '.inputError', checkInput)
 	else
-		placeholder = TAPi18n.__('swal.' + attrs.swal + '.placeholder')
-		inputError = TAPi18n.__('swal.' + attrs.swal + '.inputError')
+		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder')
+		inputError = i18next.t('swal.' + attrs.swal + '.inputError')
 
 	swal
 		title: title
@@ -104,10 +104,10 @@
 
 @getMailTexts = (mail, language) ->
 	values = {}
-	values.headline = TAPi18n.__('mail.' + mail + '.headline', '', language)
-	values.hello = TAPi18n.__('mail.' + mail + '.hello', '', language)
-	values.text1 = TAPi18n.__('mail.' + mail + '.text1', '', language)
-	values.text2 = TAPi18n.__('mail.' + mail + '.text2', '', language)
-	values.changed = TAPi18n.__('mail.' + mail + '._changed', '', language)
-	values.button = TAPi18n.__('mail.' + mail + '.button', '', language)
+	values.headline = i18next.t('mail.' + mail + '.headline', '', language)
+	values.hello = i18next.t('mail.' + mail + '.hello', '', language)
+	values.text1 = i18next.t('mail.' + mail + '.text1', '', language)
+	values.text2 = i18next.t('mail.' + mail + '.text2', '', language)
+	values.changed = i18next.t('mail.' + mail + '._changed', '', language)
+	values.button = i18next.t('mail.' + mail + '.button', '', language)
 	values

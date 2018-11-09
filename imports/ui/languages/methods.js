@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import moment from 'moment'
 
@@ -13,7 +13,7 @@ Meteor.methods({
       }
     })
 
-    TAPi18n.setLanguage(language)
+    i18next.changeLanguage(language)
     moment.locale(language)
 
     FlowRouter.withReplaceState(() => {

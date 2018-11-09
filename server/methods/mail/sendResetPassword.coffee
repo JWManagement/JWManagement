@@ -33,7 +33,7 @@ Meteor.methods
 				recipient: obj.email
 				sender: 'JW Management'
 				from: 'support@jwmanagement.org'
-				subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language)
+				subject: i18next.t('mail.resetPassword.subject', '', user.profile.language)
 				template: 'resetPassword'
 				language: user.profile.language
 				data:

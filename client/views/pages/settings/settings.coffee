@@ -14,9 +14,20 @@ Template.settings.helpers
 
 	meetingPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), meetingId: @_id
 
-	getLanguages: -> Object.keys(TAPi18n.getLanguages()).map (language) ->
-		a = TAPi18n.getLanguages()[language]
-		_id: language, name: a.name, en: a.en
+	getLanguages: ->
+		[
+			de: { name: "Deutsch", en: "German" }
+			en: { name: "English", en: "English" }
+			fi: { name: "Suomi", en: "Finnish" }
+			fr: { name: "Français", en: "French (France)" }
+			hu: { name: "Magyar", en: "Hungarian" }
+			it: { name: "Italiano", en: "Italian" }
+			pl: { name: "Polski", en: "Polish" }
+			pt: { name: "Português", en: "Portuguese (Portugal)" }
+			ru: { name: "Русский", en: "Russian" }
+			'zh-CN': { name: "简体中文", en: "Chinese (China)" }
+			'zh-TW': { name: "繁体中文（台湾）", en: "Chinese (Taiwan)" }
+		]
 
 	json2String: (a) -> JSON.stringify(a)
 
@@ -76,7 +87,7 @@ Template.settings.events
 	'click #deleteProject': ->
 		swalInput
 			swal: 'delete.project'
-			checkInput: TAPi18n.__('swal.delete.project.checkInput')
+			checkInput: i18next.t('swal.delete.project.checkInput')
 			closeOnSuccess: false
 			doConfirm: ->
 				Meteor.call 'deleteProject', FlowRouter.getParam('projectId'), (e) ->
@@ -160,7 +171,7 @@ Template.settings.events
 
 		swalInput
 			swal: 'delete.tag'
-			checkInput: TAPi18n.__('swal.delete.tag.checkInput')
+			checkInput: i18next.t('swal.delete.tag.checkInput')
 			doConfirm: (inputValue) -> Meteor.call 'removeProjectItem', projectId, 'tags', tagId, handleError
 
 	# Teams
@@ -210,7 +221,7 @@ Template.settings.events
 
 		swalInput
 			swal: 'delete.team'
-			checkInput: TAPi18n.__('swal.delete.team.checkInput')
+			checkInput: i18next.t('swal.delete.team.checkInput')
 			doConfirm: (inputValue) -> Meteor.call 'removeProjectItem', projectId, 'teams', teamId, handleError
 
 	# Meetings
@@ -240,5 +251,5 @@ Template.settings.events
 
 		swalInput
 			swal: 'delete.meeting'
-			checkInput: TAPi18n.__('swal.delete.meeting.checkInput')
+			checkInput: i18next.t('swal.delete.meeting.checkInput')
 			doConfirm: (inputValue) -> Meteor.call 'removeProjectItem', projectId, 'meetings', meetingId, handleError

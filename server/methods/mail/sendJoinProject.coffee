@@ -12,7 +12,7 @@ Meteor.methods
 			recipient: user.profile.email
 			sender: project.name
 			from: project.email
-			subject: TAPi18n.__('mail.joinProject.subject', '', user.profile.language)
+			subject: i18next.t('mail.joinProject.subject', '', user.profile.language)
 			template: 'confirmation'
 			language: user.profile.language
 			data:

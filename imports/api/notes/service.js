@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import moment from 'moment'
 import Notes from './Notes'
 import Users from '../users/Users'
@@ -38,7 +38,7 @@ Meteor.methods({
 
       if (user) {
         const username = `${user.profile.firstname} ${user.profile.lastname}`
-        const dateformat = TAPi18n.__('dateFormat.dateAndTime', '', language)
+        const dateformat = i18next.t('dateFormat.dateAndTime', '', language)
 
         note.lastChange = `${username} (${moment(note.lastChangeAt).format(dateformat)})`
       } else {
@@ -131,7 +131,7 @@ function getExtendedNote (projectId, noteId) {
     if (user != null) {
       const username = user.profile.firstname + ' ' + user.profile.lastname
       const language = Meteor.user().profile.language
-      const dateformat = TAPi18n.__('dateFormat.dateAndTime', '', language)
+      const dateformat = i18next.t('dateFormat.dateAndTime', '', language)
       const datetime = moment(note.lastChangeAt).format(dateformat)
 
       note.author = username

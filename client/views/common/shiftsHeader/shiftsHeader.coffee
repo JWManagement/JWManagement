@@ -170,11 +170,11 @@ Template.shiftsHeader.events
 					value: tag, text: name
 
 			swal.withForm
-				title: TAPi18n.__('swal.sendMail.selectTag.title')
-				text: TAPi18n.__('swal.sendMail.selectTag.text')
+				title: i18next.t('swal.sendMail.selectTag.title')
+				text: i18next.t('swal.sendMail.selectTag.text')
 				showCancelButton: true
-				cancelButtonText: TAPi18n.__('swal.sendMail.selectTag.cancel')
-				confirmButtonText: TAPi18n.__('swal.sendMail.selectTag.confirm')
+				cancelButtonText: i18next.t('swal.sendMail.selectTag.cancel')
+				confirmButtonText: i18next.t('swal.sendMail.selectTag.confirm')
 				closeOnConfirm: false
 				formFields: [
 					id: 'select', type: 'select', options: options

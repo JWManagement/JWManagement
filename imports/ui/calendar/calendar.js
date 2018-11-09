@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import moment from 'moment'
 
@@ -20,7 +20,7 @@ Template.calendar.helpers({
     return template.selectedDateShifts.get()
   },
   getFormattedTime (time) {
-    return moment(time, 'Hmm').format(TAPi18n.__('dateFormat.time'))
+    return moment(time, 'Hmm').format(i18next.t('dateFormat.time'))
   },
   hasNoRequests () {
     return this.approvedRequests === 0 && this.pendingRequests === 0
@@ -61,7 +61,7 @@ Template.calendar.onRendered(() => {
       leftArrow: '<i class="fa fa-chevron-left"></i>',
       rightArrow: '<i class="fa fa-chevron-right"></i>'
     },
-    language: TAPi18n.getLanguage()
+    language: i18next.language
   })
     .on('changeDate', function (e) {
       template.setDate(e.date)

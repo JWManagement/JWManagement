@@ -24,13 +24,13 @@ Meteor.methods
 			recipient: user.profile.email
 			sender: project.name
 			from: project.email
-			subject: TAPi18n.__('mail.confirmation.subject', '', user.profile.language)
+			subject: i18next.t('mail.confirmation.subject', '', user.profile.language)
 			template: 'confirmation'
 			language: user.profile.language
 			data:
 				project: project.name
 				name: name
-				datetime: TAPi18n.__('mail.confirmation.datetime', {date: date, time: time}, user.profile.language)
+				datetime: i18next.t('mail.confirmation.datetime', {date: date, time: time}, user.profile.language)
 				shift: shiftData
 				content: getMailTexts 'confirmation', user.profile.language
 

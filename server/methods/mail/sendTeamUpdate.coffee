@@ -32,14 +32,14 @@ Meteor.methods
 							recipient: user.profile.email
 							sender: project.name
 							from: project.email
-							subject: TAPi18n.__('mail.teamUpdate.subject', '', user.profile.language)
+							subject: i18next.t('mail.teamUpdate.subject', '', user.profile.language)
 							template: 'teamUpdate'
 							language: user.profile.language
 							data:
 								project: project.name
 								name: name
-								type: TAPi18n.__('mail.teamUpdate.changed.' + type, '', user.profile.language)
-								datetime: TAPi18n.__('mail.teamUpdate.datetime', {date: date, time: time}, user.profile.language)
+								type: i18next.t('mail.teamUpdate.changed.' + type, '', user.profile.language)
+								datetime: i18next.t('mail.teamUpdate.datetime', {date: date, time: time}, user.profile.language)
 								shift: shiftData
 								content: getMailTexts 'teamUpdate', user.profile.language
 						, (err, res) -> if err

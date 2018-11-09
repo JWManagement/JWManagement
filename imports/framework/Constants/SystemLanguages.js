@@ -16,3 +16,5 @@ const SystemLanguages = {
 }
 
 export default SystemLanguages
+
+// keep /client/views/pages/settings/settings.coffee syncronized

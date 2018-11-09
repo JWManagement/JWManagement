@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 import { getKey, getValue, defaultClickHandler } from '../DetailsForm.Helpers'
 import { getEntityTranslation } from '../../../Helpers/Helpers'
@@ -16,7 +16,7 @@ Template.DetailsFormCheckbox.helpers({
       value = getValue(definition, entity)
     }
 
-    return value ? TAPi18n.__('detailsForm.yes') : TAPi18n.__('detailsForm.no')
+    return value ? i18next.t('detailsForm.yes') : i18next.t('detailsForm.no')
   }
 })
 

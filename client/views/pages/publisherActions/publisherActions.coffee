@@ -87,18 +87,18 @@ Template.publisherActions.events
 
 		head = []
 		head.push(
-			TAPi18n.__('input.email')
-			TAPi18n.__('input.firstname')
-			TAPi18n.__('input.lastname')
-			TAPi18n.__('input.gender')
-			TAPi18n.__('profile.telefon')
-			TAPi18n.__('profile.privilegeOfService')
-			TAPi18n.__('profile.ministryPrivilege')
-			TAPi18n.__('profile.congregation')
-			TAPi18n.__('profile.language')
-			TAPi18n.__('profile.languages')
-			TAPi18n.__('input.username')
-			TAPi18n.__('role.role'))
+			i18next.t('input.email')
+			i18next.t('input.firstname')
+			i18next.t('input.lastname')
+			i18next.t('input.gender')
+			i18next.t('profile.telefon')
+			i18next.t('profile.privilegeOfService')
+			i18next.t('profile.ministryPrivilege')
+			i18next.t('profile.congregation')
+			i18next.t('profile.language')
+			i18next.t('profile.languages')
+			i18next.t('input.username')
+			i18next.t('role.role'))
 
 		csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + head.join(';') + '\r\n'
 

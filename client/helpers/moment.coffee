@@ -1,11 +1,11 @@
 moment = require('moment')
 
 Template.registerHelper 'format', (value, oldFormat, newFormat) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	moment(value, oldFormat).format(newFormat)
 
 Template.registerHelper 'formatTimeComparison', (a, b, showSuffix = true) ->
-	language = TAPi18n.getLanguage()
+	language = i18next.language
 
 	if language == 'en'
 		if a < 60 then a = '00' + a
@@ -35,16 +35,16 @@ Template.registerHelper 'formatTimeComparison', (a, b, showSuffix = true) ->
 		v2 += ':' + e2 if e2 > 0
 
 		if showSuffix
-			v1 + ' - ' + v2 + ' ' + TAPi18n.__('time.suffix')
+			v1 + ' - ' + v2 + ' ' + i18next.t('time.suffix')
 		else
 			v1 + ' - ' + v2
 
 Template.registerHelper 'formatIsoWeekday', (a) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	moment(new Date).isoWeekday(a).format('dddd')
 
 Template.registerHelper 'formatWeek', (a) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	a = FlowRouter.getQueryParam('showWeek') if a == 'showWeek'
 
 	first = moment(a).format('D.')
@@ -54,10 +54,10 @@ Template.registerHelper 'formatWeek', (a) ->
 	else if moment(a).format('M') != moment(a).add(6, 'd').format('M')
 		first += moment(a).format(' MMMM')
 
-	first + ' ' + TAPi18n.__('time.to') + ' ' + moment(a).add(6, 'd').format('D. MMMM YYYY')
+	first + ' ' + i18next.t('time.to') + ' ' + moment(a).add(6, 'd').format('D. MMMM YYYY')
 
 Template.registerHelper 'formatTime', (time) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	if time < 60 then time = '00' + time
 	if time % 100 == 0
 		moment(time, 'Hmm').format('H')
@@ -65,14 +65,14 @@ Template.registerHelper 'formatTime', (time) ->
 		moment(time, 'Hmm').format('H:mm')
 
 Template.registerHelper 'formatTimeWithSuffix', (time) ->
-	language = TAPi18n.getLanguage()
+	language = i18next.language
 
 	if time < 60 then time = '00' + time
 
 	if language == 'en'
 		suffix = moment(time, 'Hmm').format(' A')
 	else
-		suffix = ' ' + TAPi18n.__('time.suffix')
+		suffix = ' ' + i18next.t('time.suffix')
 
 	if time % 100 == 0
 		moment(time, 'Hmm').format('H') + suffix
@@ -80,13 +80,13 @@ Template.registerHelper 'formatTimeWithSuffix', (time) ->
 		moment(time, 'Hmm').format('H:mm') + suffix
 
 Template.registerHelper 'formatFromNow', (date, time) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	string = moment(date, 'YYYYDDDD').format('YYYY-MM-DD ')
 	string += moment(time, 'Hmm').format('HH:mm')
 	moment().from(string)
 
 Template.registerHelper 'formatToNow', (date, time) ->
-	TAPi18n.getLanguage()
+	i18next.language
 	string = moment(date, 'YYYYDDDD').format('YYYY-MM-DD ')
 	string += moment(time, 'Hmm').format('HH:mm')
 	moment().to(string)

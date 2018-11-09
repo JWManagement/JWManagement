@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getValue, isType, loadData } from '../DetailsForm.Helpers'
@@ -43,7 +43,7 @@ Template.DetailsFormArrayLink.events({
       messagePathParts.splice(1, 0, 'entity')
       messagePathParts.push('methodConfirmation')
 
-      const deleteConfirmationMessage = TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.'))
+      const deleteConfirmationMessage = i18next.t(messagePathParts.join('.').replace(/_/g, '.'))
 
       if (confirm(deleteConfirmationMessage)) {
         Meteor.call(method, params, entityId, (error) => {

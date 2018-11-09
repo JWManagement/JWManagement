@@ -28,7 +28,7 @@ Meteor.methods
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.accountCreated.subject', '', user.profile.language)
+				subject: i18next.t('mail.accountCreated.subject', '', user.profile.language)
 				template: 'accountCreated'
 				language: user.profile.language
 				data:

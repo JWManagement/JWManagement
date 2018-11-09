@@ -21,8 +21,8 @@ Meteor.methods
 				data.data?)
 
 			data.data.global =
-				footer: TAPi18n.__('mail.footer', '', data.language)
-				link: TAPi18n.__('mail.link', '', data.language)
+				footer: i18next.t('mail.footer', '', data.language)
+				link: i18next.t('mail.link', '', data.language)
 
 			sent = Mailer.send
 				to: data.recipient

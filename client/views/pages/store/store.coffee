@@ -164,7 +164,7 @@ Template.store.helpers
 		'OTHER'
 	].map((lang) ->
 		short: lang
-		translation: TAPi18n.__('language.', context: lang)
+		translation: i18next.t('language.', context: lang)
 	).sort((a, b) -> a.translation > b.translation)
 
 	isReady: -> ProjectSubs.ready()

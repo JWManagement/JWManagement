@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getValue, getKey, defaultClickHandler } from '../DetailsForm.Helpers'
@@ -23,7 +23,7 @@ Template.DetailsFormDropdown.helpers({
     routeNameParts.push(definition.key.replace(/_/g, '.') + 'Values')
     routeNameParts.push(value)
 
-    return TAPi18n.__(routeNameParts.join('.'))
+    return i18next.t(routeNameParts.join('.'))
   }
 })
 

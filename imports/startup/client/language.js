@@ -1,9 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Tracker } from 'meteor/tracker'
-import { TAPi18n } from 'meteor/tap:i18n'
 import { FlowRouter } from 'meteor/kadira:flow-router'
+import i18next from 'i18next'
 import moment from 'moment'
-
 import { wrs } from '../../framework/Functions/Async'
 
 export { setLanguageOnAuth }
@@ -28,8 +27,8 @@ function setLanguageOnAuth () {
         moment.locale(myLanguage)
       }
 
-      if (TAPi18n.getLanguage() !== myLanguage) {
-        TAPi18n.setLanguage(myLanguage)
+      if (i18next.language !== myLanguage) {
+        i18next.changeLanguage(myLanguage)
       }
     }
   })

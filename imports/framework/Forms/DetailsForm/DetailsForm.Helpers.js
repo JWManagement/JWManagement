@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { FlowRouter } from 'meteor/kadira:flow-router'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 import RoleManager from '../../Managers/RoleManager'
 import RouteManager from '../../Managers/RouteManager'
@@ -107,7 +107,7 @@ function getValueForSeeAllItems (definition, entity) {
   messagePathParts.push(definition.key)
   messagePathParts.push('seeAllItems')
 
-  return TAPi18n.__(messagePathParts.join('.'), { count: moreItemsCount })
+  return i18next.t(messagePathParts.join('.'), { count: moreItemsCount })
 }
 
 function clickHandlerForSeeAllItems (e) {

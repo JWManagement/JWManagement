@@ -16,13 +16,13 @@ Meteor.methods
 					date = moment(shift.date, 'YYYYDDDD').format('DD.MM.YYYY')
 					time = moment(shift.start, 'Hmm').format('H:mm') + ' - ' +  moment(shift.end, 'Hmm').format('H:mm')
 					if message == 'missingParticipant'
-						message = TAPi18n.__('mail.teamCancellation.missingParticipant', '', user.profile.language)
+						message = i18next.t('mail.teamCancellation.missingParticipant', '', user.profile.language)
 
 					Meteor.call 'sendMail',
 						recipient: participant.email
 						sender: project.name
 						from: project.email
-						subject: TAPi18n.__('mail.teamCancellation.subject', '', user.profile.language)
+						subject: i18next.t('mail.teamCancellation.subject', '', user.profile.language)
 						template: 'teamCancellation'
 						language: user.profile.language
 						data:
@@ -30,4 +30,4 @@ Meteor.methods
 							team: team.name
 							name: participant.name
 							reason: message
-							text: TAPi18n.__('mail.teamCancellation.text', {date: date, time: time} , user.profile.language)
+							text: i18next.t('mail.teamCancellation.text', {date: date, time: time} , user.profile.language)

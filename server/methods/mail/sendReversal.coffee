@@ -23,14 +23,14 @@ Meteor.methods
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.reversal.subject', '', user.profile.language)
+				subject: i18next.t('mail.reversal.subject', '', user.profile.language)
 				template: 'reversal'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
 					team: shift.teams[teamNr].name
-					datetime: TAPi18n.__('mail.reversal.datetime', dateTime, user.profile.language)
+					datetime: i18next.t('mail.reversal.datetime', dateTime, user.profile.language)
 					content: getMailTexts 'reversal', user.profile.language
 			, (err, res) -> if err
 				console.log 'sendMail failed: ' + err

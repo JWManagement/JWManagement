@@ -21,13 +21,13 @@ Meteor.methods
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.declined.subject', '', user.profile.language)
+				subject: i18next.t('mail.declined.subject', '', user.profile.language)
 				template: 'declined'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
-					datetime: TAPi18n.__('mail.declined.datetime', {date: date, time: time}, user.profile.language)
+					datetime: i18next.t('mail.declined.datetime', {date: date, time: time}, user.profile.language)
 					content: getMailTexts 'declined', user.profile.language
 
 			if sent

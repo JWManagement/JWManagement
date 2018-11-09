@@ -35,13 +35,13 @@ Meteor.methods
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.understaffed.subject', '', user.profile.language)
+				subject: i18next.t('mail.understaffed.subject', '', user.profile.language)
 				template: 'understaffed'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
-					type: TAPi18n.__('role.' + type, '', user.profile.language)
-					datetime: TAPi18n.__('mail.understaffed.datetime', {date: date, time: time}, user.profile.language)
+					type: i18next.t('role.' + type, '', user.profile.language)
+					datetime: i18next.t('mail.understaffed.datetime', {date: date, time: time}, user.profile.language)
 					shift: shiftData
 					content: getMailTexts 'understaffed', user.profile.language

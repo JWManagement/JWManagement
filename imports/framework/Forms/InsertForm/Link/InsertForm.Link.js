@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
@@ -31,7 +31,7 @@ Template.InsertFormLink.helpers({
     messagePathParts.splice(1, 0, 'entity')
     messagePathParts = messagePathParts.concat(data.key.replace(/_/g, '.'))
 
-    return TAPi18n.__(messagePathParts.join('.') + 'Values.' + value)
+    return i18next.t(messagePathParts.join('.') + 'Values.' + value)
   }
 })
 

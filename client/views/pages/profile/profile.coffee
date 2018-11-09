@@ -31,7 +31,7 @@ Template.profile.onRendered ->
 	@autorun ->
 		$('.input-daterange').datepicker
 			format: 'dd.mm.yyyy'
-			language: TAPi18n.getLanguage()
+			language: i18next.language
 			ignoreReadonly: true
 
 Template.profile.onDestroyed ->
@@ -54,7 +54,7 @@ Template.profile.events
 		Meteor.call 'updateProfile', 'username', username, (error) ->
 			if error
 				if error.error == 406
-					swal TAPi18n.__('profile.usernameTaken'), '', 'error'
+					swal i18next.t('profile.usernameTaken'), '', 'error'
 					Delay -> $(e.target).val Meteor.user().username
 				else
 					handleError error
@@ -94,24 +94,24 @@ Template.profile.events
 
 	'click #changePassword': ->
 		swal.withForm
-			title: TAPi18n.__('swal.update.password.title')
+			title: i18next.t('swal.update.password.title')
 			confirmButtonColor: "#3f51b5"
-			confirmButtonText: TAPi18n.__('swal.update.password.confirm')
-			cancelButtonText: TAPi18n.__('swal.update.password.cancel')
+			confirmButtonText: i18next.t('swal.update.password.confirm')
+			cancelButtonText: i18next.t('swal.update.password.cancel')
 			showCancelButton: true
 			closeOnConfirm: false
 			formFields: [
 				id: 'passwordOld'
 				type: 'password'
-				placeholder: TAPi18n.__('swal.update.password.passwordOld')
+				placeholder: i18next.t('swal.update.password.passwordOld')
 			,
 				id: 'passwordNew1'
 				type: 'password'
-				placeholder: TAPi18n.__('swal.update.password.passwordNew1')
+				placeholder: i18next.t('swal.update.password.passwordNew1')
 			,
 				id: 'passwordNew2'
 				type: 'password'
-				placeholder: TAPi18n.__('swal.update.password.passwordNew2')
+				placeholder: i18next.t('swal.update.password.passwordNew2')
 			]
 		, (isConfirm) -> if isConfirm
 			value = false
@@ -121,11 +121,11 @@ Template.profile.events
 			if password1 == password2
 				if password1.length >= 8
 					Accounts.changePassword @swalForm.passwordOld, @swalForm.passwordNew1, (e) ->
-						unless e then swal TAPi18n.__('swal.update.password.passwordChanged'), '', 'success'
+						unless e then swal i18next.t('swal.update.password.passwordChanged'), '', 'success'
 				else
-					swal TAPi18n.__('password.tooShort'), '', 'error'
+					swal i18next.t('password.tooShort'), '', 'error'
 			else
-				swal TAPi18n.__('password.notMatching'), '', 'error'
+				swal i18next.t('password.notMatching'), '', 'error'
 
 	'click #deleteAccount': ->
 		swalYesNo
@@ -149,12 +149,12 @@ Template.profile.events
 		Meteor.call 'addVacation', today, (err, vacationId) -> Tracker.afterFlush ->
 			$('#' + vacationId).datepicker
 				format: 'dd.mm.yyyy'
-				language: TAPi18n.getLanguage()
+				language: i18next.language
 
 	'change .startDate': (e) -> Meteor.call 'setVacationStart', @_id, e.target.value
 
 	'change .endDate': (e) ->
 		if moment(e.target.value, 'DD.MM.YYYY') < moment(0, 'HH')
-			swal TAPi18n.__('swal.vacationEndInPast'), '', 'error'
+			swal i18next.t('swal.vacationEndInPast'), '', 'error'
 		else
 			Meteor.call 'setVacationEnd', @_id, e.target.value

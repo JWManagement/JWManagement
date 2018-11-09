@@ -21,22 +21,22 @@ exports.send = (data) ->
 			data.data?)
 
 		data.data.global =
-			footer: TAPi18n.__('mail.footer', '', data.language)
-			link: TAPi18n.__('mail.link', '', data.language)
+			footer: i18next.t('mail.footer', '', data.language)
+			link: i18next.t('mail.link', '', data.language)
 
 		data.data.content =
-			headline: TAPi18n.__('mail.' + data.from + '.headline', '', data.language)
-			hello: TAPi18n.__('mail.' + data.from + '.hello', '', data.language)
-			text1: TAPi18n.__('mail.' + data.from + '.text1', '', data.language)
-			text2: TAPi18n.__('mail.' + data.from + '.text2', '', data.language)
-			changed: TAPi18n.__('mail.' + data.from + '._changed', '', data.language)
-			button: TAPi18n.__('mail.' + data.from + '.button', '', data.language)
+			headline: i18next.t('mail.' + data.from + '.headline', '', data.language)
+			hello: i18next.t('mail.' + data.from + '.hello', '', data.language)
+			text1: i18next.t('mail.' + data.from + '.text1', '', data.language)
+			text2: i18next.t('mail.' + data.from + '.text2', '', data.language)
+			changed: i18next.t('mail.' + data.from + '._changed', '', data.language)
+			button: i18next.t('mail.' + data.from + '.button', '', data.language)
 
 		if Meteor.user().notifications?.push
 			sent = Push.send
 				from: project.name
-				title: TAPi18n.__('push.teamCancellation.headline', user.profile.language)
-				text: TAPi18n.__('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
+				title: i18next.t('push.teamCancellation.headline', user.profile.language)
+				text: i18next.t('push.teamCancellation.text', {date: date, time: time} , user.profile.language)
 				query: userId: user._id
 		else
 			sent = Mailer.send

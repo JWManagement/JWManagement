@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 import Languages from '../../framework/Constants/Languages'
 
@@ -11,7 +11,7 @@ Template['vessel.visit.language.insert'].helpers({
       type: 'picker',
       allowedKeyValues: Languages.allowedValues
         .map((lang) => {
-          return { key: lang, value: TAPi18n.__('language._' + lang) }
+          return { key: lang, value: i18next.t('language._' + lang) }
         })
         .sort((a, b) => {
           if (a.value < b.value) { return -1 }
