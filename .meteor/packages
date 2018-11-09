@@ -50,7 +50,6 @@ okgrow:analytics
 raix:push@3.0.3-rc.5
 percolate:synced-cron #not yet used (cron.coffee)
 summernote:standalone
-tap:i18n
 meteortesting:mocha
 deanius:promise
 mdg:meteor-apm-agent

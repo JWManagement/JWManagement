@@ -93,7 +93,6 @@ meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.2.0
 meteorhacks:subs-manager@1.6.4
-meteorspark:util@0.2.0
 meteortesting:browser-tests@1.1.0
 meteortesting:mocha@1.0.1
 meteortesting:mocha-core@5.2.0_2
@@ -143,7 +142,6 @@ spacebars-compiler@1.1.3
 srp@1.0.12
 standard-minifier-css@1.5.1
 summernote:standalone@0.8.1
-tap:i18n@1.8.2
 templating@1.3.2
 templating-compiler@1.3.3
 templating-runtime@1.3.2
