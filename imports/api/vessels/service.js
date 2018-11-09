@@ -166,10 +166,6 @@ Meteor.methods({
   'vessel.visit.getAvailableHarbors' ({ projectId, language }) {
     checkVesselModule(projectId)
 
-    if (!Harbor.allowedValues) {
-      console.log(Harbor)
-    }
-
     return Harbor.allowedValues
       .map((harborId) => {
         return {
@@ -342,10 +338,6 @@ function getExtendedVisit (visit) {
       country: 1
     }
   })
-
-  if (!Harbor.allowedValues) {
-    console.log(Harbor)
-  }
 
   visit.country = project.country
   const harborName = Harbor.allowedValues.filter((h) => h === visit.harborId)[0]
