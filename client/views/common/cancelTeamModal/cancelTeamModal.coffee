@@ -14,10 +14,6 @@ Template.cancelTeamModal.onRendered ->
 
 	$('#message').focus()
 
-Template.cancelTeamModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.cancelTeamModal.events
 
 	'click #cancelTeam': ->

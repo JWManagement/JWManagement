@@ -21,10 +21,6 @@ Template.editTeamPictureModal.onRendered ->
 	$('#editTeamPictureModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams editTeamPicture: undefined
 
-Template.editTeamPictureModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.editTeamPictureModal.events
 
 	'change #edit': (e) ->

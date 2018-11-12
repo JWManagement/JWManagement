@@ -102,10 +102,6 @@ Template.addParticipantModal.onRendered ->
 			participantId: null
 			showShift: shiftId
 
-Template.addParticipantModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.addParticipantModal.events
 
 	'click #setUser': (e) ->
