@@ -21,10 +21,6 @@ Template.editMeetingPictureModal.onRendered ->
 	$('#editMeetingPictureModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams editMeetingPicture: undefined
 
-Template.editMeetingPictureModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.editMeetingPictureModal.events
 
 	'change #edit': (e) ->

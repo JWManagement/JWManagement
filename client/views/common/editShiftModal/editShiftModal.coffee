@@ -65,10 +65,6 @@ Template.editShiftModal.onRendered ->
 
 	$('#beamerSelector').addClass('hidden')
 
-Template.editShiftModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.editShiftModal.events
 
 	'change #start': (e) ->

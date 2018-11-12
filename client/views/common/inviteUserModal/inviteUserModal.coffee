@@ -23,10 +23,6 @@ Template.inviteUserModal.onRendered ->
 
 	Session.set 'selectedUsers', []
 
-Template.inviteUserModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.inviteUserModal.events
 
 	'change #selectAll': (e) ->

@@ -11,8 +11,9 @@ vessel:
       mt: Tanker
       p: Passagierschiff
       pt: Schubboot
-      rc: Flusskreuzfahrtschiff
       f: Fähre
+      r: Kühlschiff
+      rc: Flusskreuzfahrtschiff
       ro: Ro-Ro
       t: Schlepper
       unknown: Unbekannt

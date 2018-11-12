@@ -142,10 +142,6 @@ Template.shiftModal.onRendered ->
 
 	$('#beamerSelector').addClass('hidden')
 
-Template.shiftModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.shiftModal.events
 
 	'click .requestTeam': (e) ->

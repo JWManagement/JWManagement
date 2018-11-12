@@ -11,8 +11,9 @@ vessel:
       mt: Tanker
       p: Passenger ship
       pt: Pushtow
-      rc: River cruise ship
       f: Ferry
+      r: Reefer ship
+      rc: River cruise ship
       ro: Ro-Ro
       t: Tug
       unknown: Unknown
