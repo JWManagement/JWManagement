@@ -186,6 +186,8 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 9. Now login on the website with 'johndoe' and password '12345678'
 
+Alternatively you can skip step 6 to 8 and signup under http://localhost:3000 to create a new user and project.
+
 ### Development
 
 We recommend Atom.io (https://atom.io) and these Plugins:
