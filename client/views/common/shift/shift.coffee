@@ -1,6 +1,12 @@
 moment = require('moment')
 
+# ShiftLoading = require('../../../../imports/ui/shiftLoading/ShiftLoading')
+
+`import ShiftLoading from '../../../../imports/ui/shiftLoading/ShiftLoading'`
+
 Template.shift.helpers
+
+	ShiftLoading: -> ShiftLoading
 
 	view: (a) ->
 		if a?
