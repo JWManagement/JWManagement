@@ -20,6 +20,8 @@
     "moment": "^2.22.2",
     "object-assign-deep": "^0.4.0",
     "prerender-node": "^2.7.4",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
     "simpl-schema": "^0.3.1",
     "underscore": "^1.9.1"
   },
