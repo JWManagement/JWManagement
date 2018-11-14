@@ -290,33 +290,7 @@
 	.day-wrapper {
 		padding-top: 20px;
 
-		.fake-shift {
-			.fake-header {
-				width           : 60px;
-				height          : 17px;
-				margin-left     : auto;
-				margin-right    : auto;
-				background-color: rgba(#fff, 0.7);
-			}
-
-			.fake-team-header {
-				width           : 80px;
-				height          : 12px;
-				margin-top      : 4px;
-				margin-bottom   : 4px;
-				background-color: rgba(#202960, 0.4);
-			}
-
-			.fake-text {
-				width           : 100px;
-				height          : 12px;
-				margin-top      : 6px;
-				margin-bottom   : 6px;
-				background-color: rgba(#202960, 0.3);
-			}
-		}
-
-		.shift:last-of-type + .separator,
+    .shift:last-of-type + .separator,
 		.wrongTag + .separator {
 			display: none;
 		}
