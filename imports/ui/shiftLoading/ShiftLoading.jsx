@@ -25,7 +25,7 @@ const Text = styled.div`
   background-color: rgba(32, 41, 96, 0.3);
 `
 
-function ShiftLoading () {
+export default function ShiftLoading () {
   return (
     <button className='btn btn-block shift'>
       <h3 className='shift-period'>
@@ -46,5 +46,3 @@ function ShiftLoading () {
     </button>
   )
 }
-
-export default ShiftLoading

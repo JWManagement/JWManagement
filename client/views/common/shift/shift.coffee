@@ -1,12 +1,17 @@
 moment = require('moment')
 
-# ShiftLoading = require('../../../../imports/ui/shiftLoading/ShiftLoading')
-
 `import ShiftLoading from '../../../../imports/ui/shiftLoading/ShiftLoading'`
+`import TeamMember from '../../../../imports/ui/teamMember/TeamMember'`
 
 Template.shift.helpers
 
 	ShiftLoading: -> ShiftLoading
+
+	TeamMember: -> TeamMember
+
+	meIsShiftScheduler: -> Roles.userIsInRole(Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId'))
+
+	getTeamMember: -> Template.currentData().user
 
 	view: (a) ->
 		if a?
