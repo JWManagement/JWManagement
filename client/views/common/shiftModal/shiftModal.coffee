@@ -1,6 +1,12 @@
 moment = require('moment')
 
+`import TeamMember from '../../../../imports/ui/team/TeamMember'`
+
 Template.shiftModal.helpers
+
+	TeamMember: -> TeamMember
+
+	isMeShiftScheduler: -> Roles.userIsInRole(Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId'))
 
 	getShiftId: -> FlowRouter.getQueryParam('showShift')
 
