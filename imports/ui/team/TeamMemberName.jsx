@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class TeamMemberName extends Component {
   render () {
-    if (this.props.styleName) {
+    if (this.props.applyStyle) {
       let styledName = this.props.member.name
 
       if (this.props.member.teamleader) {
