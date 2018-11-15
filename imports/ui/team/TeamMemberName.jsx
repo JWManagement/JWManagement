@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class TeamMember extends Component {
+export default class TeamMemberName extends Component {
   render () {
     if (this.props.styleName) {
       let styledName = this.props.member.name

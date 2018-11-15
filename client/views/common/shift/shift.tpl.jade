@@ -50,20 +50,20 @@ with getShift
                   .shift-team-participants
                     each sortUsers team.participants
                       span
-                        +React component=TeamMember member=this styleName=meIsShiftScheduler
+                        +React component=TeamMemberName member=this styleName=meIsShiftScheduler
                       br
                 if team.pending
                   if isProjectShiftScheduler
                     .shift-team-pendings
                       each sortUsers team.pending
                         span
-                          +React component=TeamMember member=this styleName=meIsShiftScheduler
+                          +React component=TeamMemberName member=this styleName=meIsShiftScheduler
                         br
                   else if directScheduling
                     .shift-team-pendings
                       each sortUsers team.pending
                         span
-                          +React component=TeamMember member=this styleName=meIsShiftScheduler
+                          +React component=TeamMemberName member=this styleName=meIsShiftScheduler
                         br
                   else if team.participants
                     .shift-team-information
