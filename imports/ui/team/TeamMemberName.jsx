@@ -6,19 +6,13 @@ export default class TeamMemberName extends Component {
       let styledName = this.props.member.name
 
       if (this.props.member.teamleader) {
-        styledName = (
-          <b>{styledName}</b>
-        )
+        styledName = <b>{styledName}</b>
       } else if (this.props.member.substituteTeamleader) {
-        styledName = (
-          <i>{styledName}</i>
-        )
+        styledName = <i>{styledName}</i>
       }
 
       if (this.props.member.thisTeamleader) {
-        styledName = (
-          <u>{styledName}</u>
-        )
+        styledName = <u>{styledName}</u>
       }
 
       return styledName
