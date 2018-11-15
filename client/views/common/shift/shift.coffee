@@ -9,7 +9,7 @@ Template.shift.helpers
 
 	TeamMemberName: -> TeamMemberName
 
-	meIsShiftScheduler: -> Roles.userIsInRole(Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId'))
+	isMeShiftScheduler: -> Roles.userIsInRole(Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId'))
 
 	getTeamMember: -> Template.currentData().user
 

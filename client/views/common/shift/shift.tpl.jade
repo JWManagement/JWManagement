@@ -49,21 +49,20 @@ with getShift
                 if team.participants
                   .shift-team-participants
                     each sortUsers team.participants
-                      span
-                        +React component=TeamMemberName member=this applyStyle=meIsShiftScheduler
-                      br
+                      div
+                        +React component=TeamMemberName member=this applyStyle=isMeShiftScheduler
                 if team.pending
                   if isProjectShiftScheduler
                     .shift-team-pendings
                       each sortUsers team.pending
                         span
-                          +React component=TeamMemberName member=this applyStyle=meIsShiftScheduler
+                          +React component=TeamMemberName member=this applyStyle=isMeShiftScheduler
                         br
                   else if directScheduling
                     .shift-team-pendings
                       each sortUsers team.pending
                         span
-                          +React component=TeamMemberName member=this applyStyle=meIsShiftScheduler
+                          +React component=TeamMemberName member=this applyStyle=isMeShiftScheduler
                         br
                   else if team.participants
                     .shift-team-information
