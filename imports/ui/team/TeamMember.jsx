@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import TeamMemberName from './TeamMemberName'
+import TeamMemberStats from './TeamMemberStats'
 
 export default class TeamMember extends Component {
   render () {
@@ -12,7 +12,7 @@ export default class TeamMember extends Component {
     if (this.props.showSetLeader) {
       if (!member.thisTeamleader && (member.teamleader || member.substituteTeamleader)) {
         setLeaderButton = (
-          <a className='setLeader' href>
+          <a className='setLeader' href=''>
             <i className='fa fa-star fa-fw' />
           </a>
         )
@@ -21,7 +21,7 @@ export default class TeamMember extends Component {
 
     if (this.props.showDecline) {
       declineButton = (
-        <a className='declineParticipant' href>
+        <a className='declineParticipant' href=''>
           <i className='fa fa-thumbs-down fa-fw' />
         </a>
       )
@@ -30,13 +30,13 @@ export default class TeamMember extends Component {
     if (this.props.showMailStatus) {
       if (member.informed) {
         mailStatusButton = (
-          <a className='sentConfirmation pull-right m-l-sm' href>
+          <a className='sentConfirmation pull-right m-l-sm' href=''>
             <i className='fa fa-send' />
           </a>
         )
       } else {
         mailStatusButton = (
-          <a className='sendConfirmation pull-right m-l-sm' href>
+          <a className='sendConfirmation pull-right m-l-sm' href=''>
             <i className='fa fa-send-o' />
           </a>
         )
@@ -58,6 +58,7 @@ export default class TeamMember extends Component {
     return (
       <div>
         <TeamMemberName member={member} applyStyle={this.props.showStats} />
+        <TeamMemberStats userId={member._id} />
 
         <div className='float-right'>
           {setLeaderButton}
