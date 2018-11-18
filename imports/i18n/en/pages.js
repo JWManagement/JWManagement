@@ -20,7 +20,7 @@ const pages = {
   resetPassword: {
     name: 'Reset password',
     text: 'Please enter a new password for %s %s.',
-    noUserFound: '<p>This link has expired</p><p>Please request another reset password mail.</p>',
+    noUserFound: '<p>This link is invalid.</p><p>Please request another reset password mail.</p>',
     button: 'Change password',
     back: 'Back to Login Page'
   },

@@ -20,7 +20,7 @@ const pages = {
   resetPassword: {
     name: 'Passwort zurücksetzen',
     text: 'Neues Passwort für %s %s eingeben.',
-    noUserFound: '<p>Dieser Link ist abgelaufen</p><p>Bitte lass dir einen neuen Link zuschicken.</p>',
+    noUserFound: '<p>Dieser Link ist ungültig.</p><p>Bitte lass dir einen neuen Link zuschicken.</p>',
     button: 'Passwort ändern',
     back: 'Zurück zum Login'
   },
