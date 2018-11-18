@@ -23,6 +23,8 @@ Meteor.methods
 				Meteor.users.update userId, $set: state: 'created'
 
 	createAccounts: (newUsers, projectId) ->
+		console.log(newUsers)
+
 		check newUsers, Array
 		check { userId: Meteor.userId(), projectId: projectId}, isAdmin
 
