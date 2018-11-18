@@ -1,12 +1,12 @@
 const searchForm = {
   loading: 'Lade',
   noResults: 'Keine Ergebnisse',
-  xResults: 'xxx Ergebnis',
-  xResults_plural: 'xxx Ergebnisse',
-  showingTheFirstX: 'Zeige die ersten xxx',
+  xResults: '1 Ergebnis',
+  xResults_plural: '{{count}} Ergebnisse',
+  showingTheFirstX: 'Zeige die ersten {{count}}',
   showingAll: '',
   showingAll_plural: 'Zeige alle',
-  showAll: 'Zeige alle xxx'
+  showAll: 'Zeige alle {{count}}'
 }
 
 export default searchForm

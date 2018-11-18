@@ -1,11 +1,11 @@
 searchForm:
   loading: 正在裝入
   noResults: 沒有結果
-  xResults: %s個結果
-  xResults_plural: %s個結果
-  showingTheFirstX: 正在顯示頭一%s
+  xResults: {{count}}個結果
+  xResults_plural: {{count}}個結果
+  showingTheFirstX: 正在顯示頭一{{count}}
   showingAll_plural: 正在顯示一切
-  showAll: 顯示所有%s
+  showAll: 顯示所有{{count}}
 validation:
   required: 這輸入字段是必須的
   minString8: 密碼應該最少有8個字符

@@ -1,12 +1,12 @@
 searchForm:
   loading: Ładowanie
   noResults: Brak wyników
-  xResults: %s wynik
-  xResults_plural: %s wyników
-  showingTheFirstX: Pokazuję pierwszy %s
+  xResults: {{count}} wynik
+  xResults_plural: {{count}} wyników
+  showingTheFirstX: Pokazuję pierwszy {{count}}
   showingAll: ''
   showingAll_plural: Pokazuję wszystkie
-  showAll: Pokaż wszystkie %s
+  showAll: Pokaż wszystkie {{count}}
 validation:
   required: Te pole jest wymagana
   unique: Już istnieje wpis z tą wartością

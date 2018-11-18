@@ -3,11 +3,10 @@ const framework = {
     loading: 'Loading',
     noResults: 'No results',
     xResults: '1 result',
-    xResults_plural: '%s results',
-    showingTheFirstX: 'Showing the first %s',
-    showingAll: '',
-    showingAll_plural: 'Showing all',
-    showAll: 'Show all %s'
+    xResults_plural: '{{count}} results',
+    showingTheFirstX: 'Showing the first {{count}}',
+    showingAll: 'Showing all',
+    showAll: 'Show all {{count}}'
   },
   validation: {
     required: 'This field is required',
