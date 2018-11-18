@@ -22,9 +22,10 @@ Template.registerHelper 'isMember', ->
 Template.registerHelper 'isThisTeamleader', (shiftId, teamId) ->
 	shift = Shifts.findOne shiftId, fields: teams: 1
 
-	for team in shift.teams when team._id == teamId
-		for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
-			return true
+	if shift.teams
+		for team in shift.teams when team._id == teamId
+			for user in team.participants when user._id == Meteor.userId() && user.thisTeamleader
+				return true
 
 	return Roles.userIsInRole Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId')
 
