@@ -166,8 +166,8 @@ swal:
       title: Tényleg törölje ezt a találkozási helyet?
       text: A találkozási hely az összes meglévő, a jövőre tervezett szolgálati időszakban is megszűnik.
       checkInput: Törlés
-      placeholder: Kérjük, írd be a "%s" kifejezést jóváhagyás végett
-      inputError: A bevitel nem egyezik a "%s"
+      placeholder: Kérjük, írd be a "{{param}}" kifejezést jóváhagyás végett
+      inputError: A bevitel nem egyezik a "{{param}}"
       confirm: Törlés
       cancel: Visszavonás
     note:
@@ -179,8 +179,8 @@ swal:
       title: Tényleg törlöd ezt a projektet?
       text: Ez visszavonhatatlanul törli a projekthez kapcsolódó beállításokat, pl. szolgálati időszakokat, jelentéseket, kéréseket, irodalmat. Csak a felhasználói fiókok maradnak.
       checkInput: Törölje a projektet
-      placeholder: Kérjük, írd be a "% s" kifejezést jóváhagyás végett
-      inputError: A bevitel nem egyezik a "%s"
+      placeholder: Kérjük, írd be a "{{param}}" kifejezést jóváhagyás végett
+      inputError: A bevitel nem egyezik a "{{param}}"
       confirm: Törlés
       cancel: Visszavonás
     publication:
@@ -212,16 +212,16 @@ swal:
       title: Valóban törlöd a címkét?
       text: A címkéhez tartozó összes szolgálati időszak is törlődik. Ez magában foglalja az ezekre a szolgálati időszakokra vonatkozó összes kérelmet.
       checkInput: Törlés
-      placeholder: Kérjük, írd be a "% s" kifejezést jóváhagyás végett
-      inputError: A bevitel nem egyezik a "%s"
+      placeholder: Kérjük, írd be a "{{param}}" kifejezést jóváhagyás végett
+      inputError: A bevitel nem egyezik a "{{param}}"
       confirm: Törlés
       cancel: Visszavonás
     team:
       title: Tényleg törölni akarod ezt a csoportot?
       text: A csoport el lesz távolítva a jövőre tervezett összes szolgálati időszakból. Az ezekre a szolgálati időszakokra vonatkozó jóváhagyott kérelmek átkerülnek más csoportokra. <br><br> A megerősítéshez kérünk gépeld be hogy "törlés".
       checkInput: törlés
-      placeholder: Kérjük, írd be a "% s" kifejezést jóváhagyás végett
-      inputError: A bevitel nem egyezik a "%s"
+      placeholder: Kérjük, írd be a "{{param}}" kifejezést jóváhagyás végett
+      inputError: A bevitel nem egyezik a "{{param}}"
       confirm: Törlés
       cancel: Visszavonás
     template:

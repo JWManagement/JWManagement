@@ -207,8 +207,8 @@ const swal = {
       title: 'Treffpunkt wirklich löschen?',
       text: 'Die Treffpunkte werden auch aus bestehenden Schichten gelöscht.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "xxx" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "xxx" überein',
+      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
@@ -224,8 +224,8 @@ const swal = {
       title: 'Möchtest du das Projekt wirklich löschen?',
       text: 'Dadurch wird auch alles direkt und transitiv abhängige (wie z.B. Schichten, Berichte, Bewerbungen, Publikationen, etc.) gelöscht. Lediglich die Benutzeraccounts bleiben vorhanden.',
       checkInput: 'Dieses Projekt löschen',
-      placeholder: 'Zur Bestätigung "xxx" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "xxx" überein',
+      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
@@ -269,8 +269,8 @@ const swal = {
       title: 'Tag wirklich löschen?',
       text: 'Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "xxx" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "xxx" überein',
+      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
@@ -279,8 +279,8 @@ const swal = {
       title: 'Team wirklich löschen?',
       text: 'Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "xxx" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "xxx" überein',
+      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },

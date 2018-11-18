@@ -167,8 +167,8 @@ swal:
       title: Haluatko todella poistaa tämän kokoontumispisteen?
       text: Kokoontumispiste poistetaan myös kaikista olemassa olevista vuoroista, jotka on suunniteltu tulevaisuuteen.
       checkInput: poista
-      placeholder: Kirjoita "%s" vahvistaaksesi
-      inputError: Kirjoittamasi ei vastaa merkkijonoa "%s"
+      placeholder: Kirjoita "{{param}}" vahvistaaksesi
+      inputError: Kirjoittamasi ei vastaa merkkijonoa "{{param}}"
       confirm: Poista
       cancel: Peruuta
     note:
@@ -180,8 +180,8 @@ swal:
       title: haluatko todella poistaa tämän projektin?
       text: Tämä poistaa peruuttamattomasti kaikki tähän projektiin liittyvät asetukset, esim. vuorot, raportit, ilmoittautumiset, kirjallisuuden. Vain käyttäjiedot säilytetään.
       checkInput: poista tämä projekti
-      placeholder: Kirjoita "%s" vahvistaaksesi
-      inputError: Kirjoittamasi ei vastaa merkkijonoa "%s"
+      placeholder: Kirjoita "{{param}}" vahvistaaksesi
+      inputError: Kirjoittamasi ei vastaa merkkijonoa "{{param}}"
       confirm: Poista
       cancel: Peruuta
     publication:
@@ -213,16 +213,16 @@ swal:
       title: Haluatko todella poistaa tunnisteen?
       text: Kaikki tunnisteeseen liittyvät vuorot poistetaan myös. Tähän sisältyy myös kaikki vuoroihin ilmoittautumiset. <br><br> Kirjoita "poista" vahvistaaksesi poistamisen.
       checkInput: poista
-      placeholder: Kirjoita "%s" vahvsitaaksesi
-      inputError: Kirjoittamasi ei vastaa merkkijonoa "%s"
+      placeholder: Kirjoita "{{param}}" vahvsitaaksesi
+      inputError: Kirjoittamasi ei vastaa merkkijonoa "{{param}}"
       confirm: Poista
       cancel: Peruuta
     team:
       title: Haluatko todella poistaa tämän tiimin?
       text: Tiimi ja sille suunnitellut vuorot poistetaan. Hyväksytyt ilmoittautumiset näihin vuoroihin siirretään muihin tiimeihin. <br><br> Kirjoita "poista" vahvistaaksesi poistamisen.
       checkInput: poista
-      placeholder: Kirjoita "%s" vahvistaaksesi
-      inputError: Kirjoittamasi ei vastaa merkkijonoa "%s"
+      placeholder: Kirjoita "{{param}}" vahvistaaksesi
+      inputError: Kirjoittamasi ei vastaa merkkijonoa "{{param}}"
       confirm: Poista
       cancel: Peruuta
     template:

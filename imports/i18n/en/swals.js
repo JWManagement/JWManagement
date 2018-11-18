@@ -199,8 +199,8 @@ const swal = {
       title: 'Really delete this meeting point?',
       text: 'The meeting point will also get removed from all existing shifts planned for the future.',
       checkInput: 'delete',
-      placeholder: 'Please type "%s" for approval',
-      inputError: 'The input did not match with "%s"',
+      placeholder: 'Please type "{{param}}" for approval',
+      inputError: 'The input did not match with "{{param}}"',
       confirm: 'Delete',
       cancel: 'Cancel'
     },
@@ -214,8 +214,8 @@ const swal = {
       title: 'Really delete this project?',
       text: 'This will irreversibly delete all settings associated with this project, e.g. shifts, reports, requests, literature. Only the user accounts will remain.',
       checkInput: 'delete this project',
-      placeholder: 'Please type "%s" for approval',
-      inputError: 'The input did not match with "%s"',
+      placeholder: 'Please type "{{param}}" for approval',
+      inputError: 'The input did not match with "{{param}}"',
       confirm: 'Delete',
       cancel: 'Cancel'
     },
@@ -253,8 +253,8 @@ const swal = {
       title: 'Really delete tag?',
       text: 'All shifts belonging to this tag will also be deleted. This includes all requests for these shifts. <br><br> To confirm type in "delete".',
       checkInput: 'delete',
-      placeholder: 'Please type "%s" for approval',
-      inputError: 'The input did not match with "%s"',
+      placeholder: 'Please type "{{param}}" for approval',
+      inputError: 'The input did not match with "{{param}}"',
       confirm: 'Delete',
       cancel: 'Cancel'
     },
@@ -262,8 +262,8 @@ const swal = {
       title: 'Really delete this team?',
       text: 'The team will get removed from all existing shifts planned for the future. approved requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".',
       checkInput: 'delete',
-      placeholder: 'Please type "%s" for approval',
-      inputError: 'The input did not match with "%s"',
+      placeholder: 'Please type "{{param}}" for approval',
+      inputError: 'The input did not match with "{{param}}"',
       confirm: 'Delete',
       cancel: 'Cancel'
     },

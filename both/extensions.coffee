@@ -69,8 +69,8 @@
 		closeOnSuccess = attrs.closeOnSuccess
 
 	if checkInput
-		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder', checkInput)
-		inputError = i18next.t('swal.' + attrs.swal + '.inputError', checkInput)
+		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder', { param: checkInput })
+		inputError = i18next.t('swal.' + attrs.swal + '.inputError', { param: checkInput })
 	else
 		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder')
 		inputError = i18next.t('swal.' + attrs.swal + '.inputError')
