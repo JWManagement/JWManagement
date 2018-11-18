@@ -12,15 +12,6 @@ const modal = {
     all_users: 'Alle Verkündiger',
     select: 'Verkündiger auswählen'
   },
-  addUser:
-  {
-    title: 'Neuen Benutzer anlegen',
-    action: 'Benutzer anlegen',
-    upload: 'Datei hochladen',
-    helpText: 'Der Benutzername sollte kurz und einprägsam sein. Am besten hängt er direkt mit den Vor- und Nachnamen der Benutzers zusammen.<br>Beispiele: "MaxM" oder "MMustermann"',
-    invite: 'xxx (xxx) einladen',
-    existingAccounts: 'Bestehende Accounts'
-  },
   addVessel:
   {
     title: 'Neues Schiff hinzufügen',
@@ -49,26 +40,6 @@ const modal = {
     title: 'Schicht kopieren',
     text: 'Selektiere die Tage, zu denen du Schicht kopieren möchtest.',
     action: 'Schicht kopieren'
-  },
-  editPermissions:
-  {
-    title: 'Berechtigungen von xxx verwalten',
-    projectPermissions: 'Projekt Berechtigungen',
-    projectRole: 'Projekt-Rolle',
-    tagPermissions: 'Tag-Rollen',
-    explanations: 'Erklärungen',
-    helpText:
-    {
-      admin: 'Die Administrator-Rolle ist die höchste Berechtigungsstufe. Ein Administrator darf alles. In jedem Projekt muss es mindestens einen Administrator geben.',
-      shiftScheduler: 'Ein Schichteinteiler hat die Berechtigungen eines Teilnehmers und kann darüber hinaus Schichten einteilen.',
-      shiftAdmin: 'Ein Schichtplaner hat die Berechtigungen eines Schichteinteilers und kann darüber hinaus Schichten erstellen, ändern und löschen.',
-      storeAdmin: 'Ein Literaturdiener hat die Berechtigungen eines Teilnehmers und kann darüber hinaus die Schichtberichte und das Depot einsehen und bearbeiten.',
-      member: 'Ein Teilnehmer darf die Informationsseite sehen.',
-      teamleader: 'Ein Teamleiter kann in Schichten des Tags als Teamleiter eingesetzt werden. Damit ist dann für die Abgabe des Schicht-Team-Berichts zuständig.',
-      substituteTeamleader: 'Ein Ersatz-Teamleiter hat die gleiche Berechtigung, wie ein normaler Teamleiter. Aber insofern das System so konfiguriert ist, dass es automatisch zuteilt, wird es immer die Bewerbung eines normalen Teamleiters bevorzugen, falls vorhanden.',
-      participant: 'Ein Teilnehmer darf die Schichten des Tags sehen und sich auf sie bewerben.',
-      nothing: 'Bei "Keine" kann der Verkündiger die Schichten des Tags weder sehen, noch sich darauf bewerben oder eingeteilt werden.'
-    }
   },
   editShift:
   {

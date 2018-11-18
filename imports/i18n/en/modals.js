@@ -12,14 +12,6 @@ const modal = {
     available_users: 'Available Publisher',
     all_users: 'Other Publisher'
   },
-  addUser: {
-    title: 'Create a new user',
-    action: 'Create user',
-    upload: 'Upload File',
-    helpText: 'The username should be short and memorable. Combinations of the user\'s first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"',
-    invite: 'Invite xxx1 (xxx2)',
-    existingAccounts: 'Existing Accounts'
-  },
   addVessel: {
     title: 'Add a vessel',
     action: 'Add vessel'
@@ -43,24 +35,6 @@ const modal = {
     title: 'Copy shift',
     text: 'Just select the days to which you want to copy this shift.',
     action: 'Copy shift'
-  },
-  editPermissions: {
-    title: 'Manage xxx1\'s permissions',
-    projectPermissions: 'Project permissions',
-    projectRole: 'Project role',
-    tagPermissions: 'Tag roles',
-    explanations: 'Explanations',
-    helpText: {
-      admin: 'The project manager role is the highest authorization level. A project manager is allowed to control everything. For every project there has to be at least one project manager.',
-      shiftScheduler: 'The shift scheduler has the permissions of a participant but can also schedule shifts.',
-      shiftAdmin: 'The shift manager has the permissions of a shift scheduler but can also create, change and delete shifts.',
-      storeAdmin: 'The store manager has the permissions of a participant but can also view the shift reports and edit the store.',
-      member: 'The member is the most basic role. He is allowed to view the Information Center.',
-      teamleader: 'The team leader once assigned by a project manager to a certain tag is then in charge of the shift team report for said tag.',
-      substituteTeamleader: 'A substitute team leader has the same permissions as a normal team leader. But if the system shall schedule automatically, it will always prefer the request of a normal team leader if there is one.',
-      participant: 'The participant can see and request shifts of assigned tags.',
-      nothing: 'With "None" the user cannot see or request shifts of this tag. Neither can he be scheduled into a shift.'
-    }
   },
   editShift: {
     title: 'Edit shift information',

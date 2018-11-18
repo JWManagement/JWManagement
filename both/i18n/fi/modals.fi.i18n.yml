@@ -9,13 +9,6 @@ modal:
     select: Valitse julistaja
     available: käytettävissä
     callable: kutsuttavissa lyhyellä varoitusajalla
-  addUser:
-    title: Luo uusi käyttäjä
-    action: Luo käyttäjä
-    upload: Lataa tiedosto
-    helpText: Käyttäjänimen tulisi olla helposti muistettava. Yhdistelmät käyttäjän etu- ja sukunimestä toimivat yleensä hyvin.<br>Esimerkiksi: "JussiM" tai "JMallikas"
-    invite: Kutsu %s (%s)
-    existingAccounts: Nykyiset käyttäjätilit
   addVessel:
     title: Lisää laiva
     action: Lisää laiva
@@ -35,22 +28,6 @@ modal:
     title: Kopioi vuoro
     text: Valitse päivät, johon haluat kopioida vuoron.
     action: Kopioi vuoro
-  editPermissions:
-    title: Hallitse %s:n käyttöoikeuksia
-    projectPermissions: Projektin käyttöoikeudet
-    projectRole: Projektirooli
-    tagPermissions: Merkitse roolit tunnisteilla
-    explanations: Selitykset
-    helpText:
-      admin: Projektivastaavan rooli on korkein käyttöoikeuksien taso. Projektivastaava voi kontrolloida kaikkia osa-alueita. Jokaisella projektilla pitää olla ainakin yksi projektivastaava.
-      shiftScheduler: Vuorojärjestelijällä on osallistujan oikeudet, mutta lisäksi hän voi järjestellä vuoroja.
-      shiftAdmin: Vuorovastaavalla on vuorojärjestelijän oikeudet, mutta lisäksi hän voi luoda, muuttaa ja poistaa vuoroja.
-      storeAdmin: Varastovastaavalla on osallistujan oikeudet, mutta lisäksi hän voi tarkastella vuororaportteja ja muokata varastoa.
-      member: Jäsen on perustason käyttöoikeus. Jäsen voi tarkastella tiedotuskeskusta.
-      teamleader: Tiimivastaava on projektivastaavan tunnisteella merkitsemä ja sen jälkeen vastuussa tiimin raportoinnista kyseisellä tunnisteella.
-      substituteTeamleader: Tiimivastaavan apulaisella on samat käyttöoikeudet, kuin tiimivastaavalla.
-      participant: Osallistuja näkee vuorot, jotka on luotu tietyillä tunnisteilla (liitetty julistajaan) ja voi ilmoittautua niihin.
-      nothing: Ei mitään käyttöoikeusroolilla käyttäjä ei näe tunnisteilla merkittyjä vuoroja eikä voi ilmoittautua niihin. Häntä ei myöskään voi liittää mihinkään vuoroon.
   editShift:
     title: Muokkaa vuoron tietoja
     mainData: Perustiedot

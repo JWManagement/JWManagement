@@ -9,13 +9,6 @@ modal:
     select: Válassz hírnököt
     available: elérhető
     callable: hívhatő rövid időszakra
-  addUser:
-    title: Új felhasználó létrehozása
-    action: Felhasználó készítése
-    upload: Fájl feltöltése
-    helpText: A felhasználónévnek rövidnek és emlékezetesnek kell lennie. A felhasználó első és utónevének kombinációi jól ismertek. <br> Példa: "JohnD" vagy "JDoe"
-    invite: Meghívás %s (%s)
-    existingAccounts: Meglévő fiókok
   addWeek:
     title: Új hét készítése
     noTemplate: Először hozz létre egy sablont
@@ -32,22 +25,6 @@ modal:
     title: Szolgálati időpont másolása
     text: Csak válaszs ki azokat a napokat, amelyekre át kívánja másolni ezt a szolgálati időpontot.
     action: Szolgálati időpont másolása
-  editPermissions:
-    title: %s jogosultságának kezelése
-    projectPermissions: Projekt engedélyek
-    projectRole: A projekt szerepe
-    tagPermissions: Tag szerepkörök
-    explanations: magyarázatok
-    helpText:
-      admin: A projektmenedzser szerepe a legmagasabb engedélyezési szint. A projektmenedzser jogosult mindent irányítani. Minden projekt esetében legalább egy projektmenedzsernek kell lennie.
-      shiftScheduler: A Szolgálat ütemező rendelkezik egy résztvevő engedélyével, de ütemezheti a szolgálati időpontokat is.
-      shiftAdmin: A szolgálati irányítónak van egy szolgálat ütemezésének engedélye, de a szolgálati időpontokat is létrehozhatja, megváltoztathatja és törölheti.
-      storeAdmin: Az készletezési kezelőnek engedélye van mint résztvevőnek, de megtekintheti a szolgálati jelentéseket és szerkesztheti az készletet.
-      member: A tag a legalapvetőbb szerepet.  Megtekintheti az információs központot.
-      teamleader: A csoportvezető, akit egy projektmenedzser hozzárendel egy bizonyos címkéhez, ezután felelős az csoport szolgálati jelentésért.
-      substituteTeamleader: A helyettes csoportvezető ugyanazokkal a jogosultságokkal rendelkezik, mint egy normál csoportvezető. De ha a rendszer automatikusan ütemez, akkor mindig egy normál csoportvezető kérését fogja előnyben részesíteni, ha van ilyen.
-      participant: A résztvevő megtekintheti és kérheti a szolgálati időpontot hozzárendelt címkével.
-      nothing: A "Nincs" lehetőséggel a felhasználó nem láthatja vagy kérheti címkés szolgálati időpontot. Egyik szolgálati időpontban sem lehet ütemezni.
   editShift:
     title: Szolgálati időszak információjának szerkesztése
     mainData: Főbb részletek

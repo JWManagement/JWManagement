@@ -9,13 +9,6 @@ modal:
     select: Wybierz głosiciela
     available: dostępny
     callable: dostępny w krótkim czasie
-  addUser:
-    title: Stwórz nowego użytkownika
-    action: Tworzenie użytkownika
-    upload: Wrzuć plik
-    helpText: Nazwa użytkownika powinna być krótka i łatwa w zapamiętaniu. Dobrym pomyslem może być kombinacja imienia i nazwiska.<br>Przykład: "JanK" or "JKowalski"
-    invite: Zaproś %s (%s)
-    existingAccounts: Istniejące konto
   addVessel:
     title: Add a vessel
     action: Add vessel
@@ -35,22 +28,6 @@ modal:
     title: Kopiuj zmianę
     text: Wybierz dni do których chesz skopiować tą zmianę
     action: Kopiuj zmianę
-  editPermissions:
-    title: Zarządzaj upranieniami %s
-    projectPermissions: Uprawnienia projektu
-    projectRole: Rola projektu
-    tagPermissions: Rola tagów
-    explanations: Wyjaśnienia
-    helpText:
-      admin: Menażer projektu to najwyższy stopień autoryzacji. Menadżer projektu jest uprawniony do kontrolowania wszystkiego. Do każdego projektu musi być przynajmniej jeden menadżer.
-      shiftScheduler: Osoba z uprawnieniami Zmiany grafiku ma te same uprawnienia co Współpracownik, ale może również układać grafik.
-      shiftAdmin: Menadżer zmian ma uprawnienia Zmian grafiku ale również może tworzyć, zmieniać i usuwać zmiany.
-      storeAdmin: Menadżer magazynu ma te same uprawnienia co Współpracownik ale może również oglądać sprawozdania i edytować magazyn.
-      member: Członek jest to najbardziej podstawowa rola. Może oglądać Centrum Informacji.
-      teamleader: Kordynator zmian wyznaczony jest przez Menadżera projektu do wybranego Tagu. Jest odpowiedzialny za sprawozdanie z odbytych zmian.
-      substituteTeamleader: Zastępca koordynatora zmian.
-      participant: Współpracownik widzi i wysyła zgłoszenia dotyczące wybranej zmiany dla wybranego Tagu.
-      nothing: Jeżeli użytkownik nie ma żadnych uprawnień nie widzi grafik ani nie może wysyłać próśb. Może być jednak uwzględniony w zmianie.
   editShift:
     title: Edytuj informacje o zmianie
     mainData: Główne informacje

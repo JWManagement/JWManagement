@@ -67,7 +67,6 @@ Template.publisherActions.onCreated ->
 
 Template.publisherActions.onDestroyed ->
 
-	$('#editPermissionsModal').modal('hide')
 	$('#inviteUserModal').modal('hide')
 	$('#uploadUserFileModal').modal('hide')
 
