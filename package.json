@@ -16,6 +16,7 @@
     "cordova-plugin-device": "^1.1.4",
     "eslint": "^5.7.0",
     "i18next": "^12.0.0",
+    "i18next-browser-languagedetector": "^2.2.4",
     "jquery": "^1.12.4",
     "js-yaml": "^3.12.0",
     "meteor-node-stubs": "^0.4.1",
