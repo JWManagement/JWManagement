@@ -1,10 +1,10 @@
-const user = {
-  search: { placeholder: 'Suche nach Benutzern' },
-  entity:
-  {
-    username: 'Benutzername',
-    profile: { firstname: 'Vorname', lastname: 'Nachname', email: 'Email' }
-  }
+const users = {
+  title: 'Verkündiger Massenfunktionen',
+  inviteUser: 'Nicht aktivierten Verkündigern eine Einladungsmail schicken',
+  uploadUserFile: 'Mehrere Verkündiger über eine CSV-Datei anlegen',
+  export: 'Alle Verkündiger als CSV-File exportieren',
+  sendToAll: 'Eine E-Mail an alle Verkündiger schicken',
+  sendToAllInTag: 'Eine E-Mail an alle im Tag %s schicken'
 }
 
-export default user
+export default users
