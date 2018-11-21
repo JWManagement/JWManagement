@@ -7,7 +7,9 @@ Meteor.methods
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
 		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
-		check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
+		# fails sometimes because ? let's see what the logging beneath reveals
+		# check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
+		console.log('sendTeamUpdate; shiftId:' + shiftId + '; tagId: ' + shift.tagId + '; userId: ' + Meteor.userId() + ' permitted: ' + Roles.userIsInRole(Meteor.userId(), Permissions.participant, shift.tagId))
 
 		if shift?
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
