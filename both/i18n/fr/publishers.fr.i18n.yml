@@ -4,9 +4,9 @@ publisher:
     profile:
       firstname: Prénom
       lastname: Nom
-      email: Email
+      email: E-mail
       telefon: Tél.
-      gender: Genre
+      gender: Sexe
       genderValues:
         m: Frère
         w: Soeur
@@ -16,19 +16,19 @@ publisher:
         auxiliary: Pionnier auxiliaire
         regular: Pionnier permanent
         special: Pionnier spécial
-        circuit: Surveillant de circonscription
+        circuit: Responsable de circonscription
         bethelite: Béthélite
-        ldc: Construction servant
-      privilege: Responsabilité en Congregation
+        ldc: Serviteur à la construction
+      privilege: Responsabilité dans l'assemblée
       privilegeValues:
         publisher: Proclamateur
-        servant: Assistant ministériel
+        servant: Assistant
         elder: Ancien
-        coordinator: Coordinateur du Collège des Anciens
+        coordinator: Coordinateur du collège des Anciens
         secretary: Secrétaire
         serviceOverseer: Responsable de prédication
       languages: Langues
-      shortTermCalls: Receive understaffed mails
+      shortTermCalls: Recevoir des E-mails en cas de sous-effectif
       shortTermCallsAlways: Disponible bientôt
       availability:
         new: Ajoute un créneau horaire
@@ -44,84 +44,84 @@ publisher:
         start: Début
         startDateFormat: HH:mm
         startValues:
-          0: 00:00
-          1: 01:00
-          2: 02:00
-          3: 03:00
-          4: 04:00
-          5: 05:00
-          6: 06:00
-          7: 07:00
-          8: 08:00
-          9: 09:00
-          10: 10:00
-          11: 11:00
-          12: 12:00
-          13: 13:00
-          14: 14:00
-          15: 15:00
-          16: 16:00
-          17: 17:00
-          18: 18:00
-          19: 19:00
-          20: 20:00
-          21: 21:00
-          22: 22:00
-          23: 23:00
+          0: "00:00"
+          1: "01:00"
+          2: "02:00"
+          3: "03:00"
+          4: "04:00"
+          5: "05:00"
+          6: "06:00"
+          7: "07:00"
+          8: "08:00"
+          9: "09:00"
+          10: "10:00"
+          11: "11:00"
+          12: "12:00"
+          13: "13:00"
+          14: "14:00"
+          15: "15:00"
+          16: "16:00"
+          17: "17:00"
+          18: "18:00"
+          19: "19:00"
+          20: "20:00"
+          21: "21:00"
+          22: "22:00"
+          23: "23:00"
         end: Fin
         endDateFormat: HH:mm
         endValues:
-          0: 00:00
-          1: 01:00
-          2: 02:00
-          3: 03:00
-          4: 04:00
-          5: 05:00
-          6: 06:00
-          7: 07:00
-          8: 08:00
-          9: 09:00
-          10: 10:00
-          11: 11:00
-          12: 12:00
-          13: 13:00
-          14: 14:00
-          15: 15:00
-          16: 16:00
-          17: 17:00
-          18: 18:00
-          19: 19:00
-          20: 20:00
-          21: 21:00
-          22: 22:00
-          23: 23:00
+          0: "00:00"
+          1: "01:00"
+          2: "02:00"
+          3: "03:00"
+          4: "04:00"
+          5: "05:00"
+          6: "06:00"
+          7: "07:00"
+          8: "08:00"
+          9: "09:00"
+          10: "10:00"
+          11: "11:00"
+          12: "12:00"
+          13: "13:00"
+          14: "14:00"
+          15: "15:00"
+          16: "16:00"
+          17: "17:00"
+          18: "18:00"
+          19: "19:00"
+          20: "20:00"
+          21: "21:00"
+          22: "22:00"
+          23: "23:00"
         wholeDay: Jour entier
       vacation:
         start: Début
-        end: fin
+        end: Fin
         new: Ajoute une nouvelle période d'absence
         noElements: Pas d'absence ajoutée
-        deleteConfirmation: Désires-tu effacer cette absence?
+        deleteConfirmation: Supprimer cette absence?
         startDateFormat: DD/MM/YYYY [jusqu'à]
         endDateFormat: DD/MM/YYYY
     password:
-      change: Change le password
-      reset: Envoie un email pour resetter le password
-      resetConfirmation: Désires-tu vraiement envoyer un email pour resetter le password à l'utilisateur? Attention: Cet utilisateur ne pourra plus s'identifer tant qu'il ne suive la procédure du reset du mot de passe.
-      password: Entrez le nouveau password
-      passwordRepeat: Entrez à nouveau le nouveau password
-    invite: Envoie l'invitation à ce projet
-    inviteConfirmation: Désires-tu vraiement envoyer un email d'invitation à ce projet pour cet utilisateur?
-    delete: Revoque l'accès de cet utilisateur dans ce projet
-    deleteConfirmation: Désires-tu vraiement revoquer l'accès de cet utilisateur dans ce projet?
+      change: Changer le mot de passe
+      reset: Envoyez un E-mail pour changer le mot de passe
+      resetConfirmation: Désires-tu vraiement envoyer un E-mail pour changer le mot de passe à l'utilisateur? Attention: Cet utilisateur ne pourra plus s'identifer tant qu'il ne suivra pas la procédure de la modification du mot de passe.
+      password: Entrez le nouveau mot de passe
+      passwordRepeat: Entrez à nouveau le nouveau mot de passe
+    invite: Envoyez l'invitation de ce projet
+    inviteConfirmation: Désires-tu vraiment envoyer une invitation de ce projet à cet utilisateur?
+    delete: Révoquez l'accès de cet utilisateur de ce projet
+    deleteConfirmation: Désires-tu vraiement révoquer l'accès de cet utilisateur à ce projet?
   search:
-    placeholder: Prénom, Nom, Email, Tél. ou Utilisateur
+    placeholder: Prénom, Nom, E-mail, Tél. ou Utilisateur
   details:
     sections:
-      identification: Données d'identification
+      identification: Données d'identifications
       availability: Disponibilité
       vacations: Absences
-      password: Password
+      password: Mot de passe
       options: Options
   profile:
     availability:

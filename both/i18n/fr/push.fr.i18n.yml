@@ -1,0 +1,71 @@
+push:
+  footer: Ceci est un E-mail automatique. Nous n'attendons pas de réponse de ta part.
+  link: Ouvre JWManagement
+  accountCreated:
+    subject: JWManagement Compte créé!
+    headline: Bienvenue!
+    hello: Bonjour
+    text1: Nous souhaitons t'informer que nous avons créé un compte dans JWManagement pour toi. Tu peux choisir ton Nom d'utilisateur et Mot de passe en cliquant sur le bouton ci-dessous.
+    text2: Si tu rencontres des difficultés, merci de nous contacter.<br>Nous te souhaitons beaucoup de plaisir lors de l'utilisation de JWManagement.<br>Tes frères responsables de JWManagement
+    button: C'est parti!
+  teamCancellation:
+    subject: Équipe annulée
+    headline: L'équipe a été annulée.
+    hello: Bonjour
+    text: Nous devons t'informer que ton inscription en date du __date__ à __time__ a été annulée.
+    missingParticipant: Il manque  des participants. Dès qu'il y aura un nombre suffisant de participants, l'équipe pourra effectuer le témoignage public.
+  confirmation:
+    subject: Nouvelle inscription approuvée
+    headline: Ton inscription a été approuvée!
+    hello: Bonjour
+    text: Ton inscription pour la plage horaire suivante a été approuvée: __date__ à partir de __time__
+    datetime: __date__ à partir de __time__
+  declined:
+    subject: Inscription rejetée
+    headline: La demande a été rejetée..
+    hello: Bonjour
+    text1: Ton inscription pour la plage horaire suivante n'a pas pu être accordée: __date__ à partir de __time__.
+    text2: Un grand merci pour ton inscription!
+    datetime: __date__ à partir de __time__
+  reversal:
+    subject: Reversal
+    hello: Bonjour
+    text1: Tu as été ôtée de l'équipe suivante:
+    datetime: __date__ à partir de __time__
+  teamUpdate:
+    subject: Équipe modifiée
+    _changed: Modifiée.
+    changed:
+      participant: Un participant
+      time: L'heure
+      location: Le lieu
+      leader: Le responsable
+    hello: Bonjour
+    text1: Tu es inscrit comme responsable ou participant, c'est pourquoi nous t'informons concernant une modification de l'équipe.
+    text2: Voici la configuration actuelle de l'équipe
+    datetime: __date__ à partir de __time__
+  joinProject:
+    subject: Tu as rejoins le projet
+    headline: Tu as été ajouté(e) à un projet
+    hello: Bonjour
+    text1: Tu as été invité(e) à rejoindre le projet suivant
+    text2: Désormais ce projet s'affiche dans ton tableau de bord, dans la section "Mes Projets".<br>Bien du plaisir!
+  understaffed:
+    subject: Équipe en sous-effectif
+    headline: L'équipe est en sous-effectif
+    hello: Bonjour
+    text1: L'équipe suivante est en sous-effectif et nécessite de
+    text2: Cette plage horaire a besoin d'aide! __date__ à partir de __time__
+    datetime: __date__ à partir de __time__
+  toOrga:
+    hello: Bonjour l'équipe d'organisation
+    subject:
+      teamCancel: Équipe annulée
+    text:
+      teamCancel: L'équipe <b>"__team__"</b> du <b>__date__</b> à <b>__time__</b> a été <u>annulée</u>.
+  resetPassword:
+    subject: Changer le mot de passe
+    headline: Change ton mot de passe
+    text1: Bonjour,<br>S'il te plaît, clique sur le bouton ci-dessous pour changer ton mot de passe:
+    button: Changer le mot de passe
+    text2: <p>Des indices utiles pour choisir un mot de passe sûr sont disponibles ici: <a href="https://wol.jw.org/fr/wol/d/r30/lp-f/102001451">g01 22/6 p. 31</a></p><p>Si tu n'as pas demandé de changer ton mot de passe, tu peux ignorer cet E-mail.</p>

@@ -8,7 +8,7 @@ language:
       de: German
       en: English
       fi: Finnish
-      fr: French (partially)
+      fr: French
       hu: Hungarian
       it: Italian (partially)
       pl: Polish
@@ -19,7 +19,7 @@ language:
   _de: German
   _en: English
   _fi: Finnish
-  _fr: French (partially)
+  _fr: French
   _hu: Hungarian
   _it: Italian (partially)
   _pl: Polish
