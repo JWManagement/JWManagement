@@ -16,17 +16,70 @@ Meteor.methods
 
 			Meteor.users.remove oldUser._id
 
-	mergeAccounts: (oldUserId, newUserId) -> if oldUserId != newUserId
+	mergeAccounts: (oldUserId, newUserId) -> if newUserId == Meteor.userId() && oldUserId != newUserId
 		oldUser = Meteor.users.findOne oldUserId,
 			fields: roles: 1
 
 		newUser = Meteor.users.findOne newUserId,
-			fields: _id: 1
+			fields: profile: 1
 
 		if oldUser? && newUser?
 			for id in Object.keys(oldUser.roles)
 				if oldUser.roles[id][0]
 					Roles.addUsersToRoles newUserId, oldUser.roles[id][0], id
+
+			shifts = Shifts.find({
+				$or: [{
+					'teams.participants._id': oldUserId
+				}, {
+					'teams.pending._id': oldUserId
+				}, {
+					'teams.declined._id': oldUserId
+				}]
+			}).fetch()
+
+			newShiftUser =
+				_id: newUserId
+				name: newUser.profile.firstname + ' ' + newUser.profile.lastname
+				phone: newUser.profile.telefon
+				email: newUser.profile.email
+				thisTeamleader: false
+
+			shifts.forEach (shift) ->
+				shift.teams = shift.teams.map (team) ->
+					team.participants = team.participants.map (user) ->
+						if user?._id == oldUserId
+							if user.thisTeamleader
+								user = newShiftUser
+								user.thisTeamleader = true
+							else
+								user = newShiftUser
+							user.teamleader = Roles.userIsInRole newUserId, 'teamleader', shift.tagId
+							user.substituteTeamleader = Roles.userIsInRole newUserId, 'substituteTeamleader', shift.tagId
+
+						return user
+
+					team.pending = team.pending.map (user) ->
+						if user?._id == oldUserId
+							user = newShiftUser
+							user.thisTeamleader = false
+							user.teamleader = Roles.userIsInRole newUserId, 'teamleader', shift.tagId
+							user.substituteTeamleader = Roles.userIsInRole newUserId, 'substituteTeamleader', shift.tagId
+
+						return user
+
+					team.declined = team.declined.map (user) ->
+						if user?._id == oldUserId
+							user = newShiftUser
+							user.thisTeamleader = false
+							user.teamleader = Roles.userIsInRole newUserId, 'teamleader', shift.tagId
+							user.substituteTeamleader = Roles.userIsInRole newUserId, 'substituteTeamleader', shift.tagId
+
+						return user
+
+					return team
+
+				Shifts.update({ _id: shift._id }, shift)
 
 			Meteor.users.remove oldUser._id
 

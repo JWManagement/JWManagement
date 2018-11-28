@@ -8,10 +8,6 @@ Template.mergeAccountsModal.onRendered ->
 	$('#mergeAccountsModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams mergeAccounts: undefined
 
-Template.mergeAccountsModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.mergeAccountsModal.events
 
 	'click #mergeAccounts': (e) ->

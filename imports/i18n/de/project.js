@@ -11,7 +11,7 @@ const project = {
       de: 'Deutsch',
       en: 'Englisch',
       fi: 'Finnisch',
-      fr: 'Französisch (teilweise)',
+      fr: 'Französisch',
       hu: 'Ungarisch',
       it: 'Italienisch (teilweise)',
       pl: 'Polnisch',

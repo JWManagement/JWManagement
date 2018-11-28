@@ -14,10 +14,6 @@ Template.copyShiftModal.onRendered ->
 
 		wrs -> FlowRouter.setQueryParams copyShift: undefined, editShift: shiftId
 
-Template.copyShiftModal.onDestroyed ->
-
-	$('#beamerSelector').removeClass('hidden')
-
 Template.copyShiftModal.events
 
 	'click #copyShift': ->

@@ -12,7 +12,7 @@ Meteor.methods
 			user = Meteor.users.findOne userId, fields:
 				services: 1
 
-			if user.services? && user.services.password? && user.services.password.reset? && user.services.password.reset.token
+			if user?.services?.password?.reset?.token
 				token = user.services.password.reset.token
 			else
 				Meteor.users.update userId, $set: 'services.password.reset': 'token': token

@@ -9,7 +9,7 @@ const project = {
       de: 'German',
       en: 'English',
       fi: 'Finnish',
-      fr: 'French (partially)',
+      fr: 'French',
       hu: 'Hungarian',
       it: 'Italian (partially)',
       pl: 'Polish',

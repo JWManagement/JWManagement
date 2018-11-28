@@ -110,5 +110,4 @@ const navigation = {
   create: 'New entry'
 }
 
-
 export default navigation
