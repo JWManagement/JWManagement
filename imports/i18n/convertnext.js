@@ -1,6 +1,7 @@
 var yaml = require('js-yaml')
 var fs = require('fs')
 var util = require('util')
+var beautify = require('js-beautify').js
 
 var args = process.argv.slice(2)
 var lang = args[0]
@@ -33,7 +34,8 @@ function convertFile (file) {
     })
     var name = Object.keys(obj)[0]
     var text = 'const ' + name + ' = ' + util.inspect(obj[name], { compact: false, depth: null }) + '\n\nexport default ' + name + '\n'
-    fs.writeFileSync(to + '/' + file.replace(lang + '.i18n.yml', 'js'), text)
+    var filepath = to + '/' + file.replace(lang + '.i18n.yml', 'js')
+    fs.writeFileSync(filepath, beautify(text))
   } catch (e) {
     console.log('error in ' + file)
     throw e
