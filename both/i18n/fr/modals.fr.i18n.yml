@@ -9,13 +9,6 @@ modal:
     select: Sélectionner un proclamateur
     available: Disponible
     callable: Disponible rapidement
-  addUser:
-    title: Créer un nouvel utilisateur
-    action: Utilisateur créé
-    upload: Chargement de fichier
-    helpText: The username should be short and memorable. Combinations of the user's first and last names are known to suit well.<br>Example: "JohnD" or "JDoe"
-    invite: Invite %s (%s)
-    existingAccounts: Compte existant
   addVessel:
     title: Ajoute un bateau
     action: Bateau ajouté
@@ -129,9 +122,6 @@ modal:
     approveSelected: Approve selected
     declineSelected: Decline selected
     report: Report
-    allocations: Shifts
-    thisWeek: this week
-    lastDays: last %s days
   shiftReport:
     title: Report
     teamleader: Team leader

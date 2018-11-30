@@ -106,9 +106,6 @@ modal:
     approveSelected: Hyväksy valitut
     declineSelected: Hylkää valitut
     report: Raportti
-    allocations: Vuorot
-    thisWeek: tällä viikolla
-    lastDays: viimeiset %s päivää
   shiftReport:
     title: Raportti
     teamleader: Tiimivastaava

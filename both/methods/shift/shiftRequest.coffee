@@ -155,8 +155,6 @@ Meteor.methods
 
 				if shift.scheduling == 'manual' && isThisWeek
 					Meteor.call 'sendUnderstaffed', shiftId, teamId
-				#else if shift.scheduling == 'manual'
-				#	Meteor.call 'sendToOrga', shift.projectId, 'teamCancel', shiftId, teamId
 
 				Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 			else

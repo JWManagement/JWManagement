@@ -106,9 +106,6 @@ modal:
     approveSelected: Подтвердить выбранные
     declineSelected: Отклонить выбранные
     report: Отчёт
-    allocations: Назначения
-    thisWeek: На этой неделе
-    lastDays: В последние %s дней
   shiftReport:
     title: Отчёт
     teamleader: Руководитель группы

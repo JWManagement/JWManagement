@@ -106,9 +106,6 @@ modal:
     approveSelected: Zaakceptuj zaznaczonych
     declineSelected: Odrzuć zaznaczone
     report: Sprawozdanie
-    allocations: Zmiany
-    thisWeek: ten tydzień
-    lastDays: ostatnie %s dni
   shiftReport:
     title: Sprawozdanie
     teamleader: Koordynator zmiany

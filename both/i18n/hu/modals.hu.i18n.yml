@@ -100,9 +100,6 @@ modal:
     approveSelected: Kiválasztott jóváhagyása
     declineSelected: Kiválasztott visszautasítása
     report: Jelentés
-    allocations: Szolgálati időszak
-    thisWeek: Ez a hét
-    lastDays: utaolsó %s nap
   shiftReport:
     title: Jelentés
     teamleader: Csoportvezető

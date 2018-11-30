@@ -88,9 +88,6 @@ modal:
     declineSelected: Recusa Selecionada
     report: Relatório
     allocations: Turnos
-    thisWeek: Esta semana
-    lastDays: últimos %s dias
-    noMeeting: Nenhum ponto de encontro
   shiftReport:
     title: Relatório
     teamleader: Lider de Equipa

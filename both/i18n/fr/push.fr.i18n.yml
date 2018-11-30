@@ -44,12 +44,6 @@ push:
     text1: Tu es inscrit comme responsable ou participant, c'est pourquoi nous t'informons concernant une modification de l'équipe.
     text2: Voici la configuration actuelle de l'équipe
     datetime: __date__ à partir de __time__
-  joinProject:
-    subject: Tu as rejoins le projet
-    headline: Tu as été ajouté(e) à un projet
-    hello: Bonjour
-    text1: Tu as été invité(e) à rejoindre le projet suivant
-    text2: Désormais ce projet s'affiche dans ton tableau de bord, dans la section "Mes Projets".<br>Bien du plaisir!
   understaffed:
     subject: Équipe en sous-effectif
     headline: L'équipe est en sous-effectif
@@ -57,12 +51,6 @@ push:
     text1: L'équipe suivante est en sous-effectif et nécessite de
     text2: Cette plage horaire a besoin d'aide! __date__ à partir de __time__
     datetime: __date__ à partir de __time__
-  toOrga:
-    hello: Bonjour l'équipe d'organisation
-    subject:
-      teamCancel: Équipe annulée
-    text:
-      teamCancel: L'équipe <b>"__team__"</b> du <b>__date__</b> à <b>__time__</b> a été <u>annulée</u>.
   resetPassword:
     subject: Changer le mot de passe
     headline: Change ton mot de passe
