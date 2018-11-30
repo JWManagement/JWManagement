@@ -51,13 +51,6 @@ const mail = {
     text2: 'Here is the current team configuration',
     datetime: '{{date}} from {{time}} o\'clock'
   },
-  joinProject: {
-    subject: 'Joined Project',
-    headline: 'You were added to a project',
-    hello: 'Hello',
-    text1: 'You were invited to the following Project',
-    text2: 'You find this project now on your dashboard at "My Projects".<br>Have a good time!'
-  },
   understaffed: {
     subject: 'Team understaffed',
     headline: 'Team is understaffed',
@@ -65,15 +58,6 @@ const mail = {
     text1: 'the following Team is understaffed and needs a',
     text2: 'Please have a look whether you can help this team.',
     datetime: '{{date}} from {{time}} o\'clock'
-  },
-  toOrga: {
-    hello: 'Hello Organisation Team',
-    subject: {
-      teamCancel: 'Team cancelled'
-    },
-    text: {
-      teamCancel: 'The team <b>"{{team}}"</b> on <b>{{date}}</b> at <b>{{time}}</b> o\'clock were <u>cancelled</u>.'
-    }
   },
   resetPassword: {
     subject: 'Reset Password',

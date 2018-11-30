@@ -44,12 +44,6 @@ mail:
     text1: Sinut on merkitty tiimin jäseneksi tai -vetäjäksi, joten tässä saat joitakin tietoja muutoksista timmissäsi.
     text2: Nykyinen tiimikokoonpano
     datetime: __date__ alkaen klo __time__
-  joinProject:
-    subject: Liitetty projektiin
-    headline: Sinut lisättiin projektiin
-    hello: Hei,
-    text1: Sinut on kutsuttu seuraavaan projektiin
-    text2: Löydät nyt projektin hallintasivultasi kohdasta "Omat projektit".
   understaffed:
     subject: Vajaa tiimi
     headline: Tiimissä on liian vähän jäseniä
@@ -57,12 +51,6 @@ mail:
     text1: seuraavassa tiimissä on liian vähän jäseniä ja tarvitsee
     text2: Ole hyvä ja tarkista, voisitko auttaa tätä tiimiä.
     datetime: __date__ alkaen klo __time__
-  toOrga:
-    hello: Hei tiimiorganisaatio
-    subject:
-      teamCancel: Tiimi peruutettu
-    text:
-      teamCancel: Tiimi <b>"__team__"</b> <b>__date__</b> klo <b>__time__</b> <u>on peruutettu</u>.
   resetPassword:
     subject: Palauta salasana
     headline: Palauta salasanasi

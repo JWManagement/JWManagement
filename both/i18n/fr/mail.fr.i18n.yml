@@ -44,12 +44,6 @@ mail:
     text1: Vous êtes désigné comme membre  ou responsable d’équipe, c’est pour cela que nous vous informons de certains changements dans votre équipe.
     text2: Voici la formation actuel de votre équipe
     datetime: __date__ à partir de __time__ o'clock
-  joinProject:
-    subject: Projet rejoint
-    headline: Vous avez été ajouté à un projet
-    hello: Bonjour
-    text1: Vous avez été invité au projet ci-dessous
-    text2: Vous pouvez maintenant retrouver ce projet sur votre tableau de bord sous "Mes Projets".<br>Bien du plaisir!
   understaffed:
     subject: Équipe en sous-effectif
     headline: L’équipe n’a pas assez de membre
@@ -57,12 +51,6 @@ mail:
     text1: L’équipe ci-dessous est en sous-effectif et a besoin d’un
     text2: Auriez-vous la possibilité d’aider cette équipe ?
     datetime: __date__ à partir de __time__ o'clock
-  toOrga:
-    hello: Bonjour l'équipe d'Organisation
-    subject:
-      teamCancel: Équipe supprimée.
-    text:
-      teamCancel: L’équipe <b>"__team__"</b> du <b>__date__</b> à <b>__time__</b> à été <u>supprimée</u>.
   resetPassword:
     subject: Changement de mot de passe
     headline: Changez votre mot de passe

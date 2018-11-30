@@ -44,12 +44,6 @@ mail:
     text1: Téged válásztottak a csoportba vagy te lettél a csoport felelőse, ezért a következő tájékoztatást szeretnénk adni a változásokról a csoportmunkában:
     text2: Itt láthatod a jelenlegi információkat a csoportról:
     datetime: __date__ from __time__ időponban
-  joinProject:
-    subject: Feladatra jelőltek
-    headline: Téged hozzáadtak a következő feladathoz:
-    hello: Üdvözlet!
-    text1: Téged meghívtak a következő feladatba
-    text2: A feladatot a műszerfaladon a "Feladataim" résznél találod.<br>Legyen örömödre ez a feladat!
   understaffed:
     subject: Csoport létszámhiány
     headline: A csoport létszámhiányos
@@ -57,12 +51,6 @@ mail:
     text1: a következő csoport létszámhiányos és szüksége van egy
     text2: Kérünk, tekintsd meg, hogy tudnál e segíteni a csoportban a következő időpontban:
     datetime: __date__ from __time__
-  toOrga:
-    hello: Üdvözlünk szervezet_csoport
-    subject:
-      teamCancel: Csoport törölve
-    text:
-      teamCancel: A Csoport <b>"__team__"</b>  <b>__date__</b> at <b>__time__</b> időpontban <u>törölve lett</u>.
   resetPassword:
     subject: Jelszó visszaállítása
     headline: Jelszavad visszaállítása

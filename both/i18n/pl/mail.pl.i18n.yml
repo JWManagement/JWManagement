@@ -44,12 +44,6 @@ mail:
     text1: Zostałeś oznaczony jako koordynator zmiany.
     text2: Tutaj jest aktualny skład zmiany
     datetime: __date__ o godzinie __time__
-  joinProject:
-    subject: Dołączyłeś do projektu
-    headline: Zostałeś dodany do projektu
-    hello: Cześć
-    text1: Zostałeś zaproszony do następującego projektu
-    text2: Znajdziesz ten projekt w zakładce "Moje Projekty".<br>Miłego dnia!
   understaffed:
     subject: Zmiana nie została skompletowana
     headline: Zmiana nie została skompletowana
@@ -57,12 +51,6 @@ mail:
     text1: Następująca zmiana nie została zebrana i potrzebuje
     text2: Proszę zobacz czy możesz jakoś pomóc tej zmianie.
     datetime: __date__ o godzinie __time__
-  toOrga:
-    hello: Witaj koordynatorze zmiany
-    subject:
-      teamCancel: Zmiana została anulowana
-    text:
-      teamCancel: Zmiana <b>"__team__"</b> na <b>__date__</b> o godzinie <b>__time__</b> została <u>anulowana</u>.
   resetPassword:
     subject: Zresetuj hasło
     headline: Zresetuj swoje hasło

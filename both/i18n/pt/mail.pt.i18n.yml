@@ -44,12 +44,6 @@ mail:
     text1: Você está marcado/a como lider de equipe ou lider,por isso gostariamos de o/a informar de mudanças na sua equipe.
     text2: Aqui está a configuração currente da equipe
     datetime: __date__ A partir das __time__ horas
-  joinProject:
-    subject: Juntado/a a projeto
-    headline: Você foi juntado/a a um projeto
-    hello: Olá
-    text1: Você foi convidado/a para o seguinte projeto
-    text2: Você pode encontrar este projeto no seu painel de instrumentos em "Meus Projetos".<br>Desfrute!
   understaffed:
     subject: Equipe faltando pessoal
     headline: A equipe tem falta de pessoal
@@ -57,12 +51,6 @@ mail:
     text1: A seguinte equipe tem falta de pessoal e precisa de um/uma
     text2: Por favor veja se tem possibilidade de ajudar esta equipe
     datetime: __date__ A partir das __time__ horas
-  toOrga:
-    hello: Olá equipe de organização
-    subject:
-      teamCancel: Equipe cancelada
-    text:
-      teamCancel: A equipe <b>"__team__"</b> na data <b>__date__</b> às <b>__time__</b> horas foi <u>cancelada</u>.
   resetPassword:
     subject: Restabelecer palavra-passe
     headline: Restabelecer a sua palavra-passe

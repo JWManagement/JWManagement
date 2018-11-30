@@ -1,8 +1,7 @@
 const mail = {
   footer: 'Dies ist eine automatisierte Mail. Wir erwarten keine Antwort darauf.',
   link: 'JW Management öffnen',
-  accountCreated:
-  {
+  accountCreated: {
     subject: 'JW Management Konto erstellt!',
     headline: 'Herzlich Willkommen!',
     hello: 'Hallo',
@@ -10,24 +9,21 @@ const mail = {
     text2: 'Bei Problemen kannst du dich gerne an uns wenden.<br>Wir wünschen dir viel Freude mit JW Management.<br>Deine Brüder von JW Management',
     button: 'Los geht\'s!'
   },
-  teamCancellation:
-  {
+  teamCancellation: {
     subject: 'Team wurde abgesagt',
     headline: 'Team musste leider abgesagt werden.',
     hello: 'Hallo',
     text: 'leider müssen wir dir mitteilen, dass dein Teameinsatz am <b>{{date}}</b> um <b>{{time}}</b> Uhr <u>abgesagt</u> wurde.',
     missingParticipant: 'Ein Teilnehmer fehlt leider. Sobald wieder genug Teilnehmer vorhanden sind, kann das Team wieder stattfinden.'
   },
-  confirmation:
-  {
+  confirmation: {
     subject: 'Neue Schichtzuteilung',
     headline: 'Du wurdest zugeteilt!',
     hello: 'Hallo',
     text1: 'du wurdest folgender Schicht zugeteilt:',
     datetime: '{{date}} von {{time}} Uhr'
   },
-  declined:
-  {
+  declined: {
     subject: 'Bewerbung nicht berücksichtigt',
     headline: 'Bewerbung leider nicht berücksichtigt',
     hello: 'Hallo',
@@ -35,19 +31,16 @@ const mail = {
     text2: 'Vielen Dank für deine Bewerbung!',
     datetime: '{{date}} von {{time}} Uhr'
   },
-  reversal:
-  {
+  reversal: {
     subject: 'Austragung',
     hello: 'Hallo',
     text1: 'du wurdest aus folgender Schicht ausgetragen:',
     datetime: '{{date}} von {{time}} Uhr'
   },
-  teamUpdate:
-  {
+  teamUpdate: {
     subject: 'Team geändert',
     _changed: 'hat sich geändert.',
-    changed:
-    {
+    changed: {
       participant: 'Ein Teilnehmer',
       time: 'Die Uhrzeit',
       location: 'Der Ort',
@@ -58,16 +51,7 @@ const mail = {
     text2: 'Im Folgenden findest du die aktuellen Daten des Teams:',
     datetime: '{{date}} von {{time}} Uhr'
   },
-  joinProject:
-  {
-    subject: 'Projekt beigetreten',
-    headline: 'Du wurdest zu einem Projekt hinzugefügt',
-    hello: 'Hallo',
-    text1: 'du wurdest zu folgendem Projekt eingeladen:',
-    text2: 'Du findest das Projekt jetzt auf der Übersichtsseite unter "Meine Projekte".<br> Viel Freude!'
-  },
-  understaffed:
-  {
+  understaffed: {
     subject: 'Team unterbelegt',
     headline: 'Team ist unterbelegt',
     hello: 'Hallo',
@@ -75,15 +59,7 @@ const mail = {
     text2: 'Schau doch bitte nach, ob es dir möglich wäre, einzuspringen.',
     datetime: '{{date}} von {{time}} Uhr'
   },
-  toOrga:
-  {
-    hello: 'Hallo Organisations-Team',
-    subject: { teamCancel: 'Team abgesagt' },
-    text:
-      { teamCancel: 'das Team <b>"{{team}}"</b> am <b>{{date}}</b> um <b>{{time}}</b> Uhr wurde <u>abgesagt</u>.' }
-  },
-  resetPassword:
-  {
+  resetPassword: {
     subject: 'Passwort zurücksetzen',
     headline: 'Passwort zurücksetzen',
     text1: 'Hallo,<br>Bitte klicke auf den folgenden Button, um ein neues Passwort zu vergeben:',
