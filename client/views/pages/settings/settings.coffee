@@ -14,19 +14,22 @@ Template.settings.helpers
 
 	meetingPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), meetingId: @_id
 
+	getLanguage: (language) ->
+		i18next.t('language.' + language)
+
 	getLanguages: ->
 		[
-			de: { name: "Deutsch", en: "German" }
-			en: { name: "English", en: "English" }
-			fi: { name: "Suomi", en: "Finnish" }
-			fr: { name: "Français", en: "French (France)" }
-			hu: { name: "Magyar", en: "Hungarian" }
-			it: { name: "Italiano", en: "Italian" }
-			pl: { name: "Polski", en: "Polish" }
-			pt: { name: "Português", en: "Portuguese (Portugal)" }
-			ru: { name: "Русский", en: "Russian" }
-			'zh-CN': { name: "简体中文", en: "Chinese (China)" }
-			'zh-TW': { name: "繁体中文（台湾）", en: "Chinese (Taiwan)" }
+			{ _id: 'de', name: "Deutsch", en: "German" }
+			{ _id: 'en', name: "English", en: "English" }
+			{ _id: 'fi', name: "Suomi", en: "Finnish" }
+			{ _id: 'fr', name: "Français", en: "French (France)" }
+			{ _id: 'hu', name: "Magyar", en: "Hungarian" }
+			{ _id: 'it', name: "Italiano", en: "Italian" }
+			{ _id: 'pl', name: "Polski", en: "Polish" }
+			{ _id: 'pt', name: "Português", en: "Portuguese (Portugal)" }
+			{ _id: 'ru', name: "Русский", en: "Russian" }
+			{ _id: 'zh-CN', name: "简体中文", en: "Chinese (China)" }
+			{ _id: 'zh-TW', name: "繁体中文（台湾）", en: "Chinese (Taiwan)" }
 		]
 
 	json2String: (a) -> JSON.stringify(a)

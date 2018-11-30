@@ -1,3 +1,8 @@
+Template.languageSwitch.helpers
+
+	getLanguage: (language) ->
+		i18next.t('language.' + language)
+
 Template.languageSwitch.events
 
 	'click .setLang': (e) ->
