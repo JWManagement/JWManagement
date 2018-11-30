@@ -66,19 +66,6 @@ Template.uploadUserFileModal.events
 							systemLanguage = SystemLanguages.defaultValue
 
 						if email.match(/^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i)
-							console.log
-								email: email
-								firstname: firstname
-								lastname: lastname
-								gender: gender
-								telefon: telefon
-								pioneer: pioneer
-								privilege: privilege
-								congregation: congregation
-								systemLanguage: systemLanguage
-								foreignLanguages: foreignLanguages
-								roles: roles
-
 							users.push
 								email: email
 								firstname: firstname
