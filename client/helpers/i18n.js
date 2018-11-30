@@ -6,12 +6,14 @@ Template.registerHelper('langTag', () => i18next.language)
 
 Template.registerHelper('getLanguages', () => SystemLanguages.allowedValues)
 
-Template.registerHelper('_', (key, options) => {
-  console.log(options)
-  if (typeof options === 'string') {
-    options = { param: options }
-  } else if (typeof options === 'number') {
-    options = { count: options }
+Template.registerHelper('_', (key, ...params) => {
+  let options = params.reduce((opts, value, index) => {
+    opts[index] = value
+    return opts
+  }, {})
+
+  if (typeof params[0] === 'number') {
+    options['count'] = params[0]
   }
 
   return i18next.t(key, options)
