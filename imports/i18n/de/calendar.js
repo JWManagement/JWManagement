@@ -1,3 +1,6 @@
-const calendar = { teamleadNeeded: 'TL gesucht', noShifts: 'Keine Schichten' }
+const calendar = {
+  teamleadNeeded: 'TL gesucht',
+  noShifts: 'Keine Schichten'
+}
 
 export default calendar

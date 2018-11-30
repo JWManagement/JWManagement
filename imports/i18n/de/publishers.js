@@ -1,9 +1,7 @@
 const publisher = {
-  entity:
-  {
+  entity: {
     username: 'Benutzername',
-    profile:
-    {
+    profile: {
       firstname: 'Vorname',
       lastname: 'Nachname',
       email: 'E-Mail',
@@ -23,16 +21,14 @@ const publisher = {
       availability: [Object],
       vacation: [Object]
     },
-    password:
-    {
+    password: {
       change: 'Passwort ändern',
       reset: 'Passwort-Zurücksetz-Mail senden',
       resetConfirmation: 'Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden?',
       password: 'Neues Passwort eingeben',
       passwordRepeat: 'Neues Passwort wiederholen'
     },
-    permissions:
-    {
+    permissions: {
       permissions: 'Berechtigungen',
       project: 'Projekt Berechtigungen',
       projectValues: [Object],
@@ -43,12 +39,9 @@ const publisher = {
     delete: 'Verkündiger aus diesem Projekt entfernen',
     deleteConfirmation: 'Möchtest du diesen Verkündiger wirklich aus diesem Projekt entfernen?'
   },
-  search:
-    { placeholder: 'Vorname, Nachname, E-Mail, Telefon oder Benutzername' },
-  details:
-  {
-    sections:
-    {
+  search: { placeholder: 'Vorname, Nachname, E-Mail, Telefon oder Benutzername' },
+  details: {
+    sections: {
       identification: 'Identifikationsdaten',
       availability: 'Verfügbarkeit',
       vacations: 'Urlaub',

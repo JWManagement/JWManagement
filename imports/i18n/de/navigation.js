@@ -2,67 +2,93 @@ const navigation = {
   welcome: 'Willkommen',
   signUp: 'Account erstellen',
   home: 'Übersicht',
-  dashboard:
-  {
+  dashboard: {
     details: 'Übersicht',
-    myProjects: { details: 'Meine Projekte' },
-    missingShiftReports: { details: 'Fehlende Schichtberichte' },
-    upcomingShifts: { details: 'Zukünftige Schichten' },
-    pendingRequests: { details: 'Offene Bewerbungen' },
-    olderShifts: { details: 'Vergangene Schichten' }
+    myProjects: {
+      details: 'Meine Projekte'
+    },
+    missingShiftReports: {
+      details: 'Fehlende Schichtberichte'
+    },
+    upcomingShifts: {
+      details: 'Zukünftige Schichten'
+    },
+    pendingRequests: {
+      details: 'Offene Bewerbungen'
+    },
+    olderShifts: {
+      details: 'Vergangene Schichten'
+    }
   },
   profile: 'Mein Profil',
   shifts: 'Schichten',
   calendar: 'Kalender',
   wiki: 'Informationen',
-  project:
-  {
+  project: {
     search: 'Projekte',
     details: 'Verwaltung',
-    support: { details: 'Hilfe' },
+    support: {
+      details: 'Hilfe'
+    },
     insert: 'Neues Projekt'
   },
   settings: 'Einstellungen',
-  user: { search: 'Benutzer' },
-  publisher:
-  {
+  user: {
+    search: 'Benutzer'
+  },
+  publisher: {
     search: 'Verkündiger',
     details: 'Verkündigerdaten',
     update: 'Verkündiger bearbeiten',
     insert: 'Verkündiger anlegen',
-    profile: { vacation: [Object], availability: [Object] },
-    password: { insert: 'Passwort des Verkündigers ändern' },
+    profile: {
+      vacation: {
+        insert: 'Neuen Urlaub eintragen'
+      },
+      availability: {
+        insert: 'Neuen Zeitraum angeben',
+        details: 'Verfügbarkeit'
+      }
+    },
+    password: {
+      insert: 'Passwort des Verkündigers ändern'
+    },
     permissions:
     {
       details: 'Verkündiger Berechtigungen',
       update: 'Projekt Berechtigungen ändern',
-      tag: [Object]
+      tag: {
+        details: 'Tag Berchtigungen',
+        update: 'Tag Berechtigungen bearbeiten'
+      }
     }
   },
   reports: 'Berichte',
   store: 'Depot',
-  vessel:
-  {
+  vessel: {
     search: 'Schiffe',
     details: 'Schiffsdaten',
     update: 'Schiff bearbeiten',
     insert: 'Neues Schiff erfassen',
-    visit:
-    {
+    visit: {
       details: 'Besuchsdaten',
       insert: 'Neuer Besuch',
       update: 'Besuch bearbeiten',
-      language: [Object]
+      language: {
+        insert: 'Neue Sprache hinzufügen'
+      }
     }
   },
-  note:
-  {
+  note: {
     search: 'Notizen',
     details: 'Notizdaten',
     update: 'Notiz bearbeiten',
     insert: 'Neue Notiz erfassen'
   },
-  language: { details: 'Sprache', update: 'Sprache ändern' },
+  language: {
+    details: 'Sprache',
+    update: 'Sprache ändern'
+  },
   login: 'Anmelden',
   logout: 'Abmelden',
   loggingOut: 'Abmelden...',

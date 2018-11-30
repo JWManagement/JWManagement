@@ -16,7 +16,7 @@ forgotPassword:
   mailSent: Vous allez recevoir un E-mail dans les plus brefs délais. Cliquez sur le lien dans l’E-mail pour changer votre mot de passe.
 resetPassword:
   name: Changer de mot de passe
-  text: Veuillez rentrer un nouveau mot de passe pour  %s %s.
+  text: Veuillez rentrer un nouveau mot de passe pour  {{0}} {{1}}.
   noUserFound: <p>Ce lien n’est plus valide.</p><p>Veuillez demander un nouvel E-mail de changement de mot de passe.</p>
   button: Changer de mot de passe
   back: Retour sur la page de connexion

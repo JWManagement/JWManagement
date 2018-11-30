@@ -165,8 +165,8 @@ swal:
       title: Realmente pagar este ponto de encontro?
       text: Este ponto de encontro também irá ser removido de todos os turnos existentes que já estejam planeados.
       checkInput: Apagar
-      placeholder: Por favor insira "{{param}}" para aprovar
-      inputError: O que inseriu não corresponde a "{{param}}"
+      placeholder: Por favor insira "{{0}}" para aprovar
+      inputError: O que inseriu não corresponde a "{{0}}"
       confirm: Apagar
       cancel: Cancelar
     note:
@@ -178,8 +178,8 @@ swal:
       title: Realmente apagar este projeto?
       text: Isto irá definitivamente apagar todos as configurações associadas a este projeto, ex: turnos, relatórios, aplicações, literatura, etc. Apenar as contas de usuário irão permanecer.
       checkInput: Apagar este projeto
-      placeholder: Por favor insira "{{param}}" para aprovar
-      inputError: O que inseriu não corresponde a "{{param}}"
+      placeholder: Por favor insira "{{0}}" para aprovar
+      inputError: O que inseriu não corresponde a "{{0}}"
       confirm: Apagar
       cancel: Cancelar
     publication:
@@ -211,16 +211,16 @@ swal:
       title: Realmente apagar etiqueta?
       text: Todos os turnos pertencentes a esta etiqueta também irão ser apagados. Isto inclui todos os pedidos para estes turnos <br><br> Para confirmar insira "Apagar".
       checkInput: Apagar
-      placeholder: Por favor insira "{{param}}" para aprovar
-      inputError: O que inseriu não corresponde a "{{param}}"
+      placeholder: Por favor insira "{{0}}" para aprovar
+      inputError: O que inseriu não corresponde a "{{0}}"
       confirm: Apagar
       cancel: Cancelar
     team:
       title: Realmente apagar esta equipa?
       text: Esta equipa irá ser removida de todos os turnos existentes já planeados. Pedidos aceites para este turno irão ser colocados em outras equipas. <br><br> Para confirmar insira "apagar".
       checkInput: Apagar
-      placeholder: Por favor insira "{{param}}" para aprovar
-      inputError: O que inseriu não corresponde a "{{param}}"
+      placeholder: Por favor insira "{{0}}" para aprovar
+      inputError: O que inseriu não corresponde a "{{0}}"
       confirm: Apagar
       cancel: Cancelar
     template:
@@ -251,12 +251,12 @@ swal:
       cancel: Não
     maxReached:
       title: Demasiados usuários selecionados
-      text: Definir limite máximo de equipa de __attr1__ a __attr2__ e aceitar a selecção?
+      text: Definir limite máximo de equipa de {{0}} a {{1}} e aceitar a selecção?
       confirm: Aceitar a selecção
       cancel: Cancelar
     minNotReached:
       title: Número de usuários selecionados não suficiente
-      text: Definir limite minimo de equipa de __attr1__ a __attr2__ e aceitar a seleção?
+      text: Definir limite minimo de equipa de {{0}} a {{1}} e aceitar a seleção?
       confirm: Aceitar a seleção
       cancel: Cancelar
     minReached:

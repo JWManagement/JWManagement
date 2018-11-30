@@ -14,32 +14,27 @@ const store = {
   close: 'Schließen',
   addLanguage: 'Hinzufügen',
   removeLanguage: 'Sprache löschen',
-  setup:
-  {
+  setup: {
     title: 'Bitte wähle einen Depot-Modus',
     support: 'Leider wird dies noch nicht unterstützt',
     description: 'Um dein Depot zu initialisieren, benötigen wir noch einige Angaben.<br>Bitte wähle einen der beiden Modi aus, um mit dem Anlegen des Depots zu beginnen.<br>Du kannst den Modus nachher wieder ändern.',
-    simple:
-    {
+    simple: {
       name: 'Einfach',
       description: 'Beim einfachen Modus wird das System automatisch so konfiguriert, dass im Schichtbericht "Bücher & Bibeln", "Zeitschriften", usw. als Abgaben angegeben werden können.'
     },
-    advanced:
-    {
+    advanced: {
       name: 'Erweitert',
       description: 'Beim erweiterten Modus kannst du selbst definieren, welche Publikationen im Schichtbericht abgegeben werden können und wie viele davon auf Lager sind. Dadurch kannst du genau ermitteln, wie gut welche Publikationen und Sprachen laufen und hast mehr Möglichkeiten, das Inventar zielgerichtet zu optimieren.'
     }
   },
-  type:
-  {
+  type: {
     _books: 'Bücher',
     _brochures: 'Broschüren',
     _magazines: 'Zeitschriften',
     _tracts: 'Traktate',
     _misc: 'Sonstiges'
   },
-  publication:
-  {
+  publication: {
     '_CO-inv17': 'Einladung zum regionalen Kongress 2017',
     '_CO-inv18': 'Einladung zum regionalen Kongress 2018',
     '_CO-inv19': 'Einladung zum regionalen Kongress 2019',

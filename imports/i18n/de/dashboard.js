@@ -28,60 +28,100 @@ const dashboard = {
   showOlder: 'Auch ältere Schichten zeigen',
   showAll: 'Alles zeigen',
   calendar: 'Kalender',
-  myProjects: { details: { sections: { myProjects: 'Meine Projekte' } } },
-  missingShiftReports:
-  {
-    details:
-      { sections: { missingShiftReports: 'Fehlende Schichtberichte' } }
+  myProjects: {
+    details: {
+      sections: {
+        myProjects: 'Meine Projekte'
+      }
+    }
   },
-  upcomingShifts:
-    { details: { sections: { upcomingShifts: 'Zukünftige Schichten' } } },
-  pendingRequests:
-    { details: { sections: { pendingRequests: 'Offene Bewerbungen' } } },
-  olderShifts:
-    { details: { sections: { olderShifts: 'Vergangene Schichten' } } },
-  entity:
-  {
+  missingShiftReports: {
+    details: {
+      sections: {
+        missingShiftReports: 'Fehlende Schichtberichte'
+      }
+    }
+  },
+  upcomingShifts: {
+    details: {
+      sections: {
+        upcomingShifts: 'Zukünftige Schichten'
+      }
+    }
+  },
+  pendingRequests: {
+    details: {
+      sections: {
+        pendingRequests: 'Offene Bewerbungen'
+      }
+    }
+  },
+  olderShifts: {
+    details: {
+      sections: {
+        olderShifts: 'Vergangene Schichten'
+      }
+    }
+  },
+  entity: {
     profile: 'Profil',
     language: 'Sprache',
-    shift: { tag: 'Tag', date: 'Datum', start: 'Beginn', end: 'Ende' },
+    shift: {
+      tag: 'Tag',
+      date: 'Datum',
+      start: 'Beginn',
+      end: 'Ende'
+    },
     logout: 'Abmelden',
     newDashboard: 'Zur neuen Übersicht',
     newDashboardDescription: 'Gute Nachrichten! Wir haben die Übersichtsseite neu designed. Besonders auf mobilen Geräten soll es nun intuitiver sein. Wir hoffen, dass es dir gefällt! Wenn du irgendwelche Probleme haben solltest, informiere bitte deine Projekt-Koordinatoren - sie werden es an uns weiterleiten.',
     oldDashboard: 'Zur alten Übersicht',
-    myProjects:
-    {
+    myProjects: {
       seeAllItems: 'Zeige ein weiteres Projekt',
       seeAllItems_plural: 'Zeige auch die anderen {{count}} Projekte'
     },
-    missingShiftReports:
-    {
-      shift: { tag: 'Tag', date: 'Datum', start: 'Beginn', end: 'Ende' },
+    missingShiftReports: {
+      shift: {
+        tag: 'Tag',
+        date: 'Datum',
+        start: 'Beginn',
+        end: 'Ende'
+      },
       seeAllItems: 'Zeige einen weiteren fehlenden Schichtbericht',
       seeAllItems_plural: 'Zeige auch die anderen {{count}} fehlenden Schichtberichte'
     },
-    upcomingShifts:
-    {
-      shift: { tag: 'Tag', date: 'Datum', start: 'Beginn', end: 'Ende' },
+    upcomingShifts: {
+      shift: {
+        tag: 'Tag',
+        date: 'Datum',
+        start: 'Beginn',
+        end: 'Ende'
+      },
       seeAllItems: 'Zeige meine andere zukünftige Schicht',
       seeAllItems_plural: 'Zeige auch meine anderen {{count}} zukünftigen Schichten'
     },
-    pendingRequests:
-    {
+    pendingRequests: {
       link: 'Alle meine offenen Bewerbungen',
-      shift: { tag: 'Tag', date: 'Datum', start: 'Beginn', end: 'Ende' }
+      shift: {
+        tag: 'Tag',
+        date: 'Datum',
+        start: 'Beginn',
+        end: 'Ende'
+      }
     },
-    olderShifts:
-    {
+    olderShifts: {
       link: 'Alle meine vergangenen Schichten',
-      shift: { tag: 'Tag', date: 'Datum', start: 'Beginn', end: 'Ende' }
+      shift: {
+        tag: 'Tag',
+        date: 'Datum',
+        start: 'Beginn',
+        end: 'Ende'
+      }
     },
     startProject: 'Neues Projekt'
   },
-  details:
-  {
-    sections:
-    {
+  details: {
+    sections: {
       myProjects: 'Meine Projekte',
       missingShiftReports: 'Fehlende Schichtberichte',
       upcomingShifts: 'Meine kommenden Schichten',

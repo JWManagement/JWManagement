@@ -19,7 +19,7 @@ const pages = {
   },
   resetPassword: {
     name: 'Passwort zurücksetzen',
-    text: 'Neues Passwort für %s %s eingeben.',
+    text: 'Neues Passwort für {{0}} eingeben.',
     noUserFound: '<p>Dieser Link ist ungültig.</p><p>Bitte lass dir einen neuen Link zuschicken.</p>',
     button: 'Passwort ändern',
     back: 'Zurück zum Login'
@@ -92,7 +92,7 @@ const pages = {
     files: 'Dateien',
     addQuestion: 'Frage/Titel hinzufügen',
     edit: 'Bearbeiten',
-    'delete': 'Löschen',
+    delete: 'Löschen',
     noFiles: 'Keine Dateien verfügbar',
     addTab: 'Neuen Reiter hinzufügen',
     editQuestion: 'Titel bearbeiten',
@@ -149,7 +149,7 @@ const pages = {
     removeAll: 'Alle löschen'
   },
   reports: {
-    'export': 'Export als CSV'
+    export: 'Export als CSV'
   },
   settings: {
     main: {

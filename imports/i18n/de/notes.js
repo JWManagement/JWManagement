@@ -1,7 +1,8 @@
 const note = {
-  search: { placeholder: 'Titel oder Text' },
-  entity:
-  {
+  search: {
+    placeholder: 'Titel oder Text'
+  },
+  entity: {
     title: 'Titel',
     text: 'Text',
     lastChange: 'Letzte Änderung',
@@ -10,10 +11,8 @@ const note = {
     delete: 'Notiz löschen',
     deleteConfirmation: 'Möchtest du diese Notiz wirklich löschen?'
   },
-  details:
-  {
-    sections:
-    {
+  details: {
+    sections: {
       title: 'Titel',
       text: 'Text',
       meta: 'Letzte Änderung',

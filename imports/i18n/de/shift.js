@@ -1,3 +1,7 @@
-const shift = { entity: { noElements: 'Keine Schichten gefunden' } }
+const shift = {
+  entity: {
+    noElements: 'Keine Schichten gefunden'
+  }
+}
 
 export default shift

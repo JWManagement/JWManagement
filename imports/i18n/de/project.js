@@ -1,13 +1,11 @@
 const project = {
   nameShort: 'Verwaltung',
-  entity:
-  {
+  entity: {
     _id: 'ID',
     name: 'Name',
     email: 'Projekt E-Mail Adresse',
     language: 'Standard Sprache',
-    languageValues:
-    {
+    languageValues: {
       de: 'Deutsch',
       en: 'Englisch',
       fi: 'Finnisch',
@@ -18,7 +16,9 @@ const project = {
       pt: 'Portugiesisch',
       ru: 'Russisch'
     },
-    news: { text: 'Neuigkeiten' },
+    news: {
+      text: 'Neuigkeiten'
+    },
     shifts: 'Schichten',
     calendar: 'Kalender',
     knowledgeBase: 'Informationen',
@@ -33,8 +33,7 @@ const project = {
     leave: 'Teilnahme an diesem Projekt aufkündigen',
     leaveConfirmation: 'Möchtest du dieses Projekt wirklich verlassen und JEGLICHE TEILNAHME DARAN AUFKÜNDIGEN? Das kann nicht rückgängig gemacht werden!',
     supportPage: 'Hilfe',
-    support:
-    {
+    support: {
       phone: 'Ruf an',
       discord: 'Schreib uns auf Discord (empfohlen)',
       github: 'Lege ein GitHub Issue an',
@@ -43,18 +42,25 @@ const project = {
     },
     noElements: 'Keine Projekte gefunden'
   },
-  details:
-  {
-    sections:
-    {
+  details: {
+    sections: {
       project: 'Projekt',
       modules: 'Module',
       administration: 'Verwaltung',
       participation: 'Teilnahme'
     }
   },
-  search: { placeholder: 'Suche nach Projekten' },
-  support: { details: { sections: [Object] } }
+  search: {
+    placeholder: 'Suche nach Projekten'
+  },
+  support: {
+    details: {
+      sections: {
+        support: 'Hilfe bekommen',
+        donate: 'Unterstützen'
+      }
+    }
+  }
 }
 
 export default project

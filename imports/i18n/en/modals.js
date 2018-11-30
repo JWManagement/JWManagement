@@ -119,10 +119,7 @@ const modal = {
     of: 'of',
     approveSelected: 'Approve selected',
     declineSelected: 'Decline selected',
-    report: 'Report',
-    allocations: 'Shifts',
-    thisWeek: 'this week',
-    lastDays: 'last %s days'
+    report: 'Report'
   },
   shiftReport: {
     title: 'Report',

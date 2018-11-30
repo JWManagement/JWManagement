@@ -17,7 +17,7 @@ pages:
     mailSent: Za chwilę otrzymasz e-mail. Otwórz go i kliknij w link aby zresetować Twoje hasło.
   resetPassword:
     name: Reset hasła
-    text: Proszę wprowadź nowe hasło dla %s %s.
+    text: Proszę wprowadź nowe hasło dla {{0}} {{1}}.
     noUserFound: <p>Ten link stracił ważność</p><p>Wyślij nową prośbę o zresetowanie hasła.</p>
     button: Zmień hasło
     back: Wróć do strony głównej

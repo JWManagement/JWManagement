@@ -1,12 +1,10 @@
 const vessel = {
   nameShort: 'Schiffe',
-  entity:
-  {
+  entity: {
     name: 'Schiffsname',
     flag: 'Flagge',
     type: 'Typ',
-    typeValues:
-    {
+    typeValues: {
       c: 'Containerschiff',
       cr: 'Kreuzfahrtschiff',
       mf: 'Frachter',
@@ -25,8 +23,7 @@ const vessel = {
     mmsi: 'MMSI',
     delete: 'Dieses Schiff löschen',
     deleteConfirmation: 'Möchtest du dieses Schiff wirklich löschen?',
-    visit:
-    {
+    visit: {
       new: 'Neuen Besuch erfassen',
       noElements: 'Dieses Schiff wurde noch nicht besucht',
       delete: 'Diesen Besuch löschen',
@@ -39,23 +36,42 @@ const vessel = {
       dateNext: 'Nächster Besuch frühestens',
       harbor: 'Hafen',
       harborId: 'Hafen',
-      harborIdValues: [Object],
+      harborIdValues: {
+        placeholder: 'Wähle einen Hafen'
+      },
       country: 'Land',
-      language: [Object],
+      language: {
+        new: 'Neue Sprache hinzufügen',
+        noElements: 'Noch keine Sprache eingetragen',
+        methodConfirmation: 'Möchtest du diese Sprache wirklich löschen?',
+        languageIds: 'Sprache',
+        languageIdsValues: {
+          placeholder: 'Wähle eine Sprache'
+        }
+      },
       languages: 'Sprachen an Board'
     }
   },
-  search: { placeholder: 'Schiffsname, Rufzeichen, ENI, IMO oder MMSI' },
-  details:
-  {
-    sections:
-    {
+  search: {
+    placeholder: 'Schiffsname, Rufzeichen, ENI, IMO oder MMSI'
+  },
+  details: {
+    sections: {
       identification: 'Identifikationsdaten',
       visit: 'Besuchsdaten'
     },
     dateFormat: 'DD.MM.YYYY'
   },
-  visit: { details: { sections: [Object], dateFormat: 'DD.MM.YYYY' } }
+  visit: {
+    details: {
+      sections: {
+        main: 'Besuchsdaten',
+        language: 'Sprachen',
+        option: 'Optionen'
+      },
+      dateFormat: 'DD.MM.YYYY'
+    }
+  }
 }
 
 export default vessel

@@ -71,7 +71,7 @@ pages:
     mailSent: Você receberá um e-mail em breve. Siga o link no e-mail para redefinir sua senha.
   resetPassword:
     name: Restabelecer sua palavra-passe.
-    text: Por favor digite uma nova palavra-passe para %s %s.
+    text: Por favor digite uma nova palavra-passe para {{0}} {{1}}.
     noUserFound: <p>Endereço inválido</p><p>Confirme o URL</p>
     button: Mudar palavra-passe
     back: Voltar à página inicial

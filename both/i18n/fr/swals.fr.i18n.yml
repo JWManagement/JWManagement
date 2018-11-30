@@ -167,8 +167,8 @@ swal:
       title: Veux-tu vraiment effacer ce point de rendez-vous?
       text: Le point de rendez-vous sera aussi enlevé de toutes les plages horaires existantes dans le futur.
       checkInput: Effacer
-      placeholder: Merci de saisir "%s" pour confirmer
-      inputError: L'entrée saisie ne correspond pas avec "%s"
+      placeholder: Merci de saisir "{{0}}" pour confirmer
+      inputError: L'entrée saisie ne correspond pas avec "{{0}}"
       confirm: Effacer
       cancel: Annuler
     note:
@@ -180,8 +180,8 @@ swal:
       title: Veux-tu vraiment effacer ce projet?
       text: Cette action effacera de manière irreversible toutes les configurations associées à ce projet, par ex. plages horaires, rapport, demande, publications, etc. Uniquement les comptes utilisateur seront maintenus.
       checkInput: Effacer ce projet
-      placeholder: Merci de saisir "%s" pour confirmer
-      inputError: L'entrée saisie ne correspond pas avec "%s"
+      placeholder: Merci de saisir "{{0}}" pour confirmer
+      inputError: L'entrée saisie ne correspond pas avec "{{0}}"
       confirm: Effacer
       cancel: Annuler
     publication:
@@ -213,16 +213,16 @@ swal:
       title: Veux-tu vraiment effacer l'étiquette?
       text: Cette action effacera de manière irreversible toutes les plages horaires appartenant à cette étiquette, incluant toutes les inscriptions concernant cette plage horaire. <br><br> Saisir "effacer" pour confirmer.
       checkInput: Effacer
-      placeholder: Merci de saisir "%s" pour confirmer
-      inputError: L'entrée saisie ne correspond pas avec "%s"
+      placeholder: Merci de saisir "{{0}}" pour confirmer
+      inputError: L'entrée saisie ne correspond pas avec "{{0}}"
       confirm: Effacer
       cancel: Annuler
     team:
       title: Veux-tu vraiment effacer cette équipe?
       text: L'équipe sera enlevée de toutes les plages horaires existantes et planifiées dans le future. Les inscription approuvée pour cette plage horaire seront replacée dans d'autres équipes. <br><br> Saisir "effacer" pour confirmer.
       checkInput: Effacer
-      placeholder: Merci de saisir "%s" pour confirmer
-      inputError: L'entrée saisie ne correspond pas avec "%s"
+      placeholder: Merci de saisir "{{0}}" pour confirmer
+      inputError: L'entrée saisie ne correspond pas avec "{{0}}"
       confirm: Effacer
       cancel: Annuler
     template:
@@ -253,12 +253,12 @@ swal:
       cancel: Non
     maxReached:
       title: Trop de participants sélectionnés
-      text: Configure le nombre maximum pour l'équipe, de __attr1__ à __attr2__ et approuve les sélectionnés?
+      text: Configure le nombre maximum pour l'équipe, de {{0}} à {{1}} et approuve les sélectionnés?
       confirm: Approuver les sélectionnés
       cancel: Annuler
     minNotReached:
       title: Nombre insuffisant de participants sélectionnés
-      text: Configure le nombre minimum pour l'équipe, de __attr1__ to __attr2__ et approuve les sélectionnés?
+      text: Configure le nombre minimum pour l'équipe, de {{0}} to {{1}} et approuve les sélectionnés?
       confirm: Approuver les sélectionnés
       cancel: Annuler
     minReached:

@@ -8,61 +8,51 @@ const swal = {
   declinementInformed: 'Dieser Teilnehmer wurde bereits über seine Bewerbungs-Absage informiert.',
   vacationEndInPast: 'Das Enddatum kann nicht in der Vergangenheit liegen.',
   missingTag: 'Kein Tag definiert. Bitte lege zuerst eines unter Verwaltung > Einstellungen an.',
-  logout:
-  {
+  logout: {
     title: 'Tipp',
     text: 'Es ist nicht nötig sich abzumelden. Deine Verbindung ist verschlüsselt und wir speichern Sitzungsinformationen lediglich im lokalen Browserstorage. Dadurch kann niemand in deine Sitzung einbrechen.',
     confirm: 'Abmelden',
     cancel: 'Abbrechen'
   },
-  invite:
-  {
-    user:
-    {
+  invite: {
+    user: {
       title: 'Verkündiger einladen?',
       text: 'Da dieser Verkündiger <b>bereits einen Account hat</b>, muss für ihn kein weiterer Account angelegt werden. Stattdessen bekommt er <b>einfach Zugriff auf dieses Projekt</b>.<br>Natürlich <b>informieren wir ihn</b> darüber. <br><p>Falls es mehrere Verkündiger mit dieser E-Mail-Adresse bei JW Management gibt, wähle bitte den richtigen aus:</p>'
     },
-    users:
-    {
+    users: {
       title: 'Bist du dir sicher?',
       text: 'An alle ausgewählten Verkündiger werden E-Mails gesendet.',
       confirm: 'Einladen',
       cancel: 'Abbrechen'
     }
   },
-  sendMail:
-  {
-    confirmWeek:
-    {
+  sendMail: {
+    confirmWeek: {
       title: 'Bist du dir sicher?',
       text: 'Alle zugeteilten Verkündiger erhalten eine Bestätigung, und alle abgelehnten Verkündiger eine Absage per Mail.',
       confirm: 'Ja',
       cancel: 'Abbrechen'
     },
-    confirmation:
-    {
+    confirmation: {
       title: 'Verkündiger informieren?',
       text: 'Der Verkündiger wird per E-Mail über seine Zuteilung informiert.',
       confirm: 'Ja',
       cancel: 'Abbrechen'
     },
-    declined:
-    {
+    declined: {
       title: 'Verkündiger informieren?',
       text: 'Der Verkündiger wird per E-Mail darüber Informiert, dass seine Bewerbung abgelehnt wurde.',
       confirm: 'Ja',
       cancel: 'Abbrechen'
     },
-    selectTag:
-    {
+    selectTag: {
       title: 'Welches Tag?',
       text: 'Bitte wähle das Tag aus, an welches gesendet werden soll:',
       confirm: 'OK',
       cancel: 'Abbrechen'
     },
     teamUpdate: { user: [Object], general: [Object] },
-    understaffed:
-    {
+    understaffed: {
       title: 'Verkündiger informieren?',
       text: 'Sollen alle Verkündiger darüber informiert werden, dass dieses Team unterbesetzt ist?',
       confirm: 'Ja',
@@ -70,18 +60,15 @@ const swal = {
       teamleader: [Object]
     }
   },
-  add:
-  {
-    meeting:
-    {
+  add: {
+    meeting: {
       title: 'Neuen Treffpunkt anlegen',
       text: '',
       placeholder: 'Name',
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    question:
-    {
+    question: {
       title: 'Frage/Titel anlegen',
       text: '',
       placeholder: 'Frage/Titel',
@@ -89,8 +76,7 @@ const swal = {
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    tab:
-    {
+    tab: {
       title: 'Neuen Tab anlegen',
       text: '',
       placeholder: 'Titel',
@@ -98,8 +84,7 @@ const swal = {
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    tag:
-    {
+    tag: {
       title: 'Neues Tag anlegen',
       text: '',
       placeholder: 'Name',
@@ -107,8 +92,7 @@ const swal = {
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    team:
-    {
+    team: {
       title: 'Neues Team anlegen',
       text: '',
       placeholder: 'Name',
@@ -116,8 +100,7 @@ const swal = {
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    template:
-    {
+    template: {
       title: 'Vorlagewoche anlegen',
       text: '',
       placeholder: 'Name',
@@ -126,18 +109,15 @@ const swal = {
       cancel: 'Abbrechen'
     },
     user: { title: 'Erstellt!', text: 'Der User wurde angelegt.' },
-    users:
-    {
+    users: {
       title: 'Bist du dir sicher?',
       text: 'Alle angezeigten Verkündiger werden dem Projekt hinzugefügt.',
       confirm: 'Hinzufügen',
       cancel: 'Abbrechen'
     }
   },
-  update:
-  {
-    file:
-    {
+  update: {
+    file: {
       title: 'Dateinamen ändern',
       text: '',
       placeholder: 'Dateiname',
@@ -145,8 +125,7 @@ const swal = {
       confirm: 'Ändern',
       cancel: 'Abbrechen'
     },
-    password:
-    {
+    password: {
       title: 'Passwort ändern',
       passwordOld: 'Altes Passwort',
       passwordNew1: 'Neues Passwort',
@@ -155,16 +134,14 @@ const swal = {
       cancel: 'Abbrechen',
       passwordChanged: 'Das Passwort wurde geändert'
     },
-    question:
-    {
+    question: {
       title: 'Frage/Titel ändern',
       text: '',
       placeholder: 'Frage/Titel',
       confirm: 'Ändern',
       cancel: 'Abbrechen'
     },
-    template:
-    {
+    template: {
       title: 'Name ändern',
       text: '',
       placeholder: 'Name',
@@ -172,179 +149,154 @@ const swal = {
       cancel: 'Abbrechen'
     }
   },
-  delete:
-  {
-    account:
-    {
+  delete: {
+    account: {
       title: 'Möchtest du deinen Account wirklich löschen?',
       text: 'Der Account wird unwiderruflich gelöscht und kann nicht wiederhergestellt werden!',
       confirm: 'Meinen Account löschen!',
       cancel: 'Abbrechen'
     },
-    allShifts:
-    {
+    allShifts: {
       title: 'Bist du dir sicher?',
       text: 'Alle Schichten dieses Tages und alle Bewerbungen auf diese werden unwiderruflich gelöscht.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    file:
-    {
+    file: {
       title: 'Datei wirklich löschen?',
       text: 'Die Datei wird unwiederruflich gelöscht',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    language:
-    {
+    language: {
       title: 'Diese Sprache wirklich löschen?',
       text: 'Das wird die Sprache samt Lagerbestand löschen.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    meeting:
-    {
+    meeting: {
       title: 'Treffpunkt wirklich löschen?',
       text: 'Die Treffpunkte werden auch aus bestehenden Schichten gelöscht.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
+      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    note:
-    {
+    note: {
       title: 'Möchtest du diese Notiz wirklich löschen?',
       text: 'Die Notiz wird unwiderruflich gelöscht.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    project:
-    {
+    project: {
       title: 'Möchtest du das Projekt wirklich löschen?',
       text: 'Dadurch wird auch alles direkt und transitiv abhängige (wie z.B. Schichten, Berichte, Bewerbungen, Publikationen, etc.) gelöscht. Lediglich die Benutzeraccounts bleiben vorhanden.',
       checkInput: 'Dieses Projekt löschen',
-      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
+      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    publication:
-    {
+    publication: {
       title: 'Diese Publikation aus dem Depot löschen?',
       text: 'Dadurch gehen alle Daten dieser Publikation verloren.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    question:
-    {
+    question: {
       title: 'Frage wirklich löschen?',
       text: 'Das wird die Frage samt Antwort unwiderruflich löschen',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    shift:
-    {
+    shift: {
       title: 'Schicht wirklich löschen?',
       text: 'Alle Bewerbungen auf diese Schicht gehen verloren.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    store:
-    {
+    store: {
       title: 'Depot wirklich zurücksetzen?',
       text: 'Dadurch werden alle angelegten Publikationen entfernt.',
       confirm: 'Zurücksetzen',
       cancel: 'Abbrechen'
     },
-    tab:
-    {
+    tab: {
       title: 'Tab wirklich löschen?',
       text: 'Der gesamte Tab mit allen seinen Fragen wird gelöscht.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    tag:
-    {
+    tag: {
       title: 'Tag wirklich löschen?',
       text: 'Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
+      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    team:
-    {
+    team: {
       title: 'Team wirklich löschen?',
       text: 'Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
       checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{param}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{param}}" überein',
+      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
+      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    template:
-    {
+    template: {
       title: 'Vorlage wirklich löschen?',
       text: '',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    user:
-    {
+    user: {
       title: 'Benutzer wirklich löschen?',
       text: 'Dem Benutzer werden sämtliche Berechtigungen in diesem Projekt entzogen.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     }
   },
-  request:
-  {
-    approve:
-    {
+  request: {
+    approve: {
       title: 'Verkündiger wirklich einteilen?',
       text: 'Dieser Verkündiger wurde bereits abgelehnt. Stelle deshalb bitte sicher, dass er immernoch teilnehmen möchte und auch dazu in der Lage ist.',
       confirm: 'Ja',
       cancel: 'Nein'
     },
-    cancel:
-    {
+    cancel: {
       title: 'Bewerbung wirklich zurückziehen?',
       text: 'Dadurch muss möglicherweise das ganze Team aufgelöst werden.',
       confirm: 'Bewerbung zurückziehen',
       cancel: 'Abbrechen'
     },
-    decline:
-    {
+    decline: {
       title: 'Teilnehmer wirklich ablehnen?',
       text: 'Wenn der Teilnehmer bereits eine E-Mail erhalten hat, bekommt er eine Austragungsbestätigung.',
       confirm: 'Ja',
       cancel: 'Nein'
     },
-    maxReached:
-    {
+    maxReached: {
       title: 'Zu viele Bewerber selektiert',
-      text: 'Team Maximal-Grenze von {{attr1}} auf {{attr2}} setzen und alle annehmen?',
+      text: 'Team Maximal-Grenze von {{0}} auf {{1}} setzen und alle annehmen?',
       confirm: 'Selektierte annehmen',
       cancel: 'Abbrechen'
     },
-    minNotReached:
-    {
+    minNotReached: {
       title: 'Nicht genug Bewerber selektiert',
-      text: 'Team Mindest-Grenze von {{attr1}} auf {{attr2}} setzen und alle annehmen?',
+      text: 'Team Mindest-Grenze von {{0}} auf {{1}} setzen und alle annehmen?',
       confirm: 'Selektierte annehmen',
       cancel: 'Abbrechen'
     },
-    minReached:
-    {
+    minReached: {
       title: 'Teilnehmer wirlich ablehnen?',
       text: 'Die Mindest-Grenze des Teams ist erreicht. Wenn du diesen Teilnehmer ablehnst, wird das System stattdessen das ganze Team absagen.',
       confirm: 'Komplettes Team absagen',
       cancel: 'Nein'
     },
-    noNewTeamleader:
-    {
+    noNewTeamleader: {
       title: 'Teilnehmer wirlich ablehnen?',
       text: 'Leider ist keine anderer möglicher Teamleiter vorhanden. Wenn du diesen Teilnehmer ablehnst, wird das System stattdessen das ganze Team absagen.',
       confirm: 'Komplettes Team absagen',

@@ -17,7 +17,7 @@ pages:
     mailSent: Saat pian sähköpostia. Klikkaa siinä olevaa linkkiä palauttaaksesi salasanasi.
   resetPassword:
     name: Palauta salasana
-    text: Anna uusi salasana käyttäjälle %s %s.
+    text: Anna uusi salasana käyttäjälle {{0}} {{1}}.
     noUserFound: <p>Tämä linkki on vanhentunut</p><p>Pyydä uusi linkki sähköpostiisi.</p>
     button: Vaihda salasana
     back: Takaisin aloitussivulle

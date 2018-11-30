@@ -1,7 +1,6 @@
 const modal = {
   close: 'Schließen',
-  addParticipant:
-  {
+  addParticipant: {
     title: 'Teilnehmer hinzufügen',
     noUsers: 'Keine verfügbaren Teilnehmer gefunden',
     description: 'Bitte wähle den Verkündiger aus, der zu der Schicht hinzugefügt werden soll.',
@@ -12,44 +11,37 @@ const modal = {
     all_users: 'Alle Verkündiger',
     select: 'Verkündiger auswählen'
   },
-  addVessel:
-  {
+  addVessel: {
     title: 'Neues Schiff hinzufügen',
     action: 'Schiff hinzufügen'
   },
-  addWeek:
-  {
+  addWeek: {
     title: 'Neue Woche anlegen',
     noTemplate: 'Bitte leg zuerst eine Vorlage an',
     defineTemplate: 'Vorlage anlegen',
     action: 'Woche anlegen',
-    text:
-    {
+    text: {
       top: 'Wähle die Woche aus, auf die die Vorlagewoche angewendet werden soll:',
       bottom: 'Wähle die Vorlagewoche aus:'
     }
   },
-  cancelTeam:
-  {
+  cancelTeam: {
     title: 'Team absagen',
     text: 'Beschreibe, warum dieses Team abgesagt werden muss. Die einzelnen Verkündiger bekommen diesen Text in der Absage-Mail angezeigt.',
     action: 'Team absagen'
   },
-  copyShift:
-  {
+  copyShift: {
     title: 'Schicht kopieren',
     text: 'Selektiere die Tage, zu denen du Schicht kopieren möchtest.',
     action: 'Schicht kopieren'
   },
-  editShift:
-  {
+  editShift: {
     title: 'Schichtdaten bearbeiten',
     mainData: 'Allgemeine Daten',
     tag: 'Tag',
     team: 'Team',
     teams: 'Teams dieser Schicht',
-    helpText:
-    {
+    helpText: {
       tag: 'Wähle das Tag aus, dem die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für dieses Tag können die Schicht sehen.',
       scheduling: 'Bei \'Sofort zusagen\' werden die Bewerbungen der Verkündiger sofort zugesagt, wenn die Mindest-Teilnehmer Grenze des nächsten Teams erreicht ist.'
     },
@@ -66,8 +58,7 @@ const modal = {
     switch: 'Schicht einteilen',
     copyShift: 'Schicht kopieren'
   },
-  editTeamPicture:
-  {
+  editTeamPicture: {
     title: 'Team Bild ändern',
     currentPicture: 'Aktuelles Bild:',
     hints: 'Dieses Bild wird dem Verkündiger eventuell größer angezeigt.',
@@ -75,8 +66,7 @@ const modal = {
     upload: 'Hochladen',
     delete: 'Löschen'
   },
-  editMeetingPicture:
-  {
+  editMeetingPicture: {
     title: 'Treffpunkt Bild ändern',
     currentPicture: 'Aktuelles Bild:',
     hints: 'Dieses Bild wird dem Verkündiger eventuell größer angezeigt.',
@@ -84,18 +74,21 @@ const modal = {
     upload: 'Hochladen',
     delete: 'Löschen'
   },
-  editVessel: { title: 'Schiff-Daten ändern', action: 'Änderungen speichern' },
-  inviteUser:
-  {
+  editVessel: {
+    title: 'Schiff-Daten ändern',
+    action: 'Änderungen speichern'
+  },
+  inviteUser: {
     title: 'Neue Verkündiger einladen',
     key: '<span class="text-warning">Oranger Name</span> bedeutet, dass der User bereits eingeladen wurde.',
     selectAll: 'Alle auswählen',
     noUsers: 'Keine neuen Verkündiger gefunden',
     invite: 'Einladen'
   },
-  position: { title: 'Position mit linker Maustaste markieren' },
-  shift:
-  {
+  position: {
+    title: 'Position mit linker Maustaste markieren'
+  },
+  shift: {
     collapseTeam: 'Route und Treffpunkte verbergen',
     expandTeam: 'Route und Treffpunkte anzeigen',
     noParticipants: 'Keine Teilnehmer',
@@ -117,8 +110,7 @@ const modal = {
     existingTeamleaders: 'Teamleiter vorhanden',
     noExistingTeamleader: 'Teamleiter fehlt'
   },
-  shiftReport:
-  {
+  shiftReport: {
     title: 'Bericht',
     teamleader: 'Teamleiter',
     substituteTeamleader: 'Ersatz-Teamleiter',
@@ -157,8 +149,7 @@ const modal = {
     expProblems: 'Probleme / Schwierigkeiten',
     date: 'Datum',
     toShift: 'Zur Schicht',
-    pages:
-    {
+    pages: {
       publisher: 'Verkündiger',
       items: 'Abgegebene Publikationen',
       occurrences: 'Was erreicht werden konnte',
@@ -169,14 +160,12 @@ const modal = {
       finish: 'Bericht abgeben'
     }
   },
-  route:
-  {
+  route: {
     title: 'Route erstellen/bearbeiten',
     routeMarkers: 'Routen-Marker',
     addRouteMarkers: 'Klicke auf die Karte, um neue Routen-Marker hinzuzufügen'
   },
-  uploadUserFile:
-  {
+  uploadUserFile: {
     title: 'User-Datei hochladen',
     helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...)',
     helpEncoding: 'Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!',
@@ -187,8 +176,7 @@ const modal = {
     email: 'E-Mail',
     add: 'User hinzufügen'
   },
-  mergeAccounts:
-  {
+  mergeAccounts: {
     title: 'Accounts zusammenführen',
     description: 'Gib hier die Anmeldedaten des Accounts ein, auf den du die Berechtigungen des aktuellen Accoutns übertragen möchtest. Du wirst direkt mit dem angegebenen Account angemeldet.',
     username: 'Benutzername',

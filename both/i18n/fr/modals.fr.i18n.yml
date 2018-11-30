@@ -29,7 +29,7 @@ modal:
     text: Just select the days to which you want to copy this shift.
     action: Copy shift
   editPermissions:
-    title: Manage %s's permissions
+    title: Manage {{0}}'s permissions
     projectPermissions: Project permissions
     projectRole: Project role
     tagPermissions: Tag roles

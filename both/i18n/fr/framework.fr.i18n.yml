@@ -1,12 +1,12 @@
 searchForm:
   loading: Chargement...
   noResults: Aucun résultat
-  xResults: %s résultat
-  xResults_plural: %s résulats
-  showingTheFirstX: Montrer le premier %s
+  xResults: 1 résultat
+  xResults_plural: {{count}} résulats
+  showingTheFirstX: Montrer le premier {{count}}
   showingAll: ''
   showingAll_plural: Tout montrer
-  showAll: Tout montrer %s
+  showAll: Tout montrer {{count}}
 validation:
   required: Ce champ est requis
   unique: Il y a déjà un enregistrement avec cette valeur

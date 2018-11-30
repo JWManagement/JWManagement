@@ -17,7 +17,7 @@ pages:
     mailSent: Hamarosan kapsz egy emailt. Kattints az e-mailben található linkre a jelszó visszaállításához.
   resetPassword:
     name: Jelszó visszaállítás
-    text: Adj meg új jelszót a %s %s.
+    text: Adj meg új jelszót a {{0}} {{1}}.
     noUserFound:
     button: Jelszó módosítása
     back: Vissza a kezdő oldalra

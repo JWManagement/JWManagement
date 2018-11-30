@@ -19,7 +19,7 @@ const pages = {
   },
   resetPassword: {
     name: 'Reset password',
-    text: 'Please enter a new password for %s %s.',
+    text: 'Please enter a new password for {{0}}.',
     noUserFound: '<p>This link is invalid.</p><p>Please request another reset password mail.</p>',
     button: 'Change password',
     back: 'Back to Login Page'

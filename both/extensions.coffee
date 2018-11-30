@@ -34,9 +34,9 @@
 	color = '#f44336' if type in ['error', 'warning']
 
 	if attrs.textAttr2?
-		text = i18next.t('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1, attr2: attrs.textAttr2)
+		text = i18next.t('swal.' + attrs.swal + '.text', 0: attrs.textAttr1, 1: attrs.textAttr2)
 	else if attrs.textAttr1?
-		text = i18next.t('swal.' + attrs.swal + '.text', attr1: attrs.textAttr1)
+		text = i18next.t('swal.' + attrs.swal + '.text', 0: attrs.textAttr1)
 
 	swal
 		title: title
@@ -69,8 +69,8 @@
 		closeOnSuccess = attrs.closeOnSuccess
 
 	if checkInput
-		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder', { param: checkInput })
-		inputError = i18next.t('swal.' + attrs.swal + '.inputError', { param: checkInput })
+		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder', { 0: checkInput })
+		inputError = i18next.t('swal.' + attrs.swal + '.inputError', { 0: checkInput })
 	else
 		placeholder = i18next.t('swal.' + attrs.swal + '.placeholder')
 		inputError = i18next.t('swal.' + attrs.swal + '.inputError')
