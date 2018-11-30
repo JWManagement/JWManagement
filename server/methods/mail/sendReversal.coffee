@@ -19,18 +19,20 @@ Meteor.methods
 			name = user.profile.firstname + ' ' + user.profile.lastname
 			teamNr = shift.teams.map((e) -> e._id).indexOf(teamId)
 
+			localTranslate = i18next.getFixedT(user.profile.language)
+
 			Meteor.call 'sendMail',
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: i18next.t('mail.reversal.subject', '', user.profile.language)
+				subject: localTranslate('mail.reversal.subject')
 				template: 'reversal'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
 					team: shift.teams[teamNr].name
-					datetime: i18next.t('mail.reversal.datetime', dateTime, user.profile.language)
-					content: getMailTexts 'reversal', user.profile.language
+					datetime: localTranslate('mail.reversal.datetime', dateTime)
+					content: getMailTexts 'reversal', localTranslate
 			, (err, res) -> if err
 				console.log 'sendMail failed: ' + err

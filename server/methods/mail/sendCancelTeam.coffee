@@ -1,5 +1,4 @@
 moment = require('moment')
-{ send } = require('./send.coffee')
 
 Meteor.methods
 
@@ -12,17 +11,20 @@ Meteor.methods
 				user = Meteor.users.findOne participant._id, fields: profile: 1
 
 				if user.profile.email?
+					localTranslate = i18next.getFixedT(user.profile.language)
+
 					project = Projects.findOne shift.projectId, fields: name: 1, email:1
 					date = moment(shift.date, 'YYYYDDDD').format('DD.MM.YYYY')
 					time = moment(shift.start, 'Hmm').format('H:mm') + ' - ' +  moment(shift.end, 'Hmm').format('H:mm')
+
 					if message == 'missingParticipant'
-						message = i18next.t('mail.teamCancellation.missingParticipant', '', user.profile.language)
+						message = localTranslate('mail.teamCancellation.missingParticipant')
 
 					Meteor.call 'sendMail',
 						recipient: participant.email
 						sender: project.name
 						from: project.email
-						subject: i18next.t('mail.teamCancellation.subject', '', user.profile.language)
+						subject: localTranslate('mail.teamCancellation.subject')
 						template: 'teamCancellation'
 						language: user.profile.language
 						data:
@@ -30,4 +32,4 @@ Meteor.methods
 							team: team.name
 							name: participant.name
 							reason: message
-							text: i18next.t('mail.teamCancellation.text', {date: date, time: time} , user.profile.language)
+							text: localTranslate('mail.teamCancellation.text', {date: date, time: time})
