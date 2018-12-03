@@ -2,41 +2,28 @@
 import { Request } from './request'
 import { notNull } from '../../preconditions';
 import { DomainError } from '../errors';
-import { ITimeFrame } from '../../timeFrame';
 
 export class Team {
   teamId: string
   teamSize: TeamSize
   requests: Request[]
-  timeFrame: ITimeFrame;
 
-  constructor (teamId: string, requests: Request[], teamSize: TeamSize, timeFrame: ITimeFrame) {
+  constructor (teamId: string, requests: Request[], teamSize: TeamSize) {
     this.teamId = teamId
     this.teamSize = teamSize
     this.requests = requests
-    this.timeFrame = timeFrame
   }
 
   get status () {
-    return this.timeFrame.isExpired()
-      ? TeamStatus.EXPIRED
-      : this.teamSize.fits(this.requests.filter(request => request.isAvailable()).length)
+    return this.teamSize.fits(this.requests.filter(request => request.isAvailable()).length)
   }
 
   isFull (status: TeamStatus | null) {
     return (status || this.status) === TeamStatus.FULL
   }
 
-  isExpired (status: TeamStatus | null) {
-    return (status || this.status) === TeamStatus.EXPIRED
-  }
-
   request (publisherId: string): Request {
     const currentStatus = this.status
-
-    if (this.isExpired(currentStatus)) {
-      throw new Error(DomainError.TEAM_HAS_EXPIRED)
-    }
 
     if (this.isFull(currentStatus)) {
       throw new Error(DomainError.TEAM_ALREADY_FULL)
@@ -55,8 +42,7 @@ export class Team {
 export enum TeamStatus {
   OK = 'OK',
   PENDING = 'PENDING',
-  FULL = 'FULL',
-  EXPIRED = 'EXPIRED'
+  FULL = 'FULL'
 }
 
 export class TeamSize {
