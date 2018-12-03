@@ -1,66 +1,76 @@
 import { expect } from 'chai'
 import { Team, TeamStatus, TeamSize, size } from './team';
 import { DomainError } from '../errors';
+import { RequestStatus } from './request';
+import { TeamService } from './teamService';
 
 function buildTeam (s: number[] = [1, 2]) {
   return new Team('superteam', [], size.apply(null, s))
 }
 
-// describe('a team', function () {
-//   describe('accepts requests from publishers if', function () {
-//     it('has participant slots available', function () {
-//       expect(false).to.eq(true)
-//     })
-//     it('has no existing participation request from them', function () {
-//       expect(false).to.eq(true)
-//     })
-//     it('has a BAILED participation request from them', function () {
-//       expect(false).to.eq(true)
-//     })
-//     it('has a CANCELLED participation request from them', function () {
-//       expect(false).to.eq(true)
-//     })
-//     it('belongs to a not EXPIRED shift', function () {
-//       expect(false).to.eq(true)
-//     })
-//   })
-//   describe('accepts requests from teamleaders', function () {
-//     it('has participant or team leader slots available', function () {
-//       expect(false).to.eq(true)
-//     })
-//   })
+describe('a team', function () {
+  describe('accepts requests from publishers if', function () {
+    let team: Team
 
-//   describe('that has one slot left', function () {
-//     let team = buildTeam([1, 1])
+    beforeEach(function() {
+      team = buildTeam([1, 2])
+    })
 
-//     it('is full after one more request', function () {
-//       expect(team.status).to.eq(TeamStatus.PENDING)
-//       team.request('')
-//       expect(team.status).to.eq(TeamStatus.FULL)
-//     })
-//   })
+    it('has participant slots available', function () {
+      const request = team.request('publisherId')
+      expect(request.status).to.eq(RequestStatus.OPEN)
+    })
 
-//   describe('that is already full', function () {
-//     let team = buildTeam([0, 0])
+    it('has no existing participation request from them', function () {
+      team.request('publisherId')
+      expect(() => team.request('publisherId')).to.throw(DomainError.PUBLISHER_ALREADY_REQUESTED)
+    })
 
-//     it('throws an error on the next request', function () {
-//       expect(team.status).to.eq(TeamStatus.FULL)
-//       expect(() => team.request('')).to.throw(DomainError.TEAM_ALREADY_FULL)
-//     })
-//   })
+    it('has a BAILED participation request from them', function () {
+      const request = team.request('publisherId')
+      team.approve(request.requestId)
+      team.bail(request.requestId)
+      expect(() => team.request('publisherId')).not.to.throw()
+    })
 
-//   describe('that is expired', function () {
-//     let team = buildTeam([1, 2], { isExpired: () => true })
+    it('has a CANCELLED participation request from them', function () {
+      const request = team.request('publisherId')
+      team.retract(request.requestId)
+      expect(() => team.request('publisherId')).not.to.throw()
+    })
 
-//     it('has status expired and throws an error on request', function () {
-//       expect(team.status).to.eq(TeamStatus.EXPIRED)
-//       expect(() => team.request('')).to.throw(DomainError.TEAM_HAS_EXPIRED)
-//     })
-//   })
-// })
+    it('belongs to a not EXPIRED shift', function () {
+      // handled by team service
+    })
+  })
+
+  describe('accepts requests from teamleaders', function () {
+    it('has participant or team leader slots available', function () {
+      // expect(false).to.eq(true)
+    })
+  })
+
+  describe('that has one slot left', function () {
+    let team = buildTeam([1, 1])
+
+    it('is full after one more request', function () {
+      expect(team.status).to.eq(TeamStatus.PENDING)
+      team.request('')
+      expect(team.status).to.eq(TeamStatus.FULL)
+    })
+  })
+
+  describe('that is already full', function () {
+    let team = buildTeam([0, 0])
+
+    it('throws an error on the next request', function () {
+      expect(team.status).to.eq(TeamStatus.FULL)
+      expect(() => team.request('')).to.throw(DomainError.TEAM_ALREADY_FULL)
+    })
+  })
 
 // describe('a request', function () {
-//   it('can be cancelled by the publisher', function () {
+//   it('can be retracted by the publisher', function () {
 //     expect(false).to.eq(true)
 //   })
 //   it('can be approved by a scheduler', function () {
@@ -72,6 +82,6 @@ function buildTeam (s: number[] = [1, 2]) {
 //   it('can be bailed by the publisher', function () {
 //     expect(false).to.eq(true)
 //   })
-// })
+})
 
 

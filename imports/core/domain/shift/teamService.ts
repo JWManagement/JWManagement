@@ -1,4 +1,4 @@
-import { TeamRepository, PublisherRepository, ShiftRepository } from '../../repositories';
+import { TeamRepository, PublisherRepository, ShiftRepository } from '../repositories';
 import { DomainError } from '../errors';
 import { ensure } from '../../preconditions';
 import { Team } from './team';

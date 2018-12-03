@@ -1,7 +1,7 @@
 
-import { Team } from './domain/shift/team'
-import { Publisher } from './domain/shift/publisher';
-import { Shift } from './domain/shift/shift';
+import { Team } from './shift/team'
+import { Publisher } from './shift/publisher';
+import { Shift } from './shift/shift';
 
 export interface TeamRepository {
   find(id: string): Team | null

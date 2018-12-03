@@ -1,7 +1,7 @@
 
-import { Request } from './request'
-import { notNull } from '../../preconditions';
-import { DomainError } from '../errors';
+import { Request, RequestStatus } from './request'
+import { notNull, ensure } from '../../preconditions';
+import { DomainError, die } from '../errors';
 
 export class Team {
   teamId: string
@@ -18,24 +18,59 @@ export class Team {
     return this.teamSize.fits(this.requests.filter(request => request.isAvailable()).length)
   }
 
-  isFull (status: TeamStatus | null) {
+  private isFull (status?: TeamStatus) {
     return (status || this.status) === TeamStatus.FULL
   }
 
-  request (publisherId: string): Request {
-    const currentStatus = this.status
+  private hasAvailableRequestFor(publisherId: string): boolean {
+    return this.requests.findIndex(x => x.publisherId === publisherId && x.isAvailable()) >= 0
+  }
 
-    if (this.isFull(currentStatus)) {
-      throw new Error(DomainError.TEAM_ALREADY_FULL)
+  request (publisherId: string): Request {
+    if (this.hasAvailableRequestFor(publisherId)) {
+      die(DomainError.PUBLISHER_ALREADY_REQUESTED)
     }
 
-    const request = new Request(publisherId)
+    if (this.isFull()) {
+      die(DomainError.TEAM_ALREADY_FULL)
+    }
+
+    const request = new Request('request id has to be generated', publisherId)
     this.requests.push(request)
 
     // if status is now ok or full, raise event that this team is ready to go
     // also, teamleader
 
     return request
+  }
+
+  approve(requestId: string): any {
+    const request = ensure<Request>(() => this.requests.find(x => x.requestId === requestId), DomainError.REQUEST_NOT_FOUND)
+    if ([RequestStatus.OPEN, RequestStatus.REJECTED].indexOf(request.status) >= 0) {
+      request.status = RequestStatus.APPROVED
+    } else {
+      die(DomainError.REQUEST_NOT_APPROVABLE, {
+        status: request.status
+      })
+    }
+  }
+
+  bail(requestId: string) {
+    const request = ensure<Request>(() => this.requests.find(x => x.requestId === requestId), DomainError.REQUEST_NOT_FOUND)
+    if (request.status === RequestStatus.APPROVED) {
+      request.status = RequestStatus.BAILED
+    } else {
+      die(DomainError.REQUEST_NOT_APPROVED)
+    }
+  }
+
+  retract(requestId: string): any {
+    const request = ensure<Request>(() => this.requests.find(x => x.requestId === requestId), DomainError.REQUEST_NOT_FOUND)
+    if (request.status === RequestStatus.OPEN) {
+      request.status = RequestStatus.BAILED
+    } else {
+      die(DomainError.REQUEST_NOT_OPEN)
+    }
   }
 }
 

@@ -1,10 +1,10 @@
-import { DomainError, OperationError } from './domain/errors';
+import { DomainError, OperationError, die, buildError } from './domain/errors';
 
 export function ensure<T> (test: () => T | null | undefined, error: DomainError): T | never {
   const result = test()
 
   if (result == null) {
-    throw new Error(error)
+    throw buildError(error)
   }
 
   return result

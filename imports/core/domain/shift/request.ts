@@ -1,11 +1,12 @@
-
 export class Request {
   requestId: string
+  publisherId: string
   status: RequestStatus
 
-  constructor (requestId, status = RequestStatus.OPEN) {
+  constructor (requestId, publisherId, status = RequestStatus.OPEN) {
     this.requestId = requestId
     this.status = status
+    this.publisherId = publisherId
   }
 
   isAvailable () {
