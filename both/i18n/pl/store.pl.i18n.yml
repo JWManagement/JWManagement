@@ -25,68 +25,68 @@ store:
       name: Zaawansowany
       description: W zaawansowanym trybie sam możesz zdecydować które publikacje są dostępne w jakich językach. Możesz ustawić informacje jak wiele z nich jest w magazynie, a dzięki temu system będzie aktualizował stan magazynowy z informacjami z sprawozdań. Dzięki temu będziesz mógł ustalić które publikacje i jakie języki są najczęściej używane w twoim projekcie.
   type:
-    _books: Ksiązki
-    _brochures: Broszury
-    _magazines: Czasopisma
-    _tracts: Traktaty
-    _misc: Inne
+    books: Ksiązki
+    brochures: Broszury
+    magazines: Czasopisma
+    tracts: Traktaty
+    misc: Inne
   publication:
-    _CO-inv17: Zaproszenie na kongres w roku 2017
-    _CO-inv18: Zaproszenie na kongres w roku 2018
-    _CO-inv19: Zaproszenie na kongres w roku 2019
-    _CO-inv20: Zaproszenie na kongres w roku 2020
-    _bh: Czego naprawdę uczy Biblia?
-    _bhs: Czego nas uczy Biblia?
-    _bi12: Pismo Święte w przekładzie Nowego Swiata (edycja z 1984)
-    _bm: Jakie orędzie zawiera Biblia?
-    _cf: „Bądź moim naśladowcą”
-    _ct: Czy istnieje Stwórca który się o Ciebie troszczy?
-    _dv: DVD
-    _fg: Bóg ma dla nas dobrą nowinę!
-    _fy: Tajemnica szczczęścia rodzinnego
-    _gt: Największy ze wszystkich ludzi
-    _gu: Poddanie się kierownictwu Boga toruje drogę do raju
-    _hf: Twoja rodzina może być szczęśliwa
-    _inv: Zaproszenie na zebrania
-    _jr: Jeremiasz przekazuje nam słowo od Boga
-    _jw: Jezus — droga, prawda i życie
-    _jwcd: Wizytówka
-    _kt: Czy chciałbyś poznać prawdę?
-    _la: Jak prowadzić szczęśliwe życie
-    _lc: Czy życie zostało stworzone?
-    _ld: Słuchaj Boga
-    _lf: Pochodzenie życia - pięć pytań, które warto rozważyć
-    _lfb: Uczymy się z Biblii
-    _ll: Słuchaj Boga i żyj wiecznie
-    _lgw: Wprowadzenie do Słowa Bożego
-    _lmn: "Patrz! Oto czynię wszystko nowe"
-    _lr: Ucz się od wielkiego nauczyciela
-    _mb: Uczę się z Biblii
-    _mi16: Zaproszenie na pamiątkę w roku 2016
-    _mi17: Zaproszenie na pamiątkę w roku 2017
-    _mi18: Zaproszenie na pamiątkę w roku 2018
-    _mi19: Zaproszenie na pamiątkę w roku 2019
-    _mi20: Zaproszenie na pamiątkę w roku 2020
-    _my: Mój zbiór opowieści biblijnych
-    _nwt: Pismo Święte w przekładzie Nowego Swiata (rewizja z 2013)
-    _ol: The Road to Everlasting Life — Have You Found It?
-    _pc: Lasting Peace and Happiness - How to Find Them
-    _ph: The Pathway to Peace and Happiness
-    _rj: Wróć do Jehowy
-    _rk: Prawdziwa wiara - klucz do szczęśliwego życia
-    _rp: How to Find the Road to Paradise
-    _sgd: Pomoc do studium Biblii
-    _t-30: Czy warto interesować się Biblią?
-    _t-31: Co przyniesie przyszłość?
-    _t-32: Co jest kluczem do szczęścia w rodzinie?
-    _t-33: Kto naprawdę rządzi światem?
-    _t-34: Czy cierpienia kiedyś się skończą?
-    _t-35: Czy umarli mogą ożyć?
-    _t-36: Czym jest Królestwo Boże?
-    _t-37: Gdzie szukać odpowiedzi na ważne pytania życiowe?
-    _we: Gdy umrze ktoś bliski
-    _wp/g: Strażnica / Przebudźcie się!
-    _yc: Ucz swoje dzieci
-    _yp1: Pytania młodych ludzi — praktyczne odpowiedzi, część 1
-    _yp2: Pytania młodych ludzi — praktyczne odpowiedzi, część 2
-    _ypq: Odpowiedzi na 10 pytań młodych ludzi
+    CO-inv17: Zaproszenie na kongres w roku 2017
+    CO-inv18: Zaproszenie na kongres w roku 2018
+    CO-inv19: Zaproszenie na kongres w roku 2019
+    CO-inv20: Zaproszenie na kongres w roku 2020
+    bh: Czego naprawdę uczy Biblia?
+    bhs: Czego nas uczy Biblia?
+    bi12: Pismo Święte w przekładzie Nowego Swiata (edycja z 1984)
+    bm: Jakie orędzie zawiera Biblia?
+    cf: „Bądź moim naśladowcą”
+    ct: Czy istnieje Stwórca który się o Ciebie troszczy?
+    dv: DVD
+    fg: Bóg ma dla nas dobrą nowinę!
+    fy: Tajemnica szczczęścia rodzinnego
+    gt: Największy ze wszystkich ludzi
+    gu: Poddanie się kierownictwu Boga toruje drogę do raju
+    hf: Twoja rodzina może być szczęśliwa
+    inv: Zaproszenie na zebrania
+    jr: Jeremiasz przekazuje nam słowo od Boga
+    jw: Jezus — droga, prawda i życie
+    jwcd: Wizytówka
+    kt: Czy chciałbyś poznać prawdę?
+    la: Jak prowadzić szczęśliwe życie
+    lc: Czy życie zostało stworzone?
+    ld: Słuchaj Boga
+    lf: Pochodzenie życia - pięć pytań, które warto rozważyć
+    lfb: Uczymy się z Biblii
+    ll: Słuchaj Boga i żyj wiecznie
+    lgw: Wprowadzenie do Słowa Bożego
+    lmn: "Patrz! Oto czynię wszystko nowe"
+    lr: Ucz się od wielkiego nauczyciela
+    mb: Uczę się z Biblii
+    mi16: Zaproszenie na pamiątkę w roku 2016
+    mi17: Zaproszenie na pamiątkę w roku 2017
+    mi18: Zaproszenie na pamiątkę w roku 2018
+    mi19: Zaproszenie na pamiątkę w roku 2019
+    mi20: Zaproszenie na pamiątkę w roku 2020
+    my: Mój zbiór opowieści biblijnych
+    nwt: Pismo Święte w przekładzie Nowego Swiata (rewizja z 2013)
+    ol: The Road to Everlasting Life — Have You Found It?
+    pc: Lasting Peace and Happiness - How to Find Them
+    ph: The Pathway to Peace and Happiness
+    rj: Wróć do Jehowy
+    rk: Prawdziwa wiara - klucz do szczęśliwego życia
+    rp: How to Find the Road to Paradise
+    sgd: Pomoc do studium Biblii
+    t-30: Czy warto interesować się Biblią?
+    t-31: Co przyniesie przyszłość?
+    t-32: Co jest kluczem do szczęścia w rodzinie?
+    t-33: Kto naprawdę rządzi światem?
+    t-34: Czy cierpienia kiedyś się skończą?
+    t-35: Czy umarli mogą ożyć?
+    t-36: Czym jest Królestwo Boże?
+    t-37: Gdzie szukać odpowiedzi na ważne pytania życiowe?
+    we: Gdy umrze ktoś bliski
+    wp/g: Strażnica / Przebudźcie się!
+    yc: Ucz swoje dzieci
+    yp1: Pytania młodych ludzi — praktyczne odpowiedzi, część 1
+    yp2: Pytania młodych ludzi — praktyczne odpowiedzi, część 2
+    ypq: Odpowiedzi na 10 pytań młodych ludzi

@@ -25,53 +25,53 @@ store:
       name: Speciális
       description: A speciális módban eldöntheted, hogy melyik kiadványok álljanak rendelkezésre és milyen nyelven. Megadhatod azt is, hogy hány ilyen kiadvány legyen készleten és a rendszer fogja őket készletezni naprakész információk által ami jelentésekből származik. Ezzel meg tudod határozni, hogy mely kiadványok és a nyelvek fogynak a legjobban azon a területen.
   type:
-    _books: Könyvek
-    _brochures: Füzetek
-    _magazines: Folyóiratok
-    _tracts: Tájékoztató lapok
-    _misc: Vegyes
+    books: Könyvek
+    brochures: Füzetek
+    magazines: Folyóiratok
+    tracts: Tájékoztató lapok
+    misc: Vegyes
   publication:
-    _CO-inv17: 2017 Regionális Kongresszus meghívó
-    _CO-inv18: 2018 Regionális Kongresszus meghívó
-    _CO-inv19: 2019 Regionális Kongresszus meghívó
-    _CO-inv20: 2020 Regionális Kongresszus meghívó
-    _bh: Mit tanít valójában a Biblia?
-    _bhs: MIT TANÍTHAT NEKÜNK A BIBLIA?
-    _bi12: A Szentírás új világ fordítása (2005 kiadás)
-    _bm: Mi a Biblia üzenete?
-    _ct: Van-e Teremtő, aki törődik veled?
-    _fg: Örömteli üzenet Istentől
-    _fy: A családi boldogság titka
-    _gt: A legnagyobb ember, aki valaha élt
-    _hf: Hogyan élhetünk boldog családban?
-    _inv: Gyülekezeti meghívó
-    _jwcd: Jw.org -os névjegykártya
-    _kt: Szeretné megtudni az igazságot?
-    _lc: Egy Teremtő keze műve az élet?
-    _ld: Figyelj Istenre!
-    _lf: Az élet eredete – Öt kérdés, melynek érdemes utánajárni
-    _ll: Figyelj Istenre, és élj örökké!
-    _lmn: „Íme, mindent újjáteszek!”"
-    _lr: Tanulj a nagy Tanítótól!
-    _mb: Bibliai mondókák
-    _mi16: 2016 Emlékünnepi meghívó
-    _mi17: 2017 Emlékünnepi meghívó
-    _mi18: 2018 Emlékünnepi meghívó
-    _mi19: 2019 Emlékünnepi meghívó
-    _mi20: 2020 Emlékünnepi meghívó
-    _my: Az én könyvem bibliai történetekről
-    _nwt: A Szentírás új világ fordítása (2013 kiadás)
-    _rj: Térj vissza Jehovához!
-    _t-30: Mit gondolsz a Bibliáról?
-    _t-31: Milyennek képzeled a jövőt?
-    _t-32: Mi kell ahhoz, hogy egy család boldog legyen?
-    _t-33: Ki uralkodik a világ felett?
-    _t-34: Megszűnnek egyszer a bajok?
-    _t-35: Élhet újra, aki meghalt?
-    _t-36: Mi Isten Királysága?
-    _t-37: Hol kaphatunk választ az élet nagy kérdéseire?
-    _wp/g: Őrtorony / Ébredjetek
-    _yc: Tanítsd a gyermekedet!
-    _yp1: Fiatalok kérdései – Gyakorlatias válaszok. 1. kötet
-    _yp2: Fiatalok kérdései – Gyakorlatias válaszok. 2. kötet
-    _ypq: 10 kérdés fiataloktól
+    CO-inv17: 2017 Regionális Kongresszus meghívó
+    CO-inv18: 2018 Regionális Kongresszus meghívó
+    CO-inv19: 2019 Regionális Kongresszus meghívó
+    CO-inv20: 2020 Regionális Kongresszus meghívó
+    bh: Mit tanít valójában a Biblia?
+    bhs: MIT TANÍTHAT NEKÜNK A BIBLIA?
+    bi12: A Szentírás új világ fordítása (2005 kiadás)
+    bm: Mi a Biblia üzenete?
+    ct: Van-e Teremtő, aki törődik veled?
+    fg: Örömteli üzenet Istentől
+    fy: A családi boldogság titka
+    gt: A legnagyobb ember, aki valaha élt
+    hf: Hogyan élhetünk boldog családban?
+    inv: Gyülekezeti meghívó
+    jwcd: Jw.org -os névjegykártya
+    kt: Szeretné megtudni az igazságot?
+    lc: Egy Teremtő keze műve az élet?
+    ld: Figyelj Istenre!
+    lf: Az élet eredete – Öt kérdés, melynek érdemes utánajárni
+    ll: Figyelj Istenre, és élj örökké!
+    lmn: „Íme, mindent újjáteszek!”"
+    lr: Tanulj a nagy Tanítótól!
+    mb: Bibliai mondókák
+    mi16: 2016 Emlékünnepi meghívó
+    mi17: 2017 Emlékünnepi meghívó
+    mi18: 2018 Emlékünnepi meghívó
+    mi19: 2019 Emlékünnepi meghívó
+    mi20: 2020 Emlékünnepi meghívó
+    my: Az én könyvem bibliai történetekről
+    nwt: A Szentírás új világ fordítása (2013 kiadás)
+    rj: Térj vissza Jehovához!
+    t-30: Mit gondolsz a Bibliáról?
+    t-31: Milyennek képzeled a jövőt?
+    t-32: Mi kell ahhoz, hogy egy család boldog legyen?
+    t-33: Ki uralkodik a világ felett?
+    t-34: Megszűnnek egyszer a bajok?
+    t-35: Élhet újra, aki meghalt?
+    t-36: Mi Isten Királysága?
+    t-37: Hol kaphatunk választ az élet nagy kérdéseire?
+    wp/g: Őrtorony / Ébredjetek
+    yc: Tanítsd a gyermekedet!
+    yp1: Fiatalok kérdései – Gyakorlatias válaszok. 1. kötet
+    yp2: Fiatalok kérdései – Gyakorlatias válaszok. 2. kötet
+    ypq: 10 kérdés fiataloktól

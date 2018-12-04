@@ -25,66 +25,66 @@ store:
       name: Edistynyt
       description: Kun varastotyypiksi valitaan "Edistynyt", voit valita, mitkä julkaisut ovat saatavilla milläkin kielellä. Voit määrittää kuinka paljon niitä pidetään varastossa ja järjestelmä seuraa määrää raportoinnin avulla. Tämä auttaa selvittämään, mitkä julkaisut ja kielet liikkuvat parhaiten.
   type:
-    _books: Kirjat
-    _brochures: Kirjaset
-    _magazines: Lehdet
-    _tracts: Traktaatit
-    _misc: Sekalaiset
+    books: Kirjat
+    brochures: Kirjaset
+    magazines: Lehdet
+    tracts: Traktaatit
+    misc: Sekalaiset
   publication:
-    _CO-inv17: 2017 Aluekonventtikutsu
-    _CO-inv18: 2018 Aluekonventtikutsu
-    _CO-inv19: 2019 Aluekonventtikutsu
-    _CO-inv20: 2020 Aluekonventtikutsu
-    _bh: Mitä Raamattu todella opettaa?
-    _bhs: What Can the Bible Teach Us?
-    _bi12: Raamatun Uuden Maailman käännös (1984 laitos)
-    _bm: Raamattu - mikä on sen sanoma?
-    _ct: Onko Luojaa joka välittää sinusta?
-    _dv: DVD
-    _fg: Hyvä uutinen Jumalalta!
-    _fy: Perheonnen salaisuus
-    _gt: Suurin ihminen, joka koskaan on elänyt
-    _gu: The Guidance of God — Our Way to Paradise
-    _hf: Your Family Can Be Happy
-    _inv: Kokouskutsu
-    _jw: Jeesus​ — Tie, Totuus ja Elämä
-    _jwcd: Käyntikortti
-    _kt: Haluaisitko tietää totuuden?
-    _la: A Satisfying Life—How to Attain It
-    _lc: Onko elämä luotu?
-    _ld: Kuuntele Jumalaa
-    _lf: Elämän alkuperä - viisi tärkeää kysymystä
-    _lfb: Lessons You Can Learn From the Bible
-    _ll: Listen to God and Live Forever
-    _lgw: Johdanto Jumalan sanaan
-    _lmn: "Look! I Am Making All Things New"
-    _lr: Opi suurelta opettajalta
-    _mb: My Bible Lessons
-    _mi16: 2016 Muistojuhlan kutsu
-    _mi17: 2017 Muistojuhlan kutsu
-    _mi18: 2018 Muistojuhlan kutsu
-    _mi19: 2019 Muistojuhlan kutsu
-    _mi20: 2020 Muistojuhlan kutsu
-    _my: My Book of Bible Stories
-    _nwt: New World Translation of the Holy Scriptures (2013 Revision)
-    _ol: The Road to Everlasting Life — Have You Found It?
-    _pc: Lasting Peace and Happiness - How to Find Them
-    _ph: The Pathway to Peace and Happiness
-    _rj: Palaa Jehovan luo
-    _rk: Real Faith — Your Key to a Happy Life
-    _rp: How to Find the Road to Paradise
-    _sgd: Studienhilfe zur Bibel
-    _t-30: Mitä ajattelet Raamatusta?
-    _t-31: Mitä ajattelet tulevaisuudesta?
-    _t-32: Mikä on avain onnelliseen perhe-elämään?
-    _t-33: Kenen hallinnassa maailma on?
-    _t-34: Loppuuko kärsimys milloinkaan?
-    _t-35: Voivatko kuolleet elää uudelleen?
-    _t-36: Mikä on Jumalan valtakunta?
-    _t-37: Mistä voi saada kysymyksiä elämän suuriin kysymyksiin?
-    _we: Kun joku rakkaasi kuolee
-    _wp/g: Vartiotorni / Herätkää
-    _yc: Teach Your Children
-    _yp1: Questions Young People Ask — Answers That Work, Volume 1
-    _yp2: Questions Young People Ask — Answers That Work, Volume 2
-    _ypq: Answers to 10 Questions Young People Ask
+    CO-inv17: 2017 Aluekonventtikutsu
+    CO-inv18: 2018 Aluekonventtikutsu
+    CO-inv19: 2019 Aluekonventtikutsu
+    CO-inv20: 2020 Aluekonventtikutsu
+    bh: Mitä Raamattu todella opettaa?
+    bhs: What Can the Bible Teach Us?
+    bi12: Raamatun Uuden Maailman käännös (1984 laitos)
+    bm: Raamattu - mikä on sen sanoma?
+    ct: Onko Luojaa joka välittää sinusta?
+    dv: DVD
+    fg: Hyvä uutinen Jumalalta!
+    fy: Perheonnen salaisuus
+    gt: Suurin ihminen, joka koskaan on elänyt
+    gu: The Guidance of God — Our Way to Paradise
+    hf: Your Family Can Be Happy
+    inv: Kokouskutsu
+    jw: Jeesus​ — Tie, Totuus ja Elämä
+    jwcd: Käyntikortti
+    kt: Haluaisitko tietää totuuden?
+    la: A Satisfying Life—How to Attain It
+    lc: Onko elämä luotu?
+    ld: Kuuntele Jumalaa
+    lf: Elämän alkuperä - viisi tärkeää kysymystä
+    lfb: Lessons You Can Learn From the Bible
+    ll: Listen to God and Live Forever
+    lgw: Johdanto Jumalan sanaan
+    lmn: "Look! I Am Making All Things New"
+    lr: Opi suurelta opettajalta
+    mb: My Bible Lessons
+    mi16: 2016 Muistojuhlan kutsu
+    mi17: 2017 Muistojuhlan kutsu
+    mi18: 2018 Muistojuhlan kutsu
+    mi19: 2019 Muistojuhlan kutsu
+    mi20: 2020 Muistojuhlan kutsu
+    my: My Book of Bible Stories
+    nwt: New World Translation of the Holy Scriptures (2013 Revision)
+    ol: The Road to Everlasting Life — Have You Found It?
+    pc: Lasting Peace and Happiness - How to Find Them
+    ph: The Pathway to Peace and Happiness
+    rj: Palaa Jehovan luo
+    rk: Real Faith — Your Key to a Happy Life
+    rp: How to Find the Road to Paradise
+    sgd: Studienhilfe zur Bibel
+    t-30: Mitä ajattelet Raamatusta?
+    t-31: Mitä ajattelet tulevaisuudesta?
+    t-32: Mikä on avain onnelliseen perhe-elämään?
+    t-33: Kenen hallinnassa maailma on?
+    t-34: Loppuuko kärsimys milloinkaan?
+    t-35: Voivatko kuolleet elää uudelleen?
+    t-36: Mikä on Jumalan valtakunta?
+    t-37: Mistä voi saada kysymyksiä elämän suuriin kysymyksiin?
+    we: Kun joku rakkaasi kuolee
+    wp/g: Vartiotorni / Herätkää
+    yc: Teach Your Children
+    yp1: Questions Young People Ask — Answers That Work, Volume 1
+    yp2: Questions Young People Ask — Answers That Work, Volume 2
+    ypq: Answers to 10 Questions Young People Ask
