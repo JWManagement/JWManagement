@@ -1,13 +1,3 @@
-user:
-  search:
-    placeholder: Cherchez des utilisateurs
-  entity:
-    username: Nom d'utilisateur
-    profile:
-      firstname: Nom
-      lastname: Prénom
-      email: E-mail
-    noElements: Aucun utilisateur trouvé
 users:
   title: Action de groupe vers les proclamateurs
   inviteUser: Envoyer une invitation aux proclamateurs non activés

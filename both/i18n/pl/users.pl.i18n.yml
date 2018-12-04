@@ -1,13 +1,3 @@
-user:
-  search:
-    placeholder: Szukaj użytkowników
-  entity:
-    username: Nazwa użytkownika
-    profile:
-      firstname: Imię
-      lastname: Nazwisko
-      email: Email
-    noElements: Nie znaleziono użytkowników
 users:
   title: Akcje grupowe na kontach głosicieli
   inviteUser: Wyślij zaproszenie do głosicieli z nie aktywowanymi kontami
