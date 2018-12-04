@@ -1,69 +1,69 @@
 language:
-  _de: Német
-  _en: Angol
-  _hu: Magyar
-  _pt: Portugál
-  _pl: Lengyel
-  _A: Arab
-  _AL: Albán
-  _AR: Bambara
-  _AM: Amhara
-  _B: Cseh
-  _BL: Bolgár
-  _BSN: Bosnyák
-  _C: Horvát
-  _CB: Kambodzsai
-  _CH: Kínai mandarin (hagyományos)
-  _CHS: Kínai mandarin (egyszerűsített)
-  _DAR: Dari
-  _DGS: Német jelnyelv
-  _E: Angol
-  _ED: Edo
-  _EDF: Angol jelnyelv
-  _EW: Ewe
-  _F: Francia
-  _G: Görög
-  _GE: Grúz
-  _H: Magyar
-  _HI: Hindi
-  _I: Olasz
-  _IB: Igbo
-  _IN: Indonéz
-  _J: Japán
-  _K: Ukrán
-  _KO: Koreai
-  _KRI: Krio
-  _L: Litván
-  _M: Román
-  _MC: Macedón
-  _O: Holland
-  _OA: Oromo
-  _p: Lengyel
-  _PH: Pastu
-  _PJ: Pandzsábi
-  _PL: Pulaar
-  _PR: Perzsa
-  _RD: Kurd Kurmanji
-  _RDA: Kurd szoráni
-  _RDC: Kurd Kurmanji (Cirill)
-  _REA: Örmény
-  _RM: Roma (Macedónia)
-  _RMC: Roma (Macedónia) Cirill
-  _RU: Kirundi
-  _S: Spanyol
-  _SB: Szerb
-  _SI: Thai
-  _SO: Szomáliai
-  _SV: Szlovén
-  _T: Portugál
-  _TI: Tigrinya
-  _TK: Török
-  _TL: Tamil
-  _TW: Twi
-  _u: Orosz
-  _UD: Urdu
-  _V: Szlovák
-  _VT: Vietnámi
-  _WO: Wolof
-  _X: Német
-  _YR: Joruba
+  de: Német
+  en: Angol
+  hu: Magyar
+  pt: Portugál
+  pl: Lengyel
+  A: Arab
+  AL: Albán
+  AR: Bambara
+  AM: Amhara
+  B: Cseh
+  BL: Bolgár
+  BSN: Bosnyák
+  C: Horvát
+  CB: Kambodzsai
+  CH: Kínai mandarin (hagyományos)
+  CHS: Kínai mandarin (egyszerűsített)
+  DAR: Dari
+  DGS: Német jelnyelv
+  E: Angol
+  ED: Edo
+  EDF: Angol jelnyelv
+  EW: Ewe
+  F: Francia
+  G: Görög
+  GE: Grúz
+  H: Magyar
+  HI: Hindi
+  I: Olasz
+  IB: Igbo
+  IN: Indonéz
+  J: Japán
+  K: Ukrán
+  KO: Koreai
+  KRI: Krio
+  L: Litván
+  M: Román
+  MC: Macedón
+  O: Holland
+  OA: Oromo
+  p: Lengyel
+  PH: Pastu
+  PJ: Pandzsábi
+  PL: Pulaar
+  PR: Perzsa
+  RD: Kurd Kurmanji
+  RDA: Kurd szoráni
+  RDC: Kurd Kurmanji (Cirill)
+  REA: Örmény
+  RM: Roma (Macedónia)
+  RMC: Roma (Macedónia) Cirill
+  RU: Kirundi
+  S: Spanyol
+  SB: Szerb
+  SI: Thai
+  SO: Szomáliai
+  SV: Szlovén
+  T: Portugál
+  TI: Tigrinya
+  TK: Török
+  TL: Tamil
+  TW: Twi
+  u: Orosz
+  UD: Urdu
+  V: Szlovák
+  VT: Vietnámi
+  WO: Wolof
+  X: Német
+  YR: Joruba
