@@ -2,6 +2,7 @@ import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import en from '../../i18n/en/_export'
 import de from '../../i18n/de/_export'
+import it from '../../i18n/it/_export'
 
 i18next
   .use(LanguageDetector)
@@ -9,6 +10,7 @@ i18next
     fallbackLng: 'en',
     resources: {
       en: { translation: en },
-      de: { translation: de }
+      de: { translation: de },
+      it: { translation: it }
     }
   })
