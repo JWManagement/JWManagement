@@ -1,5 +1,8 @@
 Template.reportItems.helpers
 
+	getStorePublicationTranslation: (path) ->
+		i18next.t('store.publication.' + path)
+
 	availableItems: ->
 		project = Projects.findOne FlowRouter.getParam('projectId')
 		project.store.items if project? && project.store? && project.store.items?
