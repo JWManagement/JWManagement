@@ -21,19 +21,15 @@ if (soloFile) {
 function convertFile (file) {
   try {
     var content = fs.readFileSync(from + '/' + file, 'utf8')
-      .replace(/%s/g, 'xxx')
       .replace(/__date__/g, '{{date}}')
       .replace(/__time__/g, '{{time}}')
       .replace(/__team__/g, '{{team}}')
       .replace(/__count__/g, '{{count}}')
-      .replace(/__attr1__/g, '{{attr1}}')
-      .replace(/__attr2__/g, '{{attr2}}')
 
-    var obj = yaml.safeLoad(content, {
-      json: true
-    })
+    var obj = yaml.safeLoad(content, { json: true })
     var name = Object.keys(obj)[0]
     var text = 'const ' + name + ' = ' + util.inspect(obj[name], { compact: false, depth: null }) + '\n\nexport default ' + name + '\n'
+
     var filepath = to + '/' + file.replace(lang + '.i18n.yml', 'js')
     fs.writeFileSync(filepath, beautify(text))
   } catch (e) {
