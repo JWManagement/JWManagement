@@ -1,5 +1,11 @@
 Template.store.helpers
 
+	getStoreTypeTranslation: (path) ->
+		i18next.t('store.type.' + path)
+
+	getPublicationTranslation: (path) ->
+		i18next.t('store.publication.' + path)
+
 	mainContainerClass: ->
 		if FlowRouter.getQueryParam('showPublication')
 			'hidden-xs hidden-sm col-sm-6'
@@ -164,7 +170,7 @@ Template.store.helpers
 		'OTHER'
 	].map((lang) ->
 		short: lang
-		translation: i18next.t('language.', context: lang)
+		translation: i18next.t('language.' + lang)
 	).sort((a, b) -> a.translation > b.translation)
 
 	isReady: -> ProjectSubs.ready()

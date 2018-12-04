@@ -3,6 +3,7 @@ import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import moment from 'moment'
 
+// client-side method
 Meteor.methods({
   'language.update' (_, __, language) {
     const userId = Meteor.userId()
