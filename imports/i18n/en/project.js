@@ -14,7 +14,9 @@ const project = {
       it: 'Italian (partially)',
       pl: 'Polish',
       pt: 'Portuguese',
-      ru: 'Russian'
+      ru: 'Russian',
+      'zh-TW': 'Chinese (Traditional) (partially)',
+      'zh-CN': 'Chinese (Simplified) (partially)'
     },
     news: {
       text: 'News'
