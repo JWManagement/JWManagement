@@ -2,6 +2,7 @@ var yaml = require('js-yaml')
 var fs = require('fs')
 var util = require('util')
 var beautify = require('js-beautify').js
+var rimraf = require('rimraf')
 
 var args = process.argv.slice(2)
 var lang = args[0]
@@ -14,8 +15,11 @@ if (soloFile) {
   convertFile(soloFile)
 } else {
   var files = fs.readdirSync(from)
-  fs.mkdirSync(to)
-  files.forEach(convertFile)
+
+  rimraf(to, function () {
+    fs.mkdirSync(to)
+    files.forEach(convertFile)
+  })
 }
 
 function convertFile (file) {
