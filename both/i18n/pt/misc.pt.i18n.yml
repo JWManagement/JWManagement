@@ -45,13 +45,13 @@ password:
   tooShort: A Palavra-passe deve conter pelo menos 8 caractéres
   notMatching: As Palavras-passe não coincidem!
 weekdays:
-  _mo: Segunda-Feira
-  _tu: Terça-Feira
-  _we: Quarta-Feira
-  _th: Quinta-Feira
-  _fr: Sexta-Feira
-  _sa: Sábado
-  _su: Domingo
+  mo: Segunda-Feira
+  tu: Terça-Feira
+  we: Quarta-Feira
+  th: Quinta-Feira
+  fr: Sexta-Feira
+  sa: Sábado
+  su: Domingo
 intervals:
   m: Manualmente
   every: Cada Semana

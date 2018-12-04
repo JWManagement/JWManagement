@@ -49,13 +49,13 @@ password:
   tooShort: Hasło musi mieć przynajmniej 8 znaków
   notMatching: Hasła do siebie nie pasują!
 weekdays:
-  _mo: Poniedziałek
-  _tu: Wtorek
-  _we: Środa
-  _th: Czwartek
-  _fr: Piątek
-  _sa: Sobota
-  _su: Niedziela
+  mo: Poniedziałek
+  tu: Wtorek
+  we: Środa
+  th: Czwartek
+  fr: Piątek
+  sa: Sobota
+  su: Niedziela
 intervals:
   m: Ręcznie
   every: Co tydzień

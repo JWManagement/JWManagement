@@ -48,13 +48,13 @@ password:
   tooShort: Salasanan pitää olla vähintään 8 merkkiä pitkä
   notMatching: Salasanat eivät täsmää!
 weekdays:
-  _mo: Maanantai
-  _tu: Tiistai
-  _we: Keskiviikko
-  _th: Torstai
-  _fr: Perjantai
-  _sa: Lauantai
-  _su: Sunnuntai
+  mo: Maanantai
+  tu: Tiistai
+  we: Keskiviikko
+  th: Torstai
+  fr: Perjantai
+  sa: Lauantai
+  su: Sunnuntai
 intervals:
   m: manuaalisesti
   every: Joka viikko

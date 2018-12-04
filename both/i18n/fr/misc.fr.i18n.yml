@@ -49,13 +49,13 @@ password:
   tooShort: Le mot de passe doit avoir au moins 8 caractères
   notMatching: Le mot de passe ne correspond pas !
 weekdays:
-  _mo: Lundi
-  _tu: Mardi
-  _we: Mercredi
-  _th: Jeudi
-  _fr: Vendredi
-  _sa: Samedi
-  _su: Dimanche
+  mo: Lundi
+  tu: Mardi
+  we: Mercredi
+  th: Jeudi
+  fr: Vendredi
+  sa: Samedi
+  su: Dimanche
 intervals:
   m: Manuellement
   every: Chaque semaine

@@ -48,13 +48,13 @@ password:
   tooShort: A jelszó legalább 8 karakter hosszú
   notMatching: A jelszavak nem egyeznek!
 weekdays:
-  _mo: Hétfő
-  _tu: kedd
-  _we: szerda
-  _th: csütörtök
-  _fr: Péntek
-  _sa: szombat
-  _su: vasárnap
+  mo: Hétfő
+  tu: kedd
+  we: szerda
+  th: csütörtök
+  fr: Péntek
+  sa: szombat
+  su: vasárnap
 intervals:
   m: Manuális
   every: Minden héten

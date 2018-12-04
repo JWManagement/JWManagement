@@ -2,6 +2,9 @@ moment = require('moment')
 
 Template.profile.helpers
 
+	getWeekDayTranslation: (path) ->
+		i18next.t('weekdays.' + path)
+
 	isField: (field, val) -> 'selected' if @profile? and @profile[field] == val
 
 	isAvailable: (day, hour) ->

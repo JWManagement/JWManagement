@@ -56,13 +56,13 @@ const misc = {
     notMatching: 'The passwords do not match!'
   },
   weekdays: {
-    _mo: 'Monday',
-    _tu: 'Tuesday',
-    _we: 'Wednesday',
-    _th: 'Thursday',
-    _fr: 'Friday',
-    _sa: 'Saturday',
-    _su: 'Sunday'
+    mo: 'Monday',
+    tu: 'Tuesday',
+    we: 'Wednesday',
+    th: 'Thursday',
+    fr: 'Friday',
+    sa: 'Saturday',
+    su: 'Sunday'
   },
   intervals: {
     m: 'Manually',
