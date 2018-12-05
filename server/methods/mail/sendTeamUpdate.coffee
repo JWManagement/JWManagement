@@ -29,21 +29,22 @@ Meteor.methods
 						date = thisMoment.format('dddd, DD.MM.YYYY')
 
 						name = user.profile.firstname + ' ' + user.profile.lastname
+						localTranslate = i18next.getFixedT(user.profile.language)
 
 						Meteor.call 'sendMail',
 							recipient: user.profile.email
 							sender: project.name
 							from: project.email
-							subject: TAPi18n.__('mail.teamUpdate.subject', '', user.profile.language)
+							subject: localTranslate('mail.teamUpdate.subject')
 							template: 'teamUpdate'
 							language: user.profile.language
 							data:
 								project: project.name
 								name: name
-								type: TAPi18n.__('mail.teamUpdate.changed.' + type, '', user.profile.language)
-								datetime: TAPi18n.__('mail.teamUpdate.datetime', {date: date, time: time}, user.profile.language)
+								type: localTranslate('mail.teamUpdate.changed.' + type)
+								datetime: localTranslate('mail.teamUpdate.datetime', {date: date, time: time})
 								shift: shiftData
-								content: getMailTexts 'teamUpdate', user.profile.language
+								content: getMailTexts 'teamUpdate', localTranslate
 						, (err, res) -> if err
 							console.log 'sendMail failed: ' + err
 

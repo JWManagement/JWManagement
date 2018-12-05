@@ -38,7 +38,7 @@ Template.addWeekModal.onCreated ->
 				calendarWeeks: true
 				maxViewMode: 0
 				weekStart: 1
-				language: TAPi18n.getLanguage()
+				language: i18next.language
 			.on 'changeDate', (e) ->
 				if !$weekPicker.data('updating')
 					$weekPicker.data('updating', true)

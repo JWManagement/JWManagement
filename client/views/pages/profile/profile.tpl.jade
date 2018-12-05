@@ -101,7 +101,7 @@ if queryParam 'mergeAccounts'
 									tbody
 										each day in weekdays
 											tr(data-day="{{day}}")
-												td.day {{_ 'weekdays.' context=day}}
+												td.day {{getWeekDayTranslation day}}
 												each hour in hours
 													td(class="{{isAvailable day hour}}" data-hour="{{hour}}")
 							.checkbox.checkbox-primary.checkbox-inline

@@ -1,5 +1,4 @@
 moment = require('moment')
-{ send } = require('./send.coffee')
 
 Meteor.methods
 
@@ -20,25 +19,31 @@ Meteor.methods
 			for team in shift.teams when team.participants.length > 0
 				shiftData.teams.push team
 
+			localTranslate = i18next.getFixedT(user.profile.language)
+
 			sent = Meteor.call 'sendMail',
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.confirmation.subject', '', user.profile.language)
+				subject: localTranslate('mail.confirmation.subject')
 				template: 'confirmation'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
-					datetime: TAPi18n.__('mail.confirmation.datetime', {date: date, time: time}, user.profile.language)
+					datetime: localTranslate('mail.confirmation.datetime', {date: date, time: time})
 					shift: shiftData
-					content: getMailTexts 'confirmation', user.profile.language
+					content: getMailTexts 'confirmation', localTranslate
 
 			if sent
 				teamNr = shift.teams.map((e) -> e._id).indexOf(teamId)
 				participantNr = shift.teams[teamNr].participants.map((e) -> e._id).indexOf(userId)
 				set = {}
 				set['teams.' + teamNr + '.participants.' + participantNr + '.informed'] = true
+
+				console.log shiftId
+				console.log set
+
 				Shifts.update shiftId, $set: set
 
 	sendConfirmWeek: (projectId, tagId, weekId) ->

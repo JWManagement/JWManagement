@@ -1,0 +1,32 @@
+const dashboard = {
+  loadingProjects: 'Ladataan projekteja...',
+  projects: 'Omat projektit',
+  noProjects: 'Et ole osallistujana missään projektissa',
+  loadingShifts: 'Ladataan vuoroja...',
+  shifts: 'Omat vuorot',
+  noShifts: 'Sinulla ei ole tällä hetkellä vuoroja',
+  news: 'Ajankohtaiset uutiset',
+  noNews: 'Ei uutisia',
+  newsFrom: 'Viimeiset muutokset',
+  editNews: 'Muokkaa uutisia',
+  changeNews: 'Muuta uutisia',
+  cancelNews: 'Peruuta muokkaaminen',
+  understaffed: 'Alhainen osallistujamäärä',
+  understaffedMore: 'Näytä lisää vuoroja, joissa on alhainen osallistujamäärä',
+  missing: 'Puuttuva vuororaportti',
+  missing_plural: 'Puuttuvat vuororaportit',
+  approved: 'Hyväksytty ilmoittautuminen',
+  approved_plural: 'Hyväksytty ilmoittautuminen',
+  pending: 'Odottava ilmoittautuminen',
+  pending_plural: 'Odottavat ilmoittautumiset',
+  declined: 'Hylätyt ilmoittautumiset',
+  declined_plural: 'Hylätyt ilmoittautumiset',
+  marked: 'Vuorot, joissa alhainen osallistujamäärä',
+  marked_plural: 'Vuorot, joissa alhainen osallistujamäärä',
+  participant: 'Vuoron osallistuja',
+  participant_plural: 'Vuorojen osallistujat',
+  showOlder: 'Näytä myös vanhemmat vuorot',
+  showAll: 'Näytä kaikki'
+}
+
+export default dashboard

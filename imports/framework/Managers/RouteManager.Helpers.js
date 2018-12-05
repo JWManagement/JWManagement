@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Tracker } from 'meteor/tracker'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import moment from 'moment'
@@ -10,10 +10,10 @@ import { setLanguageOnAuth } from '../../startup/client/language'
 
 const checkLanguage = function () {
   const language = FlowRouter.current().params.language
-  const myLanguage = TAPi18n.getLanguage()
+  const myLanguage = i18next.language
 
   if (language !== myLanguage) {
-    TAPi18n.setLanguage(language)
+    i18next.changeLanguage(language)
     moment.locale(language)
 
     wrs(() => FlowRouter.setParams({ language: language }))

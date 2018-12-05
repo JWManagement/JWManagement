@@ -218,9 +218,9 @@ Meteor.methods
 								Shifts.update _id: shiftId, 'teams._id': team._id,
 									$addToSet: 'teams.$.participants': participant
 							else
-								throw new Meteor.Error 500, TAPi18n.__('modal.shift.noTeamleader')
+								throw new Meteor.Error 500, i18next.t('modal.shift.noTeamleader')
 						else
-							throw new Meteor.Error 500, TAPi18n.__('modal.shift.alreadyTeamleader')
+							throw new Meteor.Error 500, i18next.t('modal.shift.alreadyTeamleader')
 					else if participant.thisTeamleader
 						participant.thisTeamleader = false
 
@@ -254,10 +254,10 @@ Meteor.methods
 
 			for team in shift.teams when team._id == teamId
 				for notapprovedUser in team.declined.concat(team.pending) when notapprovedUser? && notapprovedUser._id == userId
-					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyRequested')
+					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyRequested')
 
 				for approvedUser in team.participants when approvedUser? && approvedUser._id == userId
-					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyParticipating')
+					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyParticipating')
 				break
 
 			user =

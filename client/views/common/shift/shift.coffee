@@ -64,7 +64,7 @@ Template.shift.helpers
 		tags && tags.indexOf('_') > -1
 
 	getScheduling: -> if @scheduling?
-		TAPi18n.__('scheduling.' + @scheduling)
+		i18next.t('scheduling.' + @scheduling)
 
 	shiftClass: ->
 		try

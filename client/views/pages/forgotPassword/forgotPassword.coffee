@@ -33,10 +33,10 @@ Template.forgotPassword.events
 			Meteor.call 'sendResetPassword', obj, (err, res) ->
 				if err
 					if err.error == 404
-						swal TAPi18n.__('forgotPassword.noUserForThisEmail'), '', 'error'
+						swal i18next.t('forgotPassword.noUserForThisEmail'), '', 'error'
 						submit.ladda 'stop'
 					else if err.error == 420
-						swal TAPi18n.__('forgotPassword.multipleAccountsForThisEmail'), '', 'warning'
+						swal i18next.t('forgotPassword.multipleAccountsForThisEmail'), '', 'warning'
 
 						Meteor.call 'getUsernamesForEmail', email, (err, res) ->
 							if err
@@ -50,7 +50,7 @@ Template.forgotPassword.events
 						handleError(err)
 						submit.ladda 'stop'
 				else
-					swal TAPi18n.__('forgotPassword.mailSent'), '', 'success'
+					swal i18next.t('forgotPassword.mailSent'), '', 'success'
 					submit.ladda 'stop'
 		else
-			swal TAPi18n.__('forgotPassword.emailMissing'), '', 'error'
+			swal i18next.t('forgotPassword.emailMissing'), '', 'error'
