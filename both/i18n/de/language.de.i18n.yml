@@ -7,6 +7,7 @@ language:
     languageValues:
       de: Deutsch
       en: Englisch
+      en-AU: Englisch (Australia)
       fi: Finnisch
       fr: Französisch
       hu: Ungarisch
@@ -18,6 +19,7 @@ language:
       zh-CN: Chinesisch (Vereinfacht) (teilweise)
   _de: Deutsch
   _en: Englisch
+  _en-AU: Englisch (Australia)
   _fi: Finnisch
   _fr: Französisch
   _hu: Ungarisch

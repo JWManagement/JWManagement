@@ -7,7 +7,7 @@ language:
     languageValues:
       de: German
       en: English
-      en-AU: English (Australia)
+      au: English (Australia)
       fi: Finnish
       fr: French
       hu: Hungarian
@@ -19,7 +19,7 @@ language:
       zh-CN: Chinese (Simplified) (partially)
   _de: German
   _en: English
-  _en-AU: English (Australia)
+  _au: English (Australia)
   _fi: Finnish
   _fr: French
   _hu: Hungarian
@@ -48,7 +48,7 @@ language:
   _DAR: Dari
   _DGS: German Sign Language
   _E: English
-  _EA: English Australia
+  _E-AU: English (Australia)
   _ED: Edo
   _EDF: English edition for the Deaf
   _EW: Ewe
