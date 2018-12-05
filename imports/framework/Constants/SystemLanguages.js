@@ -3,6 +3,7 @@ const SystemLanguages = {
   allowedValues: [
     'de',
     'en',
+    'en-AU',
     'fi',
     'fr',
     'hu',
