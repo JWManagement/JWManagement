@@ -1,13 +1,13 @@
 const vessel = {
-    nameShort: 'Vessels',
+  nameShort: 'Vessels',
+  details: {
+    dateFormat: 'DD/MM/YYYY'
+  },
+  visit: {
     details: {
-        dateFormat: 'DD/MM/YYYY'
-    },
-    visit: {
-        details: {
-            dateFormat: 'DD/MM/YYYY'
-        }
+      dateFormat: 'DD/MM/YYYY'
     }
+  }
 }
 
 export default vessel
