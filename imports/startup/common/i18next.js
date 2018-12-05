@@ -6,6 +6,7 @@ import fi from '../../i18n/fi/_export'
 import fr from '../../i18n/fr/_export'
 import hu from '../../i18n/hu/_export'
 import it from '../../i18n/it/_export'
+import pl from '../../i18n/pl/_export'
 import zhTW from '../../i18n/zh-TW/_export'
 import zhCN from '../../i18n/zh-CN/_export'
 
@@ -20,6 +21,7 @@ i18next
       fr: { translation: fr },
       hu: { translation: hu },
       it: { translation: it },
+      pl: { translation: pl },
       'zh-TW': { translation: zhTW },
       'zh-CN': { translation: zhCN }
     }
