@@ -15,11 +15,15 @@
     "bcrypt": "^3.0.2",
     "cordova-plugin-device": "^1.1.4",
     "eslint": "^5.7.0",
+    "i18next": "^12.0.0",
+    "i18next-browser-languagedetector": "^2.2.4",
     "jquery": "^1.12.4",
+    "js-yaml": "^3.12.0",
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.22.2",
     "object-assign-deep": "^0.4.0",
     "prerender-node": "^2.7.4",
+    "rimraf": "^2.6.2",
     "simpl-schema": "^0.3.1",
     "underscore": "^1.9.1"
   },
@@ -31,7 +35,8 @@
   },
   "devDependencies": {
     "cypress": "^3.1.0",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "js-beautify": "^1.8.8"
   },
   "standard": {
     "ignore": [

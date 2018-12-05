@@ -1,5 +1,8 @@
 Template.copyShiftModal.helpers
 
+	getWeekDayTranslation: (path) ->
+		i18next.t('weekdays.' + path)
+
 	getProjectId: -> FlowRouter.getParam('projectId')
 
 	weekdays: -> [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]

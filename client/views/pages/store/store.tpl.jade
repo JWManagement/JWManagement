@@ -32,8 +32,8 @@
 											.forum-section
 												.forum-title
 													.forum-desc.pull-right
-														small {{_ 'store.type.' context=category.type }} {{_ 'store.total'}}: {{totalCategoryCount category}}
-													h3 {{_ 'store.type.' context=category.type }}
+														small {{getStoreTypeTranslation category.type}} {{_ 'store.total'}}: {{totalCategoryCount category}}
+													h3 {{getStoreTypeTranslation category.type}}
 												each item in category.items
 													if haveThisItemOrViewAll item.short
 														.forum-item(class="{{activePublication item.short}}")
@@ -48,7 +48,7 @@
 																				input#togglePublication(type="checkbox" short="{{item.short}}" checked="{{addedItem item.short}}")
 																				label
 																		a#showPublication.forum-item-title(href short="{{item.short}}")
-																			| {{_ 'store.publication.' context=item.short }}
+																			| {{getPublicationTranslation item.short}}
 																			sup
 																				i.fa.fa-external-link
 																	.col-xs-6.visible-xs
@@ -88,7 +88,7 @@
 										| {{_ 'store.close'}}
 									h2.m-b-lg
 										.inline.p-xxs.bg-primary.b-r-sm.m-r-xs {{short}}
-										| {{_ 'store.publication.' context=short }}
+										| {{getPublicationTranslation short}}
 									h3 {{_ 'store.languages'}}
 									ul.list-group
 										each lang in getLanguages

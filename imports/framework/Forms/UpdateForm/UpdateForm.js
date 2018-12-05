@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getKey, getTitle, getEntityTranslation } from '../../Helpers/Helpers'
@@ -40,7 +40,7 @@ Template.UpdateForm.helpers({
       let attributeParts = [key]
       attributeParts.push('placeholder')
 
-      return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'))
+      return i18next.t(routeNameParts.concat(attributeParts).join('.'))
     }
   },
   isSearchEnabled () {

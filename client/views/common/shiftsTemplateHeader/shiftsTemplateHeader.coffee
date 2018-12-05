@@ -10,7 +10,7 @@ Template.shiftsTemplateHeader.helpers
 			$('#datepickerStart').datepicker
 				maxViewMode: 0
 				weekStart: 1
-				language: TAPi18n.getLanguage()
+				language: i18next.language
 			.datepicker('setDates', [0..6].map (number) -> moment(startDate).startOf('isoWeek').add(number, 'days').toDate())
 			.on 'changeDate', (e) ->
 				projectId = FlowRouter.getParam('projectId')
@@ -40,7 +40,7 @@ Template.shiftsTemplateHeader.helpers
 			$('#datepickerEnd').datepicker
 				maxViewMode: 0
 				weekStart: 1
-				language: TAPi18n.getLanguage()
+				language: i18next.language
 			.datepicker('setDate', [0..6].map (number) -> moment(endDate).startOf('isoWeek').add(number, 'days').toDate())
 			.on 'changeDate', (e) ->
 				projectId = FlowRouter.getParam('projectId')
@@ -72,18 +72,18 @@ Template.shiftsTemplateHeader.helpers
 	getInterval: ->
 		if @interval?
 			intervals =
-				m: TAPi18n.__('intervals.m')
-				every: TAPi18n.__('intervals.every')
-				even: TAPi18n.__('intervals.even')
-				odd: TAPi18n.__('intervals.odd')
+				m: i18next.t('intervals.m')
+				every: i18next.t('intervals.every')
+				even: i18next.t('intervals.even')
+				odd: i18next.t('intervals.odd')
 
 			intervals[@interval]
 
 	getIntervals: -> [
-		{ _id: 'm', description: TAPi18n.__('intervals.m') }
-		{ _id: 'every', description: TAPi18n.__('intervals.every') }
-		{ _id: 'even', description: TAPi18n.__('intervals.even') }
-		{ _id: 'odd', description: TAPi18n.__('intervals.odd') }
+		{ _id: 'm', description: i18next.t('intervals.m') }
+		{ _id: 'every', description: i18next.t('intervals.every') }
+		{ _id: 'even', description: i18next.t('intervals.even') }
+		{ _id: 'odd', description: i18next.t('intervals.odd') }
 	]
 
 	getTemplate: ->

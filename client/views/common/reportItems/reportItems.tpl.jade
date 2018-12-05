@@ -25,7 +25,7 @@ table.table
 		select.form-control#item
 			option(disabled selected) {{_ 'modal.shiftReport.select_publication'}}
 			each availableItems projectId
-				option(value="{{short}}") ({{short}}) {{_ 'store.publication.' context=short}}
+				option(value="{{short}}") ({{short}}) {{getStorePublicationTranslation short}}
 	.col-md-4
 		label {{_ 'modal.shiftReport.language'}}
 		select.form-control#language

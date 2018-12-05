@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getEntityTranslation } from '../../../Helpers/Helpers'
@@ -36,7 +36,7 @@ Template.DetailsFormActions.events({
     messagePathParts.splice(1, 0, 'entity')
     messagePathParts.push(key + 'Confirmation')
 
-    if (confirm(TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.')))) {
+    if (confirm(i18next.t(messagePathParts.join('.').replace(/_/g, '.')))) {
       Meteor.call(method, FlowRouter.current().params, (error) => {
         if (error == null) {
           FlowRouter.go(FlowRouter.path(route, FlowRouter.current().params))

@@ -80,7 +80,7 @@ Template.reports.events
 				'modal.shiftReport.expGood'
 				'modal.shiftReport.expProblems'
 				'modal.shiftReport.publications'
-			].map (c) -> head.push TAPi18n.__(c)
+			].map (c) -> head.push i18next.t(c)
 
 			csvContent += head.join(';') + '\r\n'
 
@@ -111,7 +111,7 @@ Template.reports.events
 					row.push team.participants.filter((p) -> p.thisTeamleader)[0]?.name.trim()
 					row.push team.participants.filter((p) -> !p.thisTeamleader).map((p) ->
 						if p.state in ['sick', 'missing']
-							p.name.trim() + ' (' + TAPi18n.__('modal.shiftReport.' + p.state) + ')'
+							p.name.trim() + ' (' + i18next.t('modal.shiftReport.' + p.state) + ')'
 						else
 							p.name.trim()
 					).join(', ')

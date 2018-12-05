@@ -24,11 +24,13 @@ Meteor.methods
 				'profile.language': 1
 				state: 1
 
+			localTranslate = i18next.getFixedT(user.profile.language)
+
 			Meteor.call 'sendMail',
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.accountCreated.subject', '', user.profile.language)
+				subject: localTranslate('mail.accountCreated.subject')
 				template: 'accountCreated'
 				language: user.profile.language
 				data:
@@ -36,7 +38,7 @@ Meteor.methods
 					project: project.name
 					name: user.profile.firstname + ' ' + user.profile.lastname
 					language: user.profile.language
-					content: getMailTexts 'accountCreated', user.profile.language
+					content: getMailTexts 'accountCreated', localTranslate
 
 			if !user.state || user.state == 'created'
 				Meteor.call 'setState', projectId, userId, 'invited'

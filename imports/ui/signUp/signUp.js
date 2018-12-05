@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 import { Accounts } from 'meteor/accounts-base'
 import { Session } from 'meteor/session'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import './signUp.html'
@@ -25,13 +25,13 @@ Template.signUp.events({
     submit.ladda('start')
 
     if (event.target.password.value !== event.target.passwordRepeat.value) {
-      Session.set('error', TAPi18n.__(`error.passwordsDoNotMatch`))
+      Session.set('error', i18next.t(`error.passwordsDoNotMatch`))
       submit.ladda('stop')
       return
     }
 
     if (event.target.password.value.length < 8) {
-      Session.set('error', TAPi18n.__(`error.passwordTooShort`))
+      Session.set('error', i18next.t(`error.passwordTooShort`))
       submit.ladda('stop')
       return
     }
@@ -47,7 +47,7 @@ Template.signUp.events({
       }
     }, (err) => {
       if (err) {
-        Session.set('error', TAPi18n.__(`error.${err.error}`))
+        Session.set('error', i18next.t(`error.${err.error}`))
         submit.ladda('stop')
         console.log(err)
       } else {

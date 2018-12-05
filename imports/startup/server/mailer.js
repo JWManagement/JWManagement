@@ -191,21 +191,6 @@ Meteor.startup(() => {
           }
         }
       },
-      toOrga: {
-        path: 'toOrga/toOrga.html',
-        route: {
-          path: '/toOrga',
-          data () {
-            return {
-              project: 'Wuppertrolley',
-              text: 'das Team <b>\'Innenstadt\'</b> am <b>01.01.2099</b> um <b>10:00 - 12:00</b> Uhr wurde <u>abgesagt</u>.',
-              content: {
-                hello: 'Hallo Organisations-Team'
-              }
-            }
-          }
-        }
-      },
       resetPassword: {
         path: 'resetPassword/resetPassword.html',
         route: {
@@ -219,24 +204,6 @@ Meteor.startup(() => {
                 text1: 'Hallo,<br>Bitte klicke auf den folgenden Button, um ein neues Passwort zu vergeben:',
                 button: 'Passwort zurücksetzen',
                 text2: '<p>Tipps für sichere Passwörter findest du im g01 22. 6. S.31</p><p>Wenn du das Zurücksetzen deines Passwortes nicht angefordert hast, lösche diese E-Mail bitte.</p>'
-              }
-            }
-          }
-        }
-      },
-      joinProject: {
-        path: 'joinProject/joinProject.html',
-        route: {
-          path: '/joinProject',
-          data () {
-            return {
-              project: 'Wuppertrolley',
-              name: 'Tim Antkowiak',
-              content: {
-                headline: 'Du wurdest zu einem Projekt hinzugefügt',
-                hello: 'Hallo',
-                text1: 'du wurdest zu folgendem Projekt eingeladen:',
-                text2: 'Du findest das Projekt jetzt auf der Übersichtsseite unter "Meine Projekte".<br><br> Viel Freude!'
               }
             }
           }

@@ -3,6 +3,7 @@ const SystemLanguages = {
   allowedValues: [
     'de',
     'en',
+    'en-AU',
     'fi',
     'fr',
     'hu',
@@ -16,3 +17,5 @@ const SystemLanguages = {
 }
 
 export default SystemLanguages
+
+// keep /client/views/pages/settings/settings.coffee syncronized

@@ -8,7 +8,7 @@ Template.dashboard.helpers
 	pathForShift: ->
 		FlowRouter.path 'shifts',
 			projectId: @projectId
-			language: TAPi18n.getLanguage()
+			language: i18next.language
 		,
 			showWeek: moment(@date, 'YYYYDDDD').format('GGGG[W]WW')
 			showTags: @tagId
@@ -176,13 +176,13 @@ Template.dashboard.helpers
 
 	multipleProjects: -> Projects.find({}, fields: _id: 1).count() > 1
 
-	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tagId
+	getTagPath: (tagId) -> FlowRouter.path 'shifts', { projectId:@_id, language:i18next.language }, showTags: tagId
 
 	getAllTagsPath: (tags) ->
 		tags = tags.map (tag) -> tag._id
 		tags = tags.filter (t) -> Roles.userIsInRole Meteor.userId(), Permissions.participant, t._id
 
-		FlowRouter.path 'shifts', { projectId:@_id, language:TAPi18n.getLanguage() }, showTags: tags.join('_')
+		FlowRouter.path 'shifts', { projectId:@_id, language:i18next.language }, showTags: tags.join('_')
 
 	centerProject: -> 'col-lg-offset-3' if Projects.find({}, fields: _id: 1).count() == 1
 
@@ -251,18 +251,18 @@ Template.dashboard.events
 			if @tags.length > 0
 				FlowRouter.go 'shifts',
 					projectId: @_id
-					language: TAPi18n.getLanguage()
+					language: i18next.language
 				,
 					showTags: @tags[0]._id
 			else
-				swal TAPi18n.__('swal.missingTag'), '', 'error'
+				swal i18next.t('swal.missingTag'), '', 'error'
 
 	'click .shift-link': (e) ->
 		e.preventDefault()
 
 		FlowRouter.go 'shifts',
 			projectId: @projectId
-			language: TAPi18n.getLanguage()
+			language: i18next.language
 		,
 			showTags: @tagId
 			showShift: @_id
@@ -297,7 +297,7 @@ Template.dashboard.events
 
 		FlowRouter.go 'shifts',
 			projectId: @projectId
-			language: TAPi18n.getLanguage()
+			language: i18next.language
 		,
 			showTags: @tagId
 			showShiftReport: shiftId
