@@ -1,6 +1,7 @@
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import en from '../../i18n/en/_export'
+import enAU from '../../i18n/en-AU/_export'
 import de from '../../i18n/de/_export'
 import fi from '../../i18n/fi/_export'
 import fr from '../../i18n/fr/_export'
@@ -18,6 +19,7 @@ i18next
     fallbackLng: 'en',
     resources: {
       en: { translation: en },
+      'en-AU': { translation: enAU },
       de: { translation: de },
       fi: { translation: fi },
       fr: { translation: fr },

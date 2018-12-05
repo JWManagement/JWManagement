@@ -21,6 +21,7 @@ Template.settings.helpers
 		[
 			{ _id: 'de', name: "Deutsch", en: "German" }
 			{ _id: 'en', name: "English", en: "English" }
+			{ _id: 'en-AU', name: "English (Australia)", en: "English (Australia)" }
 			{ _id: 'fi', name: "Suomi", en: "Finnish" }
 			{ _id: 'fr', name: "Français", en: "French (France)" }
 			{ _id: 'hu', name: "Magyar", en: "Hungarian" }
