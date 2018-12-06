@@ -1,7 +1,4 @@
 [![Build Status](https://semaphoreci.com/api/v1/marvinzeising/jwmanagement/branches/master/badge.svg)](https://semaphoreci.com/marvinzeising/jwmanagement)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7dd7bb38cf769432c906/maintainability)](https://codeclimate.com/github/JWDeveloper/JWManagement/maintainability)
-
-[Framework Documentation](imports/framework/README.md)
 
 # What is JW Management?
 
@@ -34,7 +31,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
 
-3. Open the extracted folder and switch into the both/i18n folder.
+3. Open the extracted folder and switch into the imports/i18n folder.
 
 4. Copy the folder of the language, from that you can do the translation (e.g. en, if you want to translate english to russian).
 
@@ -97,11 +94,11 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 	This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
- 
- 6. Sign up under [http://localhost:3000](http://localhost:3000) to create a new user.
- 
- 7. Once logged in with that new user, create a project.
- 
- 8. Go to the settings page of the project and create a tag. For that tag, create a template week. Click on the template to edit it and add a few shifts.
- 
- 9. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
+
+6. Sign up under [http://localhost:3000](http://localhost:3000) to create a new user.
+
+7. Once logged in with that new user, create a project.
+
+8. Go to the settings page of the project and create a tag. For that tag, create a template week. Click on the template to edit it and add a few shifts.
+
+9. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
