@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 isLoading = new ReactiveVar
 noState = new ReactiveVar
 registerState = new ReactiveVar

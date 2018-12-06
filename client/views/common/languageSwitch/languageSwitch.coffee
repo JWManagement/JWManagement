@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Template.languageSwitch.helpers
 
 	getLanguage: (language) ->

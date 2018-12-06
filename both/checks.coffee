@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 @isExistingProject = Match.Where (projectId) ->
 	check projectId, String
 
