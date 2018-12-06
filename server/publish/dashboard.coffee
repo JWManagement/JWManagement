@@ -1,4 +1,4 @@
-moment = require('moment')
+import moment from 'moment'
 
 Meteor.publish 'dashboard', (projectIds) ->
 

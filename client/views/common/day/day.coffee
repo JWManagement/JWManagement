@@ -1,4 +1,4 @@
-moment = require('moment')
+import moment from 'moment'
 
 Template.day.helpers
 

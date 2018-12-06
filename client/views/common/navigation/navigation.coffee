@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Template.navigation.helpers
 
 	name: -> i18next.t('navigation.' + FlowRouter.getRouteName())

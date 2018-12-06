@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Meteor.areValidPasswords = (password1, password2) ->
 	value = false
 

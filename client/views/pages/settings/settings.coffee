@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Template.settings.helpers
 
 	isSupport: -> Roles.userIsInRole Meteor.userId(), 'support', Roles.GLOBAL_GROUP

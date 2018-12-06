@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 Template.registerHelper 'format', (value, oldFormat, newFormat) ->
 	i18next.language
