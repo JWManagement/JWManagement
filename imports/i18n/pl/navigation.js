@@ -71,16 +71,16 @@ const navigation = {
   reports: 'Sprawozdania',
   store: 'Magazyn',
   vessel: {
-    search: 'Vessele',
-    details: 'Detale Vessela',
-    update: 'Edytuj vessel',
-    insert: 'Nowy vessel',
+    search: 'Statki',
+    details: 'Detale statku',
+    update: 'Edytuj statek',
+    insert: 'Nowy statek',
     visit: {
-      details: 'Visit details',
-      insert: 'New visit',
-      update: 'Edit visit',
+      details: 'Detale wizyty',
+      insert: 'Nowa wizyta',
+      update: 'Edytuj wizytę',
       language: {
-        insert: 'Add a language'
+        insert: 'Dodaj język'
       }
     }
   },
