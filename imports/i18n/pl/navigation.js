@@ -26,7 +26,7 @@ const navigation = {
   wiki: 'Centrum informacji',
   project: {
     search: 'Projekty',
-    details: 'Adminitracja',
+    details: 'Administracja',
     support: {
       details: 'Wsparcie'
     },
@@ -71,10 +71,10 @@ const navigation = {
   reports: 'Sprawozdania',
   store: 'Magazyn',
   vessel: {
-    search: 'Vessels',
-    details: 'Vessel details',
-    update: 'Edit vessel',
-    insert: 'New vessel',
+    search: 'Vessele',
+    details: 'Detale Vessela',
+    update: 'Edytuj vessel',
+    insert: 'Nowy vessel',
     visit: {
       details: 'Visit details',
       insert: 'New visit',
