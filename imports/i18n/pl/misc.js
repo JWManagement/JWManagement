@@ -18,7 +18,7 @@ const misc = {
   },
   role: {
     role: 'Rola',
-    admin: 'Menadżer projekut',
+    admin: 'Menadżer projektu',
     shiftScheduler: 'Grafik',
     shiftAdmin: 'Menadżer zmian',
     storeAdmin: 'Menadżer magazynu',
