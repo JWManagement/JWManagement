@@ -15,7 +15,7 @@ Template.DetailsFormArrayEntity.helpers({
     const value = getValue(definition, entity)
 
     if (definition.type === 'dropdown') {
-      return i18next.t('language._' + entity._id.toUpperCase())
+      return i18next.t('language.' + entity._id.toUpperCase())
     }
 
     if (definition.type === 'date' && value != null) {
@@ -30,11 +30,11 @@ Template.DetailsFormArrayEntity.helpers({
   isType
 })
 
-Template.DetailsFormArrayEntity.onCreated(() => {})
+Template.DetailsFormArrayEntity.onCreated(() => { })
 
-Template.DetailsFormArrayEntity.onRendered(() => {})
+Template.DetailsFormArrayEntity.onRendered(() => { })
 
-Template.DetailsFormArrayEntity.onDestroyed(() => {})
+Template.DetailsFormArrayEntity.onDestroyed(() => { })
 
 Template.DetailsFormArrayEntity.events({
   'click tr.array-item' (e) {

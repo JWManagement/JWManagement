@@ -12,8 +12,8 @@ const modal = {
     select: 'Wybierz głosiciela'
   },
   addVessel: {
-    title: 'Add a vessel',
-    action: 'Add vessel'
+    title: 'Dodaj vessel',
+    action: 'Dodaj vessel'
   },
   addWeek: {
     title: 'Stwórz nowy tydzień',

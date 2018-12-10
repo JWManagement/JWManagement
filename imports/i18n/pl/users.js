@@ -4,7 +4,7 @@ const users = {
   uploadUserFile: 'Wstaw wielu głosicieli za pomocą pliku CSV',
   export: 'Eksportuj jako plik CSV',
   sendToAll: 'Wyslij wiadomość mailową do wszystkich głosicieli',
-  sendToAllInTag: 'Wyślij wiadomość mailową do wszystki z tagu {{0}}',
+  sendToAllInTag: 'Wyślij wiadomość mailową do wszystkich z tagu {{0}}',
   online: {
     details: {
       sections: {

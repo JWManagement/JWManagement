@@ -171,7 +171,7 @@ const pages = {
       deleteProject: 'Usuń projekt'
     },
     tags: {
-      title: 'Tags',
+      title: 'Tagi',
       helpText: '<p>Każda zmiana ma przypisany tag. Dodatkowo każdy użytkownik może mieć udostępniony lub odebrany dostęp do oglądania zmian zależnie od tagu.</p><p>Tagi mogą dotyczyć różnych aktywności (np. głoszenia z wózkami, stanowiskami informacyjnymi, głoszeniu na ulic, itd.). Dzielenie zmian na różne tagi może być użyteczne, na przykłąd jeżeli będzie istnieć w tym samym czasie kilka zmian lub jeżeli tylko wybrani głosicieli zostali przeszkolenie w jakimś rodzaju służby publicznej.</p><p>Dla każdego tagu można ustawić tygodniowy szablon zmian. Używając opcji automatycznej podczas tworzenia grafiku, system będzie mógł użyć tego szablonu. To zaoszczędzi dla Menadżera projektu lub Menadżera zmian sporo czasu potrzebnego na układanie grafiku.</p>',
       id: 'ID',
       name: 'Nazwa',
@@ -211,9 +211,9 @@ const pages = {
       remove: 'Usuń tą lokalizację'
     },
     meetings: {
-      title: 'Meeting Point',
+      title: 'Punkt Zbiórki',
       helpText: {
-        main: 'Dla każdej lokalizacji można przypisać punkt zbiórki. Dzięki temu, zmiennicy mogą spotkać się niezależnie jedni od drugich. To może być użyteczne, jeżeli lokalizacje mogą być tak oddalone od siebie, że wspólne spotkanie zabrało by za dużo czasu. Punkty zbiórki są definiowane ze współrzędnymi.',
+        main: 'Dla każdej lokalizacji można przypisać punkt zbiórki. Dzięki temu, zmiennicy mogą spotkać się niezależnie jedni od drugich. To może być użyteczne, jeżeli lokalizacje mogą być tak oddalone od siebie, że wspólne spotkanie zabrało by za dużo czasu. Punkty zbiórki są definiowane za pomocą współrzędnych.',
         picture: 'Głosiciele będą widzieli to zdjęcie. W związku z tym, zdjęcie powinno wskazywać więcej informacji dla tego punktu zbiórki. Na przykład może przedstawiać ulicę na Google Maps lub OpenStreetMap (w zależności który z nich ma lepsze pokrycie twojego ternu).'
       },
       id: 'ID',

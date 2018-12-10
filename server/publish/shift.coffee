@@ -7,11 +7,6 @@ Meteor.publish 'shift', (shiftId) ->
 			'teams.participants._id': 1
 			'teams.participants.thisTeamleader': 1
 
-		userId = Meteor.userId()
-		projectRole = Roles.getRolesForUser(userId, shift.projectId)
-		tagRole = Roles.getRolesForUser(userId, shift.tagId)
-		console.log('shift pub - shiftId: '+shiftId+' userId: '+userId+' projectId: '+shift.projectId+' Project role: '+projectRole+' Tag role: '+tagRole)
-
 		if shift?
 			if Roles.userIsInRole @userId, Permissions.member, shift.projectId
 				if Roles.userIsInRole @userId, Permissions.shiftScheduler, shift.projectId

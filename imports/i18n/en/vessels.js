@@ -68,6 +68,7 @@ const vessel = {
         decux: '(DECUX) Cuxhaven',
         dedeg: '(DEDEG) Deggendorf',
         dedhu: '(DEDHU) Huckingen',
+        dedil: '(DEDIL) Dillingen',
         dedmg: '(DEDMG) Chempark Dormagen',
         dedrp: '(DEDRP) Dörpen',
         dedrs: '(DEDRS) Dresden',
