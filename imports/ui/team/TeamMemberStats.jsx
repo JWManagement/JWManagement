@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import i18next from 'i18next'
 
 export default class TeamMemberStats extends Component {
   render () {
@@ -8,9 +9,9 @@ export default class TeamMemberStats extends Component {
       return <i className='fa fa-spinner fa-pulse' />
     }
 
-    const dayStats = `D:${stats.countDayApproved}/${stats.countDayOverall}`
-    const weekStats = `W:${stats.countWeekApproved}/${stats.countWeekOverall}`
-    const fourWeeksStats = `4W:${stats.countWeeksApproved}/${stats.countWeeksOverall}`
+    const dayStats = `${i18next.t('period.d')}:${stats.countDayApproved}/${stats.countDayOverall}`
+    const weekStats = `${i18next.t('period.w')}:${stats.countWeekApproved}/${stats.countWeekOverall}`
+    const fourWeeksStats = `${i18next.t('period.4w')}:${stats.countWeeksApproved}/${stats.countWeeksOverall}`
 
     return ` (${stats.congregation}/${stats.privileges}) ${dayStats} ${weekStats} ${fourWeeksStats}`
   }
