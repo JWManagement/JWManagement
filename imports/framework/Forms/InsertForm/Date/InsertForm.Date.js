@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 import { getKey, getEntityTranslation } from '../../../Helpers/Helpers'
 import { hasError, getErrorClass, getEntityErrorTranslation } from '../../../Helpers/Error'
@@ -39,7 +39,7 @@ Template.InsertFormDate.onRendered(() => {
   $datePicker.datepicker({
     maxViewMode: 0,
     weekStart: 1,
-    language: TAPi18n.getLanguage()
+    language: i18next.language
   })
     .on('changeDate', () => {
       const valueRaw = $datePicker.datepicker('getDate')

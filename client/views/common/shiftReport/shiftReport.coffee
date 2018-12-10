@@ -40,7 +40,9 @@ Template.shiftReport.onCreated ->
 	shiftId = FlowRouter.getQueryParam('showShiftReport')
 
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', FlowRouter.getQueryParam('showShiftReport')
+		shiftId = FlowRouter.getQueryParam('showShiftReport')
+
+		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftReportModal').modal('show')
 			$('#shiftReportModal').on 'hidden.bs.modal', ->
@@ -50,7 +52,10 @@ Template.shiftReport.onCreated ->
 					showShift: shiftId
 				$('.skipping').addClass('animated').removeClass('skipping')
 
-			Meteor.call 'initReport', FlowRouter.getQueryParam('showShiftReport'), FlowRouter.getQueryParam('reportTeamId')
+			teamId = FlowRouter.getQueryParam('reportTeamId')
+
+			if shiftId && teamId
+				Meteor.call 'initReport', shiftId, teamId
 
 Template.shiftReport.onRendered ->
 

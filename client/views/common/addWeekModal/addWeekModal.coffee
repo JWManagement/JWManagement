@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 Template.addWeekModal.helpers
 
@@ -38,7 +39,7 @@ Template.addWeekModal.onCreated ->
 				calendarWeeks: true
 				maxViewMode: 0
 				weekStart: 1
-				language: TAPi18n.getLanguage()
+				language: i18next.language
 			.on 'changeDate', (e) ->
 				if !$weekPicker.data('updating')
 					$weekPicker.data('updating', true)

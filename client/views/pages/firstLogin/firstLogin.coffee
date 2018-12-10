@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 isLoading = new ReactiveVar
 noState = new ReactiveVar
 registerState = new ReactiveVar
@@ -62,15 +64,15 @@ Template.firstLogin.events
 										if typeof res == 'object' && res.done
 											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'home'
 										else
-											Session.set 'errorMessage', TAPi18n.__('firstLogin.tokenError')
+											Session.set 'errorMessage', i18next.t('firstLogin.tokenError')
 								else
-									Session.set 'errorMessage', TAPi18n.__('firstLogin.usernameExists')
+									Session.set 'errorMessage', i18next.t('firstLogin.usernameExists')
 					else
-						Session.set 'errorMessage', TAPi18n.__('firstLogin.usernameMissing')
+						Session.set 'errorMessage', i18next.t('firstLogin.usernameMissing')
 				else
-					Session.set 'errorMessage', TAPi18n.__('firstLogin.agreeTermsMissing')
+					Session.set 'errorMessage', i18next.t('firstLogin.agreeTermsMissing')
 			else
-				Session.set 'errorMessage', TAPi18n.__('firstLogin.tokenMissing')
+				Session.set 'errorMessage', i18next.t('firstLogin.tokenMissing')
 		else
 			username = $('#username').val()
 			password = $('#password').val()

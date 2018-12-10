@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 `import ShiftLoading from '../../../../imports/ui/shift/ShiftLoading'`
 `import TeamMemberName from '../../../../imports/ui/team/TeamMemberName'`
@@ -75,7 +76,7 @@ Template.shift.helpers
 		tags && tags.indexOf('_') > -1
 
 	getScheduling: -> if @scheduling?
-		TAPi18n.__('scheduling.' + @scheduling)
+		i18next.t('scheduling.' + @scheduling)
 
 	shiftClass: ->
 		try

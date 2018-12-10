@@ -1,5 +1,7 @@
 Template.resetPassword.helpers
 
+	getPublisherName: -> @profile.firstname + ' ' + @profile.lastname
+
 	error: -> Session.get 'errorMessage'
 
 	user: ->

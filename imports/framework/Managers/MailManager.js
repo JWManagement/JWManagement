@@ -1,12 +1,12 @@
 import { Mailer } from 'meteor/lookback:emails'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 const MailManager = {
 
   sendMail (data) {
     data.data.global = {
-      footer: TAPi18n.__('mail.footer', '', data.language),
-      link: TAPi18n.__('mail.link', '', data.language)
+      footer: i18next.t('mail.footer', '', data.language),
+      link: i18next.t('mail.link', '', data.language)
     }
 
     Mailer.send({

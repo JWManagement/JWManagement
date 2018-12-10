@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import moment from 'moment'
 
 import Users from '../users/Users'
@@ -9,12 +9,12 @@ function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
   if (periodBegin === 2400 && lastValue === 2300) {
     return {
       numbers: numbers,
-      timeslot: TAPi18n.__('publisher.entity.profile.availability.wholeDay', {}, language)
+      timeslot: i18next.t('publisher.entity.profile.availability.wholeDay', {}, language)
     }
   }
 
-  const dateFormatStart = TAPi18n.__('publisher.entity.profile.availability.startDateFormat', {}, language)
-  const dateFormatEnd = TAPi18n.__('publisher.entity.profile.availability.endDateFormat', {}, language)
+  const dateFormatStart = i18next.t('publisher.entity.profile.availability.startDateFormat', {}, language)
+  const dateFormatEnd = i18next.t('publisher.entity.profile.availability.endDateFormat', {}, language)
 
   return {
     numbers: numbers,
@@ -112,8 +112,8 @@ function getExtendedPublisher (userId, projectId) {
     }
 
     for (let vacation of publisher.profile.vacations) {
-      const dateFormatStart = TAPi18n.__('publisher.entity.profile.vacation.startDateFormat', {}, language)
-      const dateFormatEnd = TAPi18n.__('publisher.entity.profile.vacation.endDateFormat', {}, language)
+      const dateFormatStart = i18next.t('publisher.entity.profile.vacation.startDateFormat', {}, language)
+      const dateFormatEnd = i18next.t('publisher.entity.profile.vacation.endDateFormat', {}, language)
 
       // support legacy number format
       if (!vacation.createdAt) {

@@ -1,4 +1,5 @@
-moment = require('moment')
+import moment from 'moment'
+import i18next from 'i18next'
 
 Meteor.methods
 
@@ -32,7 +33,7 @@ Meteor.methods
 
 					# TODO: write mail to orga team if participants.length > 0
 				else
-					throw new Meteor.Error 500, TAPi18n.__('modal.shift.closedTeam')
+					throw new Meteor.Error 500, i18next.t('modal.shift.closedTeam')
 		else if shift.scheduling == 'direct'
 			for team in shift.teams when team._id == teamId
 				inPending = false
@@ -51,7 +52,7 @@ Meteor.methods
 								Meteor.call 'closeTeam', shiftId, teamId
 
 							Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
-						else throw new Meteor.Error 500, TAPi18n.__('modal.shift.maximumReached')
+						else throw new Meteor.Error 500, i18next.t('modal.shift.maximumReached')
 					else if team.pending.length >= team.min - 1
 
 						teamleader = team.pending.find((user) => user.teamleader) ||
@@ -155,8 +156,6 @@ Meteor.methods
 
 				if shift.scheduling == 'manual' && isThisWeek
 					Meteor.call 'sendUnderstaffed', shiftId, teamId
-				#else if shift.scheduling == 'manual'
-				#	Meteor.call 'sendToOrga', shift.projectId, 'teamCancel', shiftId, teamId
 
 				Meteor.call 'cancelTeam', shiftId, teamId, 'missingParticipant'
 			else

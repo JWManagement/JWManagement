@@ -1,3 +1,5 @@
+SystemLanguages = require('../../../../imports/framework/Constants/SystemLanguages.js').default
+
 Template.uploadUserFileModal.helpers
 
 	getUsers: -> Session.get 'users'
@@ -16,7 +18,6 @@ Template.uploadUserFileModal.onRendered ->
 
 	$('#uploadUserFileModal').modal('show')
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
-		wrs -> FlowRouter.setQueryParams uploadUserFile: undefined, addUser: true
 		$('.modal-backdrop').remove()
 
 		if !Session.get('users')? then Session.set 'users', undefined
@@ -57,7 +58,12 @@ Template.uploadUserFileModal.events
 						pioneer = if user[5] in ['publisher', 'auxiliary', 'regular', 'special', 'circuit', 'bethelite', 'ldc'] then user[5] else 'publisher'
 						privilege = if user[6] in ['publisher', 'servant', 'elder', 'coordinator', 'secretary', 'serviceOverseer'] then user[6] else 'publisher'
 						congregation = user[7]
-						language = user[8]
+						systemLanguage = user[8]
+						foreignLanguages = user[9]
+						roles = user[10]
+
+						if !SystemLanguages.allowedValues.includes(systemLanguage)
+							systemLanguage = SystemLanguages.defaultValue
 
 						if email.match(/^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i)
 							users.push
@@ -69,7 +75,12 @@ Template.uploadUserFileModal.events
 								pioneer: pioneer
 								privilege: privilege
 								congregation: congregation
-								language: language
+								systemLanguage: systemLanguage
+								foreignLanguages: foreignLanguages
+								roles: roles
+
+					if users.length == 0
+						alert 'Sorry, we couldn\'t extract any users of this file. Is the .csv-file the semicolons, maybe?'
 
 					Session.set 'users', users
 					Session.set 'uploading', false

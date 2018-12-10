@@ -1,6 +1,8 @@
+import i18next from 'i18next'
+
 Template.navigation.helpers
 
-	name: -> TAPi18n.__('navigation.' + FlowRouter.getRouteName())
+	name: -> i18next.t('navigation.' + FlowRouter.getRouteName())
 
 	target: ->
 		parent = Session.get('parent')
@@ -12,16 +14,16 @@ Template.navigation.helpers
 				target
 			else if parent == 'dashboard.details'
 				FlowRouter.path 'dashboard.details',
-					language: TAPi18n.getLanguage()
+					language: i18next.language
 			else
 				projectId = FlowRouter.getParam('projectId')
 
 				if parent != 'home' && projectId
 					FlowRouter.path parent,
 						projectId: projectId
-						language: TAPi18n.getLanguage()
+						language: i18next.language
 				else
-					FlowRouter.path parent, language: TAPi18n.getLanguage()
+					FlowRouter.path parent, language: i18next.language
 
 Template.navigation.onDestroyed ->
 

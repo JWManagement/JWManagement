@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 `import TeamMember from '../../../../imports/ui/team/TeamMember'`
 
@@ -75,9 +76,9 @@ Template.shiftModal.helpers
 				tlCount++
 
 		if tlCount > 0
-			TAPi18n.__('modal.shift.existingTeamleaders', tlCount)
+			i18next.t('modal.shift.existingTeamleaders', tlCount)
 		else
-			TAPi18n.__('modal.shift.noExistingTeamleader')
+			i18next.t('modal.shift.noExistingTeamleader')
 
 	hasTl: (teamId) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -219,7 +220,7 @@ Template.shiftModal.events
 					hasTeamleader = true
 
 		if wouldCancelOtherTeam
-			swal TAPi18n.__('swal.error'), TAPi18n.__('swal.publisherInOtherTeam'), 'error'
+			swal i18next.t('swal.error'), i18next.t('swal.publisherInOtherTeam'), 'error'
 		else if hasTeamleader || isPossibleTeamleader
 			if participantCount < teamMin
 				swalYesNo
@@ -246,7 +247,7 @@ Template.shiftModal.events
 						Meteor.call 'approveRequest', shiftId, teamId, userId, (e, r) -> if !e && !hasTeamleader
 							Meteor.call 'setLeader', shiftId, teamId, userId, handleError
 		else
-			swal TAPi18n.__('swal.noTeamleader'), '', 'error'
+			swal i18next.t('swal.noTeamleader'), '', 'error'
 
 	'click .approveSelected': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
@@ -281,7 +282,7 @@ Template.shiftModal.events
 						wouldCancelOtherTeam = true
 
 			if wouldCancelOtherTeam
-				swal TAPi18n.__('swal.error'), TAPi18n.__('swal.publisherInOtherTeam'), 'error'
+				swal i18next.t('swal.error'), i18next.t('swal.publisherInOtherTeam'), 'error'
 
 			!wouldCancelOtherTeam
 
@@ -453,7 +454,7 @@ Template.shiftModal.events
 		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
 
 	'click .sentConfirmation': (e) ->
-		swal TAPi18n.__('swal.approvalInformed'), '', 'info'
+		swal i18next.t('swal.approvalInformed'), '', 'info'
 
 	'click .sendConfirmation': (e) ->
 		shiftId = FlowRouter.getQueryParam 'showShift'
@@ -474,7 +475,7 @@ Template.shiftModal.events
 								Meteor.call 'sendTeamUpdate', shiftId, teamId, 'participant'
 
 	'click .sentDeclined': (e) ->
-		swal TAPi18n.__('swal.declinementInformed'), '', 'info'
+		swal i18next.t('swal.declinementInformed'), '', 'info'
 
 	'click .sendDeclined': (e) ->
 		shiftId = FlowRouter.getQueryParam 'showShift'

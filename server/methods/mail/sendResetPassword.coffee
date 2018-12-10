@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Meteor.methods
 
 	sendResetPassword: (obj) ->
@@ -28,17 +30,19 @@ Meteor.methods
 		else
 			Meteor.users.update find, $set: 'services.password.reset': token: token
 
+		localTranslate = i18next.getFixedT(user.profile.language)
+
 		try
 			Meteor.call 'sendMail',
 				recipient: obj.email
 				sender: 'JW Management'
 				from: 'support@jwmanagement.org'
-				subject: TAPi18n.__('mail.resetPassword.subject', '', user.profile.language)
+				subject: localTranslate('mail.resetPassword.subject')
 				template: 'resetPassword'
 				language: user.profile.language
 				data:
 					token: token
 					language: user.profile.language
-					content: getMailTexts 'resetPassword', user.profile.language
+					content: getMailTexts 'resetPassword', localTranslate
 		catch e
 			console.error e

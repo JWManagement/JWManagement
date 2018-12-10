@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Meteor.methods
 
 	sendMail: (data) ->
@@ -20,16 +22,22 @@ Meteor.methods
 				data.language? &&
 				data.data?)
 
-			data.data.global =
-				footer: TAPi18n.__('mail.footer', '', data.language)
-				link: TAPi18n.__('mail.link', '', data.language)
+			try
+				localTranslate = i18next.getFixedT(data.language)
 
-			sent = Mailer.send
-				to: data.recipient
-				from: data.sender + ' <no-reply@jwmanagement.org>'
-				replyTo: data.sender + '<' + data.from + '>'
-				subject: data.subject
-				template: data.template
-				data: data.data
+				data.data.global =
+					footer: localTranslate('mail.footer')
+					link: localTranslate('mail.link')
+
+				sent = Mailer.send
+					to: data.recipient
+					from: data.sender + ' <no-reply@jwmanagement.org>'
+					replyTo: data.sender + '<' + data.from + '>'
+					subject: data.subject
+					template: data.template
+					data: data.data
+			catch e
+				console.error e
+				throw e
 
 		sent

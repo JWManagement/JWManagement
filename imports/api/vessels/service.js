@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Random } from 'meteor/random'
 import { Roles } from 'meteor/alanning:roles'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 import Vessels from './Vessels'
 import Languages from '../../framework/Constants/Languages'
@@ -170,7 +170,7 @@ Meteor.methods({
       .map((harborId) => {
         return {
           key: harborId,
-          value: TAPi18n.__(`vessel.entity.visit.harborIdValues.${harborId}`)
+          value: i18next.t(`vessel.entity.visit.harborIdValues.${harborId}`)
         }
       })
       .sort((a, b) => {
@@ -341,7 +341,7 @@ function getExtendedVisit (visit) {
 
   visit.country = project.country
   const harborName = Harbor.allowedValues.filter((h) => h === visit.harborId)[0]
-  visit.harbor = TAPi18n.__(`vessel.entity.visit.harborIdValues.${harborName}`)
+  visit.harbor = i18next.t(`vessel.entity.visit.harborIdValues.${harborName}`)
 
   if (visit.languageIds == null) {
     visit.languageIds = []
@@ -357,7 +357,7 @@ function getExtendedVisit (visit) {
 
   visit.languages = visit.languageIds
     .filter((language) => Languages.allowedValues.includes(language._id))
-    .map((language) => TAPi18n.__('language._' + language._id, {}, interfaceLanguage))
+    .map((language) => i18next.t('language._' + language._id, {}, interfaceLanguage))
     .join(', ')
 
   return visit
