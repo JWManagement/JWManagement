@@ -2,44 +2,44 @@ const pages = {
   login: {
     name: 'Se connecter',
     welcome: 'Bienvenue sur JW Management',
-    text: 'Veuillez rentrer les informations de votre compte pour vous connecter.',
-    forgot: 'Identifiant ou mot de passe oublié ?',
+    text: 'Donne les informations de ton compte pour te connecter.',
+    forgot: 'Nom d\'utilisateur ou mot de passe oublié ?',
     create: 'Créer un compte',
     back: 'Retour à l’accueil'
   },
   forgotPassword: {
     name: 'Identifiant ou mot de passe oublié',
-    text: 'Veuillez rentrer votre adresse E-mail. Nous vous enverrons ensuite un lien pour changer votre mot de passe. Vous serez automatiquement connecté sur votre compte et pourrez consulter votre identifiant.',
-    button: 'Envoyer le lien de changment de mot de passe',
+    text: 'Donne ton adresse e-mail. Nous t\' enverrons ensuite un lien pour modifier ton mot de passe. Tu seras automatiquement connecté sur ton compte et tu pourra consulter ton profile.',
+    button: 'Envoyer le lien de modification du mot de passe',
     back: 'Retour sur la page de connexion',
-    noUserForThisEmail: 'Aucun compte ne possède cette adresse E-mail',
-    multipleAccountsForThisEmail: 'Il y a plusieurs comptes avec cette adresse E-mail. Veuillez spécifier le nom d’utilisateur.',
-    emailMissing: 'Il manque l’adresse E-mail',
-    mailSent: 'Vous allez recevoir un E-mail dans les plus brefs délais. Cliquez sur le lien dans l’E-mail pour changer votre mot de passe.'
+    noUserForThisEmail: 'Aucun compte ne possède cette adresse e-mail',
+    multipleAccountsForThisEmail: 'Il y a plusieurs comptes avec cette adresse e-mail. Veuille spécifier le nom d’utilisateur.',
+    emailMissing: 'Il manque l’adresse e-mail',
+    mailSent: 'Tu vas recevoir un e-mail ou tu cliqueras sur le lien pour modifier ton mot de passe.'
   },
   resetPassword: {
-    name: 'Changer de mot de passe',
-    text: 'Veuillez rentrer un nouveau mot de passe pour {{0}} {{1}}.',
-    noUserFound: '<p>Ce lien n’est plus valide.</p><p>Veuillez demander un nouvel E-mail de changement de mot de passe.</p>',
-    button: 'Changer de mot de passe',
+    name: 'Modifie ton mot de passe',
+    text: 'Veuille rentrer un nouveau mot de passe pour {{0}} {{1}}.',
+    noUserFound: '<p>Ce lien n’est plus valide.</p><p>Demande un nouvel e-mail de modification de mot de passe.</p>',
+    button: 'Modifie ton mot de passe',
     back: 'Retour sur la page de connexion'
   },
   profile: {
-    name: 'Mon Profile',
+    name: 'Mon profile',
     personalData: 'Mes données personnelles',
     changePicture: 'Modifier l’image…',
     options: {
       title: 'Paramètres',
       helpText: {
-        mergeAccounts: 'Sur JW Management vous pouvez tout faire avec un seul compte. Vous devez juste vous souvenir d’un identifiant et d’un mot de passe. Si vous avez plusieurs compte, cliquez sur « Fusionner les comptes » et rentrer les informations de votre second comtpe. Cela fusionnera les droits de ce compte avec ceux du second compte.'
+        mergeAccounts: 'Sur JW Management tu peux tout faire avec un seul compte. Tu dois juste te souvenir de ton nom d\'utilisateur et de ton mot de passe. Si tu as plusieurs compte, clique sur « Fusionner les comptes » et rentre les informations de ton deuxième comtpe. Cela fusionnera les droits de ce compte avec ceux du second compte.'
       }
     },
     availability: {
-      title: 'Disponibilité',
-      helpText: 'Veuillez cocher les horaires durant lesquels vous êtes disponible.',
+      title: 'Mes disponibilités',
+      helpText: 'Coche tes horaires de disponibilité.',
       shortTermCalls: 'Je peux rapidement être contacté.',
-      shortTermCallsAlways: 'Même durant les heures indisponibles.',
-      notifyViaEmail: 'Je préfère être contacté(e) par E-mail.'
+      shortTermCallsAlways: 'Même durant les heures de non-disponibilité.',
+      notifyViaEmail: 'Je préfère être contacté(e) par e-mail.'
     },
     speaks: 'Parle',
     telefon: 'Téléphone',
@@ -52,7 +52,7 @@ const pages = {
       sister: 'Sœur'
     },
     publisher: 'Proclamateur/trice',
-    privilegeOfService: 'Privilège de service',
+    privilegeOfService: 'Statut',
     _privilegeOfService: {
       auxiliaryPioneer: 'Pionnier auxiliaire',
       pioneer: 'Pionnier permanent',
@@ -70,31 +70,31 @@ const pages = {
       serviceOverseer: 'Responsable de prédication'
     },
     placeholder: {
-      telefon: '(e.g. +447712345678)',
+      telefon: '(p. ex. +41771234567)',
       congregation: 'Assemblée',
       languages: 'Langues'
     },
-    changePassword: 'Changer le mot de passe',
+    changePassword: 'Modifier le mot de passe',
     deleteAccount: 'Supprimer le compte',
-    mergeAccounts: 'Fusionner deux comptes',
+    mergeAccounts: 'Fusionner les deux comptes',
     vacation: {
       title: 'Vacances',
-      helpText: 'Veuillez ajouter les périodes durant lesquelles vous n’êtes pas disponible.'
+      helpText: 'Ajoute tes absences durant lesquelles tu ne seras pas disponible.'
     },
     until: 'Jusqu’à',
     addVacation: 'Ajoute des absences',
     deleteVacation: 'Supprimer ces absences',
-    usernameTaken: 'Cet identifiant est déjà utilisé par quelqu’un d’autre. Veuillez en choisir un autre.'
+    usernameTaken: 'Cet nom d\'utilisateur est déjà utilisé par quelqu’un d’autre. Choisis en un autre.'
   },
   wiki: {
     name: 'Centre d’information',
     nameShort: 'Info',
     files: 'Fichiers',
-    addQuestion: 'Ajouter une question/ un titre',
+    addQuestion: 'Ajouter une question/un titre',
     edit: 'Modifier',
     delete: 'Supprimer',
     noFiles: 'Pas de fichiers disponibles',
-    addTab: 'Pas de fichiers disponibles',
+    addTab: 'Ajouter un nouvel onglet',
     editQuestion: 'Modifier cette question',
     removeFaq: 'Supprimer cette question',
     editFaq: 'Modifier cette réponse',
@@ -119,10 +119,10 @@ const pages = {
       end: 'Ceci est la dernière semaine créée par le système.',
       visibility: 'Définit le nombre de semaine d’avance qu’un proclamateur aura pour voir et faire des inscriptions. Entre la première semaine et la dernière semaine, le système va automatiquement créer les horaires nécessaires.'
     },
-    weeks: 'semaines',
-    sendWeek: 'Envoyer les confirmations pour tous les horaires de cette semaine par E-mail.',
-    hideNames: 'Cacher tous les noms dans les horaires',
-    showNames: 'Afficher tous les noms dans les horaires',
+    weeks: 'Semaines',
+    sendWeek: 'Envoyer les attributions.',
+    hideNames: 'Cacher les participants des plages horaires',
+    showNames: 'Montrer les participants des plages horaires',
     editShifts: 'Modifier les horaires',
     prevWeek: 'Aller à la semaine précédente',
     nextWeek: 'Aller à la semaine prochaine',
@@ -130,10 +130,10 @@ const pages = {
     hiddenTag: 'Les horaires pour cette étiquette sont cachés',
     shift: {
       tag: 'Étiquette',
-      schedule: 'Planning',
+      schedule: 'Planification',
       teamleader: 'Responsable d\'équipe',
       teams: 'Équipes',
-      noTeams: 'Équipes',
+      noTeams: 'Pas d\'équipes',
       participants: 'Participants',
       start: 'Début',
       end: 'Fin',
@@ -142,11 +142,11 @@ const pages = {
       requestsOf: 'Demande de',
       requestsOf_plural: 'Demandes de',
       teamleaders: 'RÉ',
-      noPermission: 'Un responsable de projet ou un « responsable de planning » sont les seuls à pouvoir modifier ou ajouter des horaires.'
+      noPermission: 'Un responsable de projet ou un planificateur d\'horaire sont les seuls à pouvoir modifier ou ajouter des horaires.'
     }
   },
   day: {
-    removeAll: 'Tout enlever'
+    removeAll: 'Tout supprimer'
   },
   reports: {
     export: 'Exporter en tant que CSV'
@@ -158,27 +158,27 @@ const pages = {
       name: {
         text: 'Nom',
         placeholder: 'Nom du projet',
-        helpText: 'Dans beaucoup de situation le nom du projet est le nom de l’assemblée. Pour de plus gros projets qui incluent plusieurs assemblées, le nom peut être le nom de la ville dans laquelle le projet aura lieu. Si le but de ce projet n’est pas d’organiser les présentoirs mobiles, le nom du projet peut aussi correspondre à ce qui sera organisé par ce projet.'
+        helpText: 'Dans la plupart des cas le nom du projet est le nom de l’assemblée. Pour de plus gros projets qui incluent plusieurs assemblées, on pourra choisir le nom de la ville ou de la région. Si ce projet n’est pas lié aux présentoirs mobiles, le nom du projet peut aussi correspondre à une autre forme de témoignage public.'
       },
       email: {
         text: 'E-mail',
-        placeholder: 'Adresse E-mail du projet',
-        helpText: 'Dans les E-mails tels que les confirmations d’horaires et les modifications de responsables de projet, cette adresse sera choisie comme expéditeur, pour qu’au moment où le destinataire répond aux E-mails, la réponse sera envoyée dans la boîte de l’adresse choisie (si la boîte E-mail du destinataire fonctionne correctement). De plus, cette adresse recevra aussi par exemple les annulations de participants à cours termes.'
+        placeholder: 'Adresse e-mail du projet',
+        helpText: 'Cette adresse e-mail sera choisie comme expéditeur des attributions/confirmations d\'horaires. Les annulations d\'attributions/confirmations passeront aussi par cette adresse. C\'est à cette adresse que tu peux poser des questions. Elle sera aussi utilisée pour les modifications des responsables de projet.'
       },
       language: {
         text: 'Langue',
-        helpText: 'Si le système informe les adresse ci-dessus de changements, les E-mails partiront dans la langue choisie'
+        helpText: 'Lorsque le système envoie des notifications aux adresses ci-dessus, les e-mails partiront dans la langue choisie'
       },
       deleteProject: 'Supprimer le projet'
     },
     tags: {
       title: 'Étiquette',
-      helpText: '<p>Chaque horaire doit porter une étiquette. De plus chaque utilisateur peut être autoriser ou pas de voir les horaires en fonction des étiquette.</p><p>Les étiquette peuvent refléter plusieurs activités (ex. Présentoirs mobiles, stand d’exposition, le satique, etc.). Il peut être utile de diviser les horaires avec des étiquettes différentes, par exemple s’il y a plusieurs horaires au même moment ou s’il n’y a que certains proclamateurs qui sont formés dans un domaine précis.</p><p>Pour chaque étiquette, il peut y avoir des modèles de semaine qui ont déjà été définis. En utilisant l’option de créer les horaires automatiquement, le programme peut utiliser ces modèles de semaine. Cela fait gagner du temps au responsable de projet ou au « responsable de planning » lors de la planification.</p>',
+      helpText: '<p>Chaque horaire doit porter une étiquette. De plus chaque proclamateur peut être autorisé ou pas à voir les horaires en fonction des étiquette.</p><p>Les étiquette peuvent refléter plusieurs activités (ex. Présentoirs mobiles, stand d’exposition, satique, etc.). Il peut être utile de diviser les horaires avec des étiquettes différentes, par exemple s’il y a plusieurs horaires au même moment ou s’il n’y a que certains proclamateurs qui sont formés dans un domaine précis.</p><p>Pour chaque étiquette, il peut y avoir des modèles de semaine qui ont déjà été définis. En utilisant l’option de créer les horaires automatiquement, le programme peut utiliser ces modèles de semaine. Cela fait gagner du temps au responsable de projet ou au planificateur d\'horaires. </p>',
       id: 'ID',
       name: 'Nom',
       img: {
         name: 'Image',
-        helpText: 'Cette image sera montrée sur le tableau de bord sous “Horaires”. Ça expliquera le type de tâche exécutée dans les horaires portant cette étiquette. Si vous désirez ajouter une image personnalisée, veuillez nous envoyer un e-mail à support@jwmanagement.org décrivant votre idée.'
+        helpText: 'Cette image sera montrée sur le tableau de bord sous “Horaires”. Cela expliquera le type de tâche exécutée dans les horaires portant cette étiquette. Si vous désirez ajouter une image personnalisée, veuillez nous envoyer un e-mail à support@jwmanagement.org décrivant votre idée.'
       },
       templates: 'Modèles',
       showTemplate: 'Modifier les horaires',
@@ -188,19 +188,19 @@ const pages = {
       action: 'Action',
       none: 'Aucune étiquette n’a encore été ajouté',
       add: 'Ajouter une nouvelle étiquette',
-      remove: 'Supprimer cete étiquette'
+      remove: 'Supprimer cette étiquette'
     },
     teams: {
       title: 'Équipes',
       helpText: {
-        main: 'Pour chaque horaire, il doit y avoir au moins une équipe. Chaque équipe est attribuée à un itinéraire ou lieu. Un participant d’un horaire est toujours membre d’une de ces équipes.',
-        picture: 'Les proclamateurs peuvent voir cette image. Et donc, elle devrait donner plus de détails pour les tâches dans cette équipe. Par exemple, vous pourriez créer un itinéraire pour cette équipe sur Google Maps ou sur OpenStreetMap (à choisir celui qui possède le plus de détails dans votre zone d’habitation) et charger une image de cela ici.',
-        link: 'Ce lien sera connecté avec cette image. Si l’utilisateur clique dessus, il sera renvoyé à l’adresse de ce lien. Par exemple vous pourriez ajouter le lien de GoogleMaps ou d’OpenStreetMap ici.',
-        description: 'Ici, vous pouvez éventuellement ajouter une description pour l’équipe. Par exemple, vous pourriez expliquer certaines particularités de cette équipe ou cet itinéraire.'
+        main: 'Pour chaque horaire, il doit y avoir au moins une équipe. Chaque équipe est attribuée à un itinéraire ou parcours. Celui qui participe à un horaire est toujours membre d’une équipe.',
+        picture: 'Les proclamateurs peuvent voir cette image. Elle donnera d\'autre détails pour cette équipe. Par exemple, tu pourrais créer un itinéraire sur Google Maps ou sur OpenStreetMap (celle qui possède le plus de détails dans ta zone d’habitation) et ensuite la charger ici.',
+        link: 'Ce lien est associé avec cette image. Tu n\'as qu\'à cliquer sur ce lien. Tu peux aussi ajouter ici le lien de GoogleMaps ou d’OpenStreetMap.',
+        description: 'Il est parfois nécessaire d\'ajouter une description supplémentaire pour l’équipe, comme la particularité d\'une équipe ou d\'un parcours.'
       },
       id: 'ID',
       name: 'Nom',
-      icon: 'Icone',
+      icon: 'Icône',
       picture: 'Image',
       editPicture: 'Charger une image pour cette équipe',
       noPicture: 'Aucune image chargée',
@@ -214,8 +214,8 @@ const pages = {
     meetings: {
       title: 'Point de rencontre',
       helpText: {
-        main: 'Chaque équipe peut avoir un point de rencontre. De ce fait, les équipes peuvent se rencontrer indépendamment les unes des autres. Cela peut être utile, par exemple lorsque l’itinéraire ou le lieu des équipes sont tellement éloignés qu’un point de rencontre commun prendrait trop de temps. Les points de rencontre sont définis par des coordonnées.',
-        picture: 'Les proclamateurs peuvent voir cette image. Et donc, elle devrait donner plus de détails sur le point de rencontre. Par exemple, vous pourriez charger une image de la zone depuis Google Maps ou sur OpenStreetMap (à choisir celui qui possède le plus de détails dans votre zone d’habitation) ici.'
+        main: 'Chaque équipe peut avoir un point de rencontre. Elles peuvent se rencontrer indépendamment les unes des autres. Cela peut être utile, par exemple lorsque l’itinéraire ou le lieu des équipes est tellement éloignés qu’un point de rencontre commun prendrait trop de temps. Les points de rencontre sont définis par des coordonnées.',
+        picture: 'Les proclamateurs peuvent voir cette image. Elle devrait donner davantage de détails sur le point de rencontre. Par exemple, tu peux charger une image de la zone depuis Google Maps ou sur OpenStreetMap (Celle qui possède le plus de détails dans ta zone d’habitation).'
       },
       id: 'ID',
       name: 'Nom',
@@ -223,22 +223,22 @@ const pages = {
       editPicture: 'Charger une image pour ce point de rencontre',
       noPicture: 'Aucune image chargée',
       action: 'Action',
-      none: 'Aucun points de rencontre n’ont encore été ajouté',
+      none: 'Aucun point de rencontre n\'a encore été ajouté',
       add: 'Ajouter un nouveau point de rencontre',
       remove: 'Supprimer ce point de rencontre'
     }
   },
   firstLogin: {
     name: 'Bienvenue',
-    text: '<p>Nous avons hâtes de vous accueillir!</p><p>Veuillez définir votre identifiant et votre mot de passe. Vous en aurez besoin pour vous connecter au système.</p><p>Après cela, vous pourrez commencer à utiliser JW Management</p><p>Amusez-vous!</p>',
-    agreeTerms: 'J’accepte les  <a href="/en/terms" target="blank">conditions d’utilisation</a> et la <a href="/en/privacy" target="blank">politique de confidentialité</a>',
+    text: '<p>Nous avons hâtes de t\'accueillir!</p><p>Choisi ton nom d\'utilisateur et ton mot de passe. Tu en auras besoin pour te connecter au système.</p><p>Après cela, tu pourras commencer à utiliser JW Management</p><p>Amuse toi bien!</p>',
+    agreeTerms: 'J’accepte les <a href="/en/terms" target="blank">conditions d’utilisation</a> et la <a href="/en/privacy" target="blank">politique de confidentialité</a>',
     button: 'C’est parti!',
-    tokenError: 'Ce lien n’est plus valide. Veuillez demander un nouvel E-mail ou essayez de changer votre mot de passe.',
-    tokenMissing: 'Lien invalide. Veuillez cliquer sur le lien de l’E-mail.',
-    usernameExists: 'Cet identifiant est déjà utilisé. Veuillez en choisir un autre.',
-    usernameMissing: 'Veuillez définir un identifiant.',
-    agreeTermsMissing: 'Veuillez définir un identifiant.',
-    buttonCreateAccount: 'J’ai besoin de créer un compte',
+    tokenError: 'Ce lien n’est plus valide. Demande un nouvel e-mail ou essaye de modifier ton mot de passe.',
+    tokenMissing: 'Lien invalide. Veuille cliquer sur le lien de l’e-mail.',
+    usernameExists: 'Ce nom d\'utilisateur est déjà utilisé. Choisis en un autre.',
+    usernameMissing: 'Choisis un nom d\'utilisateur.',
+    agreeTermsMissing: 'Veuille accepter les conditions d\'utilisation et la politique de confidentialité..',
+    buttonCreateAccount: 'J’ai besoin de créer un nouveau compte',
     buttonHaveAccount: 'J’ai déjà un compte'
   }
 }

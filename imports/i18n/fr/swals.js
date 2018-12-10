@@ -1,27 +1,27 @@
 const swal = {
   error: 'Erreur',
-  publisherInOtherTeam: 'Une proclamateur sélectionné est déjà inscrit dans une autre équipe. Merci de commencer par l\'enlever de cette équipe.',
-  onlyTeam: 'Tu ne peux pas effacer cette équipe, qui est la seule pour cette plage horaire. Chaque plage horaire doit comporter au moins une équipe.',
-  noTeamleader: 'Chaque équipe a besoin d\'un responsable. Cependant ce proclamateur n\'a pas l\'autorisation de servir comme responsable d\'équipe.',
-  ownPermission: 'Tu n\'as pas l\'autorisation de modifier tes propres autorisations. Un autre administrateur devra le faire.',
-  approvalInformed: 'Ce participant a été informé que sa demande a été approuvée.',
-  declinementInformed: 'Ce participant a été informé que sa demande a été rejetée.',
+  publisherInOtherTeam: 'Un proclamateur sélectionné est déjà inscrit dans une autre équipe. Commence d\'abord par l\'enlever de cette équipe.',
+  onlyTeam: 'Tu ne peux pas supprimer cette équipe, qui est la seule pour cette plage horaire. Chaque plage horaire doit comporter au moins une équipe.',
+  noTeamleader: 'Chaque équipe a besoin d\'un responsable d\'équipe. Cependant ce proclamateur n\'a pas l\'autorisation de servir comme responsable d\'équipe.',
+  ownPermission: 'Tu n\'as pas l\'autorisation de modifier tes propres autorisations. Prend contact avec le responsable du projet.',
+  approvalInformed: 'Ce proclamateur a été informé que sa demande a été approuvée.',
+  declinementInformed: 'Ce proclamateur a été informé que sa demande a été annulée.',
   vacationEndInPast: 'La date de fin ne peut pas se trouver dans le passé.',
-  missingTag: 'Pas d\'étiquette définie. Merci de définir une étiquette sous Admin > Paramètres',
+  missingTag: 'Pas d\'étiquette définie. Veuille d\'abord définir une étiquette sous : Admin > Paramètres',
   logout: {
     title: 'Suggestion',
-    text: 'Il n\'est pas nécessaire de se déconnecter, sauf si tu te trouves sur un  ordinateur partagé ou public. La connection est chiffrée et uniquement les informations de la session courante se trouvent dans ton navigateur local. Personne d\'autre peut voir ou détourner les informations de ta session.',
+    text: 'Il n\'est pas nécessaire de se déconnecter, sauf si tu te trouves sur un ordinateur partagé ou public. La connection est chiffrée et seulement les informations de la session courante se trouvent dans ton navigateur local. Personne d\'autre ne peut voir ou détourner les informations de ta session.',
     confirm: 'Se déconnecter',
     cancel: 'Annuler'
   },
   invite: {
     user: {
       title: 'Invite ce proclamateur?',
-      text: 'Ce proclamateur <b>a déjà un compte</b>, donc il n\'y a pas besoin d\'en créer un supplémentaire. Le proclamateur sera <b> ajouté pour ce projet</b>.<br>Bien évidemment <b>nous l\'informerons</b> concernant cette modification. <br><p>Si une même adresse E-mail est utilisée pour l\'enregistrement de plusieurs proclamateurs, s\'il te plaît choisis l\'option adéquate:</p>'
+      text: 'Ce proclamateur <b>a déjà un compte</b>, Il n\'a pas besoin d\'en créer un autre. Le proclamateur sera <b> ajouté pour ce projet</b>.<br>Bien évidemment <b>nous l\'informerons</b> concernant cette modification. <br><p>Si une même adresse e-mail est utilisée pour l\'enregistrement de plusieurs proclamateurs, choisis l\'option adéquate:</p>'
     },
     users: {
       title: 'Es-tu certain?',
-      text: 'Nous enverrons un E-mail à tous les proclamateurs sélectionnés.',
+      text: 'Nous enverrons un e-mail à tous les proclamateurs sélectionnés.',
       confirm: 'Inviter',
       cancel: 'Annuler'
     }
@@ -29,38 +29,38 @@ const swal = {
   sendMail: {
     confirmWeek: {
       title: 'Es-tu certain?',
-      text: 'Tous les proclamateurs approuvés dans l\'équipe recevront un E-mail de participation confirmée et les autres un E-mail d\'inscription rejetée.',
+      text: 'Tous les proclamateurs approuvés dans l\'équipe recevront un e-mail de confirmation et les autres un e-mail d\'annulation.',
       confirm: 'Oui',
       cancel: 'Annuler'
     },
     confirmation: {
       title: 'Informer les proclamateurs?',
-      text: 'Les proclamateurs seront informés par E-mail de leur participation confirmée.',
+      text: 'Les proclamateurs seront informés par e-mail que leur inscription a été acceptée.',
       confirm: 'Oui',
       cancel: 'Annuler'
     },
     declined: {
       title: 'Informer les proclamateurs?',
-      text: 'Les proclamateurs seront informés par E-mail que leur inscription est rejetée.',
+      text: 'Les proclamateurs seront informés par e-mail que leur inscription a été annulée.',
       confirm: 'Oui',
       cancel: 'Annuler'
     },
     selectTag: {
       title: 'Quelle étiquette?',
-      text: 'Sélectionne l\'étiquette désirée pour l\'envoi de confirmations par E-mail:',
+      text: 'Sélectionne l\'étiquette souhaitée pour l\'envoi de confirmations par e-mail:',
       confirm: 'OK',
       cancel: 'Annuler'
     },
     teamUpdate: {
       user: {
-        title: 'Responsable d\'équipe déjà informé',
-        text: 'Le Responsable d\'équipe est déjà informé. Souahites-tu lui envoyer un E-mail avec les modifications concernant cette équipe?',
+        title: 'Le responsable d\'équipe est déjà informé',
+        text: 'Le Responsable d\'équipe est déjà informé. Souahites-tu lui envoyer les modifications de cette équipe par e-mail?',
         confirm: 'Oui',
         cancel: 'Non'
       },
       general: {
         title: 'Es-tu certain?',
-        text: 'Les proclamateurs déjà informés recevront un E-mail avec les modifications concernant cette équipe.',
+        text: 'Les proclamateurs qui ont déjà été informés recevront un e-mail avec les modifications de cette équipe.',
         confirm: 'Oui',
         cancel: 'Non'
       }
@@ -82,12 +82,12 @@ const swal = {
     meeting: {
       title: 'Ajouter un nouveau point de rendez-vous',
       text: '',
-      placeholder: 'Nome',
+      placeholder: 'Nom',
       confirm: 'Ajouter',
       cancel: 'Annuler'
     },
     question: {
-      title: 'Ajouter une nouvelle question ou titre',
+      title: 'Ajouter une nouvelle question ou ajouter un titre',
       text: '',
       placeholder: 'Question/Titre',
       inputError: 'Tu dois écrire quelque chose!',
@@ -127,7 +127,7 @@ const swal = {
       cancel: 'Annuler'
     },
     user: {
-      title: 'Créé!',
+      title: 'Créer!',
       text: 'L\'utilisateur a été créé.'
     },
     users: {
@@ -139,188 +139,188 @@ const swal = {
   },
   update: {
     file: {
-      title: 'Changer le nom de fichier',
+      title: 'Modifier le nom de fichier',
       text: '',
       placeholder: 'Nom de fichier',
       inputError: 'Nom de fichier invalide!',
-      confirm: 'Changer',
+      confirm: 'Modifier',
       cancel: 'Annuler'
     },
     password: {
-      title: 'Changer le mot de passe',
+      title: 'Modifier le mot de passe',
       passwordOld: 'Précédent mot de passe',
       passwordNew1: 'Nouveau mot de passe',
       passwordNew2: 'Répéter le nouveau nouveau mot de passe',
-      confirm: 'Changer',
+      confirm: 'Modifier',
       cancel: 'Annuler',
-      passwordChanged: 'Mot de passe changé'
+      passwordChanged: 'Mot de passe modifié'
     },
     question: {
-      title: 'Changer la question',
+      title: 'Modifier la question',
       text: '',
-      placeholder: 'Question/Title',
-      confirm: 'Changer',
+      placeholder: 'Question/Titre',
+      confirm: 'Modifier',
       cancel: 'Annuler'
     },
     template: {
-      title: 'Editer le nom',
+      title: 'Modifier le nom',
       text: '',
       placeholder: 'Nom',
-      confirm: 'Changer',
+      confirm: 'Modifier',
       cancel: 'Annuler'
     }
   },
   delete: {
     account: {
-      title: 'Veux-tu vraiment effacer ton compte?',
-      text: 'Cette action effacera de manière irreversible le compte!',
-      confirm: 'effacer my Account!',
+      title: 'Veux-tu vraiment supprimer ton compte?',
+      text: 'Cette action supprimera de manière définitive le compte!',
+      confirm: 'Supprimer mon compte!',
       cancel: 'Annuler'
     },
     allShifts: {
       title: 'Es-tu certain?',
-      text: 'Cette action effacera de manière irreversible toutes les plages horaires de cette journée et toute le demande pour ces plages horaires.',
-      confirm: 'effacer',
+      text: 'Cette action supprimera de manière définitive toutes les plages horaires de cette journée et toutes les demandes pour ces plages horaires.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     file: {
       title: 'Es-tu certain?',
-      text: 'Cette action effacera de manière irreversible le fichier.',
-      confirm: 'Effacer',
+      text: 'Cette action supprimera de manière définitive le fichier.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     language: {
-      title: 'Veux-tu vraiment effacer cette langue?',
-      text: 'Cette action effacera de manière irreversible cette langue avec son stock.',
-      confirm: 'Effacer',
+      title: 'Veux-tu vraiment supprimer cette langue?',
+      text: 'Cette action supprimera de manière définitive cette langue avec son stock.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     meeting: {
-      title: 'Veux-tu vraiment effacer ce point de rendez-vous?',
-      text: 'Le point de rendez-vous sera aussi enlevé de toutes les plages horaires existantes dans le futur.',
-      checkInput: 'Effacer',
-      placeholder: 'Merci de saisir "{{0}}" pour confirmer',
+      title: 'Veux-tu vraiment supprimer ce point de rencontre?',
+      text: 'Le point de rencontre sera aussi enlevé de toutes les plages horaires existantes dans le futur.',
+      checkInput: 'Supprimer',
+      placeholder: 'Merci de saisir "{{0}}" pour confirmer la suppression',
       inputError: 'L\'entrée saisie ne correspond pas avec "{{0}}"',
-      confirm: 'Effacer',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     note: {
-      title: 'Veux-tu vraiment effacer cette note?',
-      text: 'Cette action effacera de manière irreversible la note.',
-      confirm: 'Effacer',
+      title: 'Veux-tu vraiment supprimer cette note?',
+      text: 'Cette action supprimera de manière définitive la note.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     project: {
-      title: 'Veux-tu vraiment effacer ce projet?',
-      text: 'Cette action effacera de manière irreversible toutes les configurations associées à ce projet, par ex. plages horaires, rapport, demande, publications, etc. Uniquement les comptes utilisateur seront maintenus.',
-      checkInput: 'Effacer ce projet',
-      placeholder: 'Merci de saisir "{{0}}" pour confirmer',
+      title: 'Veux-tu vraiment supprimer ce projet?',
+      text: 'Cette action supprimera de manière définitive toutes les configurations associées à ce projet, par ex. plages horaires, rapport, demande, publications, etc. Seul les comptes utilisateurs seront maintenus.',
+      checkInput: 'Supprimer ce projet',
+      placeholder: 'Merci de saisir "{{0}}" pour confirmer la suppression',
       inputError: 'L\'entrée saisie ne correspond pas avec "{{0}}"',
-      confirm: 'Effacer',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     publication: {
-      title: 'Enlève cette publication de ton stock?',
+      title: 'Supprime cette publication de ton stock?',
       text: 'Tu perdras toutes les données enregistrées pour cette publication.',
-      confirm: 'Enlever',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     question: {
       title: 'Es-tu certain?',
-      text: 'Cette action effacera de manière irreversible la question et ses réponses.',
-      confirm: 'Effacer',
+      text: 'Cette action supprimera de manière définitive la question et ses réponses.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     shift: {
-      title: 'Veux-tu vraiment Effacer this shift?',
-      text: 'Toutes les demandes pour cette plage horaire seront rejetée.',
-      confirm: 'Effacer',
+      title: 'Veux-tu vraiment supprimer cet horaire?',
+      text: 'Toutes les demandes pour cet horaire seront annulées.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     store: {
-      title: 'Veux-tu vraiment mettre à zéro le stock?',
-      text: 'Cette action effacera de manière irreversible les publications ajoutées.',
+      title: 'Veux-tu vraiment mettre le stock à zéro ?',
+      text: 'Cette action supprimera de manière définitive toutes les publications ajoutées.',
       confirm: 'Mettre à zéro',
       cancel: 'Annuler'
     },
     tab: {
       title: 'Es-tu certain?',
-      text: 'Cette action effacera de manière irreversible l\'onglet en entier incluant toutes les questions.',
-      confirm: 'Effacer',
+      text: 'Cette action supprimera de manière définitive l\'onglet en entier incluant toutes les questions.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     tag: {
-      title: 'Veux-tu vraiment effacer l\'étiquette?',
-      text: 'Cette action effacera de manière irreversible toutes les plages horaires appartenant à cette étiquette, incluant toutes les inscriptions concernant cette plage horaire. <br><br> Saisir "effacer" pour confirmer.',
-      checkInput: 'Effacer',
+      title: 'Veux-tu vraiment supprimer l\'étiquette?',
+      text: 'Cette action supprimera de manière définitive tous les horaires appartenant à cette étiquette, incluant toutes les inscriptions concernant cet horaire. <br><br> Saisir "{{0}}" pour confirmer.',
+      checkInput: 'Supprimer',
       placeholder: 'Merci de saisir "{{0}}" pour confirmer',
       inputError: 'L\'entrée saisie ne correspond pas avec "{{0}}"',
-      confirm: 'Effacer',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     team: {
-      title: 'Veux-tu vraiment effacer cette équipe?',
-      text: 'L\'équipe sera enlevée de toutes les plages horaires existantes et planifiées dans le future. Les inscription approuvée pour cette plage horaire seront replacée dans d\'autres équipes. <br><br> Saisir "effacer" pour confirmer.',
-      checkInput: 'Effacer',
+      title: 'Veux-tu vraiment supprimer cette équipe?',
+      text: 'L\'équipe sera supprimée de tous les horaires existants et planifiées dans le futur. Les inscriptions approuvées pour cet horaire seront replacés dans d\'autres équipes. <br><br> Saisir "{{0}}" pour confirmer.',
+      checkInput: 'Supprimer',
       placeholder: 'Merci de saisir "{{0}}" pour confirmer',
       inputError: 'L\'entrée saisie ne correspond pas avec "{{0}}"',
-      confirm: 'Effacer',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     template: {
-      title: 'Veux-tu vraiment effacer le modèle?',
+      title: 'Veux-tu vraiment supprimer le modèle?',
       text: '',
-      confirm: 'Effacer',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     },
     user: {
-      title: 'Veux-tu vraiment effacer this user?',
-      text: 'Toutes les permissions du projet seront révoquées.',
-      confirm: 'Effacer',
+      title: 'Veux-tu vraiment supprimer cet utilisateur?',
+      text: 'Toutes les droits du projet seront révoqués.',
+      confirm: 'Supprimer',
       cancel: 'Annuler'
     }
   },
   request: {
     approve: {
       title: 'Veux-tu vraiment approuver le proclamateur?',
-      text: 'L\'inscription de ce proclamateur avait été précédemment rejetée. Donc merci de vérifier que ce proclamateur puisse participer au projet.',
+      text: 'L\'inscription de ce proclamateur avait été précédemment annulée. Merci de s\'assurer que ce proclamateur puisse à nouveau participer au projet.',
       confirm: 'Oui',
       cancel: 'Non'
     },
     cancel: {
       title: 'Es-tu certain?',
-      text: 'L\'équipe sera enlevée si tu es le dernier participant.',
+      text: 'L\'équipe sera supprimée si tu es le dernier participant.',
       confirm: 'Oui, annulle ma participation',
       cancel: 'Non'
     },
     decline: {
-      title: 'Veux-tu vraiment rejeté le participant?',
-      text: 'Si le participant avait reçu une confirmation, il recevra par email l\'information d\'inscription rejetée.',
+      title: 'Veux-tu vraiment annuler le proclamateur ?',
+      text: 'Si le proclamateur avait reçu une confirmation, il recevra par e-mail que son inscription a été annulée.',
       confirm: 'Oui',
       cancel: 'Non'
     },
     maxReached: {
-      title: 'Trop de participants sélectionnés',
-      text: 'Configure le nombre maximum pour l\'équipe, de {{0}} à {{1}} et approuve les sélectionnés?',
-      confirm: 'Approuver les sélectionnés',
+      title: 'Trop de proclamateurs sont sélectionnés',
+      text: 'Configure le nombre maximum pour l\'équipe, de {{0}} à {{1}} et approuve ceux qui sont sélectionnés?',
+      confirm: 'Approuve ceux qui sont sélectionnés',
       cancel: 'Annuler'
     },
     minNotReached: {
-      title: 'Nombre insuffisant de participants sélectionnés',
-      text: 'Configure le nombre minimum pour l\'équipe, de {{0}} to {{1}} et approuve les sélectionnés?',
-      confirm: 'Approuver les sélectionnés',
+      title: 'Nombre insuffisant de proclamateurs sélectionnés',
+      text: 'Configure le nombre minimum pour l\'équipe, de {{0}} to {{1}} et approuve ceux qui sont  sélectionnés?',
+      confirm: 'Approuve ceux qui sont sélectionnés',
       cancel: 'Annuler'
     },
     minReached: {
-      title: 'Veux-tu vraiment rejeter le participant?',
-      text: 'Cette équipe a atteint le nombre minimal de participatns. Si tu rejète ce participant, le système effacera cette équipe.',
-      confirm: 'Effacer l\'équipe',
+      title: 'Veux-tu vraiment supprier le proclamateur ?',
+      text: 'Cette équipe a atteint le nombre minimal de proclamateur. Si tu supprimes ce proclamateur, le système supprimera cette équipe.',
+      confirm: 'Supprimer l\'équipe',
       cancel: 'Non'
     },
     noNewTeamleader: {
-      title: 'Veux-tu vraiment rejeter le participant?',
-      text: 'Il n\'y a pas d\'autres responsables d\'équipe pour cette équipe. If you declSi tu rejette ce participant, le système effacera cette équipe.',
-      confirm: 'Effacer l\'équipe',
+      title: 'Veux-tu vraiment supprimer ce proclamateur ?',
+      text: 'Il n\'y a pas d\'autres responsables d\'équipe pour cette équipe. Si tu supprimes ce proclamateur, le système supprimera cette équipe.',
+      confirm: 'Supprimer l\'équipe',
       cancel: 'Non'
     }
   }

@@ -1,5 +1,5 @@
 const calendar = {
-  teamleadNeeded: 'Responsable d\'équipe manquant',
+  teamleadNeeded: 'Il manque un responsable d\'équipe',
   noShifts: 'Pas de plage horaire'
 }
 

@@ -9,7 +9,7 @@ const note = {
     author: 'Auteur',
     datetime: 'Date',
     delete: 'Supprimer cette note',
-    deleteConfirmation: 'Voulez-vous vraiment supprimer cette note ?'
+    deleteConfirmation: 'Veux-tu vraiment supprimer cette note ?'
   },
   details: {
     sections: {
