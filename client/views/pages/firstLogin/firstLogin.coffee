@@ -8,6 +8,10 @@ Template.firstLogin.helpers
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
+
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	getErrorMessage: -> Session.get('errorMessage')
