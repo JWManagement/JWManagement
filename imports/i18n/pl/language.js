@@ -17,7 +17,7 @@ const language = {
       pl: 'Polski',
       pt: 'Portugalski',
       ru: 'Rosyjski',
-	  'zh-TW': 'Chinski (Tradycyjny) (częśćiowo)',
+      'zh-TW': 'Chinski (Tradycyjny) (częśćiowo)',
       'zh-CN': 'Chinski (Uproszczony) (częśćiowo)'
     }
   },
