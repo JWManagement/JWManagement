@@ -42,9 +42,6 @@ Meteor.methods
 				set = {}
 				set['teams.' + teamNr + '.participants.' + participantNr + '.informed'] = true
 
-				console.log shiftId
-				console.log set
-
 				Shifts.update shiftId, $set: set
 
 	sendConfirmWeek: (projectId, tagId, weekId) ->
