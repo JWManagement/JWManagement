@@ -11,7 +11,7 @@ Template['vessel.visit.language.insert'].helpers({
       type: 'picker',
       allowedKeyValues: Languages.allowedValues
         .map((lang) => {
-          return { key: lang, value: i18next.t('language._' + lang) }
+          return { key: lang, value: i18next.t('language.' + lang) }
         })
         .sort((a, b) => {
           if (a.value < b.value) { return -1 }

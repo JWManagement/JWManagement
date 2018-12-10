@@ -357,7 +357,7 @@ function getExtendedVisit (visit) {
 
   visit.languages = visit.languageIds
     .filter((language) => Languages.allowedValues.includes(language._id))
-    .map((language) => i18next.t('language._' + language._id, {}, interfaceLanguage))
+    .map((language) => i18next.t('language.' + language._id, {}, interfaceLanguage))
     .join(', ')
 
   return visit

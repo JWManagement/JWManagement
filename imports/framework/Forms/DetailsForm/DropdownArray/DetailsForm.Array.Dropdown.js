@@ -9,16 +9,16 @@ import './DetailsForm.Array.Dropdown.jade'
 
 Template.DetailsFormArrayDropdown.helpers({
   getValue (entity) {
-    return i18next.t('language._' + entity._id.toUpperCase())
+    return i18next.t('language.' + entity._id.toUpperCase())
   },
   isType
 })
 
-Template.DetailsFormArrayDropdown.onCreated(() => {})
+Template.DetailsFormArrayDropdown.onCreated(() => { })
 
-Template.DetailsFormArrayDropdown.onRendered(() => {})
+Template.DetailsFormArrayDropdown.onRendered(() => { })
 
-Template.DetailsFormArrayDropdown.onDestroyed(() => {})
+Template.DetailsFormArrayDropdown.onDestroyed(() => { })
 
 Template.DetailsFormArrayDropdown.events({
   'click .input.array-item' (e) {
