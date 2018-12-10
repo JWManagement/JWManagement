@@ -2,6 +2,8 @@ Template.mergeAccountsModal.helpers
 
 Template.mergeAccountsModal.onRendered ->
 
+	$('#beamerSelector').addClass('hidden')
+
 	$('#mergeAccountsModal').modal('show')
 	$('#mergeAccountsModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams mergeAccounts: undefined

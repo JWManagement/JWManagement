@@ -1,3 +1,5 @@
+import '../common/i18next'
+
 import '../../api/messages/messages.coffee'
 
 import '../server/mailer'
@@ -21,3 +23,5 @@ import '../../api/publishers/service'
 import '../../api/vessels/service'
 import '../../api/notes/service'
 import '../../api/calendar/service'
+
+import '../common/migrations'

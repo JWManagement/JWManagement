@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating'
 import { Meteor } from 'meteor/meteor'
 import { Session } from 'meteor/session'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 Template.login.helpers({
@@ -41,6 +41,7 @@ Template.login.events({
           if (error) {
             reject(error)
           } else {
+            Meteor.call('setMyAccountActive')
             resolve()
           }
         })
@@ -67,7 +68,7 @@ Template.login.events({
         }
 
         submit.ladda('stop')
-        Session.set('error', TAPi18n.__(`error.${message}`))
+        Session.set('error', i18next.t(`error.${message}`))
       })
   }
 })

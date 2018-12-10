@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 
 function isHandledError (error) {
   return ['required', 'unique', 'minString8', 'passwordMismatch', 'hasToBeBigger'].indexOf(error) > -1
@@ -21,7 +21,7 @@ function getErrorClass () {
 function getEntityErrorTranslation () {
   const data = Template.currentData().data
   if (isHandledError(data.error)) {
-    return TAPi18n.__('validation.' + data.error)
+    return i18next.t('validation.' + data.error)
   }
   return ''
 }

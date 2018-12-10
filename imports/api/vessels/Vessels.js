@@ -4,6 +4,7 @@ import { Random } from 'meteor/random'
 import SimpleSchema from 'simpl-schema'
 
 import Languages from '../../framework/Constants/Languages'
+import VesselType from '../../framework/Constants/VesselType'
 
 const PersistenceManager = require('../../framework/Managers/PersistenceManager')
 
@@ -55,7 +56,7 @@ Vessels.schema = new SimpleSchema({
   },
   type: {
     type: String,
-    allowedValues: ['c', 'cr', 'mf', 'mt', 'p', 'pt', 'rc', 'f', 'ro', 't', 'unknown']
+    allowedValues: VesselType.allowedValues
   },
   callsign: {
     type: String,

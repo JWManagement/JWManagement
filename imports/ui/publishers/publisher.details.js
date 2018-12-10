@@ -27,6 +27,9 @@ Template['publisher.details'].helpers({
         key: 'profile_gender',
         type: 'dropdown'
       }, {
+        key: 'profile_congregation',
+        type: 'text'
+      }, {
         key: 'profile_pioneer',
         type: 'dropdown'
       }, {
@@ -35,6 +38,9 @@ Template['publisher.details'].helpers({
       }, {
         key: 'profile_languages',
         type: 'text'
+      }, {
+        key: 'profile_language',
+        type: 'dropdown'
       }]
     }, {
       title: 'availability',

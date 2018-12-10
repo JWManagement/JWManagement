@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 function getKey () {
@@ -7,7 +7,7 @@ function getKey () {
 }
 
 function getTitle () {
-  return TAPi18n.__('navigation.' + FlowRouter.getRouteName())
+  return i18next.t('navigation.' + FlowRouter.getRouteName())
 }
 
 function getEntityTranslation (key, suffix) {
@@ -25,7 +25,7 @@ function getEntityTranslation (key, suffix) {
   routeNameParts.pop()
   routeNameParts.splice(1, 0, 'entity')
 
-  return TAPi18n.__(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'))
+  return i18next.t(routeNameParts.concat(attributeParts).join('.').replace(/_/g, '.'))
 }
 
 export { getKey, getTitle, getEntityTranslation }

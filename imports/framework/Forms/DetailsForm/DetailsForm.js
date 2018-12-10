@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import moment from 'moment'
 
@@ -57,7 +57,7 @@ Template.DetailsForm.helpers({
     return value.length === 0
   },
   getSectionTranslation (key) {
-    return TAPi18n.__(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'))
+    return i18next.t(FlowRouter.getRouteName() + '.sections.' + key.replace(/_/g, '.'))
   },
   getBackgroundColor (section) {
     return (section.background != null ? section.background : '')
@@ -136,7 +136,7 @@ Template.DetailsForm.helpers({
   },
   getProperty (entity, field) {
     if (field.type === 'dropdown') {
-      return TAPi18n.__('language._' + entity._id.toUpperCase())
+      return i18next.t('language.' + entity._id.toUpperCase())
     }
 
     if (field.key in entity) {
@@ -144,7 +144,7 @@ Template.DetailsForm.helpers({
 
       if (field.type === 'date') {
         if (value != null) {
-          const uiFormat = TAPi18n.__('dateFormat.' + field.uiFormat)
+          const uiFormat = i18next.t('dateFormat.' + field.uiFormat)
           const dbFormat = field.dbFormat
 
           return moment(value, dbFormat).format(uiFormat)
@@ -171,7 +171,7 @@ Template.DetailsForm.helpers({
     translationString.splice(1, 0, 'entity')
     translationString.push('noElements')
 
-    return TAPi18n.__(translationString.join('.').replace(/_/g, '.'))
+    return i18next.t(translationString.join('.').replace(/_/g, '.'))
   }
 })
 

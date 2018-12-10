@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getValue, getKey, isType } from '../DetailsForm.Helpers'
@@ -15,11 +15,11 @@ Template.DetailsFormArrayEntity.helpers({
     const value = getValue(definition, entity)
 
     if (definition.type === 'dropdown') {
-      return TAPi18n.__('language._' + entity._id.toUpperCase())
+      return i18next.t('language.' + entity._id.toUpperCase())
     }
 
     if (definition.type === 'date' && value != null) {
-      const uiFormat = TAPi18n.__('dateFormat.' + definition.uiFormat)
+      const uiFormat = i18next.t('dateFormat.' + definition.uiFormat)
       const dbFormat = definition.dbFormat
 
       return moment(value, dbFormat).format(uiFormat)
@@ -30,11 +30,11 @@ Template.DetailsFormArrayEntity.helpers({
   isType
 })
 
-Template.DetailsFormArrayEntity.onCreated(() => {})
+Template.DetailsFormArrayEntity.onCreated(() => { })
 
-Template.DetailsFormArrayEntity.onRendered(() => {})
+Template.DetailsFormArrayEntity.onRendered(() => { })
 
-Template.DetailsFormArrayEntity.onDestroyed(() => {})
+Template.DetailsFormArrayEntity.onDestroyed(() => { })
 
 Template.DetailsFormArrayEntity.events({
   'click tr.array-item' (e) {

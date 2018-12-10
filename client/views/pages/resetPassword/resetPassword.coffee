@@ -1,9 +1,15 @@
 Template.resetPassword.helpers
 
+	getPublisherName: -> @profile.firstname + ' ' + @profile.lastname
+
 	error: -> Session.get 'errorMessage'
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
+
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	loggingIn: -> Meteor.loggingIn() || Meteor.userId()

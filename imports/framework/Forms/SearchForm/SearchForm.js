@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating'
 import { Tracker } from 'meteor/tracker'
 import { Session } from 'meteor/session'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import RouteManager from '../../Managers/RouteManager'
@@ -18,7 +18,7 @@ Template.SearchForm.helpers({
     return FlowRouter.path(Template.instance().backLink, FlowRouter.current().params)
   },
   getTranslation (key) {
-    return TAPi18n.__(FlowRouter.getRouteName() + '.' + key.replace(/_/g, '.'))
+    return i18next.t(FlowRouter.getRouteName() + '.' + key.replace(/_/g, '.'))
   },
   valueOrDash (value) {
     return (value !== '' ? value : '-')
@@ -86,7 +86,7 @@ Template.SearchForm.onRendered(() => {
     routeParts.pop()
     const translationString = routeParts.concat(['entity', column.name]).join('.').replace(/_/g, '.')
 
-    column.title = TAPi18n.__(translationString)
+    column.title = i18next.t(translationString)
     return column
   })
 

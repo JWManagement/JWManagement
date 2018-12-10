@@ -32,12 +32,12 @@ template(name="SearchForm")
 
         else
           .search-title.clearfix
-            .pull-left {{_ 'searchForm.xResults' totalFound count=totalFound}}
+            .pull-left {{_ 'searchForm.xResults' totalFound}}
 
             if moreResultsAvailable
               .pull-right {{_ 'searchForm.showingTheFirstX' resultsShown}}
             else
-              .pull-right {{_ 'searchForm.showingAll' count=totalFound}}
+              .pull-right {{_ 'searchForm.showingAll' totalFound}}
 
     table#table.table.table-stripped.results-desktop
 

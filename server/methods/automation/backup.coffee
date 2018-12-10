@@ -1,4 +1,4 @@
-moment = require('moment')
+import moment from 'moment'
 AWS = require('aws-sdk')
 
 { Messages } = require('/imports/api/messages/messages.coffee')

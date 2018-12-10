@@ -13,22 +13,56 @@ Meteor.methods
 		else
 			userId = Accounts.createUser userObject
 
-			if userId
-				Meteor.call 'changeProjectRole', projectId, userId, 'member'
+			Meteor.users.update userId, $set: state: 'created'
 
-				project = Projects.findOne projectId, fields: 'tags._id': 1
-				for tag in project.tags
-					Meteor.call 'changeTagRole', tag._id, userId, 'participant'
-
-				Meteor.users.update userId, $set: state: 'created'
+		userId
 
 	createAccounts: (newUsers, projectId) ->
-		check newUsers, Array
 		check { userId: Meteor.userId(), projectId: projectId}, isAdmin
 
-		for newUser in newUsers
-			Meteor.call 'createAccount',
-				username: Random.id 5
-				password: ''
-				profile: newUser
-			, projectId
+		tagIds = Projects.findOne(projectId).tags.map((tag) => tag._id)
+
+		if newUsers
+			for newUser in newUsers
+				userId = Meteor.call 'createAccount',
+					username: Random.id 5
+					password: ''
+					profile:
+						email: newUser.email
+						firstname: newUser.firstname
+						lastname: newUser.lastname
+						gender: newUser.gender
+						telefon: newUser.telefon
+						pioneer: newUser.pioneer
+						privilege: newUser.privilege
+						congregation: newUser.congregation
+						language: newUser.systemLanguage
+						languages: newUser.foreignLanguages
+				, projectId
+
+				projectPermissionWasSet = false
+
+				if newUser.roles && newUser.roles != '' && newUser.roles.includes('=')
+					for roleTarget in newUser.roles.split(';')
+						target = roleTarget.split('=')[0]
+						role = roleTarget.split('=')[1]
+
+						if target == projectId
+							if role in Permissions.member
+								Meteor.call 'changeProjectRole', target, userId, role
+							else
+								Meteor.call 'changeProjectRole', target, userId, 'member'
+						else if target in tagIds
+							if role in Permissions.participant
+								Meteor.call 'changeTagRole', target, userId, role
+							else
+								Meteor.call 'changeTagRole', target, userId, 'participant'
+				else
+					Meteor.call 'changeProjectRole', projectId, userId, 'member'
+
+					for tagId in tagIds
+						Meteor.call 'changeTagRole', tagId, userId, 'participant'
+
+				if !projectPermissionWasSet
+					Meteor.call 'changeProjectRole', projectId, userId, 'member'
+

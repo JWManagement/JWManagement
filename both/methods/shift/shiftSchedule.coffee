@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Meteor.methods
 
 	cancelTeam: (shiftId, teamId, message) ->
@@ -10,6 +12,8 @@ Meteor.methods
 				check message, String
 
 			for team in shift.teams when team._id == teamId
+				Meteor.call 'sendCancelTeam', shiftId, teamId, message
+
 				if message == 'missingParticipant'
 					for pendingUser in team.pending
 						pendingUser.checked = false
@@ -48,8 +52,6 @@ Meteor.methods
 
 				if team.report? && team.report.init
 					Meteor.call 'updateReport', shiftId, teamId, 'hours', 0
-
-				Meteor.call 'sendCancelTeam', shiftId, teamId, message
 
 	approveRequest: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
@@ -218,9 +220,9 @@ Meteor.methods
 								Shifts.update _id: shiftId, 'teams._id': team._id,
 									$addToSet: 'teams.$.participants': participant
 							else
-								throw new Meteor.Error 500, TAPi18n.__('modal.shift.noTeamleader')
+								throw new Meteor.Error 500, i18next.t('modal.shift.noTeamleader')
 						else
-							throw new Meteor.Error 500, TAPi18n.__('modal.shift.alreadyTeamleader')
+							throw new Meteor.Error 500, i18next.t('modal.shift.alreadyTeamleader')
 					else if participant.thisTeamleader
 						participant.thisTeamleader = false
 
@@ -230,7 +232,12 @@ Meteor.methods
 						Shifts.update _id: shiftId, 'teams._id': team._id,
 							$addToSet: 'teams.$.participants': participant
 
-				Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+				try
+					Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+				catch e
+					console.error e
+					throw e
+
 				break
 
 			return true
@@ -254,10 +261,10 @@ Meteor.methods
 
 			for team in shift.teams when team._id == teamId
 				for notapprovedUser in team.declined.concat(team.pending) when notapprovedUser? && notapprovedUser._id == userId
-					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyRequested')
+					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyRequested')
 
 				for approvedUser in team.participants when approvedUser? && approvedUser._id == userId
-					throw new Meteor.Error 500, TAPi18n.__('modal.addParticipant.alreadyParticipating')
+					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyParticipating')
 				break
 
 			user =

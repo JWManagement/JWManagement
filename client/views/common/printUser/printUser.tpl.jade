@@ -3,7 +3,7 @@ if isProjectShiftScheduler
 		if getUser.teamleader
 			b
 				u {{getUser.name}} {{{getUserStatistics}}}
-		else if substituteTeamleader
+		else if getUser.substituteTeamleader
 			i
 				u {{getUser.name}} {{{getUserStatistics}}}
 		else

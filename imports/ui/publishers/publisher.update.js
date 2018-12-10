@@ -4,6 +4,7 @@ import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
 import Permissions from '../../framework/Constants/Permissions'
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 Template['publisher.update'].helpers({
   data: {
@@ -25,6 +26,8 @@ Template['publisher.update'].helpers({
         type: 'picker',
         allowedValues: Gender.allowedValues
       }, {
+        key: 'profile_congregation'
+      }, {
         key: 'profile_pioneer',
         type: 'picker',
         allowedValues: Pioneer.allowedValues
@@ -32,6 +35,10 @@ Template['publisher.update'].helpers({
         key: 'profile_privilege',
         type: 'picker',
         allowedValues: Privilege.allowedValues
+      }, {
+        key: 'profile_language',
+        type: 'picker',
+        allowedValues: SystemLanguages.allowedValues
       }, {
         key: 'profile_languages'
       }, {

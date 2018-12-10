@@ -1,11 +1,30 @@
 import { Meteor } from 'meteor/meteor'
 import { Roles } from 'meteor/alanning:roles'
-
 import Vessels from '../../api/vessels/Vessels'
 
-// to use this, import the file
-
 Meteor.methods({
+  deleteProjectHarbors () {
+    if (Meteor.isServer) {
+      console.log('deleteProjectHarbors')
+      console.log('!!! DISABLED !!!')
+      return
+
+      if (Roles.userIsInRole(Meteor.userId(), 'support', Roles.GLOBAL_GROUP)) {
+        Projects.update({}, {
+          $unset: {
+            harbors: "",
+            harborGroup: ""
+          }
+        }, {
+          multi: true
+        })
+
+        return console.log('done')
+      } else {
+        return console.log('no permission')
+      }
+    }
+  },
   setProjectUsersProfile (projectId) {
     var k, len, ref, user, users
 

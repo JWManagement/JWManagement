@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { isType, loadData } from '../DetailsForm.Helpers'
@@ -9,16 +9,16 @@ import './DetailsForm.Array.Dropdown.jade'
 
 Template.DetailsFormArrayDropdown.helpers({
   getValue (entity) {
-    return TAPi18n.__('language._' + entity._id.toUpperCase())
+    return i18next.t('language.' + entity._id.toUpperCase())
   },
   isType
 })
 
-Template.DetailsFormArrayDropdown.onCreated(() => {})
+Template.DetailsFormArrayDropdown.onCreated(() => { })
 
-Template.DetailsFormArrayDropdown.onRendered(() => {})
+Template.DetailsFormArrayDropdown.onRendered(() => { })
 
-Template.DetailsFormArrayDropdown.onDestroyed(() => {})
+Template.DetailsFormArrayDropdown.onDestroyed(() => { })
 
 Template.DetailsFormArrayDropdown.events({
   'click .input.array-item' (e) {
@@ -45,7 +45,7 @@ Template.DetailsFormArrayDropdown.events({
       messagePathParts.splice(1, 0, 'entity')
       messagePathParts.push('methodConfirmation')
 
-      const deleteConfirmationMessage = TAPi18n.__(messagePathParts.join('.').replace(/_/g, '.'))
+      const deleteConfirmationMessage = i18next.t(messagePathParts.join('.').replace(/_/g, '.'))
 
       if (confirm(deleteConfirmationMessage)) {
         Meteor.call(method, params, entityId, (error) => {

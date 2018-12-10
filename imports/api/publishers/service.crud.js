@@ -10,6 +10,7 @@ import { defaultValidations } from '../../framework/Functions/defaultValidations
 import Gender from '../../framework/Constants/Gender'
 import Pioneer from '../../framework/Constants/Pioneer'
 import Privilege from '../../framework/Constants/Privilege'
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 function publisherSearch ({ projectId, searchString, limit }) {
   checkPermissions(projectId)
@@ -131,6 +132,14 @@ function publisherInsert ({ projectId }, publisher) {
       type: String,
       allowedValues: Gender.allowedValues
     },
+    'profile_congregation': {
+      type: String,
+      optional: true
+    },
+    'profile_language': {
+      type: String,
+      allowedValues: SystemLanguages.allowedValues
+    },
     'profile_languages': {
       type: String,
       optional: true
@@ -186,21 +195,10 @@ function publisherUpdate ({ projectId, userId }, key, value) {
   }
 }
 
-function publisherTagUpdate ({ projectId, userId, tagId }, key, value) {
-  checkPermissions(projectId, userId)
-
-  console.log(projectId)
-  console.log(userId)
-  console.log(tagId)
-  console.log(key)
-  console.log(value)
-}
-
 export {
   publisherSearch,
   publisherGet,
   publisherGetField,
   publisherInsert,
-  publisherUpdate,
-  publisherTagUpdate
+  publisherUpdate
 }

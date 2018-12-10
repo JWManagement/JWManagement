@@ -1,3 +1,5 @@
+import i18next from 'i18next'
+
 Meteor.methods
 
 	sendInvitationMails: (userIds, projectId) ->
@@ -8,7 +10,15 @@ Meteor.methods
 
 		for userId in userIds
 			token = Random.id 43
-			altered = Meteor.users.update userId, $set: 'services.password.reset': 'token': token
+
+			user = Meteor.users.findOne userId, fields:
+				services: 1
+
+			if user?.services?.password?.reset?.token
+				token = user.services.password.reset.token
+			else
+				Meteor.users.update userId, $set: 'services.password.reset': 'token': token
+
 			user = Meteor.users.findOne userId, fields:
 				'profile.email': 1
 				'profile.firstname': 1
@@ -16,22 +26,21 @@ Meteor.methods
 				'profile.language': 1
 				state: 1
 
-			if altered > 0
-				Meteor.call 'sendMail',
-					recipient: user.profile.email
-					sender: project.name
-					from: project.email
-					subject: TAPi18n.__('mail.accountCreated.subject', '', user.profile.language)
-					template: 'accountCreated'
+			localTranslate = i18next.getFixedT(user.profile.language)
+
+			Meteor.call 'sendMail',
+				recipient: user.profile.email
+				sender: project.name
+				from: project.email
+				subject: localTranslate('mail.accountCreated.subject')
+				template: 'accountCreated'
+				language: user.profile.language
+				data:
+					token: token
+					project: project.name
+					name: user.profile.firstname + ' ' + user.profile.lastname
 					language: user.profile.language
-					data:
-						token: token
-						project: project.name
-						name: user.profile.firstname + ' ' + user.profile.lastname
-						language: user.profile.language
-						content: getMailTexts 'accountCreated', user.profile.language
-				, (err, res) ->
-					if err
-						console.log 'sendMail failed: ' + err
-					else if user.state == 'created'
-						Meteor.call 'setState', projectId, userId, 'invited'
+					content: getMailTexts 'accountCreated', localTranslate
+
+			if !user.state || user.state == 'created'
+				Meteor.call 'setState', projectId, userId, 'invited'

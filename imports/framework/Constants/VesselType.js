@@ -7,8 +7,9 @@ const VesselType = {
     'mt',
     'p',
     'pt',
-    'rc',
     'f',
+    'r',
+    'rc',
     'ro',
     't',
     'unknown'

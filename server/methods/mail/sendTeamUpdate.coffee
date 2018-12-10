@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 Meteor.methods
 
@@ -7,7 +8,8 @@ Meteor.methods
 		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
 
 		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
-		check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
+		# fails sometimes because ? let's see what the logging beneath reveals
+		# check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
 
 		if shift?
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
@@ -27,20 +29,23 @@ Meteor.methods
 						date = thisMoment.format('dddd, DD.MM.YYYY')
 
 						name = user.profile.firstname + ' ' + user.profile.lastname
+						localTranslate = i18next.getFixedT(user.profile.language)
 
 						Meteor.call 'sendMail',
 							recipient: user.profile.email
 							sender: project.name
 							from: project.email
-							subject: TAPi18n.__('mail.teamUpdate.subject', '', user.profile.language)
+							subject: localTranslate('mail.teamUpdate.subject')
 							template: 'teamUpdate'
 							language: user.profile.language
 							data:
 								project: project.name
 								name: name
-								type: TAPi18n.__('mail.teamUpdate.changed.' + type, '', user.profile.language)
-								datetime: TAPi18n.__('mail.teamUpdate.datetime', {date: date, time: time}, user.profile.language)
+								type: localTranslate('mail.teamUpdate.changed.' + type)
+								datetime: localTranslate('mail.teamUpdate.datetime', {date: date, time: time})
 								shift: shiftData
-								content: getMailTexts 'teamUpdate', user.profile.language
+								content: getMailTexts 'teamUpdate', localTranslate
 						, (err, res) -> if err
 							console.log 'sendMail failed: ' + err
+
+		true

@@ -1,9 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Random } from 'meteor/random'
-import { Roles } from 'meteor/alanning:roles'
 import { Mailer } from 'meteor/lookback:emails'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { getMailTexts } from '../../framework/Functions/Mail'
 import { checkPermissions } from '../../framework/Functions/Security'
 import { validate } from '../../framework/Functions/validations'
@@ -12,7 +11,6 @@ import Users from '../users/Users'
 import RoleManager from '../../framework/Managers/RoleManager'
 import MailManager from '../../framework/Managers/MailManager'
 import State from '../../framework/Constants/State'
-import Permissions from '../../framework/Constants/Permissions'
 
 function publisherPasswordInsert ({ projectId, userId }, passwords) {
   validate('password', {
@@ -81,7 +79,7 @@ function publisherPasswordReset ({ projectId, userId }) {
       recipient: publisher.profile.email,
       sender: 'JW Management',
       from: 'support@jwmanagement.org',
-      subject: TAPi18n.__('mail.resetPassword.subject', '', language),
+      subject: i18next.t('mail.resetPassword.subject', '', language),
       template: 'resetPassword',
       language: language,
       data: {
@@ -92,8 +90,8 @@ function publisherPasswordReset ({ projectId, userId }) {
     }
 
     data.data.global = {
-      footer: TAPi18n.__('mail.footer', '', data.language),
-      link: TAPi18n.__('mail.link', '', data.language)
+      footer: i18next.t('mail.footer', '', data.language),
+      link: i18next.t('mail.link', '', data.language)
     }
 
     Mailer.send({
@@ -145,7 +143,7 @@ function publisherInvite ({ projectId, userId }) {
       recipient: publisher.profile.email,
       sender: project.name,
       from: project.email,
-      subject: TAPi18n.__('mail.accountCreated.subject', '', language),
+      subject: i18next.t('mail.accountCreated.subject', '', language),
       template: 'accountCreated',
       language: language,
       data: {
@@ -171,20 +169,22 @@ function publisherInvite ({ projectId, userId }) {
 
 function removeFromProject ({ projectId, userId }) {
   checkPermissions(projectId, userId)
+
+  if (userId === Meteor.userId()) {
+    throw new Meteor.Error('You cannot remove yourself from this project')
+  }
+
   try {
     RoleManager.removeProjectPermission(projectId, userId)
+
     const project = Projects.findOne(projectId, { fields: { 'tags._id': 1 } })
+
     if (project && project.tags) {
       for (let tag of project.tags) {
         RoleManager.removeTagPermission(tag._id, userId)
       }
-      // eslint-disable-next-line no-unused-vars
-      for (let group of Roles.getGroupsForUser(userId)) {
-        if (RoleManager.hasPermission(projectId, Permissions.member.concat(Permissions.participant), userId)) {
-          return
-        }
-      }
     }
+
     if (!RoleManager.hasPermissions(userId)) {
       Users.remove(userId)
     }

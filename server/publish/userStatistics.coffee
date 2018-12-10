@@ -1,4 +1,4 @@
-moment = require('moment')
+import moment from 'moment'
 
 Meteor.publish 'userStatistics', (userId, shiftId) ->
 	self = this

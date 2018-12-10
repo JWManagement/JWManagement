@@ -1,4 +1,5 @@
-moment = require('moment')
+import i18next from 'i18next'
+import moment from 'moment'
 
 Template.editShiftModal.helpers
 
@@ -20,8 +21,8 @@ Template.editShiftModal.helpers
 	getScheduling: ->
 		if @scheduling?
 			schedulings = {
-				direct: TAPi18n.__('scheduling.direct')
-				manual: TAPi18n.__('scheduling.manual')
+				direct: i18next.t('scheduling.direct')
+				manual: i18next.t('scheduling.manual')
 			}
 			schedulings[@scheduling]
 
@@ -35,11 +36,11 @@ Template.editShiftModal.helpers
 		project = Projects.findOne projectId, fields: meetings: 1
 		project?.meetings
 
-	getMeetingStart: -> @meetingStart?.name || TAPi18n.__('modal.editShift.noMeeting')
+	getMeetingStart: -> @meetingStart?.name || i18next.t('modal.editShift.noMeeting')
 
-	getMeetingEnd: -> @meetingEnd?.name || TAPi18n.__('modal.editShift.noMeeting')
+	getMeetingEnd: -> @meetingEnd?.name || i18next.t('modal.editShift.noMeeting')
 
-	getPlace: -> @place?.name || TAPi18n.__('modal.editShift.noMeeting')
+	getPlace: -> @place?.name || i18next.t('modal.editShift.noMeeting')
 
 	possibleTeamSizes: -> [1..15]
 
@@ -60,6 +61,10 @@ Template.editShiftModal.onCreated ->
 			$('#editShiftModal').modal('show')
 			$('#editShiftModal').on 'hidden.bs.modal', ->
 				wrs -> FlowRouter.setQueryParams editShift: undefined
+
+Template.editShiftModal.onRendered ->
+
+	$('#beamerSelector').addClass('hidden')
 
 Template.editShiftModal.events
 
@@ -192,7 +197,7 @@ Template.editShiftModal.events
 		if $('.teams-wrapper').find('.team').length > 1
 			Meteor.call 'removeShiftItem', shiftId, 'teams', teamId, handleError
 		else
-			swal TAPi18n.__('swal.error'), TAPi18n.__('swal.onlyTeam'), 'error'
+			swal i18next.t('swal.error'), i18next.t('swal.onlyTeam'), 'error'
 
 	'click #addTeam': (e) ->
 		e.preventDefault()

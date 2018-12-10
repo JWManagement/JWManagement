@@ -1,5 +1,5 @@
-moment = require('moment')
-{ send } = require('./send.coffee')
+import i18next from 'i18next'
+import moment from 'moment'
 
 Meteor.methods
 
@@ -31,17 +31,19 @@ Meteor.methods
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')
 			name = user.profile.firstname + ' ' + user.profile.lastname
 
-			send
+			localTranslate = i18next.getFixedT(user.profile.language)
+
+			Meteor.call 'sendMail',
 				recipient: user.profile.email
 				sender: project.name
 				from: project.email
-				subject: TAPi18n.__('mail.understaffed.subject', '', user.profile.language)
+				subject: localTranslate('mail.understaffed.subject')
 				template: 'understaffed'
 				language: user.profile.language
 				data:
 					project: project.name
 					name: name
-					type: TAPi18n.__('role.' + type, '', user.profile.language)
-					datetime: TAPi18n.__('mail.understaffed.datetime', {date: date, time: time}, user.profile.language)
+					type: localTranslate('role.' + type)
+					datetime: localTranslate('mail.understaffed.datetime', {date: date, time: time})
 					shift: shiftData
-					content: getMailTexts 'understaffed', user.profile.language
+					content: getMailTexts 'understaffed', localTranslate

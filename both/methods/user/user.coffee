@@ -121,7 +121,7 @@ Meteor.methods
 			user.profile.available = mo: [], tu: [], we: [], th: [], fr: [], sa: [], su: []
 			Meteor.users.update Meteor.userId(), $set: 'profile.available': user.profile.available
 
-		if user.profile.available && hour in user.profile.available[day]
+		if user.profile.available?[day] && hour in user.profile.available[day]
 			pull = {}
 			pull['profile.available.'+ day] = hour
 
@@ -148,3 +148,6 @@ Meteor.methods
 			Meteor.users.find({}, fields: _id: 1).count()
 		else
 			0
+
+	setMyAccountActive: ->
+		Meteor.users.update Meteor.userId(), $set: state: 'active'

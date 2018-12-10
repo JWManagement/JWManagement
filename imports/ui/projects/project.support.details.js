@@ -7,26 +7,41 @@ Template['project.support.details'].helpers({
       backLink: 'project.details'
     },
     sections: [{
-      title: 'title',
+      title: 'support',
       contents: [{
+        key: 'supportText',
+        type: 'textbox',
+        readonly: true
+      }, {
         key: 'phone',
         type: 'phone',
         readonly: true
       }, {
-        key: 'email',
-        type: 'email',
-        readonly: true
+        key: 'discord',
+        type: 'link',
+        route: 'https://discord.gg/Te9TKD8',
+        outbound: true
       }, {
         key: 'github',
         type: 'link',
-        route: 'https://github.com/JWDeveloper/JWManagement/issues'
+        route: 'https://github.com/JWDeveloper/JWManagement/issues',
+        outbound: true
       }]
     }, {
       title: 'donate',
       contents: [{
+        key: 'donateText',
+        type: 'textbox',
+        readonly: true
+      }, {
         key: 'paypal',
         type: 'link',
-        route: 'https://www.paypal.me/marvinzeising'
+        route: 'https://www.paypal.me/marvinzeising',
+        outbound: true
+      }, {
+        key: 'iban',
+        type: 'text',
+        readonly: true
       }]
     }]
   }

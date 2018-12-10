@@ -1,10 +1,17 @@
+import i18next from 'i18next'
+
 Template.copyShiftModal.helpers
+
+	getWeekDayTranslation: (path) ->
+		i18next.t('weekdays.' + path)
 
 	getProjectId: -> FlowRouter.getParam('projectId')
 
 	weekdays: -> [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
 
 Template.copyShiftModal.onRendered ->
+
+	$('#beamerSelector').addClass('hidden')
 
 	$('#copyShiftModal').modal('show')
 	$('#copyShiftModal').on 'hidden.bs.modal', ->

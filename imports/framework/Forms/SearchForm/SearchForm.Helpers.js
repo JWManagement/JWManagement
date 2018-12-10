@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Session } from 'meteor/session'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import RouteManager from '../../Managers/RouteManager'
@@ -32,7 +32,7 @@ function generateRows (template) {
           item[column.name].toLowerCase()
         ]
 
-        value = TAPi18n.__(keys.join('.').replace(/_/g, '.'))
+        value = i18next.t(keys.join('.').replace(/_/g, '.'))
       }
 
       row[column.name] = value
@@ -50,7 +50,7 @@ function generateMobileRows (template) {
     .map((column) => {
       return {
         name: column.name,
-        translation: TAPi18n.__([
+        translation: i18next.t([
           FlowRouter.getRouteName().split('.')[0],
           'entity',
           column.name

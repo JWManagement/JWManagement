@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { TAPi18n } from 'meteor/tap:i18n'
+import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { getKey, getTitle, getEntityTranslation } from '../../Helpers/Helpers'
@@ -40,7 +40,7 @@ Template.UpdateForm.helpers({
       let attributeParts = [key]
       attributeParts.push('placeholder')
 
-      return TAPi18n.__(routeNameParts.concat(attributeParts).join('.'))
+      return i18next.t(routeNameParts.concat(attributeParts).join('.'))
     }
   },
   isSearchEnabled () {
@@ -74,12 +74,27 @@ Template.UpdateForm.onCreated(() => {
 
     Meteor.call(routeName, params, key, value, (e) => {
       if (e != null) {
-        if (e.error.error === 'validation-error' && e.error.reason.length > 0) {
-          let inputData = template.inputData.get()
-          inputData.error = e.error.reason[0].type
-          template.inputData.set(inputData)
+        let hasOtherErrors = false
+        let otherErrorMessage = null
+
+        for (let reason of e.error.reason) {
+          if (reason.name !== key.replace(/_/g, '.')) {
+            hasOtherErrors = true
+            otherErrorMessage = reason.message
+            break
+          }
+        }
+
+        if (hasOtherErrors) {
+          alert(`There was an error with another field: ${otherErrorMessage}`)
         } else {
-          alert('SERVER ERROR')
+          if (e.error.error === 'validation-error' && e.error.reason.length > 0) {
+            let inputData = template.inputData.get()
+            inputData.error = e.error.reason[0].type
+            template.inputData.set(inputData)
+          } else {
+            alert(e)
+          }
         }
       }
     })

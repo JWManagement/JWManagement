@@ -1,8 +1,4 @@
 [![Build Status](https://semaphoreci.com/api/v1/marvinzeising/jwmanagement/branches/master/badge.svg)](https://semaphoreci.com/marvinzeising/jwmanagement)
-[![Build Status](https://travis-ci.org/JWDeveloper/JWManagement.svg?branch=develop)](https://travis-ci.org/JWDeveloper/JWManagement)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7dd7bb38cf769432c906/maintainability)](https://codeclimate.com/github/JWDeveloper/JWManagement/maintainability)
-
-[Framework Documentation](imports/framework/README.md)
 
 # What is JW Management?
 
@@ -19,7 +15,7 @@ Define one or more teams in a shift. Each will have it's own team-leader. Provid
 
 ### Store Room
 
-Manage your store room via JW Management. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken. Get notified if a publication is on low stock.
+Manage your store room via JW Management. After each shift a team-leader can report whats been placed. The system then automatically updates the publications' stock with the number of placements taken.
 
 ### Notifications
 
@@ -31,22 +27,22 @@ Through the powerful notification system, you can be notified on your request's,
 
 ### Setup
 
-1. _(Optional)_ We recommend downloading and using Atom.io (https://atom.io), because it supports syntax highlighting.
+1. _(Optional)_ We recommend downloading and using VS Code (https://code.visualstudio.com), because it supports syntax highlighting.
 
 2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
 
-3. Open the extracted folder and switch into the both/i18n folder.
+3. Open the extracted folder and switch into the imports/i18n folder.
 
 4. Copy the folder of the language, from that you can do the translation (e.g. en, if you want to translate english to russian).
 
 5. Paste it and rename it to the language, you want to translate it to (e.g. ru).
 	Also rename all files in this folder and replace the old language with the new one.
 
-6. Open these files in Atom (or your preferred file editor).
+6. Open these files in VS Code (or your preferred file editor).
 
 ### Translation
 
-The translation files are build with a "key: value" pattern.
+The translation files are built with a "key: value" pattern.
 You only need to translate the value.
 Anything NOT translated will be displayed in english (so you don't necessarily have to translate everything).
 
@@ -79,126 +75,30 @@ Same as simple setup
 
 # For Collaborators
 
-### Setup
-
 Thank you for your interest in helping us with the development of this software.
 Please follow the instructions to setup JW Management in your local dev environment.
 
 1. Install Meteor (https://www.meteor.com/install)
 
-2. _(Optional)_ We recommend installing SourceTree (https://www.sourcetreeapp.com) _(unless you want to use the git command line)_
+2. If not already done, set up your environment for git.
 
-3. Install a MongoDB GUI Tool. We recommend:
+3. _(Optional)_ Install a MongoDB GUI Tool. E.g. Mongo Chef (http://3t.io/mongochef)
 
-	- Mac: MongoHub (https://www.openhub.net/p/mongohub)
-
-	- Windows: Mongo Chef (http://3t.io/mongochef)
-
-4. Clone https://github.com/JWDeveloper/JWManagement.git to a local folder. If you use the "Open in Desktop" Button on GitHub it should automatically open MongoHub.
+4. Clone https://github.com/JWDeveloper/JWManagement.git to a local folder.
 
 5. Open Terminal, cd to the created folder and run
 
 	```shell
-	meteor npm install && npm start
+	meteor npm install; meteor
 	```
 
 	This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.
 	After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-6. Open the MongoDB GUI and connect to the MongoDB started by meteor.
+6. Sign up under [http://localhost:3000](http://localhost:3000) to create a new user.
 
-	```yaml
-	address: 127.0.0.1
-	port: 3001
-	database: meteor
-	```
+7. Once logged in with that new user, create a project.
 
-7. Insert a user into the users collection:
+8. Go to the settings page of the project and create a tag. For that tag, create a template week. Click on the template to edit it and add a few shifts.
 
-	```json
-	{
-		"_id": "asiduvaosnfvpasdf",
-		"createdAt": new Date(1450919856316),
-		"username": "johndoe",
-		"profile": {
-			"firstname": "John",
-			"lastname": "Doe",
-			"email": "john@doe.com",
-			"gender": "m",
-			"telefon": "",
-			"congregation": "",
-			"pioneer": "publisher",
-			"privilege": "publisher",
-			"languages": "",
-			"available": {},
-			"vacations": [],
-			"shortTermCalls": false,
-			"shortTermCallsAlways": false,
-			"language": "en"
-		},
-		"state": "active",
-		"services": {
-			"password": {
-				"bcrypt": "$2a$10$I8659UhcKu6ROf2.YQ6JAeeWUDRTLwLksQGAyAr2A8dTeEYUTNMmK"
-			}
-		},
-		"roles": {
-			"abcde": [
-				"admin"
-			],
-			"abcdef": [
-				"teamleader"
-			]
-		}
-	}
-	```
-
-8. Create a collection "projects" and insert a project:
-
-	```json
-	{
-		"_id": "abcde",
-		"name": "My first project",
-		"email": "support@jwmanagement.org",
-		"language": "en",
-		"news": {},
-		"wiki": { "tabs": [] },
-		"tags": [
-			{
-				"_id": "abcdef",
-				"name": "Cart Witnessing",
-				"img": "trolley",
-				"templates": []
-			}
-		],
-		"teams": [
-			{
-				"_id": "abcdefg",
-				"name": "Location/Route 1",
-				"link": "",
-				"description": ""
-			}
-		],
-		"meetings": [],
-		"store": {}
-	}
-	```
-
-9. Now login on the website with 'johndoe' and password '12345678'
-
-### Development
-
-We recommend Atom.io (https://atom.io) and these Plugins:
-
-	language-jade
-	meteor-api
-	minimap
-	pigments
-	color-picker
-	file-icons
-	atom-beautify
-	Sublime-Style-Column-Selection
-	tool-bar-almighty
-	git-time-machine
-
-If you're willing to help us to improve the system, send us an email to support@jwmanagement.org so we can add you to our WhatsApp group.
+9. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
