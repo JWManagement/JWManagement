@@ -16,7 +16,7 @@ const Harbor = {
     'deand',
     'debbg', 'debed', 'debek', 'deber', 'debke', 'deblm', 'debmk', 'debon', 'debot', 'debrb', 'debre', 'debrv', 'debsh', 'debsk', 'debum', 'debuz',
     'decgn', 'decux',
-    'dedeg', 'dedhu', 'dedmg', 'dedrp', 'dedrs', 'dedtm', 'dedui', 'dedus',
+    'dedeg', 'dedhu', 'dedil', 'dedmg', 'dedrp', 'dedrs', 'dedtm', 'dedui', 'dedus',
     'deeck', 'deehm', 'deeme',
     'deflf', 'defra',
     'degdo', 'degek', 'deger', 'deget', 'deghm', 'degic', 'degkg', 'deglu', 'degmz', 'degrd', 'degre',
