@@ -37,7 +37,7 @@ const vessel = {
       harbor: 'Port',
       harborId: 'Port',
       harborIdValues: {
-        placeholder: 'Wybierz port',
+        placeholder: 'Wybierz port'
       },
       country: 'Kraj',
       language: {
