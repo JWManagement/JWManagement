@@ -195,21 +195,10 @@ function publisherUpdate ({ projectId, userId }, key, value) {
   }
 }
 
-function publisherTagUpdate ({ projectId, userId, tagId }, key, value) {
-  checkPermissions(projectId, userId)
-
-  console.log(projectId)
-  console.log(userId)
-  console.log(tagId)
-  console.log(key)
-  console.log(value)
-}
-
 export {
   publisherSearch,
   publisherGet,
   publisherGetField,
   publisherInsert,
-  publisherUpdate,
-  publisherTagUpdate
+  publisherUpdate
 }
