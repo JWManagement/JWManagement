@@ -1,15 +1,15 @@
 const misc = {
   input: {
     username: 'Nom d\'utilisateur',
-    usernameOrEmail: 'Nom d\'utilisateur ou adresse E-mail',
-    firstname: 'Nom',
-    lastname: 'Prénom',
-    email: 'Adresse E-mail',
+    usernameOrEmail: 'Nom d\'utilisateur ou adresse e-mail',
+    firstname: 'Prénom',
+    lastname: 'Nom',
+    email: 'Adresse e-mail',
     telefon: 'Téléphone',
     congregation: 'Assemblée',
     languages: 'Langue',
     gender: 'Sexe',
-    privilegeOfService: 'Privilège de service',
+    privilegeOfService: 'Statut',
     privilegeOfMinistry: 'Nom de l\'assemblée',
     password: 'Mot de passe',
     passwordRepeat: 'Répéter le mot de passe',
@@ -19,21 +19,21 @@ const misc = {
   role: {
     role: 'Rôle',
     admin: 'Responsable de projet',
-    shiftScheduler: 'Adjoint pour les horaires',
-    shiftAdmin: 'Responsable des plages horaires',
-    storeAdmin: 'Responsable du tableau de bord des publications',
+    shiftScheduler: 'Responsable des horaires',
+    shiftAdmin: 'Planificateur des horaires',
+    storeAdmin: 'Responsable du stock des publications',
     member: 'Membre',
     teamleader: 'Responsable d\'équipe',
-    substituteTeamleader: 'Adjoint responsable d\'équipe',
+    substituteTeamleader: 'Adjoint au responsable d\'équipe',
     participant: 'Participant',
-    nothing: 'Aucun',
-    noPermission: 'Non autorisé'
+    nothing: 'Aucun rôle',
+    noPermission: 'Aucun droit'
   },
   permissions: {
     notAdmin: 'Cet utilisateur n\'est pas un responsable de projet.',
-    notShiftScheduler: 'Cet utilisateur ne peut pas insérer des plages horaires',
-    notShiftAdmin: 'Cet utilisateur n\'est pas un responsable des plages horaires',
-    notStoreAdmin: 'Cet utilisateur n\'est pas un responsable du tableau de bord des publications',
+    notShiftScheduler: 'Cet utilisateur n\'est pas un responsable d\'horaires',
+    notShiftAdmin: 'Cet utilisateur n\'est pas un planificateur d\'horaires',
+    notStoreAdmin: 'Cet utilisateur n\'est pas un responsable du stock des publications',
     notProjectParticipant: 'Cet utilisateur ne participe pas à ce projet',
     notTeamleader: 'Cet utilisateur n\'est pas un responsable d\'équipe',
     notTagParticipant: 'Cet utilisateur ne fait pas partie de cette étiquette',
@@ -87,7 +87,7 @@ const misc = {
   period: {
     d: 'J',
     w: 'S',
-    '4w': '4W'
+    '4w': '4S'
   }
 }
 

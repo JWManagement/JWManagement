@@ -12,10 +12,10 @@ const framework = {
   validation: {
     required: 'Ce champ est requis',
     unique: 'Il y a déjà un enregistrement avec cette valeur',
-    minString8: 'Le mot de passe doit comporter au moins 8 caractères.',
+    minString8: 'Le mot de passe doit avoir au moins 8 caractères.',
     passwordMismatch: 'Le mot de passe ne correspond pas',
     hasToBeBigger: 'Cette valeur doit être plus grande',
-    regEx: 'Cette adresse E-mail n\'est pas valide'
+    regEx: 'Cette adresse e-mail n\'est pas valide'
   },
   detailsForm: {
     yes: 'Oui',

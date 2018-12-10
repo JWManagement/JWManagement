@@ -8,22 +8,22 @@ const navigation = {
       details: 'Mes projets'
     },
     missingShiftReports: {
-      details: 'Rapport de plage horaire manquant'
+      details: 'Rapport d\'horaire manquant'
     },
     upcomingShifts: {
-      details: 'Prochaine plage horaire'
+      details: 'Prochains horaire'
     },
     pendingRequests: {
       details: 'Inscription en attente'
     },
     olderShifts: {
-      details: 'Historique des plages horaires'
+      details: 'Historique des horaires'
     }
   },
   profile: 'Mon Profile',
   shifts: 'Plage horaire',
   calendar: 'Calendrier',
-  wiki: 'Centre d\'information',
+  wiki: 'Centre d\'informations',
   project: {
     search: 'Projets',
     details: 'Administration',
@@ -56,7 +56,7 @@ const navigation = {
       }
     },
     password: {
-      insert: 'Changer le mot de passe'
+      insert: 'Modifier le mot de passe'
     },
     permissions: {
       details: 'Rôle du proclamateur',
@@ -67,7 +67,7 @@ const navigation = {
       }
     }
   },
-  publisherActions: 'Action global de l\'utilisateur',
+  publisherActions: 'Actions  de l\'utilisateur',
   reports: 'Rapport',
   store: 'Tableau des publications',
   vessel: {
@@ -99,7 +99,7 @@ const navigation = {
   loggingOut: 'Déconnecter...',
   firstLogin: 'Première connexion',
   forgotPassword: 'Oublié le mot de passe',
-  resetPassword: 'Changer le mot de passe',
+  resetPassword: 'Modifier le mot de passe',
   terms: 'Conditions d\'utilisations',
   privacy: 'Politique de confidentialité des données',
   support: 'Support',

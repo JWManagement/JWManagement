@@ -1,10 +1,10 @@
 const users = {
-  title: 'Action de groupe vers les proclamateurs',
+  title: 'Actions de groupe pour les proclamateurs',
   inviteUser: 'Envoyer une invitation aux proclamateurs non activés',
   uploadUserFile: 'Insérer plusieurs proclamateurs via un fichier CSV',
-  export: 'Exportez comme CSV-File',
-  sendToAll: 'Envoyez un E-mail à tous les proclamateurs',
-  sendToAllInTag: 'Envoyez un E-mail à tous ceux dont l\'étiquette s\'intitule {{0}}',
+  export: 'Exportez comme fichier CSV',
+  sendToAll: 'Envoyez un e-mail à tous les proclamateurs',
+  sendToAllInTag: 'Envoyez un e-mail à tous ceux dont l\'étiquette s\'intitule {{0}}',
   online: {
     details: {
       sections: {
