@@ -209,7 +209,7 @@ const vessel = {
       identification: 'Dane Identyfikacyjne',
       visit: 'Dane wizyty'
     },
-    dateFormat: 'MM/DD/RRRR'
+    dateFormat: 'MM/DD/YYYY'
   },
   visit: {
     details: {
@@ -218,7 +218,7 @@ const vessel = {
         language: 'Language data',
         option: 'Opcje'
       },
-      dateFormat: 'MM/DD/RRRR'
+      dateFormat: 'MM/DD/YYYY'
     }
   }
 }

@@ -22,9 +22,9 @@ const framework = {
     no: 'Nie'
   },
   dateFormat: {
-    date: 'DD.MM.RRRR',
-    dateAndTime: 'DD.MM.RRRR GG:mm',
-    time: 'GG:mm'
+    date: 'DD.MM.YYYY',
+    dateAndTime: 'DD.MM.YYYY HH:mm',
+    time: 'HH:mm'
   }
 }
 

@@ -16,9 +16,9 @@ const language = {
       it: 'Włoski (częśćiowo)',
       pl: 'Polski',
       pt: 'Portugalski',
-      ru: 'Rosyjski'
-	  'zh-TW': 'Chinese (Tradycyjny) (częśćiowo)',
-      'zh-CN': 'Chinese (Uproszczony) (częśćiowo)'
+      ru: 'Rosyjski',
+	  'zh-TW': 'Chinski (Tradycyjny) (częśćiowo)',
+      'zh-CN': 'Chinski (Uproszczony) (częśćiowo)'
     }
   },
   de: 'Niemiecki',
