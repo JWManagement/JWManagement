@@ -35,6 +35,9 @@ Template.resetPassword.events
 		pass2 = e.target['1'].value
 		token = FlowRouter.getQueryParam('token')
 
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		if token? && token != ''
 			if Meteor.areValidPasswords pass1, pass2
 				Meteor.call 'resetAccountPassword', token, pass1, (err, username) ->
