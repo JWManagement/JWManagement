@@ -1,34 +1,15 @@
 import i18next from 'i18next'
+import Backend from 'i18next-node-locize-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import en from '../../i18n/en/_export'
-import enAU from '../../i18n/en-AU/_export'
-import de from '../../i18n/de/_export'
-import fi from '../../i18n/fi/_export'
-import fr from '../../i18n/fr/_export'
-import hu from '../../i18n/hu/_export'
-import it from '../../i18n/it/_export'
-import pl from '../../i18n/pl/_export'
-import pt from '../../i18n/pt/_export'
-import ru from '../../i18n/ru/_export'
-import zhTW from '../../i18n/zh-TW/_export'
-import zhCN from '../../i18n/zh-CN/_export'
 
 i18next
+  .use(Backend)
   .use(LanguageDetector)
   .init({
     fallbackLng: 'en',
-    resources: {
-      en: { translation: en },
-      'en-AU': { translation: enAU },
-      de: { translation: de },
-      fi: { translation: fi },
-      fr: { translation: fr },
-      hu: { translation: hu },
-      it: { translation: it },
-      pl: { translation: pl },
-      pt: { translation: pt },
-      ru: { translation: ru },
-      'zh-TW': { translation: zhTW },
-      'zh-CN': { translation: zhCN }
+    backend: {
+      projectId: 'd0390b1e-95ad-4aa6-93b8-6372476039d8',
+      apiKey: '5bb8eba8-deff-4a65-8a2a-fd7029d9a16b',
+      referenceLng: 'en'
     }
   })
