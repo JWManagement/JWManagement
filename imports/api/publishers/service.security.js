@@ -74,12 +74,13 @@ function publisherPasswordReset ({ projectId, userId }) {
     })
 
     const language = publisher.profile.language
+    const localTranslate = i18next.getFixedT(language)
 
-    const data = {
+    MailManager.sendMail({
       recipient: publisher.profile.email,
       sender: 'JW Management',
       from: 'support@jwmanagement.org',
-      subject: i18next.t('mail.resetPassword.subject', '', language),
+      subject: localTranslate('mail.resetPassword.subject'),
       template: 'resetPassword',
       language: language,
       data: {
@@ -87,20 +88,6 @@ function publisherPasswordReset ({ projectId, userId }) {
         language: language,
         content: getMailTexts('resetPassword', language)
       }
-    }
-
-    data.data.global = {
-      footer: i18next.t('mail.footer', '', data.language),
-      link: i18next.t('mail.link', '', data.language)
-    }
-
-    Mailer.send({
-      to: data.recipient,
-      from: data.sender + ' <no-reply@jwmanagement.org>',
-      replyTo: data.sender + '<' + data.from + '>',
-      subject: data.subject,
-      template: data.template,
-      data: data.data
     })
   } catch (e) {
     console.log(e)
@@ -138,12 +125,13 @@ function publisherInvite ({ projectId, userId }) {
     })
 
     const language = publisher.profile.language
+    const localTranslate = i18next.getFixedT(language)
 
     MailManager.sendMail({
       recipient: publisher.profile.email,
       sender: project.name,
       from: project.email,
-      subject: i18next.t('mail.accountCreated.subject', '', language),
+      subject: localTranslate('mail.accountCreated.subject'),
       template: 'accountCreated',
       language: language,
       data: {

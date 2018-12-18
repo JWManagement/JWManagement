@@ -4,9 +4,11 @@ import i18next from 'i18next'
 const MailManager = {
 
   sendMail (data) {
+    const localTranslate = i18next.getFixedT(data.language)
+
     data.data.global = {
-      footer: i18next.t('mail.footer', '', data.language),
-      link: i18next.t('mail.link', '', data.language)
+      footer: localTranslate('mail.footer'),
+      link: localTranslate('mail.link')
     }
 
     Mailer.send({
