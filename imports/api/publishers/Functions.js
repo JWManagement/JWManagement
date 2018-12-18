@@ -18,9 +18,11 @@ function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
   const dateFormatStart = localTranslate('publisher.entity.profile.availability.startDateFormat')
   const dateFormatEnd = localTranslate('publisher.entity.profile.availability.endDateFormat')
 
+  moment.locale(language)
+
   return {
     numbers: numbers,
-    timeslot: `${moment(periodBegin, 'Hmm').locale(language).format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').locale(language).format(dateFormatEnd)}`
+    timeslot: `${moment(periodBegin, 'Hmm').format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').format(dateFormatEnd)}`
   }
 }
 
@@ -113,6 +115,7 @@ function getExtendedPublisher (userId, projectId) {
       publisher.profile.vacations = []
     }
 
+    moment.locale(language)
     const localTranslate = i18next.getFixedT(language)
 
     for (let vacation of publisher.profile.vacations) {
