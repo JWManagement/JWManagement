@@ -33,9 +33,7 @@
   },
   "scripts": {
     "start": "meteor",
-    "lint": "standard",
-    "cypress:open": "./node_modules/cypress/bin/cypress open",
-    "cypress:run": "./node_modules/cypress/bin/cypress run --record --key f9b79f70-0982-41ed-b240-491bcaa68fc6"
+    "lint": "standard"
   },
   "devDependencies": {
     "standard": "^12.0.1"
@@ -70,8 +68,6 @@
       "it",
       "after",
       "expect",
-      "Cypress",
-      "cy",
       "context",
       "beforeEach",
       "assert",
