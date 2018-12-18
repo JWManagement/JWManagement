@@ -53,11 +53,12 @@ function publisherPasswordReset ({ projectId, userId }) {
   checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43)
+    let token = Random.id(43)
     const publisher = Users.findOne(userId, {
       fields: {
         'profile.email': 1,
-        'profile.language': 1
+        'profile.language': 1,
+        services: 1
       }
     })
 
@@ -65,13 +66,22 @@ function publisherPasswordReset ({ projectId, userId }) {
       throw new Meteor.Error('userHasNoEmail')
     }
 
-    Users.update(userId, {
-      $set: {
-        'services.password.reset': {
-          token: token
+    const alreadyHasToken = (publisher.services != null) &&
+      (publisher.services.password != null) &&
+      (publisher.services.password.reset != null) &&
+      publisher.services.password.reset.token
+
+    if (alreadyHasToken) {
+      token = publisher.services.password.reset.token
+    } else {
+      Users.update(publisher._id, {
+        $set: {
+          'services.password.reset': {
+            token: token
+          }
         }
-      }
-    })
+      })
+    }
 
     const language = publisher.profile.language
     const localTranslate = i18next.getFixedT(language)
@@ -99,7 +109,7 @@ function publisherInvite ({ projectId, userId }) {
   checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43)
+    let token = Random.id(43)
     const project = Projects.findOne(projectId, {
       fields: {
         name: 1
@@ -112,17 +122,27 @@ function publisherInvite ({ projectId, userId }) {
         'profile.firstname': 1,
         'profile.lastname': 1,
         'profile.language': 1,
+        services: 1,
         state: 1
       }
     })
 
-    Users.update(userId, {
-      $set: {
-        'services.password.reset': {
-          token: token
+    const alreadyHasToken = (publisher.services != null) &&
+      (publisher.services.password != null) &&
+      (publisher.services.password.reset != null) &&
+      publisher.services.password.reset.token
+
+    if (alreadyHasToken) {
+      token = publisher.services.password.reset.token
+    } else {
+      Users.update(publisher._id, {
+        $set: {
+          'services.password.reset': {
+            token: token
+          }
         }
-      }
-    })
+      })
+    }
 
     const language = publisher.profile.language
     const localTranslate = i18next.getFixedT(language)
