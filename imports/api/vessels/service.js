@@ -166,11 +166,13 @@ Meteor.methods({
   'vessel.visit.getAvailableHarbors' ({ projectId, language }) {
     checkVesselModule(projectId)
 
+    const localTranslate = i18next.getFixedT(language)
+
     return Harbor.allowedValues
       .map((harborId) => {
         return {
           key: harborId,
-          value: i18next.t(`vessel.entity.visit.harborIdValues.${harborId}`)
+          value: localTranslate(`vessel.entity.visit.harborIdValues.${harborId}`)
         }
       })
       .sort((a, b) => {
@@ -339,9 +341,12 @@ function getExtendedVisit (visit) {
     }
   })
 
+  const interfaceLanguage = Meteor.user().profile.language
+  const localTranslate = i18next.getFixedT(interfaceLanguage)
+
   visit.country = project.country
   const harborName = Harbor.allowedValues.filter((h) => h === visit.harborId)[0]
-  visit.harbor = i18next.t(`vessel.entity.visit.harborIdValues.${harborName}`)
+  visit.harbor = localTranslate(`vessel.entity.visit.harborIdValues.${harborName}`)
 
   if (visit.languageIds == null) {
     visit.languageIds = []
@@ -353,11 +358,9 @@ function getExtendedVisit (visit) {
     })
   }
 
-  const interfaceLanguage = Meteor.user().profile.language
-
   visit.languages = visit.languageIds
     .filter((language) => Languages.allowedValues.includes(language._id))
-    .map((language) => i18next.t('language.' + language._id, {}, interfaceLanguage))
+    .map((language) => localTranslate(`language.${language._id}`))
     .join(', ')
 
   return visit

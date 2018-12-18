@@ -44,6 +44,8 @@ function getProjects (projectIds) {
 }
 
 function getUpdatedShifts (projects, shifts) {
+  moment.locale('en')
+
   return shifts.map((shift) => {
     const project = projects.filter((p) => {
       return p._id === shift.projectId

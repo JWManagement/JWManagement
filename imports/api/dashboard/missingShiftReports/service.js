@@ -12,6 +12,9 @@ import {
 
 Meteor.methods({
   'dashboard.missingShiftReports.get' () {
+    const language = Meteor.user().profile.language
+    moment.locale(language)
+
     const userId = Meteor.userId()
     const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
     const today = parseInt(moment().format('YYYYDDDD'), 10)
