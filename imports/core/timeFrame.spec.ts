@@ -10,17 +10,17 @@ describe('a timeframe', function () {
     const end = moment('2018-11-02 12:00').toDate()
     const deadline = new Hours(2)
     const now = moment('2018-11-02 07:59')
-    
+
     const clock: Clock = {
       now: () => now.toDate()
     }
-    
-    const timeframe  = new TimeFrame(start, end, deadline, clock)
+
+    const timeframe = new TimeFrame(start, end, deadline, clock)
 
     expect(timeframe.isExpired()).to.eq(false)
-    
+
     now.add(2, 'minutes')
-    
+
     expect(timeframe.isExpired()).to.eq(true)
   })
 })

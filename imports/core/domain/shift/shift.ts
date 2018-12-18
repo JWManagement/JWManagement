@@ -3,15 +3,15 @@ import { ITimeFrame } from '../../timeFrame';
 export class Shift {
   timeFrame: ITimeFrame
 
-  constructor (timeFrame: ITimeFrame) {
+  constructor(timeFrame: ITimeFrame) {
     this.timeFrame = timeFrame
   }
 
-  get status() : ShiftStatus {
+  get status(): ShiftStatus {
     return this.isExpired() ? ShiftStatus.CLOSED : ShiftStatus.OPEN
   }
 
-  isExpired () {
+  isExpired() {
     return this.timeFrame.isExpired()
   }
 }

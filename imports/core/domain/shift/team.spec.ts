@@ -1,10 +1,10 @@
 import { expect } from 'chai'
-import { Team, TeamStatus, TeamSize, size } from './team';
+import { Team, TeamStatus, size } from './team';
 import { DomainError } from '../errors';
 import { RequestStatus } from './request';
 import { TeamService } from './teamService';
 
-function buildTeam (s: number[] = [1, 2]) {
+function buildTeam(s: number[] = [1, 2]) {
   return new Team('superteam', [], size.apply(null, s))
 }
 
@@ -12,7 +12,7 @@ describe('a team', function () {
   describe('accepts requests from publishers if', function () {
     let team: Team
 
-    beforeEach(function() {
+    beforeEach(function () {
       team = buildTeam([1, 2])
     })
 
@@ -69,19 +69,19 @@ describe('a team', function () {
     })
   })
 
-// describe('a request', function () {
-//   it('can be retracted by the publisher', function () {
-//     expect(false).to.eq(true)
-//   })
-//   it('can be approved by a scheduler', function () {
-//     expect(false).to.eq(true)
-//   })
-//   it('can be declined by a scheduler', function () {
-//     expect(false).to.eq(true)
-//   })
-//   it('can be bailed by the publisher', function () {
-//     expect(false).to.eq(true)
-//   })
+  // describe('a request', function () {
+  //   it('can be retracted by the publisher', function () {
+  //     expect(false).to.eq(true)
+  //   })
+  //   it('can be approved by a scheduler', function () {
+  //     expect(false).to.eq(true)
+  //   })
+  //   it('can be declined by a scheduler', function () {
+  //     expect(false).to.eq(true)
+  //   })
+  //   it('can be bailed by the publisher', function () {
+  //     expect(false).to.eq(true)
+  //   })
 })
 
 

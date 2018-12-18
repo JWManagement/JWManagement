@@ -8,17 +8,17 @@ export class Team {
   teamSize: TeamSize
   requests: Request[]
 
-  constructor (teamId: string, requests: Request[], teamSize: TeamSize) {
+  constructor(teamId: string, requests: Request[], teamSize: TeamSize) {
     this.teamId = teamId
     this.teamSize = teamSize
     this.requests = requests
   }
 
-  get status () {
+  get status() {
     return this.teamSize.fits(this.requests.filter(request => request.isAvailable()).length)
   }
 
-  private isFull (status?: TeamStatus) {
+  private isFull(status?: TeamStatus) {
     return (status || this.status) === TeamStatus.FULL
   }
 
@@ -26,7 +26,7 @@ export class Team {
     return this.requests.findIndex(x => x.publisherId === publisherId && x.isAvailable()) >= 0
   }
 
-  request (publisherId: string): Request {
+  request(publisherId: string): Request {
     if (this.hasAvailableRequestFor(publisherId)) {
       die(DomainError.PUBLISHER_ALREADY_REQUESTED)
     }
@@ -83,12 +83,12 @@ export enum TeamStatus {
 export class TeamSize {
   min: number
   max: number
-  constructor (min, max) {
+  constructor(min, max) {
     this.min = notNull(min)
     this.max = notNull(max)
   }
 
-  fits (size) {
+  fits(size) {
     if (size < this.min) {
       return TeamStatus.PENDING
     } else if (size < this.max) {

@@ -8,7 +8,7 @@ export class TeamService {
   _teamRepo: TeamRepository
   _publisherRepo: PublisherRepository
   _shiftRepo: ShiftRepository;
-  
+
 
   constructor(teamRepo: TeamRepository, publisherRepo: PublisherRepository, shiftRepo: ShiftRepository) {
     this._teamRepo = teamRepo
@@ -16,7 +16,7 @@ export class TeamService {
     this._shiftRepo = shiftRepo
   }
 
-  request (shiftId: string, teamId: string, publisherId: string): string {
+  request(shiftId: string, teamId: string, publisherId: string): string {
     const team = ensure<Team>(() => this._teamRepo.find(teamId), DomainError.TEAM_NOT_FOUND)
     ensure(() => this._publisherRepo.find(publisherId), DomainError.PUBLISHER_NOT_FOUND)
     ensure(() => {
