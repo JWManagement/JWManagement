@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Random } from 'meteor/random'
-import { Mailer } from 'meteor/lookback:emails'
 import i18next from 'i18next'
 import { getMailTexts } from '../../framework/Functions/Mail'
 import { checkPermissions } from '../../framework/Functions/Security'
