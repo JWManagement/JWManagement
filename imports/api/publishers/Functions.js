@@ -6,19 +6,23 @@ import Users from '../users/Users'
 import Permissions from '../../framework/Constants/Permissions'
 
 function getTimePeriodOrWholeDay (periodBegin, lastValue, numbers, language) {
+  const localTranslate = i18next.getFixedT(language)
+
   if (periodBegin === 2400 && lastValue === 2300) {
     return {
       numbers: numbers,
-      timeslot: i18next.t('publisher.entity.profile.availability.wholeDay', {}, language)
+      timeslot: localTranslate('publisher.entity.profile.availability.wholeDay')
     }
   }
 
-  const dateFormatStart = i18next.t('publisher.entity.profile.availability.startDateFormat', {}, language)
-  const dateFormatEnd = i18next.t('publisher.entity.profile.availability.endDateFormat', {}, language)
+  const dateFormatStart = localTranslate('publisher.entity.profile.availability.startDateFormat')
+  const dateFormatEnd = localTranslate('publisher.entity.profile.availability.endDateFormat')
+
+  moment.locale(language)
 
   return {
     numbers: numbers,
-    timeslot: `${moment(periodBegin, 'Hmm').locale(language).format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').locale(language).format(dateFormatEnd)}`
+    timeslot: `${moment(periodBegin, 'Hmm').format(dateFormatStart)} ${moment(lastValue + 100, 'Hmm').format(dateFormatEnd)}`
   }
 }
 
@@ -111,9 +115,12 @@ function getExtendedPublisher (userId, projectId) {
       publisher.profile.vacations = []
     }
 
+    moment.locale(language)
+    const localTranslate = i18next.getFixedT(language)
+
     for (let vacation of publisher.profile.vacations) {
-      const dateFormatStart = i18next.t('publisher.entity.profile.vacation.startDateFormat', {}, language)
-      const dateFormatEnd = i18next.t('publisher.entity.profile.vacation.endDateFormat', {}, language)
+      const dateFormatStart = localTranslate('publisher.entity.profile.vacation.startDateFormat')
+      const dateFormatEnd = localTranslate('publisher.entity.profile.vacation.endDateFormat')
 
       // support legacy number format
       if (!vacation.createdAt) {
