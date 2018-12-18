@@ -53,6 +53,7 @@ summernote:standalone
 meteortesting:mocha
 deanius:promise
 mdg:meteor-apm-agent
+adornis:typescript
 mixmax:smart-disconnect
 harrison:papa-parse
 cfs:gridfs
