@@ -38,8 +38,7 @@ const pages = {
       title: 'Availability',
       helpText: 'Please mark the hours in which you are available.',
       shortTermCalls: 'I can be contacted in the short term',
-      shortTermCallsAlways: 'Even if no availability is set',
-      notifyViaEmail: 'I prefer to be contacted via Email.'
+      shortTermCallsAlways: 'Even if no availability is set'
     },
     speaks: 'Speaks',
     telefon: 'Phone',

@@ -38,8 +38,7 @@ const pages = {
       title: 'Dostępność',
       helpText: 'Proszę zaznacz godziny w których jesteś dostępny.',
       shortTermCalls: 'Jestem dostępny nawet w ostatniej chwili',
-      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności',
-      notifyViaEmail: 'Preferuję kontakt mailowy.'
+      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności'
     },
     speaks: 'Speaks',
     telefon: 'Telefon',
