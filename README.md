@@ -21,11 +21,57 @@ Manage your store room via JW Management. After each shift a team-leader can rep
 
 Through the powerful notification system, you can be notified on your request's, confirmations or refusals, as well as changes to your shift, with the ability to reply.
 
-# Want to help with the translation?
+# For Translators
 
-The translations for JW Management are managed via [locize.io](https://locize.io).
-If you want to help with the translation of any language, please tell us!
-E.g. you can write an email to support@jwmanagement.org.
+## Simple setup
+
+### Setup
+
+1. _(Optional)_ We recommend downloading and using VS Code (https://code.visualstudio.com), because it supports syntax highlighting.
+
+2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
+
+3. Open the extracted folder and switch into the imports/i18n folder.
+
+4. Copy the folder of the language, from that you can do the translation (e.g. en, if you want to translate english to russian).
+
+5. Paste it and rename it to the language, you want to translate it to (e.g. ru).
+	Also rename all files in this folder and replace the old language with the new one.
+
+6. Open these files in VS Code (or your preferred file editor).
+
+### Translation
+
+The translation files are built with a "key: value" pattern.
+You only need to translate the value.
+Anything NOT translated will be displayed in english (so you don't necessarily have to translate everything).
+
+### Submit
+
+Zip the folder again and send an email with the attached zip file to support@jwmanagement.org.
+
+
+## Advanced setup (for developers)
+
+### Setup
+
+Please see "For Collaborators" > Setup
+
+### Translation
+
+Same as simple setup
+
+### Submit
+
+1. Open SourceTree.
+
+2. Select all the changes you made and commit them. As commit options use "Create Pull-Request".
+
+3. Push to origin.
+
+	Now we can see your changes and will pull them into the repo.
+	If everything is fine, the new translation will be available with the next release.
+
 
 # For Collaborators
 
