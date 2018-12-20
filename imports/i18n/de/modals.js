@@ -178,7 +178,7 @@ const modal = {
   },
   mergeAccounts: {
     title: 'Accounts zusammenführen',
-    description: 'Gib hier die Anmeldedaten des Accounts ein, auf den du die Berechtigungen des aktuellen Accoutns übertragen möchtest. Du wirst direkt mit dem angegebenen Account angemeldet.',
+    description: 'Gib hier die Anmeldedaten des Accounts ein, auf den du die Berechtigungen des aktuellen Accounts übertragen möchtest. Du wirst direkt mit dem angegebenen Account angemeldet.',
     username: 'Benutzername',
     password: 'Passwort',
     merge: 'Berechtigungen übertragen'
