@@ -230,7 +230,7 @@ const pages = {
   firstLogin: {
     name: 'Bienvenue',
     text: '<p>Nous avons hâtes de t\'accueillir!</p><p>Choisi ton nom d\'utilisateur et ton mot de passe. Tu en auras besoin pour te connecter au système.</p><p>Après cela, tu pourras commencer à utiliser JW Management</p><p>Amuse toi bien!</p>',
-    agreeTerms: 'J’accepte les <a href="/en/terms" target="blank">conditions d’utilisation</a> et la <a href="/en/privacy" target="blank">politique de confidentialité</a>',
+    agreeTerms: 'J’accepte les <a href="/en/terms" target="blank">conditions d’utilisation</a> et la <a href="/de/privacy" target="blank">politique de confidentialité</a>',
     button: 'C’est parti!',
     tokenError: 'Ce lien n’est plus valide. Demande un nouvel e-mail ou essaye de modifier ton mot de passe.',
     tokenMissing: 'Lien invalide. Veuille cliquer sur le lien de l’e-mail.',

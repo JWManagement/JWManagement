@@ -66,7 +66,7 @@ FlowRouter.route('/:language/firstLogin', {
 
 // Terms & Policy
 
-FlowRouter.route('/privacy', {
+FlowRouter.route('/de/privacy', {
   name: 'privacy',
   action () {
     BlazeLayout.render('blankLayout', { content: 'privacy' })
