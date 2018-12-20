@@ -188,7 +188,7 @@ const modal = {
     add: 'Add Users'
   },
   mergeAccounts: {
-    title: 'Merge accoutns',
+    title: 'Merge accounts',
     description: 'Enter the credentials of the account in which you want to merge this account\'s permissions. You will be logged in into that account right away.',
     username: 'Username',
     password: 'Password',

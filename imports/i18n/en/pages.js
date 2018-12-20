@@ -230,7 +230,7 @@ const pages = {
   firstLogin: {
     name: 'Welcome',
     text: '<p>We are looking forward to welcoming you.</p><p>Please set your personal username and password. From now on you will need these to authenticate on the system.</p><p>After that you can start using JW Management.</p><p>Enjoy!</p>',
-    agreeTerms: 'I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/en/privacy" target="blank">privacy policy</a>',
+    agreeTerms: 'I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/de/privacy" target="blank">privacy policy</a>',
     button: 'Let\'s Go!',
     tokenError: 'Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.',
     tokenMissing: 'Invalid link. Please visit the link from the email.',

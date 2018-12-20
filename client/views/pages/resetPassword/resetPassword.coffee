@@ -47,7 +47,7 @@ Template.resetPassword.events
 					else
 						Meteor.loginWithPassword username, pass1, (e) -> unless e
 							language = Meteor.user().profile?.language
-							FlowRouter.go 'home', language: language
+							FlowRouter.go 'dashboard.details'
 			else
 				submit.ladda 'stop'
 		else

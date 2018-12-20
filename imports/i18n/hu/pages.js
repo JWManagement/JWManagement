@@ -228,7 +228,7 @@ const pages = {
   firstLogin: {
     name: 'Üdvözlünk',
     text: '<p>Örömmel látjuk hogy itt vagy közöttünk!</p><p>Kérjük állítsd be a felhasználónevedet és jelszavadat. Mostantól ezekre szükszéged lesz hogy azonosítani tudjon téged a rendszerünk.</p><p>Ezt követően elkezdheted a JW Management használatát.</p><p>Leld benne örömöd!</p>',
-    agreeTerms: 'Egyetértek a <a href="/en/terms" target="blank">Használati feltételek</a> és a  <a href="/en/privacy" target="blank">Adatvédelmi irányelvek</a>',
+    agreeTerms: 'Egyetértek a <a href="/en/terms" target="blank">Használati feltételek</a> és a  <a href="/de/privacy" target="blank">Adatvédelmi irányelvek</a>',
     button: 'Kezdjünk neki!',
     tokenError: null,
     tokenMissing: 'Érvénytelen link. Kérünk, látogass el az e-mail címedre kapott linkre.',
