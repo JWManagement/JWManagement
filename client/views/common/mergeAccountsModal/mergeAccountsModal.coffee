@@ -28,7 +28,7 @@ Template.mergeAccountsModal.events
 
 							Meteor.call 'mergeAccounts', oldUserId, Meteor.userId()
 
-							FlowRouter.go 'home'
+							FlowRouter.go 'dashboard.details'
 			else
 				alert 'Please the OTHER account\'s credentials'
 		else

@@ -66,7 +66,7 @@ Template.firstLogin.events
 								if res
 									Meteor.call 'userFirstLogin', token, username, password1, (err, res) ->
 										if typeof res == 'object' && res.done
-											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'home'
+											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'dashboard.details'
 										else
 											Session.set 'errorMessage', i18next.t('firstLogin.tokenError')
 								else
@@ -93,4 +93,4 @@ Template.firstLogin.events
 							Meteor.loginWithPassword username, password, ->
 								Meteor.call 'registerUserForProject', Meteor.userId(), token
 
-								FlowRouter.go 'home'
+								FlowRouter.go 'dashboard.details'
