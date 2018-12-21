@@ -108,7 +108,8 @@ const modal = {
     closeTeam: 'Zamknij zmianę',
     switch: 'Edytuj zmianę',
     existingTeamleaders: 'Koordynator zmiany istnieje',
-    noExistingTeamleader: 'Brakuje koordynatora zmiany'
+    noExistingTeamleader: 'Brakuje koordynatora zmiany',
+    report: 'Report'
   },
   shiftReport: {
     title: 'Sprawozdanie',

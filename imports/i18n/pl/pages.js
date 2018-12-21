@@ -205,7 +205,7 @@ const pages = {
       link: 'Link',
       description: 'Opis',
       action: 'Akcje',
-      none: 'Żaden lokalizacja nie została jeszcze dodana',
+      none: 'Żadna lokalizacja nie została jeszcze dodana',
       add: 'Dodaj nową lokalizację',
       remove: 'Usuń tą lokalizację'
     },
