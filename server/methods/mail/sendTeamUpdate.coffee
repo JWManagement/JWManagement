@@ -10,7 +10,6 @@ Meteor.methods
 		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
 		# fails sometimes because ? let's see what the logging beneath reveals
 		# check { userId: Meteor.userId(), tagId: shift.tagId }, isTagParticipant
-		console.log('sendTeamUpdate; shiftId:' + shiftId + '; tagId: ' + shift.tagId + '; userId: ' + Meteor.userId() + ' permitted: ' + Roles.userIsInRole(Meteor.userId(), Permissions.participant, shift.tagId))
 
 		if shift?
 			time = moment(shift.start, 'Hmm').format('HH:mm') + ' - ' + moment(shift.end, 'Hmm').format('HH:mm')

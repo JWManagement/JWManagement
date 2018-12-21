@@ -226,7 +226,7 @@ const pages = {
   firstLogin: {
     name: 'Tervetuloa',
     text: '<p>Tervetuloa JW Management\'in käyttäjäksi!</p><p>Ole hyvä ja valitse itsellesi käyttäjätunnus ja salasana. Tulet tästä lähtien tarvitsemaan näitä tunnuksia tähän järjestelmään kirjautumiseksi.</p><p>Sen jälkeen voit aloittaa JW Management\'in käyttämisen.</p><p>Nauti!</p>',
-    agreeTerms: 'Hyväksyn <a href="/en/terms" target="blank">käyttöehdot</a> ja <a href="/en/privacy" target="blank">yksityisyyskäytännön</a>',
+    agreeTerms: 'Hyväksyn <a href="/en/terms" target="blank">käyttöehdot</a> ja <a href="/de/privacy" target="blank">yksityisyyskäytännön</a>',
     button: 'Eteenpäin!',
     tokenError: 'Vanhentunut linkki. Tämä ei ole enää voimassa. Pyydä uutta sähköpostilla tai yritä palauttaa salasanasi.',
     tokenMissing: 'Viallinen linkki. Ole hyvä ja käytä linkkiä, jonka sait sähköpostissa.',

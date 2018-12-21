@@ -1,7 +1,18 @@
 import i18next from 'i18next'
 import moment from 'moment'
 
+`import ShiftLoading from '../../../../imports/ui/shift/ShiftLoading'`
+`import TeamMemberName from '../../../../imports/ui/team/TeamMemberName'`
+
 Template.shift.helpers
+
+	ShiftLoading: -> ShiftLoading
+
+	TeamMemberName: -> TeamMemberName
+
+	isMeShiftScheduler: -> Roles.userIsInRole(Meteor.userId(), Permissions.shiftScheduler, FlowRouter.getParam('projectId'))
+
+	getTeamMember: -> Template.currentData().user
 
 	view: (a) ->
 		if a?

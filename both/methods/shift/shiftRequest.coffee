@@ -1,5 +1,5 @@
-import i18next from 'i18next'
 import moment from 'moment'
+import i18next from 'i18next'
 
 Meteor.methods
 

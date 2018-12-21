@@ -1,8 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Tracker } from 'meteor/tracker'
-import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
-import i18next from 'i18next'
 
 import './datepicker/bootstrap-datepicker.min'
 import './datepicker/bootstrap-datepicker.de.min'
@@ -94,6 +92,7 @@ import '../../ui/notes/note.insert'
 import '../../ui/calendar/calendar'
 
 import './language'
+import './title'
 
 import '../common/migrations'
 
@@ -109,19 +108,6 @@ Meteor.startup(function () {
     try {
       UserStatus.startMonitor({ threshold: 30000 })
       tracker.stop()
-    } catch (e) {}
+    } catch (e) { }
   })
-})
-
-Tracker.autorun(function () {
-  const routeName = FlowRouter.getRouteName()
-  let title = i18next.t('navigation.' + routeName)
-
-  if (routeName === 'home' && !Meteor.user()) {
-    title = i18next.t('navigation.login')
-  }
-
-  document.title = title + ' | JW Management'
-
-  $('body').attr('page', routeName)
 })

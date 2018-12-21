@@ -17,6 +17,9 @@ Meteor.methods({
     const userId = Meteor.userId()
 
     if (userId) {
+      const language = Meteor.user().profile.language
+      moment.locale(language)
+
       const projectIds = Roles.getAllGroupsForUser(userId, Permissions.member)
       const today = parseInt(moment().format('YYYYDDDD'), 10)
 

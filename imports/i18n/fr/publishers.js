@@ -11,7 +11,7 @@ const publisher = {
         m: 'Frère',
         w: 'Soeur'
       },
-      pioneer: 'Privilège de service',
+      pioneer: 'Statut',
       pioneerValues: {
         publisher: 'Proclamateur',
         auxiliary: 'Pionnier auxiliaire',
@@ -26,17 +26,17 @@ const publisher = {
         publisher: 'Proclamateur',
         servant: 'Assistant',
         elder: 'Ancien',
-        coordinator: 'Coordinateur du collège des Anciens',
+        coordinator: 'Coordinateur du collège des anciens',
         secretary: 'Secrétaire',
         serviceOverseer: 'Responsable de prédication'
       },
       languages: 'Langues',
-      shortTermCalls: 'Recevoir des E-mails en cas de sous-effectif',
-      shortTermCallsAlways: 'Disponible bientôt',
+      shortTermCalls: 'Recevoir des e-mails en cas de sous-effectif',
+      shortTermCallsAlways: 'Bientôt disponible.',
       availability: {
         new: 'Ajoute un créneau horaire',
         noElements: 'Pas de créneau horaire disponibles',
-        deleteConfirmation: 'Désires-tu vraiement effacer ce créneau horaire?',
+        deleteConfirmation: 'Désires-tu vraiement supprimer ce créneau horaire?',
         mondays: 'Lundis',
         tuesdays: 'Mardis',
         wednesdays: 'Mercredis',
@@ -113,16 +113,16 @@ const publisher = {
       }
     },
     password: {
-      change: 'Changer le mot de passe',
-      reset: 'Envoyez un E-mail pour changer le mot de passe',
-      resetConfirmation: 'Désires-tu vraiement envoyer un E-mail pour changer le mot de passe à l\'utilisateur? Attention: Cet utilisateur ne pourra plus s\'identifer tant qu\'il ne suivra pas la procédure de la modification du mot de passe.',
+      change: 'Modifier le mot de passe',
+      reset: 'Envoyez un e-mail pour modifier le mot de passe',
+      resetConfirmation: 'Désires-tu vraiement envoyer un e-mail pour modifier le mot de passe de l\'utilisateur? Attention: cet utilisateur ne pourra plus s\'identifer tant qu\'il ne suivra pas la procédure de la modification du mot de passe.',
       password: 'Entrez le nouveau mot de passe',
       passwordRepeat: 'Entrez à nouveau le nouveau mot de passe'
     },
     invite: 'Envoyez l\'invitation de ce projet',
-    inviteConfirmation: 'Désires-tu vraiment envoyer une invitation de ce projet à cet utilisateur?',
-    delete: 'Révoquez l\'accès de cet utilisateur de ce projet',
-    deleteConfirmation: 'Désires-tu vraiement révoquer l\'accès de cet utilisateur à ce projet?'
+    inviteConfirmation: 'Désires-tu vraiment envoyer une invitation de ce projet à ce proclamateur?',
+    delete: 'Révoquez l\'accès de ce proclamateur de ce projet',
+    deleteConfirmation: 'Désires-tu vraiement révoquer l\'accès de ce proclamateur à ce projet?'
   },
   search: {
     placeholder: 'Prénom, Nom, E-mail, Tél. ou Utilisateur'

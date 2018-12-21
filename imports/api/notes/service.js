@@ -37,8 +37,10 @@ Meteor.methods({
       })
 
       if (user) {
+        moment.locale(language)
+        const localTranslate = i18next.getFixedT(language)
         const username = `${user.profile.firstname} ${user.profile.lastname}`
-        const dateformat = i18next.t('dateFormat.dateAndTime', '', language)
+        const dateformat = localTranslate('dateFormat.dateAndTime')
 
         note.lastChange = `${username} (${moment(note.lastChangeAt).format(dateformat)})`
       } else {
@@ -131,7 +133,9 @@ function getExtendedNote (projectId, noteId) {
     if (user != null) {
       const username = user.profile.firstname + ' ' + user.profile.lastname
       const language = Meteor.user().profile.language
-      const dateformat = i18next.t('dateFormat.dateAndTime', '', language)
+      moment.locale(language)
+      const localTranslate = i18next.getFixedT(language)
+      const dateformat = localTranslate('dateFormat.dateAndTime')
       const datetime = moment(note.lastChangeAt).format(dateformat)
 
       note.author = username

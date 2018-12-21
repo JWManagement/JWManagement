@@ -136,7 +136,7 @@ Template.DetailsForm.helpers({
   },
   getProperty (entity, field) {
     if (field.type === 'dropdown') {
-      return i18next.t('language._' + entity._id.toUpperCase())
+      return i18next.t('language.' + entity._id.toUpperCase())
     }
 
     if (field.key in entity) {

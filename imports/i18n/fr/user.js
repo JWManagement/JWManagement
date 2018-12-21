@@ -5,8 +5,8 @@ const user = {
   entity: {
     username: 'Nom d\'utilisateur',
     profile: {
-      firstname: 'Nom',
-      lastname: 'Prénom',
+      firstname: 'Prénom',
+      lastname: 'Nom',
       email: 'E-mail'
     },
     noElements: 'Aucun utilisateur trouvé'

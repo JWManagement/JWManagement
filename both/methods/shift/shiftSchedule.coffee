@@ -232,7 +232,12 @@ Meteor.methods
 						Shifts.update _id: shiftId, 'teams._id': team._id,
 							$addToSet: 'teams.$.participants': participant
 
-				Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+				try
+					Meteor.call 'sendTeamUpdate', shiftId, teamId, 'leader'
+				catch e
+					console.error e
+					throw e
+
 				break
 
 			return true

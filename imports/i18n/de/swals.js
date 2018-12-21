@@ -51,13 +51,31 @@ const swal = {
       confirm: 'OK',
       cancel: 'Abbrechen'
     },
-    teamUpdate: { user: [Object], general: [Object] },
+    teamUpdate: {
+      user: {
+        title: 'Teamleiter bereits informiert',
+        text: 'Der Teamleiter dieses Teams wurde bereits per E-Mail benachrichtigt. Soll dieser über die Änderung informiert werden?',
+        confirm: 'Ja',
+        cancel: 'Nein'
+      },
+      general: {
+        title: 'Bist du dir sicher?',
+        text: 'Alle bereits informierten Verkündiger erhalten eine Mail mit den aktualisierten Team-Daten.',
+        confirm: 'Ja',
+        cancel: 'Nein'
+      }
+    },
     understaffed: {
       title: 'Verkündiger informieren?',
       text: 'Sollen alle Verkündiger darüber informiert werden, dass dieses Team unterbesetzt ist?',
       confirm: 'Ja',
       cancel: 'Nein',
-      teamleader: [Object]
+      teamleader: {
+        title: 'Teamleiter informieren?',
+        text: 'Sollen alle Teamleiter über dieses Team informiert werden?',
+        confirm: 'Ja',
+        cancel: 'Nein'
+      }
     }
   },
   add: {
@@ -108,7 +126,10 @@ const swal = {
       confirm: 'Anlegen',
       cancel: 'Abbrechen'
     },
-    user: { title: 'Erstellt!', text: 'Der User wurde angelegt.' },
+    user: {
+      title: 'Erstellt!',
+      text: 'Der User wurde angelegt.'
+    },
     users: {
       title: 'Bist du dir sicher?',
       text: 'Alle angezeigten Verkündiger werden dem Projekt hinzugefügt.',

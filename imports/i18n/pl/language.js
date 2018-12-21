@@ -9,7 +9,7 @@ const language = {
     languageValues: {
       de: 'Niemiecki',
       en: 'Angielski',
-	  'en-AU': 'Angielski (Australia)',
+      'en-AU': 'Angielski (Australia)',
       fi: 'Fiński',
       fr: 'Francuski',
       hu: 'Węgierski',

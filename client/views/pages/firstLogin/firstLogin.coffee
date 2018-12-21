@@ -8,6 +8,10 @@ Template.firstLogin.helpers
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
+
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	getErrorMessage: -> Session.get('errorMessage')
@@ -62,7 +66,7 @@ Template.firstLogin.events
 								if res
 									Meteor.call 'userFirstLogin', token, username, password1, (err, res) ->
 										if typeof res == 'object' && res.done
-											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'home'
+											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'dashboard.details'
 										else
 											Session.set 'errorMessage', i18next.t('firstLogin.tokenError')
 								else
@@ -89,4 +93,4 @@ Template.firstLogin.events
 							Meteor.loginWithPassword username, password, ->
 								Meteor.call 'registerUserForProject', Meteor.userId(), token
 
-								FlowRouter.go 'home'
+								FlowRouter.go 'dashboard.details'

@@ -38,8 +38,7 @@ const pages = {
       title: 'Dostępność',
       helpText: 'Proszę zaznacz godziny w których jesteś dostępny.',
       shortTermCalls: 'Jestem dostępny nawet w ostatniej chwili',
-      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności',
-      notifyViaEmail: 'Preferuję kontakt mailowy.'
+      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności'
     },
     speaks: 'Speaks',
     telefon: 'Telefon',
@@ -230,7 +229,7 @@ const pages = {
   firstLogin: {
     name: 'Witaj',
     text: '<p>Czekaliśmy na Ciebie.</p><p>Proszę ustaw swoją nazwę użytkownika i hasło. Od teraz będziesz potrzebował ich aby zalogować się do systemu.</p><p>Po tym kroku będziesz mógł zacząć korzystać z JW Management.</p><p>Powodzenia!</p>',
-    agreeTerms: 'Zgadzam się z <a href="/en/terms" target="blank">warunkami użytkownia</a> i <a href="/en/privacy" target="blank">polityką prywatności</a>',
+    agreeTerms: 'Zgadzam się z <a href="/en/terms" target="blank">warunkami użytkownia</a> i <a href="/de/privacy" target="blank">polityką prywatności</a>',
     button: 'Zaczynamy!',
     tokenError: 'Ten link jest już nieważny. Poproś o nowy email lub spróbuj zresetować swojego hasło.',
     tokenMissing: 'Niepoprawny link. Upewnij się że skopiowałeś cały link z emaila.',
