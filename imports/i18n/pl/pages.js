@@ -43,7 +43,8 @@ const pages = {
     speaks: 'Speaks',
     telefon: 'Telefon',
     congregation: 'Zbór',
-    languages: 'Język',
+    language: 'Język konta',
+    languages: 'Języki Obce',
     gender: 'Płeć',
     _gender: {
       brother: 'Brat',
