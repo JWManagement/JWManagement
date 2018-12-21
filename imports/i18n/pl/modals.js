@@ -99,16 +99,21 @@ const modal = {
     cancelParticipation: 'Anuluj współpracę',
     addParticipant: 'Dodaj współpracownika',
     unknownAge: 'Nieznany wiek',
+    cancelTeam: 'Anuluj zmianę',
     closedTeam: 'Ten zmiana jest zamknięta. Nie możesz zgłosić chęci współpracy.',
     maximumReached: 'Osiągniętą maksymalną ilość współpracowników.',
     noPermission: 'Nie masz uprawnień do wyznaczania użytkowników',
     noTeamleader: 'Ten użytkownik nie ma uprawnień Koordynatora zmian',
+    sendUnderstaffed: 'Wyślij mail o wolnych miejscach',
     alreadyTeamleader: 'Ten użytkownik jest już Koordynatorem zmian',
     openTeam: 'Otwórz zmianę',
     closeTeam: 'Zamknij zmianę',
     switch: 'Edytuj zmianę',
     existingTeamleaders: 'Koordynator zmiany istnieje',
-    noExistingTeamleader: 'Brakuje koordynatora zmiany'
+    noExistingTeamleader: 'Brakuje koordynatora zmiany',
+    approveSelected: 'Zaakceptuj zaznaczone',
+    declineSelected: 'Odmów zaznaczonym',
+    report: 'Report'
   },
   shiftReport: {
     title: 'Sprawozdanie',
