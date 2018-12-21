@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor'
+import { Tracker } from 'meteor/tracker'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import i18next from 'i18next'
@@ -77,21 +78,32 @@ Template.calendar.onDestroyed(() => {
 })
 
 Template.calendar.events({
-  'click .shift' () {
-    wrs(() => {
-      FlowRouter.setQueryParams({
-        showShift: this._id
-      })
+  'click .shift' (event, template) {
+    FlowRouter.setQueryParams({
+      showShift: this._id
+    })
+
+    template.autorun(function () {
+      FlowRouter.watchPathChange()
+
+      if (FlowRouter.current()) {
+        loadShifts(template)
+      }
     })
   }
 })
 
-function loadShifts () {
-  const template = this
+function loadShifts (template) {
+  if (!template) {
+    template = this
+  }
+
   let params = FlowRouter.current().params
   params.date = parseInt(moment(template.selectedDate).format('YYYYDDDD'), 10)
 
-  template.isLoading.set(true)
+  if (template.selectedDateShifts.get().length === 0) {
+    template.isLoading.set(true)
+  }
 
   Meteor.call('calendar.getShifts', params, (e, shifts) => {
     template.selectedDateShifts.set(shifts)
