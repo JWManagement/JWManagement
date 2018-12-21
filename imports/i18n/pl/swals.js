@@ -68,7 +68,7 @@ const swal = {
     understaffed: {
       title: 'Poinformować głosiciela?',
       text: 'Poinformować wszystkich głosicieli o niepełnych zmianach?',
-      confirm: 'Tal',
+      confirm: 'Tak',
       cancel: 'Nie',
       teamleader: {
         title: 'Poinformować koordynatora zmiany?',
