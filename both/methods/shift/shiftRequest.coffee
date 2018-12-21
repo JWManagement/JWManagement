@@ -1,12 +1,5 @@
 import moment from 'moment'
-
-console.log 'moment'
-console.log moment
-
 import i18next from 'i18next'
-
-console.log 'i18next'
-console.log i18next
 
 Meteor.methods
 

@@ -38,8 +38,7 @@ const pages = {
       title: 'Verfügbarkeit',
       helpText: 'Markiere bitte die Stunden, in denen du verfügbar bist.',
       shortTermCalls: 'Ich darf kurzfristig kontaktiert werden',
-      shortTermCallsAlways: 'Auch wenn keine Verfügbarkeit angegeben ist',
-      notifyViaEmail: 'I prefer to be contacted via Email.'
+      shortTermCallsAlways: 'Auch wenn keine Verfügbarkeit angegeben ist'
     },
     speaks: 'Spricht',
     telefon: 'Telefon',

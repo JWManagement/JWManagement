@@ -253,6 +253,8 @@ function publisherPermissionsTagUpdate ({ projectId, userId, tagId }, key, value
       if (Roles.userIsInRole(userId, tagPermissions, tagId)) {
         Roles.removeUsersFromRoles(userId, tagPermissions, tagId)
 
+        moment.locale('en')
+
         Shifts.update({
           projectId: project._id,
           tagId: tagId,

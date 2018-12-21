@@ -23,28 +23,28 @@ const vessel = {
     imo: 'IMO',
     mmsi: 'MMSI',
     delete: 'Supprimer ce bateau',
-    deleteConfirmation: 'Voulez-vous vraiment supprimer ce bateau',
+    deleteConfirmation: 'Veux-tu vraiment supprimer ce bateau',
     visit: {
-      new: 'Ajoutez une nouvelle visite',
+      new: 'Ajoute une nouvelle visite',
       noElements: 'Ce bateau n\'a pas encore été visité',
-      delete: 'Supprimez cette visite?',
-      deleteConfirmation: 'Voulez-vous vraiment supprimer cette nouvelle visite?',
+      delete: 'Supprime cette visite?',
+      deleteConfirmation: 'Veux-tu vraiment supprimer cette nouvelle visite?',
       person: 'Proclamateur',
-      email: 'Adresse E-mail du proclamateur',
+      email: 'Adresse e-mail du proclamateur',
       phone: 'Numéro de téléphone du proclamateur',
-      isUserVisible: 'Rendre vos données de contact visibles pour d\'autres proclamateurs?',
+      isUserVisible: 'Rendre tes données visibles pour d\'autres proclamateurs?',
       date: 'Date',
       dateNext: 'Prochaine visite de préférence après',
       harbor: 'Port',
       harborId: 'Port',
       country: 'Pays',
       language: {
-        new: 'Ajoutez une langue',
+        new: 'Ajoute une langue',
         noElements: 'Aucune langue notée pour l\'instant',
-        methodConfirmation: 'Voulez-vous vraiment supprimer cette langue?',
+        methodConfirmation: 'Veux-tu vraiment supprimer cette langue?',
         languageIds: 'Langue',
         languageIdsValues: {
-          placeholder: 'Sélectionnez une langue'
+          placeholder: 'Sélectionne une langue'
         }
       },
       languages: 'Langues à bord'

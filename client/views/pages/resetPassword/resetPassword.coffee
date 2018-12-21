@@ -6,6 +6,10 @@ Template.resetPassword.helpers
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
+
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	loggingIn: -> Meteor.loggingIn() || Meteor.userId()
@@ -31,6 +35,9 @@ Template.resetPassword.events
 		pass2 = e.target['1'].value
 		token = FlowRouter.getQueryParam('token')
 
+		if token.startsWith('3D')
+			token = token.substring(2)
+
 		if token? && token != ''
 			if Meteor.areValidPasswords pass1, pass2
 				Meteor.call 'resetAccountPassword', token, pass1, (err, username) ->
@@ -40,7 +47,7 @@ Template.resetPassword.events
 					else
 						Meteor.loginWithPassword username, pass1, (e) -> unless e
 							language = Meteor.user().profile?.language
-							FlowRouter.go 'home', language: language
+							FlowRouter.go 'dashboard.details'
 			else
 				submit.ladda 'stop'
 		else

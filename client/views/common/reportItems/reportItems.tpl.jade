@@ -31,7 +31,7 @@ table.table
 		select.form-control#language
 			option(disabled selected) {{_ 'modal.shiftReport.selectPublicationFirst'}}
 			each selectedItem.languages
-				option(value="{{short}}") ({{short}}) {{_ 'language.' context=short}}
+				option(value="{{short}}") ({{short}}) {{getLanguageTranslation short}}
 	.col-md-2
 		label(for="count") {{_ 'modal.shiftReport.count'}}
 		input.form-control#count(type="number" min="0")

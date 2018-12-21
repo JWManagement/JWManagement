@@ -2,6 +2,9 @@ import i18next from 'i18next'
 
 Template.reportItems.helpers
 
+	getLanguageTranslation: (path) ->
+		i18next.t('language.' + path)
+
 	getStorePublicationTranslation: (path) ->
 		i18next.t('store.publication.' + path)
 

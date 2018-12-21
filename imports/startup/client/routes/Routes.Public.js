@@ -15,7 +15,7 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/:language/signup', {
   name: 'signUp',
-  triggersEnter: [ checkLanguage ],
+  triggersEnter: [checkLanguage],
   action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('mainLayout', { content: 'signUp' })
@@ -24,11 +24,11 @@ FlowRouter.route('/:language/signup', {
 
 FlowRouter.route('/:language/login', {
   name: 'login',
-  triggersEnter: [ checkLanguage ],
+  triggersEnter: [checkLanguage],
   action () {
     Tracker.autorun((tracker) => {
       if (Meteor.userId()) {
-        wrs(() => FlowRouter.go('home'))
+        FlowRouter.go('dashboard.details')
         tracker.stop()
       } else {
         BlazeLayout.render('blankLayout', { content: 'login' })
@@ -39,7 +39,7 @@ FlowRouter.route('/:language/login', {
 
 FlowRouter.route('/:language/forgot', {
   name: 'forgotPassword',
-  triggersEnter: [ checkLanguage, logout ],
+  triggersEnter: [checkLanguage, logout],
   action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'forgotPassword' })
@@ -48,7 +48,7 @@ FlowRouter.route('/:language/forgot', {
 
 FlowRouter.route('/:language/reset', {
   name: 'resetPassword',
-  triggersEnter: [ checkLanguage, logout ],
+  triggersEnter: [checkLanguage, logout],
   action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'resetPassword' })
@@ -57,7 +57,7 @@ FlowRouter.route('/:language/reset', {
 
 FlowRouter.route('/:language/firstLogin', {
   name: 'firstLogin',
-  triggersEnter: [ checkLanguage, logout ],
+  triggersEnter: [checkLanguage, logout],
   action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('blankLayout', { content: 'firstLogin' })
@@ -66,7 +66,7 @@ FlowRouter.route('/:language/firstLogin', {
 
 // Terms & Policy
 
-FlowRouter.route('/privacy', {
+FlowRouter.route('/de/privacy', {
   name: 'privacy',
   action () {
     BlazeLayout.render('blankLayout', { content: 'privacy' })

@@ -2,7 +2,7 @@ const swal = {
   error: 'Błąd',
   publisherInOtherTeam: 'Jeden z zaznaczonych głosicieli jest już członkiem innej zmiany. Proszę usuń go najpierw z tamtej zmiany.',
   onlyTeam: 'Nie możesz usunąć tej lokalizacii. To jest jedyna lokalizacja dla tej zmiany. Każda zmiana musi mieć przypisany przynajmniej jedną lokalizację.',
-  noTeamleader: 'Każdy zmiana musi posiadać koordynatora zmiany. Niestety ten głosiciel nie ma uprawnień do występowania w tej roli.',
+  noTeamleader: 'Każda zmiana musi posiadać koordynatora zmiany. Niestety ten głosiciel nie ma uprawnień do występowania w tej roli.',
   ownPermission: 'Nie możesz odebrać sobie uprawnień. Może to zrobić tylko inny administrator.',
   approvalInformed: 'Ten współpracownik został już poinformowany o zaakceptowaniu jego zgłoszenia.',
   declinementInformed: 'Ten współpracownik został już poinformowany o tym, że jego zgłoszenie zostało odrzucone.',

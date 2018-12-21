@@ -27,7 +27,7 @@ const dashboard = {
   participant_plural: 'Współpracownicy zmiany',
   showOlder: 'Pokaż również starsze zmiany',
   showAll: 'Pokaż wszystko',
-  calendar: 'Calendar',
+  calendar: 'Kalendarz',
   myProjects: {
     details: {
       sections: {
@@ -76,7 +76,7 @@ const dashboard = {
     },
     logout: 'Wyloguj',
     newDashboard: 'To jest nowa strona startowa',
-    newDashboardDescription: 'Dobre nowiny! Zaprojektowaliśmy dla Was nowy wygląd strony startowej. Został on stworzony z myślą o urządzeniach przenośnych. Mamy nadzieję, że się Wam spodoba!! Jeżeli coś Ci nie działą, prosimy przekaż tą informację dla nadzorcy tego projektu, a on poinformuje nas o tym.',
+    newDashboardDescription: 'Dobre nowiny! Zaprojektowaliśmy dla Was nowy wygląd strony startowej. Został on stworzony z myślą o urządzeniach przenośnych. Mamy nadzieję, że się Wam spodoba!! Jeżeli coś Ci nie działa, prosimy przekaż tą informację dla nadzorcy tego projektu, a on poinformuje nas o tym.',
     oldDashboard: 'Wróć do starej strony startowej',
     onlineUsers: 'Aktualnie online',
     myProjects: {

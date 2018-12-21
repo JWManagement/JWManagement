@@ -35,6 +35,7 @@ const publisher = {
       languageValues: {
         de: 'German',
         en: 'English',
+        'en-AU': 'English (Australian)',
         fi: 'Finnish',
         fr: 'French',
         hu: 'Hungarian',

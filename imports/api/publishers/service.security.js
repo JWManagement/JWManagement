@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { Random } from 'meteor/random'
-import { Mailer } from 'meteor/lookback:emails'
 import i18next from 'i18next'
 import { getMailTexts } from '../../framework/Functions/Mail'
 import { checkPermissions } from '../../framework/Functions/Security'
@@ -53,11 +52,12 @@ function publisherPasswordReset ({ projectId, userId }) {
   checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43)
+    let token = Random.id(43)
     const publisher = Users.findOne(userId, {
       fields: {
         'profile.email': 1,
-        'profile.language': 1
+        'profile.language': 1,
+        services: 1
       }
     })
 
@@ -65,21 +65,31 @@ function publisherPasswordReset ({ projectId, userId }) {
       throw new Meteor.Error('userHasNoEmail')
     }
 
-    Users.update(userId, {
-      $set: {
-        'services.password.reset': {
-          token: token
+    const alreadyHasToken = (publisher.services != null) &&
+      (publisher.services.password != null) &&
+      (publisher.services.password.reset != null) &&
+      publisher.services.password.reset.token
+
+    if (alreadyHasToken) {
+      token = publisher.services.password.reset.token
+    } else {
+      Users.update(publisher._id, {
+        $set: {
+          'services.password.reset': {
+            token: token
+          }
         }
-      }
-    })
+      })
+    }
 
     const language = publisher.profile.language
+    const localTranslate = i18next.getFixedT(language)
 
-    const data = {
+    MailManager.sendMail({
       recipient: publisher.profile.email,
       sender: 'JW Management',
       from: 'support@jwmanagement.org',
-      subject: i18next.t('mail.resetPassword.subject', '', language),
+      subject: localTranslate('mail.resetPassword.subject'),
       template: 'resetPassword',
       language: language,
       data: {
@@ -87,20 +97,6 @@ function publisherPasswordReset ({ projectId, userId }) {
         language: language,
         content: getMailTexts('resetPassword', language)
       }
-    }
-
-    data.data.global = {
-      footer: i18next.t('mail.footer', '', data.language),
-      link: i18next.t('mail.link', '', data.language)
-    }
-
-    Mailer.send({
-      to: data.recipient,
-      from: data.sender + ' <no-reply@jwmanagement.org>',
-      replyTo: data.sender + '<' + data.from + '>',
-      subject: data.subject,
-      template: data.template,
-      data: data.data
     })
   } catch (e) {
     console.log(e)
@@ -112,7 +108,7 @@ function publisherInvite ({ projectId, userId }) {
   checkPermissions(projectId, userId)
 
   try {
-    const token = Random.id(43)
+    let token = Random.id(43)
     const project = Projects.findOne(projectId, {
       fields: {
         name: 1
@@ -125,25 +121,36 @@ function publisherInvite ({ projectId, userId }) {
         'profile.firstname': 1,
         'profile.lastname': 1,
         'profile.language': 1,
+        services: 1,
         state: 1
       }
     })
 
-    Users.update(userId, {
-      $set: {
-        'services.password.reset': {
-          token: token
+    const alreadyHasToken = (publisher.services != null) &&
+      (publisher.services.password != null) &&
+      (publisher.services.password.reset != null) &&
+      publisher.services.password.reset.token
+
+    if (alreadyHasToken) {
+      token = publisher.services.password.reset.token
+    } else {
+      Users.update(publisher._id, {
+        $set: {
+          'services.password.reset': {
+            token: token
+          }
         }
-      }
-    })
+      })
+    }
 
     const language = publisher.profile.language
+    const localTranslate = i18next.getFixedT(language)
 
     MailManager.sendMail({
       recipient: publisher.profile.email,
       sender: project.name,
       from: project.email,
-      subject: i18next.t('mail.accountCreated.subject', '', language),
+      subject: localTranslate('mail.accountCreated.subject'),
       template: 'accountCreated',
       language: language,
       data: {

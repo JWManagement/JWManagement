@@ -38,8 +38,7 @@ const pages = {
       title: 'Dostępność',
       helpText: 'Proszę zaznacz godziny w których jesteś dostępny.',
       shortTermCalls: 'Jestem dostępny nawet w ostatniej chwili',
-      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności',
-      notifyViaEmail: 'Preferuję kontakt mailowy.'
+      shortTermCallsAlways: 'Nawet jeżeli nie zaznaczyłem dostępności'
     },
     speaks: 'Speaks',
     telefon: 'Telefon',
@@ -171,7 +170,7 @@ const pages = {
       deleteProject: 'Usuń projekt'
     },
     tags: {
-      title: 'Tags',
+      title: 'Tagi',
       helpText: '<p>Każda zmiana ma przypisany tag. Dodatkowo każdy użytkownik może mieć udostępniony lub odebrany dostęp do oglądania zmian zależnie od tagu.</p><p>Tagi mogą dotyczyć różnych aktywności (np. głoszenia z wózkami, stanowiskami informacyjnymi, głoszeniu na ulic, itd.). Dzielenie zmian na różne tagi może być użyteczne, na przykłąd jeżeli będzie istnieć w tym samym czasie kilka zmian lub jeżeli tylko wybrani głosicieli zostali przeszkolenie w jakimś rodzaju służby publicznej.</p><p>Dla każdego tagu można ustawić tygodniowy szablon zmian. Używając opcji automatycznej podczas tworzenia grafiku, system będzie mógł użyć tego szablonu. To zaoszczędzi dla Menadżera projektu lub Menadżera zmian sporo czasu potrzebnego na układanie grafiku.</p>',
       id: 'ID',
       name: 'Nazwa',
@@ -211,9 +210,9 @@ const pages = {
       remove: 'Usuń tą lokalizację'
     },
     meetings: {
-      title: 'Meeting Point',
+      title: 'Punkt Zbiórki',
       helpText: {
-        main: 'Dla każdej lokalizacji można przypisać punkt zbiórki. Dzięki temu, zmiennicy mogą spotkać się niezależnie jedni od drugich. To może być użyteczne, jeżeli lokalizacje mogą być tak oddalone od siebie, że wspólne spotkanie zabrało by za dużo czasu. Punkty zbiórki są definiowane ze współrzędnymi.',
+        main: 'Dla każdej lokalizacji można przypisać punkt zbiórki. Dzięki temu, zmiennicy mogą spotkać się niezależnie jedni od drugich. To może być użyteczne, jeżeli lokalizacje mogą być tak oddalone od siebie, że wspólne spotkanie zabrało by za dużo czasu. Punkty zbiórki są definiowane za pomocą współrzędnych.',
         picture: 'Głosiciele będą widzieli to zdjęcie. W związku z tym, zdjęcie powinno wskazywać więcej informacji dla tego punktu zbiórki. Na przykład może przedstawiać ulicę na Google Maps lub OpenStreetMap (w zależności który z nich ma lepsze pokrycie twojego ternu).'
       },
       id: 'ID',
@@ -230,7 +229,7 @@ const pages = {
   firstLogin: {
     name: 'Witaj',
     text: '<p>Czekaliśmy na Ciebie.</p><p>Proszę ustaw swoją nazwę użytkownika i hasło. Od teraz będziesz potrzebował ich aby zalogować się do systemu.</p><p>Po tym kroku będziesz mógł zacząć korzystać z JW Management.</p><p>Powodzenia!</p>',
-    agreeTerms: 'Zgadzam się z <a href="/en/terms" target="blank">warunkami użytkownia</a> i <a href="/en/privacy" target="blank">polityką prywatności</a>',
+    agreeTerms: 'Zgadzam się z <a href="/en/terms" target="blank">warunkami użytkownia</a> i <a href="/de/privacy" target="blank">polityką prywatności</a>',
     button: 'Zaczynamy!',
     tokenError: 'Ten link jest już nieważny. Poproś o nowy email lub spróbuj zresetować swojego hasło.',
     tokenMissing: 'Niepoprawny link. Upewnij się że skopiowałeś cały link z emaila.',
