@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "meteor",
-    "lint": "standard --fix"
+    "lint": "standard"
   },
   "devDependencies": {
     "standard": "^12.0.1"
