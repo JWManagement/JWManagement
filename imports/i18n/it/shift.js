@@ -1,7 +1,7 @@
 const shift = {
   entity: {
-    noElements: "Nessun turno"
+    noElements: 'Nessun turno'
   }
-};
+}
 
-export default shift;
+export default shift
