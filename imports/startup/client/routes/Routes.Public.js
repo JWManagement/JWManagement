@@ -3,8 +3,6 @@ import { Tracker } from 'meteor/tracker'
 import { Session } from 'meteor/session'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
-
-import { wrs } from '../../../framework/Functions/Async'
 import { checkLanguage, logout } from '../../../framework/Managers/RouteManager.Helpers'
 
 FlowRouter.notFound = {
