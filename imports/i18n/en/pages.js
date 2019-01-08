@@ -159,6 +159,11 @@ const pages = {
         placeholder: 'Project name',
         helpText: 'In many cases the project name is the name of the congregation. For bigger projects including multiple congregations it can be the name of the city where the project will be carried out. If the project does not organize cart witnessing, the name can also reflect what will be organized with this project.'
       },
+      news: {
+        text: 'News',
+        placeholder: 'No News yet',
+        helpText: 'The news will show up on the top of Project to communicate with your participants.'
+      },
       email: {
         text: 'Email',
         placeholder: 'Project email address',

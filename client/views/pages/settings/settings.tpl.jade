@@ -21,6 +21,11 @@ if queryParam 'editTeamPicture'
 										input#projectName.form-control(type='text' placeholder='{{_ "settings.main.name.placeholder"}}' value='{{name}}')
 										span.help-block {{_ 'settings.main.name.helpText'}}
 								.form-group
+									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.news.text'}}
+									.col-sm-10.col-lg-8
+										textarea#news-textarea(rows="4" maxlength="500" placeholder='{{_ "settings.main.news.placeholder"}}' value='{{news.text}}')  {{html2win news.text}}
+										span.help-block {{_ 'settings.main.news.helpText'}}
+								.form-group
 									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.email.text'}}
 									.col-sm-10.col-lg-8
 										input#projectEmail.form-control(type='email' placeholder='{{_ "settings.main.email.placeholder"}}' value='{{email}}')
