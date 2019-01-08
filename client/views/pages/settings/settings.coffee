@@ -83,8 +83,6 @@ Template.settings.events
 
 	'change #news-textarea': (e) ->
 		newsValue = e.target.value.replace(/\r\n|\n|\r/g, '<br>')
-		if newsValue.charAt(0) == ' '
-			newsValue = newsValue.slice(1)
 		Meteor.call 'updateProject', @_id, 'news.text', newsValue, handleError
 		Meteor.call 'updateProject', @_id, 'news.date', moment().format()
 
