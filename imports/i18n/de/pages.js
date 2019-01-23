@@ -159,6 +159,11 @@ const pages = {
         placeholder: 'Projektname',
         helpText: 'Der Projektname ist in den meisten Fällen der Name der Versammlung. Bei größeren Projekten beschreibt er den Namen der Stadt, in der das Projekt durchgeführt wird. Hat das Projekt nicht direkt mit dem Trolley-Dienst zu tun, kann die Art des Dienstes mit in den Namen aufgenommen werden.'
       },
+      news: {
+        text: 'Neuigkeiten',
+        placeholder: 'Keine Neuigkeiten',
+        helpText: 'Die Neuigkeiten werden allen Teilnehmern oben auf der Projekt Übersicht angezeigt.'
+      },
       email: {
         text: 'E-Mail',
         placeholder: 'Projekt E-Mail Adresse',

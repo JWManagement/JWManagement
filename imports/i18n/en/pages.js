@@ -162,7 +162,7 @@ const pages = {
       news: {
         text: 'News',
         placeholder: 'No News',
-        helpText: 'The news will show up on the top of Project to communicate with your participants.'
+        helpText: 'The news will show up on the top of the project overview to communicate with your participants.'
       },
       email: {
         text: 'Email',
