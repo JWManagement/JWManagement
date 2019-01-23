@@ -36,7 +36,7 @@ const misc = {
     notStoreAdmin: 'This user is not a store manager',
     notProjectParticipant: 'This user is not participating in the given project',
     notTeamleader: 'This user is not a team leader',
-    notTagParticipant: 'This user is not participating in the given tag',
+    notTagParticipant: 'This user can not participate in this shift because he/she is has no permissions for this shift\'s tag.',
     notTeamParticipant: 'This user is not participating in the given team'
   },
   time: {

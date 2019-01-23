@@ -58,8 +58,8 @@ const navigation = {
       details: 'Verkündiger Berechtigungen',
       update: 'Projekt Berechtigungen ändern',
       tag: {
-        details: 'Tag Berchtigungen',
-        update: 'Tag Berechtigungen bearbeiten'
+        details: 'Kategorie-Berechtigungen',
+        update: 'Kategorie-Berechtigungen bearbeiten'
       }
     }
   },

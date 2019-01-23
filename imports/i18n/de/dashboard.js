@@ -67,7 +67,7 @@ const dashboard = {
     profile: 'Profil',
     language: 'Sprache',
     shift: {
-      tag: 'Tag',
+      tag: 'Kategorie',
       date: 'Datum',
       start: 'Beginn',
       end: 'Ende'
@@ -82,7 +82,7 @@ const dashboard = {
     },
     missingShiftReports: {
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -92,7 +92,7 @@ const dashboard = {
     },
     upcomingShifts: {
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -103,7 +103,7 @@ const dashboard = {
     pendingRequests: {
       link: 'Alle meine offenen Bewerbungen',
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -112,7 +112,7 @@ const dashboard = {
     olderShifts: {
       link: 'Alle meine vergangenen Schichten',
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'

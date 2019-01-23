@@ -38,11 +38,11 @@ const modal = {
   editShift: {
     title: 'Schichtdaten bearbeiten',
     mainData: 'Allgemeine Daten',
-    tag: 'Tag',
+    tag: 'Kategorie',
     team: 'Team',
     teams: 'Teams dieser Schicht',
     helpText: {
-      tag: 'Wähle das Tag aus, dem die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für dieses Tag können die Schicht sehen.',
+      tag: 'Wähle die Kategorie aus, der die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für diese Kategorie können die Schicht sehen.',
       scheduling: 'Bei \'Sofort zusagen\' werden die Bewerbungen der Verkündiger sofort zugesagt, wenn die Mindest-Teilnehmer Grenze des nächsten Teams erreicht ist.'
     },
     addTeam: 'Neues Team erstellen',
