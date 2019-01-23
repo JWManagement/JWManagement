@@ -38,7 +38,7 @@ const publisher = {
         fi: 'Finnisch',
         fr: 'Französisch (teilweise)',
         hu: 'Ungarisch',
-        it: 'Italienisch (teilweise)',
+        it: 'Italienisch',
         pl: 'Polnisch',
         pt: 'Portugiesisch',
         ru: 'Russisch',

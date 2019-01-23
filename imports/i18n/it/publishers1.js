@@ -31,12 +31,12 @@ const publisher = {
         serviceOverseer: 'Sorvegliante del Servizio'
       },
       languages: 'Lingue parlate',
-      shortTermCalls: 'Ricevi email a corto di partecipanti',
+      shortTermCalls: 'Receive understaffed mails',
       shortTermCallsAlways: 'Disponibile a breve',
       availability: {
         new: 'Aggiungi una fascia oraria',
         noElements: 'Nessuna fascia oraria inserita',
-        deleteConfirmation: 'Vuoi veramente eliminare questa fascia oraria?',
+        deleteConfirmation: 'Vuoi veramente cancellare questa fascia oraria?',
         mondays: 'Lunedì',
         tuesdays: 'Martedì',
         wednesdays: 'Mercoledì',
@@ -107,9 +107,9 @@ const publisher = {
         end: 'Fine',
         new: 'Aggiungi un\'assenza',
         noElements: 'Non ci sono assenze',
-        deleteConfirmation: 'Vuoi veramente eliminare questa assenza?',
-        startDateFormat: 'DD.MM.YYYY [fino al]',
-        endDateFormat: 'DD.MM.YYYY'
+        deleteConfirmation: 'Vuoi veramente cancellare questa assenza?',
+        startDateFormat: 'DD/MM/YYYY [fino al]',
+        endDateFormat: 'DD/MM/YYYY'
       }
     },
     password: {

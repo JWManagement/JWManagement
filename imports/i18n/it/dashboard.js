@@ -1,7 +1,7 @@
 const dashboard = {
   loadingProjects: 'Carica progetti...',
   projects: 'I miei progetti',
-  noProjects: 'Non partecipi a nessun progetto',
+  noProjects: 'Non fai parte di nessun progetto',
   loadingShifts: 'Carica turni...',
   shifts: 'I miei turni',
   noShifts: 'Non hai nessun turno',
@@ -15,12 +15,12 @@ const dashboard = {
   understaffedMore: 'Mostra altri turni a corto di partecipanti',
   missing: 'Rapporto mancante',
   missing_plural: 'Rapporti mancanti',
-  approved: 'Applicazione accettata',
-  approved_plural: 'Applicazioni accettate',
-  pending: 'Applicazione pendente',
-  pending_plural: 'Applicazioni pendenti',
-  declined: 'Applicazione negata',
-  declined_plural: 'Applicazioni negate',
+  approved: 'Richiesta approvata',
+  approved_plural: 'Richieste approvate',
+  pending: 'Richiesta pendente',
+  pending_plural: 'Richieste in attesa',
+  declined: 'Richiesta negata',
+  declined_plural: 'Richieste negate',
   marked: 'Manca un partecipante',
   marked_plural: 'A corto di partecipanti',
   participant: 'Partecipante',
@@ -52,7 +52,7 @@ const dashboard = {
   pendingRequests: {
     details: {
       sections: {
-        pendingRequests: 'Applicazioni pendenti'
+        pendingRequests: 'Richieste in attesa'
       }
     }
   },
@@ -103,7 +103,7 @@ const dashboard = {
       seeAllItems_plural: 'Mostra i miei prossimi {{count}} turni'
     },
     pendingRequests: {
-      link: 'Le mie applicazioni pendenti',
+      link: 'Le mie richieste in attesa',
       shift: {
         tag: 'Tag',
         date: 'Data',
@@ -128,7 +128,7 @@ const dashboard = {
       missingShiftReports: 'Rapporti mancanti',
       upcomingShifts: 'I miei prossimi turni',
       otherShifts: 'Altri turni',
-      administration: 'Gestione',
+      administration: 'Amministrazione',
       account: 'Account'
     }
   }

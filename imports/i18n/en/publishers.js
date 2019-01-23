@@ -39,7 +39,7 @@ const publisher = {
         fi: 'Finnish',
         fr: 'French',
         hu: 'Hungarian',
-        it: 'Italian (partially)',
+        it: 'Italian',
         pl: 'Polish',
         pt: 'Portuguese',
         ru: 'Russian',
