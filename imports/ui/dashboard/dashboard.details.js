@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating'
-
 import Permissions from '../../framework/Constants/Permissions'
 
 Template['dashboard.details'].helpers({
@@ -152,3 +151,5 @@ Template['dashboard.details'].helpers({
     }]
   }
 })
+
+Template['dashboard.details'].onDestroyed(() => $('#beamerSelector').remove())

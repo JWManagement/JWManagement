@@ -145,10 +145,6 @@ Template.shiftModal.onCreated ->
 					self.subscribe 'userStatistics', user._id, shiftId for user in team.pending
 					self.subscribe 'userStatistics', user._id, shiftId for user in team.declined
 
-Template.shiftModal.onRendered ->
-
-	$('#beamerSelector').addClass('hidden')
-
 Template.shiftModal.events
 
 	'click .requestTeam': (e) ->
