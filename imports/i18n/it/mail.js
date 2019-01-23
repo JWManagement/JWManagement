@@ -4,7 +4,7 @@ const mail = {
   accountCreated: {
     subject: 'Account creato su JW Management!',
     headline: 'Benvenuto!',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'Desideriamo informarti che è stato creato un account per te su JW Management. Puoi impostare il tuo note utente personale e la tua password cliccando sul pulsante in basso.',
     text2: 'In caso di problemi siamo lieti di poterti aiutare.<br>Ti auguriamo molta gioia nell\'usare JW Management.<br>Tuoi fratelli di JW Management',
     button: 'Si parte!'
@@ -12,28 +12,28 @@ const mail = {
   teamCancellation: {
     subject: 'Team annullato',
     headline: 'Team è stato annullato.',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text: 'Purtroppo dobbiamo informarti che l\'assegnazione per il tuo team per il <b>{{date}}</b> alle ore <b>{{time}}</b> è stata <u>annullata</u>.',
     missingParticipant: 'Manca purtroppo un partecipante. Appena ci sono abbastanza partecipanti, sarà di nuovo possibile partecipare come team.'
   },
   confirmation: {
     subject: 'Nuova Richiesta Approvata',
     headline: 'La tua richiesta è stata approvata!',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'La tua richiesta per il seguete turno è stata approvata:',
     datetime: '{{date}} alle ore {{time}}'
   },
   declined: {
     subject: 'Richiesta respinta',
     headline: 'Richiesta è stata respinta',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'Purtroppo la tua richiesta per il seguente turno non è stata considerata:',
     text2: 'Grazie per la tua richiesta!',
     datetime: '{{date}} alle ore {{time}}'
   },
   reversal: {
     subject: 'Annullamento',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'Sei stato rimosso dal seguente team:',
     datetime: '{{date}} alle ore {{time}}'
   },
@@ -46,15 +46,14 @@ const mail = {
       location: 'Il luogo',
       leader: 'Il caposquadra'
     },
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'essendo stato assegnato come membro del team o caposquadra, desideriamo informarti di alcune modifiche nel tuo team.',
-    text2: 'Ecco la composizione del team aggiornata',
+    text2: 'Ecco la composizione del team aggiornata'
   },
   understaffed: {
-    datetime: '{{date}} alle ore {{time}}',
     subject: 'Team a corto di partecipanti',
     headline: 'Team è a corto di partecipanti',
-    Ciao: 'Ciao',
+    hello: 'Ciao',
     text1: 'il seguente Team è a corto di partecipanti e neccesita un volontario',
     text2: 'Per favore controlla se ti è possibile nel sostenere questo team.',
     datetime: '{{date}} alle ore {{time}}'
