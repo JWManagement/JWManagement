@@ -1,7 +1,6 @@
 const navigation = {
   welcome: 'Willkommen',
   signUp: 'Account erstellen',
-  home: 'Übersicht',
   dashboard: {
     details: 'Übersicht',
     myProjects: {

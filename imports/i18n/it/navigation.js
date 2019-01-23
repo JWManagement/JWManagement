@@ -1,7 +1,6 @@
 const navigation = {
   welcome: 'Benvenuto',
   signUp: 'Registrati',
-  home: 'Panoramica',
   Panoramica: {
     details: 'Panoramica',
     myProjects: {
@@ -52,7 +51,7 @@ const navigation = {
       },
       availability: {
         insert: 'Aggiungi una fascia oraria',
-        details: 'Disponibilita '
+        details: 'Disponibilitaï¿½'
       }
     },
     password: {

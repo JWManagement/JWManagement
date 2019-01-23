@@ -1,6 +1,5 @@
 const navigation = {
   welcome: 'Tervetuloa',
-  home: 'Hallintapaneeli',
   profile: 'Oma profiili',
   shifts: 'Vuorot',
   wiki: 'Tiedotuskeskus',

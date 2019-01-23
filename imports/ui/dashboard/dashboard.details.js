@@ -138,11 +138,6 @@ Template['dashboard.details'].helpers({
     }, {
       title: 'account',
       contents: [{
-        key: 'oldDashboard',
-        type: 'link',
-        route: 'home',
-        icon: 'dashboard'
-      }, {
         key: 'logout',
         type: 'link',
         route: 'logout',
