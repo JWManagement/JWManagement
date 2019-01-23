@@ -79,7 +79,6 @@ const modal = {
     cancelRequest: 'Cancelar requisição',
     cancelParticipation: 'Cancelar participação',
     addParticipant: 'Adicionar participante',
-    unknownAge: 'Idade desconhecida',
     closedTeam: 'Esta equipa esta fechada. Não pode requisitar participação.',
     maximumReached: 'Limite máximo de participantes já foi alcançado.',
     noPermission: 'Você nao tem permissão para planejar usuários.',

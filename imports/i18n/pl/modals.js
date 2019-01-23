@@ -98,7 +98,6 @@ const modal = {
     cancelRequest: 'Anuluj zgłoszenie',
     cancelParticipation: 'Anuluj współpracę',
     addParticipant: 'Dodaj współpracownika',
-    unknownAge: 'Nieznany wiek',
     cancelTeam: 'Anuluj zmianę',
     closedTeam: 'Ten zmiana jest zamknięta. Nie możesz zgłosić chęci współpracy.',
     maximumReached: 'Osiągniętą maksymalną ilość współpracowników.',

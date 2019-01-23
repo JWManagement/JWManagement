@@ -89,6 +89,9 @@ const modal = {
     title: 'Position mit linker Maustaste markieren'
   },
   shift: {
+    clickToEnlarge: 'Klicke auf das Bild um es zu vergrößern',
+    openLink: 'Verlinkte Informationen öffnen',
+    meetingAt: 'Treffpunkt um',
     collapseTeam: 'Route und Treffpunkte verbergen',
     expandTeam: 'Route und Treffpunkte anzeigen',
     noParticipants: 'Keine Teilnehmer',
@@ -98,7 +101,6 @@ const modal = {
     cancelRequest: 'Bewerbung zurückziehen',
     cancelParticipation: 'Teilnahme absagen',
     addParticipant: 'Verkündiger hinzufügen',
-    unknownAge: 'Alter unbekannt',
     closedTeam: 'Dieses Team ist geschlossen. Du kannst dich nicht bewerben',
     maximumReached: 'Die Maximal Grenze für das Team wurde bereits erreicht',
     noPermission: 'Du hast nicht die Berechtigung, andere Benutzer einzuteilen',
@@ -108,7 +110,13 @@ const modal = {
     closeTeam: 'Team schließen',
     switch: 'Schicht bearbeiten',
     existingTeamleaders: 'Teamleiter vorhanden',
-    noExistingTeamleader: 'Teamleiter fehlt'
+    noExistingTeamleader: 'Teamleiter fehlt',
+    notTeamleader: 'Kein Teamleiter',
+    selected: 'Selektiert:',
+    of: 'von',
+    approveSelected: 'Selektierte annehmen',
+    declineSelected: 'Selektierte ablehnen',
+    report: 'Bericht'
   },
   shiftReport: {
     title: 'Bericht',

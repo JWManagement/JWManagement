@@ -116,7 +116,6 @@ const modal = {
     cancelRequest: 'Supprimer la demande',
     cancelParticipation: 'Supprimer la participation',
     addParticipant: 'Ajouter un participant',
-    unknownAge: 'Âge inconnu',
     closedTeam: 'Cette équipe est bloquée. Tu ne peux plus t\'inscrire.',
     maximumReached: 'Le nombre maximum de participants pour cette équipe est déjà atteint.',
     noPermission: 'Tu n\'as pas l\'autorisation de planifier les utilisateurs.',
