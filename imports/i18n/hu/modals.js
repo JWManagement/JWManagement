@@ -90,7 +90,6 @@ const modal = {
     cancelRequest: 'Kérés visszavonás',
     cancelParticipation: 'A részvétel visszavonása',
     addParticipant: 'Résztvevő hozzáadása',
-    unknownAge: 'Ismeretlen életkor',
     closedTeam: 'Ez a csoport zárva van. Nem kérhetsz részvételi lehetőséget.',
     maximumReached: 'A csoport elérte amaximális létszámot',
     noPermission: 'Nincs engedélyed a felhasználók ütemezésére',

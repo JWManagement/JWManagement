@@ -109,7 +109,7 @@ const pages = {
     openRequests: 'Offene Bewerbungen',
     automation: 'Automatismus',
     template: 'Vorlage',
-    noVisibleShifts: 'Keine Schichten dieses Tags in dieser Woche',
+    noVisibleShifts: 'Keine Schichten dieser Kategorie(n) in dieser Woche',
     start: 'Start',
     end: 'Ende',
     visibility: 'Sichtbarkeit:',
@@ -125,10 +125,10 @@ const pages = {
     editShifts: 'Schichten bearbeiten',
     prevWeek: 'Zur vorherigen Woche gehen',
     nextWeek: 'Zur nächsten Woche gehen',
-    shownTag: 'Schichten dieses Tags werden momentan angezeigt',
-    hiddenTag: 'Schichten dieses Tags werden momentan verborgen',
+    shownTag: 'Schichten dieser Kategorie werden momentan angezeigt',
+    hiddenTag: 'Schichten dieser Kategorie werden momentan verborgen',
     shift: {
-      tag: 'Tag',
+      tag: 'Kategorie',
       schedule: 'Einteilung',
       teamleader: 'Teamleiter',
       teams: 'Teams',
@@ -159,6 +159,11 @@ const pages = {
         placeholder: 'Projektname',
         helpText: 'Der Projektname ist in den meisten Fällen der Name der Versammlung. Bei größeren Projekten beschreibt er den Namen der Stadt, in der das Projekt durchgeführt wird. Hat das Projekt nicht direkt mit dem Trolley-Dienst zu tun, kann die Art des Dienstes mit in den Namen aufgenommen werden.'
       },
+      news: {
+        text: 'Neuigkeiten',
+        placeholder: 'Keine Neuigkeiten',
+        helpText: 'Die Neuigkeiten werden allen Teilnehmern oben auf der Projekt Übersicht angezeigt.'
+      },
       email: {
         text: 'E-Mail',
         placeholder: 'Projekt E-Mail Adresse',
@@ -171,13 +176,13 @@ const pages = {
       deleteProject: 'Projekt löschen'
     },
     tags: {
-      title: 'Tags',
-      helpText: '<p>Jede Schicht muss einem Tag zugeordnet werden. Außerdem kann jeder Teilnehmer für bestimmte Tags berechtigt werden oder nicht. Ein Teilnehmer sieht lediglich die Schichten, die Tags zugeordet wurden, für die er berechtigt ist.</p><p>Mit Tags können verschiedene Tätigkeiten abgebildet werden (z.B. Trolley, Infostand, Ordnungsdienst, Parkplatzdienst, etc.). Das Aufteilen von Schichten in verschiedene Tags mag besonders dann Sinn machen, wenn sich die Schichten sonst zeitlich überschneiden würden.</p><p>In jedem Tag kann eine Reihe von Vorlage-Wochen definiert werden. Über den Automatismus kann das System die Schichten in den angegebenen Abständen selbstständig anlegen. Dadurch müssen die Schichten nicht mehr von Hand angelegt werden.</p>',
+      title: 'Kategorien',
+      helpText: '<p>Jede Schicht muss einer Kategorie zugeordnet werden. Außerdem kann jeder Teilnehmer für bestimmte Kategorien berechtigt werden oder nicht. Ein Teilnehmer sieht lediglich die Schichten, die einer Kategorie zugeordet wurden, für die er berechtigt ist.</p><p>Mit Kategorien können verschiedene Tätigkeiten abgebildet werden (z.B. Trolley, Infostand, Ordnungsdienst, Parkplatzdienst, etc.). Das Aufteilen von Schichten in verschiedene Kategorien mag besonders dann Sinn machen, wenn sich die Schichten sonst zeitlich überschneiden würden.</p><p>In jeder Kategorie kann eine Reihe von Vorlage-Wochen definiert werden.</p>',
       id: 'ID',
       name: 'Name',
       img: {
         name: 'Bild',
-        helpText: 'Dieses Bild wird auf der Übersicht angezeigt, wenn man auf \'Schichten\' klickt. Es sollte repräsentieren, wofür die Schichten dieses Tags gedacht sind. Wenn du ein eigenes Bild einbinden möchtest, sende uns bitte eine Mail an support@jwmanagement.org mit deinem Vorschlag.'
+        helpText: 'Dieses Bild wird auf der Übersicht angezeigt, wenn man auf \'Schichten\' klickt. Es sollte repräsentieren, wofür die Schichten dieser Kategorie gedacht sind. Wenn du ein eigenes Bild einbinden möchtest, sende uns bitte eine Mail an support@jwmanagement.org mit deinem Vorschlag.'
       },
       templates: 'Vorlagewochen',
       showTemplate: 'Schichten bearbeiten',
@@ -185,9 +190,9 @@ const pages = {
       removeTemplate: 'Löschen',
       addTemplate: 'Neue Vorlage definieren',
       action: 'Aktion',
-      none: 'Es wurden noch keine Tags angelegt',
-      add: 'Neues Tag erstellen',
-      remove: 'Tag löschen'
+      none: 'Es wurden noch keine Kategorien angelegt',
+      add: 'Neue Kategorie erstellen',
+      remove: 'Kategorie löschen'
     },
     teams: {
       title: 'Teams',

@@ -35,7 +35,7 @@ const misc = {
     notStoreAdmin: 'Dieser Benutzer ist kein Literaturdiener',
     notProjectParticipant: 'Dieser Benutzer nimmt nicht an diesem Projekt teil',
     notTeamleader: 'Dieser Benutzer ist kein Teamleiter',
-    notTagParticipant: 'Dieser Benutzer nimmt nicht an diesem Tag teil',
+    notTagParticipant: 'Dem Benutzer fehlen die Berechtigungen, um an Schichten dieser Kategorie teilnehmen zu dürfen',
     notTeamParticipant: 'Dieser Benutzer ist kein Teilnehmer des Teams'
   },
   time: {

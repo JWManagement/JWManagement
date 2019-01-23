@@ -15,8 +15,6 @@ Template.editMeetingPictureModal.helpers
 
 Template.editMeetingPictureModal.onRendered ->
 
-	$('#beamerSelector').addClass('hidden')
-
 	$('#editMeetingPictureModal').modal('show')
 	$('#editMeetingPictureModal').on 'hidden.bs.modal', ->
 		wrs -> FlowRouter.setQueryParams editMeetingPicture: undefined

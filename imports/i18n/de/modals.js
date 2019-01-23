@@ -38,11 +38,11 @@ const modal = {
   editShift: {
     title: 'Schichtdaten bearbeiten',
     mainData: 'Allgemeine Daten',
-    tag: 'Tag',
+    tag: 'Kategorie',
     team: 'Team',
     teams: 'Teams dieser Schicht',
     helpText: {
-      tag: 'Wähle das Tag aus, dem die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für dieses Tag können die Schicht sehen.',
+      tag: 'Wähle die Kategorie aus, der die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für diese Kategorie können die Schicht sehen.',
       scheduling: 'Bei \'Sofort zusagen\' werden die Bewerbungen der Verkündiger sofort zugesagt, wenn die Mindest-Teilnehmer Grenze des nächsten Teams erreicht ist.'
     },
     addTeam: 'Neues Team erstellen',
@@ -89,6 +89,9 @@ const modal = {
     title: 'Position mit linker Maustaste markieren'
   },
   shift: {
+    clickToEnlarge: 'Klicke auf das Bild um es zu vergrößern',
+    openLink: 'Verlinkte Informationen öffnen',
+    meetingAt: 'Treffpunkt um',
     collapseTeam: 'Route und Treffpunkte verbergen',
     expandTeam: 'Route und Treffpunkte anzeigen',
     noParticipants: 'Keine Teilnehmer',
@@ -98,7 +101,6 @@ const modal = {
     cancelRequest: 'Bewerbung zurückziehen',
     cancelParticipation: 'Teilnahme absagen',
     addParticipant: 'Verkündiger hinzufügen',
-    unknownAge: 'Alter unbekannt',
     closedTeam: 'Dieses Team ist geschlossen. Du kannst dich nicht bewerben',
     maximumReached: 'Die Maximal Grenze für das Team wurde bereits erreicht',
     noPermission: 'Du hast nicht die Berechtigung, andere Benutzer einzuteilen',
@@ -108,7 +110,13 @@ const modal = {
     closeTeam: 'Team schließen',
     switch: 'Schicht bearbeiten',
     existingTeamleaders: 'Teamleiter vorhanden',
-    noExistingTeamleader: 'Teamleiter fehlt'
+    noExistingTeamleader: 'Teamleiter fehlt',
+    notTeamleader: 'Kein Teamleiter',
+    selected: 'Selektiert:',
+    of: 'von',
+    approveSelected: 'Selektierte annehmen',
+    declineSelected: 'Selektierte ablehnen',
+    report: 'Bericht'
   },
   shiftReport: {
     title: 'Bericht',

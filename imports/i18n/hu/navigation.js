@@ -1,6 +1,5 @@
 const navigation = {
   welcome: 'Üdvözlet',
-  home: 'Müszerfal',
   profile: 'Saját Profil',
   shifts: 'Időpontok',
   wiki: 'Információs központ',

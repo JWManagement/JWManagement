@@ -235,19 +235,6 @@ body.md-skin {
 		border    : none;
 	}
 
-	.dashboard-header {
-		border-bottom: none !important;
-		border-top   : 0;
-		padding      : 20px;
-		margin       : 30px 20px 0;
-		box-shadow   : $md-shadow-main;
-	}
-	@media (max-width: 768px) {
-		.dashboard-header {
-			margin: 20px 0 0;
-		}
-	}
-
 	ul.notes li div {
 		box-shadow: $md-shadow-main;
 	}

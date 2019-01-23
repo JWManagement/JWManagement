@@ -12,7 +12,7 @@ const project = {
       fi: 'Finnisch',
       fr: 'Französisch',
       hu: 'Ungarisch',
-      it: 'Italienisch (teilweise)',
+      it: 'Italienisch',
       pl: 'Polnisch',
       pt: 'Portugiesisch',
       ru: 'Russisch',

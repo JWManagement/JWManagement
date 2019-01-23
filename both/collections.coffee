@@ -6,7 +6,6 @@
 @WeekSubs = new SubsManager cacheLimit: 100
 @ShiftSubs = new SubsManager cacheLimit: 1000
 @UserSubs = new SubsManager cacheLimit: 100
-@DashboardSubs = new SubsManager cacheLimit: 10
 @FileSubs = new SubsManager cacheLimit: 100
 @PictureSubs = new SubsManager cacheLimit: 100
 

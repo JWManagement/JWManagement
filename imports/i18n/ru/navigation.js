@@ -1,6 +1,5 @@
 const navigation = {
   welcome: 'Добро пожаловать',
-  home: 'Обзор',
   profile: 'Мой профиль',
   shifts: 'Смены',
   wiki: 'Информация',

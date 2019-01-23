@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor'
-import { Tracker } from 'meteor/tracker'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import i18next from 'i18next'

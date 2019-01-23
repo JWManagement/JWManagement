@@ -98,7 +98,6 @@ const modal = {
     cancelRequest: 'Peruuta ilmoittautuminen',
     cancelParticipation: 'Peruuta osallistuminen',
     addParticipant: 'Lisää osallistuja',
-    unknownAge: 'Ikä tuntematon',
     closedTeam: 'Tiimi on suljettu. Et voi pyytää osallistumista.',
     maximumReached: 'Maksimimäärä osallistujia on jo saavutettu',
     noPermission: 'Sinulla ei ole käyttöoikeuksia osallistujien aikatauluttamiseen',

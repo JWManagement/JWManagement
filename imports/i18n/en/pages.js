@@ -159,6 +159,11 @@ const pages = {
         placeholder: 'Project name',
         helpText: 'In many cases the project name is the name of the congregation. For bigger projects including multiple congregations it can be the name of the city where the project will be carried out. If the project does not organize cart witnessing, the name can also reflect what will be organized with this project.'
       },
+      news: {
+        text: 'News',
+        placeholder: 'No News',
+        helpText: 'The news will show up on the top of the project overview to communicate with your participants.'
+      },
       email: {
         text: 'Email',
         placeholder: 'Project email address',
@@ -172,7 +177,7 @@ const pages = {
     },
     tags: {
       title: 'Tags',
-      helpText: '<p>Every shift has to be assigned a tag. Furthermore every user can be permitted or denied permission to be able to see shifts depending on the tags.</p><p>Tags can reflect different activities (e.g. Cart witnessing, Information stand, Street work, etc.). The dividing of shifts into different tags can be useful, for example if there are multiple shifts at the same time or if only certain publishers are trained in a specific type of public witnessing.</p><p>With every tag there can be a set of template weeks which have been defined previously. By using the automatic option when scheduling, the program can use these template weeks. This saves the project manager or shift manager time when scheduling.</p>',
+      helpText: '<p>Every shift has to be assigned a tag. Furthermore every user can be permitted or denied permission to see shifts depending on the tags.</p><p>Tags can reflect different activities (e.g. Cart witnessing, Information stand, Street work, etc.). The dividing of shifts into different tags can be useful, for example if there are multiple shifts at the same time or if only certain publishers are trained in a specific type of public witnessing.</p><p>With every tag there can be a set of template weeks which have been defined previously.</p>',
       id: 'ID',
       name: 'Name',
       img: {
@@ -192,7 +197,7 @@ const pages = {
     teams: {
       title: 'Teams',
       helpText: {
-        main: 'For every shift there has to be at least one team. Every team is assigned to a route or location. One participant of the shift is always member of one of these teams.',
+        main: 'For every shift there has to be at least one team. Teams can e.g. represent different routes or locations. A participant of the shift is always member of one of these teams.',
         picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on Google Maps or OpenStreetMap (depending on which has better coverage of your area) and upload a picture of that here.',
         link: 'This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the Google Maps or OpenStreetMap map here.',
         description: 'Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.'
@@ -213,7 +218,7 @@ const pages = {
     meetings: {
       title: 'Meeting Point',
       helpText: {
-        main: 'For all the shift teams there can be a meeting point assigned to them. With that, teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming. Meeting points are defined with coordinates.',
+        main: 'For all the shift teams there can be a meeting point assigned to them. With that, teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming.',
         picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from Google Maps or OpenStreetMap (whichever one has better coverage of your area) here.'
       },
       id: 'ID',

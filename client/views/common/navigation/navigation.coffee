@@ -18,7 +18,7 @@ Template.navigation.helpers
 			else
 				projectId = FlowRouter.getParam('projectId')
 
-				if parent != 'home' && projectId
+				if projectId
 					FlowRouter.path parent,
 						projectId: projectId
 						language: i18next.language
