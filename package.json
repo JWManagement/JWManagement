@@ -72,7 +72,9 @@
       "context",
       "beforeEach",
       "assert",
-      "localStorage"
+      "localStorage",
+      "grecaptcha",
+      "HTTP"
     ]
   }
 }

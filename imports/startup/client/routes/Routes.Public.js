@@ -13,23 +13,27 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/:language/signup', {
   name: 'signUp',
-  triggersEnter: [checkLanguage],
   action () {
     Session.set('parent', 'dashboard.details')
     BlazeLayout.render('mainLayout', { content: 'signUp' })
   }
 })
 
+// legacy (re-routing to signIn)
 FlowRouter.route('/:language/login', {
   name: 'login',
-  triggersEnter: [checkLanguage],
+  action: () => FlowRouter.go('signIn', { language: 'en' })
+})
+
+FlowRouter.route('/:language/signin', {
+  name: 'signIn',
   action () {
     Tracker.autorun((tracker) => {
       if (Meteor.userId()) {
         FlowRouter.go('dashboard.details')
         tracker.stop()
       } else {
-        BlazeLayout.render('blankLayout', { content: 'login' })
+        BlazeLayout.render('mainLayout', { content: 'signIn' })
       }
     })
   }

@@ -4,13 +4,19 @@ import { Session } from 'meteor/session'
 import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-Template.login.helpers({
+import './signIn.html'
+import './signIn.scss'
+
+Template.signIn.helpers({
   error () {
     return Session.get('error')
+  },
+  onloadCallback () {
+    console.log('onload')
   }
 })
 
-Template.login.onCreated(() => {
+Template.signIn.onCreated(() => {
   if (FlowRouter.getRouteName() === 'dashboard.details') {
     if (!Meteor.userId() && !Meteor.loggingIn()) {
       return FlowRouter.go('landing', {
@@ -20,35 +26,49 @@ Template.login.onCreated(() => {
   }
 })
 
-Template.login.onRendered(() => {
-  return Session.set('error', '')
+Template.signIn.onRendered(() => {
+  Session.set('error', '')
 })
 
-Template.login.events({
-  'submit form' (event) {
+Template.signIn.events({
+  'submit form' (event, a, b, c) {
     event.preventDefault()
     Session.set('error', '')
 
     const submit = $('#submit').ladda()
     submit.ladda('start')
 
-    const usernameOrEmail = $('#usernameOrEmail').val()
-    const password = $('#password').val()
+    const usernameOrEmail = $('[name=usernameOrEmail]').val()
+    const password = $('[name=password]').val()
+    const captcha = grecaptcha.getResponse(0)
 
-    function loginWithPasswordAsync (username, pw) {
+    if (captcha == null || captcha === '') {
+      const message = 'missingCaptcha'
+      submit.ladda('stop')
+      Session.set('error', i18next.t(`error.${message}`))
+      return
+    }
+
+    function loginWithPasswordAsync (username, pw, captcha) {
       return new Promise((resolve, reject) => {
-        Meteor.loginWithPassword(username, pw, (error) => {
+        Meteor.call('verifyCaptcha', captcha, (error) => {
           if (error) {
             reject(error)
           } else {
-            Meteor.call('setMyAccountActive')
-            resolve()
+            Meteor.loginWithPassword(username, pw, (error) => {
+              if (error) {
+                reject(error)
+              } else {
+                Meteor.call('setMyAccountActive')
+                resolve()
+              }
+            })
           }
         })
       })
     }
 
-    loginWithPasswordAsync(usernameOrEmail, password)
+    loginWithPasswordAsync(usernameOrEmail, password, captcha)
       .catch((error) => {
         if (error.reason === 'User not found') {
           return Meteor.callPromise('getUsernameForEmailAddress', usernameOrEmail)
@@ -65,6 +85,8 @@ Template.login.events({
           message = 'incorrectPassword'
         } else if (['noAccountFound', 'multipleAccountsFound'].includes(error.error)) {
           message = error.error
+        } else {
+          console.error(error)
         }
 
         submit.ladda('stop')
