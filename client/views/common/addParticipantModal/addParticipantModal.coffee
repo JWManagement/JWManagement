@@ -1,14 +1,36 @@
 import moment from 'moment'
 
+allUsers = new ReactiveVar([])
+search = new ReactiveVar('')
+
 Template.addParticipantModal.helpers
 
+	getSearch: -> search.get()
+
 	getUsers: ->
-		projectId = FlowRouter.getParam('projectId')
-		shiftId = FlowRouter.getQueryParam('shiftId')
+		users = allUsers.get()
+		searchInput = search.get()
+		
+		if searchInput?
+			users = users.filter (user) -> (
+				user.firstname.match(new RegExp('^.*' + searchInput + '.*$', 'ig')) ||
+				user.lastname.match(new RegExp('^.*' + searchInput + '.*$', 'ig'))
+			)
+		users
 
+	selectedClass: -> 'active' if @_id == FlowRouter.getQueryParam('participantId')
+
+Template.addParticipantModal.onRendered ->
+
+	projectId = FlowRouter.getParam('projectId')
+	shiftId = FlowRouter.getQueryParam('shiftId')
+
+	@autorun -> UserSubs.subscribe 'usersByProject', projectId
+	
+	@autorun ->
 		shift = Shifts.findOne shiftId, fields: tagId: 1, date: 1, start: 1, end: 1
-
-		if shift?
+		
+		if shift
 			users = Roles.getUsersInRole Permissions.member, projectId,
 				fields:
 					'profile.firstname': 1
@@ -21,8 +43,9 @@ Template.addParticipantModal.helpers
 			users = users.fetch().filter((u) -> u._id != 'adm')
 
 			if users.length > 1
-				users = users.filter (user) -> Roles.userIsInRole user._id, Permissions.participant, shift.tagId
-
+				users = users.filter (user) ->
+					Roles.userIsInRole user._id, Permissions.participant, shift.tagId
+				
 				users = users.map (user) ->
 					available = false
 
@@ -82,12 +105,8 @@ Template.addParticipantModal.helpers
 						-1
 					else
 						0
-
-	selectedClass: -> 'active' if @_id == FlowRouter.getQueryParam('participantId')
-
-Template.addParticipantModal.onRendered ->
-
-	@autorun -> UserSubs.subscribe 'usersByProject', FlowRouter.getParam('projectId')
+				
+				allUsers.set(users)
 
 	$('#addParticipantModal').modal('show')
 	$('#addParticipantModal').on 'hidden.bs.modal', ->
@@ -101,6 +120,8 @@ Template.addParticipantModal.onRendered ->
 			showShift: shiftId
 
 Template.addParticipantModal.events
+
+	'keyup #search': (e) -> search.set(e.target.value)
 
 	'click #setUser': (e) ->
 		e.preventDefault()

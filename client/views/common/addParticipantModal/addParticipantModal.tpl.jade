@@ -1,29 +1,27 @@
 #addParticipantModal.modal.inmodal(tabindex='-1' aria-hidden='true')
-	.modal-dialog.modal-sm.animated.fadeInUp
-		.modal-content
-			.modal-header
-				i.fa.fa-user-plus.modal-icon
-				h2.m-b-none {{_ 'modal.addParticipant.title'}}
-			.modal-body
-				if isProjectShiftScheduler
-					p.text-muted {{_ 'modal.addParticipant.description'}}
-					select.form-control#other-users
-						option(selected disabled) {{_ 'modal.addParticipant.select'}}
-						each getUsers
-							option(value="{{_id}}")
-								| {{firstname}} {{lastname}}
-								if isVacation
-									| ({{_ 'profile.vacation.title'}})
-								else if available
-									| ({{_ 'modal.addParticipant.available'}})
-								else if shortTerm
-									| ({{_ 'modal.addParticipant.callable'}})
-				else
-					h2.center-align {{_ 'role.noPermission'}}
-			.modal-footer
-				if isProjectShiftScheduler
-					if queryParam 'participantId'
-						button#submit.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.submit'}}
-					else
-						.btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.submit'}}
-				button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}
+  .modal-dialog.modal-md.animated.fadeInUp
+    .modal-content
+      .modal-header
+        h2.m-b-none {{_ 'modal.addParticipant.title'}}
+        p.text-muted {{_ 'modal.addParticipant.description'}}
+        input#search.form-control(type='text' placeholder='{{_ "modal.addParticipant.search"}}')
+      .modal-body
+        if isProjectShiftScheduler
+          if getUsers
+            table.table.table-stripped
+              each getUsers
+                tr(class='{{getHidden}}')
+                  td
+                    .checkbox.checkbox-primary
+                      input(id="check_{{_id}}" type="checkbox")
+                      label(for="check_{{_id}}")
+                        | {{firstname}} {{lastname}}
+        else
+          h2.center-align {{_ 'role.noPermission'}}
+      .modal-footer
+        if isProjectShiftScheduler
+          if queryParam 'participantId'
+            button#submit.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.submit'}}
+          else
+            .btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.submit'}}
+        button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

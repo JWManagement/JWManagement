@@ -2,7 +2,7 @@ const modal = {
   close: 'Close',
   addParticipant: {
     title: 'Add participant',
-    description: 'Please choose the publisher you want to add to this shift.',
+    description: 'Please choose the publishers you want to add to this team.',
     submit: 'Add',
     alreadyRequested: 'This user has already requested participation',
     alreadyParticipating: 'This user is already participating',
@@ -10,7 +10,8 @@ const modal = {
     available: 'available',
     callable: 'callable in short term',
     available_users: 'Available Publisher',
-    all_users: 'Other Publisher'
+    all_users: 'Other Publisher',
+    search: 'Search for a publisher'
   },
   addVessel: {
     title: 'Add a vessel',

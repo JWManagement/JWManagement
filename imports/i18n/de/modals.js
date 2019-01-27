@@ -3,13 +3,14 @@ const modal = {
   addParticipant: {
     title: 'Teilnehmer hinzufügen',
     noUsers: 'Keine verfügbaren Teilnehmer gefunden',
-    description: 'Bitte wähle den Verkündiger aus, der zu der Schicht hinzugefügt werden soll.',
+    description: 'Wähle die Verkündiger aus, die zu der Schicht hinzugefügt werden sollen.',
     submit: 'Hinzufügen',
     alreadyRequested: 'Dieser Verkündiger hat sich bereits beworben',
     alreadyParticipating: 'Dieser Verkündiger nimmt bereits teil',
     available_users: 'Verfügbare Verkündiger',
     all_users: 'Alle Verkündiger',
-    select: 'Verkündiger auswählen'
+    select: 'Verkündiger auswählen',
+    search: 'Suche nach Verkündigern'
   },
   addVessel: {
     title: 'Neues Schiff hinzufügen',
@@ -175,7 +176,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-Datei hochladen',
-    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele)'
+    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele)',
     helpEncoding: 'Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!',
     uploadFile: 'CSV-Datei hochladen',
     new: 'Neue Verkündiger',
