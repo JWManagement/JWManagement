@@ -2,14 +2,7 @@ const modal = {
   close: 'Sulje',
   addParticipant: {
     title: 'Lisä osallistuja',
-    noUsers: 'Vapaana olevia käyttäjiä ei löytynyt',
-    description: 'Valitse julistaja, jonka haluat lisätä tähän vuoroon.',
-    submit: 'Lisää',
-    alreadyRequested: 'Käyttäjä on jo pyytänyt osallistumista',
-    alreadyParticipating: 'Käyttäjä on jo osallistumassa',
-    available_users: 'Käytettävissä olevat julistajat',
-    all_users: 'Muut julistajat',
-    select: 'Valitse julistaja'
+    description: 'Valitse julistaja, jonka haluat lisätä tähän vuoroon.'
   },
   addVessel: {
     title: 'Lisää laiva',

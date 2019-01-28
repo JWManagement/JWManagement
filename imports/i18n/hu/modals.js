@@ -2,14 +2,7 @@ const modal = {
   close: 'Bezárás',
   addParticipant: {
     title: 'Résztvevő hozzáadása',
-    noUsers: 'Nincs elérhető felhasználó',
-    description: 'Kérjük, válaszd ki azt a hírnököt, akit hozzá kívánsz adni ehhez a szolgálati időszakhoz.',
-    submit: 'Hozzáad',
-    alreadyRequested: 'Ez a felhasználó már kért részvételi lehetőséget',
-    alreadyParticipating: 'Ez a felhasználó már résztvevő',
-    available_users: 'Elérhető hírnök',
-    all_users: 'Egyéb hírnök',
-    select: 'Hírnök kiválasztása'
+    description: 'Kérjük, válaszd ki azt a hírnököt, akit hozzá kívánsz adni ehhez a szolgálati időszakhoz.'
   },
   addWeek: {
     title: 'Új hét készítése',

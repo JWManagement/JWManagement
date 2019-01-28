@@ -3,15 +3,9 @@ const modal = {
   addParticipant: {
     title: 'Add participant',
     description: 'Please choose the publishers you want to add to this team.',
-    submit: 'Add',
-    alreadyRequested: 'This user has already requested participation',
-    alreadyParticipating: 'This user is already participating',
-    select: 'Select Publisher',
-    available: 'available',
-    callable: 'callable in short term',
-    available_users: 'Available Publisher',
-    all_users: 'Other Publisher',
-    search: 'Search for a publisher'
+    search: 'Search for a publisher',
+    addAsRequests: 'Add as requests',
+    addAsParticipants: 'Add as participants'
   },
   addVessel: {
     title: 'Add a vessel',

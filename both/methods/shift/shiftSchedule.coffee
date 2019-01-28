@@ -242,48 +242,126 @@ Meteor.methods
 
 			return true
 
-	addParticipant: (shiftId, teamId, userId) ->
-		shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
-		user = Meteor.users.findOne userId, fields:
-			'profile.firstname': 1
-			'profile.lastname': 1
-			'profile.telefon': 1
-			'profile.email': 1
+	addRequests: (shiftId, teamId, userIds) ->
+		try
+			shift = Shifts.findOne(shiftId, {
+				fields: {
+					projectId: 1,
+					tagId: 1,
+					teams: 1
+				}
+			})
 
-		if Meteor.isClient
-			Meteor.subscribe 'userStatistics', userId, shiftId
+			users = Meteor.users.find({
+				_id: { $in: userIds }
+			}, {
+				fields: {
+					'profile.firstname': 1,
+					'profile.lastname': 1,
+					'profile.telefon': 1,
+					'profile.email': 1
+				}
+			}).fetch()
 
-		if Meteor.isServer
-			check userId, isExistingUser
-			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
-			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
-			check { tagId: shift.tagId, userId: userId }, isTagParticipant
+			if Meteor.isClient
+				for userId in userIds
+					Meteor.subscribe 'userStatistics', userId, shiftId
 
-			for team in shift.teams when team._id == teamId
-				for notapprovedUser in team.declined.concat(team.pending) when notapprovedUser? && notapprovedUser._id == userId
-					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyRequested')
+			if Meteor.isServer
+				check({ shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam)
+				check({ projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler)
 
-				for approvedUser in team.participants when approvedUser? && approvedUser._id == userId
-					throw new Meteor.Error 500, i18next.t('modal.addParticipant.alreadyParticipating')
-				break
+				for userId in userIds
+					check(userId, isExistingUser)
+					check({ tagId: shift.tagId, userId: userId }, isTagParticipant)
 
-			user =
-				_id: userId
-				name: user.profile.firstname + ' ' + user.profile.lastname
-				teamleader: Roles.userIsInRole userId, 'teamleader', shift.tagId
-				substituteTeamleader: Roles.userIsInRole userId, 'substituteTeamleader', shift.tagId
-				thisTeamleader: false
-				phone: user.profile.telefon
-				email: user.profile.email
+					user = users.filter((u) -> u._id == userId)[0]
 
-			for team in shift.teams when team._id != teamId
-				if userId in team.participants
-					Meteor.call 'declineParticipant', shiftId, team._id, userId
-				else if userId in team.pending
-					Shifts.update _id: shiftId, 'teams._id': team._id,
-						$pull: 'teams.$.pending': _id: userId
-						$addToSet: 'teams.$.declined': user
+					user = {
+						_id: userId,
+						name: user.profile.firstname + ' ' + user.profile.lastname,
+						teamleader: Roles.userIsInRole(userId, 'teamleader', shift.tagId),
+						substituteTeamleader: Roles.userIsInRole(userId, 'substituteTeamleader', shift.tagId),
+						thisTeamleader: false,
+						phone: user.profile.telefon,
+						email: user.profile.email
+					}
 
-			Shifts.update _id: shiftId, 'teams._id': teamId,
-				$pull: 'teams.$.declined': _id: userId
-				$addToSet: 'teams.$.pending': user
+					Shifts.update({
+						_id: shiftId,
+						'teams._id': teamId
+					}, {
+						$addToSet: { 'teams.$.pending': user }
+					})
+		catch e
+			console.error('ERROR in addRequests')
+			console.error(e)
+			throw e
+
+	addParticipants: (shiftId, teamId, userIds) ->
+		try
+			shift = Shifts.findOne(shiftId, {
+				fields: {
+					projectId: 1,
+					tagId: 1,
+					teams: 1
+				}
+			})
+
+			users = Meteor.users.find({
+				_id: { $in: userIds }
+			}, {
+				fields: {
+					'profile.firstname': 1,
+					'profile.lastname': 1,
+					'profile.telefon': 1,
+					'profile.email': 1
+				}
+			}).fetch()
+
+			if Meteor.isClient
+				for userId in userIds
+					Meteor.subscribe 'userStatistics', userId, shiftId
+
+			if Meteor.isServer
+				check({ shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam)
+				check({ projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler)
+
+				for userId in userIds
+					check(userId, isExistingUser)
+					check({ tagId: shift.tagId, userId: userId }, isTagParticipant)
+
+					user = users.filter((u) -> u._id == userId)[0]
+
+					user = {
+						_id: userId,
+						name: user.profile.firstname + ' ' + user.profile.lastname,
+						teamleader: Roles.userIsInRole(userId, 'teamleader', shift.tagId),
+						substituteTeamleader: Roles.userIsInRole(userId, 'substituteTeamleader', shift.tagId),
+						thisTeamleader: false,
+						phone: user.profile.telefon,
+						email: user.profile.email
+					}
+
+					for team in shift.teams when team._id != teamId
+						if userId in team.participants
+							Meteor.call('declineParticipant', shiftId, team._id, userId)
+						else if userId in team.pending
+							Shifts.update({
+								_id: shiftId,
+								'teams._id': team._id
+							}, {
+								$pull: { 'teams.$.pending': { _id: userId } },
+								$addToSet: { 'teams.$.declined': user }
+							})
+
+					Shifts.update({
+						_id: shiftId,
+						'teams._id': teamId
+					}, {
+						$addToSet: { 'teams.$.participants': user }
+					})
+		catch e
+			console.error('ERROR in addParticipants')
+			console.error(e)
+			throw e

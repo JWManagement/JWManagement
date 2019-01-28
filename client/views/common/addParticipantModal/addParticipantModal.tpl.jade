@@ -10,18 +10,19 @@
           if getUsers
             table.table.table-stripped
               each getUsers
-                tr(class='{{getHidden}}')
+                tr
                   td
                     .checkbox.checkbox-primary
                       input(id="check_{{_id}}" type="checkbox")
-                      label(for="check_{{_id}}")
-                        | {{firstname}} {{lastname}}
+                      label(for="check_{{_id}}") {{firstname}} {{lastname}}
         else
           h2.center-align {{_ 'role.noPermission'}}
       .modal-footer
         if isProjectShiftScheduler
-          if queryParam 'participantId'
-            button#submit.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.submit'}}
+          if oneOrMorePublishersAreMarked
+            button#addAsRequests.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.addAsRequests'}}
+            button#addAsParticipants.btn.btn-primary.pull-left(data-dismiss='modal') {{_ 'modal.addParticipant.addAsParticipants'}}
           else
-            .btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.submit'}}
+            .btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.addAsRequests'}}
+            .btn.btn-primary.pull-left.disabled {{_ 'modal.addParticipant.addAsParticipants'}}
         button#close.btn.btn-white(data-dismiss='modal') {{_ 'modal.close'}}

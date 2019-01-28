@@ -2,15 +2,10 @@ const modal = {
   close: 'Schließen',
   addParticipant: {
     title: 'Teilnehmer hinzufügen',
-    noUsers: 'Keine verfügbaren Teilnehmer gefunden',
     description: 'Wähle die Verkündiger aus, die zu der Schicht hinzugefügt werden sollen.',
-    submit: 'Hinzufügen',
-    alreadyRequested: 'Dieser Verkündiger hat sich bereits beworben',
-    alreadyParticipating: 'Dieser Verkündiger nimmt bereits teil',
-    available_users: 'Verfügbare Verkündiger',
-    all_users: 'Alle Verkündiger',
-    select: 'Verkündiger auswählen',
-    search: 'Suche nach Verkündigern'
+    search: 'Suche nach Verkündigern',
+    addAsRequests: 'Als Bewerber hinzufügen',
+    addAsParticipants: 'Als Teilnehmer hinzufügen'
   },
   addVessel: {
     title: 'Neues Schiff hinzufügen',
