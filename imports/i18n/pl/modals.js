@@ -2,14 +2,7 @@ const modal = {
   close: 'Zamknij',
   addParticipant: {
     title: 'Dodaj współpracownika',
-    noUsers: 'Brak dostępnych użytkowników',
-    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany',
-    submit: 'Dodaj',
-    alreadyRequested: 'Ten użytkownik otrzymał już prośbę o współpracę',
-    alreadyParticipating: 'Ten użytkownik jest już współpracownikiem',
-    available_users: 'Dostępni głosiciele',
-    all_users: 'Inni głosiciele',
-    select: 'Wybierz głosiciela'
+    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany'
   },
   addVessel: {
     title: 'Dodaj vessel',

@@ -2,14 +2,7 @@ const modal = {
   close: 'Fermer',
   addParticipant: {
     title: 'Ajouter un participant',
-    noUsers: 'Aucun proclamateur disponible n\'a été trouvé',
-    description: 'Choisi le proclamateur à ajouter pour cet horaire.',
-    submit: 'Ajouter',
-    alreadyRequested: 'Ce proclamateur a déjà fait une demande',
-    alreadyParticipating: 'Cet proclamateur est déjà inscrit',
-    available_users: 'Proclamateurs disponibles',
-    all_users: 'Autres proclamateurs',
-    select: 'Choisi le proclamateur'
+    description: 'Choisi le proclamateur à ajouter pour cet horaire.'
   },
   addVessel: {
     title: 'Ajoute un bateau',

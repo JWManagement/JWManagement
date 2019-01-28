@@ -2,14 +2,10 @@ const modal = {
   close: 'Schließen',
   addParticipant: {
     title: 'Teilnehmer hinzufügen',
-    noUsers: 'Keine verfügbaren Teilnehmer gefunden',
-    description: 'Bitte wähle den Verkündiger aus, der zu der Schicht hinzugefügt werden soll.',
-    submit: 'Hinzufügen',
-    alreadyRequested: 'Dieser Verkündiger hat sich bereits beworben',
-    alreadyParticipating: 'Dieser Verkündiger nimmt bereits teil',
-    available_users: 'Verfügbare Verkündiger',
-    all_users: 'Alle Verkündiger',
-    select: 'Verkündiger auswählen'
+    description: 'Wähle die Verkündiger aus, die zu der Schicht hinzugefügt werden sollen.',
+    search: 'Suche nach Verkündigern',
+    addAsRequests: 'Als Bewerber hinzufügen',
+    addAsParticipants: 'Als Teilnehmer hinzufügen'
   },
   addVessel: {
     title: 'Neues Schiff hinzufügen',
@@ -116,6 +112,7 @@ const modal = {
     of: 'von',
     approveSelected: 'Selektierte annehmen',
     declineSelected: 'Selektierte ablehnen',
+    removeSelected: 'Selektierte entfernen',
     report: 'Bericht'
   },
   shiftReport: {
@@ -175,7 +172,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-Datei hochladen',
-    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...)',
+    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele)',
     helpEncoding: 'Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!',
     uploadFile: 'CSV-Datei hochladen',
     new: 'Neue Verkündiger',

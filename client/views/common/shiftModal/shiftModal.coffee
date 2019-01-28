@@ -389,6 +389,13 @@ Template.shiftModal.events
 		for pending in @pending when pending.checked
 			Meteor.call 'declineRequest', shiftId, teamId, pending._id, handleError
 
+	'click .removeSelected': (e) ->
+		shiftId = FlowRouter.getQueryParam('showShift')
+		teamId = @_id
+
+		for pending in @pending when pending.checked
+			Meteor.call 'removeRequest', shiftId, teamId, pending._id, handleError
+
 	'click input[type=checkbox]': (e) ->
 		shiftId = FlowRouter.getQueryParam('showShift')
 		teamId = @_id

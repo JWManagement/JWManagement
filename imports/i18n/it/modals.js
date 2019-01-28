@@ -2,15 +2,7 @@ const modal = {
   close: 'Chiudi',
   addParticipant: {
     title: 'Aggiungi partecipante',
-    description: 'Per favore seleziona il proclamatore da aggiungere a questo turno.',
-    submit: 'Aggiungi',
-    alreadyRequested: 'Questo utente ha già richiesto di partecipare',
-    alreadyParticipating: 'Questo utente è gia un partecipante',
-    select: 'Selezione Proclamatore',
-    available: 'disponibile',
-    callable: 'raggiungibile in breve',
-    available_users: 'Proclamatori disponibili',
-    all_users: 'Altri proclamatori'
+    description: 'Per favore seleziona il proclamatore da aggiungere a questo turno.'
   },
   addVessel: {
     title: 'Aggiungi una nave',
