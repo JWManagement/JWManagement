@@ -365,3 +365,29 @@ Meteor.methods
 			console.error('ERROR in addParticipants')
 			console.error(e)
 			throw e
+
+	removeRequest: (shiftId, teamId, userId) ->
+		shift = Shifts.findOne(shiftId, {
+			fields: {
+				projectId: 1,
+				teams: 1
+			}
+		})
+
+		if Meteor.isServer
+			check { shiftId: shiftId, teamId: teamId }, isExistingShiftAndTeam
+			check { projectId: shift.projectId, userId: Meteor.userId() }, isShiftScheduler
+
+			user = {}
+
+			for team in shift.teams when team._id == teamId
+				for pending in team.pending when pending._id == userId
+					user = pending
+
+			if user
+				Shifts.update({
+					_id: shiftId,
+					'teams._id': teamId
+				}, {
+					$pull: { 'teams.$.pending': { _id: userId } }
+				})

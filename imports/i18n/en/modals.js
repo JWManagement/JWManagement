@@ -114,6 +114,7 @@ const modal = {
     of: 'of',
     approveSelected: 'Approve selected',
     declineSelected: 'Decline selected',
+    removeSelected: 'Remove selected',
     report: 'Report'
   },
   shiftReport: {

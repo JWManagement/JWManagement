@@ -112,6 +112,7 @@ const modal = {
     of: 'von',
     approveSelected: 'Selektierte annehmen',
     declineSelected: 'Selektierte ablehnen',
+    removeSelected: 'Selektierte entfernen',
     report: 'Bericht'
   },
   shiftReport: {
