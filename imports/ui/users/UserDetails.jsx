@@ -1,6 +1,5 @@
 import React from "react";
 import { withTracker } from "meteor/react-meteor-data"; // see https://atmospherejs.com/meteor/react-meteor-data#usage
-import Users from "../../api/users/Users";
 
 const UserDetail = ({ currentUser }) => (
   <div>
@@ -13,7 +12,7 @@ export default withTracker(() => {
   const userId = FlowRouter.current().params.userId;
   console.log(userId);
   
-  const currentUser = Users.findOne(userId, {
+  const currentUser = Meteor.users.findOne(userId, {
     fields: {
       username: 1,
       "profile.firstname": 1,
