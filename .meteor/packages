@@ -58,3 +58,4 @@ mixmax:smart-disconnect
 harrison:papa-parse
 cfs:gridfs
 react-template-helper
+react-meteor-data
