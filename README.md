@@ -129,7 +129,7 @@ sudo apt-get install -y nodejs
   
   Open the Terminal at the root of the project and execute ``bash``. You are now in Linux. Try it. Execute ``node``, then in the node REPL ``os.platform()``. This should give you back 'linux'.
 
- One more thing is needed: mongodb. Meteor installs mongodb for you but in this case we need our own instance of mongodb because meteor does not work or not work in a predictical way in WSL. You need to install it anyway so better on Windows.
+ One more thing is needed: mongodb. Meteor installs mongodb for you but in this case we need our own instance of mongodb because meteor does not work or not work in a predictical way in WSL. For example it seems that mongodb in WSL can only be started from ``/mnt/c``. You need to install it anyway so better on Windows.
 
   Go over to the [MongoDB Download Center](https://www.mongodb.com/download-center/community) and Download mongodb for Windows. If you choose the ZIP Version you can just unzip it to a choosen destination and add the bin Folder as an Environment variable in Windows. For example ``C:\Program Files (x86)\mongodb-win32-x86_64-2008plus-ssl-4.0.6\bin``.
   Here is located ``mongod`` needed to start the dev db.
