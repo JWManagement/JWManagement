@@ -119,6 +119,11 @@ const publisher = {
       password: 'Inserisci la nuova password',
       passwordRepeat: 'Conferma la nuova password'
     },
+    status: {
+      lastLogin: {
+        date: 'Ultimo accesso'
+      }
+    },
     invite: 'Invia un\'invito al progetto',
     inviteConfirmation: 'Vuoi veramente inviare un\'invito al progetto all\'utente?',
     delete: 'Revoca l\'accesso di questo utente al progetto',

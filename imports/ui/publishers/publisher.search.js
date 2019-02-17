@@ -24,6 +24,9 @@ Template['publisher.search'].helpers({
         name: 'profile_telefon',
         mobile: true
       }, {
+        name: 'status_lastLogin_date',
+        mobile: false
+      }, {
         name: 'username',
         mobile: true
       }

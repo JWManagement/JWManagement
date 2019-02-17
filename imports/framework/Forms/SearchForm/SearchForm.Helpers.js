@@ -16,6 +16,10 @@ function generateRows (template) {
         let tmp = item
 
         for (let property of column.name.split('_')) {
+          if (typeof tmp[property] === 'undefined') {
+            tmp = ''
+            continue
+          }
           tmp = tmp[property]
         }
 
