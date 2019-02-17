@@ -105,17 +105,49 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 ### Windows
 
-If you are on Windows, you may encounter slow build times and slow re-builds.
+If you are on Windows, you may encounter slow build times.
 One solution is to use the Windows Subsystem for Linux for the server runtime (nodejs), but running the mongodb under Windows. To achieve this do the following:
 
 1. Install the WSL see [Instructions for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-2. Once you have finished installing your Linux distribution you need to install there
+2. Once you have finished installing your Linux distribution you need to install 
 
-  * Nodejs: see the [official nodejs instructions based on the choosen distribution](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
-  For example for ubuntu do:  ```curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs```
-  * Metor: ```curl https://install.meteor.com/ | sh```
+  * Nodejs. See the [official nodejs instructions based on the choosen distribution](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
+  For example for ubuntu do: 
+  ```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
-  You do not need to clone the repository or install git again. The directories and files in Windows are mounted to Linux with WSL.
+  * Metor:
+   
+   ```
+   curl https://install.meteor.com/ | sh
+   ```
+
+  You do not need to clone the repository again in Linux. The directories and files in Windows are mounted directly with WSL.
+  
+  Open the Terminal at the root of the project and execute ``bash``. You are now in Linux. Try it. Execute ``node``, then in the node REPL ``os.platform()``. This should give you back 'linux'.
+
+ One more thing is needed: mongodb. Meteor installs mongodb for you but in this case we need our own instance of mongodb because meteor does not work or not work in a predictical way in WSL. You need to install it anyway so better on Windows.
+
+  Go over to the [MongoDB Download Center](https://www.mongodb.com/download-center/community) and Download mongodb for Windows. If you choose the ZIP Version you can just unzip it to a choosen destination and add the bin Folder as an Environment variable in Windows. For example ``C:\Program Files (x86)\mongodb-win32-x86_64-2008plus-ssl-4.0.6\bin``.
+  Here is located ``mongod`` needed to start the dev db.
+
+  With this approach the development workflow is slightly different. You will
+
+  1. Start mongodb (from Windows): 
+
+  ```mongod --port 3001 --bind_ip_all```
+
+  2. Start meteor (from Linux):
+
+  ```shell
+  bash
+  MONGO_URL=mongodb://{yourip}:3001/meteor meteor
+  ```
+  
+
+
+
 
