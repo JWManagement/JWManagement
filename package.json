@@ -34,7 +34,9 @@
   },
   "scripts": {
     "start": "meteor",
-    "lint": "standard"
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "debug": "meteor run --inspect-brk"
   },
   "devDependencies": {
     "standard": "^12.0.1"
