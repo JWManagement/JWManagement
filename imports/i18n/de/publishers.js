@@ -157,7 +157,7 @@ const publisher = {
     },
     status: {
       lastLogin: {
-        date: 'Letztes Login'
+        date: 'Letzte Anmeldung'
       }
     },
     invite: 'Einladungsmail senden',
