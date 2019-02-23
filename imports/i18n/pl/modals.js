@@ -2,11 +2,14 @@ const modal = {
   close: 'Zamknij',
   addParticipant: {
     title: 'Dodaj współpracownika',
-    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany'
+    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany',
+    search: 'Wyszukaj Głosiciela',
+    addAsRequests: 'Dodaj jako zgłoszenia',
+    addAsParticipants: 'Dodaj jako uczestników'
   },
   addVessel: {
-    title: 'Dodaj vessel',
-    action: 'Dodaj vessel'
+    title: 'Dodaj statek',
+    action: 'Dodaj statek'
   },
   addWeek: {
     title: 'Stwórz nowy tydzień',
@@ -82,8 +85,11 @@ const modal = {
     title: 'Zaznacz pozycję lewym klawiszem myszy'
   },
   shift: {
-    collapseTeam: 'Rozwiń ulicę i punkty zbiórek',
-    expandTeam: 'Rozszerz ulicę i punkty zbiórek',
+    clickToEnlarge: 'Kliknij obrazek aby powiększyć',
+    openLink: 'Zobacz załączoną informacje',
+    meetingAt: 'Punkt spotkania w',
+    collapseTeam: 'zwiń ulicę i punkty zbiórek',
+    expandTeam: 'Rozwiń ulicę i punkty zbiórek',
     noParticipants: 'Brak współpracowników',
     requestTeam: 'Zgłoś chęć współpracy',
     requestTeamAgain: 'Zgłoś chęć współpracy ponownie',
@@ -103,9 +109,13 @@ const modal = {
     switch: 'Edytuj zmianę',
     existingTeamleaders: 'Koordynator zmiany istnieje',
     noExistingTeamleader: 'Brakuje koordynatora zmiany',
+    notTeamleader: 'Nie jest koordynatorem zmiany',
+    selected: 'Zaznaczono:',
+    of: 'z',
     approveSelected: 'Zaakceptuj zaznaczone',
     declineSelected: 'Odmów zaznaczonym',
-    report: 'Report'
+    removeSelected: 'Usuń zaznaczone',
+    report: 'Raportuj'
   },
   shiftReport: {
     title: 'Sprawozdanie',

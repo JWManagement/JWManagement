@@ -8,6 +8,7 @@ const project = {
     languageValues: {
       de: 'Niemiecki',
       en: 'Angielski',
+      'en-Au': 'Agielski (Australijski)',
       fi: 'Fiński',
       fr: 'Francuski',
       hu: 'Węgierski',
@@ -15,6 +16,8 @@ const project = {
       pl: 'Polski',
       pt: 'Portugalski',
       ru: 'Rosyjski'
+      'zh-TW': 'Chiński (Tradycyjny) (częściowo)',
+      'zh-CN': 'Chiński (Uproszczony) (częściowo)'
     },
     news: {
       text: 'Aktualności'
@@ -55,6 +58,7 @@ const project = {
   support: {
     details: {
       sections: {
+        support: 'Zdobądź pomoc',
         title: 'Jeżeli doświadczysz jakichkolwiek problemów, masz pytania lub pomysły skontaktuj się z nami!',
         donate: 'Z radością współfinansujemy ten projekt. Jeżeli chciałbyś nas jakoś wesprzeć, cóż, będziemy bardzo zadowoleni'
       }

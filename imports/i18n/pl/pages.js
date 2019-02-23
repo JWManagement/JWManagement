@@ -159,6 +159,11 @@ const pages = {
         placeholder: 'Nazwa projektu',
         helpText: 'W wielu przypadkach nazwa projetku to nazwa zboru. Dla większych projektów zawierających wiele zborów to możę być nazwa miasta w którym projekt jest prowadzony. Jeżeli projetk nie dotyczy organizacji służby z wózkami, nazwa może również odnosić się do tego co będzie organizowane w tym projekcie.'
       },
+      news: {
+        text: 'Wiadomości',
+        placeholder: 'Brak Wiadomości',
+        helpText: 'Wiadomości będą pokazywane na górze podsumowania projektu aby powiadamiać twoich uczestników'
+      },
       email: {
         text: 'Email',
         placeholder: 'Adres e-mail projetku',
