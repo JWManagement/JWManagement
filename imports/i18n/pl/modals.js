@@ -2,14 +2,7 @@ const modal = {
   close: 'Zamknij',
   addParticipant: {
     title: 'Dodaj współpracownika',
-    noUsers: 'Brak dostępnych użytkowników',
-    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany',
-    submit: 'Dodaj',
-    alreadyRequested: 'Ten użytkownik otrzymał już prośbę o współpracę',
-    alreadyParticipating: 'Ten użytkownik jest już współpracownikiem',
-    available_users: 'Dostępni głosiciele',
-    all_users: 'Inni głosiciele',
-    select: 'Wybierz głosiciela'
+    description: 'Proszę wybierz użytkownika, którego chcesz dodać do tej zmiany'
   },
   addVessel: {
     title: 'Dodaj vessel',
@@ -98,17 +91,21 @@ const modal = {
     cancelRequest: 'Anuluj zgłoszenie',
     cancelParticipation: 'Anuluj współpracę',
     addParticipant: 'Dodaj współpracownika',
-    unknownAge: 'Nieznany wiek',
+    cancelTeam: 'Anuluj zmianę',
     closedTeam: 'Ten zmiana jest zamknięta. Nie możesz zgłosić chęci współpracy.',
     maximumReached: 'Osiągniętą maksymalną ilość współpracowników.',
     noPermission: 'Nie masz uprawnień do wyznaczania użytkowników',
     noTeamleader: 'Ten użytkownik nie ma uprawnień Koordynatora zmian',
+    sendUnderstaffed: 'Wyślij mail o wolnych miejscach',
     alreadyTeamleader: 'Ten użytkownik jest już Koordynatorem zmian',
     openTeam: 'Otwórz zmianę',
     closeTeam: 'Zamknij zmianę',
     switch: 'Edytuj zmianę',
     existingTeamleaders: 'Koordynator zmiany istnieje',
-    noExistingTeamleader: 'Brakuje koordynatora zmiany'
+    noExistingTeamleader: 'Brakuje koordynatora zmiany',
+    approveSelected: 'Zaakceptuj zaznaczone',
+    declineSelected: 'Odmów zaznaczonym',
+    report: 'Report'
   },
   shiftReport: {
     title: 'Sprawozdanie',

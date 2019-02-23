@@ -1,33 +1,4 @@
 const dashboard = {
-  loadingProjects: 'Lade Projekte...',
-  projects: 'Meine Projekte',
-  noProjects: 'Du nimmst an keinem Projekt teil',
-  loadingShifts: 'Lade Schichten...',
-  shifts: 'Meine Schichten',
-  noShifts: 'Du hast noch keine Schichten',
-  news: 'Neuigkeiten',
-  noNews: 'Keine Neuigkeiten',
-  newsFrom: 'Letzte Änderung',
-  editNews: 'Neuigkeiten bearbeiten',
-  changeNews: 'Änderungen speichern',
-  cancelNews: 'Änderungen abbrechen',
-  understaffed: 'Unterbesetzt',
-  understaffedMore: 'Mehr unterbesetzte Schichten zeigen',
-  missing: 'Fehlender Schichtbericht',
-  missing_plural: 'Fehlende Schichtberichte',
-  approved: 'Angenommene Bewerbung',
-  approved_plural: 'Angenommene Bewerbungen',
-  pending: 'Offene Bewerbung',
-  pending_plural: 'Offene Bewerbungen',
-  declined: 'Abgelehnte Bewerbung',
-  declined_plural: 'Abgelehnte Bewerbungen',
-  marked: 'Unterbesetzte Schicht',
-  marked_plural: 'Unterbesetzte Schichten',
-  participant: 'Schicht-Teilnehmer',
-  participant_plural: 'Schicht-Teilnehmer',
-  showOlder: 'Auch ältere Schichten zeigen',
-  showAll: 'Alles zeigen',
-  calendar: 'Kalender',
   myProjects: {
     details: {
       sections: {
@@ -67,7 +38,7 @@ const dashboard = {
     profile: 'Profil',
     language: 'Sprache',
     shift: {
-      tag: 'Tag',
+      tag: 'Kategorie',
       date: 'Datum',
       start: 'Beginn',
       end: 'Ende'
@@ -82,7 +53,7 @@ const dashboard = {
     },
     missingShiftReports: {
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -92,7 +63,7 @@ const dashboard = {
     },
     upcomingShifts: {
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -103,7 +74,7 @@ const dashboard = {
     pendingRequests: {
       link: 'Alle meine offenen Bewerbungen',
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'
@@ -112,7 +83,7 @@ const dashboard = {
     olderShifts: {
       link: 'Alle meine vergangenen Schichten',
       shift: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         date: 'Datum',
         start: 'Beginn',
         end: 'Ende'

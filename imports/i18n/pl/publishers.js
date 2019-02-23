@@ -11,6 +11,7 @@ const publisher = {
         m: 'Brat',
         w: 'Siostra'
       },
+      congregation: 'Zbór',
       pioneer: 'Przywilej służby',
       pioneerValues: {
         publisher: 'Głosiciel',

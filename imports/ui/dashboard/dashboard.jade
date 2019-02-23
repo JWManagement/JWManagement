@@ -1,2 +1,9 @@
 template(name="dashboard.details")
+  script.
+    var beamer_config = {
+      product_id : 'LvcioDLc7176',
+      button_position: 'bottom-right'
+    };
+  script(type='text/javascript' src='https://app.getbeamer.com/js/beamer-embed.js')
+
   +DetailsForm data=data

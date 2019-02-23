@@ -2,14 +2,10 @@ const modal = {
   close: 'Schließen',
   addParticipant: {
     title: 'Teilnehmer hinzufügen',
-    noUsers: 'Keine verfügbaren Teilnehmer gefunden',
-    description: 'Bitte wähle den Verkündiger aus, der zu der Schicht hinzugefügt werden soll.',
-    submit: 'Hinzufügen',
-    alreadyRequested: 'Dieser Verkündiger hat sich bereits beworben',
-    alreadyParticipating: 'Dieser Verkündiger nimmt bereits teil',
-    available_users: 'Verfügbare Verkündiger',
-    all_users: 'Alle Verkündiger',
-    select: 'Verkündiger auswählen'
+    description: 'Wähle die Verkündiger aus, die zu der Schicht hinzugefügt werden sollen.',
+    search: 'Suche nach Verkündigern',
+    addAsRequests: 'Als Bewerber hinzufügen',
+    addAsParticipants: 'Als Teilnehmer hinzufügen'
   },
   addVessel: {
     title: 'Neues Schiff hinzufügen',
@@ -38,11 +34,11 @@ const modal = {
   editShift: {
     title: 'Schichtdaten bearbeiten',
     mainData: 'Allgemeine Daten',
-    tag: 'Tag',
+    tag: 'Kategorie',
     team: 'Team',
     teams: 'Teams dieser Schicht',
     helpText: {
-      tag: 'Wähle das Tag aus, dem die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für dieses Tag können die Schicht sehen.',
+      tag: 'Wähle die Kategorie aus, der die Schicht zugeordnet werden soll. Alle Verkündiger mit Berechtigung für diese Kategorie können die Schicht sehen.',
       scheduling: 'Bei \'Sofort zusagen\' werden die Bewerbungen der Verkündiger sofort zugesagt, wenn die Mindest-Teilnehmer Grenze des nächsten Teams erreicht ist.'
     },
     addTeam: 'Neues Team erstellen',
@@ -89,6 +85,9 @@ const modal = {
     title: 'Position mit linker Maustaste markieren'
   },
   shift: {
+    clickToEnlarge: 'Klicke auf das Bild um es zu vergrößern',
+    openLink: 'Verlinkte Informationen öffnen',
+    meetingAt: 'Treffpunkt um',
     collapseTeam: 'Route und Treffpunkte verbergen',
     expandTeam: 'Route und Treffpunkte anzeigen',
     noParticipants: 'Keine Teilnehmer',
@@ -98,7 +97,6 @@ const modal = {
     cancelRequest: 'Bewerbung zurückziehen',
     cancelParticipation: 'Teilnahme absagen',
     addParticipant: 'Verkündiger hinzufügen',
-    unknownAge: 'Alter unbekannt',
     closedTeam: 'Dieses Team ist geschlossen. Du kannst dich nicht bewerben',
     maximumReached: 'Die Maximal Grenze für das Team wurde bereits erreicht',
     noPermission: 'Du hast nicht die Berechtigung, andere Benutzer einzuteilen',
@@ -108,7 +106,14 @@ const modal = {
     closeTeam: 'Team schließen',
     switch: 'Schicht bearbeiten',
     existingTeamleaders: 'Teamleiter vorhanden',
-    noExistingTeamleader: 'Teamleiter fehlt'
+    noExistingTeamleader: 'Teamleiter fehlt',
+    notTeamleader: 'Kein Teamleiter',
+    selected: 'Selektiert:',
+    of: 'von',
+    approveSelected: 'Selektierte annehmen',
+    declineSelected: 'Selektierte ablehnen',
+    removeSelected: 'Selektierte entfernen',
+    report: 'Bericht'
   },
   shiftReport: {
     title: 'Bericht',
@@ -167,7 +172,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-Datei hochladen',
-    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...)',
+    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele)',
     helpEncoding: 'Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!',
     uploadFile: 'CSV-Datei hochladen',
     new: 'Neue Verkündiger',

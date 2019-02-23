@@ -13,7 +13,7 @@ const language = {
       fi: 'Finnish',
       fr: 'French',
       hu: 'Hungarian',
-      it: 'Italian (partially)',
+      it: 'Italian',
       pl: 'Polish',
       pt: 'Portuguese',
       ru: 'Russian',
@@ -27,7 +27,7 @@ const language = {
   fi: 'Finnish',
   fr: 'French',
   hu: 'Hungarian',
-  it: 'Italian (partially)',
+  it: 'Italian',
   pl: 'Polish',
   pt: 'Portuguese',
   ru: 'Russian',
@@ -112,6 +112,7 @@ const language = {
   WO: 'Wolof',
   X: 'German',
   YR: 'Yoruba',
+  Z: 'Swedish',
   OTHER: 'Other'
 }
 

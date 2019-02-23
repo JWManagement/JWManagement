@@ -1,14 +1,51 @@
 import moment from 'moment'
 
+allUsers = new ReactiveVar([])
+search = new ReactiveVar('')
+selectedUsers = new ReactiveVar([])
+
 Template.addParticipantModal.helpers
 
+	getSearch: -> search.get()
+
 	getUsers: ->
-		projectId = FlowRouter.getParam('projectId')
-		shiftId = FlowRouter.getQueryParam('shiftId')
+		users = allUsers.get()
+		searchInput = search.get()
 
-		shift = Shifts.findOne shiftId, fields: tagId: 1, date: 1, start: 1, end: 1
+		if searchInput?
+			users = users.filter (user) -> (
+				user.firstname.match(new RegExp('^.*' + searchInput + '.*$', 'ig')) ||
+				user.lastname.match(new RegExp('^.*' + searchInput + '.*$', 'ig'))
+			)
+		users
 
-		if shift?
+	oneOrMorePublishersAreMarked: -> selectedUsers.get().length > 0
+
+Template.addParticipantModal.onRendered ->
+
+	search.set('')
+	allUsers.set([])
+	selectedUsers.set([])
+
+	projectId = FlowRouter.getParam('projectId')
+	shiftId = FlowRouter.getQueryParam('shiftId')
+	teamId = FlowRouter.getQueryParam('teamId')
+
+	@autorun -> UserSubs.subscribe 'usersByProject', projectId
+
+	@autorun ->
+		shift = Shifts.findOne shiftId,
+			fields:
+				tagId: 1,
+				date: 1,
+				start: 1,
+				end: 1,
+				'teams._id': 1,
+				'teams.participants._id': 1,
+				'teams.pending._id': 1,
+				'teams.declined._id': 1
+
+		if shift
 			users = Roles.getUsersInRole Permissions.member, projectId,
 				fields:
 					'profile.firstname': 1
@@ -18,10 +55,17 @@ Template.addParticipantModal.helpers
 					'profile.shortTermCalls': 1
 					'profile.shortTermCallsAlways': 1
 
-			users = users.fetch().filter((u) -> u._id != 'adm')
+			team = shift.teams.filter((t) => t._id == teamId)[0]
+
+			users = users.fetch()
+			users = users.filter((u) -> u._id != 'adm')
+			users = users.filter((u) -> !team.participants.map((p) -> p._id).includes(u._id))
+			users = users.filter((u) -> !team.pending.map((p) -> p._id).includes(u._id))
+			users = users.filter((u) -> !team.declined.map((p) -> p._id).includes(u._id))
 
 			if users.length > 1
-				users = users.filter (user) -> Roles.userIsInRole user._id, Permissions.participant, shift.tagId
+				users = users.filter (user) ->
+					Roles.userIsInRole user._id, Permissions.participant, shift.tagId
 
 				users = users.map (user) ->
 					available = false
@@ -60,19 +104,7 @@ Template.addParticipantModal.helpers
 					lastname: user.profile.lastname
 
 				users.sort (a, b) ->
-					if a.isVacation && !b.isVacation
-						1
-					else if !a.isVacation && b.isVacation
-						-1
-					else if !a.available && b.available
-						1
-					else if a.available && !b.available
-						-1
-					else if !a.shortTerm && b.shortTerm
-						1
-					else if a.shortTerm && !b.shortTerm
-						-1
-					else if a.lastname > b.lastname
+					if a.lastname > b.lastname
 						1
 					else if a.lastname < b.lastname
 						-1
@@ -83,13 +115,7 @@ Template.addParticipantModal.helpers
 					else
 						0
 
-	selectedClass: -> 'active' if @_id == FlowRouter.getQueryParam('participantId')
-
-Template.addParticipantModal.onRendered ->
-
-	@autorun -> UserSubs.subscribe 'usersByProject', FlowRouter.getParam('projectId')
-
-	$('#beamerSelector').addClass('hidden')
+				allUsers.set(users)
 
 	$('#addParticipantModal').modal('show')
 	$('#addParticipantModal').on 'hidden.bs.modal', ->
@@ -99,25 +125,34 @@ Template.addParticipantModal.onRendered ->
 			addParticipant: null
 			shiftId: null
 			teamId: null
-			participantId: null
 			showShift: shiftId
 
 Template.addParticipantModal.events
 
-	'click #setUser': (e) ->
-		e.preventDefault()
+	'keyup #search': (e) -> search.set(e.target.value)
 
-		if FlowRouter.getQueryParam('participantId') == @_id
-			wrs -> FlowRouter.setQueryParams participantId: null
+	'change input[id^="check"]': (e) ->
+		if $(e.target).prop('checked')
+			users = selectedUsers.get()
+			users.push(@_id)
+			selectedUsers.set(users)
+			Session.set 'selectedUsers', selectedUsers
 		else
-			wrs -> FlowRouter.setQueryParams participantId: @_id
+			users = selectedUsers.get()
+			index = users.indexOf(@_id)
+			users.splice(index, 1)
+			selectedUsers.set(users)
 
-	'change #other-users': (e) ->
-		wrs -> FlowRouter.setQueryParams participantId: $(e.target).val()
-
-	'click #submit': ->
+	'click #addAsRequests': ->
 		shiftId = FlowRouter.getQueryParam('shiftId')
 		teamId = FlowRouter.getQueryParam('teamId')
-		participantId = FlowRouter.getQueryParam('participantId')
+		userIds = selectedUsers.get()
 
-		Meteor.call 'addParticipant', shiftId, teamId, participantId, handleError
+		Meteor.call 'addRequests', shiftId, teamId, userIds, handleError
+
+	'click #addAsParticipants': ->
+		shiftId = FlowRouter.getQueryParam('shiftId')
+		teamId = FlowRouter.getQueryParam('teamId')
+		userIds = selectedUsers.get()
+
+		Meteor.call 'addParticipants', shiftId, teamId, userIds, handleError

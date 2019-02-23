@@ -29,16 +29,3 @@ FlowRouter.route('/logout', {
     })
   }
 })
-
-FlowRouter.route('/oldDashboard', {
-  name: 'home',
-  action () {
-    doIfLoggedIn(() => {
-      Session.set('parent', '')
-      BlazeLayout.render('mainLayout', { content: 'dashboard' })
-    },
-    () => {
-      FlowRouter.go('landing')
-    })
-  }
-})

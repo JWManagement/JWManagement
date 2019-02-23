@@ -2,15 +2,10 @@ const modal = {
   close: 'Close',
   addParticipant: {
     title: 'Add participant',
-    description: 'Please choose the publisher you want to add to this shift.',
-    submit: 'Add',
-    alreadyRequested: 'This user has already requested participation',
-    alreadyParticipating: 'This user is already participating',
-    select: 'Select Publisher',
-    available: 'available',
-    callable: 'callable in short term',
-    available_users: 'Available Publisher',
-    all_users: 'Other Publisher'
+    description: 'Please choose the publishers you want to add to this team.',
+    search: 'Search for a publisher',
+    addAsRequests: 'Add as requests',
+    addAsParticipants: 'Add as participants'
   },
   addVessel: {
     title: 'Add a vessel',
@@ -119,6 +114,7 @@ const modal = {
     of: 'of',
     approveSelected: 'Approve selected',
     declineSelected: 'Decline selected',
+    removeSelected: 'Remove selected',
     report: 'Report'
   },
   shiftReport: {
@@ -178,7 +174,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-File upload',
-    helpText: 'Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation, Account Language (\'en\', \'de\', ...)',
+    helpText: 'Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation, Account Language (\'en\', \'de\', ...), Foreign languages spoken (e.g. \'German, French\'), Roles (see user export for an example)',
     helpEncoding: 'The file has to be UTF-8 encoded to support all characters',
     uploadFile: 'Upload CSV-File',
     new: 'New Publishers',

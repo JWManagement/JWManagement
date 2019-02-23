@@ -2,14 +2,7 @@ const modal = {
   close: 'Fechar',
   addParticipant: {
     title: 'Adicionar participante',
-    noUsers: 'No available users found',
-    description: 'Por favor escolha o publicador que você quer adicionar a este turno.',
-    submit: 'Adicionar',
-    alreadyRequested: 'Este usuário já requisitou participação.',
-    alreadyParticipating: 'Este usuário já está participando.',
-    available_users: 'Publicador Disponivel',
-    all_users: 'Outro Publicador',
-    select: 'Selecione Publicador'
+    description: 'Por favor escolha o publicador que você quer adicionar a este turno.'
   },
   addWeek: {
     title: 'Criar nova semana',
@@ -79,7 +72,6 @@ const modal = {
     cancelRequest: 'Cancelar requisição',
     cancelParticipation: 'Cancelar participação',
     addParticipant: 'Adicionar participante',
-    unknownAge: 'Idade desconhecida',
     closedTeam: 'Esta equipa esta fechada. Não pode requisitar participação.',
     maximumReached: 'Limite máximo de participantes já foi alcançado.',
     noPermission: 'Você nao tem permissão para planejar usuários.',

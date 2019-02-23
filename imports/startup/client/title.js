@@ -11,10 +11,6 @@ function updateTitle () {
   const routeName = FlowRouter.getRouteName()
   let title = i18next.t('navigation.' + routeName)
 
-  if (routeName === 'home' && !Meteor.user()) {
-    title = i18next.t('navigation.login')
-  }
-
   document.title = title + ' | JW Management'
 
   $('body').attr('page', routeName)
@@ -24,17 +20,4 @@ i18next.init({}, () => {
   if (Meteor.isClient) {
     updateTitle()
   }
-})
-
-Tracker.autorun(function () {
-  const routeName = FlowRouter.getRouteName()
-  let title = i18next.t('navigation.' + routeName)
-
-  if (routeName === 'home' && !Meteor.user()) {
-    title = i18next.t('navigation.login')
-  }
-
-  document.title = title + ' | JW Management'
-
-  $('body').attr('page', routeName)
 })

@@ -14,8 +14,6 @@ Template.uploadUserFileModal.helpers
 
 Template.uploadUserFileModal.onRendered ->
 
-	$('#beamerSelector').addClass('hidden')
-
 	$('#uploadUserFileModal').modal('show')
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
 		$('.modal-backdrop').remove()

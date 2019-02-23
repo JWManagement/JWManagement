@@ -43,7 +43,8 @@ const pages = {
     speaks: 'Speaks',
     telefon: 'Telefon',
     congregation: 'Zbór',
-    languages: 'Język',
+    language: 'Język konta',
+    languages: 'Języki Obce',
     gender: 'Płeć',
     _gender: {
       brother: 'Brat',
@@ -205,7 +206,7 @@ const pages = {
       link: 'Link',
       description: 'Opis',
       action: 'Akcje',
-      none: 'Żaden lokalizacja nie została jeszcze dodana',
+      none: 'Żadna lokalizacja nie została jeszcze dodana',
       add: 'Dodaj nową lokalizację',
       remove: 'Usuń tą lokalizację'
     },

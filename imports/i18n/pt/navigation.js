@@ -1,6 +1,5 @@
 const navigation = {
   welcome: 'Bem Vindo',
-  home: 'Painel de Controlo',
   profile: 'Meu Perfil',
   shifts: 'Turnos',
   wiki: 'Centro de Informação',

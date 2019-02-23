@@ -8,10 +8,11 @@ const project = {
     languageValues: {
       de: 'German',
       en: 'English',
+      'en-Au': 'English (Australia)',
       fi: 'Finnish',
       fr: 'French',
       hu: 'Hungarian',
-      it: 'Italian (partially)',
+      it: 'Italian',
       pl: 'Polish',
       pt: 'Portuguese',
       ru: 'Russian',

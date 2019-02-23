@@ -1,4 +1,5 @@
 import i18next from 'i18next'
+import moment from 'moment'
 
 Template.settings.helpers
 
@@ -79,6 +80,11 @@ Template.settings.onDestroyed ->
 Template.settings.events
 
 	'change #projectName': (e) -> Meteor.call 'updateProject', @_id, 'name', e.target.value, handleError
+
+	'change #news-textarea': (e) ->
+		newsValue = e.target.value.replace(/\r\n|\n|\r/g, '<br>')
+		Meteor.call 'updateProject', @_id, 'news.text', newsValue, handleError
+		Meteor.call 'updateProject', @_id, 'news.date', moment().format()
 
 	'change #projectEmail': (e) -> Meteor.call 'updateProject', @_id, 'email', e.target.value, handleError
 

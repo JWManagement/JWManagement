@@ -57,10 +57,6 @@ Template.shiftReport.onCreated ->
 			if shiftId && teamId
 				Meteor.call 'initReport', shiftId, teamId
 
-Template.shiftReport.onRendered ->
-
-	$('#beamerSelector').addClass('hidden')
-
 Template.shiftReport.onDestroyed ->
 
 	wrs -> FlowRouter.setQueryParams reportTeamId: undefined
