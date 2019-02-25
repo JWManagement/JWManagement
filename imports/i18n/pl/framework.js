@@ -5,7 +5,7 @@ const framework = {
     xResults: '{{count}} wynik',
     xResults_plural: '{{count}} wyników',
     showingTheFirstX: 'Pokazuję pierwszy {{count}}',
-    showingAll: '',
+    showingAll: 'Pokazuję wszystkie',
     showingAll_plural: 'Pokazuję wszystkie',
     showAll: 'Pokaż wszystkie {{count}}'
   },

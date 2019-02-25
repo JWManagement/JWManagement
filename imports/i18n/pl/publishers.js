@@ -31,7 +31,22 @@ const publisher = {
         secretary: 'Sekretarz',
         serviceOverseer: 'Nadzorca służby'
       },
-      languages: 'Obce języki',
+      language: 'Język konta',
+      languageValues: {
+        de: 'Niemiecki',
+        en: 'Angielski',
+        'en-AU': 'Angielski (Australijski)',
+        fi: 'Fiński',
+        fr: 'Francuski',
+        hu: 'Węgierski',
+        it: 'Włoski',
+        pl: 'Polski',
+        pt: 'Portugalski',
+        ru: 'Rosyski',
+        'zh-TW': 'Chiński (Tradycyjny) (częściowo)',
+        'zh-CN': 'Chinese (Uproszczony) (częściowo)'
+      },
+      languages: 'Języki Obce',
       shortTermCalls: 'Jestem dostępny nawet w ostatniej chwili',
       shortTermCallsAlways: 'Nawet jeśli nie zaznaczyłem dostępności',
       availability: {

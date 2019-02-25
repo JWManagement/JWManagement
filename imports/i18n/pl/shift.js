@@ -1,6 +1,6 @@
 const shift = {
   entity: {
-    noElements: 'Brak zmian'
+    noElements: 'Nie znaleziono zmian'
   }
 }
 
