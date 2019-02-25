@@ -15,7 +15,7 @@ const project = {
       it: 'Włoski',
       pl: 'Polski',
       pt: 'Portugalski',
-      ru: 'Rosyjski'
+      ru: 'Rosyjski',
       'zh-TW': 'Chiński (Tradycyjny) (częściowo)',
       'zh-CN': 'Chiński (Uproszczony) (częściowo)'
     },
