@@ -13,9 +13,10 @@ const vessel = {
       pt: 'Pushtow',
       rc: 'River cruise ship',
       f: 'Ferry',
+      r: 'Reefer ship',
       ro: 'Ro-Ro',
       t: 'Tug',
-      unknown: 'Unknown'
+      unknown: 'Other'
     },
     callsign: 'Call sign',
     eni: 'ENI',

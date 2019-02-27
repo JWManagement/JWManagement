@@ -11,11 +11,12 @@ const vessel = {
       mt: 'Tanker',
       p: 'Passagierschiff',
       pt: 'Schubboot',
+      r: 'Kühlschiff',
       rc: 'Flusskreuzfahrtschiff',
       f: 'Fähre',
       ro: 'Ro-Ro',
       t: 'Schlepper',
-      unknown: 'Unbekannt'
+      unknown: 'Sonstiges'
     },
     callsign: 'Rufzeichen',
     eni: 'ENI',

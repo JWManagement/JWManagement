@@ -169,6 +169,7 @@ Template.store.helpers
 		'WO',
 		'X',
 		'YR',
+		'Z',
 		'OTHER'
 	].map((lang) ->
 		short: lang

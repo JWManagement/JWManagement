@@ -111,6 +111,7 @@ const language = {
   WO: 'Wolof',
   X: 'Deutsch',
   YR: 'Yoruba',
+  Z: 'Schwedisch',
   OTHER: 'Andere'
 }
 

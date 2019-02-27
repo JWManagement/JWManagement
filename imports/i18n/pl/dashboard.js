@@ -9,7 +9,7 @@ const dashboard = {
   missingShiftReports: {
     details: {
       sections: {
-        missingShiftReports: 'Brakujące raporty zmian'
+        missingShiftReports: 'Brakujące sprawozdania zmian'
       }
     }
   },
@@ -97,7 +97,7 @@ const dashboard = {
   details: {
     sections: {
       myProjects: 'Moje projekty',
-      missingShiftReports: 'Brakujące raporty zmian',
+      missingShiftReports: 'Brakujące sprawozdania zmian',
       upcomingShifts: 'Moje nadchodzące zmiany',
       otherShifts: 'Inne zmiany',
       administration: 'Administracja',
