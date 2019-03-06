@@ -25,6 +25,8 @@ Template['publisher.search'].helpers({
         mobile: true
       }, {
         name: 'status_lastLogin_date',
+        type: 'date',
+        format: 'YYYY-MM-DD',
         mobile: false
       }, {
         name: 'username',
