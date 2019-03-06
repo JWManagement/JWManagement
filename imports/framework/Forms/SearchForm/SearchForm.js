@@ -2,8 +2,9 @@ import { Template } from 'meteor/templating'
 import { Tracker } from 'meteor/tracker'
 import { Session } from 'meteor/session'
 import { ReactiveVar } from 'meteor/reactive-var'
-import i18next from 'i18next'
 import { FlowRouter } from 'meteor/kadira:flow-router'
+import i18next from 'i18next'
+import moment from 'moment'
 
 import RouteManager from '../../Managers/RouteManager'
 import { getTitle } from '../../Helpers/Helpers'
@@ -92,6 +93,15 @@ Template.SearchForm.onRendered(() => {
 
   template.autorun(() => {
     const rows = template.rows.get()
+      .map((row) => {
+        for (let column of columns) {
+          if (column.type === 'date') {
+            console.log(column)
+            row[column.name] = moment(row[column.name]).format(column.format)
+          }
+        }
+        return row
+      })
 
     Tracker.afterFlush(() => {
       $('#table').html('')

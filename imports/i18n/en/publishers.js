@@ -156,6 +156,11 @@ const publisher = {
         }
       }
     },
+    status: {
+      lastLogin: {
+        date: 'Last Login'
+      }
+    },
     invite: 'Send project invitation',
     inviteConfirmation: 'Do you really want to send a project invitation mail to the user?',
     delete: 'Revoke this user\'s access to the project',
