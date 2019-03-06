@@ -155,6 +155,11 @@ const publisher = {
         }
       }
     },
+    status: {
+      lastLogin: {
+        date: 'Letzte Anmeldung'
+      }
+    },
     invite: 'Einladungsmail senden',
     inviteConfirmation: 'Möchtest du diesem Verkündiger wirklich eine Einladungsmail senden?',
     delete: 'Verkündiger aus diesem Projekt entfernen',
