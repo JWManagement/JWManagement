@@ -96,6 +96,7 @@ const vessel = {
         dehau: '(DEHAU) Hanau',
         dehcs: '(DEHCS) Höchst',
         dehee: '(DEHEE) Herne',
+        dehen: '(DEHEN) Heilbronn',
         dehgl: '(DEHGL) Helgoland',
         dehhf: '(DEHHF) Heiligenhafen',
         dehil: '(DEHIL) Hildesheim',
