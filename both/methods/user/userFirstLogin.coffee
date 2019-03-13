@@ -9,12 +9,15 @@ Meteor.methods
 			username = Validations.removeSpecials username
 			username = username.toLowerCase username
 
-			if user?
-				Accounts.setPassword user._id, password
-				Accounts.setUsername user._id, username
-				Meteor.users.update user._id, $set: state: 'active'
-				done: true
+			if Meteor.isServer
+				if user?
+					Accounts.setPassword user._id, password
+					Accounts.setUsername user._id, username
+					Meteor.users.update user._id, $set: state: 'active'
+					done: true
+				else
+					done: false
 			else
-				done: false
+				done: true
 		else
 			done: false

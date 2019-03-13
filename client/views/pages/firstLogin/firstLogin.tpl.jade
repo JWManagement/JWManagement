@@ -6,7 +6,7 @@
 					h2.font-bold.text-center.m-b-lg {{_ "firstLogin.name"}}
 					p.center-align {{{_ "firstLogin.text"}}}
 					if getErrorMessage
-						.alert.alert-danger {{getErrorMessage}}
+						.alert.alert-danger {{{getErrorMessage}}}
 					.row
 						if noState
 							.center-align
@@ -38,12 +38,14 @@
 										.form-group
 											input#password.form-control(type='password' placeholder='{{_ "input.password"}}' required)
 										button.btn.btn-primary.block.full-width(type='submit') {{_ "firstLogin.button"}}
-										button#createAccount.btn.btn-white.block.full-width.m-t I need to create an account
+										button#createAccount.btn.btn-white.block.full-width.m-t {{_ "firstLogin.buttonCreateAccount"}}
 				else
 					if loggingIn
 						.sk-spinner.sk-spinner-pulse
 					else if isLoading
 						.sk-spinner.sk-spinner-pulse
+					else if getErrorMessage
+						h2.center-align {{{getErrorMessage}}}
 					else
 						h2.center-align {{{_ 'resetPassword.noUserFound'}}}
 	.dropdown.m-t.text-center

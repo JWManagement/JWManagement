@@ -8,10 +8,6 @@ Template.firstLogin.helpers
 
 	user: ->
 		token = FlowRouter.getQueryParam('token')
-
-		if token.startsWith('3D')
-			token = token.substring(2)
-
 		Meteor.users.findOne 'services.password.reset.token': token
 
 	getErrorMessage: -> Session.get('errorMessage')
@@ -27,12 +23,22 @@ Template.firstLogin.onCreated ->
 	isLoading.set true
 	noState.set true
 
+	Session.set('errorMessage', i18next.t('resetPassword.noUserFound'))
+
 	@autorun ->
 		token = FlowRouter.getQueryParam('token')
 
 		if token? && token != ''
-			handle = Meteor.subscribe 'userByToken', token
-			isLoading.set(!handle.ready())
+			if token.startsWith('3D') && token.endsWith('=')
+				Session.set('errorMessage', i18next.t('firstLogin.plainTextToken'))
+				isLoading.set(false)
+			else
+				Session.set('errorMessage', '')
+
+				handle = Meteor.subscribe 'userByToken', token
+				isLoading.set(!handle.ready())
+		else
+			isLoading.set(false)
 
 Template.firstLogin.events
 
@@ -62,15 +68,18 @@ Template.firstLogin.events
 				if agreeTerms
 					if username
 						if Meteor.areValidPasswords password1, password2
-							Meteor.call 'usernameAvailable', username, (err, res) ->
-								if res
-									Meteor.call 'userFirstLogin', token, username, password1, (err, res) ->
-										if typeof res == 'object' && res.done
-											Meteor.loginWithPassword username, password1, -> FlowRouter.go 'dashboard.details'
-										else
-											Session.set 'errorMessage', i18next.t('firstLogin.tokenError')
-								else
-									Session.set 'errorMessage', i18next.t('firstLogin.usernameExists')
+							if username.indexOf('@') > -1
+								Session.set 'errorMessage', i18next.t('firstLogin.usernameCannotBeEmail')
+							else
+								Meteor.call 'usernameAvailable', username, (err, res) ->
+									if res
+										Meteor.call 'userFirstLogin', token, username, password1, (err, res) ->
+											if typeof res == 'object' && res.done
+												Meteor.loginWithPassword username, password1, -> FlowRouter.go 'dashboard.details'
+											else
+												Session.set 'errorMessage', i18next.t('firstLogin.tokenError') + ' ' + err
+									else
+										Session.set 'errorMessage', i18next.t('firstLogin.usernameExists')
 					else
 						Session.set 'errorMessage', i18next.t('firstLogin.usernameMissing')
 				else

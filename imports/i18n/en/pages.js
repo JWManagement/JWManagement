@@ -238,9 +238,11 @@ const pages = {
     agreeTerms: 'I agree the <a href="/en/terms" target="blank">terms of usage</a> and the <a href="/de/privacy" target="blank">privacy policy</a>',
     button: 'Let\'s Go!',
     tokenError: 'Expired link. This is not valid any more. Please ask for a new E-Mail or try to reset your password.',
+    plainTextToken: 'Seems like you\'re mail client doesn\'t support html mails. Please open the mail with a modern mail client to get the full link.',
     tokenMissing: 'Invalid link. Please visit the link from the email.',
     usernameExists: 'This username is already in use. Please choose another one.',
     usernameMissing: 'Please provide a username.',
+    usernameCannotBeEmail: 'Sorry, the username cannot be an email address. Please choose a different username.',
     agreeTermsMissing: 'Please agree the terms of usage and the privacy policy.',
     buttonCreateAccount: 'I need to create an account',
     buttonHaveAccount: 'I already have an account'

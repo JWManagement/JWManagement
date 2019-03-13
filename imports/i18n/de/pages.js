@@ -239,9 +239,11 @@ const pages = {
     button: 'Los geht\'s!',
     tokenError: 'Abgelaufener Link. Dieser Link ist nicht mehr gültig. Bitte lass dir eine neue E-Mail schicken oder versuche, dein Passwort zurückzusetzen.',
     tokenMissing: 'Ungültiger Link. Bitte verwende den Link aus der E-Mail.',
+    plainTextToken: 'Scheint, als unterstützt dein Mail Programm kein HTML. Bitte öffne den Link noch einmal aus einem modernen Mail Programm heraus.',
     usernameExists: 'Der Benutzername wird bereits verwendet. Bitte wähle einen anderen.',
     usernameMissing: 'Bitte gib einen Benutzernamen an.',
     agreeTermsMissing: 'Bitte akzeptiere die Nutzungsbedingungen und die Datenschutzerklärung.',
+    usernameCannotBeEmail: 'Sorry, der Benutzername darf keine E-Mail Adresse sein. Bitte versuche es mit einem anderen Benutzernamen.',
     buttonCreateAccount: 'Ich möchte einen neuen Account erstellen',
     buttonHaveAccount: 'Ich habe bereits einen Account'
   }
