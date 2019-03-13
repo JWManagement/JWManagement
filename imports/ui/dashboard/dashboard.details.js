@@ -146,5 +146,3 @@ Template['dashboard.details'].helpers({
     }]
   }
 })
-
-Template['dashboard.details'].onDestroyed(() => $('#beamerSelector').remove())
