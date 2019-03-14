@@ -2,12 +2,12 @@
   <div class="container signIn-wrapper">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h1 class="m-t-xl">Sign in</h1>
+        <h1 class="m-t-xl">{{_ 'signIn.name'}}</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12 text-center p-md">
-        <h2>Please enter your details below to sign in.</h2>
+        <h2>{{_ 'signIn.text'}}</h2>
       </div>
     </div>
     <form>
@@ -30,17 +30,17 @@
       </div>
       <div class="row m-t-md m-b-sm">
         <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-          <button class="btn btn-primary btn-block btn-lg" type="submit" href="/">Sign in</button>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" href="/">{{_ 'signIn.name'}}</button>
         </div>
       </div>
       <div class="row m-t-md m-b-sm">
         <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-          <a class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'forgotPassword' language=getLanguage}}">I forgot my username or password</a>
+          <a class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'forgotPassword' language=getLanguage}}">{{_ 'signIn.forgot'}}</a>
         </div>
       </div>
       <div class="row m-t-md m-b-xl">
         <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-          <a class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'signUp' language=getLanguage}}">I don't have an account</a>
+          <a class="btn btn-primary btn-outline btn-block btn-lg" href="{{pathFor 'signUp' language=getLanguage}}">{{_ 'signIn.create'}}</a>
         </div>
       </div>
       <div class="row m-t-md m-b-sm text-center">

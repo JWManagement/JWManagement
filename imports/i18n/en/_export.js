@@ -1,3 +1,4 @@
+import authentication from './authentication'
 import dashboard from './dashboard'
 import calendar from './calendar'
 import error from './errors'
@@ -19,6 +20,7 @@ import users from './users'
 import vessel from './vessels'
 
 const en = {
+  ...authentication,
   calendar,
   dashboard,
   error,
