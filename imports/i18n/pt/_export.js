@@ -1,3 +1,4 @@
+import authentication from './authentication'
 import dashboard from './dashboard'
 import language from './language'
 import mail from './mail'
@@ -9,6 +10,7 @@ import store from './store'
 import swal from './swals'
 
 const pt = {
+  ...authentication,
   dashboard,
   language,
   mail,
