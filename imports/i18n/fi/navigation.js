@@ -47,7 +47,7 @@ const navigation = {
     update: 'Muokkaa muistiinpanoa',
     insert: 'Lisää muistiinpano'
   },
-  login: 'Kirjaudu',
+  signIn: 'Kirjaudu',
   logout: 'Kirjaudu ulos',
   loggingOut: 'Kirjaudutaan ulos...',
   firstLogin: 'Ensimmäinen kirjautuminen',

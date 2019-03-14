@@ -11,7 +11,7 @@ const pages = {
     name: 'Benutzername oder Passwort vergessen',
     text: 'Bitte gib deine E-Mail Adresse ein, dann schicken wir dir einen Link um dein Passwort zurückzusetzen. Dadurch wirst du eingeloggt und kannst auch deinen Benutzernamen nachschauen.',
     button: 'Sende Link zum Zurücksetzen',
-    back: 'Zurück zum Login',
+    back: 'Zurück zur Anmeldung',
     noUserForThisEmail: 'Es konnte kein Benutzer mit dieser E-Mail Adresse gefunden werden',
     multipleAccountsForThisEmail: 'Es existieren mehrere Benutzer mit dieser E-Mail Adresse. Bitte wähle einen aus.',
     emailMissing: 'Please enter your email address',
@@ -22,7 +22,7 @@ const pages = {
     text: 'Neues Passwort für {{0}} eingeben.',
     noUserFound: '<p>Dieser Link ist ungültig.</p><p>Bitte lass dir einen neuen Link zuschicken.</p>',
     button: 'Passwort ändern',
-    back: 'Zurück zum Login'
+    back: 'Zurück zur Anmeldung'
   },
   profile: {
     name: 'Mein Profil',

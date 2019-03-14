@@ -27,7 +27,7 @@ const navigation = {
     }
   },
   notes: 'Заметки',
-  login: 'Войти',
+  signIn: 'Войти',
   logout: 'Выйти',
   loggingOut: 'Выход...',
   firstLogin: 'Первоначальный вход',

@@ -13,7 +13,7 @@ const navigation = {
   reports: 'Jelentések',
   store: 'Készletezés',
   notes: 'Jegyzet',
-  login: 'Bejelentkezés',
+  signIn: 'Bejelentkezés',
   logout: 'Kijelentkezés',
   loggingOut: 'Kijelentkezés folyamatban...',
   firstLogin: 'Első bejelentkezés',

@@ -93,7 +93,7 @@ const navigation = {
     details: 'Langue',
     update: 'Modifier la langue'
   },
-  login: 'Se connecter',
+  signIn: 'Se connecter',
   logout: 'Se déconnecter',
   loggingOut: 'Déconnecter...',
   firstLogin: 'Première connexion',

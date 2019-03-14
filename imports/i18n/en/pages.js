@@ -11,7 +11,7 @@ const pages = {
     name: 'Forgotten username or password',
     text: 'Please enter your email address. We will send you a link to reset your password, then. You\'ll automatically be logged in and can then look up your username.',
     button: 'Send password reset link',
-    back: 'Back to Login Page',
+    back: 'Back to sign in',
     noUserForThisEmail: 'There is no account with this email address',
     multipleAccountsForThisEmail: 'There are multiple accounts with this email. Please specify a user.',
     emailMissing: 'Email address is missing',
@@ -22,7 +22,7 @@ const pages = {
     text: 'Please enter a new password for {{0}}.',
     noUserFound: '<p>This link is invalid.</p><p>Please request another reset password mail.</p>',
     button: 'Change password',
-    back: 'Back to Login Page'
+    back: 'Back to sign in'
   },
   profile: {
     name: 'My Profile',

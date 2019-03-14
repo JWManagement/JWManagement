@@ -1,4 +1,5 @@
 const error = {
+  generic: 'Sorry, an error occurred. Please try again.',
   '403': 'This username already exists',
   nameRequired: 'Please enter the name of this vessel',
   callsignUnique: 'A vessel with this call sign is already existing',
