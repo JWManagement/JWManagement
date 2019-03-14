@@ -13,7 +13,7 @@ const navigation = {
   reports: 'Relatórios',
   store: 'Sala de armazenamento',
   notes: 'Notas',
-  login: 'Entrar',
+  signIn: 'Entrar',
   logout: 'Sair',
   loggingOut: 'Saindo...',
   firstLogin: 'Primeira Entrada',

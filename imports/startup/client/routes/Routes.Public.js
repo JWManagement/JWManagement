@@ -16,12 +16,12 @@ FlowRouter.route('/:language/signup', {
   triggersEnter: [checkLanguage],
   action () {
     Session.set('parent', 'dashboard.details')
-    BlazeLayout.render('mainLayout', { content: 'signUp' })
+    BlazeLayout.render('blankLayout', { content: 'signUp' })
   }
 })
 
-FlowRouter.route('/:language/login', {
-  name: 'login',
+FlowRouter.route('/:language/signin', {
+  name: 'signIn',
   triggersEnter: [checkLanguage],
   action () {
     Tracker.autorun((tracker) => {
@@ -29,7 +29,8 @@ FlowRouter.route('/:language/login', {
         FlowRouter.go('dashboard.details')
         tracker.stop()
       } else {
-        BlazeLayout.render('blankLayout', { content: 'login' })
+        Session.set('parent', 'dashboard.details')
+        BlazeLayout.render('blankLayout', { content: 'signIn' })
       }
     })
   }

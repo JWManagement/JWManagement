@@ -8,7 +8,7 @@ const Languages = {
     'CK', 'CHL', 'CO', 'CHJ', 'TE', 'CU', 'CW', 'NM', 'CCM', 'CCP', 'CMG', 'COR', 'OCS', 'CYS', 'WCS',
     'CTR', 'C', 'CCT', 'B', 'DG', 'D', 'DRG', 'DAR', 'DK', 'DGS', 'MD', 'DGR', 'DI', 'DO', 'DA', 'KAD',
     'O', 'DZ', 'ED', 'EF', 'EA', 'E', 'EDF', 'EZ', 'ST', 'EW', 'FR', 'FLM', 'FA', 'FN', 'FI', 'FO', 'FF',
-    'F', 'FS', 'FD', 'FT', 'GA', 'GZ', 'GRF', 'GBA', 'GE', 'X', 'DGS', 'GY', 'GN', 'GO', 'G', 'GL', 'GJ',
+    'F', 'FS', 'FD', 'FT', 'GA', 'GZ', 'GRF', 'GBA', 'GE', 'X', 'GY', 'GN', 'GO', 'G', 'GL', 'GJ', 'HT',
     'GI', 'GRJ', 'GU', 'EG', 'UN', 'GR', 'CR', 'HK', 'HA', 'HW', 'HY', 'Q', 'HR', 'HV', 'HI', 'MO', 'HM',
     'HO', 'HST', 'HUV', 'HCH', 'HU', 'H', 'IA', 'IG', 'IBI', 'IC', 'ID', 'IF', 'AA', 'IB', 'IGE', 'IJ',
     'IL', 'IN', 'ING', 'IU', 'GC', 'IR', 'IH', 'IS', 'I', 'IT', 'IV', 'IXC', 'IXL', 'JCL', 'J', 'JA',

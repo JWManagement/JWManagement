@@ -96,8 +96,11 @@ Template.SearchForm.onRendered(() => {
       .map((row) => {
         for (let column of columns) {
           if (column.type === 'date') {
-            console.log(column)
             row[column.name] = moment(row[column.name]).format(column.format)
+
+            if (row[column.name] === 'Invalid date') {
+              row[column.name] = ''
+            }
           }
         }
         return row

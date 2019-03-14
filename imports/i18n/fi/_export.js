@@ -1,3 +1,4 @@
+import authentication from './authentication'
 import dashboard from './dashboard'
 import framework from './framework'
 import mail from './mail'
@@ -12,6 +13,7 @@ import store from './store'
 import swal from './swals'
 
 const fi = {
+  ...authentication,
   dashboard,
   ...framework,
   mail,

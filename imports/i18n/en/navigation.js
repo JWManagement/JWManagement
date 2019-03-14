@@ -1,5 +1,6 @@
 const navigation = {
   welcome: 'Welcome',
+  signIn: 'Sign in',
   signUp: 'Sign up',
   dashboard: {
     details: 'Dashboard',
@@ -93,7 +94,6 @@ const navigation = {
     details: 'Language',
     update: 'Edit language'
   },
-  login: 'Login',
   logout: 'Logout',
   loggingOut: 'Logging out...',
   firstLogin: 'First Login',

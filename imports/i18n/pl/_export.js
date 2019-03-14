@@ -1,3 +1,4 @@
+import authentication from './authentication'
 import dashboard from './dashboard'
 import calendar from './calendar'
 import error from './errors'
@@ -18,6 +19,7 @@ import user from './user'
 import users from './users'
 
 const pl = {
+  ...authentication,
   calendar,
   dashboard,
   error,

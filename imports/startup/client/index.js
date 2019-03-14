@@ -26,6 +26,7 @@ import '../../framework/Forms/SearchForm/SearchForm'
 import '../../framework/Forms/UpdateForm/UpdateForm'
 
 import '../../ui/landing/landing'
+import '../../ui/signIn/signIn'
 import '../../ui/signUp/signUp'
 
 import '../../ui/dashboard/dashboard.jade'

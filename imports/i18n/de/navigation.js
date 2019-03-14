@@ -1,5 +1,6 @@
 const navigation = {
   welcome: 'Willkommen',
+  signIn: 'Anmelden',
   signUp: 'Account erstellen',
   dashboard: {
     details: 'Übersicht',
@@ -88,7 +89,6 @@ const navigation = {
     details: 'Sprache',
     update: 'Sprache ändern'
   },
-  login: 'Anmelden',
   logout: 'Abmelden',
   loggingOut: 'Abmelden...',
   firstLogin: 'Erstanmeldung',

@@ -1,3 +1,4 @@
+import authentication from './authentication'
 import dashboard from './dashboard'
 import error from './errors'
 import framework from './framework'
@@ -11,6 +12,7 @@ import store from './store'
 import swal from './swals'
 
 const ru = {
+  ...authentication,
   dashboard,
   error,
   ...framework,

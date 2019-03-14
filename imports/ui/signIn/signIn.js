@@ -1,39 +1,33 @@
-import { Template } from 'meteor/templating'
 import { Meteor } from 'meteor/meteor'
+import { Template } from 'meteor/templating'
 import { Session } from 'meteor/session'
 import i18next from 'i18next'
-import { FlowRouter } from 'meteor/kadira:flow-router'
 
-Template.login.helpers({
-  error () {
-    return Session.get('error')
-  }
+import './signIn.html'
+import './signIn.scss'
+
+Template.signIn.helpers({
+  error: () => Session.get('error'),
+
+  getLanguage: () => i18next.language
 })
 
-Template.login.onCreated(() => {
-  if (FlowRouter.getRouteName() === 'dashboard.details') {
-    if (!Meteor.userId() && !Meteor.loggingIn()) {
-      return FlowRouter.go('landing', {
-        language: 'en'
-      })
-    }
-  }
-})
+Template.signIn.onCreated(() => {})
 
-Template.login.onRendered(() => {
+Template.signIn.onRendered(() => {
   return Session.set('error', '')
 })
 
-Template.login.events({
-  'submit form' (event) {
+Template.signIn.events({
+  'submit form' (event, form) {
     event.preventDefault()
     Session.set('error', '')
 
     const submit = $('#submit').ladda()
     submit.ladda('start')
 
-    const usernameOrEmail = $('#usernameOrEmail').val()
-    const password = $('#password').val()
+    const usernameOrEmail = event.target.usernameOrEmail.value
+    const password = event.target.password.value
 
     function loginWithPasswordAsync (username, pw) {
       return new Promise((resolve, reject) => {
