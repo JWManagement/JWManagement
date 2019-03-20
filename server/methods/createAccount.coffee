@@ -1,6 +1,10 @@
 Meteor.methods
 
-	usernameAvailable: (username) -> if Meteor.users.findOne(username: username)? then false else true
+	usernameAvailable: (username) ->
+		if Meteor.users.findOne(username: new RegExp('^' + username + '$', 'i'))?
+			false
+		else
+			true
 
 	createAccount: (userObject, projectId) ->
 		check userObject, Object
