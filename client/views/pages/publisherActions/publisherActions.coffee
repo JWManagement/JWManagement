@@ -1,8 +1,10 @@
 import i18next from 'i18next'
 
-initDone = false
+initDone = new ReactiveVar(false)
 
 Template.publisherActions.helpers
+
+	isLoading: -> !initDone.get()
 
 	getTags: ->
 		projectId = FlowRouter.getParam 'projectId'
@@ -60,12 +62,15 @@ Template.publisherActions.helpers
 Template.publisherActions.onCreated ->
 
 	self = this
-	initDone = false
+	initDone.set(false)
 	projectId = FlowRouter.getParam('projectId')
 
 	@autorun ->
 		Meteor.subscribe 'tags', projectId
-		Meteor.subscribe 'usersByProject', projectId
+		userHandle = Meteor.subscribe 'usersByProject', projectId
+
+		if userHandle.ready()
+			initDone.set(true)
 
 Template.publisherActions.onDestroyed ->
 

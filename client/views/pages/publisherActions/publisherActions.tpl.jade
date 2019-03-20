@@ -5,48 +5,54 @@ if queryParam 'uploadUserFile'
 .wrapper-content
 	.container
 		.row
-			.col-lg-12
-				.row.m-b-lg
-					.col-xs-12
-						if isProjectAdmin
-							h2.center-align.m-t-xs.m-b-none {{_ 'users.title'}}
-						else
-							h2.center-align {{_ 'role.noPermission'}}
-				if isProjectAdmin
-					.ibox
-						.ibox-content
-							.row
-								.col-xs-12
-									button.btn.btn-primary.inline#inviteUser
-										i.fa.fa-send.fa-fw
-										| {{_ 'users.inviteUser'}}
-					.ibox
-						.ibox-content
-							.row
-								.col-xs-12
-									button.btn.btn-primary#uploadUserFile
-										i.fa.fa-user-plus.fa-fw
-										| {{_ 'users.uploadUserFile'}}
-									button.btn.btn-primary#exportUsers
-										i.fa.fa-download.fa-fw
-										| {{_ 'users.export'}}
-					.ibox
-						.ibox-content
-							.row
-								.col-xs-12
-									.btn-group.m-t-sm.m-r-xs
-										a.btn.btn-primary.inline(href="mailto:?bcc={{allMails}}")
-											i.fa.fa-send.fa-fw
-											| {{_ 'users.sendToAll'}}
-										button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsWithSemicolon}}")
-											i.fa.fa-clipboard.fa-fw
-								.col-xs-12
-									hr
-								each getTags
+			if isLoading
+				.col-lg-12
+					.row.m-b-lg
+						.col-xs-12
+							h2.center-align.m-t-xs.m-b-none Loading...
+			else
+				.col-lg-12
+					.row.m-b-lg
+						.col-xs-12
+							if isProjectAdmin
+								h2.center-align.m-t-xs.m-b-none {{_ 'users.title'}}
+							else
+								h2.center-align {{_ 'role.noPermission'}}
+					if isProjectAdmin
+						.ibox
+							.ibox-content
+								.row
 									.col-xs-12
-										.btn-group.m-t-sm.m-r-sm
-											a.btn.btn-primary.inline(href="mailto:?bcc={{allMailsThisTag}}")
+										button.btn.btn-primary.inline#inviteUser
+											i.fa.fa-send.fa-fw
+											| {{_ 'users.inviteUser'}}
+						.ibox
+							.ibox-content
+								.row
+									.col-xs-12
+										button.btn.btn-primary#uploadUserFile
+											i.fa.fa-user-plus.fa-fw
+											| {{_ 'users.uploadUserFile'}}
+										button.btn.btn-primary#exportUsers
+											i.fa.fa-download.fa-fw
+											| {{_ 'users.export'}}
+						.ibox
+							.ibox-content
+								.row
+									.col-xs-12
+										.btn-group.m-t-sm.m-r-xs
+											a.btn.btn-primary.inline(href="mailto:?bcc={{allMails}}")
 												i.fa.fa-send.fa-fw
-												| {{_ 'users.sendToAllInTag' name}}
-											button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsThisTagWithSemicolon}}")
+												| {{_ 'users.sendToAll'}}
+											button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsWithSemicolon}}")
 												i.fa.fa-clipboard.fa-fw
+									.col-xs-12
+										hr
+									each getTags
+										.col-xs-12
+											.btn-group.m-t-sm.m-r-sm
+												a.btn.btn-primary.inline(href="mailto:?bcc={{allMailsThisTag}}")
+													i.fa.fa-send.fa-fw
+													| {{_ 'users.sendToAllInTag' name}}
+												button.showAddresses.btn.btn-primary.btn-outline.inline(addresses="{{allMailsThisTagWithSemicolon}}")
+													i.fa.fa-clipboard.fa-fw
