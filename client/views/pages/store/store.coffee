@@ -136,6 +136,10 @@ Template.store.helpers
 			,
 				short: 'CO-inv18'
 			,
+				short: 'CO-inv19'
+			,
+				short: 'CO-inv20'
+			,
 				short: 'inv'
 			,
 				short: 'jwcd'
