@@ -28,45 +28,6 @@ Meteor.methods
 
 		if newUsers
 			for newUser in newUsers
-				foundUserId = Meteor.users.findOne({ username: userObject.username }, { fields: { _id: 1 }})._id
-
-				# if user exists, update instead of create
-				if foundUserId?
-					if Roles.userIsInRole foundUserId, Permissions.member, projectId
-						Meteor.users.update({ _id: foundUserId }, {
-							profile: {
-								email: newUser.email,
-								firstname: newUser.firstname,
-								lastname: newUser.lastname,
-								gender: newUser.gender,
-								telefon: newUser.telefon,
-								pioneer: newUser.pioneer,
-								privilege: newUser.privilege,
-								congregation: newUser.congregation,
-								language: newUser.systemLanguage,
-								languages: newUser.foreignLanguages
-							}
-						})
-
-						if newUser.roles && newUser.roles != '' && newUser.roles.includes('=')
-							for roleTarget in newUser.roles.split(';')
-								target = roleTarget.split('=')[0]
-								role = roleTarget.split('=')[1]
-
-								if target == projectId
-									if role in Permissions.member
-										Meteor.call 'changeProjectRole', target, userId, role
-									else
-										Meteor.call 'changeProjectRole', target, userId, 'member'
-								else if target in tagIds
-									if role in Permissions.participant
-										Meteor.call 'changeTagRole', target, userId, role
-									else
-										Meteor.call 'changeTagRole', target, userId, 'participant'
-
-						return
-
-				# else create new user
 				userId = Meteor.call 'createAccount',
 					username: Random.id 5
 					password: ''
@@ -108,3 +69,4 @@ Meteor.methods
 
 				if !projectPermissionWasSet
 					Meteor.call 'changeProjectRole', projectId, userId, 'member'
+
