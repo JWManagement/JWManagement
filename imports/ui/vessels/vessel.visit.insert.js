@@ -17,6 +17,7 @@ Template['vessel.visit.insert'].helpers({
       key: 'harborId',
       type: 'picker',
       allowedKeyValuesMethod: 'vessel.visit.getAvailableHarbors',
+      search: true,
       required: true
     }, {
       key: 'dateNext',
