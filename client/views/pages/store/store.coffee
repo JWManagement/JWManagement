@@ -145,6 +145,10 @@ Template.store.helpers
 				short: 'jwcd'
 			,
 				short: 'mi18'
+			,
+				short: 'mi19'
+			,
+				short: 'mi20'
 			]
 		]
 
