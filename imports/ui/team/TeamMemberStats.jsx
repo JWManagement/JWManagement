@@ -5,7 +5,10 @@ export default class TeamMemberStats extends Component {
   render () {
     const stats = UserStatistics.findOne(this.props.userId)
 
-    if (!stats) {
+    if (!this.props.showStats) {
+      return ''
+    }
+    else if (!stats) {
       return <i className='fa fa-spinner fa-pulse' />
     }
 
@@ -13,6 +16,12 @@ export default class TeamMemberStats extends Component {
     const weekStats = `${i18next.t('period.w')}:${stats.countWeekApproved}/${stats.countWeekOverall}`
     const fourWeeksStats = `${i18next.t('period.4w')}:${stats.countWeeksApproved}/${stats.countWeeksOverall}`
 
-    return ` (${stats.congregation}/${stats.privileges}) ${dayStats} ${weekStats} ${fourWeeksStats}`
+    if (stats.congregation == undefined) {
+      stats.congregation = ''
+    } else {
+      stats.congregation = stats.congregation + '/'
+    }
+
+    return ` (${stats.congregation}${stats.privileges}) ${dayStats} ${weekStats} ${fourWeeksStats}`
   }
 }

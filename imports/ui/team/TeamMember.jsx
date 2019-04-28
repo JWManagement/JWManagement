@@ -58,7 +58,7 @@ export default class TeamMember extends Component {
     return (
       <div>
         <TeamMemberName member={member} applyStyle={this.props.showStats} />
-        <TeamMemberStats userId={member._id} />
+        <TeamMemberStats userId={member._id} showStats={this.props.showStats} />
 
         <div className='float-right'>
           {setLeaderButton}
