@@ -21,7 +21,7 @@ Template['publisher.search'].helpers({
         name: 'profile_email',
         mobile: true
       }, {
-        name: 'profile_telefon',
+        name: 'profile_gender',
         mobile: true
       }, {
         name: 'status_lastLogin_date',

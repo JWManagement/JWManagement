@@ -55,7 +55,7 @@ function publisherSearch ({ projectId, searchString, limit }) {
       'profile.lastname': 1,
       'profile.firstname': 1,
       'profile.email': 1,
-      'profile.telefon': 1,
+      'profile.gender': 1,
       'status.lastLogin.date': 1,
       username: 1,
       roles: 1
