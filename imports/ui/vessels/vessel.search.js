@@ -27,31 +27,6 @@ Template['vessel.search'].helpers({
       name: 'imo'
     }, {
       name: 'mmsi'
-    }],
-    searchCriteria (search) {
-      return {
-        selector: {
-          $or: [{
-            _id: search
-          }, {
-            name: search
-          }, {
-            callsign: search
-          }, {
-            eni: search
-          }, {
-            imo: search
-          }, {
-            mmsi: search
-          }]
-        },
-        options: {
-          sort: {
-            name: 1,
-            callsign: 1
-          }
-        }
-      }
-    }
+    }]
   }
 })

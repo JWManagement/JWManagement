@@ -19,30 +19,6 @@ Template['user.search'].helpers({
     }, {
       name: 'profile_email',
       mobile: true
-    }],
-    searchCriteria (search) {
-      return {
-        selector: {
-          $or: [{
-            _id: search
-          }, {
-            'profile.firstname': search
-          }, {
-            'profile.lastname': search
-          }, {
-            username: search
-          }, {
-            'profile.email': search
-          }]
-        },
-        options: {
-          sort: {
-            'profile.lastname': 1,
-            'profile.firstname': 1,
-            username: 1
-          }
-        }
-      }
-    }
+    }]
   }
 })

@@ -32,23 +32,7 @@ How to create a Search Page
           mobile: true
         }, {
           name: 'mmsi'
-        }],
-        searchCriteria: (search) => {
-          return {
-            selector: {
-              $or: [{
-                _id: search
-              }, {
-                name: search
-              }]
-            },
-            options: {
-              sort: {
-                name: 1
-              }
-            }
-          };
-        }
+        }]
       }
     });
     ```

@@ -60,7 +60,6 @@ Template.SearchForm.onCreated(() => {
   const data = Template.currentData().data
 
   template.translatedAttributes = data.translatedAttributes
-  template.searchCriteria = data.searchCriteria
   template.columnDefinitions = data.columns
   template.entityId = data.entityId
   template.backLink = data.backLink

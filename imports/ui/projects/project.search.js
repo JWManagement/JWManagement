@@ -10,22 +10,6 @@ Template['project.search'].helpers({
     }, {
       name: 'name',
       mobile: true
-    }],
-    searchCriteria (search) {
-      return {
-        selector: {
-          $or: [{
-            _id: search
-          }, {
-            name: search
-          }]
-        },
-        options: {
-          sort: {
-            name: 1
-          }
-        }
-      }
-    }
+    }]
   }
 })

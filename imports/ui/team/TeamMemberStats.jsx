@@ -8,7 +8,8 @@ export default class TeamMemberStats extends Component {
     if (!this.props.showStats) {
       return ''
     }
-    else if (!stats) {
+
+    if (!stats) {
       return <i className='fa fa-spinner fa-pulse' />
     }
 
@@ -16,7 +17,7 @@ export default class TeamMemberStats extends Component {
     const weekStats = `${i18next.t('period.w')}:${stats.countWeekApproved}/${stats.countWeekOverall}`
     const fourWeeksStats = `${i18next.t('period.4w')}:${stats.countWeeksApproved}/${stats.countWeeksOverall}`
 
-    if (stats.congregation == undefined) {
+    if (stats.congregation === undefined) {
       stats.congregation = ''
     } else {
       stats.congregation = stats.congregation + '/'
