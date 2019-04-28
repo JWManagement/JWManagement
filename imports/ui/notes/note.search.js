@@ -17,28 +17,6 @@ Template['note.search'].helpers({
     }, {
       name: 'lastChange',
       mobile: true
-    }],
-    searchCriteria (search) {
-      return {
-        selector: {
-          $or: [{
-            _id: search
-          }, {
-            title: search
-          }, {
-            text: search
-          }, {
-            author: search
-          }]
-        },
-        options: {
-          sort: {
-            title: 1,
-            author: 1,
-            date: 1
-          }
-        }
-      }
-    }
+    }]
   }
 })

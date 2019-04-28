@@ -32,41 +32,6 @@ Template['publisher.search'].helpers({
         name: 'username',
         mobile: true
       }
-    ],
-    searchCriteria (search, projectId) {
-      return {
-        selector: {
-          $and: [
-            {
-              $or: [
-                { _id: search },
-                { 'profile.lastname': search },
-                { 'profile.firstname': search },
-                { 'profile.email': search },
-                { 'profile.telefon': search },
-                { username: search }
-              ]
-            },
-            {
-              ['roles.' + projectId]: {
-                $in: Permissions.member
-              }
-            },
-            {
-              username: {
-                $ne: 'adm'
-              }
-            }
-          ]
-        },
-        options: {
-          sort: {
-            'profile.lastname': 1,
-            'profile.firstname': 1,
-            username: 1
-          }
-        }
-      }
-    }
+    ]
   }
 })
