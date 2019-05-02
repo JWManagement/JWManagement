@@ -90,7 +90,7 @@
                                 i.fa.fa-phone.fa-fw
                           input(type='checkbox' id='selectUser_{{_id}}_{{user._id}}' checked='{{user.checked}}')
                           label(for='selectUser_{{_id}}_{{user._id}}')
-                            +React component=TeamMember member=this showStats=true showSetLeader=true showDecline=true showMailStatus=true
+                            +React component=TeamMember member=user showStats=true showSetLeader=true showDecline=true showMailStatus=true
                   else if schedulingIsDirect
                     each user in sortUsers pending
                       .pending
