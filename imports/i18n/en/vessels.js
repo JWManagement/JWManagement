@@ -50,7 +50,7 @@ const vessel = {
         chrfd: '(CHRFD) Rheinfelden CH',
         deand: '(DEAND) Andernach',
         debbg: '(DEBBG) Brandenburg',
-        debds: 'Bodensee'
+        debds: 'Bodensee',
         debed: '(DEBED) Bendorf',
         debek: '(DEBEK) Bernkastel',
         deber: '(DEBER) Berlin',
