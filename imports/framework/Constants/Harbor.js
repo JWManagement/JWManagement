@@ -14,7 +14,7 @@ const Harbor = {
     'chrfd',
     // germany
     'deand',
-    'debbg', 'debed', 'debek', 'deber', 'debke', 'deblm', 'debmk', 'debon', 'debot', 'debrb', 'debre', 'debrv', 'debsh', 'debsk', 'debum', 'debuz',
+    'debbg', 'debds', 'debed', 'debek', 'deber', 'debke', 'deblm', 'debmk', 'debon', 'debot', 'debrb', 'debre', 'debrv', 'debsh', 'debsk', 'debum', 'debuz',
     'decgn', 'decux',
     'dedeg', 'dedhu', 'dedil', 'dedmg', 'dedrp', 'dedrs', 'dedtm', 'dedui', 'dedus',
     'deeck', 'deehm', 'deeme',
