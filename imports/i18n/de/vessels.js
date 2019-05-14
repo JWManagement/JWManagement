@@ -6,7 +6,9 @@ const vessel = {
     type: 'Typ',
     typeValues: {
       c: 'Containerschiff',
+      ca: 'Katamaran',
       cr: 'Kreuzfahrtschiff',
+      ex: 'Kursschiff',
       mf: 'Frachter',
       mt: 'Tanker',
       p: 'Passagierschiff',
@@ -14,6 +16,7 @@ const vessel = {
       r: 'Kühlschiff',
       rc: 'Flusskreuzfahrtschiff',
       f: 'Fähre',
+      fi: 'Fischerboot',
       ro: 'Ro-Ro',
       t: 'Schlepper',
       unknown: 'Sonstiges'
