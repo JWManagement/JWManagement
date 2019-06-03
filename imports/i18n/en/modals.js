@@ -17,7 +17,7 @@ const modal = {
     defineTemplate: 'Define template',
     action: 'Create week',
     text: {
-      top: 'Choose a week, that the template week will get applied to:',
+      top: 'Choose a week that the template week will get applied to:',
       bottom: 'Choose the template week:'
     }
   },
@@ -39,7 +39,7 @@ const modal = {
     teams: 'Teams assigned to this shift',
     helpText: {
       tag: 'Set this shift tag. All users with permissions on this tag can view the shift.',
-      scheduling: 'With \'approve immediately\' requests will be approved automatically, when the minimum participant limit for the next team is reached.'
+      scheduling: 'With \'approve immediately\', requests will be approved automatically when the minimum participant limit for the next team is reached.'
     },
     addTeam: 'Add a new team',
     teamMin: 'Minimum participants:',
