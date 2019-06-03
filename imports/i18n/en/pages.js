@@ -6,7 +6,7 @@ const pages = {
     options: {
       title: 'Settings',
       helpText: {
-        mergeAccounts: 'In JW Management you can do everything with just one single account. You just have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account\'s permissions into the ones of the specified account.'
+        mergeAccounts: 'In JW Management you can do everything with just one account. You just have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account\'s permissions into the specified account.'
       }
     },
     availability: {
@@ -142,11 +142,11 @@ const pages = {
       email: {
         text: 'Email',
         placeholder: 'Project email address',
-        helpText: 'In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient\'s email program is behaving correctly. Furthermore, this address will be notified e.g. on short-term participation cancellations.'
+        helpText: 'In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient\'s email program is behaving correctly. Furthermore, this address will be notified (e.g. on short-term participation cancellations).'
       },
       language: {
         text: 'Language',
-        helpText: 'If the system notifies the above listed address about changes, it will send the mails in the language you specify here.'
+        helpText: 'If the system notifies the address listed above about changes, it will send the mails in the language you specify here.'
       },
       deleteProject: 'Delete project'
     },
@@ -172,7 +172,7 @@ const pages = {
     teams: {
       title: 'Teams',
       helpText: {
-        main: 'For every shift there has to be at least one team. Teams can e.g. represent different routes or locations. A participant of the shift is always member of one of these teams.',
+        main: 'For every shift there has to be at least one team. Teams can represent different routes or locations. A participant of the shift is always member of one of these teams.',
         picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on Google Maps or OpenStreetMap (depending on which has better coverage of your area) and upload a picture of that here.',
         link: 'This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the Google Maps or OpenStreetMap map here.',
         description: 'Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.'
@@ -193,7 +193,7 @@ const pages = {
     meetings: {
       title: 'Meeting Point',
       helpText: {
-        main: 'For all the shift teams there can be a meeting point assigned to them. With that, teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming.',
+        main: 'For all the shift teams there can be a meeting point assigned. With that, teams can meet independently from each other. This can be useful when the route or location of the teams are so far apart that a common meeting would be too time consuming.',
         picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from Google Maps or OpenStreetMap (whichever one has better coverage of your area) here.'
       },
       id: 'ID',
