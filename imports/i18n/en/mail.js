@@ -13,7 +13,7 @@ const mail = {
     subject: 'Team cancelled',
     headline: 'Team has been cancelled.',
     hello: 'Hello',
-    text: 'Unfortunately we your team assignment on <b>{{date}}</b> at <b>{{time}}</b> o\'clock has been <u>cancelled</u>.',
+    text: 'Unfortunately your team assignment on <b>{{date}}</b> at <b>{{time}}</b> o\'clock has been <u>cancelled</u>.',
     missingParticipant: 'There are not enough paricipants. If enough participants join, the assignment can take place again.'
   },
   confirmation: {
