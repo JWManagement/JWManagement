@@ -17,7 +17,7 @@ const swal = {
   invite: {
     user: {
       title: 'Invite Publisher?',
-      text: 'This publisher <b>already has an account</b>, so no further account has to be created. Instead the publisher will <b>simply be given permission to access this project</b>.<br>Of course <b>we will inform him</b> about this change. <br><p>In case of more than one publisher registered with the same email address, please choose the right one:</p>'
+      text: 'This publisher <b>already has an account</b>, so no further account has to be created. Instead the publisher will <b>simply be given permission to access this project</b>.<br>Of course <b>we will inform him</b> about this change. <br><p>In case more than one publisher has registered with the same email address, please choose the right one:</p>'
     },
     users: {
       title: 'Are you sure?',
@@ -47,14 +47,14 @@ const swal = {
     },
     selectTag: {
       title: 'Which Tag?',
-      text: 'Please select the tag you want to send confirmation emails for:',
+      text: 'Please select the tag you would like to send confirmation emails for:',
       confirm: 'OK',
       cancel: 'Cancel'
     },
     teamUpdate: {
       user: {
         title: 'Team leader already informed',
-        text: 'The team leader is already informed. Do you want to send an email with this update to him?',
+        text: 'The team leader has already been informed. Do you want to send an email with this update to him?',
         confirm: 'Yes',
         cancel: 'No'
       },
@@ -212,7 +212,7 @@ const swal = {
     },
     project: {
       title: 'Really delete this project?',
-      text: 'This will irreversibly delete all settings associated with this project, e.g. shifts, reports, requests, literature. Only the user accounts will remain.',
+      text: 'This will irreversibly delete all settings associated with this project (e.g. shifts, reports, requests, literature). Only the user accounts will remain.',
       checkInput: 'delete this project',
       placeholder: 'Please type "{{0}}" for approval',
       inputError: 'The input did not match with "{{0}}"',
@@ -260,7 +260,7 @@ const swal = {
     },
     team: {
       title: 'Really delete this team?',
-      text: 'The team will get removed from all existing shifts planned for the future. approved requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".',
+      text: 'The team will get removed from all existing shifts planned for the future. Approved requests for these shifts will be reallocated to other teams. <br><br> To confirm type in "delete".',
       checkInput: 'delete',
       placeholder: 'Please type "{{0}}" for approval',
       inputError: 'The input did not match with "{{0}}"',
@@ -283,7 +283,7 @@ const swal = {
   request: {
     approve: {
       title: 'Really approve publisher?',
-      text: 'This publisher has previously been declined. Therefore please make sure that the publisher is still able and willing to participate.',
+      text: 'This publisher has previously been declined. Please make sure that the publisher is still able and willing to participate.',
       confirm: 'Yes',
       cancel: 'No'
     },
