@@ -15,7 +15,8 @@ const framework = {
     minString8: 'Das Passwort muss mindestens 8 Zeichen lang sein',
     passwordMismatch: 'Die Passwörter stimmen nicht überein',
     hasToBeBigger: 'Dieser Wert muss größer sein',
-    regEx: 'Dies ist keine gültige E-Mail Adresse'
+    regEx: 'Dies ist keine gültige E-Mail Adresse',
+    usernameAlreadyTaken: 'Dieser Benutzername wird bereits verwendet'
   },
   detailsForm: {
     yes: 'Ja',
