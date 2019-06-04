@@ -79,6 +79,7 @@ const pages = {
     name: 'Schichten',
     route: 'Route',
     addShift: 'Neue Schicht erstellen',
+    deleteWeek: 'Die gesamte Woche löschen',
     addWeek: 'Neue Woche anlegen',
     requests: 'Bewerbungen',
     openRequests: 'Offene Bewerbungen',

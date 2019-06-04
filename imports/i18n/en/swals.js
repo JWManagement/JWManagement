@@ -278,6 +278,12 @@ const swal = {
       text: 'All project permissions will be revoked.',
       confirm: 'Delete',
       cancel: 'Cancel'
+    },
+    wholeWeek: {
+      title: 'Really delete the whole week?',
+      text: 'All shift in this week will be deleted, as well.',
+      confirm: 'Delete',
+      cancel: 'Cancel'
     }
   },
   request: {
