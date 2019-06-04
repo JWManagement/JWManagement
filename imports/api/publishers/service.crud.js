@@ -121,7 +121,13 @@ function publisherInsert ({ projectId }, publisher) {
     ...defaultValidations.projectAdmin,
     username: {
       type: String,
-      optional: true
+      optional: true,
+      custom () {
+        const userWithThisUsername = Users.findOne({ username: publisher.username })
+        if (userWithThisUsername != null) {
+          return 'usernameAlreadyTaken'
+        }
+      }
     },
     'profile_firstname': String,
     'profile_lastname': String,

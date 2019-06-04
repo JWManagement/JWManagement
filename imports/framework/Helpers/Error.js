@@ -2,7 +2,14 @@ import { Template } from 'meteor/templating'
 import i18next from 'i18next'
 
 function isHandledError (error) {
-  return ['required', 'unique', 'minString8', 'passwordMismatch', 'hasToBeBigger'].indexOf(error) > -1
+  return [
+    'required',
+    'unique',
+    'minString8',
+    'passwordMismatch',
+    'hasToBeBigger',
+    'usernameAlreadyTaken'
+  ].indexOf(error) > -1
 }
 
 function hasError () {

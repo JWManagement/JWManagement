@@ -14,7 +14,8 @@ const framework = {
     minString8: 'The password has to be at least 8 characters long',
     passwordMismatch: 'The passwords do not match',
     hasToBeBigger: 'This value has to be bigger',
-    regEx: 'This is not a valid email address'
+    regEx: 'This is not a valid email address',
+    usernameAlreadyTaken: 'This username is already taken'
   },
   detailsForm: {
     yes: 'Yes',
