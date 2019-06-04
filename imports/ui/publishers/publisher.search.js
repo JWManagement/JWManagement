@@ -5,6 +5,7 @@ Template['publisher.search'].helpers({
     entityId: 'userId',
     backLink: 'project.details',
     allowCreate: true,
+    defaultResultsPerPage: 500,
     columns: [
       {
         name: '_id',

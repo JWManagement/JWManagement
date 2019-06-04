@@ -72,7 +72,7 @@ Template.SearchForm.onCreated(() => {
   template.items = new ReactiveVar([])
   template.regEx = new ReactiveVar(new RegExp(''))
   template.table = null
-  template.defaultResultsPerPage = 20
+  template.defaultResultsPerPage = data.defaultResultsPerPage || 20
   template.resultsShown = new ReactiveVar(template.defaultResultsPerPage)
 
   template.rows = new ReactiveVar([])
