@@ -1,5 +1,5 @@
 const mail = {
-  footer: 'This is an automated mail. We don\\\'t expect an answer to it.',
+  footer: 'This is an automated mail. We don\'t expect an answer to it.',
   link: 'Open JW Management',
   accountCreated: {
     subject: 'JW Management Account Created!',
@@ -13,8 +13,8 @@ const mail = {
     subject: 'Team cancelled',
     headline: 'Team has been cancelled.',
     hello: 'Hello',
-    text: 'Unfortunately we had to tell you that your team assignment on <b>{{date}}</b> at <b>{{time}}</b> o\'clock was <u>cancelled</u>.',
-    missingParticipant: 'A participant is missing. If there are enough participants the team can take place again.'
+    text: 'Unfortunately your team assignment on <b>{{date}}</b> at <b>{{time}}</b> o\'clock has been <u>cancelled</u>.',
+    missingParticipant: 'There are not enough paricipants. If enough participants join, the assignment can take place again.'
   },
   confirmation: {
     subject: 'New Request Approved',
@@ -64,7 +64,7 @@ const mail = {
     headline: 'Reset your Password',
     text1: 'Hello,<br>Please click the following button to set a new password:',
     button: 'Reset Password',
-    text2: '<p>Useful hints for secure password generation can be found in <a href="http://wol.jw.org/en/wol/d/r1/lp-e/102001451">g01 6/22 p. 31</a></p><p>If you didn\'t request a password reset, feel free to delete this email.</p>'
+    text2: '<p>Useful hints for secure password generation can be found in <a href="https://wol.jw.org/en/wol/d/r1/lp-e/102001451">g01 6/22 p. 31</a></p><p>If you didn\'t request a password reset, feel free to delete this email.</p>'
   }
 }
 
