@@ -278,6 +278,12 @@ const swal = {
       text: 'Dem Benutzer werden sämtliche Berechtigungen in diesem Projekt entzogen.',
       confirm: 'Löschen',
       cancel: 'Abbrechen'
+    },
+    wholeWeek: {
+      title: 'Die gesamte Woche wirklich löschen?',
+      text: 'Auch alle Schichten in dieser Woche werden gelöscht.',
+      confirm: 'Löschen',
+      cancel: 'Abbrechen'
     }
   },
   request: {

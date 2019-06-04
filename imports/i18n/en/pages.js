@@ -79,6 +79,7 @@ const pages = {
     name: 'Shifts',
     route: 'Route',
     addShift: 'Add a new shift',
+    deleteWeek: 'Delete the whole week',
     addWeek: 'Add a new week',
     requests: 'Requests',
     openRequests: 'Open Requests',
