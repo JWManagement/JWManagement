@@ -2,7 +2,8 @@ const SystemLanguages = {
   defaultValue: 'en',
   allowedValues: [
     'de',
-    'en',
+    'en-US',
+    'en-GB',
     'en-AU',
     'fi',
     'fr',

@@ -8,7 +8,7 @@ const language = {
     language: '語言',
     languageValues: {
       de: '德語',
-      en: '英文',
+      'en-US': '英文',
       fi: '芬蘭語',
       fr: '法語',
       hu: '匈牙利語',
@@ -21,7 +21,7 @@ const language = {
     }
   },
   de: '德語',
-  en: '英文',
+  'en-US': '英文',
   fi: '芬蘭語',
   fr: '法語',
   hu: '匈牙利語',

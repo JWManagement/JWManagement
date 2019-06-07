@@ -10,7 +10,7 @@ export { setLanguageOnAuth }
 Meteor.startup(setLanguageOnAuth)
 
 function setLanguageOnAuth () {
-  moment.locale('en') // default
+  moment.locale('en-US') // default
 
   Tracker.autorun((tracker) => {
     if (Meteor.user() != null) {

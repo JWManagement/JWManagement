@@ -1,6 +1,7 @@
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import en from '../../i18n/en/_export'
+import enUS from '../../i18n/en-US/_export'
+import enGB from '../../i18n/en-GB/_export'
 import enAU from '../../i18n/en-AU/_export'
 import de from '../../i18n/de/_export'
 import fi from '../../i18n/fi/_export'
@@ -16,9 +17,10 @@ import zhCN from '../../i18n/zh-CN/_export'
 i18next
   .use(LanguageDetector)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'en-US',
     resources: {
-      en: { translation: en },
+      'en-US': { translation: enUS },
+      'en-GB': { translation: enGB },
       'en-AU': { translation: enAU },
       de: { translation: de },
       fi: { translation: fi },
