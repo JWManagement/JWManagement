@@ -39,7 +39,7 @@ const modal = {
     teams: 'Teams assigned to this shift',
     helpText: {
       tag: 'Set this shift tag. All users with permissions on this tag can view the shift.',
-      scheduling: 'With \'approve immediately\', requests will be approved automatically when the minimum participant limit for the next team is reached.'
+      scheduling: '\'Approve immediately\' requests will be approved automatically when the minimum participant limit for the next team is reached.'
     },
     addTeam: 'Add a new team',
     teamMin: 'Minimum participants:',
@@ -66,7 +66,7 @@ const modal = {
     title: 'Change meeting point picture',
     currentPicture: 'Current Picture:',
     hints: 'This picture will probably be displayed larger for the publisher.',
-    noPictureUploaded: 'You have not yet uploaded any picture',
+    noPictureUploaded: 'You have not yet uploaded a picture',
     upload: 'Upload',
     delete: 'Delete'
   },
@@ -100,7 +100,7 @@ const modal = {
     addParticipant: 'Add participant',
     closedTeam: 'This team is closed. You can\'t request participation.',
     maximumReached: 'Maximum limit for team participants has already been reached',
-    noPermission: 'You don\'t have the permission to schedule users',
+    noPermission: 'You don\'t have permission to schedule users',
     noTeamleader: 'This user doesn\'t have permission to be a team leader',
     alreadyTeamleader: 'This user is already a team leader',
     openTeam: 'Open team',
@@ -185,7 +185,7 @@ const modal = {
   },
   mergeAccounts: {
     title: 'Merge accounts',
-    description: 'Enter the credentials of the account in which you want to merge this account\'s permissions. You will be logged in into that account right away.',
+    description: 'Enter the credentials of the account in which you want to merge this account\'s permissions. You will be logged in to that account right away.',
     username: 'Username',
     password: 'Password',
     merge: 'Merge accounts'

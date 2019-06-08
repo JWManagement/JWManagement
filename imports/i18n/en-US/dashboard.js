@@ -50,7 +50,7 @@ const dashboard = {
     newDashboard: 'To the new dashboard',
     newDashboardDescription: 'Good news! We redesigned the dashboard for you. It should especially be handy on mobile devices. We hope you like it! If anything doesn\'t work for you, please tell your project coordinators - they\'ll inform us.',
     oldDashboard: 'To the old dashboard',
-    onlineUsers: 'Currently online users',
+    onlineUsers: 'Current online users',
     myProjects: {
       seeAllItems: 'See one more project',
       seeAllItems_plural: 'See the other {{count}} projects'
@@ -85,7 +85,7 @@ const dashboard = {
       }
     },
     olderShifts: {
-      link: 'See all my previously done shifts',
+      link: 'See my previously done shifts',
       shift: {
         tag: 'Tag',
         date: 'Date',

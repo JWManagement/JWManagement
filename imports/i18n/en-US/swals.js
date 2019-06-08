@@ -10,7 +10,7 @@ const swal = {
   missingTag: 'No tag defined. Please first define a tag under Admin > Settings',
   logout: {
     title: 'Hint',
-    text: 'It is not necessary to log out unless you are on a shared computer. Your connection is encrypted and we save session information only in your local browser. Nobody else can see or hijack your session.',
+    text: 'It is not necessary to log out unless you are on a shared computer. Your connection is encrypted and session information is only stored in your local browser. Nobody else can see or hijack your session.',
     confirm: 'Logout',
     cancel: 'Cancel'
   },
@@ -179,7 +179,7 @@ const swal = {
     },
     allShifts: {
       title: 'Are you sure?',
-      text: 'All shifts on this day and all requests for these shifts will irreversibly get deleted.',
+      text: 'All shifts on this day and all requests for these shifts will be irreversibly deleted.',
       confirm: 'Delete',
       cancel: 'Cancel'
     },

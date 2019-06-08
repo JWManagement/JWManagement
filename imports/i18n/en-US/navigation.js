@@ -99,7 +99,7 @@ const navigation = {
   firstLogin: 'First Login',
   forgotPassword: 'Forgot Password',
   resetPassword: 'Reset Password',
-  terms: 'Terms of Usage',
+  terms: 'Terms of Use',
   privacy: 'Data Privacy Policy',
   support: 'Support',
   version: 'Version',

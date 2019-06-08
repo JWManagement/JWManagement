@@ -1,12 +1,12 @@
 const mail = {
-  footer: 'This is an automated mail. We don\'t expect an answer to it.',
+  footer: 'This is an automated mail. We don\'t expect a reply.',
   link: 'Open JW Management',
   accountCreated: {
     subject: 'JW Management Account Created!',
     headline: 'Welcome!',
     hello: 'Hello',
     text1: 'We would like to tell you that we have created an account for you in JW Management. You can set your personal username and password by clicking on the button below.',
-    text2: 'In case of problems please feel free to contact us.<br>We wish you much joy using JW Management.<br>Your brothers from JW Management',
+    text2: 'In case of problems please feel free to contact us.<br>We hope you enjoy using JW Management.<br>Your brothers from JW Management',
     button: 'Let\'s Go!'
   },
   teamCancellation: {
@@ -56,7 +56,7 @@ const mail = {
     headline: 'Team is understaffed',
     hello: 'Hello',
     text1: 'the following Team is understaffed and needs a',
-    text2: 'Please have a look whether you can help this team.',
+    text2: 'Please see if you can help this team.',
     datetime: '{{date}} from {{time}} o\'clock'
   },
   resetPassword: {

@@ -20,11 +20,11 @@ const store = {
     description: 'Please choose a mode to initialize your store room.<br>You can change this later, if you need to.',
     simple: {
       name: 'Simple',
-      description: 'With the simple mode, the system will automatically configure some basic item categories like "Books & Bibles", "Magazines", etc for you. These will be available in the report.'
+      description: 'With simple mode, the system will automatically configure some basic item categories like "Books & Bibles", "Magazines", etc for you. These will be available in the report.'
     },
     advanced: {
       name: 'Advanced',
-      description: 'With the advanced mode you can decide which publications are available in which languages. You can define how many of them are in the store room and the system will keep them up to date with the information from the reports. With this you can determine which publications and languages work the best for your project.'
+      description: 'With advanced mode you can decide which publications are available in which languages. You can define how many of them are in the store room and the system will keep them up to date with the information from the reports. With this you can determine which publications and languages work the best for your project.'
     }
   },
   type: {

@@ -10,7 +10,7 @@ const framework = {
   },
   validation: {
     required: 'This field is required',
-    unique: 'There already is a record with this value',
+    unique: 'There is already a record with this value',
     minString8: 'The password has to be at least 8 characters long',
     passwordMismatch: 'The passwords do not match',
     hasToBeBigger: 'This value has to be bigger',
