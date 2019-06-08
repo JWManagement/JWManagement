@@ -9,7 +9,7 @@ const language = {
     languageValues: {
       de: 'Deutsch',
       'en-US': 'Englisch (US)',
-      'en-GB': 'Englisch (UK)',
+      'en-GB': 'Englisch (GB)',
       'en-AU': 'Englisch (Australien)',
       fi: 'Finnisch',
       fr: 'Französisch',

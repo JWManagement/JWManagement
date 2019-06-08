@@ -64,7 +64,7 @@ const mail = {
     headline: 'Reset your Password',
     text1: 'Hello,<br>Please click the following button to set a new password:',
     button: 'Reset Password',
-    text2: '<p>Useful hints for secure password generation can be found in <a href="https://wol.jw.org/en/wol/d/r1/lp-e/102001451">g01 6/22 p. 31</a></p><p>If you didn\'t request a password reset, feel free to delete this email.</p>'
+    text2: '<p>Useful hints for creating a secure password can be found in <a href="https://wol.jw.org/en/wol/d/r1/lp-e/102001451">g01 6/22 p. 31</a></p><p>If you didn\'t request a password reset, feel free to delete this email.</p>'
   }
 }
 

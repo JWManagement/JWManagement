@@ -1,7 +1,7 @@
 const language = {
   de: 'Német',
   'en-US': 'Angol (US)',
-  'en-GB': 'Angol (UK)',
+  'en-GB': 'Angol (GB)',
   'en-AU': 'Angol (Ausztrália)',
   hu: 'Magyar',
   pt: 'Portugál',
