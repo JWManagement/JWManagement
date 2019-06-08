@@ -23,7 +23,8 @@ const language = {
     }
   },
   de: 'Niemiecki',
-  en: 'Angielki',
+  'en-US': 'Angielski (US)',
+  'en-GB': 'Angielski (UK)',
   'en-AU': 'Angielski (Australia)',
   fi: 'Fiński',
   fr: 'Francuski',

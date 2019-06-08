@@ -7,8 +7,9 @@ const project = {
     language: 'Domyślny język',
     languageValues: {
       de: 'Niemiecki',
-      en: 'Angielski',
-      'en-Au': 'Agielski (Australijski)',
+      'en-US': 'Angielski (US)',
+      'en-GB': 'Angielski (GB)',
+      'en-AU': 'Agielski (Australijski)',
       fi: 'Fiński',
       fr: 'Francuski',
       hu: 'Węgierski',
