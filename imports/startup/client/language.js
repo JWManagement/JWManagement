@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 import i18next from 'i18next'
 import moment from 'moment'
 import { wrs } from '../../framework/Functions/Async'
-import SystemLanguages from '../../framework/Constants/SystemLanguages';
+import SystemLanguages from '../../framework/Constants/SystemLanguages'
 
 export { setLanguageOnAuth }
 

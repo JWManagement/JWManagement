@@ -7,7 +7,7 @@ import moment from 'moment'
 
 import { Delay, wrs } from '../Functions/Async'
 import { setLanguageOnAuth } from '../../startup/client/language'
-import SystemLanguages from '../Constants/SystemLanguages';
+import SystemLanguages from '../Constants/SystemLanguages'
 
 const checkLanguage = function () {
   let language = FlowRouter.current().params.language
