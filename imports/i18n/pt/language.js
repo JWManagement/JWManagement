@@ -1,6 +1,8 @@
 const language = {
   de: 'Alemão',
-  en: 'Inglês',
+  'en-US': 'Inglês (América)',
+  'en-GB': 'Inglês (Grã Bretanha)',
+  'en-AU': 'Inglês (Austrália)',
   pt: 'Português',
   pl: 'Polonês',
   A: 'Arabe',

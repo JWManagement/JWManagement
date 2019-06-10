@@ -34,7 +34,8 @@ const publisher = {
       language: 'Język konta',
       languageValues: {
         de: 'Niemiecki',
-        en: 'Angielski',
+        'en-US': 'Angielski (US)',
+        'en-GB': 'Angielski (GB)',
         'en-AU': 'Angielski (Australijski)',
         fi: 'Fiński',
         fr: 'Francuski',

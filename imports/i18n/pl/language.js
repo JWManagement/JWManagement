@@ -8,7 +8,8 @@ const language = {
     language: 'Język',
     languageValues: {
       de: 'Niemiecki',
-      en: 'Angielski',
+      'en-US': 'Angielski (US)',
+      'en-GB': 'Angielski (GB)',
       'en-AU': 'Angielski (Australia)',
       fi: 'Fiński',
       fr: 'Francuski',
@@ -22,7 +23,8 @@ const language = {
     }
   },
   de: 'Niemiecki',
-  en: 'Angielki',
+  'en-US': 'Angielski (US)',
+  'en-GB': 'Angielski (GB)',
   'en-AU': 'Angielski (Australia)',
   fi: 'Fiński',
   fr: 'Francuski',

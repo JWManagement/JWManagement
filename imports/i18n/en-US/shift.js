@@ -1,6 +1,6 @@
 const shift = {
   entity: {
-    noElements: 'Nessun turno'
+    noElements: 'No Shifts found'
   }
 }
 
