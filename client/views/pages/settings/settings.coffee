@@ -23,7 +23,8 @@ Template.settings.helpers
 	getLanguages: ->
 		[
 			{ _id: 'de', name: "Deutsch", en: "German" }
-			{ _id: 'en', name: "English", en: "English" }
+			{ _id: 'en-US', name: "English", en: "English (United States)" }
+			{ _id: 'en-GB', name: "English", en: "English (Great Britain)" }
 			{ _id: 'en-AU', name: "English (Australia)", en: "English (Australia)" }
 			{ _id: 'fi', name: "Suomi", en: "Finnish" }
 			{ _id: 'fr', name: "Français", en: "French (France)" }
