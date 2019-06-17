@@ -93,7 +93,8 @@ const store = {
     yc: 'Teach Your Children',
     yp1: 'Questions Young People Ask — Answers That Work, Volume 1',
     yp2: 'Questions Young People Ask — Answers That Work, Volume 2',
-    ypq: 'Answers to 10 Questions Young People Ask'
+    ypq: 'Answers to 10 Questions Young People Ask',
+    hl: 'How Can You Have a Happy Life?'
   }
 }
 
