@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor'
+import { Random } from 'meteor/random'
 import SimpleSchema from 'simpl-schema'
 import objectAssignDeep from 'object-assign-deep'
 import { checkPermissions } from '../../framework/Functions/Security'
