@@ -33,7 +33,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 3. Open the extracted folder and switch into the imports/i18n folder.
 
-4. Copy the folder of the language, from that you can do the translation (e.g. en, if you want to translate english to russian).
+4. Copy the folder of the language, from that you can do the translation (e.g. en-US, if you want to translate english to russian).
 
 5. Paste it and rename it to the language, you want to translate it to (e.g. ru).
    Also rename all files in this folder and replace the old language with the new one.
@@ -101,7 +101,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 9. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
 
-## Troubleshooting 
+## Troubleshooting
 
 ### Windows
 
@@ -110,23 +110,23 @@ One solution is to use the Windows Subsystem for Linux for the server runtime (n
 
 1. Install the WSL see [Instructions for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-2. Once you have finished installing your Linux distribution you need to install 
+2. Once you have finished installing your Linux distribution you need to install
 
   * Nodejs. See the [official nodejs instructions based on the choosen distribution](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
-  For example for ubuntu do: 
+  For example for ubuntu do:
   ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
   * Metor:
-   
+
    ```
    curl https://install.meteor.com/ | sh
    ```
 
   You do not need to clone the repository again in Linux. The directories and files in Windows are mounted directly with WSL.
-  
+
   Open the Terminal at the root of the project and execute ``bash``. You are now in Linux. Try it. Execute ``node``, then in the node REPL ``os.platform()``. This should give you back 'linux'.
 
  One more thing is needed: mongodb. Meteor installs mongodb for you but in this case we need our own instance of mongodb because meteor does not work or not work in a predictical way in WSL. For example it seems that mongodb in WSL can only be started from ``/mnt/c``. You need to install it anyway so better on Windows.
@@ -136,7 +136,7 @@ sudo apt-get install -y nodejs
 
   With this approach the development workflow is slightly different. You will
 
-  1. Start mongodb (from Windows): 
+  1. Start mongodb (from Windows):
 
   ```mongod --port 3001 --bind_ip_all```
 
@@ -146,7 +146,7 @@ sudo apt-get install -y nodejs
   bash
   MONGO_URL=mongodb://{yourip}:3001/meteor meteor
   ```
-  
+
 
 
 

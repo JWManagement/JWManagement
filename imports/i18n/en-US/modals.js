@@ -174,7 +174,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-File upload',
-    helpText: 'Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation, Account Language (\'en\', \'de\', ...), Foreign languages spoken (e.g. \'German, French\'), Roles (see user export for an example)',
+    helpText: 'Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation, Account Language (\'en-US\', \'en-GB\', \'de\', ...), Foreign languages spoken (e.g. \'German, French\'), Roles (see user export for an example)',
     helpEncoding: 'The file has to be UTF-8 encoded to support all characters',
     uploadFile: 'Upload CSV File',
     new: 'New Publishers',

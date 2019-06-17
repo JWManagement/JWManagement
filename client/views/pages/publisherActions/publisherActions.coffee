@@ -109,6 +109,9 @@ Template.publisherActions.events
 		csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + head.join(';') + '\r\n'
 
 		for user in users.fetch() when user._id != 'adm'
+			if user.profile.language == 'en'
+				user.profile.language = 'en-US'
+
 			row = []
 			row.push(
 				user.profile.email

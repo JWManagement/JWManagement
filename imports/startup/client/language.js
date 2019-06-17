@@ -21,7 +21,7 @@ function setLanguageOnAuth () {
       let myLanguage = Meteor.user().profile.language
 
       if (!SystemLanguages.allowedValues.includes(myLanguage)) {
-        myLanguage = 'en-US'
+        myLanguage = 'en-US' // default
         Meteor.call('language.update', null, null, myLanguage)
       }
 

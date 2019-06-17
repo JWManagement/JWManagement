@@ -8,7 +8,7 @@ Template.registerHelper 'format', (value, oldFormat, newFormat) ->
 Template.registerHelper 'formatTimeComparison', (a, b, showSuffix = true) ->
 	language = i18next.language
 
-	if language == 'en'
+	if language in ['en', 'en-US', 'en-GB', 'en-AU']
 		if a < 60 then a = '00' + a
 		if b < 60 then b = '00' + b
 		v1 = moment(a, 'Hmm').format('h')
@@ -70,7 +70,7 @@ Template.registerHelper 'formatTimeWithSuffix', (time) ->
 
 	if time < 60 then time = '00' + time
 
-	if language == 'en'
+	if language in ['en', 'en-US', 'en-GB', 'en-AU']
 		suffix = moment(time, 'Hmm').format(' A')
 	else
 		suffix = ' ' + i18next.t('time.suffix')

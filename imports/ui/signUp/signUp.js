@@ -45,7 +45,7 @@ Template.signUp.events({
         firstname: event.target.firstname.value,
         lastname: event.target.lastname.value,
         email: event.target.email.value,
-        language: 'en'
+        language: 'en-US'
       }
     }, (err) => {
       if (err) {
@@ -53,7 +53,7 @@ Template.signUp.events({
         submit.ladda('stop')
         console.log(err)
       } else {
-        FlowRouter.go('dashboard.details', { language: 'en' })
+        FlowRouter.go('dashboard.details', { language: 'en-US' })
       }
     })
   }

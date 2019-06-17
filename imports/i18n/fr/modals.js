@@ -177,7 +177,7 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Chargement du fichier-utilisateur ',
-    helpText: 'Ordre des données personnelles (* Champs obligatoire): <br> E-mail*, Prénom*, Nom*, Sexe(h ou f)*, Numéro de téléphone, Statut (\'proclamateur\', \'auxiliaire\', \'permanent\', \'spécial\', \'circonscription\', \'béthélite\' ou \'ldc\'), Responsabilités (\'proclamateur\', \'assistant\', \'ancien\', \'coordinateur\', \'secrétaire\' ou \'responsable de prédication\'), Assemblée, langue du compte (\'en\', \'de\', ...)',
+    helpText: 'Ordre des données personnelles (* Champs obligatoire): <br> E-mail*, Prénom*, Nom*, Sexe(h ou f)*, Numéro de téléphone, Statut (\'proclamateur\', \'auxiliaire\', \'permanent\', \'spécial\', \'circonscription\', \'béthélite\' ou \'ldc\'), Responsabilités (\'proclamateur\', \'assistant\', \'ancien\', \'coordinateur\', \'secrétaire\' ou \'responsable de prédication\'), Assemblée, langue du compte (\'en-US\', \'en-GB'\, \'de\', ...)',
     helpEncoding: 'Le fichier doit être encoder en UTF-8 pour afficher toutes les lettres et symboles',
     uploadFile: 'Charger le fichier CSV',
     new: 'Nouveaux proclamateurs',
