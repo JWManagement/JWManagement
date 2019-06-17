@@ -13,11 +13,13 @@ import pages from './pages'
 import project from './project'
 import publisher from './publishers'
 import shift from './shift'
+import store from './store'
 import swal from './swals'
 import user from './user'
 import users from './users'
+import vessel from './vessels'
 
-const it = {
+const enUS = {
   ...authentication,
   calendar,
   dashboard,
@@ -33,9 +35,11 @@ const it = {
   project,
   publisher,
   shift,
+  store,
   swal,
   user,
-  users
+  users,
+  vessel
 }
 
-export default it
+export default enUS

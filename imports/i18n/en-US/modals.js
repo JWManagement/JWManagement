@@ -17,7 +17,7 @@ const modal = {
     defineTemplate: 'Define template',
     action: 'Create week',
     text: {
-      top: 'Choose a week, that the template week will get applied to:',
+      top: 'Choose a week that the template week will get applied to:',
       bottom: 'Choose the template week:'
     }
   },
@@ -39,7 +39,7 @@ const modal = {
     teams: 'Teams assigned to this shift',
     helpText: {
       tag: 'Set this shift tag. All users with permissions on this tag can view the shift.',
-      scheduling: 'With \'approve immediately\' requests will be approved automatically, when the minimum participant limit for the next team is reached.'
+      scheduling: '\'Approve immediately\' requests will be approved automatically when the minimum participant limit for the next team is reached.'
     },
     addTeam: 'Add a new team',
     teamMin: 'Minimum participants:',
@@ -66,7 +66,7 @@ const modal = {
     title: 'Change meeting point picture',
     currentPicture: 'Current Picture:',
     hints: 'This picture will probably be displayed larger for the publisher.',
-    noPictureUploaded: 'You have not yet uploaded any picture',
+    noPictureUploaded: 'You have not yet uploaded a picture',
     upload: 'Upload',
     delete: 'Delete'
   },
@@ -100,7 +100,7 @@ const modal = {
     addParticipant: 'Add participant',
     closedTeam: 'This team is closed. You can\'t request participation.',
     maximumReached: 'Maximum limit for team participants has already been reached',
-    noPermission: 'You don\'t have the permission to schedule users',
+    noPermission: 'You don\'t have permission to schedule users',
     noTeamleader: 'This user doesn\'t have permission to be a team leader',
     alreadyTeamleader: 'This user is already a team leader',
     openTeam: 'Open team',
@@ -176,7 +176,7 @@ const modal = {
     title: 'User-File upload',
     helpText: 'Order of personal data (* fields are required): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation, Account Language (\'en\', \'de\', ...), Foreign languages spoken (e.g. \'German, French\'), Roles (see user export for an example)',
     helpEncoding: 'The file has to be UTF-8 encoded to support all characters',
-    uploadFile: 'Upload CSV-File',
+    uploadFile: 'Upload CSV File',
     new: 'New Publishers',
     existing: 'Publishers with JW Management Account',
     name: 'Name',
@@ -185,7 +185,7 @@ const modal = {
   },
   mergeAccounts: {
     title: 'Merge accounts',
-    description: 'Enter the credentials of the account in which you want to merge this account\'s permissions. You will be logged in into that account right away.',
+    description: 'Enter the credentials of the account in which you want to merge this account\'s permissions. You will be logged in to that account right away.',
     username: 'Username',
     password: 'Password',
     merge: 'Merge accounts'

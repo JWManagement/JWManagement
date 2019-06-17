@@ -19,7 +19,7 @@ import user from './user'
 import users from './users'
 import vessel from './vessels'
 
-const en = {
+const enGB = {
   ...authentication,
   calendar,
   dashboard,
@@ -42,4 +42,4 @@ const en = {
   vessel
 }
 
-export default en
+export default enGB

@@ -29,7 +29,7 @@ Meteor.methods
 		if newUsers
 			for newUser in newUsers
 				userId = Meteor.call 'createAccount',
-					username: Random.id 5
+					username: Random.id 15
 					password: ''
 					profile:
 						email: newUser.email

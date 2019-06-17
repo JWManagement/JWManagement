@@ -6,7 +6,7 @@ const pages = {
     options: {
       title: 'Settings',
       helpText: {
-        mergeAccounts: 'In JW Management you can do everything with just one single account. You just have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account\'s permissions into the ones of the specified account.'
+        mergeAccounts: 'In JW Management you can do everything with just one account. You only have to remember one username and password. If you have multiple accounts click on "Merge accounts" and enter the credentials for your other account. This will merge this account\'s permissions into the specified account.'
       }
     },
     availability: {
@@ -44,7 +44,7 @@ const pages = {
       serviceOverseer: 'Service overseer'
     },
     placeholder: {
-      telefon: '(e.g. +447712345678)',
+      telefon: '(e.g. 218-123-4444)',
       congregation: 'Congregation',
       languages: 'Languages'
     },
@@ -52,11 +52,11 @@ const pages = {
     deleteAccount: 'Delete account',
     mergeAccounts: 'Merge accounts',
     vacation: {
-      title: 'Holiday',
+      title: 'Vacation',
       helpText: 'Please add the periods in which you are not available.'
     },
     until: 'until',
-    addVacation: 'Add Holiday',
+    addVacation: 'Add Vacation',
     deleteVacation: 'Delete this vacation',
     usernameTaken: 'This username is already taken by someone else. Please choose another.'
   },
@@ -92,7 +92,7 @@ const pages = {
     helpText: {
       start: 'This is the first week to be created by the system.',
       end: 'This is the last week to be created by the system.',
-      visibility: 'This defines how many weeks in advance the publishers will be able to see and request. Under consideration of the start-week and end-week, the system will automatically create the needed shifts.'
+      visibility: 'This defines how many weeks in advance publishers will be able to see and request. Under consideration of the start-week and end-week, the system will automatically create the needed shifts.'
     },
     weeks: 'weeks',
     hideNames: 'Hide all names in the shifts',
@@ -100,7 +100,7 @@ const pages = {
     editShifts: 'Edit the shifts',
     prevWeek: 'Go to the previous week',
     nextWeek: 'Go to the next week',
-    sendWeek: 'Send confirmations for all shifts in this week per mail',
+    sendWeek: 'Send confirmations for all shifts in this week by email',
     shownTag: 'Shifts of this tag are currently shown',
     hiddenTag: 'Shifts of this tag are currently hidden',
     shift: {
@@ -138,16 +138,16 @@ const pages = {
       news: {
         text: 'News',
         placeholder: 'No News',
-        helpText: 'The news will show up on the top of the project overview to communicate with your participants.'
+        helpText: 'The news will show up at the top of the project overview. It can be used to communicate with your participants.'
       },
       email: {
         text: 'Email',
         placeholder: 'Project email address',
-        helpText: 'In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient\'s email program is behaving correctly. Furthermore, this address will be notified e.g. on short-term participation cancellations.'
+        helpText: 'In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient\'s email program is behaving correctly. Furthermore, this address will be notified (e.g. on short-term participation cancellations).'
       },
       language: {
         text: 'Language',
-        helpText: 'If the system notifies the above listed address about changes, it will send the mails in the language you specify here.'
+        helpText: 'If the system notifies the address listed above about changes, it will send the mails in the language you specify here.'
       },
       deleteProject: 'Delete project'
     },
@@ -158,7 +158,7 @@ const pages = {
       name: 'Name',
       img: {
         name: 'Image',
-        helpText: 'This image will be shown on the dashboard when clicking on \'Shifts\'. It should explain the kind of tasks done in shifts of this tag. If you want to add a custom image, please send us an email to support@jwmanagement.org describing your idea.'
+        helpText: 'This image will be shown on the dashboard when clicking on \'Shifts\'. It should explain the kind of tasks done in shifts of this tag. If you want to add a custom image, please send us an email describing your idea to support@jwmanagement.org.'
       },
       templates: 'Templates',
       showTemplate: 'Edit shifts',
@@ -173,10 +173,10 @@ const pages = {
     teams: {
       title: 'Teams',
       helpText: {
-        main: 'For every shift there has to be at least one team. Teams can e.g. represent different routes or locations. A participant of the shift is always member of one of these teams.',
+        main: 'For every shift there has to be at least one team. Teams can represent different routes or locations. A participant of the shift is always member of one of these teams.',
         picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the tasks in this team. For example you could create a route for this team on Google Maps or OpenStreetMap (depending on which has better coverage of your area) and upload a picture of that here.',
         link: 'This link will be connected with the picture. If the user clicks on the picture he will be forwarded to the address of this link. For example you could provide the link of the Google Maps or OpenStreetMap map here.',
-        description: 'Here you can optionally set up a description for this team. For example you could explain some particularities of this team or route.'
+        description: 'Here you can optionally set a description for this team. For example you could explain some particularities of this team or route.'
       },
       id: 'ID',
       name: 'Name',
@@ -194,8 +194,8 @@ const pages = {
     meetings: {
       title: 'Meeting Point',
       helpText: {
-        main: 'For all the shift teams there can be a meeting point assigned to them. With that, teams can meet independently from each other. This can be useful, as when the route or location of the teams are so far apart that a common meeting would be too time consuming.',
-        picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from Google Maps or OpenStreetMap (whichever one has better coverage of your area) here.'
+        main: 'For all the shift teams there can be a meeting point assigned. With that, teams can meet independently from each other. This can be useful when the route or location of the teams are so far apart that a common meeting would be too time consuming.',
+        picture: 'Publishers will be able to see this picture. Therefore, it should give further information for the meeting point. For example you could upload a picture with the environment from Google Maps or OpenStreetMap (whichever one has better coverage of your area).'
       },
       id: 'ID',
       name: 'Name',

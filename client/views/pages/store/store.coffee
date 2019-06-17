@@ -53,6 +53,8 @@ Template.store.helpers
 				short: 'yp1'
 			,
 				short: 'yp2'
+			,
+				short: 'hl'
 			]
 		,
 			type: 'brochures'

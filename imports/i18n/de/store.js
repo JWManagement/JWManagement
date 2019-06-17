@@ -90,7 +90,8 @@ const store = {
     yc: 'Unsere kleine Bibelstunde',
     yp1: 'Fragen junger Leute — praktische Antworten, Band 1',
     yp2: 'Fragen junger Leute — praktische Antworten, Band 2',
-    ypq: 'Antworten auf 10 Fragen junger Leute'
+    ypq: 'Antworten auf 10 Fragen junger Leute',
+    hl: 'Ein Leben voller Glück — wie ist das möglich?'
   }
 }
 

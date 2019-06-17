@@ -7,10 +7,16 @@ import moment from 'moment'
 
 import { Delay, wrs } from '../Functions/Async'
 import { setLanguageOnAuth } from '../../startup/client/language'
+import SystemLanguages from '../Constants/SystemLanguages'
 
 const checkLanguage = function () {
-  const language = FlowRouter.current().params.language
+  let language = FlowRouter.current().params.language
   const myLanguage = i18next.language
+
+  if (!SystemLanguages.allowedValues.includes(language)) {
+    language = 'en-US'
+    Meteor.call('language.update', null, null, language)
+  }
 
   if (language !== myLanguage) {
     i18next.changeLanguage(language)

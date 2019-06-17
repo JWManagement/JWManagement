@@ -123,9 +123,13 @@ function publisherInsert ({ projectId }, publisher) {
       type: String,
       optional: true,
       custom () {
-        const userWithThisUsername = Users.findOne({ username: publisher.username })
-        if (userWithThisUsername != null) {
-          return 'usernameAlreadyTaken'
+        if (!publisher.username) {
+          publisher.username = Random.id(15)
+        } else {
+          const userWithThisUsername = Users.findOne({ username: publisher.username })
+          if (userWithThisUsername != null) {
+            return 'usernameAlreadyTaken'
+          }
         }
       }
     },
