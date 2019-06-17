@@ -4,21 +4,6 @@ const project = {
     _id: 'ID',
     name: 'Name',
     email: 'Projekt E-Mail Adresse',
-    language: 'Standard Sprache',
-    languageValues: {
-      de: 'Deutsch',
-      en: 'Englisch',
-      'en-AU': 'Englisch (Australien)',
-      fi: 'Finnisch',
-      fr: 'Französisch',
-      hu: 'Ungarisch',
-      it: 'Italienisch',
-      pl: 'Polnisch',
-      pt: 'Portugiesisch',
-      ru: 'Russisch',
-      'zh-TW': 'Chinesisch (Traditionell) (teilweise)',
-      'zh-CN': 'Chinesisch (Vereinfacht) (teilweise)'
-    },
     news: {
       text: 'Neuigkeiten'
     },

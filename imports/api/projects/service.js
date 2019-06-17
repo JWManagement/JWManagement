@@ -71,18 +71,12 @@ Meteor.methods({
       email: {
         type: String,
         regEx: SimpleSchema.RegEx.Email
-      },
-      language: {
-        type: String,
-        min: 2,
-        allowedValues: SystemLanguages.allowedValues
       }
     }, project)
 
     const projectId = Projects.insert({
       name: project.name,
       email: project.email,
-      language: project.language,
       news: {},
       wiki: {
         tabs: []

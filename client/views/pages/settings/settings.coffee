@@ -17,26 +17,6 @@ Template.settings.helpers
 
 	meetingPicture: -> Pictures.findOne projectId: FlowRouter.getParam('projectId'), meetingId: @_id
 
-	getLanguage: (language) ->
-		i18next.t('language.' + language)
-
-	getLanguages: ->
-		[
-			{ _id: 'de', name: "Deutsch", en: "German" }
-			{ _id: 'en-US', name: "English", en: "English (United States)" }
-			{ _id: 'en-GB', name: "English", en: "English (Great Britain)" }
-			{ _id: 'en-AU', name: "English (Australia)", en: "English (Australia)" }
-			{ _id: 'fi', name: "Suomi", en: "Finnish" }
-			{ _id: 'fr', name: "Français", en: "French (France)" }
-			{ _id: 'hu', name: "Magyar", en: "Hungarian" }
-			{ _id: 'it', name: "Italiano", en: "Italian" }
-			{ _id: 'pl', name: "Polski", en: "Polish" }
-			{ _id: 'pt', name: "Português", en: "Portuguese (Portugal)" }
-			{ _id: 'ru', name: "Русский", en: "Russian" }
-			{ _id: 'zh-CN', name: "简体中文", en: "Chinese (China)" }
-			{ _id: 'zh-TW', name: "繁体中文（台湾）", en: "Chinese (Taiwan)" }
-		]
-
 	json2String: (a) -> JSON.stringify(a)
 
 Template.settings.onCreated ->
@@ -88,8 +68,6 @@ Template.settings.events
 		Meteor.call 'updateProject', @_id, 'news.date', moment().format()
 
 	'change #projectEmail': (e) -> Meteor.call 'updateProject', @_id, 'email', e.target.value, handleError
-
-	'click .changeLanguage': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'language', $(e.target).attr('newLang'), handleError
 
 	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
 
