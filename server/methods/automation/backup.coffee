@@ -1,8 +1,6 @@
 import moment from 'moment'
 AWS = require('aws-sdk')
 
-{ Messages } = require('/imports/api/messages/messages.coffee')
-
 exports.backup = ->
 
 	AWS.config.update region: 'eu-central-1'
@@ -15,7 +13,6 @@ exports.backup = ->
 		shifts: -> Shifts.find().fetch()
 		weeks: -> Weeks.find().fetch()
 		users: -> Meteor.users.find().fetch()
-		messages: -> Messages.find().fetch()
 
 	for it in Object.keys(data)
 		s3.putObject
