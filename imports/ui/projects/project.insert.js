@@ -12,12 +12,6 @@ Template['project.insert'].helpers({
     }, {
       key: 'email',
       required: true
-    }, {
-      key: 'language',
-      type: 'picker',
-      allowedValues: SystemLanguages.allowedValues,
-      defaultValue: SystemLanguages.defaultValue,
-      required: true
     }]
   }
 })
