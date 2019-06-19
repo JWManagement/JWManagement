@@ -1,7 +1,5 @@
 import { Template } from 'meteor/templating'
 
-import SystemLanguages from '../../framework/Constants/SystemLanguages'
-
 Template['project.insert'].helpers({
   data: {
     backLink: 'dashboard.details',
