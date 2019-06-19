@@ -10,16 +10,15 @@ Meteor.methods({
     }
   },
   'language.update' (_, __, language) {
-    console.log('language.update: ' + language)
-    console.log(Meteor.user())
-    console.log(Meteor.user().profile)
-    const profileLanguage = Meteor.user().profile.language
-    const isSystemLanguage = SystemLanguages.allowedValues.indexOf(language) > -1
+    const user = Meteor.user()
 
-    if (profileLanguage && isSystemLanguage) {
-      const userId = Meteor.userId()
+    if (user) {
+      const profileLanguage = user.profile.language
+      const isSystemLanguage = SystemLanguages.allowedValues.indexOf(language) > -1
 
-      Users.persistence.update(userId, 'profile.language', language)
+      if (profileLanguage && isSystemLanguage) {
+        Users.persistence.update(user._id, 'profile.language', language)
+      }
     }
   }
 })
