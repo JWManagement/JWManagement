@@ -11,10 +11,10 @@ Meteor.methods({
   },
   'language.update' (_, __, language) {
     console.log('language.update: ' + language)
+    console.log(Meteor.user())
+    console.log(Meteor.user().profile)
     const profileLanguage = Meteor.user().profile.language
-    console.log('for: ' + profileLanguage)
     const isSystemLanguage = SystemLanguages.allowedValues.indexOf(language) > -1
-    console.log('isSystemLanguage: ' + isSystemLanguage)
 
     if (profileLanguage && isSystemLanguage) {
       const userId = Meteor.userId()
