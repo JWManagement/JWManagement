@@ -3,7 +3,6 @@
 @Projects = new Meteor.Collection 'projects'
 
 @ProjectSubs = new SubsManager cacheLimit: 5
-@UserSubs = new SubsManager cacheLimit: 20
 
 if Meteor.isServer
 	# Its important to set `internal: true` this lets the SA know that we
