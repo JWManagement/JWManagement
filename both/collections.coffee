@@ -2,12 +2,8 @@
 @Shifts = new Meteor.Collection 'shifts'
 @Projects = new Meteor.Collection 'projects'
 
-@ProjectSubs = new SubsManager cacheLimit: 100
-@WeekSubs = new SubsManager cacheLimit: 100
-@ShiftSubs = new SubsManager cacheLimit: 1000
-@UserSubs = new SubsManager cacheLimit: 100
-@FileSubs = new SubsManager cacheLimit: 100
-@PictureSubs = new SubsManager cacheLimit: 100
+@ProjectSubs = new SubsManager cacheLimit: 5
+@UserSubs = new SubsManager cacheLimit: 20
 
 if Meteor.isServer
 	# Its important to set `internal: true` this lets the SA know that we
