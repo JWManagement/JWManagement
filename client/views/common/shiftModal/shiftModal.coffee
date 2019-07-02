@@ -128,7 +128,7 @@ Template.shiftModal.onCreated ->
 
 	self = this
 	shiftId = FlowRouter.getQueryParam('showShift')
-	handle = ShiftSubs.subscribe 'shift', shiftId
+	handle = Meteor.subscribe 'shift', shiftId
 
 	@autorun ->
 		handle.ready Tracker.afterFlush ->

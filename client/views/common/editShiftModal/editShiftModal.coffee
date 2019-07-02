@@ -56,7 +56,7 @@ Template.editShiftModal.onCreated ->
 	ProjectSubs.subscribe 'meetings', projectId
 
 	@autorun ->
-		handle = ShiftSubs.subscribe 'shift', shiftId
+		handle = Meteor.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#editShiftModal').modal('show')
 			$('#editShiftModal').on 'hidden.bs.modal', ->

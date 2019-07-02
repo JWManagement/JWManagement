@@ -8,7 +8,7 @@ Template.reports.helpers
 	getMonth: -> FlowRouter.getQueryParam('month')
 
 	readyOrDisabled: ->
-		if ShiftSubs.ready()
+		if @subscriptionsReady()
 			button: '', icon: 'fa-download'
 		else
 			button: 'disabled', icon: 'fa-spinner fa-pulse'
@@ -25,7 +25,7 @@ Template.reports.onCreated ->
 	Session.set 'subscribe', month
 	@autorun ->
 		if Session.get 'subscribe'
-			ShiftSubs.subscribe 'reports', projectId, Session.get 'subscribe'
+			Meteor.subscribe 'reports', projectId, Session.get 'subscribe'
 			Session.set 'subscribe', false
 
 Template.reports.onRendered ->
