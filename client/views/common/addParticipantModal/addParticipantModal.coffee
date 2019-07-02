@@ -31,7 +31,7 @@ Template.addParticipantModal.onRendered ->
 	shiftId = FlowRouter.getQueryParam('shiftId')
 	teamId = FlowRouter.getQueryParam('teamId')
 
-	@autorun -> Meteor.subscribe 'usersByProject', projectId
+	@autorun -> UserSubs.subscribe 'usersByProject', projectId
 
 	@autorun ->
 		shift = Shifts.findOne shiftId,

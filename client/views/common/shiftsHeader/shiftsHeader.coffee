@@ -80,15 +80,15 @@ Template.shiftsHeader.onCreated ->
 
       unless FlowRouter.getQueryParam('weekId')?
         week = FlowRouter.getQueryParam('showWeek')
-        Meteor.subscribe 'futureWeeks', projectId, week
+        WeekSubs.subscribe 'futureWeeks', projectId, week
 
         prevWeek = moment(week).subtract(1, 'w')
         prevWeek = moment(prevWeek).format('GGGG[W]WW')
-        Meteor.subscribe 'week', projectId, prevWeek
+        WeekSubs.subscribe 'week', projectId, prevWeek
 
         nextWeek = moment(week).add(1, 'w')
         nextWeek = moment(nextWeek).format('GGGG[W]WW')
-        Meteor.subscribe 'week', projectId, nextWeek
+        WeekSubs.subscribe 'week', projectId, nextWeek
 
 Template.shiftsHeader.events
 
