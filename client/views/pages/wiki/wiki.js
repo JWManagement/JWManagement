@@ -42,7 +42,7 @@ Template.wiki.onRendered(function () {
       return $('.note-editor').addClass('hidden')
     }))
 
-    return Meteor.subscribe('files', projectId)
+    return FileSubs.subscribe('files', projectId)
   })
 })
 

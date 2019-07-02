@@ -50,11 +50,11 @@ Template.shifts.onCreated ->
 
 		if FlowRouter.getQueryParam('weekId')?
 			weekId = FlowRouter.getQueryParam('weekId')
-			Meteor.subscribe 'weekById', weekId
+			WeekSubs.subscribe 'weekById', weekId
 
 			ProjectSubs.subscribe 'tags', projectId, tags: 1
 
-			Meteor.subscribe 'shiftsByWeekId', weekId
+			ShiftSubs.subscribe 'shiftsByWeekId', weekId
 		else
 			week = FlowRouter.getQueryParam('showWeek')
 
@@ -76,9 +76,9 @@ Template.shifts.onCreated ->
 
 						wrs -> FlowRouter.setQueryParams showTags: visibleTags.join('_')
 
-			Meteor.subscribe 'week', projectId, week
+			WeekSubs.subscribe 'week', projectId, week
 
-			Meteor.subscribe 'shiftsByWeek', projectId, week
+			ShiftSubs.subscribe 'shiftsByWeek', projectId, week
 
 		Delay -> $('.animated').removeClass('animated').addClass('skipped')
 
