@@ -42,7 +42,7 @@ Template.shiftReport.onCreated ->
 	@autorun ->
 		shiftId = FlowRouter.getQueryParam('showShiftReport')
 
-		handle = Meteor.subscribe 'shift', shiftId
+		handle = ShiftSubs.subscribe 'shift', shiftId
 		handle.ready Tracker.afterFlush ->
 			$('#shiftReportModal').modal('show')
 			$('#shiftReportModal').on 'hidden.bs.modal', ->
