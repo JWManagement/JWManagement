@@ -82,8 +82,14 @@ Users.schema = new SimpleSchema({
   },
   'profile.language': {
     type: String,
-    defaultValue: 'en-US',
-    allowedValues: SystemLanguages.allowedValues
+    autoValue () {
+      if (this.isSet && typeof this.value === 'string' &&
+          SystemLanguages.allowedValues.includes(this.value)) {
+        return this.value
+      } else {
+        return SystemLanguages.defaultValue
+      }
+    }
   },
   'profile.languages': {
     type: String,

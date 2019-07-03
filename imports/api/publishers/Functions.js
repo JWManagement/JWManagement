@@ -115,6 +115,10 @@ function getExtendedPublisher (userId, projectId) {
       publisher.profile.vacations = []
     }
 
+    if (publisher.profile.language === 'en') {
+      publisher.profile.language = 'en-US'
+    }
+
     moment.locale(language)
     const localTranslate = i18next.getFixedT(language)
 
