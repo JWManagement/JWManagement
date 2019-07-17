@@ -135,7 +135,7 @@ const modal = {
     noPublications: 'No publications here',
     select_publication: 'Select a publication',
     selectPublicationFirst: 'Please select a publication first',
-    plusIconReminder: 'Don\'t forget to click the plus icon',
+    plusIconReminder: 'Don\'t forget to click on the plus icon',
     addItem: 'Add this publication',
     removeItem: 'Remove this publication',
     texts: 'Bible Texts',
