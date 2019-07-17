@@ -133,6 +133,7 @@ const modal = {
     noPublications: 'Keine Publikationen eingetragen',
     select_publication: 'Publikation auswählen',
     selectPublicationFirst: 'Bitte zuerst Publikation wählen',
+    plusIconReminder: 'Nicht vergessen auf den Plus-Button zu drücken',
     addItem: 'Diese Publikation hinzufügen',
     removeItem: 'Diese Publikation wieder löschen',
     texts: 'Bibeltexte',
