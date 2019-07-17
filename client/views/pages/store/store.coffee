@@ -22,6 +22,11 @@ Template.store.helpers
 
 	allItems: ->
 		[
+			type: 'meta'
+			items: [
+				short: 'any'
+			]
+		,
 			type: 'books'
 			items: [
 				short: 'bh'

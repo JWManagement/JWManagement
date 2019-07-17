@@ -28,6 +28,7 @@ const store = {
     }
   },
   type: {
+    meta: 'Meta',
     books: 'Books',
     brochures: 'Brochures',
     magazines: 'Magazines',
@@ -35,6 +36,7 @@ const store = {
     misc: 'Miscellaneous'
   },
   publication: {
+    any: 'Placements',
     'CO-inv17': '2017 Regional Convention Invitation',
     'CO-inv18': '2018 Regional Convention Invitation',
     'CO-inv19': '2019 Regional Convention Invitation',

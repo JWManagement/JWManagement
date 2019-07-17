@@ -28,6 +28,7 @@ const store = {
     }
   },
   type: {
+    meta: 'Übergreifendes',
     books: 'Bücher',
     brochures: 'Broschüren',
     magazines: 'Zeitschriften',
@@ -35,6 +36,7 @@ const store = {
     misc: 'Sonstiges'
   },
   publication: {
+    any: 'Abgaben',
     'CO-inv17': 'Einladung zum regionalen Kongress 2017',
     'CO-inv18': 'Einladung zum regionalen Kongress 2018',
     'CO-inv19': 'Einladung zum regionalen Kongress 2019',
