@@ -1,6 +1,9 @@
 .col-md-1.col-xs
 	if date
-		h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, DD.MM.'}}
+		if equals langTag 'en-US'
+			h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, MM/DD'}}
+		else
+			h2(class='{{today}}') {{format date 'YYYYDDDD' 'ddd, DD.MM.'}}
 	else
 		h2.center-align {{formatIsoWeekday day}}
 	.day-wrapper(date="{{date}}" day="{{day}}")
