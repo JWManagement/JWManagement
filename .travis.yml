@@ -2,12 +2,6 @@ sudo: required
 language: node_js
 node_js:
   - '8'
-cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
-    - node_modules
-    - .meteor/local
 stages:
   - name: Test
   - name: Deploy
