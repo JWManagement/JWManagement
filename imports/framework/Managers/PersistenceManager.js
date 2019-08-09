@@ -40,11 +40,12 @@ module.exports = class PersistenceManager {
 
     this.db.uniqueKeys.forEach((key) => {
       if (key in entity) {
+        const escapedValue = entity[key].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const alreadyExistingEntitiesCount = this.db.find({
           _id: {
             $ne: entity._id
           },
-          [key]: new RegExp('^' + entity[key] + '$', 'i')
+          [key]: new RegExp('^' + escapedValue + '$', 'i')
         }, {
           fields: {
             _id: 1
