@@ -14,6 +14,7 @@ const language = {
       fi: 'Finnish',
       fr: 'French',
       hu: 'Hungarian',
+      'el-GR': 'Greek',
       it: 'Italian',
       pl: 'Polish',
       pt: 'Portuguese',
