@@ -1,192 +1,192 @@
 const publisher = {
   entity: {
-    username: 'Benutzername',
+    username: 'Логин',
     profile: {
-      firstname: 'Vorname',
-      lastname: 'Nachname',
+      firstname: 'Имя',
+      lastname: 'Фамилия',
       email: 'E-Mail',
-      telefon: 'Telefon',
-      gender: 'Geschlecht',
+      telefon: 'Телефон',
+      gender: 'Пол',
       genderValues: {
-        m: 'Bruder',
-        w: 'Schwester'
+        m: 'Брат',
+        w: 'Сестра'
       },
-      congregation: 'Versammlung',
-      pioneer: 'Dienstvorrecht',
+      congregation: 'Собрание',
+      pioneer: 'Преимущества в служении',
       pioneerValues: {
-        publisher: 'Verkündiger',
-        auxiliary: 'Hilfspionier',
-        regular: 'Pionier',
-        special: 'Sonderpionier',
-        circuit: 'Kreisaufseher',
-        bethelite: 'Bethelit',
-        ldc: 'LDC Baudiener'
+        publisher: 'Возвещатель',
+        auxiliary: 'Подсобный пионер',
+        regular: 'Пионер',
+        special: 'Специальный пионер',
+        circuit: 'Районный надзиратель',
+        bethelite: 'Вефилец',
+        ldc: 'Служитель МПСО'
       },
-      privilege: 'Dienstamt',
+      privilege: 'Назначение в собрании',
       privilegeValues: {
-        publisher: 'Verkündiger',
-        servant: 'Dienstamtgehilfe',
-        elder: 'Ältester',
-        coordinator: 'Koordinator',
-        secretary: 'Sekretär',
-        serviceOverseer: 'Dienstaufseher'
+        publisher: 'Возвещатель',
+        servant: 'Служебный помощник',
+        elder: 'Старейшина',
+        coordinator: 'Координатор',
+        secretary: 'Секретарь',
+        serviceOverseer: 'Служебный надзиратель'
       },
-      language: 'Account Sprache',
+      language: 'Язык аккаунта',
       languageValues: {
-        de: 'Deutsch',
-        en: 'Englisch',
-        fi: 'Finnisch',
-        fr: 'Französisch (teilweise)',
-        hu: 'Ungarisch',
-        it: 'Italienisch',
-        pl: 'Polnisch',
-        pt: 'Portugiesisch',
-        ru: 'Russisch',
-        'zh-TW': 'Chinesisch (Traditionell) (teilweise)',
-        'zh-CN': 'Chinesisch (Vereinfacht) (teilweise)'
+        de: 'Немецкий',
+        en: 'Английский',
+        fi: 'Финский',
+        fr: 'Французский (частично)',
+        hu: 'Венгерский',
+        it: 'Итальянский',
+        pl: 'Польский',
+        pt: 'Португальский',
+        ru: 'Русский',
+        'zh-TW': 'Китайский (традиционный) (частично)',
+        'zh-CN': 'Китайский (упрощённый) (частично)'
       },
-      languages: 'Fremdsprachen',
-      shortTermCalls: 'Unterbesetzt-Mails erhalten',
-      shortTermCallsAlways: 'Kurzfristig anfragbar',
+      languages: 'Иностранные языки',
+      shortTermCalls: 'Получать сообщения о нехватки участников',
+      shortTermCallsAlways: 'Готов служить экспромтом',
       availability: {
-        'new': 'Neue Verfügbarkeit eintragen',
-        noElements: 'Keine Verfügbarkeiten angegeben',
-        methodConfirmation: 'Möchtest du diese Verfügbarkeit wirklich löschen?',
-        mondays: 'Montags',
-        tuesdays: 'Dienstags',
-        wednesdays: 'Mittwochs',
-        thursdays: 'Donnerstags',
-        fridays: 'Freitags',
-        saturdays: 'Samstags',
-        sundays: 'Sonntags',
-        start: 'Beginn',
-        startDateFormat: 'H -',
+        'new': 'Внести время служения',
+        noElements: 'Время служения не указано',
+        methodConfirmation: 'Хочешь стереть своё время служения?',
+        mondays: 'По Понедельникам',
+        tuesdays: 'По Вторникам',
+        wednesdays: 'По Средам',
+        thursdays: 'По Четрвергам',
+        fridays: 'По Пятницам',
+        saturdays: 'По Субботам',
+        sundays: 'По Воскресеньям',
+        start: 'Начало',
+        startDateFormat: 'Ч -',
         startValues: {
-          '0': '0:00 Uhr',
-          '1': '1:00 Uhr',
-          '2': '2:00 Uhr',
-          '3': '3:00 Uhr',
-          '4': '4:00 Uhr',
-          '5': '5:00 Uhr',
-          '6': '6:00 Uhr',
-          '7': '7:00 Uhr',
-          '8': '8:00 Uhr',
-          '9': '9:00 Uhr',
-          '10': '10:00 Uhr',
-          '11': '11:00 Uhr',
-          '12': '12:00 Uhr',
-          '13': '13:00 Uhr',
-          '14': '14:00 Uhr',
-          '15': '15:00 Uhr',
-          '16': '16:00 Uhr',
-          '17': '17:00 Uhr',
-          '18': '18:00 Uhr',
-          '19': '19:00 Uhr',
-          '20': '20:00 Uhr',
-          '21': '21:00 Uhr',
-          '22': '22:00 Uhr',
-          '23': '23:00 Uhr'
+          '0': '0:00 Чс',
+          '1': '1:00 Чс',
+          '2': '2:00 Чс',
+          '3': '3:00 Чс',
+          '4': '4:00 Чс',
+          '5': '5:00 Чс',
+          '6': '6:00 Чс',
+          '7': '7:00 Чс',
+          '8': '8:00 Чс',
+          '9': '9:00 Чс',
+          '10': '10:00 Чс',
+          '11': '11:00 Чс',
+          '12': '12:00 Чс',
+          '13': '13:00 Чс',
+          '14': '14:00 Чс',
+          '15': '15:00 Чс',
+          '16': '16:00 Чс',
+          '17': '17:00 Чс',
+          '18': '18:00 Чс',
+          '19': '19:00 Чс',
+          '20': '20:00 Чс',
+          '21': '21:00 Чс',
+          '22': '22:00 Чс',
+          '23': '23:00 Чс'
         },
-        end: 'Ende',
-        endDateFormat: 'H [Uhr]',
+        end: 'Конец',
+        endDateFormat: 'Ч [Часов]',
         endValues: {
-          '0': '1:00 Uhr',
-          '1': '2:00 Uhr',
-          '2': '3:00 Uhr',
-          '3': '4:00 Uhr',
-          '4': '5:00 Uhr',
-          '5': '6:00 Uhr',
-          '6': '7:00 Uhr',
-          '7': '8:00 Uhr',
-          '8': '9:00 Uhr',
-          '9': '10:00 Uhr',
-          '10': '11:00 Uhr',
-          '11': '12:00 Uhr',
-          '12': '13:00 Uhr',
-          '13': '14:00 Uhr',
-          '14': '15:00 Uhr',
-          '15': '16:00 Uhr',
-          '16': '17:00 Uhr',
-          '17': '18:00 Uhr',
-          '18': '19:00 Uhr',
-          '19': '20:00 Uhr',
-          '20': '21:00 Uhr',
-          '21': '22:00 Uhr',
-          '22': '23:00 Uhr',
-          '23': '0:00 Uhr'
+          '0': '0:00 Чс',
+          '1': '1:00 Чс',
+          '2': '2:00 Чс',
+          '3': '3:00 Чс',
+          '4': '4:00 Чс',
+          '5': '5:00 Чс',
+          '6': '6:00 Чс',
+          '7': '7:00 Чс',
+          '8': '8:00 Чс',
+          '9': '9:00 Чс',
+          '10': '10:00 Чс',
+          '11': '11:00 Чс',
+          '12': '12:00 Чс',
+          '13': '13:00 Чс',
+          '14': '14:00 Чс',
+          '15': '15:00 Чс',
+          '16': '16:00 Чс',
+          '17': '17:00 Чс',
+          '18': '18:00 Чс',
+          '19': '19:00 Чс',
+          '20': '20:00 Чс',
+          '21': '21:00 Чс',
+          '22': '22:00 Чс',
+          '23': '23:00 Чс'
         },
-        wholeDay: 'Ganzer Tag'
+        wholeDay: 'Весь день'
       },
       vacation: {
-        start: 'Beginn',
-        end: 'Ende',
-        'new': 'Neuen Urlaub eintragen',
-        noElements: 'Kein Urlaub eingetragen',
-        methodConfirmation: 'Möchtest du diesen Urlaub wirklich löschen?',
-        startDateFormat: 'DD.MM.YYYY [bis]',
-        endDateFormat: 'DD.MM.YYYY'
+        start: 'Начало',
+        end: 'Конец',
+        'new': 'Внести новый отпуск',
+        noElements: 'Даты отпуска не внесены',
+        methodConfirmation: 'Подтверди что ты желаешь стереть даты отпуска',
+        startDateFormat: 'ДД.ММ.ГГГГ [до]',
+        endDateFormat: 'ДД.ММ.ГГГГ'
       }
     },
     password: {
-      change: 'Passwort ändern',
-      reset: 'Passwort-Zurücksetz-Mail senden',
-      resetConfirmation: 'Möchtest du diesem Verkündiger wirklich eine Passwort-Zurücksetz-Mail senden?',
-      password: 'Neues Passwort eingeben',
-      passwordRepeat: 'Neues Passwort wiederholen'
+      change: 'Изменить пароль',
+      reset: 'Выслать E-Mail по восстановлению пароля',
+      resetConfirmation: 'Подтверди что ты хочешь выслать E-Mail по восстановлению пароля',
+      password: 'Ввести новый пароль',
+      passwordRepeat: 'Повторить новый пароль'
     },
     permissions: {
-      permissions: 'Berechtigungen',
-      project: 'Projekt Berechtigungen',
+      permissions: 'Полномочия',
+      project: 'Полномочия в этом проекте',
       projectValues: {
-        admin: 'Administrator',
-        shiftScheduler: 'Schichteinteiler',
-        shiftAdmin: 'Schichtplaner',
-        storeAdmin: 'Literaturdiener',
-        member: 'Teilnehmer'
+        admin: 'Администратор',
+        shiftScheduler: 'Распорядитель смен',
+        shiftAdmin: 'Планировщик смен',
+        storeAdmin: 'Отвественный за литературу',
+        member: 'Простой участник проекта'
       },
       tag: {
-        tag: 'Tag',
-        role: 'Rolle',
+        tag: 'Тэг',
+        role: 'Роль',
         roleValues: {
-          teamleader: 'Teamleiter',
-          substituteTeamleader: 'Ersatzteamleiter',
-          participant: 'Teilnehmer',
-          none: 'Nichts'
+          teamleader: 'Руководитель группы',
+          substituteTeamleader: 'Зам.Рук. группы',
+          participant: 'Участник',
+          none: 'Не Участник'
         }
       }
     },
     status: {
       lastLogin: {
-        date: 'Letzte Anmeldung'
+        date: 'Дата последнего входа в аккаунт'
       }
     },
-    invite: 'Einladungsmail senden',
-    inviteConfirmation: 'Möchtest du diesem Verkündiger wirklich eine Einladungsmail senden?',
-    delete: 'Verkündiger aus diesem Projekt entfernen',
-    deleteConfirmation: 'Möchtest du diesen Verkündiger wirklich aus diesem Projekt entfernen?'
+    invite: 'Выслать приглашение по E-Mail',
+    inviteConfirmation: 'Подтверди что хочешь выслать приглашение по E-Mail',
+    delete: 'Удалить участника из проекта',
+    deleteConfirmation: 'Подтверди что хочешь удалить участника из проекта!'
   },
-  search: { placeholder: 'Vorname, Nachname, E-Mail, Telefon oder Benutzername' },
+  search: { placeholder: 'Имя, Фамилия, E-Mail, Телефон или Логин' },
   details: {
     sections: {
-      identification: 'Identifikationsdaten',
-      availability: 'Verfügbarkeit',
-      vacations: 'Urlaub',
-      password: 'Passwort',
-      permissions: 'Berechtigungen',
-      options: 'Optionen'
+      identification: 'Идентификационные данные',
+      availability: 'Готовность/Участие',
+      vacations: 'Отпуск',
+      password: 'Пароль',
+      permissions: 'Полномочия',
+      options: 'Опции'
     }
   },
   profile: {
     availability: {
       details: {
         sections: {
-          mondays: 'Verfügbarkeit Montags',
-          tuesdays: 'Verfügbarkeit Dienstags',
-          wednesdays: 'Verfügbarkeit Mittwochs',
-          thursdays: 'Verfügbarkeit Donnerstags',
-          fridays: 'Verfügbarkeit Freitags',
-          saturdays: 'Verfügbarkeit Samstags',
-          sundays: 'Verfügbarkeit Sonntags'
+          mondays: 'Готовность по понедельникам',
+          tuesdays: 'Готовность по вторникам',
+          wednesdays: 'Готовность по средам',
+          thursdays: 'Готовность по четвергам',
+          fridays: 'Готовность по пятницам',
+          saturdays: 'Готовность по субботам',
+          sundays: 'Готовность по воскресеньям'
         }
       }
     },
@@ -194,8 +194,8 @@ const publisher = {
       details: {
         sections: {
           permissions: {
-            project: 'Projekt Berechtigungen',
-            tags: 'Tag Berechtigungen'
+            project: 'Полномочия в проекте',
+            tags: 'Полномочия в тэге'
           }
         }
       },
@@ -203,7 +203,7 @@ const publisher = {
         details: {
           sections: {
             permissions: {
-              tag: 'Tag Berechtigung'
+              tag: 'Полномочия в тэге'
             }
           }
         }
