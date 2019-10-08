@@ -75,7 +75,7 @@ const misc = {
     special: 'Спец.Пионер',
     circuit: 'РН',
     bethelite: 'Вефилец',
-    ldc: 'LDC',
+    ldc: 'МПСО',
     coordinator: 'КCC',
     secretary: 'Секр.',
     serviceOverseer: 'СH',
