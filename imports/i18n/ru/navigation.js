@@ -1,14 +1,67 @@
 const navigation = {
   welcome: 'Добро пожаловать',
-  profile: 'Мой профиль',
-  shifts: 'Смены',
-  wiki: 'Информация',
-  project: {
-    details: 'Управление'
+  signIn: 'Anmelden',
+  signUp: 'Account erstellen',
+  dashboard: {
+    details: 'Übersicht',
+    myProjects: {
+      details: 'Meine Projekte'
+    },
+    missingShiftReports: {
+      details: 'Fehlende Schichtberichte'
+    },
+    upcomingShifts: {
+      details: 'Zukünftige Schichten'
+    },
+    pendingRequests: {
+      details: 'Offene Bewerbungen'
+    },
+    olderShifts: {
+      details: 'Vergangene Schichten'
+    }
   },
-  settings: 'Настройки',
+  profile: 'Mein Profil',
+  shifts: 'Schichten',
+  calendar: 'Kalender',
+  wiki: 'Informationen',
+  project: {
+    search: 'Projekte',
+    details: 'Verwaltung',
+    support: {
+      details: 'Hilfe'
+    },
+    insert: 'Neues Projekt'
+  },
+  settings: 'Einstellungen',
+  user: {
+    search: 'Benutzer'
+  },
   publisher: {
-    search: 'Пользователи'
+    search: 'Verkündiger',
+    details: 'Verkündigerdaten',
+    update: 'Verkündiger bearbeiten',
+    insert: 'Verkündiger anlegen',
+    profile: {
+      vacation: {
+        insert: 'Neuen Urlaub eintragen'
+      },
+      availability: {
+        insert: 'Neuen Zeitraum angeben',
+        details: 'Verfügbarkeit'
+      }
+    },
+    password: {
+      insert: 'Passwort des Verkündigers ändern'
+    },
+    permissions:
+    {
+      details: 'Verkündiger Berechtigungen',
+      update: 'Projekt Berechtigungen ändern',
+      tag: {
+        details: 'Kategorie-Berechtigungen',
+        update: 'Kategorie-Berechtigungen bearbeiten'
+      }
+    }
   },
   reports: 'Отчёты',
   store: 'Депо/склад',
