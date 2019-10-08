@@ -1,79 +1,79 @@
 const vessel = {
-  nameShort: 'Schiffe',
+  nameShort: 'Корабли/судна',
   entity: {
-    name: 'Schiffsname',
-    flag: 'Flagge',
-    type: 'Typ',
+    name: 'Название корабля/судна',
+    flag: 'Флаг',
+    type: 'Тип',
     typeValues: {
-      c: 'Containerschiff',
-      ca: 'Katamaran',
-      cr: 'Kreuzfahrtschiff',
-      ex: 'Kursschiff',
-      mf: 'Frachter',
-      mt: 'Tanker',
-      p: 'Passagierschiff',
-      pt: 'Schubboot',
-      r: 'Kühlschiff',
-      rc: 'Flusskreuzfahrtschiff',
-      f: 'Fähre',
-      fi: 'Fischerboot',
-      ro: 'Ro-Ro',
-      t: 'Schlepper',
-      unknown: 'Sonstiges'
+      c: 'Контейнеровоз',
+      ca: 'Катамаран',
+      cr: 'Круизный',
+      ex: 'Курсовой',
+      mf: 'Грузоперевозчик',
+      mt: 'Танкер',
+      p: 'Пассажирский корабль',
+      pt: 'Катер',
+      r: 'Корабль "Холодильник"',
+      rc: 'Корабль круиза по реки',
+      f: 'Паром',
+      fi: 'Рыболовный корабль',
+      ro: 'Ролкер Ro-Ro',
+      t: 'Буксир',
+      unknown: 'Другой вид'
     },
-    callsign: 'Rufzeichen',
+    callsign: 'Позывной',
     eni: 'ENI',
     imo: 'IMO',
     mmsi: 'MMSI',
-    delete: 'Dieses Schiff löschen',
-    deleteConfirmation: 'Möchtest du dieses Schiff wirklich löschen?',
+    delete: 'Удалить данные этого судна',
+    deleteConfirmation: 'Удалить данные этого судна?',
     visit: {
-      new: 'Neuen Besuch erfassen',
-      noElements: 'Dieses Schiff wurde noch nicht besucht',
-      delete: 'Diesen Besuch löschen',
-      deleteConfirmation: 'Möchtest du wirklich diesen Besuch löschen?',
-      person: 'Verkündiger',
-      email: 'Verkündiger E-Mail',
-      phone: 'Verkündiger Telefon',
-      isUserVisible: 'Deine Kontaktdaten für andere Verkündiger sichtbar machen?',
-      date: 'Datum',
-      dateNext: 'Nächster Besuch frühestens',
-      harbor: 'Hafen',
-      harborId: 'Hafen',
+      new: 'Запись нового посещения',
+      noElements: 'Это судно ещё не посещали',
+      delete: 'Удалить это посещение',
+      deleteConfirmation: 'Удалить это посещение?',
+      person: 'Возвещатель',
+      email: 'E-Mail Возвещателя',
+      phone: 'Телефон Возвещателя',
+      isUserVisible: 'Показать твои контактные данные другим возвещателям?',
+      date: 'Дата',
+      dateNext: 'Следующее посещение ',
+      harbor: 'Порт',
+      harborId: 'Порт',
       harborIdValues: {
-        placeholder: 'Wähle einen Hafen'
+        placeholder: 'Выбери Порт'
       },
-      country: 'Land',
+      country: 'Страна',
       language: {
-        new: 'Neue Sprache hinzufügen',
-        noElements: 'Noch keine Sprache eingetragen',
-        methodConfirmation: 'Möchtest du diese Sprache wirklich löschen?',
-        languageIds: 'Sprache',
+        new: 'Добавить новый язык',
+        noElements: 'Язык ещё не известен',
+        methodConfirmation: 'Подтверди что хочешь удалить этот язык',
+        languageIds: 'Язык',
         languageIdsValues: {
-          placeholder: 'Wähle eine Sprache'
+          placeholder: 'Выбери язык'
         }
       },
-      languages: 'Sprachen an Board'
+      languages: 'Языки на борту'
     }
   },
   search: {
-    placeholder: 'Schiffsname, Rufzeichen, ENI, IMO oder MMSI'
+    placeholder: 'Название судна, Позывной, ENI, IMO или MMSI'
   },
   details: {
     sections: {
-      identification: 'Identifikationsdaten',
-      visit: 'Besuchsdaten'
+      identification: 'Идентификационные данные',
+      visit: 'Данные о посещении'
     },
-    dateFormat: 'DD.MM.YYYY'
+    dateFormat: 'ДД.ММ.ГГГГ'
   },
   visit: {
     details: {
       sections: {
-        main: 'Besuchsdaten',
-        language: 'Sprachen',
-        option: 'Optionen'
+        main: 'Данные о посещении',
+        language: 'Языки',
+        option: 'Опции'
       },
-      dateFormat: 'DD.MM.YYYY'
+      dateFormat: 'ДД.ММ.ГГГГ'
     }
   }
 }
