@@ -1,65 +1,65 @@
 const navigation = {
   welcome: 'Добро пожаловать',
-  signIn: 'Anmelden',
-  signUp: 'Account erstellen',
+  signIn: 'Войти',
+  signUp: 'Создать аккаунт',
   dashboard: {
-    details: 'Übersicht',
+    details: 'Обзор',
     myProjects: {
-      details: 'Meine Projekte'
+      details: 'Мои проекты'
     },
     missingShiftReports: {
-      details: 'Fehlende Schichtberichte'
+      details: 'Отсутствующие отчёты'
     },
     upcomingShifts: {
-      details: 'Zukünftige Schichten'
+      details: 'Будущие смены'
     },
     pendingRequests: {
-      details: 'Offene Bewerbungen'
+      details: 'Открытые заявления'
     },
     olderShifts: {
-      details: 'Vergangene Schichten'
+      details: 'Прошлые смены'
     }
   },
-  profile: 'Mein Profil',
-  shifts: 'Schichten',
-  calendar: 'Kalender',
-  wiki: 'Informationen',
+  profile: 'Профиль',
+  shifts: 'Смены',
+  calendar: 'Календарь',
+  wiki: 'Информация',
   project: {
-    search: 'Projekte',
-    details: 'Verwaltung',
+    search: 'Проект',
+    details: 'Настройки',
     support: {
-      details: 'Hilfe'
+      details: 'Помощь'
     },
-    insert: 'Neues Projekt'
+    insert: 'Новый проект'
   },
-  settings: 'Einstellungen',
+  settings: 'Настройки',
   user: {
-    search: 'Benutzer'
+    search: 'Участник'
   },
   publisher: {
-    search: 'Verkündiger',
-    details: 'Verkündigerdaten',
-    update: 'Verkündiger bearbeiten',
-    insert: 'Verkündiger anlegen',
+    search: 'Возвещатели',
+    details: 'Данные возвещателя',
+    update: 'Изменить данные',
+    insert: 'Добавить',
     profile: {
       vacation: {
-        insert: 'Neuen Urlaub eintragen'
+        insert: 'Внести дату отпуска'
       },
       availability: {
-        insert: 'Neuen Zeitraum angeben',
-        details: 'Verfügbarkeit'
+        insert: 'Укажи даты',
+        details: 'Участие/Готовность'
       }
     },
     password: {
-      insert: 'Passwort des Verkündigers ändern'
+      insert: 'Изменить пароль'
     },
     permissions:
     {
-      details: 'Verkündiger Berechtigungen',
-      update: 'Projekt Berechtigungen ändern',
+      details: 'Роли участника',
+      update: 'Изменить роль в проекте',
       tag: {
-        details: 'Kategorie-Berechtigungen',
-        update: 'Kategorie-Berechtigungen bearbeiten'
+        details: 'Роль в теге',
+        update: 'Изменить роль в теге'
       }
     }
   },
@@ -79,8 +79,16 @@ const navigation = {
       }
     }
   },
-  notes: 'Заметки',
-  signIn: 'Войти',
+  note: {
+    search: 'Записи',
+    details: 'Данные записей',
+    update: 'Изменить запись',
+    insert: 'Создать запись'
+  },
+  language: {
+    details: 'Язык',
+    update: 'Изменить язык'
+  },
   logout: 'Выйти',
   loggingOut: 'Выход...',
   firstLogin: 'Первоначальный вход',
@@ -92,6 +100,7 @@ const navigation = {
   new: 'Новое',
   back: 'Назад',
   save: 'Сохранить'
+  create: 'Создать запись'
 }
 
 export default navigation
