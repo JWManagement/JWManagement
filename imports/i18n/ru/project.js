@@ -1,51 +1,51 @@
 const project = {
-  nameShort: 'Verwaltung',
+  nameShort: 'Администрирование',
   entity: {
     _id: 'ID',
-    name: 'Name',
-    email: 'Projekt E-Mail Adresse',
+    name: 'Название',
+    email: 'E-Mail проекта',
     news: {
-      text: 'Neuigkeiten'
+      text: 'Новости/Объявления'
     },
-    shifts: 'Schichten',
-    calendar: 'Kalender',
-    knowledgeBase: 'Informationen',
-    settings: 'Einstellungen',
-    users: 'Benutzer',
-    publishers: 'Verkündiger',
-    publisherActions: 'Verkündiger Massenfunktionen',
-    reports: 'Berichte',
-    store: 'Depot',
-    vessels: 'Schiffe',
-    notes: 'Notizen',
-    leave: 'Teilnahme an diesem Projekt aufkündigen',
-    leaveConfirmation: 'Möchtest du dieses Projekt wirklich verlassen und JEGLICHE TEILNAHME DARAN AUFKÜNDIGEN? Das kann nicht rückgängig gemacht werden!',
-    supportPage: 'Hilfe',
+    shifts: 'Смены',
+    calendar: 'Календарь',
+    knowledgeBase: 'Информация',
+    settings: 'Настройки проекта',
+    users: 'Участники',
+    publishers: 'Учётные записи участников',
+    publisherActions: 'Массовая обработка',
+    reports: 'Отчёты',
+    store: 'Литература',
+    vessels: 'Корабли',
+    notes: 'Записи',
+    leave: 'Выйти из этого проекта',
+    leaveConfirmation: 'Вы действительно хотите СТЕРЕТЬ СВОЙ АККАУНТ ИЗ ЭТОГО ПРОЕКТА и этим убрать себе возможность участвовать в нём? Это не может быть отменено!',
+    supportPage: 'Помощь',
     support: {
-      phone: 'Ruf an',
-      discord: 'Schreib uns auf Discord (empfohlen)',
-      github: 'Lege ein GitHub Issue an',
+      phone: 'Позвонить',
+      discord: 'Напиши нам через Discord (лучший вариант)',
+      github: 'Создай GitHub Issue',
       paypal: 'PayPal',
       iban: 'IBAN'
     },
-    noElements: 'Keine Projekte gefunden'
+    noElements: 'Ты не участвуешь ни в каких проектах'
   },
   details: {
     sections: {
-      project: 'Projekt',
-      modules: 'Module',
-      administration: 'Verwaltung',
-      participation: 'Teilnahme'
+      project: 'Проект',
+      modules: 'Модуль',
+      administration: 'Администрирование',
+      participation: 'Участие'
     }
   },
   search: {
-    placeholder: 'Suche nach Projekten'
+    placeholder: 'Поиск проектов'
   },
   support: {
     details: {
       sections: {
-        support: 'Hilfe bekommen',
-        donate: 'Unterstützen'
+        support: 'Получить помощь',
+        donate: 'Поддержать/Пожертвования'
       }
     }
   }
