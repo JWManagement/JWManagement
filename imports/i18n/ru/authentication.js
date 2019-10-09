@@ -5,6 +5,15 @@ const authentication = {
     forgot: 'Я забыл пароль',
     create: 'Создать учетную запись'
   },
+  signUp: {
+    name: 'Создать учетную запись',
+    text: '<p>Вы хотите протестировать систему и управлять собственным проектом?<p></p>Тогда просто заполните форму для создания учетной записи.</p>',
+    bySigningYouAgreeTo: 'Создавая аккаунт, вы подтверждаете наши',
+    terms: 'Условия',
+    andOur: 'и также',
+    privacyPolicy: 'Политику конфиденциальности',
+    signIn: 'У меня уже есть аккаунт'
+  },
   forgotPassword: {
     name: 'Я не могу войти в систему',
     text: 'Пожалуйста, введи адрес твоей электронной почты, и мы вышлем тебе ссылку для сброса пароля.',
@@ -29,8 +38,10 @@ const authentication = {
     button: 'Начать!',
     tokenError: 'Устаревшая ссылка. Эта ссылка больше не действительна. Пожалуйста, попроси отправить тебе новое приглашение или попытайся сбросить пароль.',
     tokenMissing: 'Ссылка недействительная. Пожалуйста, перейди по ссылке из E-Mail.',
+    plainTextToken: 'Scheint, als unterstützt dein Mail Programm kein HTML. Bitte öffne den Link noch einmal aus einem modernen Mail Programm heraus.',
     usernameExists: 'Логин уже используется. Пожалуйста, придумай другой.',
     usernameMissing: 'Пожалуйста, введи Логин.',
+    usernameCannotBeEmail: 'Sorry, der Benutzername darf keine E-Mail Adresse sein. Bitte versuche es mit einem anderen Benutzernamen.',
     agreeTermsMissing: 'Пожалуйста, прими условия использования и политику конфиденциальности.',
     buttonCreateAccount: 'Я хочу создать новый аккаунт',
     buttonHaveAccount: 'У меня уже есть аккаунт'
