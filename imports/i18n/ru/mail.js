@@ -21,7 +21,7 @@ const mail = {
     headline: 'Твоё участие подтверждено!',
     hello: 'Привет',
     text1: 'Твоё участие было подтверждено на следующую смену:',
-    datetime: '{{date}} c {{time}} Uhr'
+    datetime: '{{date}} c {{time}} Чс'
   },
   declined: {
     subject: 'Твоё заявление отклонено',
@@ -29,13 +29,13 @@ const mail = {
     hello: 'Привет',
     text1: 'К сожалению, твоё заявление на следующую смену было отклонено:',
     text2: 'Спасибо за твоё заявление!',
-    datetime: '{{date}} c {{time}} Uhr'
+    datetime: '{{date}} c {{time}} Чс'
   },
   reversal: {
     subject: 'Отмена',
     hello: 'Привет',
     text1: 'тебя вычеркнули из следующей смены:',
-    datetime: '{{date}} c {{time}} Uhr'
+    datetime: '{{date}} c {{time}} Чс'
   },
   teamUpdate: {
     subject: 'Изменение состава смены',
@@ -49,7 +49,7 @@ const mail = {
     hello: 'Привет',
     text1: 'Поскольку ты записан как участник или руководитель смены, мы хотели бы тебе сообщить об изменениях в твоей смене.',
     text2: 'Новые данные твоей смены такие:',
-    datetime: '{{date}} c {{time}} Uhr'
+    datetime: '{{date}} c {{time}} Чс'
   },
   understaffed: {
     subject: 'Нужны возвещатели для смены',
@@ -57,7 +57,7 @@ const mail = {
     hello: 'Привет',
     text1: 'эта смена нуждается в еще одном участнике',
     text2: 'Посмотри пожалуйста возможно ли тебе поучаствовать в этой смене:',
-    datetime: '{{date}} c {{time}} Uhr'
+    datetime: '{{date}} c {{time}} Чс'
   },
   resetPassword: {
     subject: 'Сбросить пароль',
