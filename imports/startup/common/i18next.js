@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import enUS from '../../i18n/en-US/_export'
 import enGB from '../../i18n/en-GB/_export'
 import enAU from '../../i18n/en-AU/_export'
+import elGR from '../../i18n/el-GR/_export'
 import de from '../../i18n/de/_export'
 import fi from '../../i18n/fi/_export'
 import fr from '../../i18n/fr/_export'
@@ -22,6 +23,7 @@ i18next
       'en-US': { translation: enUS },
       'en-GB': { translation: enGB },
       'en-AU': { translation: enAU },
+      'el-GR': { translation: elGR },
       de: { translation: de },
       fi: { translation: fi },
       fr: { translation: fr },

@@ -194,7 +194,7 @@ const pages = {
     meetings: {
       title: 'Treffpunkte',
       helpText: {
-        main: 'In jeder Schicht können die Teams Treffpunkte zugewiesen bekommen. Dadurch können sich die einzelnen Teams unabhängig voneinander treffen. Das kann sinnvoll sein, wenn die Routen der Teams so weit voneinander entfernt sind, dass ein gemeinsamer Treffpunkt für die ganze Schicht zu zeitintensiv wäre. Treffpunkte werden mit Koordinaten defininert.',
+        main: 'In jeder Schicht können die Teams Treffpunkte zugewiesen bekommen. Dadurch können sich die einzelnen Teams unabhängig voneinander treffen. Das kann sinnvoll sein, wenn die Routen der Teams so weit voneinander entfernt sind, dass ein gemeinsamer Treffpunkt für die ganze Schicht zu zeitintensiv wäre. Treffpunkte werden mit Koordinaten definiert.',
         picture: 'Dieses Bild können die Verkündiger sich anschauen. Es sollte weitere Informationen zu dem Treffpunkt enthalten. Zum Beispiel könntest du ein Bild der Umgebung von Google Maps hier hochladen.'
       },
       id: 'ID',

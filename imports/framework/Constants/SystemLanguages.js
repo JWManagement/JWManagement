@@ -5,6 +5,7 @@ const SystemLanguages = {
     'en-US',
     'en-GB',
     'en-AU',
+    'el-GR',
     'fi',
     'fr',
     'hu',
