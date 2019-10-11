@@ -40,7 +40,7 @@ Template.uploadUserFileModal.events
 		$(e.target).parse
 			before: (file, inputElement) ->
 				unless file.type in ['application/vnd.ms-excel', 'text/csv']
-					swal 'Error false File format', 'File has to be a CSV-File', 'error'
+					swal 'Error false File format', 'File has to be a CSV-File (but is ' + file.type + ')', 'error'
 					Session.set 'uploading', false
 					{ action: 'abort', reason: 'file format' }
 			config:
@@ -78,7 +78,7 @@ Template.uploadUserFileModal.events
 								roles: roles
 
 					if users.length == 0
-						alert 'Sorry, we couldn\'t extract any users of this file. Is the .csv-file the semicolons, maybe?'
+						alert 'Sorry, we couldn\'t extract any users of this file. Does the .csv-file have semicolons, maybe?'
 
 					Session.set 'users', users
 					Session.set 'uploading', false
