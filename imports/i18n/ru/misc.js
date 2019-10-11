@@ -41,7 +41,7 @@ const misc = {
   time: {
     start: 'Начало',
     end: 'Конец',
-    suffix: 'Время',
+    suffix: 'Чс',
     years: 'год',
     to: 'до'
   },
@@ -75,13 +75,13 @@ const misc = {
     special: 'Спец.Пионер',
     circuit: 'РН',
     bethelite: 'Вефилец',
-    ldc: 'LDC',
+    ldc: 'МПСО',
     coordinator: 'КCC',
     secretary: 'Секр.',
     serviceOverseer: 'СH',
-    elder: 'С',
+    elder: 'Стар.',
     servant: 'СП',
-    publisher: 'В'
+    publisher: 'Возв.'
   },
   period: {
     d: 'Д',

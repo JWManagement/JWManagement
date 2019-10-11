@@ -2,7 +2,10 @@ const modal = {
   close: 'Закрыть',
   addParticipant: {
     title: 'Добавить участника',
-    description: 'Выбери участника, который будет добавлен в смену'
+    description: 'Выбери участника, который будет добавлен в смену',
+    search: 'Поиск участника',
+    addAsRequests: 'Добавить как заявителя',
+    addAsParticipants: 'Сразу подтвердить участие'
   },
   addVessel: {
     title: 'Добавить новый корабль',
@@ -52,15 +55,15 @@ const modal = {
     copyShift: 'Копировать смену'
   },
   editTeamPicture: {
-    title: 'Изменить изображение/карту группы',
-    currentPicture: 'Т"екущее изображение/картa:"',
+    title: 'Изменить карту маршрута',
+    currentPicture: 'Текущая картa:"',
     hints: 'Возможно что у возвещателей это изображение будет показанно крупнее.',
     noPictureUploaded: 'Ты еще не загрузил никакого изображения',
     upload: 'Загрузить',
     delete: 'Удалить'
   },
   editMeetingPicture: {
-    title: 'Изменить изображение/карту ВПС',
+    title: 'Изменить карту ВПС',
     currentPicture: 'Текущее изображение/картa:',
     hints: 'Возможно что у возвещателей это изображение будет показанно крупнее.',
     noPictureUploaded: 'Ты еще не загрузил никакого изображения',
@@ -68,7 +71,7 @@ const modal = {
     delete: 'Удалить'
   },
   editVessel: {
-    title: 'Изменение данных судна/корабля',
+    title: 'Изменение данных судна',
     action: 'Сохранить изменения'
   },
   inviteUser: {
@@ -82,6 +85,9 @@ const modal = {
     title: 'Выделение позиции левой кнопкой мыши'
   },
   shift: {
+    clickToEnlarge: 'Нажми для увеличения',
+    openLink: 'Открыть дополнительную информацию',
+    meetingAt: 'Место встречи в',
     collapseTeam: 'Скрыть информацию о группе и месте встречи/ВПС',
     expandTeam: 'Показать информацию о группе и месте встречи/ВПС',
     noParticipants: 'Нет участников',
@@ -100,7 +106,14 @@ const modal = {
     closeTeam: 'Закрыть группу',
     switch: 'Изменить смену',
     existingTeamleaders: 'Руководитель группы назначен',
-    noExistingTeamleader: 'Нужен руководитель группы'
+    noExistingTeamleader: 'Нужен руководитель группы',
+    notTeamleader: 'Нет Рук.Группы',
+    selected: 'Выбранo:',
+    of: 'из',
+    approveSelected: 'Подтвердить',
+    declineSelected: 'Отклонить',
+    removeSelected: 'Вычеркнуть',
+    report: 'Отчёт'
   },
   shiftReport: {
     title: 'Отчёт',
@@ -112,7 +125,7 @@ const modal = {
     experiences: 'Случаи',
     present: 'Присутствует',
     sick: 'Болеет',
-    missing: 'Отсутствует без предупреждения',
+    missing: 'Отсутствует',
     name: 'Название',
     language: 'Язык',
     count: 'Количество',
@@ -120,6 +133,7 @@ const modal = {
     noPublications: 'Не внесенно никаких публикаций',
     select_publication: 'Выбор публикации',
     selectPublicationFirst: 'Сначала выбери публикацию',
+    plusIconReminder: 'Не забудь нажать на кнопку плюс',
     addItem: 'Добавить эту публикацию',
     removeItem: 'Удалить эту публикацию',
     texts: 'Зачитанные места Писания',
