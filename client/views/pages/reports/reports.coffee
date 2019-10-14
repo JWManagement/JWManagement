@@ -120,9 +120,9 @@ Template.reports.events
 					if team.report? && team.report.items?
 						row.push team.report.texts, team.report.speaks, team.report.videos, team.report.website, team.report.returnVisits, team.report.bibleStudies, team.report.hours, team.report.filled, team.report.neatness
 
-						route = team.report.experiences.route || ''
-						good = team.report.experiences.good || ''
-						problems = team.report.experiences.problems || ''
+						route = if team.report.experiences then team.report.experiences.route else ''
+						good = if team.report.experiences then team.report.experiences.good else ''
+						problems = if team.report.experiences then team.report.experiences.problems else ''
 
 						row.push route.replace(/(?:\\[rn]|[\r\n]+)+/g, ' ')
 						row.push good.replace(/(?:\\[rn]|[\r\n]+)+/g, ' ')
