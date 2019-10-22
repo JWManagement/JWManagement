@@ -4,18 +4,28 @@ node_js:
   - '8'
 stages:
   - name: Test
-  - name: Deploy
+  - name: Deploy to Staging
     if: branch = develop AND type != pull_request
+  - name: Deploy to Deliver
+    if: branch = master AND type != pull_request
 jobs:
   include:
     - stage: Test
       name: Lint
       script: npm run lint
-    - stage: Deploy
+    - stage: Deploy to Staging
       name: Deploy to Staging
       script:
         - curl https://install.meteor.com | /bin/sh
         - npm install -g mup
         - cd .deploy
         - mup setup
-        - mup deploy --settings settings.json --verbose
+        - mup deploy --config=mup.js --settings settings.json --verbose
+    - stage: Deploy to Deliver
+      name: Deploy to Deliver
+      script:
+        - curl https://install.meteor.com | /bin/sh
+        - npm install -g mup
+        - cd .deploy
+        - mup setup
+        - mup deploy --config=mup.deliver.js --settings settings.json --verbose
