@@ -19,13 +19,13 @@ jobs:
         - curl https://install.meteor.com | /bin/sh
         - npm install -g mup
         - cd .deploy
-        - mup setup
-        - mup deploy --config=mup.js --settings settings.json --verbose
+        - mup setup --config=mup.staging.js
+        - mup deploy --config=mup.staging.js --settings settings.json --verbose
     - stage: Deploy to Deliver
       name: Deploy to Deliver
       script:
         - curl https://install.meteor.com | /bin/sh
         - npm install -g mup
         - cd .deploy
-        - mup setup
+        - mup setup --config=mup.deliver.js
         - mup deploy --config=mup.deliver.js --settings settings.json --verbose
