@@ -98,8 +98,9 @@ const dashboard = {
       upcomingShifts: 'Будущие смены',
       otherShifts: 'Другие смены',
       administration: 'Администрирование',
-      account: 'Эккаунт'
+      account: 'ВЫХОД'
     }
   }
 }
+
 export default dashboard
