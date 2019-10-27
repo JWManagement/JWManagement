@@ -157,7 +157,7 @@ const publisher = {
     },
     status: {
       lastLogin: {
-        date: 'Дата последнего входа в аккаунт'
+        date: 'Последний вход в систему'
       }
     },
     invite: 'Выслать приглашение по E-Mail',

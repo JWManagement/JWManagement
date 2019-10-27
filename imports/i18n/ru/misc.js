@@ -70,9 +70,9 @@ const misc = {
     odd: 'Каждую нечётную неделю'
   },
   privileges: {
-    auxiliary: 'Подс.Пионер',
-    regular: 'Общ.Пионер',
-    special: 'Спец.Пионер',
+    auxiliary: 'ПП',
+    regular: 'ОП',
+    special: 'СП',
     circuit: 'РН',
     bethelite: 'Вефилец',
     ldc: 'МПСО',
