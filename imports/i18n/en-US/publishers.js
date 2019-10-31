@@ -37,6 +37,7 @@ const publisher = {
         'en-US': 'English (US)',
         'en-GB': 'English (GB)',
         'en-AU': 'English (Australian)',
+        'el-GR': 'Greek',
         fi: 'Finnish',
         fr: 'French',
         hu: 'Hungarian',
