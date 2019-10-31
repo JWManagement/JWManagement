@@ -89,7 +89,7 @@ Meteor.methods
 				languages = item.languages
 				break
 
-			for language, index in languages when language == language
+			for language, index in languages when language.short == language
 				language.stock -= parseInt count
 				languages[index..index] = [language]
 				break
@@ -119,7 +119,7 @@ Meteor.methods
 				languages = item.languages
 				break
 
-			for language, index in languages when language == language
+			for language, index in languages when language.short == language
 				language.stock += parseInt count
 				languages[index..index] = [language]
 				break
