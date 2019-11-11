@@ -3,9 +3,9 @@ const mail = {
   link: 'Abrir JWManagement',
   accountCreated: {
     subject: 'Conta JWManagement Criada!',
-    headline: 'Bem Vindo/Vinda!',
+    headline: 'Bem Vindo/a!',
     hello: 'Olá',
-    text1: 'Nós criamos uma conta para você em JWManagement. Pode criar o seu nome de usuário e palavra-passe por pressionar o botão em baixo.',
+    text1: 'Nós criamos uma conta para si em JWManagement. Pode criar o seu nome de usuário e palavra-passe por pressionar o botão em baixo.',
     text2: 'Em caso de problemas, não hesite em nos contactar.<br>Desejamos que desfrute do seu uso de JWManagement.<br>Seus irmãos da equipe JWManagement',
     button: 'Vamos!'
   },
@@ -32,7 +32,7 @@ const mail = {
     datetime: '{{date}} A partir das {{time}} horas'
   },
   reversal: {
-    subject: 'Reversão',
+    subject: 'Anulado',
     hello: 'Olá',
     text1: 'Você foi removido da seguinte equipe:',
     datetime: '{{date}} A partir das {{time}} horas'
@@ -46,8 +46,8 @@ const mail = {
       location: 'O local',
       leader: 'O lider de equipe'
     },
-    hello: 'Olã',
-    text1: 'Você está marcado/a como lider de equipe ou lider,por isso gostariamos de o/a informar de mudanças na sua equipe.',
+    hello: 'Ola',
+    text1: 'Você está inscrito/a como lider de equipe ou lider,por isso gostariamos de o/a informar de mudanças na sua equipe.',
     text2: 'Aqui está a configuração currente da equipe',
     datetime: '{{date}} A partir das {{time}} horas'
   },
