@@ -1,70 +1,70 @@
 const mail = {
-  footer: 'Dies ist eine automatisierte Mail. Wir erwarten keine Antwort darauf.',
-  link: 'JW Management öffnen',
+  footer: 'Αυτό είναι ένα αυτοματοποιημένο μήνυμα. Δεν περιμένουμε μια απάντηση.',
+  link: 'Άνοιγμα JW Management',
   accountCreated: {
-    subject: 'JW Management Konto erstellt!',
-    headline: 'Herzlich Willkommen!',
-    hello: 'Hallo',
-    text1: 'wir möchten dir mitteilen, dass wir für dich in JW Management ein Konto angelegt haben. Um dich anzumelden musst du einen Benutzernamen und ein Passwort hinterlegen. Klicke dazu einfach auf den Button unten.',
-    text2: 'Bei Problemen kannst du dich gerne an uns wenden.<br>Wir wünschen dir viel Freude mit JW Management.<br>Deine Brüder von JW Management',
-    button: 'Los geht\'s!'
+    subject: 'Δημιουργία νέου λογαριασμού JW Management!',
+    headline: 'Καλώς ήρθες!',
+    hello: 'Γεια σου',
+    text1: 'Θέλουμε να σε ενημερώσουμε ότι έχουμε δημιουργήσει λογαριασμό εσένα στο JW Management. Για να συνδεθείς, πρέπει να εισαγάγεις ένα όνομα χρήστη και έναν κωδικό πρόσβασης. Απλά κάντε κλικ στο παρακάτω κουμπί.',
+    text2: 'Αν έχεις κάποιο προβλήματα, επικοινώνησε μαζί μας.<br> Σας ευχόμαστε πολλή ευχαρίστηση με τη διαχείριση JW <br> Οι αδελφοί σας από το JW Management',
+    button: 'Ας αρχίσουμε!'
   },
   teamCancellation: {
-    subject: 'Team wurde abgesagt',
-    headline: 'Team musste leider abgesagt werden.',
-    hello: 'Hallo',
-    text: 'leider müssen wir dir mitteilen, dass dein Teameinsatz am <b>{{date}}</b> um <b>{{time}}</b> Uhr <u>abgesagt</u> wurde.',
-    missingParticipant: 'Ein Teilnehmer fehlt leider. Sobald wieder genug Teilnehmer vorhanden sind, kann das Team wieder stattfinden.'
+    subject: 'Η ομάδα ακυρώθηκε',
+    headline: 'Η ομάδα έπρεπε δυστυχώς να ακυρωθεί.',
+    hello: 'Γεια σου',
+    text: 'Δυστυχώς, πρέπει να σε ενημερώσουμε ότι η συμμετοχή σου στην ακόλουθη ομάδα <u>ακυρώθηκε</u>: <b>{{date}}</b> της <b>{{time}}</b>.',
+    missingParticipant: 'Δυστυχώς ένας συμμετέχων λείπει. Μόλις είναι διαθέσιμοι αρκετοί συμμετέχοντες, η ομάδα μπορεί να λάβει χώρα ξανά.'
   },
   confirmation: {
-    subject: 'Neue Schichtzuteilung',
-    headline: 'Du wurdest zugeteilt!',
-    hello: 'Hallo',
-    text1: 'du wurdest folgender Schicht zugeteilt:',
-    datetime: '{{date}} von {{time}} Uhr'
+    subject: 'Νέος διορισμός βάρδιας',
+    headline: 'Διορίστηκες!',
+    hello: 'Γεια σου',
+    text1: 'Διορίστηκες στην ακόλουθη βάρδια:',
+    datetime: '{{date}} απο {{time}} ώρα'
   },
   declined: {
-    subject: 'Bewerbung nicht berücksichtigt',
-    headline: 'Bewerbung leider nicht berücksichtigt',
-    hello: 'Hallo',
-    text1: 'deine Bewerbung auf folgende Schicht konnte leider nicht berücksichtigt werden:',
-    text2: 'Vielen Dank für deine Bewerbung!',
-    datetime: '{{date}} von {{time}} Uhr'
+    subject: 'Η αίτησή δεν εξετάστηκε',
+    headline: 'Δυστυχώς, η αίτησή δεν εξετάστηκε',
+    hello: 'Γεια σου',
+    text1: 'Δυστυχώς, η αίτησή σου για την ακολουθεί βάρδια δεν μπορούσε να ληφθεί υπόψη:',
+    text2: 'Ευχαριστούμε για την αίτησή σου!',
+    datetime: '{{date}} απο {{time}} ώρα'
   },
   reversal: {
-    subject: 'Austragung',
-    hello: 'Hallo',
-    text1: 'du wurdest aus folgender Schicht ausgetragen:',
-    datetime: '{{date}} von {{time}} Uhr'
+    subject: 'Απαλλαγή από βάρδια',
+    hello: 'Γεια σου',
+    text1: 'Απαλλάχθηκες από την ακόλουθη βάρδια:',
+    datetime: '{{date}} απο {{time}} ώρα'
   },
   teamUpdate: {
-    subject: 'Team geändert',
-    _changed: 'hat sich geändert.',
+    subject: 'Η ομάδα άλλαξε',
+    _changed: 'έχει αλλάξει.',
     changed: {
-      participant: 'Ein Teilnehmer',
-      time: 'Die Uhrzeit',
-      location: 'Der Ort',
-      leader: 'Der Teamleiter'
+      participant: 'Ένας συμμετέχων',
+      time: 'η ώρα',
+      location: 'ο τόπος',
+      leader: 'ο αρχηγός ομάδας'
     },
-    hello: 'Hallo',
-    text1: 'da du als Teammitglied oder Teamleiter eingetragen bist, möchten wir dich über Änderungen deines Teams informieren.',
-    text2: 'Im Folgenden findest du die aktuellen Daten des Teams:',
-    datetime: '{{date}} von {{time}} Uhr'
+    hello: 'Γεια σου',
+    text1: 'Αφού είστε μέλος ομάδας ή αρχηγός ομάδας, θέλουμε να σε ενημερώσουμε για αλλαγές στην ομάδα σου.',
+    text2: 'Παρακάτω θα βρεις τα τρέχοντα στοιχεία της ομάδας:',
+    datetime: '{{date}} απο {{time}} ώρα'
   },
   understaffed: {
-    subject: 'Team unterbelegt',
-    headline: 'Team ist unterbelegt',
-    hello: 'Hallo',
-    text1: 'das folgende Team ist unterbelegt und benötigt noch einen',
-    text2: 'Schau doch bitte nach, ob es dir möglich wäre, einzuspringen.',
-    datetime: '{{date}} von {{time}} Uhr'
+    subject: 'Η ομάδα δεν έχει αρκετό προσωπικό',
+    headline: 'Η ομάδα δεν έχει αρκετό προσωπικό',
+    hello: 'Γεια σου',
+    text1: 'η επόμενη ομάδα είναι υποπληρωμένη και χρειάζεται ένα ακόμη',
+    text2: 'Παρακαλούμε δες εάν μπορείς να βοηθήσεις αυτήν την ομάδα.',
+    datetime: '{{date}} απο {{time}} ώρα'
   },
   resetPassword: {
-    subject: 'Passwort zurücksetzen',
-    headline: 'Passwort zurücksetzen',
-    text1: 'Hallo,<br>Bitte klicke auf den folgenden Button, um ein neues Passwort zu vergeben:',
-    button: 'Passwort zurücksetzen',
-    text2: '<p>Tipps für sichere Passwörter findest du im g01 22. 6. S.31</p><p>Wenn du das Zurücksetzen deines Passwortes nicht angefordert hast, lösche diese E-Mail bitte.</p>'
+    subject: 'Επαναφορά κωδικού πρόσβασης',
+    headline: 'Επαναφορά κωδικού πρόσβασης',
+    text1: 'Γεια σου,<br>Κάντε κλικ στο παρακάτω κουμπί για να δώσετε έναν νέο κωδικό πρόσβασης:',
+    button: 'Επαναφορά κωδικού πρόσβασης',
+    text2: '<p>Συμβουλές για ασφαλή κωδικούς πρόσβασης μπορείτε να βρείτε στο g01 22. p.31 </p> <p> Εάν δεν ζήτησες την επαναφορά του κωδικού σου, διέγραψε αυτό το email.</p>'
   }
 }
 

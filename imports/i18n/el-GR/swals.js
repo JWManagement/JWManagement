@@ -1,333 +1,333 @@
 const swal = {
-  error: 'Fehler',
-  publisherInOtherTeam: 'Ein Verkündiger ist bereits in einem anderen Team angenommen. Bitte lehne ihn/sie dort zuerst ab.',
-  onlyTeam: 'Dieses Team kannst du nicht löschen. Es ist das einzige Team in dieser Schicht. Jede Schicht braucht mindestens ein Team.',
-  noTeamleader: 'In jedem Team muss immer zwingend ein Teamleiter sein. Leider darf dieser Verkündiger nicht als Teamleiter eingeteilt werden.',
-  ownPermission: 'Du kannst dir selbst keine Berechtigungen entziehen. Das muss ein anderer Projekt-Administrator machen.',
-  approvalInformed: 'Dieser Teilnehmer wurde bereits über seine Zuteilung informiert.',
-  declinementInformed: 'Dieser Teilnehmer wurde bereits über seine Bewerbungs-Absage informiert.',
-  vacationEndInPast: 'Das Enddatum kann nicht in der Vergangenheit liegen.',
-  missingTag: 'Kein Tag definiert. Bitte lege zuerst eines unter Verwaltung > Einstellungen an.',
+  error: 'Λάθος',
+  publisherInOtherTeam: 'Ένας ευαγγελιζόμενος είναι ήδη αποδεκτός σε άλλη ομάδα. Παρακαλώ να τον απορρίψεις πρώτα εκεί.',
+  onlyTeam: 'Δεν μπορείς να διαγράψεις αυτήν την ομάδα. Είναι η μόνη ομάδα σε αυτή τη βάρδια. Κάθε βάρδια χρειάζεται τουλάχιστον μία ομάδα.',
+  noTeamleader: 'Κάθε ομάδα απαιτεί αρχηγό ομάδας. Δυστυχώς αυτός ο ευαγγελιζόμενος δεν έχει άδεια να υπηρετήσει ως αρχηγός ομάδας.',
+  ownPermission: 'Δεν μπορείτε να αποσύρετε τα δικαιώματά σας. Αυτό πρέπει να γίνει από άλλο διαχειριστή του έργου.',
+  approvalInformed: 'Αυτός ο συμμετέχων έχει ήδη ενημερωθεί για την εγκεκριμένη αίτησή του.',
+  declinementInformed: 'Αυτός ο συμμετέχων έχει ήδη ενημερωθεί για την ακύρωση της αίτησή του.',
+  vacationEndInPast: 'Η ημερομηνία λήξης δεν μπορεί να είναι στο παρελθόν.',
+  missingTag: 'Δεν έχει οριστεί ετικέτα. Δημιουργήστε πρώτα μια ετικέτα. Διαχείριση > Ρυθμίσεις.',
   logout: {
-    title: 'Tipp',
-    text: 'Es ist nicht nötig sich abzumelden. Deine Verbindung ist verschlüsselt und wir speichern Sitzungsinformationen lediglich im lokalen Browserstorage. Dadurch kann niemand in deine Sitzung einbrechen.',
-    confirm: 'Abmelden',
-    cancel: 'Abbrechen'
+    title: 'Υπαινιγμός',
+    text: 'Δεν χρειάζεται να αποσυνδεθείτε. Η σύνδεσή σας είναι κρυπτογραφημένη και αποθηκεύουμε τις πληροφορίες της περιόδου σύνδεσης μόνο στο αποθηκευτικό χώρο του τοπικού προγράμματος περιήγησης. Κανείς δεν μπορεί να σπάσει τη συνεδρία σου.',
+    confirm: 'Αποσύνδεση',
+    cancel: 'Ακύρωση'
   },
   invite: {
     user: {
-      title: 'Verkündiger einladen?',
-      text: 'Da dieser Verkündiger <b>bereits einen Account hat</b>, muss für ihn kein weiterer Account angelegt werden. Stattdessen bekommt er <b>einfach Zugriff auf dieses Projekt</b>.<br>Natürlich <b>informieren wir ihn</b> darüber. <br><p>Falls es mehrere Verkündiger mit dieser E-Mail-Adresse bei JW Management gibt, wähle bitte den richtigen aus:</p>'
+      title: 'Πρόσκληση ευαγγελιζομένου;',
+      text: 'Εφόσον ο ευαγγελιζόμενος <b>έχει ήδη λογαριασμό</b>, δεν χρειάζεται να δημιουργηθεί άλλος λογαριασμός για αυτόν. Αντίθετα, <b>παίρνει απλώς πρόσβαση σε αυτό το έργο</b>. <br> Φυσικά, <b>τον ενημερώνουμε</b> για αυτό. <br><p>Εάν υπάρχουν περισσότερή ευαγγελιζόμενη με αυτήν τη email, παρακαλώ επιλέξτε το σωστό: </p>'
     },
     users: {
-      title: 'Bist du dir sicher?',
-      text: 'An alle ausgewählten Verkündiger werden E-Mails gesendet.',
-      confirm: 'Einladen',
-      cancel: 'Abbrechen'
+      title: 'Είστε σίγουροι;',
+      text: 'Θα αποσταλούν email σε όλους τους επιλεγμένους ευαγγελιζομένους.',
+      confirm: 'Αποστολή πρόσκληση',
+      cancel: 'Ακύρωση'
     }
   },
   sendMail: {
     confirmWeek: {
-      title: 'Bist du dir sicher?',
-      text: 'Alle zugeteilten Verkündiger erhalten eine Bestätigung, und alle abgelehnten Verkündiger eine Absage per Mail.',
-      confirm: 'Ja',
-      cancel: 'Abbrechen'
+      title: 'Είστε σίγουροι;',
+      text: 'Όλοι οι εγκεκριμένοι ευαγγελιζόμενοι θα λάβουν μια επιβεβαίωση και όλοι οι  που απορρίφτηκαν θα λάβουν απόρριψη μέσω email.',
+      confirm: 'Ναί',
+      cancel: 'Ακύρωση'
     },
     confirmation: {
-      title: 'Verkündiger informieren?',
-      text: 'Der Verkündiger wird per E-Mail über seine Zuteilung informiert.',
-      confirm: 'Ja',
-      cancel: 'Abbrechen'
+      title: 'Ενημέρωση των ευαγγελιζομένων;',
+      text: 'Ο ευαγγελιζόμενος θα ενημερωθεί με email για την κατανομή του.',
+      confirm: 'Ναί',
+      cancel: 'Ακύρωση'
     },
     declined: {
-      title: 'Verkündiger informieren?',
-      text: 'Der Verkündiger wird per E-Mail darüber Informiert, dass seine Bewerbung abgelehnt wurde.',
-      confirm: 'Ja',
-      cancel: 'Abbrechen'
+      title: 'Ενημέρωση των ευαγγελιζομένων;',
+      text: 'Ο ευαγγελιζόμενος θα ενημερωθεί με email ότι η αίτησή του απορρίφθηκε.',
+      confirm: 'Ναί',
+      cancel: 'Ακύρωση'
     },
     selectTag: {
-      title: 'Welches Tag?',
-      text: 'Bitte wähle das Tag aus, an welches gesendet werden soll:',
+      title: 'Ποια κατηγορία;',
+      text: 'Επιλέξτε την κατηγορία που θέλετε να στείλετε:',
       confirm: 'OK',
-      cancel: 'Abbrechen'
+      cancel: 'Ακύρωση'
     },
     teamUpdate: {
       user: {
-        title: 'Teamleiter bereits informiert',
-        text: 'Der Teamleiter dieses Teams wurde bereits per E-Mail benachrichtigt. Soll dieser über die Änderung informiert werden?',
-        confirm: 'Ja',
-        cancel: 'Nein'
+        title: 'Ο αρχηγός της ομάδας έχει ήδη ενημερωθεί',
+        text: 'Ο αρχηγός της ομάδας έχει ήδη ενημερωθεί. Θέλετε να στείλετε ένα email με αυτήν την ενημέρωση σε αυτόν;',
+        confirm: 'Ναί',
+        cancel: 'Όχι'
       },
       general: {
-        title: 'Bist du dir sicher?',
-        text: 'Alle bereits informierten Verkündiger erhalten eine Mail mit den aktualisierten Team-Daten.',
-        confirm: 'Ja',
-        cancel: 'Nein'
+        title: 'Είστε σίγουροι;',
+        text: 'Όλοι οι ήδη ενημερωμένοι ευαγγελιζομένοι θα λάβουν ένα email με τα ενημερωμένα στοιχεία της ομάδας.',
+        confirm: 'Ναί',
+        cancel: 'Όχι'
       }
     },
     understaffed: {
-      title: 'Verkündiger informieren?',
-      text: 'Sollen alle Verkündiger darüber informiert werden, dass dieses Team unterbesetzt ist?',
-      confirm: 'Ja',
-      cancel: 'Nein',
+      title: 'Ενημέρωση των ευαγγελιζομένων;',
+      text: 'Να ενημερωθούν όλοι οι ευαγγελιζόμενοι σχετικά με αυτή την ομάδα; ',
+      confirm: 'Ναί',
+      cancel: 'Όχι',
       teamleader: {
-        title: 'Teamleiter informieren?',
-        text: 'Sollen alle Teamleiter über dieses Team informiert werden?',
-        confirm: 'Ja',
-        cancel: 'Nein'
+        title: 'Ενημέρωση των αρχηγών τον ομάδον;',
+        text: 'Να ενημερωθούν όλοι οι αρχηγοί των ομάδων για αυτή την ομάδα;',
+        confirm: 'Ναί',
+        cancel: 'Όχι'
       }
     }
   },
   add: {
     meeting: {
-      title: 'Neuen Treffpunkt anlegen',
+      title: 'Δημιουργία νέου τόπου συνάντησης',
       text: '',
-      placeholder: 'Name',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     question: {
-      title: 'Frage/Titel anlegen',
+      title: 'Δημιουργία ερώτηση/τίτλου',
       text: '',
-      placeholder: 'Frage/Titel',
-      inputError: 'Du musst etwas eintippen!',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Ερώτηση/Τίτλος',
+      inputError: 'Πρέπει να πληκτρολογήσεις κάτι!',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     tab: {
-      title: 'Neuen Tab anlegen',
+      title: 'Δημιουργία νέας καρτέλας',
       text: '',
-      placeholder: 'Titel',
-      inputError: 'Ungültiger Name für einen Tab!',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Τίτλος',
+      inputError: 'Μη έγκυρο όνομα για καρτέλα!',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     tag: {
-      title: 'Neues Tag anlegen',
+      title: 'Δημιουργία νέας ετικέτας',
       text: '',
-      placeholder: 'Name',
-      inputError: 'Ungültiger Name für ein Tag!',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα',
+      inputError: 'Μη έγκυρο όνομα για ετικέτα!',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     team: {
-      title: 'Neues Team anlegen',
+      title: 'Δημιουργία νέας ομάδας',
       text: '',
-      placeholder: 'Name',
-      inputError: 'Ungültiger Name für ein Team!',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα',
+      inputError: 'Μη έγκυρο όνομα για μια ομαδα!',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     template: {
-      title: 'Vorlagewoche anlegen',
+      title: 'Δημιουργία εβδομάδας προτύπου',
       text: '',
-      placeholder: 'Name',
-      inputError: 'Ungültiger Name für eine Vorlagewoche!',
-      confirm: 'Anlegen',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα',
+      inputError: 'Μη έγκυρο όνομα για μια εβδομάδα προτύπου!',
+      confirm: 'Δημιουργία',
+      cancel: 'Ακύρωση'
     },
     user: {
-      title: 'Erstellt!',
-      text: 'Der User wurde angelegt.'
+      title: 'Δημιουργήθηκε!',
+      text: 'Ο χρήστης δημιουργήθηκε.'
     },
     users: {
-      title: 'Bist du dir sicher?',
-      text: 'Alle angezeigten Verkündiger werden dem Projekt hinzugefügt.',
-      confirm: 'Hinzufügen',
-      cancel: 'Abbrechen'
+      title: 'Είστε σίγουροι;',
+      text: 'Όλοι οι εκδοθέντες ευαγγελιζομένοι θα προστεθούν στο έργο.',
+      confirm: 'Προσθήκη',
+      cancel: 'Ακύρωση'
     }
   },
   update: {
     file: {
-      title: 'Dateinamen ändern',
+      title: 'Αλλαγή ονόματος αρχείου',
       text: '',
-      placeholder: 'Dateiname',
-      inputError: 'Ungültiger Dateiname!',
-      confirm: 'Ändern',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα αρχείου',
+      inputError: 'Μη έγκυρο όνομα αρχείου!',
+      confirm: 'Αλλαγή',
+      cancel: 'Ακύρωση'
     },
     password: {
-      title: 'Passwort ändern',
-      passwordOld: 'Altes Passwort',
-      passwordNew1: 'Neues Passwort',
-      passwordNew2: 'Neues Passwort wiederholen',
-      confirm: 'Ändern',
-      cancel: 'Abbrechen',
-      passwordChanged: 'Das Passwort wurde geändert'
+      title: 'Αλλαγή κωδικόυ πρόσβασης',
+      passwordOld: 'Παλιός κώδικας πρόσβασης',
+      passwordNew1: 'Νέος κωδικός πρόσβασης',
+      passwordNew2: 'Επανάληψη νέου κωδικόυ πρόσβασης',
+      confirm: 'Αλλαγή',
+      cancel: 'Ακύρωση',
+      passwordChanged: 'Ο κωδικός πρόσβασης έχει αλλάξει'
     },
     question: {
-      title: 'Frage/Titel ändern',
+      title: 'Αλλαγή ερώτηση/τίτλος',
       text: '',
-      placeholder: 'Frage/Titel',
-      confirm: 'Ändern',
-      cancel: 'Abbrechen'
+      placeholder: 'Ερώτηση/Τίτλος',
+      confirm: 'Αλλαγή',
+      cancel: 'Ακύρωση'
     },
     template: {
-      title: 'Name ändern',
+      title: 'Αλλαγή ονόματος',
       text: '',
-      placeholder: 'Name',
-      confirm: 'Ändern',
-      cancel: 'Abbrechen'
+      placeholder: 'Όνομα',
+      confirm: 'Αλλαγή',
+      cancel: 'Ακύρωση'
     }
   },
   delete: {
     account: {
-      title: 'Möchtest du deinen Account wirklich löschen?',
-      text: 'Der Account wird unwiderruflich gelöscht und kann nicht wiederhergestellt werden!',
-      confirm: 'Meinen Account löschen!',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις το λογαριασμό σου;',
+      text: 'Ο λογαριασμός θα διαγραφεί ανεπανόρθωτα και δεν θα μπορεί να αποκατασταθεί!',
+      confirm: 'Διαγραφή του λογαριασμού μού',
+      cancel: 'Ακύρωση'
     },
     allShifts: {
-      title: 'Bist du dir sicher?',
-      text: 'Alle Schichten dieses Tages und alle Bewerbungen auf diese werden unwiderruflich gelöscht.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Είσαι σίγουρος;',
+      text: 'Όλες οι βάρδιες αυτής της ημέρας και ότι συνάγεται με αυτές θα διαγραφούν αμετάκλητα.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     file: {
-      title: 'Datei wirklich löschen?',
-      text: 'Die Datei wird unwiederruflich gelöscht',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις το αρχείο;',
+      text: 'Το αρχείο θα διαγραφεί ανεπανόρθωτα',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     language: {
-      title: 'Diese Sprache wirklich löschen?',
-      text: 'Das wird die Sprache samt Lagerbestand löschen.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτή τη γλώσσα;',
+      text: 'Αυτό θα διαγράψει τη γλώσσα, συμπεριλαμβανομένου του αποθέματος.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     meeting: {
-      title: 'Treffpunkt wirklich löschen?',
-      text: 'Die Treffpunkte werden auch aus bestehenden Schichten gelöscht.',
-      checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτό το σημείο συνάντησης;',
+      text: 'Τα σημεία συνάντησης διαγράφονται επίσης από τις υπάρχουσες βάρδιες.',
+      checkInput: 'Διαγραφή',
+      placeholder: 'Για επιβεβαίωση εισάγετε "{{0}}"',
+      inputError: 'Η είσοδος δεν ταιριάζει με "{{0}}"',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     note: {
-      title: 'Möchtest du diese Notiz wirklich löschen?',
-      text: 'Die Notiz wird unwiderruflich gelöscht.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτή την σημείωση;',
+      text: 'Η σημείωση θα διαγραφεί αμετάκλητα.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     project: {
-      title: 'Möchtest du das Projekt wirklich löschen?',
-      text: 'Dadurch wird auch alles direkt und transitiv abhängige (wie z.B. Schichten, Berichte, Bewerbungen, Publikationen, etc.) gelöscht. Lediglich die Benutzeraccounts bleiben vorhanden.',
-      checkInput: 'Dieses Projekt löschen',
-      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτό το πρότζεκτ;',
+      text: 'Ως αποτέλεσμα, όλα τα εξαρτώμενα άμεσα και διαφανώς (όπως βάρδιες, αναφορές, αιτήσεις, δημοσιεύσεις κ.λπ.) διαγράφονται. Μόνο οι λογαριασμοί χρηστών παραμένουν.',
+      checkInput: 'Διαγραφή αυτού του έργου',
+      placeholder: 'Για επιβεβαίωση εισάγετε "{{0}}"',
+      inputError: 'Η είσοδος δεν ταιριάζει με "{{0}}"',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     publication: {
-      title: 'Diese Publikation aus dem Depot löschen?',
-      text: 'Dadurch gehen alle Daten dieser Publikation verloren.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτό το έντυπο;',
+      text: 'Αυτό θα προκαλέσει την διαγραφή όλων των στοιχείων αυτού του εντύπου.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     question: {
-      title: 'Frage wirklich löschen?',
-      text: 'Das wird die Frage samt Antwort unwiderruflich löschen',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτή την ερώτηση;',
+      text: 'Αυτό θα διαγράψει αμετάκλητα την ερώτηση και την απάντηση',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     shift: {
-      title: 'Schicht wirklich löschen?',
-      text: 'Alle Bewerbungen auf diese Schicht gehen verloren.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτη τη βάρδια;',
+      text: 'Όλες οι αιτήσεις για αυτή τη βάρδια θα χαθούν.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     store: {
-      title: 'Depot wirklich zurücksetzen?',
-      text: 'Dadurch werden alle angelegten Publikationen entfernt.',
-      confirm: 'Zurücksetzen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να επαναφέρεις την αποθήκη;',
+      text: 'Αυτό διαγράψει όλα τα δημιουργημένα έντυπα.',
+      confirm: 'Επαναφορά',
+      cancel: 'Ακύρωση'
     },
     tab: {
-      title: 'Tab wirklich löschen?',
-      text: 'Der gesamte Tab mit allen seinen Fragen wird gelöscht.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτη τη καρτέλα;',
+      text: 'Ολόκληρη η καρτέλα με όλες τις ερωτήσεις της θα διαγραφεί.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     tag: {
-      title: 'Tag wirklich löschen?',
-      text: 'Es werden alle Schichten gelöscht, die zu diesem Tag gehören. Ebenso werden auch alle Bewerbungen auf diese Schichten gelöscht. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
-      checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτη τη κατηγορία;',
+      text: 'Όλες οι βάρδιες που ανήκουν σε αυτήν την κατηγορία θα διαγραφούν. Ομοίως, όλες οι αιτήσεις θα διαγραφούν σε αυτές της βάρδιες. <br> <br> Παρακαλούμε εισάγετε "Διαγραφή" για επιβεβαίωση.',
+      checkInput: 'Διαγραφή',
+      placeholder: 'Παρακαλούμε εισάγετε "{{0}}" για επιβεβαίωση.',
+      inputError: 'Η είσοδος δεν ταιριάζει με "{{0}}"',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     team: {
-      title: 'Team wirklich löschen?',
-      text: 'Die Teams werden auch aus bestehenden Schichten gelöscht. Angenommene Bewerbungen auf diese Teams werden auf die anderen Teams verteilt. <br><br> Bitte zur Bestätigung "Löschen" eingeben.',
-      checkInput: 'Löschen',
-      placeholder: 'Zur Bestätigung "{{0}}" eingeben',
-      inputError: 'Die Eingabe stimmte nicht mit "{{0}}" überein',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτή την ομάδα;',
+      text: 'Οι ομάδες διαγράφονται επίσης από τις υπάρχουσες βάρδιες. Οι αποδεκτές αιτήσεις σε αυτές τις ομάδες θα διανεμηθούν μεταξύ των άλλων ομάδων. <br> <br> Για επιβεβαίωση εισάγετε "Διαγραφή".',
+      checkInput: 'Διαγραφή',
+      placeholder: 'Για επιβεβαίωση εισάγετε "{{0}}"',
+      inputError: 'Η είσοδος δεν ταιριάζει με "{{0}}"',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     template: {
-      title: 'Vorlage wirklich löschen?',
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτό το πρότυπο;',
       text: '',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     user: {
-      title: 'Benutzer wirklich löschen?',
-      text: 'Dem Benutzer werden sämtliche Berechtigungen in diesem Projekt entzogen.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις αυτόν τον χρήστη;',
+      text: 'Ο χρήστης θα χάσει όλα τα δικαιώματα σε αυτό το έργο.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     },
     wholeWeek: {
-      title: 'Die gesamte Woche wirklich löschen?',
-      text: 'Auch alle Schichten in dieser Woche werden gelöscht.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να διαγράψεις ολόκληροί την εβδομάδα;',
+      text: 'Επίσης, όλες οι βάρδιες αυτής της εβδομάδα θα διαγραφούν.',
+      confirm: 'Διαγραφή',
+      cancel: 'Ακύρωση'
     }
   },
   request: {
     approve: {
-      title: 'Verkündiger wirklich einteilen?',
-      text: 'Dieser Verkündiger wurde bereits abgelehnt. Stelle deshalb bitte sicher, dass er immernoch teilnehmen möchte und auch dazu in der Lage ist.',
-      confirm: 'Ja',
-      cancel: 'Nein'
+      title: 'Έγκριση ευαγγελιζόμενου;',
+      text: 'Αυτός ο ευαγγελιζόμενος έχει ήδη απορριφθεί. Βεβαιωθείτε ότι εξακολουθεί να επιθυμεί και είναι σε θέση να συμμετάσχει.',
+      confirm: 'Ναί',
+      cancel: 'Όχι'
     },
     cancel: {
-      title: 'Bewerbung wirklich zurückziehen?',
-      text: 'Dadurch muss möglicherweise das ganze Team aufgelöst werden.',
-      confirm: 'Bewerbung zurückziehen',
-      cancel: 'Abbrechen'
+      title: 'Θέλεις πραγματικά να υποχώρησης την αίτηση;',
+      text: 'Αυτό μπορεί να απαιτήσει τη διάλυση ολόκληρης της ομάδας.',
+      confirm: 'Υποχώρηση αίτησης',
+      cancel: 'Ακύρωση'
     },
     decline: {
-      title: 'Teilnehmer wirklich ablehnen?',
-      text: 'Wenn der Teilnehmer bereits eine E-Mail erhalten hat, bekommt er eine Austragungsbestätigung.',
-      confirm: 'Ja',
-      cancel: 'Nein'
+      title: 'Είσαι σίγουρος πως θέλεις να απορρίψεις τον συμμετέχοντα;',
+      text: 'Εάν ο συμμετέχων έχει ήδη λάβει ένα email, θα λάβει μια επιβεβαίωση της απόδοσης.',
+      confirm: 'Ναί',
+      cancel: 'Όχι'
     },
     maxReached: {
-      title: 'Zu viele Bewerber selektiert',
-      text: 'Team Maximal-Grenze von {{0}} auf {{1}} setzen und alle annehmen?',
-      confirm: 'Selektierte annehmen',
-      cancel: 'Abbrechen'
+      title: 'Έχουν επιλεχτεί πάρα πολλοί αιτούντες',
+      text: 'Αλλαγή ώριου από {{0}} σε {{1}} και αποδοχή όλων τον επιλεγμένων;',
+      confirm: 'Αποδοχή επιλεγμένων',
+      cancel: 'Ακύρωση'
     },
     minNotReached: {
-      title: 'Nicht genug Bewerber selektiert',
-      text: 'Team Mindest-Grenze von {{0}} auf {{1}} setzen und alle annehmen?',
-      confirm: 'Selektierte annehmen',
-      cancel: 'Abbrechen'
+      title: 'Δεν έχουν επιλεχθεί αρκετοί αιτούντες',
+      text: 'Αλλαγή ώριου από {{0}} σε {{1}} και αποδοχή όλων τον επιλεγμένων;',
+      confirm: 'Αποδοχή επιλεγμένων',
+      cancel: 'Ακύρωση'
     },
     minReached: {
-      title: 'Teilnehmer wirlich ablehnen?',
-      text: 'Die Mindest-Grenze des Teams ist erreicht. Wenn du diesen Teilnehmer ablehnst, wird das System stattdessen das ganze Team absagen.',
-      confirm: 'Komplettes Team absagen',
-      cancel: 'Nein'
+      title: 'Είσαι σίγουρος πως θέλεις να απορρίψεις τον συμμετέχοντα;',
+      text: 'Το ελάχιστο όριο της ομάδας έχει επιτευχθεί. Εάν απορρίψεις αυτόν τον συμμετέχοντα, το σύστημα θα ακυρώσει ολόκληρη την ομάδα.',
+      confirm: 'Ακύρωση ολόκληρης ομάδας',
+      cancel: 'Όχι'
     },
     noNewTeamleader: {
-      title: 'Teilnehmer wirlich ablehnen?',
-      text: 'Leider ist keine anderer möglicher Teamleiter vorhanden. Wenn du diesen Teilnehmer ablehnst, wird das System stattdessen das ganze Team absagen.',
-      confirm: 'Komplettes Team absagen',
-      cancel: 'Nein'
+      title: 'Είσαι σίγουρος πως θέλεις να απορρίψεις τον συμμετέχοντα;',
+      text: 'Δυστυχώς, δεν υπάρχει άλλος πιθανός αρχηγός ομάδας. Εάν απορρίψεις αυτόν τον συμμετέχοντα, το σύστημα θα ακυρώσει ολόκληρη την ομάδα.',
+      confirm: 'Ακύρωση ολόκληρης ομάδας',
+      cancel: 'Όχι'
     }
   }
 }
