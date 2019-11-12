@@ -94,7 +94,7 @@ const dashboard = {
       }
     }
   },
-  details: { 
+  details: {
     sections: {
       myProjects: 'Os meus projetos',
       missingShiftReports: 'Missing shift reports',
