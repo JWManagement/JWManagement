@@ -1,9 +1,6 @@
-[![Build Status](https://semaphoreci.com/api/v1/marvinzeising/jwmanagement/branches/master/badge.svg)](https://semaphoreci.com/marvinzeising/jwmanagement)
-
 # What is JW Management?
 
-JW Management is a highly configurable shift management system for Jehovah's Witnesses.
-Built to power projects like the metropolitan witnessing, construction projects and/or similar.
+JW Management is a highly configurable shift management system, built to power projects like the metropolitan witnessing, construction projects and/or similar.
 
 ### Multiple Tags
 
@@ -29,7 +26,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 1. _(Optional)_ We recommend downloading and using VS Code (https://code.visualstudio.com), because it supports syntax highlighting.
 
-2. Download the JW Management repository as zip file (https://github.com/JWDeveloper/JWManagement/archive/develop.zip) and extract it.
+2. Download the JW Management repository as zip file (https://github.com/MarvinZeising/JWManagement/archive/develop.zip) and extract it.
 
 3. Open the extracted folder and switch into the imports/i18n folder.
 
@@ -82,7 +79,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 3. _(Optional)_ Install a MongoDB GUI Tool. E.g. Mongo Chef (http://3t.io/mongochef)
 
-4. Clone https://github.com/JWDeveloper/JWManagement.git to a local folder.
+4. Clone https://github.com/MarvinZeising/JWManagement.git to a local folder.
 
 5. Open Terminal, cd to the created folder and run
 
