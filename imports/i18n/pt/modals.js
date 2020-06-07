@@ -108,7 +108,7 @@ const modal = {
     bibleStudies: 'Estudos Biblicos',
     time: 'Horas no Serviço',
     trolleysFilled: 'Carrinhos preenchidos',
-    neatnessLast: 'Condição do carrinho após último turno.',
+    neatnessLast: 'Condição do carrinho após o último turno.',
     bad: 'Má',
     normal: 'Normal',
     good: 'Boa',

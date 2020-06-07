@@ -153,7 +153,7 @@ const pages = {
     },
     tags: {
       title: 'Κατηγορίες',
-      helpText: '<p>Jede Schicht muss einer Kategorie zugeordnet werden. Außerdem kann jeder Teilnehmer für bestimmte Kategorien berechtigt werden oder nicht. Ein Teilnehmer sieht lediglich die Schichten, die einer Kategorie zugeordet wurden, für die er berechtigt ist.</p><p>Mit Kategorien können verschiedene Tätigkeiten abgebildet werden (z.B. Trolley, Infostand, Ordnungsdienst, Parkplatzdienst, etc.). Das Aufteilen von Schichten in verschiedene Kategorien mag besonders dann Sinn machen, wenn sich die Schichten sonst zeitlich überschneiden würden.</p><p>In jeder Kategorie kann eine Reihe von Vorlage-Wochen definiert werden.</p>',
+      helpText: '<p>Κάθε βάρδια πρέπει να συνδεθεί με μια κατηγορία. Επιπλέον, κάθε συμμετέχων μπορεί να είναι ή να μην είναι επιλέξιμος για ορισμένες κατηγορίες. Ο παρευρισκόμενος βλέπει μόνο τις βάρδιες που έχουν ανατεθεί σε μια κατηγορία για την οποία δικαιούται.</p><p>Οι κατηγορίες μπορούν να χρησιμοποιηθούν για τη οργάνωση διαφόρων δραστηριοτήτων (π.χ., τρόλεϊ, περίπτερο πληροφοριών, υπηρεσία ταξιθεσίας, υπηρεσία στάθμευσης κλπ.). Η διαίρεση των βαρδιών σε διαφορετικές κατηγορίες μπορεί να έχει νόημα εάν τα στρώματα θα αλληλεπικαλύπτονταν χρονικά.</p><p>Σε κάθε κατηγορία μπορούν να οριστούν περισσότερες εβδομάδες προτύπου.</p>',
       id: 'ID',
       name: 'Όνομα',
       img: {

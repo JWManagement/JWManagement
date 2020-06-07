@@ -13,18 +13,9 @@ Template['project.support.details'].helpers({
         type: 'textbox',
         readonly: true
       }, {
-        key: 'phone',
-        type: 'phone',
-        readonly: true
-      }, {
         key: 'discord',
         type: 'link',
         route: 'https://discord.gg/Te9TKD8',
-        outbound: true
-      }, {
-        key: 'github',
-        type: 'link',
-        route: 'https://github.com/JWDeveloper/JWManagement/issues',
         outbound: true
       }]
     }, {
@@ -35,8 +26,7 @@ Template['project.support.details'].helpers({
         readonly: true
       }, {
         key: 'paypal',
-        type: 'link',
-        route: 'https://www.paypal.me/marvinzeising',
+        type: 'text',
         outbound: true
       }, {
         key: 'iban',
