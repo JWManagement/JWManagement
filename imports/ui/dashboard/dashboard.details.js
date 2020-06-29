@@ -130,6 +130,12 @@ Template['dashboard.details'].helpers({
         icon: 'group',
         canSee: Permissions.support
       }, {
+        key: 'adminEmails',
+        type: 'link',
+        route: 'users.adminEmails.details',
+        icon: 'mail',
+        canSee: Permissions.support
+      }, {
         key: 'startProject',
         type: 'link',
         route: 'project.insert',
