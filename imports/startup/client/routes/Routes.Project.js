@@ -32,6 +32,9 @@ RouteManager.registerEntity('project', {
 RouteManager.registerEntity('users.online', {
   details: 'users/online'
 })
+RouteManager.registerEntity('users.adminEmails', {
+  details: 'users/adminEmails'
+})
 RouteManager.registerEntity('user', {
   search: 'users',
   details: 'user/:userId'

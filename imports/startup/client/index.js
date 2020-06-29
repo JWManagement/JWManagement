@@ -54,6 +54,8 @@ import '../../ui/users/user.details'
 import '../../ui/users/online/users.online.jade'
 import '../../ui/users/online/users.online.details'
 
+import '../../ui/users/adminEmails/users.adminEmails.details'
+
 import '../../ui/projects/projects.jade'
 import '../../ui/projects/project.search'
 import '../../ui/projects/project.insert'

@@ -51,6 +51,7 @@ const dashboard = {
     newDashboardDescription: 'Good news! We redesigned the dashboard for you. It should especially be handy on mobile devices. We hope you like it! If anything doesn\'t work for you, please tell your project coordinators - they\'ll inform us.',
     oldDashboard: 'To the old dashboard',
     onlineUsers: 'Current online users',
+    adminEmails: 'Project-Admins E-Mail Addresses',
     myProjects: {
       seeAllItems: 'See one more project',
       seeAllItems_plural: 'See the other {{count}} projects'
