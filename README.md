@@ -100,7 +100,7 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 ## Troubleshooting
 
-### Windows
+### Windows (outdated)
 
 If you are on Windows, you may encounter slow build times.
 One solution is to use the Windows Subsystem for Linux for the server runtime (nodejs), but running the mongodb under Windows. To achieve this do the following:
