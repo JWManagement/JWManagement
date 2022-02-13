@@ -1,0 +1,3 @@
+[submodule "packages/meteor-emails"]
+	path = packages/meteor-emails
+	url = https://github.com/Favro/meteor-emails.git
