@@ -27,6 +27,8 @@ Meteor.methods
 			value = Validations.trim value
 		else if field == 'languages'
 			value = Validations.trim value
+		else if field == 'acceppteddsgvo'
+			value = Validations.trim value
 
 		if field != 'username'
 			field = 'profile.' + field
