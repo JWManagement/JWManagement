@@ -26,7 +26,8 @@ Template['project.support.details'].helpers({
         readonly: true
       }, {
         key: 'paypal',
-        type: 'text',
+        type: 'link',
+        route: 'https://www.paypal.com/donate/?hosted_button_id=UPK5UN546TR8J',
         outbound: true
       }, {
         key: 'iban',
