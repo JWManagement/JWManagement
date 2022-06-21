@@ -25,7 +25,7 @@ const project = {
       phone: 'Zadzwoń do nas',
       email: 'Wyślij do nas maila',
       github: 'Stwórz zgłoszenie na GitHub',
-      paypal: 'PayPal (paypal.me/marvinzeising)'
+      paypal: 'PayPal'
     },
     noElements: 'Nie znaleziono żadnego projektu'
   },
