@@ -150,4 +150,4 @@ Meteor.methods
 			0
 
 	setMyAccountActive: ->
-		Meteor.users.update Meteor.userId(), $set: state: 'active'
+		Meteor.users.update Meteor.userId(), $set: state: 'active', 'status.lastLogin.date': new Date()
