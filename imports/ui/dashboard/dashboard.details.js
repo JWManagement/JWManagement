@@ -1,43 +1,10 @@
 import { Template } from 'meteor/templating'
 import Permissions from '../../framework/Constants/Permissions'
 
-Template['dashboard.details'].onCreated(() => {
-  console.log(Meteor.user());
-  // Meteor.call('updateProfile', 'acceppteddsgvo', "0")
-  if (Meteor.user().profile.acceppteddsgvo !== "1") {
-    var tag = document.createElement("div");
-    tag.id = "div-elena";
-    tag.style.width = "10000px";
-    tag.style.height = "10000px";
-    tag.style.position = "fixed";
-    tag.style.zIndex = 1;
-    tag.style.left = 0;
-    tag.style.top = 0;
-    tag.style.overflow = "auto";
-    tag.style.backgroundColor = "white";
-    tag.style.marginTop = "50px";
-
-    var p = document.createElement("p");
-    p.style.color = "black";
-    p.style.margin = "100px";
-
-    p.innerHTML = '<div><p>Bitte bestätigen sie, dass Sie die Datenschutz-Erklärungen zur Kenntnis genommen haben und diesen zustimmen.</p><button id="bestaetige-elena">Ich bestätige dies.</button></div>';
-
-    tag.appendChild(p);
-
-    var element = document.getElementById("__blaze-root");
-
-    element.appendChild(tag);
-
-    $("#bestaetige-elena").on("click", function () {
-      $('#div-elena').hide();
-      Meteor.call('updateProfile', 'acceppteddsgvo', "1")
-      console.log(Meteor.user());
-    });
-  }
-})
+import AcceptGdpr from './AcceptGdpr'
 
 Template['dashboard.details'].helpers({
+  AcceptGdpr: () => { return AcceptGdpr },
   data: {
     getMethod: 'dashboard.get',
     navigation: {},
