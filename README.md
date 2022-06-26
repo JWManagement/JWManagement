@@ -81,7 +81,13 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 4. Clone https://github.com/MarvinZeising/JWManagement.git to a local folder.
 
-5. Open Terminal, cd to the created folder and run
+5. Initialize git submodules:
+
+   ```
+   git submodule update --init
+   ```
+
+6. Open Terminal, cd to the created folder and run
 
    ```shell
    meteor npm install; meteor
@@ -90,13 +96,13 @@ Please follow the instructions to setup JW Management in your local dev environm
    This will take some seconds since meteor now downloads all node modules and NPM packages on which the app depends.
    After some seconds you should be able to visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-6. Sign up under [http://localhost:3000](http://localhost:3000) to create a new user.
+7. Sign up under [http://localhost:3000](http://localhost:3000) to create a new user.
 
-7. Once logged in with that new user, create a project.
+8. Once logged in with that new user, create a project.
 
-8. Go to the settings page of the project and create a tag. For that tag, create a template week. Click on the template to edit it and add a few shifts.
+9. Go to the settings page of the project and create a tag. For that tag, create a template week. Click on the template to edit it and add a few shifts.
 
-9. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
+10. Go back and to the shifts page of your projects. Click on the blue button in the center and then on "Add new week". Fill out the popup and voila - you got your project and shifts set up :-)
 
 ## Troubleshooting
 
