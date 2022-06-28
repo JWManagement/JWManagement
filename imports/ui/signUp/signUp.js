@@ -11,7 +11,7 @@ Template.signUp.helpers({
   error: () => Session.get('error'),
 
   getLanguage: () => {
-    if ((navigator.language || navigator.userLanguage) === "de-DE") {
+    if ((navigator.language || navigator.userLanguage || '').startsWith('de')) {
       return "de";
     }
     return "en";
