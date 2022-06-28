@@ -26,7 +26,7 @@ Through the powerful notification system, you can be notified on your request's,
 
 1. _(Optional)_ We recommend downloading and using VS Code (https://code.visualstudio.com), because it supports syntax highlighting.
 
-2. Download the JW Management repository as zip file (https://github.com/MarvinZeising/JWManagement/archive/develop.zip) and extract it.
+2. Download the JW Management repository as zip file (https://github.com/JWManagement/JWManagement/archive/develop.zip) and extract it.
 
 3. Open the extracted folder and switch into the imports/i18n folder.
 
@@ -79,15 +79,15 @@ Please follow the instructions to setup JW Management in your local dev environm
 
 3. _(Optional)_ Install a MongoDB GUI Tool. E.g. Mongo Chef (http://3t.io/mongochef)
 
-4. Clone https://github.com/MarvinZeising/JWManagement.git to a local folder.
+4. Clone https://github.com/JWManagement/JWManagement.git to a local folder.
 
-5. Initialize git submodules:
+5. cd to the created folder and initialize git submodules:
 
-   ```
+   ```shell
    git submodule update --init
    ```
 
-6. Open Terminal, cd to the created folder and run
+6. Install packages and run the application:
 
    ```shell
    meteor npm install; meteor
