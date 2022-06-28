@@ -10,7 +10,12 @@ import './signUp.scss'
 Template.signUp.helpers({
   error: () => Session.get('error'),
 
-  getLanguage: () => i18next.language
+  getLanguage: () => {
+    if ((navigator.language || navigator.userLanguage) === "de-DE") {
+      return "de";
+    }
+    return "en";
+  },
 })
 
 Template.signUp.onCreated(() => {})
