@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import i18next from 'i18next'
@@ -17,7 +16,18 @@ Template.calendar.helpers({
   },
   getShifts () {
     const template = Template.instance()
-    return template.selectedDateShifts.get()
+    const dayOfYear = + moment(template.selectedDate.get()).format('YYYYDDDD')
+    return Shifts.find(
+      {
+        projectId: FlowRouter.getParam('projectId'),
+        date: dayOfYear
+      }, {
+      sort: {
+        start: 1,
+        end: 1,
+        tagId: 1
+      }
+    }).fetch()
   },
   getFormattedTime (time) {
     return moment(time, 'Hmm').format(i18next.t('dateFormat.time'))
@@ -30,12 +40,29 @@ Template.calendar.helpers({
 Template.calendar.onCreated(() => {
   const template = Template.instance()
 
-  template.selectedDate = new Date()
-  template.selectedDateShifts = new ReactiveVar([])
-  template.loadShifts = loadShifts
-  template.setDate = setDate
+  template.selectedDate = new ReactiveVar(new Date())
+  template.isLoading = new ReactiveVar(false)
 
-  template.isLoading = new ReactiveVar(true)
+
+  let year = FlowRouter.getParam('year')
+  let month = FlowRouter.getParam('month')
+  let day = FlowRouter.getParam('day')
+  if (year && month && day) {
+    template.selectedDate.set(new Date(year, month - 1, day))
+  }
+
+  Tracker.autorun(() => {
+    const projectId = FlowRouter.getParam('projectId')
+    const date = moment(template.selectedDate.get())
+    ShiftSubs.subscribe('calendarShifts', projectId, + date.format('YYYYDDDD'))
+    wrs(() => {
+      FlowRouter.setParams({
+        year: date.format('YYYY'),
+        month: date.format('MM'),
+        day: date.format('DD')
+      })
+    })
+  })
 })
 
 Template.calendar.onRendered(() => {
@@ -43,15 +70,6 @@ Template.calendar.onRendered(() => {
 
   const template = Template.instance()
   const $datePicker = template.$('#datepicker')
-  let year = FlowRouter.getParam('year')
-  let month = FlowRouter.getParam('month')
-  let day = FlowRouter.getParam('day')
-
-  if (year == null || month == null || day == null) {
-    template.setDate(new Date())
-  } else {
-    template.setDate(new Date(year, month - 1, day))
-  }
 
   $datePicker.datepicker({
     maxViewMode: 0,
@@ -64,10 +82,9 @@ Template.calendar.onRendered(() => {
     language: i18next.language
   })
     .on('changeDate', function (e) {
-      template.setDate(e.date)
-      template.loadShifts()
+      template.selectedDate.set(e.date)
     })
-    .datepicker('setDate', template.selectedDate)
+    .datepicker('setDate', template.selectedDate.get())
 
   window.scrollTo(0, 0)
 })
@@ -77,49 +94,9 @@ Template.calendar.onDestroyed(() => {
 })
 
 Template.calendar.events({
-  'click .shift' (event, template) {
+  'click .shift' () {
     FlowRouter.setQueryParams({
       showShift: this._id
     })
-
-    template.autorun(function () {
-      FlowRouter.watchPathChange()
-
-      if (FlowRouter.current()) {
-        loadShifts(template)
-      }
-    })
   }
 })
-
-function loadShifts (template) {
-  if (!template) {
-    template = this
-  }
-
-  let params = FlowRouter.current().params
-  params.date = parseInt(moment(template.selectedDate).format('YYYYDDDD'), 10)
-
-  if (template.selectedDateShifts.get().length === 0) {
-    template.isLoading.set(true)
-  }
-
-  Meteor.call('calendar.getShifts', params, (e, shifts) => {
-    template.selectedDateShifts.set(shifts)
-    template.isLoading.set(false)
-  })
-}
-
-function setDate (date) {
-  const template = this
-  template.selectedDate = date
-  date = moment(date)
-
-  wrs(() => {
-    FlowRouter.setParams({
-      year: date.format('YYYY'),
-      month: date.format('MM'),
-      day: date.format('DD')
-    })
-  })
-}
