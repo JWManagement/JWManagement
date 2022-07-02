@@ -29,7 +29,8 @@ Template['publisher.permissions.details'].helpers({
             type: 'text'
           }, {
             key: 'role',
-            type: 'text'
+            type: 'text',
+            translationKey: 'publisher.entity.permissions.tag.roleValues.'
           }]
         }
       }]

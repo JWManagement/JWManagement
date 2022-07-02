@@ -25,6 +25,10 @@ Template.DetailsFormArrayEntity.helpers({
       return moment(value, dbFormat).format(uiFormat)
     }
 
+    if (definition.translationKey) {
+      return i18next.t(definition.translationKey + value)
+    }
+
     return value
   },
   isType
