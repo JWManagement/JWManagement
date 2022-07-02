@@ -189,22 +189,22 @@ const publisher = {
           sundays: 'Verfügbarkeit Sonntags'
         }
       }
+    }
+  },
+  permissions: {
+    details: {
+      sections: {
+        permissions: {
+          project: 'Projekt Berechtigungen',
+          tags: 'Tag Berechtigungen'
+        }
+      }
     },
-    permissions: {
+    tag: {
       details: {
         sections: {
           permissions: {
-            project: 'Projekt Berechtigungen',
-            tags: 'Tag Berechtigungen'
-          }
-        }
-      },
-      tag: {
-        details: {
-          sections: {
-            permissions: {
-              tag: 'Tag Berechtigung'
-            }
+            tag: 'Tag Berechtigung'
           }
         }
       }
