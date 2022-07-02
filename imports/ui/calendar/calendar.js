@@ -15,19 +15,20 @@ Template.calendar.helpers({
     return template.isLoading.get()
   },
   getShifts () {
+    console.log('getShifts')
     const template = Template.instance()
-    const dayOfYear = + moment(template.selectedDate.get()).format('YYYYDDDD')
+    const dayOfYear = +moment(template.selectedDate.get()).format('YYYYDDDD')
     return Shifts.find(
       {
         projectId: FlowRouter.getParam('projectId'),
         date: dayOfYear
       }, {
-      sort: {
-        start: 1,
-        end: 1,
-        tagId: 1
-      }
-    }).fetch()
+        sort: {
+          start: 1,
+          end: 1,
+          tagId: 1
+        }
+      }).fetch()
   },
   getFormattedTime (time) {
     return moment(time, 'Hmm').format(i18next.t('dateFormat.time'))
@@ -41,8 +42,7 @@ Template.calendar.onCreated(() => {
   const template = Template.instance()
 
   template.selectedDate = new ReactiveVar(new Date())
-  template.isLoading = new ReactiveVar(false)
-
+  template.isLoading = new ReactiveVar(true)
 
   let year = FlowRouter.getParam('year')
   let month = FlowRouter.getParam('month')
@@ -54,7 +54,10 @@ Template.calendar.onCreated(() => {
   Tracker.autorun(() => {
     const projectId = FlowRouter.getParam('projectId')
     const date = moment(template.selectedDate.get())
-    ShiftSubs.subscribe('calendarShifts', projectId, + date.format('YYYYDDDD'))
+    ShiftSubs.subscribe(
+      'calendarShifts', projectId, +date.format('YYYYDDDD'),
+      () => template.isLoading.set(false)
+    )
     wrs(() => {
       FlowRouter.setParams({
         year: date.format('YYYY'),
