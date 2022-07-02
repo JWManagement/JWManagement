@@ -136,7 +136,7 @@ const publisher = {
     },
     permissions: {
       permissions: 'Berechtigungen',
-      project: 'Projekt Berechtigungen',
+      project: 'Projekt-Berechtigung',
       projectValues: {
         admin: 'Administrator',
         shiftScheduler: 'Schichteinteiler',
@@ -145,7 +145,7 @@ const publisher = {
         member: 'Teilnehmer'
       },
       tag: {
-        tag: 'Tag',
+        tag: 'Kategorie',
         role: 'Rolle',
         roleValues: {
           teamleader: 'Teamleiter',
@@ -195,8 +195,8 @@ const publisher = {
     details: {
       sections: {
         permissions: {
-          project: 'Projekt Berechtigungen',
-          tags: 'Tag Berechtigungen'
+          project: 'Projekt-Berechtigungen',
+          tags: 'Kategorie-Berechtigungen'
         }
       }
     },
@@ -204,7 +204,7 @@ const publisher = {
       details: {
         sections: {
           permissions: {
-            tag: 'Tag Berechtigung'
+            tag: 'Kategorie-Berechtigung'
           }
         }
       }
