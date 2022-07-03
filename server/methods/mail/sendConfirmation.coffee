@@ -5,7 +5,7 @@ Meteor.methods
 
 	sendConfirmation: (shiftId, teamId, userId) ->
 		shift = Shifts.findOne shiftId
-		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
+		project = Projects.findOne shift.projectId, fields: name: 1, email: 1, showCongregationName: 1
 		user = Meteor.users.findOne userId, fields: profile: 1
 
 		if user? and shift?
@@ -18,6 +18,11 @@ Meteor.methods
 			shiftData.teams = []
 
 			for team in shift.teams when team.participants.length > 0
+				if project.showCongregationName
+					for participant in team.participants
+						user = Meteor.users.findOne participant._id, fields: profile: 1
+						if user.profile.congregation
+							participant.name = participant.name + ' (' + user.profile.congregation + ')'
 				shiftData.teams.push team
 
 			localTranslate = i18next.getFixedT(user.profile.language)

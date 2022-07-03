@@ -5,7 +5,7 @@ Meteor.methods
 
 	sendTeamUpdate: (shiftId, teamId, type) ->
 		shift = Shifts.findOne shiftId
-		project = Projects.findOne shift.projectId, fields: name: 1, email: 1
+		project = Projects.findOne shift.projectId, fields: name: 1, email: 1, showCongregationName: 1
 
 		check { userId: Meteor.userId(), projectId: shift.projectId }, isMember
 		# fails sometimes because ? let's see what the logging beneath reveals
@@ -17,6 +17,11 @@ Meteor.methods
 			shiftData.teams = []
 
 		for team in shift.teams when team._id == teamId
+			if project.showCongregationName
+				for participant in team.participants
+					user = Meteor.users.findOne participant._id, fields: profile: 1
+					if user.profile.congregation
+						participant.name = participant.name + ' (' + user.profile.congregation + ')'
 			shiftData.teams[0] = team
 
 			for participant in team.participants when participant.informed

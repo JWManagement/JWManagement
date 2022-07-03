@@ -1,22 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useTracker } from 'meteor/react-meteor-data'
+import { Meteor } from 'meteor/meteor'
 
-export default class TeamMemberName extends Component {
-  render () {
-    const member = this.props.member
-    let styledName = member.name
-
-    if (member.thisTeamleader) {
-      styledName = <u>{styledName}</u>
+export default ({ member, applyStyle, showCongregationName }) => {
+  const congregation = useTracker(() => {
+    if (!showCongregationName) {
+      return
     }
+    const projectId = FlowRouter.getParam('projectId')
+    Meteor.subscribe('userCongregation', projectId, member._id)
+    const userCongregation = UserCongregations.findOne(member._id)
+    return userCongregation && userCongregation.congregation
+  }, [member, showCongregationName])
 
-    if (this.props.applyStyle) {
-      if (member.teamleader) {
-        styledName = <b>{styledName}</b>
-      } else if (member.substituteTeamleader) {
-        styledName = <i>{styledName}</i>
+  const styledName = member.name + (congregation ? ` (${congregation})` : '')
+
+  if (member.thisTeamleader) {
+    return <u>{styledName}</u>
+  }
+
+  if (applyStyle) {
+    if (member.teamleader) {
+      return <b>{styledName}</b>
+    } else {
+      if (member.substituteTeamleader) {
+        return <i>{styledName}</i>
       }
     }
-
-    return styledName
   }
+
+  return styledName
 }

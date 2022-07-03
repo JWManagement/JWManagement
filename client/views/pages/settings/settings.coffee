@@ -69,6 +69,8 @@ Template.settings.events
 
 	'change #projectEmail': (e) -> Meteor.call 'updateProject', @_id, 'email', e.target.value, handleError
 
+	'change #showCongregationName': (e) -> Meteor.call 'updateProject', @_id, 'showCongregationName', e.target.checked
+
 	'click .changeVesselModule': (e) -> Meteor.call 'updateProject', FlowRouter.getParam('projectId'), 'vesselModule', ($(e.target).attr('value') == 'true'), handleError
 
 	'change #country': (e) -> Meteor.call 'updateProject', @_id, 'country', e.target.value, handleError

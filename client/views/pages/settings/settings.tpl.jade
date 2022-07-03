@@ -30,6 +30,11 @@ if queryParam 'editTeamPicture'
 									.col-sm-10.col-lg-8
 										input#projectEmail.form-control(type='email' placeholder='{{_ "settings.main.email.placeholder"}}' value='{{email}}')
 										span.help-block {{_ 'settings.main.email.helpText'}}
+								.form-group
+									label.col-sm-2.col-sm-2.col-lg-4.control-label {{_ 'settings.main.showCongregationName.text'}}
+									.col-sm-10.col-lg-8
+										input#showCongregationName.form-control(type='checkbox' checked='{{showCongregationName}}')
+										span.help-block {{_ 'settings.main.showCongregationName.helpText'}}
 								if isSupport
 									.form-group
 										label.col-sm-2.col-sm-2.col-lg-4.control-label Vessel project

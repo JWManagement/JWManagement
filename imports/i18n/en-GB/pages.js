@@ -145,6 +145,10 @@ const pages = {
         placeholder: 'Project email address',
         helpText: 'In emails like shift confirmations and team leader updates, this address will be set as the Reply-To address, so that if the recipients answer these emails, the reply will normally be sent to the inbox of this address if the recipient\'s email program is behaving correctly. Furthermore, this address will be notified (e.g. on short-term participation cancellations).'
       },
+      showCongregationName: {
+        text: 'Congregation',
+        helpText: 'In some situations, where multiple congregations participate in a project, it is desirable to add the congregation name to the publisher. If this is wanted, please check the box.'
+      },
       language: {
         text: 'Language',
         helpText: 'If the system notifies the address listed above about changes, it will send the mails in the language you specify here.'
