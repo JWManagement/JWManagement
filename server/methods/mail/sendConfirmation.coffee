@@ -20,9 +20,9 @@ Meteor.methods
 			for team in shift.teams when team.participants.length > 0
 				if project.showCongregationName
 					for participant in team.participants
-						user = Meteor.users.findOne participant._id, fields: profile: 1
-						if user.profile.congregation
-							participant.name = participant.name + ' (' + user.profile.congregation + ')'
+						participantUser = Meteor.users.findOne participant._id, fields: profile: 1
+						if participantUser.profile.congregation
+							participant.name = participant.name + ' (' + participantUser.profile.congregation + ')'
 				shiftData.teams.push team
 
 			localTranslate = i18next.getFixedT(user.profile.language)
