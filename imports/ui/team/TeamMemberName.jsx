@@ -2,16 +2,16 @@ import React from 'react'
 import { useTracker } from 'meteor/react-meteor-data'
 import { Meteor } from 'meteor/meteor'
 
-export default ({ member, applyStyle, showCongregationName }) => {
+export default ({ member, applyStyle, hideCongregationName = false }) => {
   const congregation = useTracker(() => {
-    if (!showCongregationName) {
+    if (hideCongregationName) {
       return
     }
     const projectId = FlowRouter.getParam('projectId')
     Meteor.subscribe('userCongregation', projectId, member._id)
     const userCongregation = UserCongregations.findOne(member._id)
     return userCongregation && userCongregation.congregation
-  }, [member, showCongregationName])
+  }, [member, hideCongregationName])
 
   const styledName = member.name + (congregation ? ` (${congregation})` : '')
 

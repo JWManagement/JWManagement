@@ -56,7 +56,7 @@ export default class TeamMember extends Component {
     ) : ''
     return (
       <div>
-        <TeamMemberName member={member} applyStyle={this.props.showStats} showCongregationName={!this.props.showStats}/>
+        <TeamMemberName member={member} applyStyle={this.props.showStats} hideCongregationName={this.props.showStats} />
         <TeamMemberStats userId={member._id} showStats={this.props.showStats} />
 
         <div className='float-right'>
