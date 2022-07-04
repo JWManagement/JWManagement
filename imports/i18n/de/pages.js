@@ -145,6 +145,10 @@ const pages = {
         placeholder: 'Projekt E-Mail Adresse',
         helpText: 'Bei E-Mails zu angenommenen Schichten, Teamleiter-Aktualisierungen etc. wird diese E-Mail Adresse als replyTo gesetzt. Antworten Verkündiger auf diese Mails, landen die Antworten im Postfach dieser E-Mail Adresse. Außerdem wird diese E-Mail Adresse z.B. bei kurzfristigen Absagen informiert.'
       },
+      showCongregationName: {
+        text: 'Versammlung',
+        helpText: 'Wenn mehrere Versammlungen an einem Projekt teilnehmen, möchte man gegebenenfalls den Namen der Versammlung zusammen mit dem Namen des Verkündigers anzeigen. Durch Ankreuzen dieses Kästchens kann man diese Funktion aktivieren.'
+      },
       language: {
         text: 'Sprache',
         helpText: 'Wenn das System Benachrichtigungen an die oben angegebene Adresse verschickt, wird die Sprache verwendet, die du hier angibst.'
