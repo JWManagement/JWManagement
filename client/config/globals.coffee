@@ -1,4 +1,5 @@
 @UserStatistics = new Mongo.Collection 'userStatistics'
+@UserCongregations = new Mongo.Collection 'userCongregations'
 
 @handleError = (e) -> if e?
 	if e.error == 'validation-error'
