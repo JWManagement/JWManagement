@@ -72,6 +72,13 @@ FlowRouter.route('/de/privacy', {
   }
 })
 
+FlowRouter.route('/en/privacy', {
+  name: 'privacyEN',
+  action () {
+    BlazeLayout.render('blankLayout', { content: 'privacyEN' })
+  }
+})
+
 FlowRouter.route('/de/terms', {
   name: 'termsDE',
   action () {
