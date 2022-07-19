@@ -11,10 +11,16 @@ Template.signUp.helpers({
   error: () => Session.get('error'),
 
   getLanguage: () => {
-    if ((navigator.language || navigator.userLanguage || '').startsWith('de')) {
-      return "de";
+    let languageShort = i18next.language.substring(0, 2);
+
+    if (['de', 'en'].includes(languageShort)) {
+      return languageShort;
     }
-    return "en";
+
+    if ((navigator.language || navigator.userLanguage || '').startsWith('de')) {
+      return 'de';
+    }
+    return 'en';
   },
 })
 
