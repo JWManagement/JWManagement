@@ -37,7 +37,6 @@ Meteor.publish 'shift', (shiftId) ->
 								'teams.participants.informed': 0
 								'teams.pending.checked': 0
 								'teams.declined': 0
-								'teams.report': 0
 						,
 							Pictures.find projectId: shift.projectId
 						]

@@ -6,7 +6,6 @@ import Permissions from '../../framework/Constants/Permissions'
 
 import {
   getProjects,
-  getMissingShiftReports,
   getUpcomingShifts,
   getCleanedProjects,
   getCleanedShifts
@@ -24,18 +23,15 @@ Meteor.methods({
       const today = parseInt(moment().format('YYYYDDDD'), 10)
 
       const projects = getProjects(projectIds)
-      const missingShiftReports = getMissingShiftReports(projectIds, projects, today, userId)
       const upcomingShifts = getUpcomingShifts(projectIds, projects, today, userId)
 
       return {
         myProjects: getCleanedProjects(projects),
-        missingShiftReports: getCleanedShifts(missingShiftReports),
         upcomingShifts: getCleanedShifts(upcomingShifts)
       }
     } else {
       return {
         myProjects: [],
-        missingShiftReports: [],
         upcomingShifts: []
       }
     }

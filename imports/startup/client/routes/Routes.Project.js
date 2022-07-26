@@ -13,9 +13,6 @@ RouteManager.registerEntity('dashboard', {
 RouteManager.registerEntity('dashboard.myProjects', {
   details: 'myProjects'
 })
-RouteManager.registerEntity('dashboard.missingShiftReports', {
-  details: 'missingShiftReports'
-})
 RouteManager.registerEntity('dashboard.upcomingShifts', {
   details: 'upcomingShifts'
 })
@@ -196,16 +193,6 @@ FlowRouter.route('/:projectId/settings', {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'settings' })
-    })
-  }
-})
-
-FlowRouter.route('/:projectId/reports', {
-  name: 'reports',
-  action () {
-    doIfLoggedIn(() => {
-      Session.set('parent', 'project.details')
-      BlazeLayout.render('mainLayout', { content: 'reports' })
     })
   }
 })

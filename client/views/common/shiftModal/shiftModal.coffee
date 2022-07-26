@@ -448,14 +448,6 @@ Template.shiftModal.events
 		shiftId = FlowRouter.getQueryParam 'showShift'
 		wrs -> FlowRouter.setQueryParams editShift: shiftId
 
-	'click .openReport': (e) ->
-		teamId = @_id
-		shiftId = FlowRouter.getQueryParam 'showShift'
-
-		$('#shiftModal').modal('hide')
-
-		wrs -> FlowRouter.setQueryParams showShiftReport: shiftId, reportTeamId: teamId
-
 	'click .sentConfirmation': (e) ->
 		swal i18next.t('swal.approvalInformed'), '', 'info'
 

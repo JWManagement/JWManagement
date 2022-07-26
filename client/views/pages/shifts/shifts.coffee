@@ -89,7 +89,6 @@ Template.shifts.onDestroyed ->
 	$('#cancelTeamModal').modal('hide')
 	$('#addWeekModal').modal('hide')
 	$('#addParticipantModal').modal('hide')
-	$('#shiftReport').modal('hide')
 
 	Session.set 'target', undefined
 	wrs -> FlowRouter.setQueryParams showWeek: null, showTags: null, weekId: null, view: null

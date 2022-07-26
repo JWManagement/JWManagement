@@ -73,34 +73,6 @@ function getUpdatedShifts (projects, shifts) {
     })
 }
 
-function getMissingShiftReports (projectIds, projects, date, userId) {
-  const shifts = Shifts.find({
-    projectId: {
-      $in: projectIds
-    },
-    date: {
-      $lt: date
-    },
-    'teams.participants': {
-      $elemMatch: {
-        _id: userId,
-        thisTeamleader: true
-      }
-    }
-  }, SHIFT_OPTIONS)
-    .fetch()
-    .filter((shift) => {
-      // only return shift if my team hasn't submitted the report yet
-      const myTeam = shift.teams.filter((team) => {
-        return team.participants.map(p => p._id).includes(userId)
-      })[0]
-
-      return !myTeam.report || !myTeam.report.submitted
-    })
-
-  return getUpdatedShifts(projects, shifts)
-}
-
 function getUpcomingShifts (projectIds, projects, date, userId) {
   const shifts = Shifts.find({
     projectId: {
@@ -164,7 +136,6 @@ function getCleanedShifts (shifts) {
 
 export {
   getProjects,
-  getMissingShiftReports,
   getUpcomingShifts,
   getPendingRequests,
   getOlderShifts,
