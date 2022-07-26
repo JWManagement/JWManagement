@@ -8,7 +8,6 @@ import mail from './mail'
 import misc from './misc'
 import modal from './modals'
 import navigation from './navigation'
-import note from './notes'
 import pages from './pages'
 import project from './project'
 import publisher from './publishers'
@@ -30,7 +29,6 @@ const enGB = {
   ...misc,
   modal,
   navigation,
-  note,
   ...pages,
   project,
   publisher,

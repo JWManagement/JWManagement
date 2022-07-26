@@ -80,12 +80,6 @@ const navigation = {
       }
     }
   },
-  note: {
-    search: 'Notes',
-    details: 'Note details',
-    update: 'Edit note',
-    insert: 'Add note'
-  },
   language: {
     details: 'Language',
     update: 'Edit language'

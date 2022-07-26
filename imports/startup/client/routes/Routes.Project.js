@@ -105,12 +105,6 @@ RouteManager.registerProjectEntity('vessel.visit.language', {
     link: 'vessel.visit.details'
   }
 })
-RouteManager.registerProjectEntity('note', {
-  search: 'notes',
-  insert: 'notes/new',
-  details: 'notes/:noteId',
-  update: 'notes/:noteId/:key'
-})
 
 RouteManager.registerProjectEntity('project.support', {
   details: 'support'
