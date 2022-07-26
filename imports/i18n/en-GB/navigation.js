@@ -7,9 +7,6 @@ const navigation = {
     myProjects: {
       details: 'My Projects'
     },
-    missingShiftReports: {
-      details: 'Missing Shift Reports'
-    },
     upcomingShifts: {
       details: 'Upcoming Shifts'
     },
@@ -68,7 +65,6 @@ const navigation = {
     }
   },
   publisherActions: 'Publisher Bulk Actions',
-  reports: 'Reports',
   store: 'Store Room',
   vessel: {
     search: 'Vessels',

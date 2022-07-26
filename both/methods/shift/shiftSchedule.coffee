@@ -50,9 +50,6 @@ Meteor.methods
 
           Meteor.call 'openTeam', shiftId, teamId
 
-        if team.report? && team.report.init
-          Meteor.call 'updateReport', shiftId, teamId, 'hours', 0
-
   approveRequest: (shiftId, teamId, userId) ->
     shift = Shifts.findOne shiftId, fields: teams: 1, tagId: 1, projectId: 1
     user = Meteor.users.findOne userId, fields: _id: 1

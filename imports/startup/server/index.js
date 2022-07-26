@@ -8,7 +8,6 @@ import '../common/rolesExtensions'
 
 import '../../api/dashboard/service'
 import '../../api/dashboard/myProjects/service'
-import '../../api/dashboard/missingShiftReports/service'
 import '../../api/dashboard/upcomingShifts/service'
 import '../../api/dashboard/pendingRequests/service'
 import '../../api/dashboard/olderShifts/service'

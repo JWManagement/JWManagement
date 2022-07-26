@@ -14,7 +14,6 @@ const project = {
     users: 'Users',
     publishers: 'Publishers',
     publisherActions: 'Publisher Bulk Actions',
-    reports: 'Reports',
     store: 'Store',
     vessels: 'Vessels',
     notes: 'Notes',
