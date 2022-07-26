@@ -186,8 +186,6 @@
                   if notInOtherTeam
                     unless alreadyOver
                       button.requestTeam.btn.btn-primary.m-t-sm.m-r-sm.pull-left {{_ 'modal.shift.requestTeam'}}
-                if isThisTeamleader getShiftId _id
-                  button.openReport.btn.btn-primary.m-t-sm {{_ 'modal.shift.report'}}
         .modal-footer
           if isProjectShiftAdmin
             button#switch.btn.btn-white.pull-left(data-dismiss='modal') {{_ 'modal.shift.switch'}}
