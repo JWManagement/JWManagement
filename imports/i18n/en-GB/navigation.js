@@ -65,7 +65,6 @@ const navigation = {
     }
   },
   publisherActions: 'Publisher Bulk Actions',
-  store: 'Store Room',
   vessel: {
     search: 'Vessels',
     details: 'Vessel details',
