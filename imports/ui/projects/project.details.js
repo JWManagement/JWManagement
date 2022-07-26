@@ -69,12 +69,6 @@ Template['project.details'].helpers({
         icon: 'storage',
         canSee: Permissions.storeAdmin
       }, {
-        key: 'notes',
-        type: 'link',
-        route: 'note.details',
-        icon: 'note',
-        canSee: Permissions.shiftAndStoreAdmin
-      }, {
         key: 'supportPage',
         type: 'link',
         route: 'project.support.details',

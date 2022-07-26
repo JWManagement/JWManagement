@@ -19,6 +19,5 @@ import '../../api/users/online/service'
 import '../../api/users/adminEmails/service'
 import '../../api/publishers/service'
 import '../../api/vessels/service'
-import '../../api/notes/service'
 
 import '../common/migrations'

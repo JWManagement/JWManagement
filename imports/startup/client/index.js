@@ -84,12 +84,6 @@ import '../../ui/vessels/vessel.visit.update'
 import '../../ui/vessels/vessel.visit.insert'
 import '../../ui/vessels/vessel.visit.language.insert'
 
-import '../../ui/notes/notes.jade'
-import '../../ui/notes/note.search'
-import '../../ui/notes/note.details'
-import '../../ui/notes/note.update'
-import '../../ui/notes/note.insert'
-
 import '../../ui/calendar/calendar'
 
 import './language'
