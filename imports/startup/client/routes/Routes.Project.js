@@ -190,13 +190,3 @@ FlowRouter.route('/:projectId/settings', {
     })
   }
 })
-
-FlowRouter.route('/:projectId/store', {
-  name: 'store',
-  action () {
-    doIfLoggedIn(() => {
-      Session.set('parent', 'project.details')
-      BlazeLayout.render('mainLayout', { content: 'store' })
-    })
-  }
-})

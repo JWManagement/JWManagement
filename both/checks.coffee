@@ -102,22 +102,6 @@ import i18next from 'i18next'
 		throw new Meteor.Error 550, i18next.t('permissions.notShiftAdmin')
 	true
 
-@isStoreAdmin = Match.Where (obj) ->
-	check obj.userId, String
-	check obj.projectId, String
-
-	if !Roles.userIsInRole obj.userId, Permissions.storeAdmin, obj.projectId
-		throw new Meteor.Error 550, i18next.t('permissions.notStoreAdmin')
-	true
-
-@isShiftOrStoreAdmin = Match.Where (obj) ->
-	check obj.userId, String
-	check obj.projectId, String
-
-	if !Roles.userIsInRole obj.userId, Permissions.shiftAndStoreAdmin, obj.projectId
-		throw new Meteor.Error 550, i18next.t('permissions.notShiftAdmin') + ' ' + i18next.t('permissions.notStoreAdmin')
-	true
-
 @isMember = Match.Where (obj) ->
 	check obj.userId, String
 	check obj.projectId, String

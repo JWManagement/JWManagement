@@ -12,7 +12,6 @@ import pages from './pages'
 import project from './project'
 import publisher from './publishers'
 import shift from './shift'
-import store from './store'
 import swal from './swals'
 import user from './user'
 import users from './users'
@@ -33,7 +32,6 @@ const enGB = {
   project,
   publisher,
   shift,
-  store,
   swal,
   user,
   users,

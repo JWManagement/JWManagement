@@ -143,7 +143,6 @@ const publisher = {
         admin: 'Project manager',
         shiftScheduler: 'Shift scheduler',
         shiftAdmin: 'Shift manager',
-        storeAdmin: 'Store manager',
         member: 'Member'
       },
       tag: {
