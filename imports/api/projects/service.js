@@ -82,8 +82,7 @@ Meteor.methods({
       },
       tags: [],
       teams: [],
-      meetings: [],
-      store: {}
+      meetings: []
     })
 
     Roles.addUsersToRoles(Meteor.userId(), Permissions.admin, projectId)

@@ -63,12 +63,6 @@ Template['project.details'].helpers({
         icon: 'people',
         canSee: Permissions.admin
       }, {
-        key: 'store',
-        type: 'link',
-        route: 'store',
-        icon: 'storage',
-        canSee: Permissions.storeAdmin
-      }, {
         key: 'supportPage',
         type: 'link',
         route: 'project.support.details',

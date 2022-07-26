@@ -4,7 +4,6 @@ const Permissions = {
     'admin',
     'shiftScheduler',
     'shiftAdmin',
-    'storeAdmin',
     'member',
     'teamleader',
     'substituteTeamleader',
@@ -22,21 +21,10 @@ const Permissions = {
     'shiftAdmin',
     'shiftScheduler'
   ],
-  storeAdmin: [
-    'admin',
-    'storeAdmin'
-  ],
-  shiftAndStoreAdmin: [
-    'admin',
-    'shiftAdmin',
-    'shiftScheduler',
-    'storeAdmin'
-  ],
   member: [
     'admin',
     'shiftScheduler',
     'shiftAdmin',
-    'storeAdmin',
     'member'
   ],
   teamleader: [
