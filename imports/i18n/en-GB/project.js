@@ -16,7 +16,6 @@ const project = {
     publisherActions: 'Publisher Bulk Actions',
     store: 'Store',
     vessels: 'Vessels',
-    notes: 'Notes',
     leave: 'Cancel any participation in this project',
     leaveConfirmation: 'Do you really want to leave this project and PERMANENTLY CANCEL ANY PARTICIPATION with it? This can\'t be undone!',
     supportPage: 'Support',
