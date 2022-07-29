@@ -1,4 +1,7 @@
 const authentication = {
+  landing: {
+    title: 'Welcome to JW Management',
+  },
   signIn: {
     name: 'Войти',
     text: 'Пожалуйста, введи твои данные, чтобы войти в систему',

@@ -1,4 +1,7 @@
 const authentication = {
+  landing: {
+    title: 'Welcome to JW Management',
+  },
   signIn: {
     name: 'Accedi',
     text: 'Per favore inserisci le tue credenziali per accedere al sito',

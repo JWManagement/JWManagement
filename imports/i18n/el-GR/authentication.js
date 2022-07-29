@@ -1,4 +1,7 @@
 const authentication = {
+  landing: {
+    title: 'Welcome to JW Management',
+  },
   signIn: {
     name: 'Σύνδεση',
     text: 'Καταχώρησε τα στοιχεία σου για να συνδεθείς',

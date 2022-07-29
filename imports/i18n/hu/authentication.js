@@ -1,4 +1,7 @@
 const authentication = {
+  landing: {
+    title: 'Welcome to JW Management',
+  },
   signIn: {
     name: 'Bejelentkezés',
     text: 'Kérjük, add meg fiókadataidat a bejelentkezéshez',
