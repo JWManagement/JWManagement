@@ -1,4 +1,7 @@
 const authentication = {
+  landing: {
+    title: 'Welcome to JW Management',
+  },
   signIn: {
     name: 'Kirjaudu',
     text: 'Anna käyttäjätiedot kirjautuaksesi sisään',

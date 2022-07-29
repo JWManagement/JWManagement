@@ -8,8 +8,6 @@ import './signIn.scss'
 
 Template.signIn.helpers({
   error: () => Session.get('error'),
-
-  getLanguage: () => i18next.language
 })
 
 Template.signIn.onCreated(() => {})
