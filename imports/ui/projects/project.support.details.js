@@ -15,7 +15,7 @@ Template['project.support.details'].helpers({
       }, {
         key: 'discord',
         type: 'link',
-        route: 'https://discord.com/invite/S6DZyRVury',
+        route:  'https://discord.com/invite/S6DZyRVury',
         outbound: true
       }]
     }, {
