@@ -9,6 +9,8 @@ import './signUp.scss'
 
 Template.signUp.helpers({
   error: () => Session.get('error'),
+
+  getLanguage: () => i18next.languages.find(lang => ['de', 'en'].find(lng => lang === lng)) || 'en',
 })
 
 Template.signUp.onCreated(() => {})
