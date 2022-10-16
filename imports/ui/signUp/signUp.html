@@ -48,9 +48,9 @@
             </div>
             <div>
               {{_ 'signUp.bySigningYouAgreeTo'}}
-              <a href="{{pathFor 'signUp' language=langTag}}" target="blank">{{_ 'signUp.terms'}}</a>
+              <a href="/{{getLanguage}}/terms" target="blank">{{_ 'signUp.terms'}}</a>
               {{_ 'signUp.andOur'}}
-              <a href="{{pathFor 'signUp' language=langTag}}" target="blank">{{_ 'signUp.privacyPolicy'}}</a>.
+              <a href="/{{getLanguage}}/privacy" target="blank">{{_ 'signUp.privacyPolicy'}}</a>.
             </div>
           </div>
         </div>
