@@ -60,6 +60,7 @@ Template.uploadUserFileModal.events
 						systemLanguage = user[8]
 						foreignLanguages = user[9]
 						roles = user[10]
+						id = user[11]
 
 						if !SystemLanguages.allowedValues.includes(systemLanguage)
 							systemLanguage = SystemLanguages.defaultValue
@@ -77,6 +78,7 @@ Template.uploadUserFileModal.events
 								systemLanguage: systemLanguage
 								foreignLanguages: foreignLanguages
 								roles: roles
+								id: id
 
 					if users.length == 0
 						alert 'Sorry, we couldn\'t extract any users of this file. Does the .csv-file have semicolons, maybe?'
