@@ -13,20 +13,36 @@
 						.sk-spinner.sk-spinner-pulse
 					.row
 						.col-sm-12
-							h3 {{_ 'modal.uploadUserFile.new'}}
-							table.table
-								thead
-									tr
-										th #
-										th {{_ 'modal.uploadUserFile.name'}}
-										th {{_ 'modal.uploadUserFile.email'}}
-								tbody
-									each getUsers
+							if hasExistingUsers
+								h3 {{_ 'modal.uploadUserFile.existing'}}
+								table.table
+									thead
 										tr
-											td {{addOne @index}}
-											td
-												b {{firstname}} {{lastname}}
-											td {{email}}
+											th #
+											th {{_ 'modal.uploadUserFile.name'}}
+											th {{_ 'modal.uploadUserFile.email'}}
+									tbody
+										each getExistingUsers
+											tr
+												td {{addOne @index}}
+												td
+													b {{firstname}} {{lastname}}
+												td {{email}}
+							if hasNewUsers
+								h3 {{_ 'modal.uploadUserFile.new'}}
+								table.table
+									thead
+										tr
+											th #
+											th {{_ 'modal.uploadUserFile.name'}}
+											th {{_ 'modal.uploadUserFile.email'}}
+									tbody
+										each getNewUsers
+											tr
+												td {{addOne @index}}
+												td
+													b {{firstname}} {{lastname}}
+												td {{email}}
 				else
 					h2.center-align {{_ 'role.noPermission'}}
 			.modal-footer
