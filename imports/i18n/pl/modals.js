@@ -174,14 +174,10 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Użytkownik - Wyślij plik',
-    helpText: 'Porządek danych osobistych (* pola wymagane): <br> Email*, First name*, Last name*, Gender(m or w)*, Phone number, Privilege of service (\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' or \'ldc\'), Ministry privilege (\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' or \'serviceOverseer\'), Congregation',
     helpEncoding: 'Plik musi mieć kodowanie UTF-8 aby wspierać wszystkie znaki',
     uploadFile: 'Wyślij plik CSV',
-    new: 'Nowi głosiciele',
-    existing: 'Głosiciele z kontem JW Management',
     name: 'Nazwa',
     email: 'Email',
-    add: 'Dodaj użytkowników'
   },
   mergeAccounts: {
     title: 'Scal konta',

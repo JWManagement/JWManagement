@@ -127,13 +127,9 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Carregar Ficheiro-Usuário',
-    helpText: 'Ordem de detalhes pessoais (* campos mandatórios): <br> Email*, Primeiro Nome*, Último nome*, Sexo(m or f)*, Número de Telefone, Privilégio de Serviço (\'publicador\', \'auxiliar\', \'regular\', \'especial\', \'circuito\', \'betelita\' or \'ldc\'), Privilegio Ministério (\'publicador\', \'servo\' or \'ancião\'), Congregação',
     uploadFile: 'Carregar Ficheiro-CSV',
-    new: 'Novos Publicadores',
-    existing: 'Publicadores com Conta JWManagement',
     name: 'Nome',
     email: 'Email',
-    add: 'Adicionar Usuários'
   }
 }
 
