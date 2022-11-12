@@ -173,14 +173,10 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Μεταφόρτωση αρχείου χρήστη',
-    helpText: 'Ταξινόμηση των δεδομένων (* Απαιτούμενα πεδία): <br> email*, όνομα*, επώνυμο*, φύλο*, Αριθμός τηλεφώνου, προνόμιο υπηρεσίας(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' ή \'ldc\'), Εκκλησιαστική διορισμοί(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' ή \'serviceOverseer\'), Εκκλησιά, Γλώσσα λογαριασμού (\'de\', \'en-US\', \'el-GR\', ...), Ομιλούμενες ξένες γλώσσες (π.χ. \'Englisch, Französisch\'), δικαιώματα (δείτε την εξαγωγή VK για παραδείγματα)',
     helpEncoding: 'Το αρχείο πρέπει να αποθηκευτεί σε μορφή UTF-8 έτσι ώστε όλοι οι χαρακτήρες να εμφανίζονται σωστά!',
     uploadFile: 'Μεταφόρτωση αρχείου CSV',
-    new: 'Νέος ευαγγελιζόμενος',
-    existing: 'Ευαγγελιζόμενος με λογαριασμό JW Management',
     name: 'Όνομα',
     email: 'Εmail',
-    add: 'Προσθήκη χρήστη'
   },
   mergeAccounts: {
     title: 'Συγχώνευση λογαριασμών',

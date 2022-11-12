@@ -150,14 +150,10 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Felhasználói-fájl feltöltése',
-    helpText: 'Személyes adatok szabályai (* mező kitöltése kötelező): <br> Email*, Keresztnév*, Vezetéknév*, Nem (F vagy N)*, Telefonszám, Szolgálati kiváltság (\'hírnök\', \'kisegítő\', \'általános\', \'különleges\', \'körzet\', \'bétel\' vagy \'htk\'), Gyülekezeti kiváltság (\'hírnök\', \'kisegítőszolga\' vagy \'vén\'), Gyülekezet',
     helpEncoding: 'A fájlnak UTF-8 kódolásúnak kell lennie, hogy támogatni tudja az összes karaktert',
     uploadFile: 'CSV-Fájl feltöltése',
-    new: 'Új hírnök',
-    existing: 'Hirnökök JW Management felhasználói fiókkal',
     name: 'Név',
     email: 'Email',
-    add: 'Felhasználó hozzáadása'
   }
 }
 

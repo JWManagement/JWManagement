@@ -170,14 +170,12 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Upload file utenti',
-    helpText: 'Ordine dei dati personali (* campi obbligatori): <br> Email*, Nome*, Cognome*, Genere(m o w)*, Numero telefonico, Privilegio di servizio (\'proclamatore\', \'ausiliare\', \'regolare\', \'speciale\', \'circoscrizione\', \'betelita\' or \'ldc\'), Privilegio di congregazione (\'proclamatore\', \'servitore\', \'anziano\', \'coordinatore\', \'segretario\' or \'sorveglianteservizio\'), Congregazione, Lingua account  (\'en-US\', \'en-GB\', \'de\', ...)',
     helpEncoding: 'Il file deve essere codificato in UTF-8 per supportare ogni carattere',
     uploadFile: 'Upload file CSV',
     new: 'Nuovi proclamatori',
     existing: 'Proclamatori con account JW Management',
     name: 'Nome',
     email: 'Email',
-    add: 'Aggiungi utenti'
   },
   mergeAccounts: {
     title: 'Unisci account',

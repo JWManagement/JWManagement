@@ -121,14 +121,15 @@ const modal = {
   },
   uploadUserFile: {
     title: 'User-Datei hochladen',
-    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en-US\', \'en-GB\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele)',
+    helpText: 'Reihenfolge der Daten (* Felder sind erforderlich): <br> E-Mail*, Vorname*, Nachname*, Geschlecht(m oder w)*, Telefon Nr., Dienstvorrecht(\'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Versammlungsvorrecht(\'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Versammlung, Account Sprache (\'de\', \'en-US\', \'en-GB\', ...), Gesprochene Fremdsprachen (z.B. \'Englisch, Französisch\'), Berechtigungen (siehe VK Export für Beispiele), ID',
+    helpID: 'Die Spalte "ID" wird benötigt, um bestehende Verkündiger nach einem Export zu aktualisieren. Ohne eine ID wird ein neuer Verkündiger angelegt.',
     helpEncoding: 'Die Datei muss im UTF-8 Format gespeichert sein damit alle Zeichen korrekt angezeigt werden!',
     uploadFile: 'CSV-Datei hochladen',
-    new: 'Neue Verkündiger',
-    existing: 'Verkündiger mit JW Management Account',
+    new: 'Auzulegende Verkündiger',
+    existing: 'Zu aktualisierende Verkündiger',
     name: 'Name',
     email: 'E-Mail',
-    add: 'User hinzufügen'
+    add: 'Verkündiger hinzufügen / aktualisieren'
   },
   mergeAccounts: {
     title: 'Accounts zusammenführen',
