@@ -17,6 +17,7 @@ Template.uploadUserFileModal.onRendered ->
 	$('#uploadUserFileModal').modal('show')
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
 		$('.modal-backdrop').remove()
+		FlowRouter.setQueryParams uploadUserFile: undefined
 
 		if !Session.get('users')? then Session.set 'users', undefined
 		if !Session.get('uploading')? then Session.set 'uploading', undefined
