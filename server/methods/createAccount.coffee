@@ -15,33 +15,40 @@ Meteor.methods
 		if user?
 			throw new Meteor.Error 500, 'This username is already taken'
 		else
-			userId = Accounts.createUser userObject
+			if Meteor.users.findOne userObject.id, fields: _id: 1
+				Meteor.users.update userObject.id, {
+					$set: {
+						profile: userObject.profile
+					}
+				}
+				userObject.id
+			else
+				userId = Accounts.createUser userObject
+				Meteor.users.update userId, $set: state: 'created'
+				userId
 
-			Meteor.users.update userId, $set: state: 'created'
-
-		userId
-
-	createAccounts: (newUsers, projectId) ->
+	createAccounts: (users, projectId) ->
 		check { userId: Meteor.userId(), projectId: projectId}, isAdmin
 
 		tagIds = Projects.findOne(projectId).tags.map((tag) => tag._id)
 
-		if newUsers
-			for newUser in newUsers
+		if users
+			for user in users
 				userId = Meteor.call 'createAccount',
+					id: user.id
 					username: Random.id 15
 					password: ''
 					profile:
-						email: newUser.email
-						firstname: newUser.firstname
-						lastname: newUser.lastname
-						gender: newUser.gender
-						telefon: newUser.telefon
-						pioneer: newUser.pioneer
-						privilege: newUser.privilege
-						congregation: newUser.congregation
-						language: newUser.systemLanguage
-						languages: newUser.foreignLanguages
+						email: user.email
+						firstname: user.firstname
+						lastname: user.lastname
+						gender: user.gender
+						telefon: user.telefon
+						pioneer: user.pioneer
+						privilege: user.privilege
+						congregation: user.congregation
+						language: user.systemLanguage
+						languages: user.foreignLanguages
 				, projectId
 
 				projectPermissionWasSet = false
