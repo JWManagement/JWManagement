@@ -173,14 +173,10 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Загрузить user-файл',
-    helpText: 'Порядок данных (* поля обязательны): <br> E-Mail*, *, Фамилия*, Пол(м или ж)*, Телефон, Назначения в служении(Возможны только: \'publisher\', \'auxiliary\', \'regular\', \'special\', \'circuit\', \'bethelite\' oder \'ldc\'), Назначение в собрании(Возможны только: \'publisher\', \'servant\', \'elder\', \'coordinator\', \'secretary\' oder \'serviceOverseer\'), Собрание',
     helpEncoding: 'Чтобы все знаки были правильно отображены, CSV-файл должен быть сохранён в формате UTF-8 !',
     uploadFile: 'Загрузить CSV-Файл',
-    new: 'Новые участники',
-    existing: 'Участники у которых уже есть аккаунт на JW Management',
     name: 'Имя',
     email: 'E-Mail',
-    add: 'Добавить участника'
   },
   mergeAccounts: {
     title: 'Объединить аккаунты',

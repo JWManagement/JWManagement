@@ -159,14 +159,10 @@ const modal = {
   },
   uploadUserFile: {
     title: 'Käyttäjätiedoston lataus',
-    helpText: 'Henkilötietojen järjestys (* merkityt kentät ovat pakollisia): <br> Sähköposti*, Etunimi*, Sukunimi*, Sukupuoli(m tai n)*, Puhelinnumero, Palvelustehtävä (\'julistaja\', \'osa-aikainen\', \'vakituinen\', \'erikois\', \'kierros\', \'beteliläinen\' tai \'psr\'), Nimitykset (\'julistaja\', \'avustava\', \'vanhin\', \'koordinaattori\', \'sihteeri\' tai \'palvelusvalvoja\'), Seurakunta',
     helpEncoding: 'Tiedoton tulee olla UTF-8 koodattua',
     uploadFile: 'Lataa CSV-tiedosto',
-    new: 'Uudet julistajat',
-    existing: 'Julistajat, joilla on JW Management käyttäjätili',
     name: 'Nimi',
     email: 'Sähköposti',
-    add: 'Lisää käyttäjiä'
   },
   mergeAccounts: {
     title: 'Yhdistä käyttäjätilit',
