@@ -2,7 +2,10 @@ SystemLanguages = require('../../../../imports/framework/Constants/SystemLanguag
 
 Template.uploadUserFileModal.helpers
 
-	getUsers: -> Session.get 'users'
+	getExistingUsers: -> Session.get 'existingUsers'
+	hasExistingUsers: -> Session.get('existingUsers')?.length > 0
+	getNewUsers: -> Session.get 'newUsers'
+	hasNewUsers: -> Session.get('newUsers')?.length > 0
 
 	countUsers: ->
 		users = Session.get 'users'
@@ -18,6 +21,9 @@ Template.uploadUserFileModal.onRendered ->
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
 		$('.modal-backdrop').remove()
 		FlowRouter.setQueryParams uploadUserFile: undefined
+		Session.set 'newUsers', null
+		Session.set 'existingUsers', null
+		Session.set 'users', null
 
 		if !Session.get('users')? then Session.set 'users', undefined
 		if !Session.get('uploading')? then Session.set 'uploading', undefined
@@ -82,6 +88,10 @@ Template.uploadUserFileModal.events
 
 					if users.length == 0
 						alert 'Sorry, we couldn\'t extract any users of this file. Does the .csv-file have semicolons, maybe?'
+
+					currentUsers = Meteor.users.find({}, fields: services: 0, 'profile.available': 0, 'profile.vacations': 0).fetch()
+					Session.set 'existingUsers', users.filter((u) -> currentUsers.find((cu) -> cu._id == u.id))
+					Session.set 'newUsers', users.filter((u) -> !currentUsers.find((cu) -> cu._id == u.id))
 
 					Session.set 'users', users
 					Session.set 'uploading', false
