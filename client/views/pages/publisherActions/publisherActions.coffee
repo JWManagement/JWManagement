@@ -103,7 +103,9 @@ Template.publisherActions.events
 			i18next.t('profile.congregation')
 			i18next.t('profile.language')
 			i18next.t('profile.languages')
-			i18next.t('role.role'))
+			i18next.t('role.role')
+			'id'
+		)
 
 		csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + head.join(';') + '\r\n'
 
@@ -123,7 +125,9 @@ Template.publisherActions.events
 				user.profile.congregation
 				user.profile.language
 				user.profile.languages
-				'"' + Object.keys(user.roles).filter((r) -> user.roles[r][0]?).map((r) -> r + '=' + user.roles[r][0]).join(';') + '"')
+				'"' + Object.keys(user.roles).filter((r) -> user.roles[r][0]?).map((r) -> r + '=' + user.roles[r][0]).join(';') + '"'
+				user._id
+			)
 
 			csvContent += row.join(';') + '\r\n'
 
