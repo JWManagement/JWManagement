@@ -53,8 +53,8 @@ Meteor.methods
 
 				projectPermissionWasSet = false
 
-				if newUser.roles && newUser.roles != '' && newUser.roles.includes('=')
-					for roleTarget in newUser.roles.split(';')
+				if userId != Meteor.userId() && user.roles && user.roles != '' && user.roles.includes('=')
+					for roleTarget in user.roles.split(';')
 						target = roleTarget.split('=')[0]
 						role = roleTarget.split('=')[1]
 
