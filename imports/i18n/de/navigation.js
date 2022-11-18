@@ -7,9 +7,6 @@ const navigation = {
     myProjects: {
       details: 'Meine Projekte'
     },
-    missingShiftReports: {
-      details: 'Fehlende Schichtberichte'
-    },
     upcomingShifts: {
       details: 'Zukünftige Schichten'
     },
@@ -63,8 +60,6 @@ const navigation = {
       }
     }
   },
-  reports: 'Berichte',
-  store: 'Depot',
   vessel: {
     search: 'Schiffe',
     details: 'Schiffsdaten',
@@ -78,12 +73,6 @@ const navigation = {
         insert: 'Neue Sprache hinzufügen'
       }
     }
-  },
-  note: {
-    search: 'Notizen',
-    details: 'Notizdaten',
-    update: 'Notiz bearbeiten',
-    insert: 'Neue Notiz erfassen'
   },
   language: {
     details: 'Sprache',

@@ -6,13 +6,6 @@ const dashboard = {
       }
     }
   },
-  missingShiftReports: {
-    details: {
-      sections: {
-        missingShiftReports: 'Fehlende Schichtberichte'
-      }
-    }
-  },
   upcomingShifts: {
     details: {
       sections: {
@@ -51,16 +44,6 @@ const dashboard = {
       seeAllItems: 'Zeige ein weiteres Projekt',
       seeAllItems_plural: 'Zeige auch die anderen {{count}} Projekte'
     },
-    missingShiftReports: {
-      shift: {
-        tag: 'Kategorie',
-        date: 'Datum',
-        start: 'Beginn',
-        end: 'Ende'
-      },
-      seeAllItems: 'Zeige einen weiteren fehlenden Schichtbericht',
-      seeAllItems_plural: 'Zeige auch die anderen {{count}} fehlenden Schichtberichte'
-    },
     upcomingShifts: {
       shift: {
         tag: 'Kategorie',
@@ -94,7 +77,6 @@ const dashboard = {
   details: {
     sections: {
       myProjects: 'Meine Projekte',
-      missingShiftReports: 'Fehlende Schichtberichte',
       upcomingShifts: 'Meine kommenden Schichten',
       otherShifts: 'Andere Schichten',
       administration: 'Verwaltung',
