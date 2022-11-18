@@ -123,9 +123,6 @@ const pages = {
   day: {
     removeAll: 'Remove all'
   },
-  reports: {
-    export: 'Export as CSV'
-  },
   settings: {
     main: {
       title: 'Main Settings',

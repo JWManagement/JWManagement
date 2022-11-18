@@ -7,9 +7,6 @@ const navigation = {
     myProjects: {
       details: 'My Projects'
     },
-    missingShiftReports: {
-      details: 'Missing Shift Reports'
-    },
     upcomingShifts: {
       details: 'Upcoming Shifts'
     },
@@ -68,8 +65,6 @@ const navigation = {
     }
   },
   publisherActions: 'Publisher Bulk Actions',
-  reports: 'Reports',
-  store: 'Store Room',
   vessel: {
     search: 'Vessels',
     details: 'Vessel details',
@@ -83,12 +78,6 @@ const navigation = {
         insert: 'Add a language'
       }
     }
-  },
-  note: {
-    search: 'Notes',
-    details: 'Note details',
-    update: 'Edit note',
-    insert: 'Add note'
   },
   language: {
     details: 'Language',
