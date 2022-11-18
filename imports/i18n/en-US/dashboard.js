@@ -6,13 +6,6 @@ const dashboard = {
       }
     }
   },
-  missingShiftReports: {
-    details: {
-      sections: {
-        missingShiftReports: 'Missing shift reports'
-      }
-    }
-  },
   upcomingShifts: {
     details: {
       sections: {
@@ -56,16 +49,6 @@ const dashboard = {
       seeAllItems: 'See one more project',
       seeAllItems_plural: 'See the other {{count}} projects'
     },
-    missingShiftReports: {
-      shift: {
-        tag: 'Tag',
-        date: 'Date',
-        start: 'Begin',
-        end: 'End'
-      },
-      seeAllItems: 'See one more missing shift report',
-      seeAllItems_plural: 'See the other {{count}} missing shift reports'
-    },
     upcomingShifts: {
       shift: {
         tag: 'Tag',
@@ -98,7 +81,6 @@ const dashboard = {
   details: {
     sections: {
       myProjects: 'My projects',
-      missingShiftReports: 'Missing shift reports',
       upcomingShifts: 'My upcoming shifts',
       otherShifts: 'Other shifts',
       administration: 'Administration',
