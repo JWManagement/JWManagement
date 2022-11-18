@@ -219,12 +219,6 @@ const swal = {
       confirm: 'Delete',
       cancel: 'Cancel'
     },
-    publication: {
-      title: 'Remove this publication from your store?',
-      text: 'You will loose all stored data for this publication.',
-      confirm: 'Remove',
-      cancel: 'Cancel'
-    },
     question: {
       title: 'Are you sure?',
       text: 'This will irreversibly delete the question and its answer.',
@@ -235,12 +229,6 @@ const swal = {
       title: 'Really delete this shift?',
       text: 'All requests for this shift will be removed.',
       confirm: 'Delete',
-      cancel: 'Cancel'
-    },
-    store: {
-      title: 'Really reset store room?',
-      text: 'This will delete all added publications.',
-      confirm: 'Reset',
       cancel: 'Cancel'
     },
     tab: {
