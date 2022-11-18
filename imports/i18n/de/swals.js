@@ -219,12 +219,6 @@ const swal = {
       confirm: 'Löschen',
       cancel: 'Abbrechen'
     },
-    publication: {
-      title: 'Diese Publikation aus dem Depot löschen?',
-      text: 'Dadurch gehen alle Daten dieser Publikation verloren.',
-      confirm: 'Löschen',
-      cancel: 'Abbrechen'
-    },
     question: {
       title: 'Frage wirklich löschen?',
       text: 'Das wird die Frage samt Antwort unwiderruflich löschen',
@@ -235,12 +229,6 @@ const swal = {
       title: 'Schicht wirklich löschen?',
       text: 'Alle Bewerbungen auf diese Schicht gehen verloren.',
       confirm: 'Löschen',
-      cancel: 'Abbrechen'
-    },
-    store: {
-      title: 'Depot wirklich zurücksetzen?',
-      text: 'Dadurch werden alle angelegten Publikationen entfernt.',
-      confirm: 'Zurücksetzen',
       cancel: 'Abbrechen'
     },
     tab: {

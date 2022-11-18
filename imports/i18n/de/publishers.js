@@ -141,7 +141,6 @@ const publisher = {
         admin: 'Administrator',
         shiftScheduler: 'Schichteinteiler',
         shiftAdmin: 'Schichtplaner',
-        storeAdmin: 'Literaturdiener',
         member: 'Teilnehmer'
       },
       tag: {
