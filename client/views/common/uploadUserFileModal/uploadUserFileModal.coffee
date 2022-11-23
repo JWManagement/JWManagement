@@ -15,29 +15,29 @@ Template.uploadUserFileModal.helpers
 
 	uploading: -> Session.get 'uploading'
 
-Template.uploadUserFileModal.onRendered ->
-
+	Template.uploadUserFileModal.onRendered ->
 	$('#uploadUserFileModal').modal('show')
 	$('#uploadUserFileModal').on 'hidden.bs.modal', ->
 		$('.modal-backdrop').remove()
-		FlowRouter.setQueryParams uploadUserFile: undefined
+				
 		Session.set 'newUsers', null
 		Session.set 'existingUsers', null
-		Session.set 'users', null
-
 		if !Session.get('users')? then Session.set 'users', undefined
 		if !Session.get('uploading')? then Session.set 'uploading', undefined
 
 Template.uploadUserFileModal.events
 
-	'click #addUsers': ->
+'click #close': ->
+		FlowRouter.setQueryParams uploadUserFile: undefined
+
+'click #addUsers': ->
 		projectId = FlowRouter.getParam('projectId')
 		users = Session.get('users')
-
 		swalYesNo
 			swal: 'add.users'
 			type: 'warning'
 			doConfirm: -> Meteor.call 'createAccounts', users, projectId
+	  FlowRouter.setQueryParams uploadUserFile: undefined
 
 	'change #uploadFile': (e) ->
 		users = []
