@@ -35,8 +35,6 @@ const language = {
   it: 'Italian',
   pl: 'Polish',
   pt: 'Portuguese',
-  'pt-PT': 'Portuguese (Portugal)',
-  'es-US': 'Spanish (United States)',
   ru: 'Russian',
   'zh-TW': 'Chinese (Traditional) (partially)',
   'zh-CN': 'Chinese (Simplified) (partially)',
