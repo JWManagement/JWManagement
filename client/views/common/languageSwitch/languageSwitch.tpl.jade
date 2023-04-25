@@ -1,11 +1,12 @@
-a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')
-	| {{getLanguage langTag}}
-	i.fa.fa-caret-down
-ul.dropdown-menu
-	each lang in getLanguages
-		if equals lang langTag
-			li.dropdown-item
-				a {{getLanguage lang}}
-		else
-			li.dropdown-item
-				a.setLang(href lang='{{lang}}') {{getLanguage lang}}
+.dropup
+	a.dropdown-toggle(href data-toggle='dropdown' aria-expanded='false')
+		| {{getLanguage langTag}}
+		i.fa.fa-caret-down
+	ul.dropdown-menu
+		each lang in getLanguages
+			if equals lang langTag
+				li.dropdown-item
+					a {{getLanguage lang}}
+			else
+				li.dropdown-item
+					a.setLang(href lang='{{lang}}') {{getLanguage lang}}
