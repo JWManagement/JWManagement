@@ -1,6 +1,14 @@
 import React from 'react'
 
 export default () => {
+  function accept() {
+    Meteor.call('user.acceptPrivacyPolicy')
+  }
+
+  function decline() {
+    Meteor.logout()
+  }
+
   return (
     <div id="acceptPolicy" data-backdrop="static" className="modal" tabIndex="-1" role="dialog">
       <div className="modal-dialog" role="document">
@@ -12,8 +20,8 @@ export default () => {
             <p>Modal body text goes here.</p>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Save changes</button>
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={accept}>Accept</button>
+            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={decline}>Decline</button>
           </div>
         </div>
       </div>
