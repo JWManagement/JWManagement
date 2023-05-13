@@ -1,7 +1,11 @@
 import { Template } from 'meteor/templating'
 import Permissions from '../../framework/Constants/Permissions'
 
+import AcceptPolicyModal from './acceptPrivacyPolicy/AcceptPolicyModal'
+
 Template['dashboard.details'].helpers({
+  AcceptPolicyModal: () => AcceptPolicyModal,
+
   data: {
     getMethod: 'dashboard.get',
     navigation: {},
@@ -120,3 +124,12 @@ Template['dashboard.details'].helpers({
     }]
   }
 })
+
+Template['dashboard.details'].rendered = function () {
+  Meteor.subscribe('userData', () => {
+    console.log(Meteor.user());
+    if (!Meteor.user().privacyPolicyAccepted) {
+      $('#acceptPolicy').modal()
+    }
+  });
+}
